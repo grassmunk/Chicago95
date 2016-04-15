@@ -13,7 +13,13 @@ Included in this theme:
 - Plymouth theme created from scratch
 
 ## Screenshots
+![alt text](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/Screenshot.png "Big Screenshot")
 
+![alt text](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/gtk2.png "GTK2")
+
+![alt text](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/gtk3.png "GTK3")
+
+![alt text](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/DOS.png "Terminal")
 
 ## Installation
 
@@ -65,7 +71,7 @@ sudo update-initramfs -u
 
 ## Requirements
 
-GTK+ 3.6 or above
+GTK+ 3.16 or above
 
 Xfce 4.12 of above
 
