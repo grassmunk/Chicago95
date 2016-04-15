@@ -1,0 +1,111 @@
+style "range"
+{	
+
+
+  engine "pixmap" 
+  {
+    image 
+    {
+      function			= BOX
+      detail			= "trough"
+      file			= "Range/trough-horizontal.png"
+      border			= { 0, 0, 0, 0 }
+      stretch			= TRUE
+      orientation		= HORIZONTAL
+    }	
+    image 
+    {
+      function			= BOX
+      detail			= "trough"
+      file			= "Range/trough-vertical.png"
+      border			= { 0, 0, 0, 0 }
+      stretch			= TRUE
+      orientation		= VERTICAL
+    }
+
+    # Horizontal
+
+    image 
+    {
+      function				= SLIDER
+      state           			= NORMAL
+      file				= "Others/null.png"
+      border				= { 0, 0, 0, 0 }
+      stretch				= TRUE
+      overlay_file			= "Range/slider-horiz.png"
+      overlay_stretch			= FALSE
+      orientation			= HORIZONTAL
+    }
+    image 
+    {
+      function				= SLIDER
+      state           			= PRELIGHT
+      file				= "Others/null.png"
+      border				= { 0, 0, 0, 0 }
+      stretch				= TRUE
+      overlay_file			= "Range/slider-horiz-prelight.png"
+      overlay_stretch			= FALSE
+      orientation			= HORIZONTAL
+    }
+    image 
+    {
+      function				= SLIDER
+      state           			= INSENSITIVE
+      file				= "Others/null.png"
+      border				= { 0, 0, 0, 0 }
+      stretch				= TRUE
+      overlay_file			= "Range/slider-horiz-insense.png"
+      overlay_stretch			= FALSE
+      orientation			= HORIZONTAL
+    }
+
+    # Vertical
+
+    image 
+    {
+      function				= SLIDER
+      state           			= NORMAL
+      file				= "Others/null.png"
+      border				= { 0, 0, 0, 0 }
+      stretch				= TRUE
+      overlay_file			= "Range/slider-vert.png"
+      overlay_stretch			= FALSE
+      orientation			= VERTICAL
+    }
+    image 
+    {
+      function				= SLIDER
+      state           			= PRELIGHT
+      file				= "Others/null.png"
+      border				= { 0, 0, 0, 0 }
+      stretch				= TRUE
+      overlay_file			= "Range/slider-vert-prelight.png"
+      overlay_stretch			= FALSE
+      orientation			= VERTICAL
+    }
+    image 
+    {
+      function				= SLIDER
+      state           			= INSENSITIVE
+      file				= "Others/null.png"
+      border				= { 0, 0, 0, 0 }
+      stretch				= TRUE
+      overlay_file			= "Range/slider-vert-insense.png"
+      overlay_stretch			= FALSE
+      orientation			= VERTICAL
+    }
+
+    # Function below removes ugly boxes
+    #image 
+    #{
+    #   	function		= BOX
+#	file        		= "Others/null.png"
+#	border      		= { 3, 3, 3, 3 }
+#	stretch         	= TRUE
+#    }
+
+  }
+}
+
+
+class "GtkRange" style "range"

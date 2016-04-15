@@ -1,0 +1,76 @@
+style "toolbutton" = "default"
+{
+xthickness = 0
+ythickness = 0
+engine "pixmap"
+{
+
+	image
+	{
+		function	= BOX
+		recolorable	= TRUE
+		state		= NORMAL
+		file		= "/toolbar/button-toolbar-normal.png"
+		border		= { 4 ,4 , 4 ,4}
+		stretch		= TRUE
+	}
+
+	image
+	{
+		function	= BOX
+		shadow		= OUT
+		recolorable	= TRUE
+		state		= PRELIGHT
+		file		= "/toolbar/button-toolbar-prelight.png"
+		border		= { 4 ,4 , 4 ,4}
+		stretch		= TRUE
+	}
+
+	image
+	{
+		function	= BOX
+		shadow		= IN
+		recolorable	= TRUE
+		state		= PRELIGHT
+		file		= "/toolbar/button-toolbar-active-prelight.png"
+		border		= { 4 ,4 , 4 ,4}
+		stretch		= TRUE
+	}
+
+	image
+	{
+		function	= BOX
+		recolorable	= TRUE
+		state		= INSENSITIVE
+		file		= "/toolbar/button-toolbar-inactive.png"
+		border		= { 4 ,4 , 4 ,4}
+		stretch		= TRUE
+	}
+
+	image
+	{
+		function	= BOX
+		recolorable	= TRUE
+		state		= ACTIVE
+		file		= "/toolbar/button-toolbar-active.png"
+		border		= { 4 ,4 , 4 ,4}
+		stretch		= TRUE
+	}
+
+	image
+	{
+		function	= ARROW
+		recolorable	= TRUE
+		overlay_file	= "/arrows/arrow-down.png"
+		overlay_border	= { 2 ,2 , 2 ,2}
+		overlay_stretch	= FALSE
+		arrow_direction	= DOWN
+	}
+
+
+}
+
+}
+
+widget_class "*Tool*Button*"      		style "toolbutton"
+widget_class "*Tool*GtkToggleButton"  		style "toolbutton"

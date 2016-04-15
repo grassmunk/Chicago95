@@ -1,0 +1,41 @@
+style "tabwin"
+{
+    xthickness = 4
+    ythickness = 4
+    GtkWidget::focus-line-width = 2
+    Xfwm4TabwinWidget::border-width = 1
+    Xfwm4TabwinWidget::border-alpha = 1.0
+    Xfwm4TabwinWidget::icon-size = 48
+    Xfwm4TabwinWidget::listview-icon-size = 32
+    Xfwm4TabwinWidget::alpha = 1.0
+    Xfwm4TabwinWidget::border-radius = 0
+    bg[SELECTED]      = "#c0c0c0" 
+    fg[SELECTED]      = "#000000"
+    bg[PRELIGHT]      = "#c0c0c0"
+    engine "pixmap" {
+      
+	image
+	{
+		function        		= BOX
+		recolorable     		= TRUE
+		state				= PRELIGHT
+		file            		= "tabwin/tabwin.png"
+		border          		= { 5, 5, 5, 5 }
+		stretch         		= TRUE
+	}
+	image
+	{
+		function        		= BOX
+		recolorable     		= TRUE
+		state				= SELECTED
+		file            		= "tabwin/tabwin.png"
+		border          		= { 5, 5, 5, 5 }
+		stretch         		= TRUE
+	}
+        
+    }
+		
+
+}
+
+widget "xfwm4-tabwin*" style "tabwin"

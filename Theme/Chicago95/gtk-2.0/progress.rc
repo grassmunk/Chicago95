@@ -1,0 +1,48 @@
+style "progressbar" = "default"
+{
+xthickness = 2	
+ythickness = 2
+
+fg[PRELIGHT] = @selected_fg_color
+
+#bg[NORMAL] = shade (1.1,@bg_color)
+bg[NORMAL] = @bg_color
+bg[PRELIGHT]      = @selected_bg_color
+
+GtkProgressBar::min-vertical-bar-width = 16
+GtkProgressBar::min-horizontal-bar-height = 16
+
+engine "pixmap"
+{
+
+	
+	image
+	{
+
+		function	= BOX
+		recolorable	= TRUE
+		detail		= "bar"
+		file		= "/progress/progress.png"
+		border		= { 2 , 2 , 2 , 2}
+		stretch		= TRUE
+		orientation	= HORIZONTAL
+	}
+
+
+	image
+	{
+
+		function	= BOX
+		recolorable	= TRUE
+		detail		= "bar"
+		file		= "/progress/progress.png"
+		border		= { 2 , 2 , 2 ,2}
+		stretch		= TRUE
+		orientation	= VERTICAL
+	}
+}
+}
+
+class "GtkProgressBar" 				style "progressbar"
+widget_class "*ProgressBar*" 			style "progressbar"
+widget_class "*MenuItem.*ProgressBar*" 		style "progressbar"

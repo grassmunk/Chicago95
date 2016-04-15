@@ -1,0 +1,319 @@
+style "scrollbars" = "default"
+{
+engine "pixmap"
+{
+
+	image
+	{
+		function	= BOX
+		recolorable	= TRUE
+		detail		= "trough"
+		file		= "/scrollbar/trough-scrollbar-horiz.png"
+		border		= { 0 , 0 , 0 , 0 }
+		stretch		= TRUE
+		orientation	= HORIZONTAL
+	}
+
+	image
+	{
+		function	= BOX
+		recolorable	= TRUE
+		detail		= "trough"
+		file		= "/scrollbar/trough-scrollbar-vert.png"
+		border		= { 0 , 0 , 0 , 0 }
+		stretch		= FALSE
+		orientation	= VERTICAL
+	}
+
+	image
+	{
+		function	= SLIDER
+		recolorable	= TRUE
+		state		= NORMAL
+		file		= "/scrollbar/slider-horiz.png"
+		border		= { 4 , 4 , 2 , 2 }
+		stretch		= TRUE
+		orientation	= HORIZONTAL
+		
+	}
+
+	image
+	{
+		function	= SLIDER
+		recolorable	= TRUE
+		state		= PRELIGHT
+		file		= "/scrollbar/slider-horiz-prelight.png"
+		border		= {4 , 4 , 2 , 2 }
+		stretch		= TRUE
+		orientation	= HORIZONTAL
+		
+	}
+
+	image
+	{
+		function	= SLIDER
+		recolorable	= TRUE
+		state		= ACTIVE
+		file		= "/scrollbar/slider-horiz-prelight.png"
+		border		= {4 , 4  , 2 , 2 }
+		stretch		= TRUE
+		orientation	= HORIZONTAL
+		
+	}
+
+	image
+	{
+		function	= SLIDER
+		recolorable	= TRUE
+		state		= INSENSITIVE
+		file		= "/scrollbar/trough-scrollbar-horiz.png"
+		border		= {4 , 4  , 2 , 2 }
+		stretch		= TRUE
+		orientation	= HORIZONTAL
+		
+	}
+
+	image
+	{
+		function	= SLIDER
+		recolorable	= TRUE
+		state		= NORMAL
+		file		= "/scrollbar/slider-vert.png"
+		border		= { 2 , 2 , 4 , 4  }
+		stretch		= TRUE
+		orientation	= VERTICAL
+		
+	}
+
+	image
+	{
+		function	= SLIDER
+		recolorable	= TRUE
+		state		= PRELIGHT
+		file		= "/scrollbar/slider-vert-prelight.png"
+		border		= { 2 , 2 , 4 , 4  }
+		stretch		= TRUE
+		orientation	= VERTICAL
+	}
+
+	image
+	{
+		function	= SLIDER
+		recolorable	= TRUE
+		state		= ACTIVE
+		file		= "/scrollbar/slider-vert-prelight.png"
+		border		= { 2 , 2 , 4 , 4  }
+		stretch		= TRUE
+		orientation	= VERTICAL
+		
+	}
+
+	image
+	{
+		function	= SLIDER
+		recolorable	= TRUE
+		state		= INSENSITIVE
+		file		= "/scrollbar/trough-scrollbar-vert.png"
+		border		= { 2 , 2 , 4 , 4  }
+		stretch		= TRUE
+		orientation	= VERTICAL
+		
+	}
+
+	image
+	{
+		function	= STEPPER
+		recolorable	= TRUE
+		state		= NORMAL
+		file		= "/scrollbar/stepper-up.png"
+		stretch		= TRUE
+		arrow_direction	= UP
+
+		
+	}
+
+	image
+	{
+		function	= STEPPER
+		recolorable	= TRUE
+		state		= PRELIGHT
+		file		= "/scrollbar/stepper-up.png"
+		stretch		= TRUE
+		arrow_direction	= UP
+
+		
+	}
+
+	image
+	{
+		function	= STEPPER
+		recolorable	= TRUE
+		state		= ACTIVE
+		file		= "/scrollbar/stepper-up-active.png"
+		stretch		= TRUE
+		arrow_direction	= UP
+
+		
+	}
+
+	image
+	{
+		function	= STEPPER
+		recolorable	= TRUE
+		state		= INSENSITIVE
+		file		= "/scrollbar/stepper-up-insense.png"
+		stretch		= TRUE
+		arrow_direction	= UP
+
+		
+	}
+
+	image
+	{
+		function	= STEPPER
+		recolorable	= TRUE
+		state		= NORMAL
+		file		= "/scrollbar/stepper-down.png"
+		stretch		= TRUE
+		arrow_direction	= DOWN
+
+		
+	}
+
+	image
+	{
+		function	= STEPPER
+		recolorable	= TRUE
+		state		= PRELIGHT
+		file		= "/scrollbar/stepper-down.png"
+		stretch		= TRUE
+		arrow_direction	= DOWN
+
+		
+	}
+
+	image
+	{
+		function	= STEPPER
+		recolorable	= TRUE
+		state		= ACTIVE
+		file		= "/scrollbar/stepper-down-active.png"
+		stretch		= TRUE
+		arrow_direction	= DOWN
+
+		
+	}
+
+	image
+	{
+		function	= STEPPER
+		recolorable	= TRUE
+		state		= INSENSITIVE
+		file		= "/scrollbar/stepper-down-insense.png"
+		stretch		= TRUE
+		arrow_direction	= DOWN
+
+		
+	}
+
+	image
+	{
+		function	= STEPPER
+		recolorable	= TRUE
+		state		= NORMAL
+		file		= "/scrollbar/stepper-left.png"
+		stretch		= TRUE
+		arrow_direction	= LEFT
+
+		
+	}
+
+	image
+	{
+		function	= STEPPER
+		recolorable	= TRUE
+		state		= PRELIGHT
+		file		= "/scrollbar/stepper-left.png"
+		stretch		= TRUE
+		arrow_direction	= LEFT
+
+		
+	}
+
+	image
+	{
+		function	= STEPPER
+		recolorable	= TRUE
+		state		= ACTIVE
+		file		= "/scrollbar/stepper-left-active.png"
+		stretch		= TRUE
+		arrow_direction	= LEFT
+
+		
+	}
+
+	image
+	{
+		function	= STEPPER
+		recolorable	= TRUE
+		state		= INSENSITIVE
+		file		= "/scrollbar/stepper-left-insense.png"
+		stretch		= TRUE
+		arrow_direction	= LEFT
+
+		
+	}
+
+	image
+	{
+		function	= STEPPER
+		recolorable	= TRUE
+		state		= NORMAL
+		file		= "/scrollbar/stepper-right.png"
+		stretch		= TRUE
+		arrow_direction	= RIGHT
+
+		
+	}
+
+	image
+	{
+		function	= STEPPER
+		recolorable	= TRUE
+		state		= PRELIGHT
+		file		= "/scrollbar/stepper-right.png"
+		stretch		= TRUE
+		arrow_direction	= RIGHT
+
+		
+	}
+
+	image
+	{
+		function	= STEPPER
+		recolorable	= TRUE
+		state		= ACTIVE
+		file		= "/scrollbar/stepper-right-active.png"
+		stretch		= TRUE
+		arrow_direction	= RIGHT
+
+		
+	}
+
+	image
+	{
+		function	= STEPPER
+		recolorable	= TRUE
+		state		= INSENSITIVE
+		file		= "/scrollbar/stepper-right-insense.png"
+		stretch		= TRUE
+		arrow_direction	= RIGHT
+
+		
+	}
+
+}
+
+}
+
+class "GtkScrollbar"				style "scrollbars"

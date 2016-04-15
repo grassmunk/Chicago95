@@ -1,0 +1,7 @@
+[Scheme]
+Name=Chicago95
+ColorForeground=#c0c0c0
+ColorBackground=#000000
+ColorSelection=#ffffffffffff
+ColorCursor=#c0c0c0c0c0c0
+ColorPalette=#000000000000;#808000000000;#000080800000;#808080800000;#000000008080;#808000008080;#000080808080;#c0c0c0c0c0c0;#808080808080;#ffff00000000;#0000ffff0000;#ffffffff0000;#0000ffffffff;#ffff0000ffff;#00000000ffff;#ffffffffffff

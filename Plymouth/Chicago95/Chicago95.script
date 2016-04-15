@@ -1,0 +1,164 @@
+# Plymouth Windows 95 Boot Logo
+# Based on: http://brej.org/blog/?p=174
+
+# Load the image
+boot_image = Image("win95_boot_00000.png");
+
+# Create a sprite of the image
+boot_sprite = Sprite(boot_image);
+
+# Add your code here
+screen_width = Window.GetWidth();
+screen_height = Window.GetHeight();
+resized_boot_image = boot_image.Scale(screen_width, screen_height);
+boot_sprite.SetImage(resized_boot_image);
+
+
+for (i = 0; i < 18; i++) 
+    boot_images[i] = Image("win95_boot_" + i + ".png");
+boot_sprite = Sprite();
+
+progress = 0;
+
+
+fun refresh_callback ()
+  {
+    resized_image = boot_images[Math.Int(progress) % 18].Scale(screen_width, screen_height);
+    boot_sprite.SetImage(resized_image);
+    progress++;
+  }
+  
+Plymouth.SetRefreshFunction (refresh_callback);
+
+#----------------------------------------- Dialogue --------------------------------
+
+status = "normal";
+
+fun dialog_setup()
+  {
+    local.box;
+    local.lock;
+    local.entry;
+    
+    box.image = Image("box.png");
+    lock.image = Image("lock.png");
+    entry.image = Image("entry.png");
+    
+    box.sprite = Sprite(box.image);
+    box.x = Window.GetWidth()  / 2 - box.image.GetWidth ()/2;
+    box.y = Window.GetHeight() / 2 - box.image.GetHeight()/2;
+    box.z = 10000;
+    box.sprite.SetPosition(box.x, box.y, box.z);
+    
+    lock.sprite = Sprite(lock.image);
+    lock.x = box.x + box.image.GetWidth()/2 - (lock.image.GetWidth() + entry.image.GetWidth()) / 2;
+    lock.y = box.y + box.image.GetHeight()/2 - lock.image.GetHeight()/2;
+    lock.z = box.z + 1;
+    lock.sprite.SetPosition(lock.x, lock.y, lock.z);
+    
+    entry.sprite = Sprite(entry.image);
+    entry.x = lock.x + lock.image.GetWidth();
+    entry.y = box.y + box.image.GetHeight()/2 - entry.image.GetHeight()/2;
+    entry.z = box.z + 1;
+    entry.sprite.SetPosition(entry.x, entry.y, entry.z);
+    
+    global.dialog.box = box;
+    global.dialog.lock = lock;
+    global.dialog.entry = entry;
+    global.dialog.bullet_image = Image("bullet.png");
+    dialog_opacity (1);
+  }
+    
+fun dialog_opacity(opacity)
+  {
+    dialog.box.sprite.SetOpacity (opacity);
+    dialog.lock.sprite.SetOpacity (opacity);
+    dialog.entry.sprite.SetOpacity (opacity);
+    for (index = 0; dialog.bullet[index]; index++)
+      {
+        dialog.bullet[index].sprite.SetOpacity(opacity);
+      }
+  }
+
+fun display_normal_callback ()
+  {
+    global.status = "normal";
+    if (global.dialog)
+      dialog_opacity (0);
+  }
+
+fun display_password_callback (prompt, bullets)
+  {
+    global.status = "password";
+    if (!global.dialog)
+	dialog_setup();
+    else
+	dialog_opacity(1);
+    for (index = 0; dialog.bullet[index] || index < bullets; index++)
+      {
+        if (!dialog.bullet[index])
+          {
+            dialog.bullet[index].sprite = Sprite(dialog.bullet_image);
+            dialog.bullet[index].x = dialog.entry.x + index * dialog.bullet_image.GetWidth();
+            dialog.bullet[index].y = dialog.entry.y + dialog.entry.image.GetHeight() / 2 - dialog.bullet_image.GetHeight() / 2;
+            dialog.bullet[index].z = dialog.entry.z + 1;
+            dialog.bullet[index].sprite.SetPosition(dialog.bullet[index].x, dialog.bullet[index].y, dialog.bullet[index].z);
+          }
+        if (index < bullets)
+          dialog.bullet[index].sprite.SetOpacity(1);
+        else
+          dialog.bullet[index].sprite.SetOpacity(0);
+      }
+  }
+
+Plymouth.SetDisplayNormalFunction(display_normal_callback);
+Plymouth.SetDisplayPasswordFunction(display_password_callback);
+
+#----------------------------------------- Progress Bar --------------------------------
+
+#progress_box.image = Image("progress_box.png");
+#progress_box.sprite = Sprite(progress_box.image);
+
+#progress_box.x = Window.GetWidth()  / 2 -    progress_box.image.GetWidth()  / 2;
+#progress_box.y = Window.GetHeight() * 0.75 - progress_box.image.GetHeight() / 2;
+#progress_box.sprite.SetPosition(progress_box.x, progress_box.y, 0);
+
+#progress_bar.original_image = Image("progress_bar.png");
+#progress_bar.sprite = Sprite();
+
+#progress_bar.x = Window.GetWidth()  / 2 -        progress_bar.original_image.GetWidth() / 2;
+#progress_bar.y = Window.GetHeight() / 2 * 1.5  - progress_box.image.GetHeight() / 2 + (progress_box.image.GetHeight() - progress_bar.original_image.GetHeight()) / 2;
+#progress_bar.sprite.SetPosition(progress_bar.x, progress_bar.y, 1);
+
+fun progress_callback (duration, progress)
+  {
+
+      
+  }
+
+Plymouth.SetBootProgressFunction(progress_callback);
+
+#----------------------------------------- Quit --------------------------------
+
+fun quit_callback ()
+{
+shut_image = Image("win95_shutdown-01.png");
+shut_sprite = Sprite(shut_image);
+resized_shut_image = shut_image.Scale(screen_width, screen_height);
+shut_sprite.SetImage(resized_shut_image);
+}
+
+Plymouth.SetQuitFunction(quit_callback);
+
+#----------------------------------------- Message --------------------------------
+
+message_sprite = Sprite();
+message_sprite.SetPosition(10, 10, 10000);
+
+fun message_callback (text)
+{
+  my_image = Image.Text(text, 1, 1, 1);
+  message_sprite.SetImage(my_image);
+}
+
+Plymouth.SetMessageFunction(message_callback);

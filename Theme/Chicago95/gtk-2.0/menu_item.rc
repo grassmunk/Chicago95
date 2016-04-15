@@ -1,0 +1,198 @@
+style "menu_item"
+{
+	xthickness	= 2
+	ythickness	= 3
+
+        # HACK: Gtk doesn't actually read this value
+        # while rendering the menu items, but Libreoffice
+        # does; setting this value equal to the one in
+        # fg[PRELIGHT] ensures a code path in the LO theming code
+        # that falls back to a dark text color for menu item text
+        # highlight. The price to pay is black text on menus as well,
+        # but at least it's readable.
+        # See https://bugs.freedesktop.org/show_bug.cgi?id=38038
+        bg[SELECTED]    = @selected_fg_color
+
+	bg[PRELIGHT]	= @selected_bg_color
+	fg[PRELIGHT]	= @selected_fg_color
+	text[PRELIGHT]	= @selected_fg_color
+
+	engine "pixmap"
+	{
+
+	# Check Buttons
+
+	image 
+	{
+            function        		= CHECK
+            recolorable     		= TRUE
+            state 			= NORMAL
+            shadow          		= OUT
+            overlay_file    		= "Check-Radio/null.png"
+            overlay_stretch 		= FALSE
+        }
+	image 
+	{
+            function        		= CHECK
+            recolorable     		= TRUE
+            state 			= PRELIGHT
+            shadow          		= OUT
+            overlay_file    		= "Check-Radio/null.png"
+            overlay_stretch 		= FALSE
+        }
+	image 
+	{
+            function        		= CHECK
+            recolorable     		= TRUE
+            state 			= ACTIVE
+            shadow          		= OUT
+            overlay_file    		= "Check-Radio/null.png"
+            overlay_stretch 		= FALSE
+        }
+	image 
+	{
+            function        		= CHECK
+            recolorable     		= TRUE
+            state 			= INSENSITIVE
+            shadow          		= OUT
+            overlay_file    		= "Check-Radio/null.png"
+            overlay_stretch 		= FALSE
+        }
+	image 
+	{
+            function        		= CHECK
+            recolorable     		= TRUE
+	    state	 		= NORMAL
+            shadow          		= IN
+            overlay_file    		= "Check-Radio/menucheck.png"
+            overlay_stretch	 	= FALSE
+        }
+	image 
+	{
+            function        		= CHECK
+            recolorable     		= TRUE
+            state                       = PRELIGHT
+            shadow          		= IN
+            overlay_file    		= "Check-Radio/menucheck_prelight.png"
+            overlay_stretch 		= FALSE
+        }
+	image 
+	{
+            function        		= CHECK
+            recolorable     		= TRUE
+	    state                       = ACTIVE
+            shadow          		= IN
+            overlay_file    		= "Check-Radio/menucheck.png"
+            overlay_stretch 		= FALSE
+        }
+	image 
+  	{
+ 	    function        		= CHECK
+   	    recolorable     		= TRUE
+       	    state 			= INSENSITIVE
+       	    shadow          		= IN
+       	    overlay_file   		= "Check-Radio/null.png"
+       	    overlay_stretch 		= FALSE
+	}
+
+	# Radio Buttons
+
+	image 
+	{
+            function        		= OPTION
+            state 			= NORMAL
+            shadow          		= OUT
+            overlay_file    		= "Check-Radio/null.png"
+            overlay_stretch 		= FALSE
+        }
+	image 
+	{
+            function        		= OPTION
+            state 			= PRELIGHT
+            shadow          		= OUT
+            overlay_file    		= "Check-Radio/null.png"
+            overlay_stretch 		= FALSE
+        }
+	image 
+	{
+            function        		= OPTION
+            state 			= ACTIVE
+            shadow          		= OUT
+            overlay_file    		= "Check-Radio/null.png"
+            overlay_stretch 		= FALSE
+        }
+	image 
+	{
+            function        		= OPTION
+            state 			= INSENSITIVE
+            shadow         		= OUT
+            overlay_file    		= "Check-Radio/null.png"
+            overlay_stretch 		= FALSE
+        }
+	image 
+	{
+            function        		= OPTION
+	    state 			= NORMAL
+            shadow          		= IN
+            overlay_file    		= "Check-Radio/menuoption.png"
+            overlay_stretch 		= FALSE
+        }
+ 	image 
+	{
+            function        		= OPTION
+	    state			= PRELIGHT
+            shadow          		= IN
+            overlay_file    		= "Check-Radio/menuoption_prelight.png"
+            overlay_stretch 		= FALSE
+        }
+	image 
+	{
+            function        		= OPTION
+	    state			= ACTIVE
+            shadow          		= IN
+            overlay_file    		= "Check-Radio/menuoption.png"
+            overlay_stretch	 	= FALSE
+        }
+	image 
+	{
+            function        		= OPTION
+	    state 			= INSENSITIVE
+            shadow          		= IN
+            overlay_file    		= "Check-Radio/null.png"
+            overlay_stretch 		= FALSE
+        }
+	image 
+      	{
+            function                    = SHADOW # This fixes boxy Qt menu items
+	    file        		= "Check-Radio/null.png"
+	    border      		= { 4, 4, 4, 4 }
+	    stretch         	        = TRUE
+      	}
+
+	# Arrow Buttons
+
+	image
+	{
+	  function			= ARROW
+	  state				= NORMAL
+	  overlay_file			= "arrows/menu-arrow.png"
+	  overlay_border		= { 0, 0, 0, 0 }
+	  overlay_stretch		= FALSE
+	  arrow_direction		= RIGHT
+	}
+	image
+	{
+	  function			= ARROW
+	  state				= PRELIGHT
+	  overlay_file			= "arrows/menu-arrow-prelight.png"
+	  overlay_border		= { 0, 0, 0, 0 }
+	  overlay_stretch		= FALSE
+	  arrow_direction		= RIGHT
+	}
+    }
+    #engine "redmond95" {} #this gets rid of the black border around menus BUT makes menu-radio in to a radio button. 
+}
+
+
+widget_class "*<GtkMenuItem>*"			style "menu_item"
+#class "GtkMenu" style "menu_item"

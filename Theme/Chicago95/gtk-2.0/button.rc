@@ -1,0 +1,77 @@
+style "button" = "default"
+{
+
+xthickness = 10
+ythickness = 10
+
+engine "pixmap"
+{
+
+	image
+	{
+		function	= BOX
+		recolorable	= TRUE
+		detail		= "buttondefault"
+		file		= "/button/button-default.png"
+		border		= { 4 ,4 , 4 ,4}
+		stretch		= TRUE
+	}
+
+	image
+	{
+		function	= BOX
+		state		= NORMAL
+		file		= "/button/button-default.png"
+		border		= { 4 ,4 , 4 ,4}
+		stretch		= TRUE
+	}
+
+	image
+	{
+		function	= BOX
+		recolorable	= TRUE
+		state		= PRELIGHT
+		shadow		= OUT
+		file		= "/button/button-default.png"
+		border		= { 4 ,4 , 4 ,4}
+		stretch		= TRUE
+	}
+
+	image
+	{
+		function	= BOX
+		recolorable	= TRUE
+		state		= PRELIGHT
+		shadow		= IN
+		file		= "/button/button-active.png"
+		border		= { 4 ,4 , 4 ,4}
+		stretch		= TRUE
+	}
+
+	image
+	{
+		function	= BOX
+		state		= INSENSITIVE
+		file		= "/button/button-default.png"
+		border		= { 4 ,4 , 4 ,4}
+		stretch		= TRUE
+	}
+
+
+	image
+	{
+		function	= BOX
+		state		= ACTIVE
+		file		= "/button/button-active.png"
+		border		= { 4 ,4 , 4 ,4}
+		stretch		= TRUE
+	}
+
+
+}
+
+}
+
+class "GtkToolBar"				style "button"
+
+#class "GtkButton"      				style "button"

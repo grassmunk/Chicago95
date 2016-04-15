@@ -1,0 +1,103 @@
+style "tabs"  = "default"
+{
+xthickness = 5
+ythickness = 3
+
+  GtkNotebook::tab-border = 2                                                                                                                               
+  GtkNotebook::show-border = 0                                                                                                                              
+         
+
+engine "pixmap"
+{
+
+	image
+	{
+		function	= EXTENSION
+		state		= NORMAL
+		gap_side	= BOTTOM
+		file		= "/tabs/tab-top-active.png"
+		stretch		= TRUE
+		border		= { 2 ,2 ,2 ,2}
+	}
+
+	image
+	{
+		function	= EXTENSION
+		state		= ACTIVE
+		gap_side	= BOTTOM
+		file		= "/tabs/tab-top.png"
+		stretch		= TRUE
+		border		= { 4 ,4 ,4 ,4}
+	}
+
+
+	image
+	{
+		function	= EXTENSION
+		state		= NORMAL
+		gap_side	= TOP
+		file		= "/tabs/tab-bottom-active.png"
+		stretch		= TRUE
+		border		= { 4 ,4 ,4 ,4}
+	}
+
+	image
+	{
+		function	= EXTENSION
+		state		= ACTIVE
+		gap_side	= TOP
+		file		= "/tabs/tab-bottom.png"
+		stretch		= TRUE
+		border		= { 2 ,2 ,2 ,2}
+	}
+
+	image
+	{
+		function	= EXTENSION
+		state		= NORMAL
+		gap_side	= LEFT
+		file		= "/tabs/tab-left-active.png"
+		stretch		= TRUE
+		border		= { 4 ,4 ,4 ,4}
+	}
+
+	image
+	{
+		function	= EXTENSION
+		state		= ACTIVE
+		gap_side	= LEFT
+		file		= "/tabs/tab-left.png"
+		stretch		= TRUE
+		border		= { 2 ,2 ,2 ,2}
+	}
+
+	image
+	{
+		function	= EXTENSION
+		state		= NORMAL
+		gap_side	= RIGHT
+		file		= "/tabs/tab-right-active.png"
+		stretch		= TRUE
+		border		= { 4 ,4 ,4 ,4}
+	}
+
+	image
+	{
+		function	= EXTENSION
+		state		= ACTIVE
+		gap_side	= RIGHT
+		file		= "/tabs/tab-right.png"
+		stretch		= TRUE
+		border		= { 2 ,2 ,2 ,2}
+	}
+
+
+
+
+
+	
+
+}
+}
+
+class "GtkNotebook"    				style "tabs"

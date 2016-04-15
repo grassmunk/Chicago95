@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Chicago95 Boot Screen
+Description=Boot screen to simulate Windows 95 boot animation
+ModuleName=script
+
+[script]
+ImageDir=/lib/plymouth/themes/Chicago95
+ScriptFile=/lib/plymouth/themes/Chicago95/Chicago95.script
