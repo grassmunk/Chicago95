@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Chicago95
+Type=X-GNOME-Metatheme
+Comment=A theme with Windows from 1995.
+
+[X-GNOME-Metatheme]
+GtkTheme=Chicago95
+MetacityTheme=Chicago95
+IconTheme=Chicago95
+CursorTheme=Chicago95_Cursor_White
+CursorSize=32

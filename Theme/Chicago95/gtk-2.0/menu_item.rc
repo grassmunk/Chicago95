@@ -1,7 +1,7 @@
 style "menu_item"
 {
-	xthickness	= 2
-	ythickness	= 3
+	xthickness	= 0
+	ythickness	= 0
 
         # HACK: Gtk doesn't actually read this value
         # while rendering the menu items, but Libreoffice

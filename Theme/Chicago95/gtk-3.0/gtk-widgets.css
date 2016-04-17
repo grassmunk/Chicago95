@@ -667,11 +667,14 @@ GtkTreeView.view.expander:dir(rtl) {
     padding: 1px;
     border: 1px solid black;
     /* background-color: #808080; */
+    box-shadow: 0 0 0;
     color: @theme_fg_color;
 }
 
 .list-row {
-   padding: 0;
+   padding: 2px;
+   box-shadow: 0 0 0;
+   border: 1px solid #c0c0c0;
 }
 
 .list-row:selected {
@@ -2597,7 +2600,7 @@ GtkColorButton.button {
 
 
 .tooltip * {
-    background-color: transparent;
+    background-color: @theme_tooltip_bg_color;
 }
 
 /************
@@ -3200,6 +3203,11 @@ GtkBubbleWindow .toolbar {
     margin: 2px;
 }
 
+.window-frame {
+    border-radius: 0 0 0 0;
+    box-shadow: none;
+}
+
 /* Server-side decoration (SSD) */
 .window-frame.ssd {
     border-radius: 0 0 0 0;
@@ -3228,8 +3236,10 @@ GtkBubbleWindow .toolbar {
      box-shadow: none; 
 }
 
-GtkWindow.csd {
+GtkWindow.csd,
+GtkWindows.ssd {
     padding: 4px;
+    border-radius: 0;
     border-width: 0px 1px 1px 1px;
     border-style: solid;
     border-color: #c0c0c0 #000 #000 #c0c0c0;

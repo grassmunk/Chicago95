@@ -1,0 +1,343 @@
+<?xml version="1.0"?>
+<!--
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 2 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+// MA 02110-1301, USA.
+
+Notes
+	#d4d0c8 was replaced with gtk:bg[NORMAL]
+
+Notes: Modified from WinME theme by Perberos.
+
+-->
+<metacity_theme>
+	<info>
+		<name>Chicago 95</name>
+		<author>Grassmunk</author>
+		<copyright>&#194; 2007 Srivatsa Kanchi &lt;srivatsa_nk@dataone.in&gt;, 2010 Perberos</copyright>
+		<date>April 22, 2016</date>
+		<description>Windows 95 style theme</description>
+	</info>
+
+	<frame_geometry name="normal_geometry" has_title="true" rounded_top_left="false" rounded_top_right="false" title_scale="medium" rounded_bottom_left="false" rounded_bottom_right="false">
+		<distance name="left_width" value="4"/>
+		<distance name="right_width" value="4"/>
+		<distance name="bottom_height" value="4"/>
+		<distance name="left_titlebar_edge" value="5"/>
+		<distance name="right_titlebar_edge" value="6"/>
+		<distance name="title_vertical_pad" value="5"/>
+		<distance name="button_width" value="17"/>
+		<distance name="button_height" value="16"/>
+		<border name="title_border" left="0" right="0" top="4" bottom="0"/>
+		<border name="button_border" left="0" right="0" top="3" bottom="0"/>
+	</frame_geometry>
+
+	<frame_geometry name="borderless_geometry" has_title="true" rounded_top_left="false" rounded_top_right="false" title_scale="medium" rounded_bottom_left="false" rounded_bottom_right="false">
+		<distance name="left_width" value="0"/>
+		<distance name="right_width" value="0"/>
+		<distance name="bottom_height" value="0"/>
+		<distance name="left_titlebar_edge" value="1"/>
+		<distance name="right_titlebar_edge" value="2"/>
+		<distance name="title_vertical_pad" value="2"/>
+		<distance name="button_width" value="17"/>
+		<distance name="button_height" value="16"/>
+		<border name="title_border" left="0" right="0" top="0" bottom="0"/>
+		<border name="button_border" left="0" right="0" top="1" bottom="1"/>
+	</frame_geometry>
+
+	<frame_geometry name="utility_geometry" has_title="true" rounded_top_left="false" rounded_top_right="false" title_scale="small" rounded_bottom_left="false" rounded_bottom_right="false">
+		<distance name="left_width" value="3"/>
+		<distance name="right_width" value="3"/>
+		<distance name="bottom_height" value="3"/>
+		<distance name="left_titlebar_edge" value="4"/>
+		<distance name="right_titlebar_edge" value="4"/>
+		<distance name="title_vertical_pad" value="4"/>
+		<distance name="button_width" value="10"/>
+		<distance name="button_height" value="11"/>
+		<border name="title_border" left="0" right="0" top="4" bottom="2"/>
+		<border name="button_border" left="0" right="0" top="2" bottom="0"/>
+	</frame_geometry>
+
+	<frame_geometry name="border_geometry" has_title="false">
+		<distance name="left_width" value="0" />
+		<distance name="right_width" value="0" />
+		<distance name="bottom_height" value="0" />
+		<distance name="left_titlebar_edge" value="0" />
+		<distance name="right_titlebar_edge" value="0" />
+		<distance name="button_width" value="0"/>
+		<distance name="button_height" value="0"/>
+		<distance name="title_vertical_pad" value="0" />
+		<border name="title_border" left="0" right="0" top="0" bottom="0" />
+		<border name="button_border" left="0" right="0" top="0" bottom="0" />
+	</frame_geometry>
+
+	<frame_style name="normal_focused_style" geometry="normal_geometry">
+		<piece position="left_edge">
+			<draw_ops>
+				<rectangle color="gtk:bg[NORMAL]" x="0" y="0" width="width" height="height" filled="true"/>
+				<line color="#ffffff" x1="1" y1="0" x2="1" y2="height" width="1"/>
+			</draw_ops>
+		</piece>
+		<piece position="right_edge">
+			<draw_ops>
+				<rectangle color="gtk:bg[NORMAL]" x="0" y="0" width="width" height="height" filled="true"/>
+				<line color="#808080" x1="width-2" y1="0" x2="width-2" y2="height" width="1"/>
+				<line color="#000000" x1="width-1" y1="0" x2="width-1" y2="height" width="1"/>
+			</draw_ops>
+		</piece>
+		<piece position="bottom_edge">
+			<draw_ops>
+				<rectangle color="gtk:bg[NORMAL]" x="0" y="0" width="width" height="height" filled="true"/>
+				<line color="#808080" x1="1" y1="height-2" x2="width" y2="height-2" width="1"/>
+				<line color="#000000" x1="0" y1="height-1" x2="width" y2="height-1" width="1"/>
+				<line color="#ffffff" x1="1" y1="0" x2="1" y2="height-2" width="1"/>
+				<line color="#000000" x1="width-1" y1="0" x2="width-1" y2="height" width="1"/>
+				<line color="#808080" x1="width-2" y1="0" x2="width-2" y2="height-2" width="1"/>
+			</draw_ops>
+		</piece>
+		<piece position="titlebar">
+			<draw_ops>
+				<rectangle color="gtk:bg[NORMAL]" x="0" y="0" width="width" height="height" filled="true"/>
+				<line color="#ffffff" x1="1" y1="1" x2="1" y2="height" width="1"/>
+				<line color="#ffffff" x1="1" y1="1" x2="width-2" y2="1" width="1"/>
+				<line color="#000000" x1="width-1" y1="0" x2="width-1" y2="height" width="1"/>
+				<line color="#808080" x1="width-2" y1="1" x2="width-2" y2="height" width="1"/>
+                <rectangle color="gtk:bg[SELECTED]" x="4" y="4" width="width-8" height="height-5" filled="true"/>
+			</draw_ops>
+		</piece>
+
+		<button function="close" state="normal">
+			<draw_ops>
+				<image filename="close_normal.png" x="0" y="0" width="width" height="height"/>
+			</draw_ops>
+		</button>
+		<button function="close" state="pressed">
+			<draw_ops>
+				<image filename="close_pressed.png" x="0" y="0" width="width" height="height"/>
+			</draw_ops>
+		</button>
+		<button function="maximize" state="normal">
+			<draw_ops>
+				<image filename="maximize_normal.png" x="0" y="0" width="width" height="height"/>
+			</draw_ops>
+		</button>
+		<button function="maximize" state="pressed">
+			<draw_ops>
+				<image filename="maximize_pressed.png" x="0" y="0" width="width" height="height"/>
+			</draw_ops>
+		</button>
+		<button function="minimize" state="normal">
+			<draw_ops>
+				<image filename="minimize_normal.png" x="0" y="0" width="width" height="height"/>
+			</draw_ops>
+		</button>
+		<button function="minimize" state="pressed">
+			<draw_ops>
+				<image filename="minimize_pressed.png" x="0" y="0" width="width" height="height"/>
+			</draw_ops>
+		</button>
+		<button function="menu" state="normal">
+			<draw_ops>
+			  <icon x="1" y="0" width="16" height="16"/>
+			</draw_ops>
+		</button>
+		<button function="menu" state="pressed">
+			<draw_ops>
+			  <icon x="1" y="0" width="16" height="16"/>
+			</draw_ops>
+		</button>
+		<piece position="title">
+			<draw_ops>
+				<title x="3" y="2" color="#ffffff"/>
+			</draw_ops>
+		</piece>
+	</frame_style>
+
+	<frame_style name="normal(maximized)_focused_style" geometry="borderless_geometry" parent="normal_focused_style">
+		<piece position="titlebar">
+			<draw_ops>
+                <rectangle color="gtk:bg[SELECTED]" x="0" y="0" width="width-0" height="height-0" filled="true"/>
+			</draw_ops>
+		</piece>
+		<button function="maximize" state="normal">
+
+			<draw_ops>
+				<image filename="restore_normal.png" x="0" y="0" width="width" height="height"/>
+			</draw_ops>
+		</button>
+		<button function="maximize" state="pressed">
+			<draw_ops>
+				<image filename="restore_pressed.png" x="0" y="0" width="width" height="height"/>
+			</draw_ops>
+		</button>
+	</frame_style>
+
+	<frame_style name="normal_unfocused_style" geometry="normal_geometry" parent="normal_focused_style">
+		<piece position="titlebar">
+			<draw_ops>
+				<rectangle color="gtk:bg[NORMAL]" x="0" y="0" width="width" height="height" filled="true"/>
+				<line color="#ffffff" x1="1" y1="1" x2="1" y2="height" width="1"/>
+				<line color="#ffffff" x1="1" y1="1" x2="width-2" y2="1" width="1"/>
+				<line color="#000000" x1="width-1" y1="0" x2="width-1" y2="height" width="1"/>
+				<line color="#808080" x1="width-2" y1="1" x2="width-2" y2="height" width="1"/>
+                <rectangle color="#808080" x="4" y="4" width="width-8" height="height-5" filled="true"/>
+			</draw_ops>
+		</piece>
+		<piece position="title">
+			<draw_ops>
+				<title x="3" y="2" color="gtk:bg[NORMAL]"/>
+			</draw_ops>
+		</piece>
+	</frame_style>
+
+	<frame_style name="normal(maximized)_unfocused_style" geometry="borderless_geometry" parent="normal_unfocused_style">
+		<piece position="titlebar">
+			<draw_ops>
+                <rectangle color="#808080" x="0" y="0" width="width-0" height="height-0" filled="true"/>
+			</draw_ops>
+		</piece>
+		<button function="maximize" state="normal">
+			<draw_ops>
+				<image filename="restore_normal.png" x="0" y="0" width="width" height="height"/>
+			</draw_ops>
+		</button>
+	</frame_style>
+
+	<frame_style name="utility_focused_style" geometry="utility_geometry">
+		<piece position="entire_background">
+			<draw_ops>
+				<rectangle color="gtk:bg[NORMAL]" x="0" y="0" width="width" height="height" filled="true"/>
+				<rectangle color="#ffffff" x="1" y="1" width="width-3" height="height-3" filled="false"/>
+				<line color="#808080" x1="width-2" y1="1" x2="width-2" y2="height-3"/>
+				<line color="#808080" x1="1" y1="height-2" x2="width-2" y2="height-2"/>
+				<line color="#000000" x1="width-1" y1="0" x2="width-1" y2="height-1"/>
+				<line color="#808080" x1="0" y1="height-1" x2="width-1" y2="height-1"/>
+			</draw_ops>
+		</piece>
+
+		<piece position="titlebar">
+			<draw_ops>
+                <rectangle color="gtk:bg[SELECTED]" x="4" y="4" width="width-8" height="height-5" filled="true"/>
+			</draw_ops>
+		</piece>
+		<button function="menu" state="normal"><draw_ops/></button>
+		<button function="menu" state="pressed"><draw_ops/></button>
+
+		<piece position="title">
+			<draw_ops>
+				<title x="3" y="2" color="#ffffff"/>
+			</draw_ops>
+		</piece>
+
+		<button function="close" state="normal">
+			<draw_ops>
+				<image filename="close_normal_small.png" x="0" y="0" width="width" height="height"/>
+			</draw_ops>
+		</button>
+		<button function="close" state="pressed">
+			<draw_ops>
+				<image filename="close_pressed_small.png" x="0" y="0" width="width" height="height"/>
+			</draw_ops>
+		</button>
+		<button function="maximize" state="normal"><draw_ops/></button>
+		<button function="maximize" state="pressed"><draw_ops/></button>
+		<button function="minimize" state="normal"><draw_ops/></button>
+		<button function="minimize" state="pressed"><draw_ops/></button>
+	</frame_style>
+
+	<frame_style name="utility_unfocused_style" geometry="utility_geometry" parent="utility_focused_style">
+		<piece position="titlebar">
+			<draw_ops>
+                <rectangle color="#808080" x="0" y="0" width="width-0" height="height-0" filled="true"/>
+			</draw_ops>
+		</piece>
+		<piece position="title">
+			<draw_ops>
+				<title x="3" y="2" color="gtk:bg[NORMAL]"/>
+			</draw_ops>
+		</piece>
+	</frame_style>
+
+
+	<frame_style name="border_style" geometry="border_geometry">
+		<button function="close" state="normal"><draw_ops/></button>
+		<button function="close" state="pressed"><draw_ops/></button>
+		<button function="maximize" state="normal"><draw_ops/></button>
+		<button function="maximize" state="pressed"><draw_ops/></button>
+		<button function="minimize" state="normal"><draw_ops/></button>
+		<button function="minimize" state="pressed"><draw_ops/></button>
+		<button function="menu" state="normal"><draw_ops/></button>
+		<button function="menu" state="pressed"><draw_ops/></button>
+	</frame_style>
+
+	<!-- system menu icon : default drawn by metacity -->
+	<menu_icon function="close" state="normal">
+		<draw_ops/>
+	</menu_icon>
+
+	<menu_icon function="maximize" state="normal">
+		<draw_ops/>
+	</menu_icon>
+
+	<menu_icon function="minimize" state="normal">
+		<draw_ops/>
+	</menu_icon>
+
+	<menu_icon function="unmaximize" state="normal">
+		<draw_ops/>
+	</menu_icon>
+
+	<frame_style_set name="normal_set">
+		<frame focus="yes" state="normal" resize="both" style="normal_focused_style"/>
+		<frame focus="no" state="normal" resize="both" style="normal_unfocused_style"/>
+		<frame focus="yes" state="normal" resize="none" style="normal_focused_style"/>
+		<frame focus="no" state="normal" resize="none" style="normal_unfocused_style"/>
+		<frame focus="yes" state="maximized" style="normal(maximized)_focused_style"/>
+		<frame focus="no" state="maximized" style="normal(maximized)_unfocused_style"/>
+		<frame focus="yes" state="shaded" style="normal_focused_style"/>
+		<frame focus="no" state="shaded" style="normal_unfocused_style"/>
+		<frame focus="yes" state="maximized_and_shaded" style="normal(maximized)_focused_style"/>
+		<frame focus="no" state="maximized_and_shaded" style="normal_unfocused_style"/>
+	</frame_style_set>
+
+
+	<frame_style_set name="border_set">
+		<frame focus="yes" state="normal" resize="both" style="border_style" />
+		<frame focus="no"  state="normal" resize="both" style="border_style" />
+		<frame focus="yes" state="normal" resize="none" style="border_style" />
+		<frame focus="no"  state="normal" resize="none" style="border_style" />
+		<frame focus="yes" state="maximized" style="border_style" />
+		<frame focus="no"  state="maximized" style="border_style" />
+		<frame focus="yes" state="shaded" style="border_style" />
+		<frame focus="no"  state="shaded" style="border_style" />
+		<frame focus="yes" state="maximized_and_shaded" style="border_style" />
+		<frame focus="no"  state="maximized_and_shaded" style="border_style" />
+	</frame_style_set>
+
+	<frame_style_set name="utility_set" parent="border_set">
+		<frame focus="yes" state="normal" resize="both" style="utility_focused_style" />
+		<frame focus="no"  state="normal" resize="both" style="utility_unfocused_style" />
+		<frame focus="yes" state="normal" resize="none" style="utility_focused_style" />
+		<frame focus="no"  state="normal" resize="none" style="utility_unfocused_style" />
+	</frame_style_set>
+
+
+	<window type="normal" style_set="normal_set"/>
+	<window type="dialog" style_set="normal_set"/>
+	<window type="modal_dialog" style_set="normal_set"/>
+	<window type="menu" style_set="utility_set"/>
+	<window type="utility" style_set="utility_set"/>
+	<window type="border" style_set="border_set"/>
+
+</metacity_theme>

@@ -2,12 +2,10 @@
  * panel *
  *********/
 #panel_window {
-    background-color: transparent;
+    background-color: #008080;
     background-image: none;
     color: white;
     font: bold;
-    text-shadow: 0 1px alpha(black, 0.5);
-    icon-shadow: 0 1px alpha(black, 0.5);
 }
 
 #panel_window .menubar,
