@@ -3222,6 +3222,7 @@ GtkBubbleWindow .toolbar {
 /* Client-side Decorations (CSD)*/
 .window-frame.csd.tooltip {
     border-radius: 0;
+    border: 0 0 0;
     box-shadow: none; 
 }
 

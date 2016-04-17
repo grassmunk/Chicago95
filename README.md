@@ -19,6 +19,8 @@ Included in this theme:
 
 ![alt text](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/gtk3.png "GTK3")
 
+I decided that the pop-overs were almost exactly as annoying/ugly as Clippy was in MS Office 97 so the buttons/coloring are matched to look exactly like that.
+
 ![alt text](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/DOS.png "Terminal")
 
 ## Installation

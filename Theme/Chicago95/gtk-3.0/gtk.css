@@ -1,7 +1,10 @@
-/*# name: Windows 10 Light
-  # author: Christian Medel (Elbullazul)
-  # date: April 7th, 2016
-  # description: Windows 10 Default White color*/
+/*# name: Chicago95
+  # author: Grassmunk
+  # date: April 19th, 2016
+  # description: Chicago 95 Default*/
+
+
+/* Comment about Pop-overs: I couldn't get over how much they looked like Clippy in MS Office 97 so thats why the buttons are different */
 
 /* default color scheme */
 @define-color bg_color #c0c0c0;
