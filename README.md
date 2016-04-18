@@ -13,7 +13,7 @@ Included in this theme:
 - Plymouth theme created from scratch
 
 ## Screenshots
-![alt text](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/plymouth.png "Plymouth")
+![alt text](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/plymouth.gif "Plymouth")
 
 ![alt text](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/lightdm.png "LightDM")
 
