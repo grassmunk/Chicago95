@@ -13,6 +13,10 @@ Included in this theme:
 - Plymouth theme created from scratch
 
 ## Screenshots
+![alt text](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/plymouth.png "Plymouth")
+
+![alt text](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/lightdm.png "LightDM")
+
 ![alt text](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/Screenshot.png "Big Screenshot")
 
 ![alt text](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/gtk2.png "GTK2")
@@ -32,6 +36,8 @@ In XFCE select Settings -> Appearance. Click on 'Style' and select `Chicago95`.
 
 For window borders select Settings -> Window Manager. Under 'Style' select `Chicago 95`.
 
+Background: Just set to whatever you like, for a more authentic look try setting Style to none and color to `#008080`.
+
 ###  Icons
 To install the icons copy the folder `Icons/Chicago95` to `/usr/share/icons` or `~/.icons`.
 
@@ -49,7 +55,6 @@ Update your font cache: sudo fc-cache -f -v
 
 In xfce-term selet the font `Less Perfect DOS VGA` or `More Pefect DOS VGA`.
 
-
 ### Terminal
 
 Copy the file `Extras/Chicago95.theme` to `~/.local/share/xfce4/terminal/colorschemes` (create the colorschemes folder if it doesn't exist: `mkdir .local/share/xfce4/terminal`).
@@ -57,10 +62,9 @@ Under preferences in xfce-term select 'Colors.' Under `Presets` you should see `
 
 To get the MS-DOS `C:\>` prompt and startup message add the contents of `Extras/DOSrc` to your `.bashrc` file: `cat Extras/DOSrc >> ~/.bashrc`.
 
-###Plymouth
+### Plymouth
 
-Recreates the classic Windows 95 boot screen:
-
+Recreates the classic Windows 95 boot screen.
 
 To install:
 
@@ -70,6 +74,12 @@ sudo update-alternatives --install /lib/plymouth/themes/default.plymouth default
 sudo update-alternatives --config default.plymouth  #here, choose the number of the theme you want to use then hit enter
 sudo update-initramfs -u
 ```
+
+### LightDM:
+
+Attemps to recreate the asthetic of logging on to a computer in the mid 90's.
+
+Install instructions are in the `README.md` in `Lightdm/Chicago95/`.
 
 ## Requirements
 
@@ -81,4 +91,4 @@ Xfce 4.12 of above
 
 ### Code and license
 
-License: GPL-3.0+
+License: GPL-3.0+/MIT
