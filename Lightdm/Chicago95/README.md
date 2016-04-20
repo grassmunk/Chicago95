@@ -58,6 +58,5 @@ Credits
 -------
 
 This theme was based on paddy-greeter which you can find here: 
-Some of the stuff used:
 
 *   [Paddy-Greeter](https://github.com/kalmanolah/paddy-greeter/) by [Kalman Olah](https://github.com/kalmanolah/)
