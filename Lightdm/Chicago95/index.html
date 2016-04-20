@@ -1,0 +1,46 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/clearfix.css" />
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="font/stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="font/iconic_fill.css" />
+    <link rel="stylesheet" type="text/css" href="css/layout.css" />
+</head>
+
+
+<body oncontextmenu="return false;">
+<div id="box">
+    <div class="box-inner">
+        <div class="header cf">
+            Enter Network Password
+            <img src="img/close_normal.png">
+        </div>
+
+        <div class="left"> <img src="img/start.png"></div>
+
+        <div class="content">
+            Enter your network password for Microsoft Networking.
+		<br><br><br>
+            <div id="form">
+            	<form action="javascript: attemptLogin()" id="start">
+                	<input id="user" type="text" placeholder="Username..." />
+            	</form>
+            	<form action="javascript: attemptLogin()" id="start">
+                	<input id="password" type="password" placeholder="Password..." />
+            	</form>
+        	</div>
+
+        </div>
+	<div class="right">
+		<button type="submit" form="start" value="Submit">Submit</button>
+                <br><br>
+                <button type="cancel">Cancel</button>		
+	</div>
+    </div>
+    
+</div>
+<div id="message"></div>
+    <script type="text/javascript" src="js/mock.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

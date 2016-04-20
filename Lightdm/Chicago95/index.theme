@@ -1,0 +1,6 @@
+[theme]
+name=Chicago95
+description=Start?
+engine=lightdm-webkit-greeter
+url=index.html
+session=xfce

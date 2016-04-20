@@ -1,0 +1,219 @@
+html, body {
+    min-height: 100%;
+    min-width: 100%;
+    padding: 0;
+    margin: 0;
+    background: #008080;
+}
+
+body {
+    -webkit-user-select: none;
+    font-family: 'Sans-Serif';
+    font-size: 8pt;
+    color: white;
+    text-shadow: 0 0 0;
+}
+a {
+    text-decoration: none;
+}
+
+img, a, input, select {
+    outline: none;
+}
+
+#box {
+    position: absolute;
+    display: inline-block;
+    background: #c0c0c0;
+    padding: 2px 5px 2px 2px;
+    border-color: #c0c0c0 black black #c0c0c0; 
+-webkit-box-shadow: inset -1px -1px 0px 0px rgba(128,128,128,1);
+-moz-box-shadow: inset -1px -1px 0px 0px rgba(128,128,128,1);
+box-shadow: inset -1px -1px 0px 0px rgba(128,128,128,1);
+    border-width: 1px;
+    border-style: solid;
+
+}
+
+.box-inner {
+    color: black;
+    width: 550px;
+    padding: 1px;
+
+}
+
+
+.box-inner .left { 
+     padding: 10px;
+     float: left;
+     text-align: center;	
+     width: 15%;
+     height: 100%;
+}
+
+.box-inner .right {
+     padding: 20px 10px;
+     float: right;
+     text-align: center;	
+     width: 15%;
+
+
+}
+
+.box-inner .content {
+        margin: auto;
+        padding: 20px 2px;
+        font-size: 10pt
+    font-family: 'Sans-Serif';
+	display: inline-block;
+        width: 60%;
+    
+}
+
+button,
+button:hover {
+        padding: 5px;
+        width: 100%;
+        font-size: 10pt
+        font-family: 'Sans-Serif';
+	display: inline-block;
+        background-color: #c0c0c0;
+
+}
+
+.header {
+    padding: 0px;
+    width: 548px;
+    border: 2px solid #000080;
+    font-size: 8pt;
+    text-align: left;
+    font-family: 'Sans-Serif';
+    font-weight: bold;
+    background-color: #000080;
+    color: white;
+    text-shadow: 0 0 0;
+    display: inline-block;
+
+}
+
+
+.footer {
+    font-size: 12pt;
+}
+
+hr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #fff;
+    border-left: none;
+    border-right: none;
+}
+
+#clock-widget span {
+    font: 'Sans-Serif';
+    text-shadow: none;
+    font-color: white;
+    color: white;
+}
+
+#version {
+    float: left;
+}
+
+#hostname-widget {
+    float: right;
+}
+
+#form {
+    width: 100%;
+    float: left;
+}
+
+#form form {
+    position: relative;
+}
+
+#form form span.iconic {
+    position: absolute;
+    top: 0;
+    left: 0.5em;
+    line-height: 12pt;
+}
+
+#form form input {
+    
+    width: 100%;
+    border-width: 1px;
+    border-type: solid;
+    border-color: #808080 white white #808080;
+/*
+    -webkit-box-shadow: inset 1px 1px black, inset -1px -1px #dfdfdf;
+*/
+-webkit-box-shadow: inset -1px -1px 0px 0px rgba(128,128,128,1);
+-moz-box-shadow: inset -1px -1px 0px 0px rgba(128,128,128,1);
+box-shadow: inset -1px -1px 0px 0px rgba(128,128,128,1);
+    padding: 0 0 0 5px;
+    height: 20pt;
+    color: black;
+}
+
+#actions {
+    position: absolute;
+    top: -3em;
+    right: 0;
+    display: inline-block;
+    background: url(../img/fabric_of_squares_gray.png);
+    padding: 5px;
+    box-shadow: 2px 2px 5px #555;
+    border: 1px solid #f0f0f0;
+}
+
+#actions-inner {
+    padding: 0 10px;
+    border: 1px solid #e0e0e0;
+}
+
+#actions-inner a {
+    margin-right: 10px;
+}
+
+#actions-inner a:hover {
+    cursor: pointer;
+}
+
+#actions-inner a:last-child {
+    margin-right: 0;
+}
+
+#message {
+    border: 0px solid red;
+    float: bottom;
+    color: black;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+#message.error {
+    color: #f0f0f0;
+    background: #FF6B6B;
+    text-shadow: none;
+}
+
+
+
+#distro-widget {
+	float: right;
+	display: inline-block;
+	height: 100%;
+	text-align: center;
+    vertical-align: middle;
+    width: 30%;
+    margin: 5%;
+}
+
+#distro-widget img {
+	max-width: 100%;
+}
+
+.header img {
+	float: right;
+}

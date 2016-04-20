@@ -1,0 +1,59 @@
+/* Regular */
+@font-face {
+    font-family: 'Ostrich';
+    src: url('ostrich-regular-webfont.eot');
+    src: url('ostrich-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('ostrich-regular-webfont.woff') format('woff'),
+    url('ostrich-regular-webfont.ttf') format('truetype'),
+    url('ostrich-regular-webfont.svg#OstrichSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Black */
+@font-face {
+    font-family: 'Ostrich Black';
+    src: url('ostrich-black-webfont.eot');
+    src: url('ostrich-black-webfont.eot?#iefix') format('embedded-opentype'),
+    url('ostrich-black-webfont.woff') format('woff'),
+    url('ostrich-black-webfont.ttf') format('truetype'),
+    url('ostrich-black-webfont.svg#OstrichSansBlack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Bold */
+@font-face {
+    font-family: 'Ostrich';
+    src: url('ostrich-bold-webfont.eot');
+    src: url('ostrich-bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('ostrich-bold-webfont.woff') format('woff'),
+    url('ostrich-bold-webfont.ttf') format('truetype'),
+    url('ostrich-bold-webfont.svg#OstrichSansBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Dashed */
+@font-face {
+    font-family: 'Ostrich Dashed';
+    src: url('ostrich-dashed-webfont.eot');
+    src: url('ostrich-dashed-webfont.eot?#iefix') format('embedded-opentype'),
+    url('ostrich-dashed-webfont.woff') format('woff'),
+    url('ostrich-dashed-webfont.ttf') format('truetype'),
+    url('ostrich-dashed-webfont.svg#OstrichSansDashed') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Rounded */
+@font-face {
+    font-family: 'Ostrich Rounded';
+    src: url('ostrich-rounded-webfont.eot');
+    src: url('ostrich-rounded-webfont.eot?#iefix') format('embedded-opentype'),
+    url('ostrich-rounded-webfont.woff') format('woff'),
+    url('ostrich-rounded-webfont.ttf') format('truetype'),
+    url('ostrich-rounded-webfont.svg#OstrichSansRounded') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
