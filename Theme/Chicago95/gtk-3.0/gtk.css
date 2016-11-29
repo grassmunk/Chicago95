@@ -13,6 +13,8 @@
 @define-color text_color #000000;
 @define-color selected_bg_color #000080;
 @define-color selected_fg_color #ffffff;
+@define-color selected_inactive_bg_color #808080;
+@define-color selected_inactive_fg_color #000000;
 @define-color tooltip_bg_color #ffffBf;
 @define-color tooltip_fg_color #000000;
 
@@ -98,8 +100,8 @@
 
 /* @import url("apps/gnome-applications.css");
 @import url("apps/granite-widgets.css");
-@import url("apps/unity.css"); */
+@import url("apps/unity.css");
 @import url("apps/xfce.css");
-/* @import url("apps/nemo.css"); */
+@import url("apps/nemo.css"); 
 @import url("apps/synaptic.css");
-@import url("apps/lightdm-gtk-greeter.css");
+@import url("apps/lightdm-gtk-greeter.css"); */
