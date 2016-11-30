@@ -1201,13 +1201,14 @@ tooltip {
     box-shadow: none;
 }
 
-.floating-bar,
 .app-notification,
 popover {
     padding: 5px;
     margin: 2px;
 }
 
+
+.floating-bar,
 popover,
 popover.background,
 tooltip.background,
