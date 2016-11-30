@@ -191,7 +191,6 @@ switch,
 .sidebar list,
 scale trough,
 combobox button:checked,
-combobox > window > menu,
 button:selected, button:active,
 check, radio {
     border-style: solid;
