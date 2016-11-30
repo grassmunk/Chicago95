@@ -321,8 +321,8 @@ checkbutton:focus label{
 
 check,
 radio {
-    min-width: 12px;
-    min-height: 12px;
+    min-width: 10px;
+    min-height: 10px;
     background-color: @base_color;
 }
 
@@ -331,24 +331,26 @@ radio:disabled {
     background-color: @bg_color;
 }
 
+/* using a mix of css and background for now, radio still not perfect 
+ * with pure css box-shadow makes the circle look oval */
 radio {
-    border-radius: 8px;
+    background-image: url("assets/radio-inner-ring.png");
+    border-radius: 10px;
+    box-shadow: none;
 }
 
 check:checked {
-    -gtk-icon-source: url("assets/menucheck.png");
-    -gtk-icon-transform: scale(0.5);
+    -gtk-icon-source: url("assets/check-check.png");
+    -gtk-icon-transform: none;
 }
 
 radio:checked {
-    -gtk-icon-source: url("assets/menuoption.png");
-    -gtk-icon-transform: scale(0.5);
+    -gtk-icon-source: url("assets/radio-check.png");
 }
 
 check:indeterminate,
 radio:indeterminate {
-    -gtk-icon-source: url("assets/menuindeterminate.png");
-    -gtk-icon-transform: scale(0.5);
+    -gtk-icon-source: url("assets/check-indeterminate.png");
 }
 
 
@@ -480,6 +482,12 @@ treeview:selected,
 treeview:selected:focus {
     background-color: @theme_selected_bg_color;
     color: @theme_selected_fg_color;
+}
+
+treeview > check,
+treeview > radio:checked
+treeview radio:checked {
+    background-color: @base_color;
 }
 
 treeview entry {
