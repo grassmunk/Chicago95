@@ -1186,31 +1186,42 @@ frame toolbar {
 }
 
 
-/*******************
- * tooltip popover *
- *******************/
+/*************************************************
+ * tooltip popover app-notification floating-bar *
+ *************************************************/
 
-tooltip decoration {
-    border: 0px;
+.floating-bar,
+.app-notification,
+popover,
+popover.background,
+tooltip.background,
+tooltip {
+    background-color: @theme_tooltip_bg_color;
+    color: @theme_tooltip_fg_color;
+    border: 1px solid black;
     box-shadow: none;
-    padding: 0px;
-    margin: 0px;
-}
-
-popover {
-    padding: 6px;
 }
 
 .floating-bar,
+.app-notification,
+popover {
+    padding: 5px;
+    margin: 2px;
+}
+
 popover,
 popover.background,
 tooltip.background,
 tooltip {
     padding: 0px;
     margin: 0px;
-    border: 1px solid black;
-    background-color: @theme_tooltip_bg_color;
-    color: @theme_tooltip_fg_color;
+}
+
+tooltip decoration {
+    border: 0px;
+    box-shadow: none;
+    padding: 0px;
+    margin: 0px;
 }
 
 tooltip * {
@@ -1245,15 +1256,6 @@ overlay.osd {
 .osd.frame {
     background-clip: border-box;
     background-origin: border-box;
-}
-
-
-/********************
- * app notification *
- ********************/
-
-.app-notification {
-    background-color: @base_color;
 }
 
 
