@@ -695,7 +695,7 @@ iconview.view.cell {
 
 infobar {
     padding:2px;
-    border: 1px dotted black;
+    border: 1px solid black;
     border-radius: 1px;
 }
 
