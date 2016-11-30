@@ -180,6 +180,7 @@ separator {
 }
 
 /* Sunken 2px */
+stacksidebar list row:selected,
 colorswatch:selected,
 calendar.view,
 frame,
@@ -215,6 +216,7 @@ stepper {
 }
 
 /* Raised 2px */
+stacksidebar list row,
 colorswatch,
 decoration,
 combobox > window,
@@ -233,6 +235,8 @@ notebook.frame {
 }
 
 /* Makes a checkerboard */
+stacksidebar list row:selected:hover,
+stacksidebar list row:selected,
 button:selected, button:active, button:checked,
 slider:disabled,
 trough,
@@ -267,6 +271,7 @@ scrollbar slider,
 combobox button,
 toolbar button,
 spinbutton button,
+stacksidebar list row,
 header button {
     margin: 0px;
     padding: 2px;
@@ -281,7 +286,10 @@ scrollbar slider:active {
    padding: 2px; /*3px 1px 1px 3px;*/
 }
 
-
+stacksidebar list row:selected,
+stacksidebar list row:active,
+stacksidebar list row:checked,
+stacksidebar list row:selected:hover,
 toolbar button:active,
 toolbar button:checked,
 switch slider:active,
@@ -1014,6 +1022,60 @@ scale.color contents trough {
 /* outline inside the trough node is terrible, can't put it anywhere else... */
 scale *:focus {
     outline: 0px;
+}
+
+
+/****************
+ * stacksidebar *
+ ****************/
+
+stacksidebar > scrolledwindow { 
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  box-shadow: none;
+}
+
+stacksidebar separator {
+  padding: 0px;
+  margin: 0px;
+}
+
+stacksidebar list {
+  margin: 0px;
+  background-color: @bg_color;
+}
+
+stacksidebar.sidebar list{
+  margin: 0px;
+}
+
+stacksidebar list row {
+  padding: 2px;
+  margin: 0px;
+}
+
+stacksidebar list row label {
+  padding: 3px;
+}
+
+stacksidebar list row:selected,
+stacksidebar list row:focus,
+stacksidebar list row:selected:focus,
+stacksidebar list row:selected:focus:hover,
+stacksidebar list row:selected:hover {
+    padding: 2px;
+    margin: 0px;
+    background-color: white;
+    color: @fg_color;
+}
+
+stacksidebar list row:selected,
+stacksidebar list row:selected:focus,
+stacksidebar list row:selected:hover {
+    outline: 1px dotted black;
+    -gtk-outline-radius: 0px;
+    outline-offset: -6px;
 }
 
 
