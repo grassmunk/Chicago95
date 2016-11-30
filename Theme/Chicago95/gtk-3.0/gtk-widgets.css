@@ -1174,9 +1174,15 @@ toolbar {
 }
 
 toolbar button {
+    min-width: 24px;
+    min-height: 24px;
     margin-left: 2px;
     margin-right: 2px;
     border-color: transparent; /* invisible button */
+}
+
+frame toolbar {
+ margin: 1px;
 }
 
 
