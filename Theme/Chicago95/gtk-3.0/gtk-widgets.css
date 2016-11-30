@@ -833,54 +833,54 @@ menuitem > box > image {
  * notebook *
  ************/
 
-/* Must paint over the notebook.frame top bevel by using the header side,
-  cant do it any other way... */
+/* Must paint over the notebook.frame top bevel by filling the header and 
+  using borders or box-shadows on one side of the header > tabs */
+
+notebook.frame,
 notebook {
   padding-left: 0px;
   padding-right: 0px;
   margin: 4px;
 }
-/* Some notebooks use .frame styles, this fixes some unaligments */
-notebook.frame  {
- padding-left: 2px;
- padding-right: 0px;
-}
 notebook > header {
-    background-color: @bg_color;
-    margin-left: -3px; 
-    margin-right: -1px; 
+  background-color: @bg_color;
 }
 notebook > stack{
   margin: 3px;
-}
-
-notebook > header > tabs {
- margin-left: 2px;
- margin-right: 2px;
 }
 notebook > header > tabs > tab {
   padding-top: 4px;
   padding-bottom: 4px;
 }
-notebook > header > tabs > tab:checked {
-  padding-top: 5px;
-  padding-bottom: 7px;
+notebook > header.left > tabs > tab:checked {
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 notebook > header > tabs > tab label {
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
+/* Note to self: bottom and right use a newer method better than top and left, update them
+ in the future... */
+
 /* TOP tabs */
+notebook > header.top {
+    margin-left: -1px; 
+    margin-right: -1px; 
+}
 notebook > header.top > tabs {
     border-style: solid;
     border-width: 1px 1px 0px 1px;
     border-color: alpha(@bg_color,0.0);
     box-shadow: inset 0px 0px shade(white,0.5),
                 inset 0px -1px shade(white,1.0);
+
+    margin-left: 2px;
+    margin-right: 2px;
 }
-/* raised 2px EXCEPTION */
 notebook > header.top > tabs > tab {
+    /* raised 2px EXCEPTION */
     border-bottom: 0px;
     box-shadow: inset 1px 1px shade(white,1.0),
                 inset -1px 0px shade(white,0.5);
@@ -898,40 +898,117 @@ notebook > header.top > tabs > tab:checked {
 	margin-left: -3px;
 	margin-right: -3px;
 }
-notebook > header.top > tabs > tab:checked:first-child {
-    margin-left: -1px;
-    margin-right: -3px;
-}
+
 
 /* LEFT tabs */
+notebook > header.left {
+    margin-top: -1px; 
+    margin-bottom: -1px; 
+}
+notebook > header.left > tabs {
+    border-style: solid;
+    border-width: 1px 0px 1px 1px;
+    border-color: alpha(@bg_color,0.0);
+    box-shadow: inset 0px 0px shade(white,1.0),
+                inset -1px 0px shade(white,1.0);
+
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
 notebook > header.left > tabs > tab {
+    /* raised 2px EXCEPTION */
     border-right: 0px;
     box-shadow: inset 1px 1px shade(white,1.0),
                 inset 0px -1px shade(white,0.5);
 
-    padding: 3px;
-    margin-left: 3px;
+    margin-left: 2px;
+    margin-right: 1px;
+    border-top-left-radius: 2px 6px;
+    border-bottom-left-radius: 6px 2px;
+
+}
+notebook > header.left > tabs > tab:checked {
+    margin-left: 0px;
+    margin-right: 0px;
+
+	margin-top: -3px;
+	margin-bottom: -3px;
 }
 
+
 /* BOTTOM tabs */
+notebook > header.bottom {
+    margin-left: 0px; 
+    margin-right: -3px; 
+    margin-bottom: -2px;
+}
+notebook > header.bottom > tabs {
+    border-style: solid;
+    border-width: 1px 0px 0px 0px;
+    border-color: shade(white,0.5);
+    box-shadow: inset 0px 1px shade(white,0.2),
+                inset 0px 0px shade(white,1.0);
+
+    margin-left: 2px;
+    margin-right: 2px;
+}
 notebook > header.bottom > tabs > tab {
+    /* raised 2px EXCEPTION */
     border-top: 0px;
     box-shadow: inset 1px 0px shade(white,1.0),
                 inset -1px -1px shade(white,0.5);
 
-    padding: 3px;
-    margin-bottom: 3px;
+    margin-top: 0px;
+    margin-bottom: 1px;
+    border-bottom-left-radius: 2px 6px;
+    border-bottom-right-radius: 6px 2px;
+
+}
+notebook > header.bottom > tabs > tab:checked {
+    margin-top: -1px;
+    margin-bottom: -1px;
+
+	margin-left: -3px;
+	margin-right: -3px;
 }
 
+
 /* RIGHT tabs */
+notebook > header.right {
+    margin-top: 0px; 
+    margin-bottom: -3px; 
+    margin-right: -2px;
+}
+notebook > header.right > tabs {
+    border-style: solid;
+    border-width: 0px 0px 0px 1px;
+    border-color: shade(white,0.5);
+    box-shadow: inset 1px 0px shade(white,0.2),
+                inset 0px 0px shade(white,1.0);
+
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
 notebook > header.right > tabs > tab {
+    /* raised 2px EXCEPTION */
     border-left: 0px;
     box-shadow: inset 0px 1px shade(white,1.0),
                 inset -1px -1px shade(white,0.5);
 
-    padding: 3px;
-    margin-right: 3px;
+    margin-left: 0px;
+    margin-right: 1px;
+    border-top-right-radius: 6px 2px;
+    border-bottom-right-radius: 6px 2px;
+
 }
+notebook > header.right > tabs > tab:checked {
+    margin-left: -1px;
+    margin-right: -1px;
+
+	margin-top: -3px;
+	margin-bottom: -3px;
+}
+
 
 /* get the outline into the label... */
 notebook tab {
