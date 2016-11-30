@@ -168,7 +168,8 @@ scrollbar button:active {
 }
 
 /* Sunken 1px */
-toolbar button:selected, toolbar button:active,
+button.flat:selected, button.flat:active,
+toolbar button:selected, toolbar button:active, toolbar button:checked,
 levelbar trough,
 progressbar trough,
 menubar > menuitem:hover,
@@ -181,6 +182,7 @@ separator {
 
 /* Sunken 2px */
 stacksidebar list row:selected,
+stacksidebar list row:active,
 colorswatch:selected,
 calendar.view,
 frame,
@@ -202,6 +204,8 @@ check, radio {
 }
 
 /* Raised 1px */
+button.flat,
+button.flat:hover:not(:active),
 toolbar button,
 toolbar button:hover:not(:active),
 menubar,
@@ -237,6 +241,8 @@ notebook.frame {
 stacksidebar list row:selected:hover,
 stacksidebar list row:selected,
 button:selected, button:active, button:checked,
+toolbar button:active,
+toolbar button:checked,
 slider:disabled,
 trough,
 paned > separator {
@@ -268,6 +274,7 @@ switch slider,
 scrollbar button,
 scrollbar slider,
 combobox button,
+button.flat,
 toolbar button,
 spinbutton button,
 stacksidebar list row,
@@ -289,6 +296,8 @@ stacksidebar list row:selected,
 stacksidebar list row:active,
 stacksidebar list row:checked,
 stacksidebar list row:selected:hover,
+button.flat:active,
+button.flat:checked,
 toolbar button:active,
 toolbar button:checked,
 switch slider:active,
@@ -301,6 +310,14 @@ header button:checked,
 header button:active {
    padding: 3px 1px 1px 3px;
 }
+
+/* button has no decoration untill active/hover etc */
+toolbar button,
+button.flat {
+    border-color: transparent;
+}
+
+
 
 
 /*******************
@@ -1013,10 +1030,11 @@ notebook > header.right > tabs > tab:checked {
 /* get the outline into the label... */
 notebook tab {
   outline: 1px dotted black;
-  outline-offset: -6px;
+  outline-offset: -5px;
 }
 
 /* nautilus button still wonky... */
+notebook header tabs button.flat,
 notebook header tabs button {
   margin-left: 4px;
   margin-right: 5px;
@@ -1264,7 +1282,6 @@ toolbar button {
     min-height: 24px;
     margin-left: 2px;
     margin-right: 2px;
-    border-color: transparent; /* invisible button */
 }
 
 frame toolbar {
