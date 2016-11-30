@@ -833,33 +833,31 @@ menuitem > box > image {
  * notebook *
  ************/
 
-/* Must paint over the notebook.frame, so that we cut the bevel on the header side,
+/* Must paint over the notebook.frame top bevel by using the header side,
   cant do it any other way... */
 notebook {
   padding-left: 0px;
   padding-right: 0px;
   margin: 4px;
 }
-
-notebook > stack{
-  margin: 3px;
+/* Some notebooks use .frame styles, this fixes some unaligments */
+notebook.frame  {
+ padding-left: 2px;
+ padding-right: 0px;
 }
-
 notebook > header {
     background-color: @bg_color;
-    margin: -1px; 
+    margin-left: -3px; 
+    margin-right: -1px; 
+}
+notebook > stack{
+  margin: 3px;
 }
 
 notebook > header > tabs {
  margin-left: 2px;
  margin-right: 2px;
 }
-
-notebook > header > tabs > tab label {
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
 notebook > header > tabs > tab {
   padding-top: 4px;
   padding-bottom: 4px;
@@ -868,7 +866,12 @@ notebook > header > tabs > tab:checked {
   padding-top: 5px;
   padding-bottom: 7px;
 }
+notebook > header > tabs > tab label {
+  padding-left: 5px;
+  padding-right: 5px;
+}
 
+/* TOP tabs */
 notebook > header.top > tabs {
     border-style: solid;
     border-width: 1px 1px 0px 1px;
@@ -900,9 +903,7 @@ notebook > header.top > tabs > tab:checked:first-child {
     margin-right: -3px;
 }
 
-
-
-
+/* LEFT tabs */
 notebook > header.left > tabs > tab {
     border-right: 0px;
     box-shadow: inset 1px 1px shade(white,1.0),
@@ -912,6 +913,7 @@ notebook > header.left > tabs > tab {
     margin-left: 3px;
 }
 
+/* BOTTOM tabs */
 notebook > header.bottom > tabs > tab {
     border-top: 0px;
     box-shadow: inset 1px 0px shade(white,1.0),
@@ -921,6 +923,7 @@ notebook > header.bottom > tabs > tab {
     margin-bottom: 3px;
 }
 
+/* RIGHT tabs */
 notebook > header.right > tabs > tab {
     border-left: 0px;
     box-shadow: inset 0px 1px shade(white,1.0),
