@@ -221,7 +221,6 @@ stepper {
 /* Raised 2px */
 stacksidebar list row,
 colorswatch,
-decoration,
 combobox > window,
 calendar.header,
 button, .button,
@@ -234,7 +233,7 @@ notebook.frame {
     border-color: shade(@bg_color,1.0) shade(white,0.2) shade(white,0.2) shade(@bg_color,1.0);
     box-shadow: inset 1px 1px shade(white,1.0),
                 inset -1px -1px shade(white,0.5);
-    border-radius: 0;
+    border-radius: 0px;
 }
 
 /* Makes a checkerboard */
@@ -1455,16 +1454,62 @@ GtkBubbleWindow .toolbar {
  * Window *
  **********/
 
-/* Server-side decoration (SSD) */
-window.ssd {
-    background-color: @titlebar_bg_color;
+decoration {
+    border-radius: 0px;
+    border: 0px;
+    /* this is so ridiculous but i could not do it with borders + box-shadow */
+    box-shadow: 0px 0px 0 1px shade(white,0.2), /* outter bottom + right */
+               -1px -1px 0px 0px shade(@bg_color,1.0), -1px 0px 0px 0px shade(@bg_color,1.0), 0px -1px 0px 0px shade(@bg_color,1.0), /* outter top + left */
+                inset 1px 1px shade(white,1.0), /* inside top + left */
+                inset -1px -1px shade(white,0.5); /* inside bottom + right */
+    padding: 3px;
+    margin: 5px;
 }
 
-/* Client-side Decorations (CSD)*/
+/* Server-side decoration (SSD) */
+window.ssd headerbar,
+window.ssd .titlebar {
+    border-radius: 0px;
+    padding: 0px;
+    margin: 0px;
+    border: 3px solid transparent;
+    background-color: @selected_bg_color;
+    background-image: none;
+    text-shadow: none;
+}
+window.ssd .titlebar:backdrop {
+    padding: 0px;
+    margin: 0px;
+    background-color: @selected_inactive_bg_color;
+    color: @selected_inactive_fg_color;
+}
+/*
+.default-decoration
+ {
+ background-color: red;
+ border: 0px solid @bg_color;
+ border-bottom: 0px;
+ border-radius: 0px;
+}
+*/
+
+window.ssd .titlebar label{
+    padding: 0px;
+    margin: 0px;
+    font-size: 8pt;
+    color: @selected_fg_color;
+}
+
+window.ssd .titlebar label:backdrop,
+window.ssd .titlebar:backdrop label{
+    color: @selected_inactive_fg_color;
+}
+
 headerbar,
 .titlebar {
-    padding: 2px;
-    margin: 1px;
+    padding: 0px;
+    padding-left: 2px;
+    margin: 0px;
     background-color: @selected_bg_color;
     background-image: none;
     text-shadow: none;
@@ -1476,31 +1521,34 @@ headerbar:backdrop,
     background-color: @selected_inactive_bg_color;
 }
 
+headerbar > label,
+.titlebar > label,
 headerbar > box > label,
 .titlebar > box > label {
+    font-size: 8pt;
     color: @selected_fg_color;
 }
 
+headerbar:backdrop > label,
+.titlebar:backdrop > label,
 headerbar:backdrop > box > label,
 .titlebar:backdrop > box > label {
     color: @selected_inactive_fg_color;
 }
 
-.maximized headerbar,
-.maximized .titlebar {
-	border: 0px;
-    box-shadow: none;
-    padding: 0px; 
-    border-radius: 0;
-}
-
 headerbar entry {
   margin: 2px;
+  padding: 0px;
 }
 
-decoration {
-   padding: 2px;
-}
+/*
+.titlebar button:not(.titlebutton) {
+ padding: 0px;
+ margin-top: 3px;
+ margin-bottom: 3px;
+ min-height: 0px;
+ min-width: 0px;
+}*/
 
 /* we dont want any extra padding in those */
 menuitem > window,
@@ -1508,15 +1556,41 @@ window > menu {
    padding: 0px;
 }
 
-window.csd.maximized {
- border: 0px;
- box-shadow: none;
+.titlebar button  {
+  margin: 0px;
+  padding: 0px;
+  min-width: 0px;
+  min-height: 0px;
+}
+
+.titlebar button label  {
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 window.csd tooltip {
     border-radius: 0;
     border: 0 none black;
     box-shadow: none; 
+}
+
+window.ssd.maximized headerbar,
+window.ssd.maximized .titlebar,
+.maximized decoration,
+window.maximized,
+window.tiled {
+ border: 0px;
+ box-shadow: none;
+ margin: 0px;
+}
+
+.tiled headerbar,
+.maximized headerbar,
+.tiled .titlebar,
+.maximized .titlebar {
+	border: 0px;
+    box-shadow: none;
+    border-radius: 0;
 }
 
 /* declaration of .view was causing problems with white background rubberband in nautilus, putting this here for now */

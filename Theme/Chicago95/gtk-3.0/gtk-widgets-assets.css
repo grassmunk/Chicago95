@@ -1,45 +1,92 @@
 /******************
- * window actions *
+ * window buttons *
  ******************/
 
-.titlebutton.minimize {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image: url("buttons/icon-minimise.png");
+/* Makes the raised 2px effect slimmer on the top and left side */
+.titlebutton {
+ padding: 0px;
+ margin: 0px;
+ border-top: 0px;
+ border-left: 0px;
+ background-position: center;
+ background-repeat: no-repeat;
 }
 
+.titlebutton:active,
+.titlebutton:checked {
+ padding: 0px;
+ border-top: 0px;
+ border-left: 0px;
+ background-position: center 2px, center 2px;
+ background-repeat: no-repeat;
+}
+
+/* helps get hid of ugly fat buttons */
+/* also, image does not display any background image on ssd windows. thanks gnome devs. */
+.titlebutton image {
+ padding: 0px;
+ margin-top: -1px;
+ margin-bottom: -2px;
+ margin-left: -1px;
+ min-width: 0px;
+ min-height: 0px;
+}
+
+.titlebutton.close,
+.titlebutton.maximize,
+.titlebutton.minimize {
+    color: transparent; /* FUCKING dirty secret to get rid of static symbols in these buttons */
+
+}
+
+.titlebutton.minimize {
+    background-image: url("buttons/icon-minimise.png");
+    background-size: 12px;
+}
 .titlebutton.minimize:backdrop {
 }
 .titlebutton.minimize:checked {
 }
 
 .titlebutton.maximize {
-    background-position: center;
-    background-repeat: no-repeat;
     background-image: url("buttons/icon-maximise.png");
+    background-size: 11px;
 }
-
 .titlebutton.maximize:backdrop {
 }
 .titlebutton.maximize:checked {
 }
 
-.maximized .titlebutton.maximize {
+.maximized .titlebutton.maximize  {
     background-image: url("buttons/icon-restore.png");
+    background-size: 11px;
 }
 .maximized .titlebutton.maximize:active {
 }
 
 .titlebutton.close {
-    background-position: center;
-    background-repeat: no-repeat;
     background-image: url("buttons/icon-close.png");
+    background-size: 10px;
 }
-
 .titlebutton.close:backdrop {
 }
 .titlebutton.close:checked {
 }
+
+/* Groups these buttons together */
+/* doesen't work on ssd windows. get your shit together gnome poeple */
+.titlebutton.close {
+  margin-right: 2px;
+  margin-left: -4px;
+}
+.titlebutton.maximize {
+  margin-left: -6px;
+}
+
+
+
+
+
 
 /* Scroolbar Arrows */
 .scrollbar.button.vertical.top {
