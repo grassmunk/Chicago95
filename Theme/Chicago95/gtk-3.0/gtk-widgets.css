@@ -168,7 +168,7 @@ scrollbar button:active {
 }
 
 /* Sunken 1px */
-button.flat:selected, button.flat:active,
+button.flat:selected, button.flat:active, button.flat:checked,
 toolbar button:selected, toolbar button:active, toolbar button:checked,
 levelbar trough,
 progressbar trough,
@@ -193,6 +193,7 @@ switch,
 .sidebar list,
 scale trough,
 combobox button:checked,
+popover button.flat:selected, popover button.flat:active,
 button:selected, button:active,
 check, radio {
     border-style: solid;
@@ -205,9 +206,9 @@ check, radio {
 
 /* Raised 1px */
 button.flat,
-button.flat:hover:not(:active),
+button.flat:hover:not(:active):not(:checked):not(:selected),
 toolbar button,
-toolbar button:hover:not(:active),
+toolbar button:hover:not(:active):not(:checked):not(:selected),
 menubar,
 toolbar,
 stepper {
@@ -219,10 +220,12 @@ stepper {
 }
 
 /* Raised 2px */
+window > frame,
 stacksidebar list row,
 colorswatch,
 combobox > window,
 calendar.header,
+popover button.flat,
 button, .button,
 slider,
 notebook > header > tabs > tab,
@@ -256,6 +259,7 @@ paned > separator {
  * button *
  **********/
 
+popover button.flat,
 button, .button {
     padding: 4px;
     margin: 2px;
@@ -263,6 +267,8 @@ button, .button {
 }
 
 /* Button pressing contents shifting  */
+popover button.flat:checked,
+popover button.flat:active,
 button:checked,
 button:active {
  padding: 5px 3px 3px 5px;
@@ -315,8 +321,6 @@ toolbar button,
 button.flat {
     border-color: transparent;
 }
-
-
 
 
 /*******************
@@ -1576,7 +1580,7 @@ window.csd tooltip {
 
 window.ssd.maximized headerbar,
 window.ssd.maximized .titlebar,
-.maximized decoration,
+.maximized > decoration,
 window.maximized,
 window.tiled {
  border: 0px;
