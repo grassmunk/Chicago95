@@ -1377,19 +1377,6 @@ overlay.osd {
     color: mix(@theme_selected_fg_color, @error_color, 0.1);
 }
 
-.destructive-action.button:hover {
-    background-color: shade(@error_color, 1.12);
-    background-image: none;
-}
-
-.destructive-action.button:active {
-    background-color: shade(@error_color, 0.87);
-    background-image: none;
-}
-
-.destructive-action.button:hover:active {
-    border-color: shade(@error_color, 0.7);
-}
 
 /******************************
  * suggested action buttons *
@@ -1397,60 +1384,6 @@ overlay.osd {
 .suggested-action.button {
     color: @info_fg_color;
     background-color: @info_bg_color;
-}
-/*
-.suggested-action.button:hover {
-    border-color: shade(@theme_selected_bg_color, 0.8);
-    background-color: shade(@theme_selected_bg_color, 1.20);
-    background-image: none;
-} 
-
-.suggested-action.button:active {
-    border-color: shade(@theme_selected_bg_color, 0.9);
-    background-color: shade(@theme_selected_bg_color, 1.05);
-    background-image: none;
-}
-
-.suggested-action.button:hover:active {
-    border-color: shade(@theme_selected_bg_color, 0.8);
-}  */
-
-/******************
- * selection mode *
- ******************/
-.selection-mode.header-bar,
-.selection-mode.toolbar {
-    border-style: solid;
-    background-color: @theme_selected_bg_color;
-    background-image: none;
-    color: @theme_selected_bg_color;
-}
-
-.selection-mode.header-bar {
-    border-top-color: @theme_selected_bg_color;
-    border-bottom-color: @theme_selected_bg_color;
-}
-
-.selection-mode.toolbar {
-    padding: 4px;
-}
-
-/* selection mode items removed, default will be used */
-
-/*************************
- * touch text selections *
- *************************/
-GtkBubbleWindow {
-    border-radius: 0px;
-    background-clip: border-box;
-}
-
-GtkBubbleWindow.osd.background {
-    background-color: @osd_bg;
-}
-
-GtkBubbleWindow .toolbar {
-    background-color: transparent;
 }
 
 
