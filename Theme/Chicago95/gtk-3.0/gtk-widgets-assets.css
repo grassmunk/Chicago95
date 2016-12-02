@@ -76,7 +76,7 @@
 /* Groups these buttons together */
 /* doesen't work on ssd windows. get your shit together gnome poeple */
 .titlebutton.close {
-  margin-right: 2px;
+  margin-right: 0px;
   margin-left: -4px;
 }
 .titlebutton.maximize {

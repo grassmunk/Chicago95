@@ -1513,6 +1513,7 @@ headerbar,
 .titlebar {
     padding: 0px;
     padding-left: 2px;
+    padding-right: 2px;
     margin: 0px;
     background-color: @selected_bg_color;
     background-image: none;
@@ -1541,18 +1542,10 @@ headerbar:backdrop > box > label,
 }
 
 headerbar entry {
-  margin: 2px;
-  padding: 0px;
+  margin: 3px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
-
-/*
-.titlebar button:not(.titlebutton) {
- padding: 0px;
- margin-top: 3px;
- margin-bottom: 3px;
- min-height: 0px;
- min-width: 0px;
-}*/
 
 /* we dont want any extra padding in those */
 menuitem > window,
@@ -1570,6 +1563,14 @@ window > menu {
 .titlebar button label  {
   padding-left: 4px;
   padding-right: 4px;
+}
+
+.titlebar button:not(.titlebutton) {
+ padding: 0px;
+/* margin-top: 3px;
+ margin-bottom: 3px;*/
+ min-height: 0px;
+ min-width: 0px;
 }
 
 window.csd tooltip {
