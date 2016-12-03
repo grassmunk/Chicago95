@@ -1370,44 +1370,6 @@ colorswatch:selected {
 }
 
 
-/**************
- * header-bar *
- **************/
-
-headerbar .title {
-    font-weight: bold;
-    padding: 0 12px;
-}
-
-headerbar .subtitle {
-    font-size: smaller;
-    padding: 0 12px;
-}
-
-
-/***********
- * toolbar *
- ***********/
-
-toolbar {
-    -GtkWidget-window-dragging: true;
-    padding: 4px;
-    border-left: 0px;
-    border-right: 0px;
-}
-
-toolbar button {
-    min-width: 24px;
-    min-height: 24px;
-    margin-left: 2px;
-    margin-right: 2px;
-}
-
-frame toolbar {
- margin: 1px;
-}
-
-
 /*************************************************
  * tooltip popover app-notification floating-bar *
  *************************************************/
@@ -1500,6 +1462,44 @@ overlay.osd {
 .suggested-action.button {
     color: @info_fg_color;
     background-color: @info_bg_color;
+}
+
+
+/**************
+ * header-bar *
+ **************/
+
+headerbar .title {
+    font-weight: bold;
+    padding: 0 12px;
+}
+
+headerbar .subtitle {
+    font-size: smaller;
+    padding: 0 12px;
+}
+
+
+/***********
+ * toolbar *
+ ***********/
+
+toolbar {
+    -GtkWidget-window-dragging: true;
+    padding: 4px;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+toolbar button {
+    min-width: 24px;
+    min-height: 24px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+frame toolbar {
+ margin: 1px;
 }
 
 
