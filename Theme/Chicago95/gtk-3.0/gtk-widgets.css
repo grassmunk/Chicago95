@@ -43,6 +43,9 @@
     color: @theme_fg_color;
 }
 
+iconview:selected,
+:not(check):not(radio).view:selected,
+/*iconview in nautilus breaks without this, but with it radio and check buttons background break in lists... */
 *:selected,
 selection {
     background-color: @theme_selected_bg_color;
