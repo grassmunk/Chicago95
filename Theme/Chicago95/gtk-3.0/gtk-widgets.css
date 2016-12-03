@@ -1068,7 +1068,7 @@ levelbar.vertical trough,
 progressbar.vertical trough,
 progressbar.vertical progress {
     min-width: 14px;
-    min-height: 40px; /* vertical progressbar is squished in awf... */
+    min-height: 60px; /* vertical progressbar is squished in awf... */
 }
 
 levelbar block,
@@ -1090,10 +1090,14 @@ levelbar.horizontal.discrete block {
 }
 
 scale.vertical {
+    margin-top: 3px;
+    margin-bottom: 3px;
     padding: 1px 7px 1px 7px;
 }
 
 scale.horizontal {
+    margin-left: 3px;
+    margin-right: 3px;
     padding: 9px 1px 9px 1px;
 }
 
@@ -1126,9 +1130,14 @@ scale.color contents trough {
   min-width: 8px;
 }
 
-/* outline inside the trough node is terrible, can't put it anywhere else... */
+/* outline inside the trough node is terrible, this disables it but 
+  can't put it in the slider...
 scale *:focus {
     outline: 0px;
+} */
+
+scale:focus trough {
+  outline-offset: 2px;
 }
 
 
