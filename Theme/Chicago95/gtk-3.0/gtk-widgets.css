@@ -145,26 +145,51 @@ border.flat {
 }
 
 arrow {
-  -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
-  min-height: 12px;
-  min-width: 12px; 
-  color: alpha(currentColor, 0.7);
+  background-image: url("assets/arrow-down.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 11px;
+  min-height: 10px;
+  min-width: 10px; 
+}
+*:hover > arrow {
+  background-image: url("assets/arrow-down-selected.png");
 }
 
+tabs > arrow.up,
+expander arrow,
 arrow.right {
-  -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
-  -gtk-icon-transform: rotate(90deg);
-  min-height: 12px;
-  min-width: 12px; 
-  color: alpha(currentColor, 0.7);
+  background-image: url("assets/arrow-right.png");
+}
+tabs > arrow.up:hover,
+expander arrow:hover,
+*:hover > arrow.right {
+  background-image: url("assets/arrow-right-selected.png");
 }
 
+tabs > arrow.down,
 arrow.left {
-  -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
-  -gtk-icon-transform: rotate(-90deg);
-  min-height: 12px;
-  min-width: 12px; 
-  color: alpha(currentColor, 0.7);
+  background-image: url("assets/arrow-left.png");
+}
+tabs > arrow.down:hover,
+*:hover > arrow.left {
+  background-image: url("assets/arrow-left-selected.png");
+}
+
+arrow.up {
+  background-image: url("assets/arrow-up.png");
+}
+*:hover > arrow.up {
+  background-image: url("assets/arrow-up-selected.png");
+}
+
+expander arrow:checked,
+arrow.down {
+  background-image: url("assets/arrow-down.png");
+}
+expander arrow:checked:hover,
+*:hover > arrow.down {
+  background-image: url("assets/arrow-down-selected.png");
 }
 
 
@@ -305,13 +330,6 @@ header button {
     background-color: @bg_color;
 }
 
-/* Buton pressing contents shifting is wonky with scrollbars */
-scrollbar button:checked,
-scrollbar button:active,
-scrollbar slider:checked,
-scrollbar slider:active {
-   padding: 2px; /*3px 1px 1px 3px;*/
-}
 
 stacksidebar list row:selected,
 stacksidebar list row:active,
@@ -326,10 +344,20 @@ switch slider:checked,
 combobox button:checked,
 combobox button:active,
 spinbutton button:checked,
-spinbutton button:active,
+spinbutton button:active {
+   padding: 3px 1px 1px 3px;
+}
+
+/* These have no button pressing effect */
+scrollbar button:checked,
+scrollbar button:active,
+scrollbar slider:checked,
+scrollbar slider:active {
+   padding: 2px;
+}
 header button:checked,
 header button:active {
-   padding: 3px 1px 1px 3px;
+   padding: 0px;
 }
 
 /* button has no decoration untill active/hover etc */
@@ -605,7 +633,7 @@ combobox  button {
  margin-bottom: 2px;
 }
 
-combobox entry{
+combobox entry {
  margin-right: -24px;
 }
 
@@ -622,13 +650,12 @@ scrollbar {
 }
 
 /* where is the junction? in scrollablewindow? doesent exists anymore? */
-scrollbar junction {
+scrollbar.junction,
+scrollbar .junction {
   border-width: 1px;
   border-style: solid;
   border-color: #c0c0c0;
-  border-radius: 0;
-  background-color: #c0c0c0;
-  box-shadow: none
+  background-color: red;
 }
 
 scrollbar.vertical slider {
@@ -641,23 +668,41 @@ scrollbar.horizontal slider {
 }
 
 scrollbar button {
+    -gtk-icon-source: none;
+    background-image: url("assets/arrow-down.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 9px;
 	min-width: 10px;
 	min-height: 10px;
 }
 
 scrollbar.vertical button.up {
-  -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
+  background-image: url("assets/arrow-up.png");
 }
+scrollbar.vertical button.up:disabled {
+  background-image: url("assets/arrow-up-disabled.png");
+}
+
 scrollbar.vertical button.down {
-  -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+  background-image: url("assets/arrow-down.png");
 }
+scrollbar.vertical button.down:disabled {
+  background-image: url("assets/arrow-down-disabled.png");
+}
+
 scrollbar.horizontal button.up {
-  -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
-  -gtk-icon-transform: rotate(-90deg);
+  background-image: url("assets/arrow-left.png");
 }
+scrollbar.horizontal button.up:disabled {
+  background-image: url("assets/arrow-left-disabled.png");
+}
+
 scrollbar.horizontal button.down {
-  -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
-  -gtk-icon-transform: rotate(90deg);
+  background-image: url("assets/arrow-right.png");
+}
+scrollbar.horizontal button.down:disabled {
+  background-image: url("assets/arrow-right-disabled.png");
 }
 
 
@@ -730,11 +775,6 @@ calendar.header {
 expander arrow {
  min-width: 16px;
  min-height: 16px;
-  -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
-}
-
-expander arrow:checked {
-   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
 }
 
 
@@ -1096,6 +1136,12 @@ notebook header tabs button.flat,
 notebook header tabs button {
   margin-left: 4px;
   margin-right: 5px;
+}
+
+tabs > arrow {
+  background-color: transparent;
+  padding: 2px;
+  -gtk-icon-source: none;
 }
 
 
@@ -1608,6 +1654,94 @@ window.ssd.maximized .titlebar {
     border-radius: 0;
 }
 
+
+/******************
+ * window buttons *
+ ******************/
+
+/* Makes the raised 2px effect slimmer on the top and left side */
+.titlebutton {
+ padding: 0px;
+ margin: 0px;
+ border-top: 0px;
+ border-left: 0px;
+ background-position: center;
+ background-repeat: no-repeat;
+}
+
+.titlebutton:active,
+.titlebutton:checked {
+ padding: 0px;
+ border-top: 0px;
+ border-left: 0px;
+ background-position: center 2px, center 2px;
+ background-repeat: no-repeat;
+}
+
+/* helps get hid of ugly fat buttons */
+/* also, image does not display any background image on ssd windows. thanks gnome devs. */
+.titlebutton image {
+ padding: 0px;
+ margin-top: -1px;
+ margin-bottom: -2px;
+ margin-left: -1px;
+ min-width: 0px;
+ min-height: 0px;
+}
+
+.titlebutton.close,
+.titlebutton.maximize,
+.titlebutton.minimize {
+    color: transparent; /* FUCKING dirty secret to get rid of static symbols in these buttons */
+
+}
+
+.titlebutton.minimize {
+    background-image: url("buttons/icon-minimise.png");
+    background-size: 12px;
+}
+.titlebutton.minimize:backdrop {
+}
+.titlebutton.minimize:checked {
+}
+
+.titlebutton.maximize {
+    background-image: url("buttons/icon-maximise.png");
+    background-size: 11px;
+}
+.titlebutton.maximize:backdrop {
+}
+.titlebutton.maximize:checked {
+}
+
+.maximized .titlebutton.maximize  {
+    background-image: url("buttons/icon-restore.png");
+    background-size: 11px;
+}
+.maximized .titlebutton.maximize:active {
+}
+
+.titlebutton.close {
+    background-image: url("buttons/icon-close.png");
+    background-size: 10px;
+}
+.titlebutton.close:backdrop {
+}
+.titlebutton.close:checked {
+}
+
+/* Groups these buttons together */
+/* doesen't work on ssd windows. get your shit together gnome poeple */
+.titlebutton.close {
+  margin-right: 0px;
+  margin-left: -4px;
+}
+.titlebutton.maximize {
+  margin-left: -6px;
+}
+
+
+
 /* declaration of .view was causing problems with white background rubberband in nautilus, putting this here for now */
 flowbox rubberband, treeview.view rubberband, .content-view rubberband,
 .rubberband, rubberband {
@@ -1616,4 +1750,3 @@ flowbox rubberband, treeview.view rubberband, .content-view rubberband,
  /* box-shadow: inset 1px 1px 0px 0px black,
                 inset -1px -1px 0px 0px black; */
 }
-

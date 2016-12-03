@@ -96,7 +96,6 @@
 @define-color progressbar_color @selected_bg_color;
 
 @import url("gtk-widgets.css");
-@import url("gtk-widgets-assets.css");
 
 /* @import url("apps/gnome-applications.css");
 @import url("apps/granite-widgets.css");
