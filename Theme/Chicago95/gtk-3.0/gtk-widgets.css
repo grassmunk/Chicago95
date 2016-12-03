@@ -114,9 +114,22 @@ slider, .slider {
     background-color: @bg_color;
 }
 
-frame, .frame {
+frame {
+    background-color: transparent;
+    padding: 2px;
+}
+.frame {
     background-color: transparent;
     padding: 0px;
+}
+
+/* since .view is white and frame is generally behind grey, lets nullify frame's padding */
+frame > list,
+frame > .view  {
+ margin: -2px;
+}
+frame > scrolledwindow {
+ margin: -3px;
 }
 
 /* frame always comes with a border element which is the one that should be decorated, but so far i found
@@ -325,6 +338,10 @@ button.flat {
     border-color: transparent;
 }
 
+viewport button.flat {
+   background-color: transparent;
+}
+
 
 /*******************
  * check and radio *
@@ -404,6 +421,11 @@ view, .view {
     color: @theme_text_color;
 }
 
+box.view {
+    background-color: @bg_color;
+	color: @fg_color;
+}
+
 view:disabled,
 view:disabled:disabled {
     background-color: @bg_color;
@@ -425,9 +447,9 @@ iconview {
  * list cell and row *
  *********************/
 
-cell, .cell,
-row, .row {
-    border-width: 1px 0px 0px 1px;
+cell,:not(check):not(radio).cell,
+row, :not(check):not(radio).row {
+    border-width: 0px 0px 1px 0px;
     border-style: solid;
     border-color: mix(@fg_color,@base_color,0.7);
 }
@@ -442,17 +464,24 @@ row:selected:focus {
     outline-offset: 0px;
 }
 
-/* a bit of a hack to get the cells/rows borders to match with empty space on the list borders */
-list {
-    box-shadow: inset 1px 1px shade(@base_color,0.7);
-}
-
 list > separator {
     border: 0px;
 	min-height: 0px;
 	min-width: 0px;
 }
 
+
+/*********
+ * paned *
+ *********/
+
+paned  {
+   margin: 2px;
+}
+
+paned > paned {
+   margin: 0px;
+}
 
 /*************
  * separator *
@@ -463,12 +492,12 @@ separator {
 	min-height: 0px;
 }
 
-*.horizontal separator {
+.horizontal separator {
   margin-top: 4px;
   margin-bottom: 4px;
 }
 
-*.vertical separator {
+.vertical separator {
   margin-left: 4px;
   margin-right: 4px;
 }
@@ -482,14 +511,19 @@ paned > separator {
 }
 
 paned.vertical > separator {
+   margin-top: 2px;
+   margin-bottom: 2px;
    padding-top: 1px;
    padding-bottom: 1px;
 }
 
 paned.horizontal > separator {
+   margin-left: 2px;
+   margin-right: 2px;
    padding-left: 1px;
    padding-right: 1px;
 }
+
 
 toolbar > separator {
    margin: 0px 2px 0px 2px;
@@ -530,6 +564,11 @@ treeview entry {
     border-radius: 0;
     background-color: @theme_base_color;
     background-image: none;
+}
+
+header > button {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 
@@ -673,9 +712,9 @@ GtkHTML {
 ************/
 
 calendar {
-    padding-left: 1px;
-    padding-top: 1px;
-    padding-right: 1px;
+    padding-left: 2px;
+    padding-top: 2px;
+    padding-right: 2px;
     outline-offset: 0px;
 }
 
@@ -704,10 +743,22 @@ expander arrow:checked {
  *******************/
 
 /* avoid double borders when a viewport is
- * packed into a GtkScrolledWindow */
+ * packed into a GtkScrolledWindow 
 scrolledwindow viewport {
     border-style: none;
+} */
+
+scrolledwindow.frame,
+scrolledwindow {
+  padding: 1px;
+  padding-bottom: 0px;
 }
+
+/* transmission misteriously resets border-width to zero, cant even force it here
+scrolledwindow.frame {
+ border-width: 1px;
+} */
+
 
 /* nautilus seems to have a special transparent icon canvas, since scrolledwindow is also transparent
   the default background color is shown, lets paint it with the base color */
@@ -864,7 +915,7 @@ notebook.frame,
 notebook {
   padding-left: 0px;
   padding-right: 0px;
-  margin: 4px;
+  margin: 0px;
 }
 notebook > header {
   background-color: @bg_color;
@@ -1204,8 +1255,14 @@ stacksidebar list row:selected:hover {
  ***********/
 
 .sidebar list {
-  margin: 3px;
   padding: 1px;
+}
+
+placessidebar list > row,
+.sidebar list > row {
+  padding-bottom: 1px;
+  padding-left: 4px;
+  padding-right: 2px;
 }
 
 
@@ -1423,6 +1480,7 @@ window.ssd .titlebar {
     padding: 0px;
     margin: 0px;
     border: 3px solid transparent;
+    border-bottom: 1px solid transparent;
     background-color: @selected_bg_color;
     background-image: none;
     text-shadow: none;
@@ -1558,3 +1616,4 @@ flowbox rubberband, treeview.view rubberband, .content-view rubberband,
  /* box-shadow: inset 1px 1px 0px 0px black,
                 inset -1px -1px 0px 0px black; */
 }
+
