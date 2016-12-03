@@ -17,6 +17,11 @@
 @define-color selected_inactive_fg_color #000000;
 @define-color tooltip_bg_color #ffffBf;
 @define-color tooltip_fg_color #000000;
+@define-color bg_bright shade(white, 0.99);
+@define-color bg_shade shade(@bg_color, 0.66);
+@define-color bg_dark shade(@bg_color, 0.13);
+@define-color border_bright white;
+@define-color border_dark black;
 
 /* dark color scheme */
 @define-color dark_bg_color @bg_color;
@@ -33,13 +38,9 @@
 @define-color theme_tooltip_fg_color @tooltip_fg_color;
 
 /*Nemo Desktop shadow fix*/
- @define-color desktop_item_fg #ffffff;
- @define-color desktop_item_selected_fg shade(@theme_selected_fg_color, 0.8);
- @define-color desktop_item_text_shadow alpha(black, 0.8);
-
-/* shadow effects */
-@define-color light_shadow #fff;
-@define-color dark_shadow #000;
+@define-color desktop_item_fg #ffffff;
+@define-color desktop_item_selected_fg shade(@theme_selected_fg_color, 0.8);
+@define-color desktop_item_text_shadow alpha(black, 0.8);
 
 /* misc colors used by gtk+ */
 @define-color info_fg_color @fg_color;
@@ -54,18 +55,6 @@
 @define-color success_color #53d013;
 @define-color warning_color #f57600;
 @define-color error_color #cc0000;
-
-/* widget colors */
-@define-color titlebar_bg_color @dark_bg_color;
-@define-color titlebar_fg_color @dark_fg_color;
-@define-color menubar_bg_color @dark_bg_color;
-@define-color menubar_fg_color @dark_fg_color;
-@define-color toolbar_bg_color @dark_bg_color; /*@theme_bg_color;*/
-@define-color toolbar_fg_color @dark_fg_color; /*@theme_fg_color;*/
-@define-color menu_bg_color @bg_color;
-@define-color menu_fg_color @fg_color;
-@define-color panel_bg_color @dark_bg_color;
-@define-color panel_fg_color @dark_fg_color;
 
 /* osd */
 @define-color osd_base @dark_bg_color;
@@ -90,7 +79,7 @@
 @define-color wm_icons_unfocused_pressed shade(@selected_bg_color, 0.8);
 
 /*Terminal Text color*/
-@define-color terminal_text_color @bg_color;
+@define-color terminal_text_color @text_color;
 
 /*Progressbar bg color*/
 @define-color progressbar_color @selected_bg_color;

@@ -55,12 +55,12 @@ selection {
 *:disabled,
 *:disabled:disabled {
     color: #808080;
-    text-shadow: 1px 1px 0 white;
+    text-shadow: 1px 1px 0 @border_bright;
     -gtk-icon-effect: dim;
 }
 
 *:focus {
-    outline: 1px dotted black;
+    outline: 1px dotted @border_dark;
     -gtk-outline-radius: 0px;
     outline-offset: -3px;
 }
@@ -202,7 +202,7 @@ button:checked,
 scrollbar button:active {
   border-style: solid;
   border-width: 1px;
-  border-color: shade(white,0.5);
+  border-color: @bg_shade;
   border-radius: 0;
   background-color: @bg_color;
   box-shadow: none;
@@ -217,7 +217,7 @@ menubar > menuitem:hover,
 separator {
     border-style: solid;
     border-width: 1px;
-    border-color: shade(white,0.5) shade(white,0.9) shade(white,0.9) shade(white,0.5);
+    border-color: @bg_shade @bg_bright @bg_bright @bg_shade;
     border-radius: 0;
 }
 
@@ -239,9 +239,9 @@ button:selected, button:active,
 check, radio {
     border-style: solid;
     border-width: 1px;
-    border-color: shade(white,0.5) shade(white,0.9) shade(white,0.9) shade(white,0.5);
-    box-shadow: inset 1px 1px shade(white,0.2),
-                inset -1px -1px shade(white,0.8);
+    border-color: @bg_shade @bg_bright @bg_bright @bg_shade;
+    box-shadow: inset 1px 1px @bg_dark,
+                inset -1px -1px @bg_color;
     border-radius: 0;
 }
 
@@ -255,7 +255,7 @@ toolbar,
 stepper {
     border-style: solid;
     border-width: 1px;
-    border-color: shade(white,0.9) shade(white,0.5) shade(white,0.5) shade(white,0.9);
+    border-color: @bg_bright @bg_shade @bg_shade @bg_bright;
     box-shadow: none;
     border-radius: 0;
 }
@@ -274,9 +274,9 @@ notebook,
 notebook.frame {
     border-style: solid;
     border-width: 1px;
-    border-color: shade(@bg_color,1.0) shade(white,0.2) shade(white,0.2) shade(@bg_color,1.0);
-    box-shadow: inset 1px 1px shade(white,1.0),
-                inset -1px -1px shade(white,0.5);
+    border-color: @bg_color @bg_dark @bg_dark @bg_color;
+    box-shadow: inset 1px 1px @bg_bright,
+                inset -1px -1px @bg_shade;
     border-radius: 0px;
 }
 
@@ -289,8 +289,8 @@ toolbar button:checked,
 slider:disabled,
 trough,
 paned > separator {
-    background-color: white;
-    background-image: linear-gradient(45deg, #c0c0c0 25%, transparent 25%, transparent 75%, #c0c0c0 75%, #c0c0c0), linear-gradient(45deg, #c0c0c0 25%, transparent 25%, transparent 75%, #c0c0c0 75%, black);
+    background-color: @border_bright;
+    background-image: linear-gradient(45deg, #c0c0c0 25%, transparent 25%, transparent 75%, #c0c0c0 75%, #c0c0c0), linear-gradient(45deg, #c0c0c0 25%, transparent 25%, transparent 75%, #c0c0c0 75%, @border_dark);
     background-size: 2px 2px;
     background-position: 0 0, 1px 1px;
 }
@@ -387,12 +387,12 @@ radiobutton label,
 checkbutton label{
  padding-left: 4px;
  padding-right: 4px;
- border: 1px dotted alpha(black,0);
+ border: 1px dotted alpha(@border_dark,0);
 }
 
 radiobutton:focus label,
 checkbutton:focus label{
- border: 1px dotted black;
+ border: 1px dotted @border_dark;
 }
 
 check,
@@ -537,6 +537,11 @@ paned > separator {
    min-height: 1px;
    -gtk-icon-source: none;
 }
+/* quodlibet likes to reset background-image here...
+paned separator {
+    background-image: linear-gradient(45deg, #c0c0c0 25%, transparent 25%, transparent 75%, #c0c0c0 75%, #c0c0c0), linear-gradient(45deg, #c0c0c0 25%, transparent 25%, transparent 75%, #c0c0c0 75%, @border_dark);
+}*/
+
 
 paned.vertical > separator {
    margin-top: 2px;
@@ -720,10 +725,8 @@ assistant .sidebar {
     padding: 4px;
     border-width: 0 1px 0 0;
     border-style: solid;
-    border-right-color: shade(@theme_bg_color, 0.8);
+    border-right-color: @bg_shade;
     border-radius: 0;
-    background-color: @theme_bg_color;
-    color: mix(@theme_fg_color, @theme_bg_color, 0.1);
 }
 
 
@@ -812,7 +815,7 @@ scrolledwindow.frame {
  ************/
 
 iconview.view.cell {
-    border: 0px solid black;
+    border: 0px solid @border_dark;
     border-radius: 0px;
 }
 
@@ -823,7 +826,7 @@ iconview.view.cell {
 
 infobar {
     padding:2px;
-    border: 1px solid black;
+    border: 1px solid @border_dark;
     border-radius: 1px;
 }
 
@@ -927,18 +930,6 @@ menuitem > label {
     margin-right: 2px;
 }
 
-menuitem entry {
-    border-color: shade(@bg_color, 0.6);
-    background-color: @menu_bg_color;
-    background-image: none;
-    color: @menu_fg_color;
-}
-
-menuitem entry:active,
-menuitem entry:focus {
-    border-color: shade(@selected_bg_color, 0.6);
-}
-
 menuitem > box > image {
     padding-right: 4px;
 }
@@ -988,8 +979,8 @@ notebook > header.top > tabs {
     border-style: solid;
     border-width: 1px 1px 0px 1px;
     border-color: alpha(@bg_color,0.0);
-    box-shadow: inset 0px 0px shade(white,0.5),
-                inset 0px -1px shade(white,1.0);
+    box-shadow: inset 0px 0px @bg_shade,
+                inset 0px -1px @bg_bright;
 
     margin-left: 2px;
     margin-right: 2px;
@@ -997,8 +988,8 @@ notebook > header.top > tabs {
 notebook > header.top > tabs > tab {
     /* raised 2px EXCEPTION */
     border-bottom: 0px;
-    box-shadow: inset 1px 1px shade(white,1.0),
-                inset -1px 0px shade(white,0.5);
+    box-shadow: inset 1px 1px @bg_bright,
+                inset -1px 0px @bg_shade;
 
     margin-top: 2px;
     margin-bottom: 1px;
@@ -1024,8 +1015,8 @@ notebook > header.left > tabs {
     border-style: solid;
     border-width: 1px 0px 1px 1px;
     border-color: alpha(@bg_color,0.0);
-    box-shadow: inset 0px 0px shade(white,1.0),
-                inset -1px 0px shade(white,1.0);
+    box-shadow: inset 0px 0px @bg_bright,
+                inset -1px 0px @bg_bright;
 
     margin-top: 2px;
     margin-bottom: 2px;
@@ -1033,8 +1024,8 @@ notebook > header.left > tabs {
 notebook > header.left > tabs > tab {
     /* raised 2px EXCEPTION */
     border-right: 0px;
-    box-shadow: inset 1px 1px shade(white,1.0),
-                inset 0px -1px shade(white,0.5);
+    box-shadow: inset 1px 1px @bg_bright,
+                inset 0px -1px @bg_shade;
 
     margin-left: 2px;
     margin-right: 1px;
@@ -1060,9 +1051,9 @@ notebook > header.bottom {
 notebook > header.bottom > tabs {
     border-style: solid;
     border-width: 1px 0px 0px 0px;
-    border-color: shade(white,0.5);
-    box-shadow: inset 0px 1px shade(white,0.2),
-                inset 0px 0px shade(white,1.0);
+    border-color: @bg_shade;
+    box-shadow: inset 0px 1px @bg_dark,
+                inset 0px 0px @bg_bright;
 
     margin-left: 2px;
     margin-right: 2px;
@@ -1070,8 +1061,8 @@ notebook > header.bottom > tabs {
 notebook > header.bottom > tabs > tab {
     /* raised 2px EXCEPTION */
     border-top: 0px;
-    box-shadow: inset 1px 0px shade(white,1.0),
-                inset -1px -1px shade(white,0.5);
+    box-shadow: inset 1px 0px @bg_bright,
+                inset -1px -1px @bg_shade;
 
     margin-top: 0px;
     margin-bottom: 1px;
@@ -1097,9 +1088,9 @@ notebook > header.right {
 notebook > header.right > tabs {
     border-style: solid;
     border-width: 0px 0px 0px 1px;
-    border-color: shade(white,0.5);
-    box-shadow: inset 1px 0px shade(white,0.2),
-                inset 0px 0px shade(white,1.0);
+    border-color: @bg_shade;
+    box-shadow: inset 1px 0px @bg_dark,
+                inset 0px 0px @bg_bright;
 
     margin-top: 2px;
     margin-bottom: 2px;
@@ -1107,8 +1098,8 @@ notebook > header.right > tabs {
 notebook > header.right > tabs > tab {
     /* raised 2px EXCEPTION */
     border-left: 0px;
-    box-shadow: inset 0px 1px shade(white,1.0),
-                inset -1px -1px shade(white,0.5);
+    box-shadow: inset 0px 1px @bg_bright,
+                inset -1px -1px @bg_shade;
 
     margin-left: 0px;
     margin-right: 1px;
@@ -1127,7 +1118,7 @@ notebook > header.right > tabs > tab:checked {
 
 /* get the outline into the label... */
 notebook tab {
-  outline: 1px dotted black;
+  outline: 1px dotted @border_dark;
   outline-offset: -5px;
 }
 
@@ -1283,14 +1274,14 @@ stacksidebar list row:selected:focus:hover,
 stacksidebar list row:selected:hover {
     padding: 2px;
     margin: 0px;
-    background-color: white;
+    background-color: @border_bright;
     color: @fg_color;
 }
 
 stacksidebar list row:selected,
 stacksidebar list row:selected:focus,
 stacksidebar list row:selected:hover {
-    outline: 1px dotted black;
+    outline: 1px dotted @border_dark;
     -gtk-outline-radius: 0px;
     outline-offset: -6px;
 }
@@ -1382,7 +1373,7 @@ tooltip.background,
 tooltip {
     background-color: @theme_tooltip_bg_color;
     color: @theme_tooltip_fg_color;
-    border: 1px solid black;
+    border: 1px solid @border_dark;
     box-shadow: none;
 }
 
@@ -1511,10 +1502,10 @@ decoration {
     border-radius: 0px;
     border: 0px;
     /* this is so ridiculous but i could not do it with borders + box-shadow */
-    box-shadow: 0px 0px 0 1px shade(white,0.2), /* outter bottom + right */
-               -1px -1px 0px 0px shade(@bg_color,1.0), -1px 0px 0px 0px shade(@bg_color,1.0), 0px -1px 0px 0px shade(@bg_color,1.0), /* outter top + left */
-                inset 1px 1px shade(white,1.0), /* inside top + left */
-                inset -1px -1px shade(white,0.5); /* inside bottom + right */
+    box-shadow: 0px 0px 0 1px @bg_dark, /* outter bottom + right */
+               -1px -1px 0px 0px @bg_color, -1px 0px 0px 0px @bg_color, 0px -1px 0px 0px @bg_color, /* outter top + left */
+                inset 1px 1px @bg_bright, /* inside top + left */
+                inset -1px -1px @bg_shade; /* inside bottom + right */
     padding: 3px;
     margin: 5px;
 }
@@ -1625,7 +1616,7 @@ window > menu {
 
 window.csd tooltip {
     border-radius: 0;
-    border: 0 none black;
+    border: 0 none @border_dark;
     box-shadow: none; 
 }
 
@@ -1745,8 +1736,8 @@ window.ssd.maximized .titlebar {
 /* declaration of .view was causing problems with white background rubberband in nautilus, putting this here for now */
 flowbox rubberband, treeview.view rubberband, .content-view rubberband,
 .rubberband, rubberband {
-  border: 1px solid black;
+  border: 1px solid @border_dark;
   background-color: transparent;
- /* box-shadow: inset 1px 1px 0px 0px black,
-                inset -1px -1px 0px 0px black; */
+ /* box-shadow: inset 1px 1px 0px 0px @border_dark,
+                inset -1px -1px 0px 0px @border_dark; */
 }
