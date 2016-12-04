@@ -44,22 +44,22 @@
 }
 
 iconview:selected,
-:not(check):not(radio).view:selected,
 /*iconview in nautilus breaks without this, but with it radio and check buttons background break in lists... */
-*:selected,
+:not(check):not(radio).view:selected,
+:selected,
 selection {
     background-color: @theme_selected_bg_color;
     color: @theme_selected_fg_color;
 }
 
-*:disabled,
-*:disabled:disabled {
+:disabled,
+:disabled:disabled {
     color: #808080;
     text-shadow: 1px 1px 0 @border_bright;
     -gtk-icon-effect: dim;
 }
 
-*:focus {
+:focus {
     outline: 1px dotted @border_dark;
     -gtk-outline-radius: 0px;
     outline-offset: -3px;
@@ -126,10 +126,10 @@ frame {
 /* since .view is white and frame is generally behind grey, lets nullify frame's padding */
 frame > list,
 frame > .view  {
- margin: -2px;
+    margin: -2px;
 }
 frame > scrolledwindow {
- margin: -3px;
+    margin: -3px;
 }
 
 /* frame always comes with a border element which is the one that should be decorated, but so far i found
@@ -140,56 +140,56 @@ frame > label {
 }
 
 border.flat {
-  border-style: none;
-  box-shadow: none;
+    border-style: none;
+    box-shadow: none;
 }
 
 arrow {
-  background-image: url("assets/arrow-down.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 11px;
-  min-height: 10px;
-  min-width: 10px; 
+    background-image: url("assets/arrow-down.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 11px;
+    min-height: 10px;
+    min-width: 10px; 
 }
-*:hover > arrow {
-  background-image: url("assets/arrow-down-selected.png");
+:hover > arrow {
+    background-image: url("assets/arrow-down-selected.png");
 }
 
 tabs > arrow.up,
 expander arrow,
 arrow.right {
-  background-image: url("assets/arrow-right.png");
+    background-image: url("assets/arrow-right.png");
 }
 tabs > arrow.up:hover,
 expander arrow:hover,
-*:hover > arrow.right {
-  background-image: url("assets/arrow-right-selected.png");
+:hover > arrow.right {
+    background-image: url("assets/arrow-right-selected.png");
 }
 
 tabs > arrow.down,
 arrow.left {
-  background-image: url("assets/arrow-left.png");
+    background-image: url("assets/arrow-left.png");
 }
 tabs > arrow.down:hover,
-*:hover > arrow.left {
-  background-image: url("assets/arrow-left-selected.png");
+:hover > arrow.left {
+    background-image: url("assets/arrow-left-selected.png");
 }
 
 arrow.up {
-  background-image: url("assets/arrow-up.png");
+    background-image: url("assets/arrow-up.png");
 }
-*:hover > arrow.up {
-  background-image: url("assets/arrow-up-selected.png");
+:hover > arrow.up {
+    background-image: url("assets/arrow-up-selected.png");
 }
 
 expander arrow:checked,
 arrow.down {
-  background-image: url("assets/arrow-down.png");
+    background-image: url("assets/arrow-down.png");
 }
 expander arrow:checked:hover,
-*:hover > arrow.down {
-  background-image: url("assets/arrow-down-selected.png");
+:hover > arrow.down {
+    background-image: url("assets/arrow-down-selected.png");
 }
 
 
@@ -200,12 +200,12 @@ expander arrow:checked:hover,
 /* Sunken flat 1px */
 button:checked,
 scrollbar button:active {
-  border-style: solid;
-  border-width: 1px;
-  border-color: @bg_shade;
-  border-radius: 0;
-  background-color: @bg_color;
-  box-shadow: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: @bg_shade;
+    border-radius: 0;
+    background-color: @bg_color;
+    box-shadow: none;
 }
 
 /* Sunken 1px */
@@ -312,7 +312,7 @@ popover button.flat:checked,
 popover button.flat:active,
 button:checked,
 button:active {
- padding: 5px 3px 3px 5px;
+    padding: 5px 3px 3px 5px;
 }
 
 /* Slim  buttons */
@@ -345,7 +345,7 @@ combobox button:checked,
 combobox button:active,
 spinbutton button:checked,
 spinbutton button:active {
-   padding: 3px 1px 1px 3px;
+    padding: 3px 1px 1px 3px;
 }
 
 /* These have no button pressing effect */
@@ -353,11 +353,11 @@ scrollbar button:checked,
 scrollbar button:active,
 scrollbar slider:checked,
 scrollbar slider:active {
-   padding: 2px;
+    padding: 2px;
 }
 header button:checked,
 header button:active {
-   padding: 0px;
+    padding: 0px;
 }
 
 /* button has no decoration untill active/hover etc */
@@ -367,7 +367,7 @@ button.flat {
 }
 
 viewport button.flat {
-   background-color: transparent;
+    background-color: transparent;
 }
 
 
@@ -378,21 +378,21 @@ viewport button.flat {
 /* disabling focus outline because it looks bad around the whole element... */
 radiobutton:focus,
 checkbutton:focus {
- outline: 0px
+    outline: 0px
 }
 
 /* ...instead we are going to enable it around the label */
 /* but outline doesen't work inside a label! so we use borders */
 radiobutton label,
 checkbutton label{
- padding-left: 4px;
- padding-right: 4px;
- border: 1px dotted alpha(@border_dark,0);
+    padding-left: 4px;
+    padding-right: 4px;
+    border: 1px dotted alpha(@border_dark,0);
 }
 
 radiobutton:focus label,
 checkbutton:focus label{
- border: 1px dotted @border_dark;
+    border: 1px dotted @border_dark;
 }
 
 check,
@@ -431,7 +431,7 @@ radio:indeterminate {
 
 /* similar to checkbutton, used in popovers */
 modelbutton label   {
-  padding: 2px 6px;
+    padding: 2px 6px;
 }
 
 
@@ -451,7 +451,7 @@ view, .view {
 
 box.view {
     background-color: @bg_color;
-	color: @fg_color;
+    color: @fg_color;
 }
 
 view:disabled,
@@ -494,8 +494,8 @@ row:selected:focus {
 
 list > separator {
     border: 0px;
-	min-height: 0px;
-	min-width: 0px;
+    min-height: 0px;
+    min-width: 0px;
 }
 
 
@@ -504,11 +504,11 @@ list > separator {
  *********/
 
 paned  {
-   margin: 2px;
+    margin: 2px;
 }
 
 paned > paned {
-   margin: 0px;
+    margin: 0px;
 }
 
 /*************
@@ -516,50 +516,50 @@ paned > paned {
  *************/
 
 separator {
-	min-width: 0px;
-	min-height: 0px;
+    min-width: 0px;
+    min-height: 0px;
 }
 
 .horizontal separator {
-  margin-top: 4px;
-  margin-bottom: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 .vertical separator {
-  margin-left: 4px;
-  margin-right: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 /* MUST KEEP min-width and min-height above zero, or else a default value of 4px is used! */
 paned > separator {
-   border: 0px;
-   min-width: 1px;
-   min-height: 1px;
-   -gtk-icon-source: none;
+    border: 0px;
+    min-width: 1px;
+    min-height: 1px;
+    -gtk-icon-source: none;
 }
 /* quodlibet likes to reset background-image here...
 paned separator {
-    background-image: linear-gradient(45deg, #c0c0c0 25%, transparent 25%, transparent 75%, #c0c0c0 75%, #c0c0c0), linear-gradient(45deg, #c0c0c0 25%, transparent 25%, transparent 75%, #c0c0c0 75%, @border_dark);
+background-image: linear-gradient(45deg, #c0c0c0 25%, transparent 25%, transparent 75%, #c0c0c0 75%, #c0c0c0), linear-gradient(45deg, #c0c0c0 25%, transparent 25%, transparent 75%, #c0c0c0 75%, @border_dark);
 }*/
 
 
 paned.vertical > separator {
-   margin-top: 2px;
-   margin-bottom: 2px;
-   padding-top: 1px;
-   padding-bottom: 1px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding-top: 1px;
+    padding-bottom: 1px;
 }
 
 paned.horizontal > separator {
-   margin-left: 2px;
-   margin-right: 2px;
-   padding-left: 1px;
-   padding-right: 1px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-left: 1px;
+    padding-right: 1px;
 }
 
 
 toolbar > separator {
-   margin: 0px 2px 0px 2px;
+    margin: 0px 2px 0px 2px;
 }
 
 
@@ -600,8 +600,8 @@ treeview entry {
 }
 
 header > button {
-  padding-top: 0px;
-  padding-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 
@@ -629,17 +629,17 @@ entry:disabled {
 
 combobox > box > button arrow,
 combobox > box > button {
- min-width: 16px;
- min-height: 16px;
+    min-width: 16px;
+    min-height: 16px;
 }
 
 combobox  button {
- margin-top: 2px;
- margin-bottom: 2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 combobox entry {
- margin-right: -24px;
+    margin-right: -24px;
 }
 
 
@@ -657,18 +657,18 @@ scrollbar {
 /* where is the junction? in scrollablewindow? doesent exists anymore? */
 scrollbar.junction,
 scrollbar .junction {
-  border-width: 1px;
-  border-style: solid;
-  border-color: #c0c0c0;
-  background-color: red;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #c0c0c0;
+    background-color: red;
 }
 
 scrollbar.vertical slider {
-	min-height: 40px;
+    min-height: 40px;
     min-width: 10px;
 }
 scrollbar.horizontal slider {
-	min-width: 40px;
+    min-width: 40px;
     min-height: 10px;
 }
 
@@ -678,36 +678,36 @@ scrollbar button {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 9px;
-	min-width: 10px;
-	min-height: 10px;
+    min-width: 10px;
+    min-height: 10px;
 }
 
 scrollbar.vertical button.up {
-  background-image: url("assets/arrow-up.png");
+    background-image: url("assets/arrow-up.png");
 }
 scrollbar.vertical button.up:disabled {
-  background-image: url("assets/arrow-up-disabled.png");
+    background-image: url("assets/arrow-up-disabled.png");
 }
 
 scrollbar.vertical button.down {
-  background-image: url("assets/arrow-down.png");
+    background-image: url("assets/arrow-down.png");
 }
 scrollbar.vertical button.down:disabled {
-  background-image: url("assets/arrow-down-disabled.png");
+    background-image: url("assets/arrow-down-disabled.png");
 }
 
 scrollbar.horizontal button.up {
-  background-image: url("assets/arrow-left.png");
+    background-image: url("assets/arrow-left.png");
 }
 scrollbar.horizontal button.up:disabled {
-  background-image: url("assets/arrow-left-disabled.png");
+    background-image: url("assets/arrow-left-disabled.png");
 }
 
 scrollbar.horizontal button.down {
-  background-image: url("assets/arrow-right.png");
+    background-image: url("assets/arrow-right.png");
 }
 scrollbar.horizontal button.down:disabled {
-  background-image: url("assets/arrow-right-disabled.png");
+    background-image: url("assets/arrow-right-disabled.png");
 }
 
 
@@ -755,9 +755,9 @@ GtkHTML {
 }
 
 
-/***********
-* calendar *
-************/
+/************
+ * calendar *
+ ************/
 
 calendar {
     padding-left: 2px;
@@ -776,8 +776,8 @@ calendar.header {
  ************/
 
 expander arrow {
- min-width: 16px;
- min-height: 16px;
+    min-width: 16px;
+    min-height: 16px;
 }
 
 
@@ -787,26 +787,26 @@ expander arrow {
 
 /* avoid double borders when a viewport is
  * packed into a GtkScrolledWindow 
-scrolledwindow viewport {
-    border-style: none;
-} */
+ scrolledwindow viewport {
+ border-style: none;
+ } */
 
 scrolledwindow.frame,
 scrolledwindow {
-  padding: 1px;
-  padding-bottom: 0px;
+    padding: 1px;
+    padding-bottom: 0px;
 }
 
 /* transmission misteriously resets border-width to zero, cant even force it here
 scrolledwindow.frame {
- border-width: 1px;
+border-width: 1px;
 } */
 
 
 /* nautilus seems to have a special transparent icon canvas, since scrolledwindow is also transparent
-  the default background color is shown, lets paint it with the base color */
+the default background color is shown, lets paint it with the base color */
 .nautilus-window overlay > scrolledwindow {
- background-color: @base_color;
+    background-color: @base_color;
 }
 
 
@@ -940,35 +940,35 @@ menuitem > box > image {
  ************/
 
 /* Must paint over the notebook.frame top bevel by filling the header and 
-  using borders or box-shadows on one side of the header > tabs */
+using borders or box-shadows on one side of the header > tabs */
 
 notebook.frame,
 notebook {
-  padding-left: 0px;
-  padding-right: 0px;
-  margin: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 0px;
 }
 notebook > header {
-  background-color: @bg_color;
+    background-color: @bg_color;
 }
 notebook > stack{
-  margin: 3px;
+    margin: 3px;
 }
 notebook > header > tabs > tab {
-  padding-top: 4px;
-  padding-bottom: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 notebook > header.left > tabs > tab:checked {
-  padding-top: 6px;
-  padding-bottom: 6px;
+    padding-top: 6px;
+    padding-bottom: 6px;
 }
 notebook > header > tabs > tab label {
-  padding-left: 8px;
-  padding-right: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 /* Note to self: bottom and right use a newer method better than top and left, update them
- in the future... */
+in the future... */
 
 /* TOP tabs */
 notebook > header.top {
@@ -1001,8 +1001,8 @@ notebook > header.top > tabs > tab:checked {
     margin-top: 0px;
     margin-bottom: 0px;
 
-	margin-left: -3px;
-	margin-right: -3px;
+    margin-left: -3px;
+    margin-right: -3px;
 }
 
 
@@ -1037,8 +1037,8 @@ notebook > header.left > tabs > tab:checked {
     margin-left: 0px;
     margin-right: 0px;
 
-	margin-top: -3px;
-	margin-bottom: -3px;
+    margin-top: -3px;
+    margin-bottom: -3px;
 }
 
 
@@ -1074,8 +1074,8 @@ notebook > header.bottom > tabs > tab:checked {
     margin-top: -1px;
     margin-bottom: -1px;
 
-	margin-left: -3px;
-	margin-right: -3px;
+    margin-left: -3px;
+    margin-right: -3px;
 }
 
 
@@ -1111,28 +1111,28 @@ notebook > header.right > tabs > tab:checked {
     margin-left: -1px;
     margin-right: -1px;
 
-	margin-top: -3px;
-	margin-bottom: -3px;
+    margin-top: -3px;
+    margin-bottom: -3px;
 }
 
 
 /* get the outline into the label... */
 notebook tab {
-  outline: 1px dotted @border_dark;
-  outline-offset: -5px;
+    outline: 1px dotted @border_dark;
+    outline-offset: -5px;
 }
 
 /* nautilus button still wonky... */
 notebook header tabs button.flat,
 notebook header tabs button {
-  margin-left: 4px;
-  margin-right: 5px;
+    margin-left: 4px;
+    margin-right: 5px;
 }
 
 tabs > arrow {
-  background-color: transparent;
-  padding: 2px;
-  -gtk-icon-source: none;
+    background-color: transparent;
+    padding: 2px;
+    -gtk-icon-source: none;
 }
 
 
@@ -1147,7 +1147,7 @@ progressbar {
 
 levelbar trough,
 progressbar trough {
-	background-color: @bg_color;
+    background-color: @bg_color;
 }
 
 levelbar.horizontal trough,
@@ -1166,19 +1166,19 @@ progressbar.vertical progress {
 levelbar block,
 progressbar progress {
     background-image: none;
-	background-color: @selected_bg_color; 
+    background-color: @selected_bg_color; 
 }
 
 levelbar block.empty {
-	background-color: @bg_color;
+    background-color: @bg_color;
 }
- 
+
 levelbar.vertical.discrete block {
-   margin-top: 2px;
+    margin-top: 2px;
 }
 
 levelbar.horizontal.discrete block {
-   margin-right: 2px;
+    margin-right: 2px;
 }
 
 scale.vertical {
@@ -1218,18 +1218,18 @@ scale.horizontal slider {
 
 /* there might be other cases where the inside is filled by other widgets */
 scale.color contents trough {
-  min-height: 8px;
-  min-width: 8px;
+    min-height: 8px;
+    min-width: 8px;
 }
 
 /* outline inside the trough node is terrible, this disables it but 
-  can't put it in the slider...
+can't put it in the slider...
 scale *:focus {
-    outline: 0px;
+outline: 0px;
 } */
 
 scale:focus trough {
-  outline-offset: 2px;
+    outline-offset: 2px;
 }
 
 
@@ -1238,33 +1238,33 @@ scale:focus trough {
  ****************/
 
 stacksidebar > scrolledwindow { 
-  padding: 0px;
-  margin: 0px;
-  border: 0px;
-  box-shadow: none;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    box-shadow: none;
 }
 
 stacksidebar separator {
-  padding: 0px;
-  margin: 0px;
+    padding: 0px;
+    margin: 0px;
 }
 
 stacksidebar list {
-  margin: 0px;
-  background-color: @bg_color;
+    margin: 0px;
+    background-color: @bg_color;
 }
 
 stacksidebar.sidebar list{
-  margin: 0px;
+    margin: 0px;
 }
 
 stacksidebar list row {
-  padding: 2px;
-  margin: 0px;
+    padding: 2px;
+    margin: 0px;
 }
 
 stacksidebar list row label {
-  padding: 3px;
+    padding: 3px;
 }
 
 stacksidebar list row:selected,
@@ -1292,14 +1292,14 @@ stacksidebar list row:selected:hover {
  ***********/
 
 .sidebar list {
-  padding: 1px;
+    padding: 1px;
 }
 
 placessidebar list > row,
 .sidebar list > row {
-  padding-bottom: 1px;
-  padding-left: 4px;
-  padding-right: 2px;
+    padding-bottom: 1px;
+    padding-left: 4px;
+    padding-right: 2px;
 }
 
 
@@ -1308,23 +1308,23 @@ placessidebar list > row,
  **************/
 
 spinbutton.horizontal button {
-  margin-top: 2px;
-  margin-bottom: 2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 spinbutton.horizontal entry {
-  min-width: 80px;
-  min-height: 12px;
-  margin-right: -46px;
+    min-width: 80px;
+    min-height: 12px;
+    margin-right: -46px;
 }
 
 spinbutton.vertical button {
-  margin-left: 0px;
-  margin-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 spinbutton.vertical entry {
-  min-width: 12px;
+    min-width: 12px;
 }
 
 /**********
@@ -1332,13 +1332,13 @@ spinbutton.vertical entry {
  **********/
 
 switch {
- background-color: @base_color;
+    background-color: @base_color;
 }
 
 switch slider {
-  margin: 1px;
-  min-width: 18px;
-  min-height: 12px;
+    margin: 1px;
+    min-width: 18px;
+    min-height: 12px;
 }
 
 
@@ -1353,11 +1353,11 @@ colorswatch {
 }
 
 colorswatch:selected overlay {
-  background-color: transparent;
+    background-color: transparent;
 }
 
 colorswatch:selected {
-  background-color: transparent;
+    background-color: transparent;
 }
 
 
@@ -1412,7 +1412,7 @@ tooltip * {
 
 /* get rid of these frekin overshoots, this isen't a phone! */
 overshoot, undershoot {
-  background-color: transparent;
+    background-color: transparent;
 }
 
 
@@ -1490,7 +1490,7 @@ toolbar button {
 }
 
 frame toolbar {
- margin: 1px;
+    margin: 1px;
 }
 
 
@@ -1503,7 +1503,7 @@ decoration {
     border: 0px;
     /* this is so ridiculous but i could not do it with borders + box-shadow */
     box-shadow: 0px 0px 0 1px @bg_dark, /* outter bottom + right */
-               -1px -1px 0px 0px @bg_color, -1px 0px 0px 0px @bg_color, 0px -1px 0px 0px @bg_color, /* outter top + left */
+                -1px -1px 0px 0px @bg_color, -1px 0px 0px 0px @bg_color, 0px -1px 0px 0px @bg_color, /* outter top + left */
                 inset 1px 1px @bg_bright, /* inside top + left */
                 inset -1px -1px @bg_shade; /* inside bottom + right */
     padding: 3px;
@@ -1530,13 +1530,13 @@ window.ssd .titlebar:backdrop {
 }
 /*
 .default-decoration
- {
- background-color: red;
- border: 0px solid @bg_color;
- border-bottom: 0px;
- border-radius: 0px;
+{
+background-color: red;
+border: 0px solid @bg_color;
+border-bottom: 0px;
+border-radius: 0px;
 }
-*/
+ */
 
 window.ssd .titlebar label{
     padding: 0px;
@@ -1583,35 +1583,35 @@ headerbar:backdrop > box > label,
 }
 
 headerbar entry {
-  margin: 3px;
-  padding-top: 0px;
-  padding-bottom: 0px;
+    margin: 3px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 /* we dont want any extra padding in those */
 menuitem > window,
 window > menu {
-   padding: 0px;
+    padding: 0px;
 }
 
 .titlebar button  {
-  margin: 0px;
-  padding: 0px;
-  min-width: 0px;
-  min-height: 0px;
+    margin: 0px;
+    padding: 0px;
+    min-width: 0px;
+    min-height: 0px;
 }
 
 .titlebar button label  {
-  padding-left: 4px;
-  padding-right: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 .titlebar button:not(.titlebutton) {
- padding: 0px;
-/* margin-top: 3px;
- margin-bottom: 3px;*/
- min-height: 0px;
- min-width: 0px;
+    padding: 0px;
+    /* margin-top: 3px;
+    margin-bottom: 3px;*/
+min-height: 0px;
+min-width: 0px;
 }
 
 window.csd tooltip {
@@ -1623,24 +1623,24 @@ window.csd tooltip {
 .maximized > decoration,
 window.maximized,
 window.tiled {
- border: 0px;
- box-shadow: none;
- margin: 0px;
+    border: 0px;
+    box-shadow: none;
+    margin: 0px;
 }
 
 window.ssd.maximized headerbar,
 window.ssd.maximized .titlebar {
- border: 0px;
- border-bottom: 1px solid transparent;
- box-shadow: none;
- margin: 0px;
+    border: 0px;
+    border-bottom: 1px solid transparent;
+    box-shadow: none;
+    margin: 0px;
 }
 
 .tiled headerbar,
 .maximized headerbar,
 .tiled .titlebar,
 .maximized .titlebar {
-	border: 0px;
+    border: 0px;
     box-shadow: none;
     border-radius: 0;
 }
@@ -1652,32 +1652,32 @@ window.ssd.maximized .titlebar {
 
 /* Makes the raised 2px effect slimmer on the top and left side */
 .titlebutton {
- padding: 0px;
- margin: 0px;
- border-top: 0px;
- border-left: 0px;
- background-position: center;
- background-repeat: no-repeat;
+    padding: 0px;
+    margin: 0px;
+    border-top: 0px;
+    border-left: 0px;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .titlebutton:active,
 .titlebutton:checked {
- padding: 0px;
- border-top: 0px;
- border-left: 0px;
- background-position: center 2px, center 2px;
- background-repeat: no-repeat;
+    padding: 0px;
+    border-top: 0px;
+    border-left: 0px;
+    background-position: center 2px, center 2px;
+    background-repeat: no-repeat;
 }
 
 /* helps get hid of ugly fat buttons */
 /* also, image does not display any background image on ssd windows. thanks gnome devs. */
 .titlebutton image {
- padding: 0px;
- margin-top: -1px;
- margin-bottom: -2px;
- margin-left: -1px;
- min-width: 0px;
- min-height: 0px;
+    padding: 0px;
+    margin-top: -1px;
+    margin-bottom: -2px;
+    margin-left: -1px;
+    min-width: 0px;
+    min-height: 0px;
 }
 
 .titlebutton.close,
@@ -1724,11 +1724,11 @@ window.ssd.maximized .titlebar {
 /* Groups these buttons together */
 /* doesen't work on ssd windows. get your shit together gnome poeple */
 .titlebutton.close {
-  margin-right: 0px;
-  margin-left: -4px;
+    margin-right: 0px;
+    margin-left: -4px;
 }
 .titlebutton.maximize {
-  margin-left: -6px;
+    margin-left: -6px;
 }
 
 
@@ -1736,8 +1736,8 @@ window.ssd.maximized .titlebar {
 /* declaration of .view was causing problems with white background rubberband in nautilus, putting this here for now */
 flowbox rubberband, treeview.view rubberband, .content-view rubberband,
 .rubberband, rubberband {
-  border: 1px solid @border_dark;
-  background-color: transparent;
- /* box-shadow: inset 1px 1px 0px 0px @border_dark,
-                inset -1px -1px 0px 0px @border_dark; */
+    border: 1px solid @border_dark;
+    background-color: transparent;
+    /* box-shadow: inset 1px 1px 0px 0px @border_dark,
+                   inset -1px -1px 0px 0px @border_dark; */
 }
