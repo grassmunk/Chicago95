@@ -13,19 +13,19 @@ Included in this theme:
 - Plymouth theme created from scratch
 
 ## Screenshots
-![alt text](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/plymouth.gif "Plymouth")
+![alt text](https://raw.githubusercontent.com/AdrianoML/Chicago95/master/Screenshots/plymouth.gif "Plymouth")
 
-![alt text](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/lightdm.png "LightDM")
+![alt text](https://raw.githubusercontent.com/AdrianoML/Chicago95/master/Screenshots/lightdm.png "LightDM")
 
-![alt text](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/Screenshot.png "Big Screenshot")
+![alt text](https://raw.githubusercontent.com/AdrianoML/Chicago95/master/Screenshots/Screenshot.png "Big Screenshot")
 
-![alt text](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/gtk2.png "GTK2")
+![alt text](https://raw.githubusercontent.com/AdrianoML/Chicago95/master/Screenshots/gtk2.png "GTK2")
 
-![alt text](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/gtk3.png "GTK3")
+![alt text](https://raw.githubusercontent.com/AdrianoML/Chicago95/master/Screenshots/gtk3.png "GTK3")
 
 I decided that the pop-overs were almost exactly as annoying/ugly as Clippy was in MS Office 97 so the buttons/coloring are matched to look exactly like that.
 
-![alt text](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/DOS.png "Terminal")
+![alt text](https://raw.githubusercontent.com/AdrianoML/Chicago95/master/Screenshots/DOS.png "Terminal")
 
 ## Installation
 
@@ -83,7 +83,7 @@ Install instructions are in the `README.md` in `Lightdm/Chicago95/`.
 
 ## Requirements
 
-GTK+ 3.16 or above
+GTK+ 3.22 or above
 
 Xfce 4.12 of above
 
