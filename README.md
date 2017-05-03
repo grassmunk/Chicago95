@@ -21,7 +21,10 @@ Included in this theme:
 
 ![alt text](https://raw.githubusercontent.com/AdrianoML/Chicago95/master/Screenshots/gtk2.png "GTK2")
 
-![alt text](https://raw.githubusercontent.com/AdrianoML/Chicago95/master/Screenshots/gtk3.png "GTK3")
+![alt text](https://raw.githubusercontent.com/AdrianoML/Chicago95/master/Screenshots/widget-factory-gtk3-chicago95.png "GTK3")
+
+![alt text](https://raw.githubusercontent.com/AdrianoML/Chicago95/master/Screenshots/nautilus-grk3-chicago95.png "GTK3")
+
 
 I decided that the pop-overs were almost exactly as annoying/ugly as Clippy was in MS Office 97 so the buttons/coloring are matched to look exactly like that.
 
