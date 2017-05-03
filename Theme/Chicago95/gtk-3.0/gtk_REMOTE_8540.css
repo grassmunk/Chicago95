@@ -16,7 +16,7 @@
 @define-color selected_fg_color #ffffff;
 @define-color selected_inactive_bg_color #808080;
 @define-color selected_inactive_fg_color #000000;
-@define-color tooltip_bg_color #ffffe1;
+@define-color tooltip_bg_color #ffffBf;
 @define-color tooltip_fg_color #000000;
 @define-color bg_bright shade(white, 0.99);
 @define-color bg_shade shade(@bg_color, 0.66);
@@ -45,7 +45,7 @@
 
 /* misc colors used by gtk+ */
 @define-color info_fg_color @fg_color;
-@define-color info_bg_color #ffffe1;
+@define-color info_bg_color #FFFFCC;
 @define-color warning_fg_color @fg_color;
 @define-color warning_bg_color #FFEDCC;
 @define-color question_fg_color @info_fg_color;

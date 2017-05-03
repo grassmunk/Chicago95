@@ -1239,10 +1239,24 @@ scale:focus trough {
  * stacksidebar *
  ****************/
 
+<<<<<<< HEAD
+/***********
+ * tooltip *
+ ***********/
+.tooltip
+ {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #000;
+    border-radius: 0px;
+    background-color: @theme_tooltip_bg_color;
+    background-image: none;
+=======
 stacksidebar > scrolledwindow { 
     padding: 0px;
     margin: 0px;
     border: 0px;
+>>>>>>> 30fd496f9fe6fcf5c27b09c7b7d02c736193897a
     box-shadow: none;
 }
 
@@ -1677,6 +1691,10 @@ window.ssd.maximized .titlebar {
     border-radius: 0;
 }
 
+<<<<<<< HEAD
+.window-frame,
+.window-frame:backdrop {
+=======
 
 /******************
  * window buttons *
@@ -1688,6 +1706,7 @@ button.appmenu {
 	padding-right: 5px;
 	padding-top: 4px;
 }
+>>>>>>> 30fd496f9fe6fcf5c27b09c7b7d02c736193897a
 
 /* Makes the raised 2px effect slimmer on the top and left side */
 button.titlebutton:not(.appmenu) {
@@ -1726,6 +1745,13 @@ button.titlebutton:checked:not(.appmenu) {
 
 }
 
+<<<<<<< HEAD
+/* Client-side Decorations (CSD)*/
+.window-frame.csd.tooltip {
+    border-radius: 0;
+    border: 1px solid black;
+    box-shadow: none; 
+=======
 .titlebutton.minimize {
     background-image: url("buttons/icon-minimise.png");
     background-size: 12px;
@@ -1733,6 +1759,7 @@ button.titlebutton:checked:not(.appmenu) {
 .titlebutton.minimize:backdrop {
 }
 .titlebutton.minimize:checked {
+>>>>>>> 30fd496f9fe6fcf5c27b09c7b7d02c736193897a
 }
 
 .titlebutton.maximize {

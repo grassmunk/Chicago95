@@ -1,7 +1,6 @@
 /*# name: Chicago95
   # author: Grassmunk
-  # author: AdrianoML (rewrite/gtk 3.22 update)
-  # date: December 4th, 2016
+  # date: April 19th, 2016
   # description: Chicago 95 Default*/
 
 
@@ -14,15 +13,8 @@
 @define-color text_color #000000;
 @define-color selected_bg_color #000080;
 @define-color selected_fg_color #ffffff;
-@define-color selected_inactive_bg_color #808080;
-@define-color selected_inactive_fg_color #000000;
-@define-color tooltip_bg_color #ffffe1;
+@define-color tooltip_bg_color #ffffBf;
 @define-color tooltip_fg_color #000000;
-@define-color bg_bright shade(white, 0.99);
-@define-color bg_shade shade(@bg_color, 0.66);
-@define-color bg_dark shade(@bg_color, 0.13);
-@define-color border_bright white;
-@define-color border_dark black;
 
 /* dark color scheme */
 @define-color dark_bg_color @bg_color;
@@ -39,13 +31,17 @@
 @define-color theme_tooltip_fg_color @tooltip_fg_color;
 
 /*Nemo Desktop shadow fix*/
-@define-color desktop_item_fg #ffffff;
-@define-color desktop_item_selected_fg shade(@theme_selected_fg_color, 0.8);
-@define-color desktop_item_text_shadow alpha(black, 0.8);
+ @define-color desktop_item_fg #ffffff;
+ @define-color desktop_item_selected_fg shade(@theme_selected_fg_color, 0.8);
+ @define-color desktop_item_text_shadow alpha(black, 0.8);
+
+/* shadow effects */
+@define-color light_shadow #fff;
+@define-color dark_shadow #000;
 
 /* misc colors used by gtk+ */
 @define-color info_fg_color @fg_color;
-@define-color info_bg_color #ffffe1;
+@define-color info_bg_color #FFFFCC;
 @define-color warning_fg_color @fg_color;
 @define-color warning_bg_color #FFEDCC;
 @define-color question_fg_color @info_fg_color;
@@ -56,6 +52,18 @@
 @define-color success_color #53d013;
 @define-color warning_color #f57600;
 @define-color error_color #cc0000;
+
+/* widget colors */
+@define-color titlebar_bg_color @dark_bg_color;
+@define-color titlebar_fg_color @dark_fg_color;
+@define-color menubar_bg_color @dark_bg_color;
+@define-color menubar_fg_color @dark_fg_color;
+@define-color toolbar_bg_color @dark_bg_color; /*@theme_bg_color;*/
+@define-color toolbar_fg_color @dark_fg_color; /*@theme_fg_color;*/
+@define-color menu_bg_color @bg_color;
+@define-color menu_fg_color @fg_color;
+@define-color panel_bg_color @dark_bg_color;
+@define-color panel_fg_color @dark_fg_color;
 
 /* osd */
 @define-color osd_base @dark_bg_color;
@@ -80,17 +88,18 @@
 @define-color wm_icons_unfocused_pressed shade(@selected_bg_color, 0.8);
 
 /*Terminal Text color*/
-@define-color terminal_text_color @text_color;
+@define-color terminal_text_color @bg_color;
 
 /*Progressbar bg color*/
 @define-color progressbar_color @selected_bg_color;
 
 @import url("gtk-widgets.css");
+@import url("gtk-widgets-assets.css");
 
 /* @import url("apps/gnome-applications.css");
 @import url("apps/granite-widgets.css");
-@import url("apps/unity.css");
+@import url("apps/unity.css"); */
 @import url("apps/xfce.css");
-@import url("apps/nemo.css"); 
+/* @import url("apps/nemo.css"); */
 @import url("apps/synaptic.css");
-@import url("apps/lightdm-gtk-greeter.css"); */
+@import url("apps/lightdm-gtk-greeter.css");
