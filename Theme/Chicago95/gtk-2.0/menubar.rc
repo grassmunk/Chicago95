@@ -1,0 +1,36 @@
+########################################################################
+# Menubar
+########################################################################
+
+style "menubar"
+{
+### Menubar ###
+	engine "pixmap"
+	{
+		image
+		{
+			function = BOX
+			file = "menubar/menubar.png"
+			border = {3, 3, 3, 3}
+			stretch = TRUE
+		}
+	}
+}
+
+style "menu"
+{
+### Menu ###
+        engine "pixmap"
+        {
+                image
+                {
+                        function = BOX
+                        file = "menubar/menu.png"
+                        border = {3, 3, 3, 3}
+                        stretch = TRUE
+                }
+        }
+}
+
+class "GtkMenuBar*"             style "menubar"
+class "GtkMenu" style "menu"

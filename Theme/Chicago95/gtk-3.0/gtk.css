@@ -13,7 +13,7 @@
 @define-color text_color #000000;
 @define-color selected_bg_color #000080;
 @define-color selected_fg_color #ffffff;
-@define-color tooltip_bg_color #ffffBf;
+@define-color tooltip_bg_color #ffffe1;
 @define-color tooltip_fg_color #000000;
 
 /* dark color scheme */
@@ -41,7 +41,7 @@
 
 /* misc colors used by gtk+ */
 @define-color info_fg_color @fg_color;
-@define-color info_bg_color #FFFFCC;
+@define-color info_bg_color #ffffe1;
 @define-color warning_fg_color @fg_color;
 @define-color warning_bg_color #FFEDCC;
 @define-color question_fg_color @info_fg_color;
