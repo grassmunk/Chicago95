@@ -2588,7 +2588,7 @@ GtkColorButton.button {
  ***********/
 .tooltip
  {
-    border-width: 3px;
+    border-width: 1px;
     border-style: solid;
     border-color: #000;
     border-radius: 0px;
@@ -3194,8 +3194,6 @@ GtkBubbleWindow .toolbar {
     border-radius: 0;
 }
 
-
-
 .window-frame,
 .window-frame:backdrop {
 
@@ -3222,7 +3220,7 @@ GtkBubbleWindow .toolbar {
 /* Client-side Decorations (CSD)*/
 .window-frame.csd.tooltip {
     border-radius: 0;
-    border: 0 0 0;
+    border: 1px solid black;
     box-shadow: none; 
 }
 

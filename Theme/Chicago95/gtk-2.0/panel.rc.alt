@@ -384,17 +384,16 @@ widget_class "*Panel*GtkToggleButton" 		style "paneltogglebuttons"
 
 style "whiskerbutton"
 {
- xthickness            			= 5
- ythickness            			= 2
-
-	GtkWidget::focus_padding = 2
-
-	engine "pixmap" {
+ xthickness            			= 0
+ ythickness            			= 0
+ GtkWidget::focus_padding = 1
+ engine "pixmap" 
+	{
         image
 	{
 		function			= BOX
 		detail				= "buttondefault"
-		file				= "panel/panel-bg.png"
+		file				= "Others/null.png"
 		stretch				= TRUE
 	}
 
@@ -403,8 +402,8 @@ style "whiskerbutton"
 		function        		= BOX
 		recolorable     		= TRUE
 		state				= NORMAL
-		file            		= "panel/panel-bg.png"
-		border          		= { 3, 3, 3, 3 }
+		file            		= "Others/null.png"
+		border          		= { 0, 0, 0, 0 }
 		stretch         		= TRUE
 	}
 		
@@ -414,8 +413,8 @@ style "whiskerbutton"
 		shadow				= OUT
 		recolorable     		= TRUE
 		state				= PRELIGHT
-		file            		= "panel/panel-bg.png"
-		border          		= { 3, 3, 3, 3 }
+		file            		= "Others/null.png"
+		border          		= { 0, 0, 0, 0 }
 		stretch         		= TRUE
 	}		
 
@@ -425,8 +424,8 @@ style "whiskerbutton"
 		recolorable     		= TRUE
 		shadow				= IN
 		state				= PRELIGHT
-		file            		= "panel/panel-bg.png"
-		border          		= { 3, 3, 3, 3 }
+		file            		= "Others/null.png"
+		border          		= { 0, 0, 0, 0 }
 		stretch         		= TRUE
 	}
 		
@@ -436,8 +435,8 @@ style "whiskerbutton"
 		function        		= BOX
 		recolorable     		= TRUE
 		state				= ACTIVE
-		file            		= "panel/start.png"
-		border          		= { 3, 3, 3, 3 }
+		file            		= "panel/start-button-shade.png"
+		border          		= { 0, 0, 0, 0 }
 		stretch         		= TRUE
 	}  
 
@@ -446,8 +445,8 @@ style "whiskerbutton"
 		function        		= BOX
 		recolorable     		= TRUE
 		state				= INSENSITIVE
-		file            		= "panel/panel-bg.png"
-		border          		= { 3, 3, 3, 3 }
+		file            		= "Others/null.png"
+		border          		= { 0, 0, 0, 0 }
 		stretch         		= TRUE
 	} 
 
@@ -456,16 +455,14 @@ style "whiskerbutton"
 		function        		= BOX
 		recolorable     		= TRUE
 		state				= SELECTED
-		file            		= "panel/panel-bg.png"
-		border          		= { 3, 3, 3, 3 }
+		file            		= "Others/null.png"
+		border          		= { 0, 0, 0, 0 }
 		stretch         		= TRUE
 	}  
-
+	}
 }
-
-}
-
-widget "whiskermenu-button*" style "whiskerbutton"
+widget "*applicationmenu-button" style "whiskerbutton" #for the application menu button.
+widget "*whiskermenu-button" style "whiskerbutton" #for Whisker menu button.
 #widget "*Xfce*Panel*isker" style "whiskerbutton"
 
 
