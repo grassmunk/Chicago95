@@ -235,6 +235,7 @@ switch,
 scale trough,
 combobox button:checked,
 popover button.flat:selected, popover button.flat:active,
+bbutton.appmenu:selected, button.appmenu:active
 button:selected, button:active,
 check, radio {
     border-style: solid;
@@ -246,6 +247,7 @@ check, radio {
 }
 
 /* Raised 1px */
+button.appmenu
 button.flat,
 button.flat:hover:not(:active):not(:checked):not(:selected),
 toolbar button,
@@ -1497,7 +1499,6 @@ frame toolbar {
 /**********
  * Window *
  **********/
-
 decoration {
     border-radius: 0px;
     border: 0px;
@@ -1584,8 +1585,8 @@ headerbar:backdrop > box > label,
 
 headerbar entry {
     margin: 3px;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 
 /* we dont want any extra padding in those */
@@ -1594,7 +1595,7 @@ window > menu {
     padding: 0px;
 }
 
-.titlebar button  {
+.titlebar button:not(.appmenu)  {
     margin: 0px;
     padding: 0px;
     min-width: 0px;
@@ -1606,12 +1607,43 @@ window > menu {
     padding-right: 4px;
 }
 
+/* following button definitions allows us to have slim buttons on
+ * headerbars with no big elements while still maintaining a good
+ * looking headerbar with big elements */
 .titlebar button:not(.titlebutton) {
-    padding: 0px;
-    /* margin-top: 3px;
-    margin-bottom: 3px;*/
-min-height: 0px;
-min-width: 0px;
+    padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 1px;
+	padding-right: 1px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	min-height: 0px;
+	min-width: 0px;
+}
+
+
+headerbar button:not(.titlebutton) > image {
+	border: solid 1px;
+	border-color: transparent;
+	padding-left: 3px;
+	padding-right: 3px;
+	margin-top: -3px;
+	margin-bottom: -3px;
+}
+
+headerbar button:active:not(.titlebutton) > image {
+	border: solid;
+	border-color: transparent;
+	border-left-width: 2px;
+	border-right-width: 0px;
+	border-top-width: 2px;
+	border-bottom-width: 0px;
+}
+
+headerbar separator {
+	margin-right: 3px;
+	border-left-width: 1px;
+	border-style: solid;
 }
 
 window.csd tooltip {
@@ -1650,8 +1682,15 @@ window.ssd.maximized .titlebar {
  * window buttons *
  ******************/
 
+button.appmenu {
+	padding-bottom: 7px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 4px;
+}
+
 /* Makes the raised 2px effect slimmer on the top and left side */
-.titlebutton {
+button.titlebutton:not(.appmenu) {
     padding: 0px;
     margin: 0px;
     border-top: 0px;
@@ -1660,8 +1699,8 @@ window.ssd.maximized .titlebar {
     background-repeat: no-repeat;
 }
 
-.titlebutton:active,
-.titlebutton:checked {
+button.titlebutton:active:not(.appmenu),
+button.titlebutton:checked:not(.appmenu) {
     padding: 0px;
     border-top: 0px;
     border-left: 0px;
@@ -1671,7 +1710,7 @@ window.ssd.maximized .titlebar {
 
 /* helps get hid of ugly fat buttons */
 /* also, image does not display any background image on ssd windows. thanks gnome devs. */
-.titlebutton image {
+.titlebutton image:not(.appmenu) {
     padding: 0px;
     margin-top: -1px;
     margin-bottom: -2px;
