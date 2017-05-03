@@ -108,10 +108,10 @@ I didn’t include this in the installer script because there’s too much poten
 Note: Your panel has to be 32px high if you wish to have the classic style Start button. If it’s any other size, the button won’t look correct. You’re more than welcomed to make your own Start button.
 This is a work around because I’ve been unable to find a more sane means of making something that should be so simple to work...
 
-Step 1:	Go to this directory on your system. `/home/$USER/.themes/Chicago95-custom/gtk-2.0/`
-Step 2:	You will see a file named `panel.rc` and another one named `panel.rc.alt`. Rename `panel.rc` to `panel.rc.bak`. Rename `panel.rc.alt` to `panel.rc`.
-Step 3:	Open the properties menu of either Whisker Menu or Application Menu and change the icon. The Start Button is located in the following directory: `/home/$USER/.themes/Chicago95-custom/gtk-2.0/panel/`. Select the file name `start-button.png`.
-Step 4:	The icon will appear crunched. Log out and log back in or run `xfce4-panel -r` to reset the panel interface. The icon should appear a regular size.
+1. Go to this directory on your system. `/home/$USER/.themes/Chicago95-custom/gtk-2.0/`
+2. You will see a file named `panel.rc` and another one named `panel.rc.alt`. Rename `panel.rc` to `panel.rc.bak`. Rename `panel.rc.alt` to `panel.rc`.
+3. Open the properties menu of either Whisker Menu or Application Menu and change the icon. The Start Button is located in the following directory: `/home/$USER/.themes/Chicago95-custom/gtk-2.0/panel/`. Select the file name `start-button.png`.
+4. The icon will appear crunched. Log out and log back in or run `xfce4-panel -r` to reset the panel interface. The icon should appear a regular size.
 
 ### Pulse Audio Fix
 Copy the `pulseaudio_fix.css` file from the `gtk-3.0 Override` directory into `/home/$USER/.config/gtk-3.0/` (This will fix the oversized pulse audio button and battery icon in the panel.)
