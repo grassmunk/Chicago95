@@ -100,7 +100,7 @@ Next, open Window Manager.
 
 * Title Font: Sans Bold 8
 
-###Where’s the classic Start Button?
+### Where’s the classic Start Button?
 
 If you want a classic style start button for the Whisker Menu or Application-Menu plugins instead of it defaulting to only an icon without the button borders, there are a few steps required to set this up. 
 I didn’t include this in the installer script because there’s too much potential for it to go wrong. 
@@ -113,14 +113,14 @@ Step 2:	You will see a file named `panel.rc` and another one named `panel.rc.alt
 Step 3:	Open the properties menu of either Whisker Menu or Application Menu and change the icon. The Start Button is located in the following directory: `/home/$USER/.themes/Chicago95-custom/gtk-2.0/panel/`. Select the file name `start-button.png`.
 Step 4:	The icon will appear crunched. Log out and log back in or run `xfce4-panel -r` to reset the panel interface. The icon should appear a regular size.
 
-###Pulse Audio Fix
+### Pulse Audio Fix
 Copy the `pulseaudio_fix.css` file from the `gtk-3.0 Override` directory into `/home/$USER/.config/gtk-3.0/` (This will fix the oversized pulse audio button and battery icon in the panel.)
 
 Next, execute the following command as a regular user to import the pulseaudio fix:
 
 `echo "@import url(\"pulseaudio_fix.css\");" >> /home/$USER/.config/gtk-3.0/gtk.css`
 
-###Setting up the panel
+### Setting up the panel
 
 1. Panel 1. Horizontal, 32px high ONLY, and 100% Length. Below or above and it won’t look correct. (Make sure you set the background style to "None" so that it inherits the theme style.)
 2. Application Menu; 
@@ -136,10 +136,10 @@ Next, execute the following command as a regular user to import the pulseaudio f
 12. Separator (Transparent); 
 13. Orage Panel Clock. ( In settings, enable check box “Show frame” and replace the text in “Line 1” with %I:%M %p.)
 
-###Shadows
+### Shadows
 Disable shadows in compositing for an authentic appearance, or at the very least disable “show shadows under dock windows” to prevent dark shading from the panel bar overlapping onto maximized applications.
 
-###Install tweaked icons
+### Install tweaked icons
 
 For the icon theme, I made a small adjustment that replaces the MS Windows logos with tux penguins. You can install this if you want. To install it, copy the `Chicago95-tux` directory into “/home/$USER/.icons.”
 
