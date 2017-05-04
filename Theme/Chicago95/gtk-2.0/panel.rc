@@ -110,13 +110,13 @@ style "panel"
 #############################################################
 
 class "*Mail*" 				style "panel"
-class "*notif*" 			style "panel"
-class "*Notif*" 			style "panel"
+#class "*notif*" 			style "panel"
+#class "*Notif*" 			style "panel"
 class "*Tray*" 				style "panel"
 class "*tray*" 				style "panel"
 widget_class "*Mail*" 			style "panel"
-widget_class "*notif*" 			style "panel"
-widget_class "*Notif*" 			style "panel"
+#widget_class "*notif*" 			style "panel"
+#widget_class "*Notif*" 			style "panel"
 widget_class "*Tray*" 			style "panel"
 widget_class "*tray*" 			style "panel"
 widget_class "*BonoboDockItem" 		style "panel"
@@ -467,3 +467,5 @@ style "whiskerbutton"
 
 widget "whiskermenu-button*" style "whiskerbutton"
 #widget "*Xfce*Panel*isker" style "whiskerbutton"
+
+

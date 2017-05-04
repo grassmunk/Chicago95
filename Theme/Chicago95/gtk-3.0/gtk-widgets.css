@@ -1249,6 +1249,7 @@ stacksidebar > scrolledwindow {
     padding: 0px;
     margin: 0px;
     border: 0px;
+
     box-shadow: none;
 }
 
@@ -1683,7 +1684,6 @@ window.ssd.maximized .titlebar {
     border-radius: 0;
 }
 
-
 /******************
  * window buttons *
  ******************/
@@ -1694,6 +1694,7 @@ button.appmenu {
 	padding-right: 5px;
 	padding-top: 4px;
 }
+
 
 /* Makes the raised 2px effect slimmer on the top and left side */
 button.titlebutton:not(.appmenu) {
@@ -1739,6 +1740,7 @@ button.titlebutton:checked:not(.appmenu) {
 .titlebutton.minimize:backdrop {
 }
 .titlebutton.minimize:checked {
+
 }
 
 .titlebutton.maximize {
@@ -1775,8 +1777,6 @@ button.titlebutton:checked:not(.appmenu) {
 .titlebutton.maximize {
     margin-left: -6px;
 }
-
-
 
 /* declaration of .view was causing problems with white background rubberband in nautilus, putting this here for now */
 flowbox rubberband, treeview.view rubberband, .content-view rubberband,
