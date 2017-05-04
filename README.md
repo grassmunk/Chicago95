@@ -30,7 +30,7 @@ I decided that the pop-overs were almost exactly as annoying/ugly as Clippy was 
 ## Installation
 
 ### Themes
-Copy the folder `Theme/Chicago95` to the themes directory i.e. `/usr/share/themes/` or `~/.themes`.
+For system wide install, copy the folder `Theme/Chicago95` to the themes directory i.e. `/usr/share/themes/` or `~/.themes`.
 
 In XFCE select Settings -> Appearance. Click on 'Style' and select `Chicago95`.
 
@@ -102,19 +102,18 @@ Next, open Window Manager.
 
 ### Where’s the classic Start Button?
 
-If you want a classic style start button for the Whisker Menu or Application-Menu plugins instead of it defaulting to only an icon without the button borders, there are a few steps required to set this up. 
-I didn’t include this in the installer script because there’s too much potential for it to go wrong. 
+If you want a classic style start button for the Whisker Menu or Application-Menu plugins instead of it defaulting to only an icon without the button borders, there are a few steps required to set this up.
 
 Note: Your panel has to be 32px high if you wish to have the classic style Start button. If it’s any other size, the button won’t look correct. You’re more than welcomed to make your own Start button.
 This is a work around because I’ve been unable to find a more sane means of making something that should be so simple to work...
 
-1. Go to this directory on your system. `/home/$USER/.themes/Chicago95-custom/gtk-2.0/`
-2. You will see a file named `panel.rc` and another one named `panel.rc.alt`. Rename `panel.rc` to `panel.rc.bak`. Rename `panel.rc.alt` to `panel.rc`.
-3. Open the properties menu of either Whisker Menu or Application Menu and change the icon. The Start Button is located in the following directory: `/home/$USER/.themes/Chicago95-custom/gtk-2.0/panel/`. Select the file name `start-button.png`.
+1. Go to the install directory of the theme, i.e.`~/.themes/Chicago95/gtk-2.0/` or `/usr/share/themes/Chicago95/gtk-2.0/.`
+2. You will see a file named `panel.rc` and another one named `panel.rc.alt`. Rename `panel.rc` to `panel.rc.bak`. Then rename `panel.rc.alt` to `panel.rc`.
+3. Open the properties menu of either Whisker Menu or Application Menu and change the icon. The Start Button is located in the following directory: `~/.themes/Chicago95/gtk-2.0/panel` or `/usr/share/themes/Chicago95/gtk-2.0/panel.` Select the file name `start-button_windows` or `start-button_tux.`
 4. The icon will appear crunched. Log out and log back in or run `xfce4-panel -r` to reset the panel interface. The icon should appear a regular size.
 
-### Pulse Audio Fix
-Copy the `pulseaudio_fix.css` file from the `gtk-3.0 Override` directory into `/home/$USER/.config/gtk-3.0/` (This will fix the oversized pulse audio button and battery icon in the panel.)
+### Pulse Audio Icon Fix
+Copy the `pulseaudio_fix.css` file from the `Extras\gtk-3.0 Override` directory into `/home/$USER/.config/gtk-3.0/` (This will fix the oversized pulse audio button and battery icon in the panel.)
 
 Next, execute the following command as a regular user to import the pulseaudio fix:
 
@@ -122,10 +121,10 @@ Next, execute the following command as a regular user to import the pulseaudio f
 
 ### Setting up the panel
 
-1. Panel 1. Horizontal, 32px high ONLY, and 100% Length. Below or above and it won’t look correct. (Make sure you set the background style to "None" so that it inherits the theme style.)
+1. Panel 1. Horizontal, 32px high ONLY, and 100% Length. Currently no proper vertical panel support so below or above only. (Make sure you set the background style to "None" so that it inherits the theme style.)
 2. Application Menu; 
 3. Separator (Handle Style); 
-4. Custom Launcher, Custom Launcher, Custom Launcher, etc.
+4. Custom Launcher, Custom Launcher, Custom Launcher, etc. (Try using 16px icons for the launchers.)
 5. “Show Desktop” plugin; 
 6. Separator (Handle Style); 
 7. Window Buttons (Sorting Order: Timestamp and Window Grouping is Always. Uncheck “Show Handle” if it’s enabled.); 
@@ -142,6 +141,9 @@ Disable shadows in compositing for an authentic appearance, or at the very least
 ### Install tweaked icons
 
 For the icon theme, I made a small adjustment that replaces the MS Windows logos with tux penguins. You can install this if you want. To install it, copy the `Chicago95-tux` directory into “/home/$USER/.icons.”
+
+### Notification baloon theme
+There is a notification baloon theme with Chicago95.
 
 
 ## Requirements
