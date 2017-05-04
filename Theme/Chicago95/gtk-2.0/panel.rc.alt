@@ -424,7 +424,7 @@ style "whiskerbutton"
 		recolorable     		= TRUE
 		shadow				= IN
 		state				= PRELIGHT
-		file            		= "Others/null.png"
+		file            		= "panel/start-button-shade.png" #Sets a backdrop colour.
 		border          		= { 0, 0, 0, 0 }
 		stretch         		= TRUE
 	}
@@ -435,7 +435,7 @@ style "whiskerbutton"
 		function        		= BOX
 		recolorable     		= TRUE
 		state				= ACTIVE
-		file            		= "panel/start-button-shade.png"
+		file            		= "panel/start-button-shade.png" #Sets a backdrop colour.
 		border          		= { 0, 0, 0, 0 }
 		stretch         		= TRUE
 	}  
