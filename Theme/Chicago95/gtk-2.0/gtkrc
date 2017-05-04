@@ -452,9 +452,6 @@ engine "pixmap" {
 
 class "GtkWidget" style "standard-default"
 
-
-
-
 style "standard-menu"
 {
   bg[PRELIGHT] = @selected_bg_color
@@ -477,8 +474,8 @@ widget_class "*MenuBar.*MenuItem*" style "standard-menubar-item"
 
 style "standard-list"
 {
-   bg[NORMAL] = lighter (@bg_color) # { 0.9, 0.9, 0.9 }
-   bg[PRELIGHT] = @fg_color #{ 0.0, 0.0, 0.0 }
+  bg[NORMAL] = lighter (@bg_color) # { 0.9, 0.9, 0.9 }
+  bg[PRELIGHT] = @fg_color #{ 0.0, 0.0, 0.0 }
 }
 
 class "GtkList" style "standard-list"
@@ -489,20 +486,15 @@ style "standard-scrollbar"
   GtkRange::slider-width = 16
   GtkRange::stepper-size = 16
   GtkRange::stepper-spacing = 0
-
-
 }
 
 class "GtkScrollbar" style "standard-scrollbar"
-
 
 style "standard-scales"
 {
   GtkRange::slider-width = 11
   GtkScale::slider-length = 21
-
   bg[ACTIVE]        = shade (1.1,@bg_color)
-
 }
 
 #class "*Scale*" style "standard-scales"
@@ -518,25 +510,26 @@ class "GtkOptionMenu" style "standard-option-menu"
 
 style "gnome-color-chooser-tooltips"
 {
-bg[NORMAL] = "#ffffe1"
-fg[NORMAL] = "#000000"
+  bg[NORMAL] = "#ffffe1"
+  fg[NORMAL] = "#000000"
 }
 widget "gtk-tooltip*" style "gnome-color-chooser-tooltips"
 
+# Desktop shortcut icon style & text shadow
 style "xfdesktop-icon-view" {
-  XfdesktopIconView::label-radius = 0.99				#Enable this  if you want a small shadow behind text.
+  XfdesktopIconView::label-radius = 0.99
   XfdesktopIconView::label-alpha = 0
   XfdesktopIconView::selected-label-alpha = 255
-#  XfdesktopIconView::shadow-x-offset = 0				#Enable these if you want a big shadow behind text
-#  XfdesktopIconView::shadow-y-offset = 1				#Enable these if you want a big shadow behind text
-#  XfdesktopIconView::selected-shadow-x-offset = 0			#Enable these if you want a big shadow behind text
-#  XfdesktopIconView::selected-shadow-y-offset = 1			#Enable these if you want a big shadow behind text
-#  XfdesktopIconView::shadow-color = "#000000"				#Enable these if you want a big shadow behind text
-#  XfdesktopIconView::selected-shadow-color = "#000000"			#Enable these if you want a big shadow behind text
-#  XfdesktopIconView::shadow-blur-radius = 2				#Enable these if you want a big shadow behind text
-  XfdesktopIconView::cell-spacing = 2
-  XfdesktopIconView::cell-padding = 6
-  XfdesktopIconView::cell-text-width-proportion = 1.9
+#  XfdesktopIconView::shadow-x-offset = 1				#Enable these if you want a shadow behind text
+#  XfdesktopIconView::shadow-y-offset = 1				#Enable these if you want a shadow behind text
+#  XfdesktopIconView::selected-shadow-x-offset = 1			#Enable these if you want a shadow behind text
+#  XfdesktopIconView::selected-shadow-y-offset = 1			#Enable these if you want a shadow behind text
+#  XfdesktopIconView::shadow-color = "#000000"				#Enable these if you want a shadow behind text
+#  XfdesktopIconView::selected-shadow-color = "#000000"			#Enable these if you want a shadow behind text
+#  XfdesktopIconView::shadow-blur-radius = 2				#Enable this if you want a a blurry shadow behind text
+  XfdesktopIconView::cell-spacing = 5
+  XfdesktopIconView::cell-padding = 0
+  XfdesktopIconView::cell-text-width-proportion = 2
 
   fg[NORMAL] = @selected_fg_color
   fg[ACTIVE] = @selected_fg_color
@@ -545,6 +538,26 @@ style "xfdesktop-icon-view" {
 
 widget_class "*XfdesktopIconView*"	style "xfdesktop-icon-view"
 
+#Frame around orage
+style "frame"
+{
+  xthickness      = 1
+  ythickness      = 1
+
+  engine "pixmap"
+	{
+    image
+	{
+		function				= SHADOW
+		file					= "Shadows/frame.png"
+		border					= { 1, 1, 1, 1 }
+		stretch					= TRUE
+		shadow					= IN
+	}
+	}
+}
+
+class "GtkFrame"	                style "frame"
 
 include "tabwin.rc"
 include "panel.rc"

@@ -3235,13 +3235,13 @@ GtkBubbleWindow .toolbar {
      box-shadow: none; 
 }
 
-GtkWindow.csd,
-GtkWindows.ssd {
-    padding: 4px;
-    border-radius: 0;
-    border-width: 0px 1px 1px 1px;
-    border-style: solid;
-    border-color: #c0c0c0 #000 #000 #c0c0c0;
-    box-shadow: inset 1px 0px #FFF, inset -1px -1px #808080;
-
-}
+#GtkWindow.csd,
+#GtkWindows.ssd {
+#    padding: 4px;
+#    border-radius: 0;
+#    border-width: 0px 1px 1px 1px;
+#    border-style: solid;
+#    border-color: #c0c0c0 #000 #000 #c0c0c0;
+#    box-shadow: inset 1px 0px #FFF, inset -1px -1px #808080;
+#
+#}
