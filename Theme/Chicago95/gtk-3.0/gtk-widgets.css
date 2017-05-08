@@ -116,7 +116,7 @@ slider, .slider {
 
 frame {
     background-color: transparent;
-    padding: 1px;
+    padding: 3px;
 }
 .frame {
     background-color: transparent;
@@ -239,6 +239,8 @@ button:selected, button:active,
 check, radio,
 scrolledwindow.frame,
 scrolledwindow:not(.frame) > viewport,
+/*stack.view > box,
+.nautilus-list-view,*/
 notebook:not(.frame) > stack > box {
     border-style: solid;
     border-width: 1px;
@@ -255,7 +257,7 @@ button.flat:hover:not(:active):not(:checked):not(:selected),
 toolbar button,
 toolbar button:hover:not(:active):not(:checked):not(:selected),
 menubar,
-toolbar,
+toolbar:not(.inline-toolbar),
 stepper {
     border-style: solid;
     border-width: 1px;
@@ -446,7 +448,11 @@ viewport,
 viewport list,
 iconview,
 textview,
-view, .view {
+view, .view,
+viewport.frame > frame,
+viewport.frame > box > frame,
+list.tweak-group,
+list.tweak-categories {
     border-width: 0px;
     background-color: @base_color;
     color: @theme_text_color;
@@ -473,7 +479,6 @@ iconview {
     -GdMainIconView-icon-size: 48;
 }
 
-
 /*********************
  * list cell and row *
  *********************/
@@ -483,6 +488,21 @@ row, :not(check):not(radio).row {
     border-width: 0px 0px 1px 0px;
     border-style: solid;
     border-color: mix(@fg_color,@base_color,0.7);
+}
+/* remove :not(.frame) for less elements separated with horizontla lines */
+viewport:not(.frame) list row {
+    border-bottom: 0px;
+    padding: 0px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+list > row label,
+list > row image {
+    padding-left: 4px;
+    padding-right: 3px;
 }
 
 cell:selected,
@@ -499,6 +519,11 @@ list > separator {
     border: 0px;
     min-height: 0px;
     min-width: 0px;
+}
+
+/* Exception for gnome-tweak-tool */
+list.tweak-group {
+    padding: 8px;
 }
 
 
@@ -801,10 +826,11 @@ scrolledwindow {
     margin: 1px;
 }
 
-/* transmission misteriously resets border-width to zero, cant even force it here
+/* transmission misteriously resets border-width to zero, cant even force it here*/
 scrolledwindow.frame {
-border-width: 1px;
-} */
+    border-width: 1px;
+    padding: 1px;
+}
 
 
 /* nautilus seems to have a special transparent icon canvas, since scrolledwindow is also transparent
@@ -1602,7 +1628,7 @@ window > menu {
     padding: 0px;
 }
 
-.titlebar button:not(.appmenu)  {
+.titlebar button  {
     margin: 0px;
     padding: 0px;
     min-width: 0px;
@@ -1653,6 +1679,11 @@ headerbar separator {
 	border-style: solid;
 }
 
+headerbar scale {
+    margin-top: 4px;
+    margin-bottom: -6px;
+}
+
 window.csd tooltip {
     border-radius: 0;
     border: 0 none @border_dark;
@@ -1688,18 +1719,14 @@ window.ssd.maximized .titlebar {
  * window buttons *
  ******************/
 
-button.appmenu {
-	padding-bottom: 7px;
-	padding-left: 5px;
-	padding-right: 5px;
-	padding-top: 4px;
-}
 
 
 /* Makes the raised 2px effect slimmer on the top and left side */
-button.titlebutton:not(.appmenu) {
+button.titlebutton {
     padding: 0px;
     margin: 0px;
+    margin-top: 2px;
+    margin-bottom: 2px;
     border-top: 0px;
     border-left: 0px;
     background-position: center;
@@ -1776,6 +1803,21 @@ button.titlebutton:checked:not(.appmenu) {
 }
 .titlebutton.maximize {
     margin-left: -6px;
+}
+
+/* putting :not(.appmenu) in button.titlemenu breaks the main window buttons position,
+ * so restore any damage made to buttons styled with both .appmenu and .titlemenu here */
+button.appmenu {
+    border: solid 1px;
+    border-color: @bg_color @bg_dark @bg_dark @bg_color;
+    margin-top: 1px;
+    margin-left: 3px;
+    margin-right: 1px;
+    margin-bottom: 0px;
+	padding-bottom: 7px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 4px;
 }
 
 /* declaration of .view was causing problems with white background rubberband in nautilus, putting this here for now */
