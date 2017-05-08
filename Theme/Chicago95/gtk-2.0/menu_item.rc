@@ -1,7 +1,7 @@
 style "menu_item"
 {
-	xthickness	= 0
-	ythickness	= 0
+#	xthickness	= 0
+#	ythickness	= 0
 
         # HACK: Gtk doesn't actually read this value
         # while rendering the menu items, but Libreoffice
@@ -11,7 +11,7 @@ style "menu_item"
         # highlight. The price to pay is black text on menus as well,
         # but at least it's readable.
         # See https://bugs.freedesktop.org/show_bug.cgi?id=38038
-        bg[SELECTED]    = @selected_fg_color
+        bg[SELECTED]    = @selected_bg_color
 
 	bg[PRELIGHT]	= @selected_bg_color
 	fg[PRELIGHT]	= @selected_fg_color
