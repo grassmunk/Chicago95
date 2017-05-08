@@ -1275,6 +1275,7 @@ stacksidebar > scrolledwindow {
     padding: 0px;
     margin: 0px;
     border: 0px;
+
     box-shadow: none;
 }
 
@@ -1714,10 +1715,10 @@ window.ssd.maximized .titlebar {
     border-radius: 0;
 }
 
-
 /******************
  * window buttons *
  ******************/
+
 
 
 /* Makes the raised 2px effect slimmer on the top and left side */
@@ -1766,6 +1767,7 @@ button.titlebutton:checked:not(.appmenu) {
 .titlebutton.minimize:backdrop {
 }
 .titlebutton.minimize:checked {
+
 }
 
 .titlebutton.maximize {
