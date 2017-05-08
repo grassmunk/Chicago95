@@ -1601,7 +1601,7 @@ window > menu {
     padding: 0px;
 }
 
-.titlebar button:not(.appmenu)  {
+.titlebar button  {
     margin: 0px;
     padding: 0px;
     min-width: 0px;
@@ -1688,17 +1688,13 @@ window.ssd.maximized .titlebar {
  * window buttons *
  ******************/
 
-button.appmenu {
-	padding-bottom: 7px;
-	padding-left: 5px;
-	padding-right: 5px;
-	padding-top: 4px;
-}
 
 /* Makes the raised 2px effect slimmer on the top and left side */
-button.titlebutton:not(.appmenu) {
+button.titlebutton {
     padding: 0px;
     margin: 0px;
+    margin-top: 2px;
+    margin-bottom: 2px;
     border-top: 0px;
     border-left: 0px;
     background-position: center;
@@ -1776,7 +1772,20 @@ button.titlebutton:checked:not(.appmenu) {
     margin-left: -6px;
 }
 
-
+/* putting :not(.appmenu) in button.titlemenu breaks the main window buttons position,
+ * so restore any damage made to buttons styled with both .appmenu and .titlemenu here */
+button.appmenu {
+    border: solid 1px;
+    border-color: @bg_color @bg_dark @bg_dark @bg_color;
+    margin-top: 1px;
+    margin-left: 3px;
+    margin-right: 1px;
+    margin-bottom: 0px;
+	padding-bottom: 7px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 4px;
+}
 
 /* declaration of .view was causing problems with white background rubberband in nautilus, putting this here for now */
 flowbox rubberband, treeview.view rubberband, .content-view rubberband,
