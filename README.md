@@ -11,6 +11,7 @@ Included in this theme:
 - Edited Xfce-Redmond by dbbolton to be more accurate and include XFCE panels
 - Created GTK-3.0 theme from scratch (based on Win 10 and Mate themes)
 - Plymouth theme created from scratch
+- An MS-DOS inspired theme for oh-my-zsh
 
 ## Screenshots
 ![alt text](https://raw.githubusercontent.com/AdrianoML/Chicago95/master/Screenshots/plymouth.gif "Plymouth")
@@ -29,6 +30,10 @@ Included in this theme:
 I decided that the pop-overs were almost exactly as annoying/ugly as Clippy was in MS Office 97 so the buttons/coloring are matched to look exactly like that.
 
 ![alt text](https://raw.githubusercontent.com/AdrianoML/Chicago95/master/Screenshots/DOS.png "Terminal")
+
+There is also an oh-my-zsh terminal theme.
+
+![alt text](https://raw.githubusercontent.com/Geweldig/Chicago95/master/Screenshots/oh-my-zshDOS.png "oh-my-zsh terminal")
 
 ## Installation
 
@@ -61,11 +66,18 @@ Update your font cache: sudo fc-cache -f -v
 In xfce-term selet the font `Less Perfect DOS VGA` or `More Pefect DOS VGA`.
 
 ### Terminal
-
+#### Bash
 Copy the file `Extras/Chicago95.theme` to `~/.local/share/xfce4/terminal/colorschemes` (create the colorschemes folder if it doesn't exist: `mkdir .local/share/xfce4/terminal`).
 Under preferences in xfce-term select 'Colors.' Under `Presets` you should see `Chicago 95`.
 
 To get the MS-DOS `C:\>` prompt and startup message add the contents of `Extras/DOSrc` to your `.bashrc` file: `cat Extras/DOSrc >> ~/.bashrc`.
+
+#### oh-my-zsh
+Copy the file `Extras/Chicago95.zsh-theme` to `~/.oh-my-zsh/themes` (if you have changed your `.oh-my-zsh` config location, put the theme in that folder). In your `.zshrc` change your theme to Chicago95.
+
+This will add the MS-DOS prompt. You will get a C prompt by default. If the previous command had an exit code other than 0 you will get an F prompt. If you are in a git repository you will git a G prompt, followed by the branch (in yellow) and the status (clean in green, dirty in red).
+
+To get the startup message, add the contents of `Extras/ZSHDOSrc` to your `.zshrc` file: `cat Extras/ZSHDOSrc >> ~/.zshrc`.
 
 ### Plymouth
 
