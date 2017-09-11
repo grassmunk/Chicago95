@@ -66,6 +66,7 @@ Copy the file `Extras/Chicago95.theme` to `~/.local/share/xfce4/terminal/colorsc
 Under preferences in xfce-term select 'Colors.' Under `Presets` you should see `Chicago 95`.
 
 To get the MS-DOS `C:\>` prompt and startup message add the contents of `Extras/DOSrc` to your `.bashrc` file: `cat Extras/DOSrc >> ~/.bashrc`.
+To get MS-DOS Prompt title, go to the Preferences prompt and change title to MS-DOS Prompt and select isn't displayed on The Dynamically-Set Title
 
 ### Plymouth
 
