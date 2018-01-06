@@ -159,7 +159,7 @@ Disable shadows in compositing for an authentic appearance, or at the very least
 For the icon theme, I made a small adjustment that replaces the MS Windows logos with tux penguins. You can install this if you want. To install it, copy the `Chicago95-tux` directory into “/home/$USER/.icons.”
 
 ### Notification baloon theme
-There is a notification baloon theme with Chicago95.
+To set the notification theme, open the system notification settings manager (xfce4-notifyd-config) and in the "Theme" option select Chicago95 in the pull down menu.
 
 
 ## Requirements
