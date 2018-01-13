@@ -1,5 +1,5 @@
-#Chicago95 Greeter
-========
+Chicago95 Greeter
+===================
 
 Chicago95 is a greeter(read: a login screen) for use with lightdm and lightdm-webkit-greeter.
 
@@ -11,7 +11,7 @@ A screenshot of paddy-greeter in action can be found [here](https://raw.githubus
 
 
 
-##Documentation
+Documentation
 -------------
 
 You'll need to have lightdm and lightdm-webkit for this to work. On Xubuntu, you'd do something like:
