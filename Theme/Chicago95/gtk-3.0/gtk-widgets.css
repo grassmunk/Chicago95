@@ -303,6 +303,12 @@ popover button.flat {
     background-color: @bg_color;
 }
 
+popover button.flat:active {
+    padding: 4px;
+    margin: 2px;
+    background-color: @bg_color;
+}
+
 popover modelbutton:hover {
 background-color: white;
 }
