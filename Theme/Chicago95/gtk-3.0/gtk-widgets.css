@@ -1339,7 +1339,7 @@ notebook > stack{
 
 notebook stack box frame {
 border: transparent;
-box-shadow: none
+box-shadow: none;
 }
 
 notebook:not(.frame) > stack {
@@ -1417,6 +1417,7 @@ in the future... */
 notebook > header.top {
     margin-left: -1px; 
     margin-right: -1px;
+    border-bottom: 4px solid transparent;
 }
 notebook > header.top > tabs {
     border-style: solid;
@@ -1450,7 +1451,8 @@ notebook > header.top > tabs > tab:checked {
 /* LEFT tabs */
 notebook > header.left {
     margin-top: -1px; 
-    margin-bottom: -1px; 
+    margin-bottom: -1px;
+    border-right: 4px solid transparent;
 }
 notebook > header.left > tabs {
     border-style: solid;
@@ -1492,6 +1494,7 @@ notebook > header.bottom {
     margin-left: 0px; 
     margin-right: -3px; 
     margin-bottom: -2px;
+    border-top: 4px solid transparent;
 }
 notebook > header.bottom > tabs {
     border-style: solid;
@@ -1529,6 +1532,7 @@ notebook > header.right {
     margin-top: 0px; 
     margin-bottom: -3px; 
     margin-right: -2px;
+    border-left: 4px solid transparent;
 }
 notebook > header.right > tabs {
     border-style: solid;
