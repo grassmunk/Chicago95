@@ -1,0 +1,29 @@
+/* Whisker Menu Button style */
+
+#whiskermenu-button {
+    padding: 2px;
+    margin: 2px;
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px solid #000000;
+    border-left: 1px solid #FFFFFF;
+    border-right: 1px solid #000000;
+    box-shadow: inset -1px -1px #808080;
+    background-color: #c0c0c0;
+}
+
+#whiskermenu-button:active,
+#whiskermenu-button:checked {
+    padding-left: 3px;
+    padding-right: 1px;
+    margin: 2px;
+    border-bottom: 1px solid #FFF;
+    border-right: 1px solid #FFF;
+    border-top: 1px solid #000000;
+    border-left: 1px solid #000000;
+    box-shadow: inset -1px -1px #c0c0c0,
+                inset 1px 1px #808080;
+    background-color: pink;
+    background: url("../assets/backdrop.png");
+    background-repeat: no-repeat;
+    border-radius: 0px;
+}

@@ -17,7 +17,7 @@ gtk-icon-sizes = "mini-commander-icon=32,32:print-manager=32,32:panel-button=32,
 style "standard-default"
 {
   GtkWidget::interior_focus = 2
-  GtkButton::default_border = { 1, 1, 1, 1 }
+  GtkButton::default_border = { 0, 0, 0, 0 }
   GtkButton::default_outside_border = { 0, 0, 0, 0 }
   GtkOptionMenu::indicator_size = { 9, 5 }
   GtkOptionMenu::indicator_spacing = { 7, 5, 2, 2 }
@@ -518,7 +518,7 @@ widget "gtk-tooltip*" style "gnome-color-chooser-tooltips"
 # Desktop shortcut icon style & text shadow
 style "xfdesktop-icon-view" {
   XfdesktopIconView::label-radius = 0.99
-  XfdesktopIconView::label-alpha = 0
+  XfdesktopIconView::label-alpha = 255
   XfdesktopIconView::selected-label-alpha = 255
 #  XfdesktopIconView::shadow-x-offset = 1				#Enable these if you want a shadow behind text
 #  XfdesktopIconView::shadow-y-offset = 1				#Enable these if you want a shadow behind text
@@ -529,10 +529,16 @@ style "xfdesktop-icon-view" {
 #  XfdesktopIconView::shadow-blur-radius = 2				#Enable this if you want a a blurry shadow behind text
   XfdesktopIconView::cell-spacing = 5
   XfdesktopIconView::cell-padding = 0
-  XfdesktopIconView::cell-text-width-proportion = 2
+  XfdesktopIconView::cell-color = "#c0c0c0"
+  XfdesktopIconView::cell-text-width-proportion = 2.4
+  XfdesktopIconView::ellipsize-icon-labels = 0
 
-  fg[NORMAL] = @selected_fg_color
-  fg[ACTIVE] = @selected_fg_color
+  base[NORMAL] = "#008081"		#This is the desktop icon label background colour.
+  base[SELECTED] = @selected_bg_color	#This is the desktop icon label background colour selected state.
+  base[ACTIVE] = @selected_bg_color	#This is the desktop icon label background colour active state.
+  fg[NORMAL] = @selected_fg_color	#This is the desktop icon label TEXT colour state.
+  fg[SELECTED] = @selected_fg_color	#This is the desktop icon label TEXT colour selected state.
+  fg[ACTIVE] = @selected_fg_color	#This is the desktop icon label TEXT colour active state.
 
 }
 
@@ -559,6 +565,13 @@ style "frame"
 
 class "GtkFrame"	                style "frame"
 
+style "my-launchers"
+{
+    xthickness = 7
+    ythickness = 7
+}
+widget "*launcher*" style "my-launchers"
+
 include "tabwin.rc"
 include "panel.rc"
 include "scrollbar.rc"
@@ -569,3 +582,4 @@ include "slider.rc"
 include "toolbutton.rc"
 include "tabs.rc"
 include "menubar.rc"
+include "button.rc"

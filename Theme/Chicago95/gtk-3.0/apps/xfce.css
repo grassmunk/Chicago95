@@ -1,3 +1,5 @@
+/* Panel buttons */
+
 XfceHeading {
     margin: 0;
     padding: 0;
@@ -8,25 +10,45 @@ XfceHeading {
 }
 
 .xfce4-panel {
-    background-color: @panel_bg_color;
+    background-color: #c0c0c0;
     color: @panel_fg_color;
-    font: normal;
     border: 0px;
     box-shadow: 0 0 0;
 }
 
-.xfce4-panel .button:hover,
-.xfce4-panel .button:active:hover,
-.xfce4-panel .button:active, 
-.xfce4-panel .button {
-    padding: 0 8px;
+.xfce4-panel button {
+    padding: 2px;
+    margin: 2px;
     border-radius: 0;
-    border: 0px;
-    border-style: none;
+    border: 1px solid transparent;
     color: @panel_fg_color;
     box-shadow: 0 0 0;
 }
 
-.xfce4-panel .menu {
-    -gtk-image-effect: none;
+.xfce4-panel button:hover {
+    padding: 2px;
+    margin: 2px;
+    border-top: 1px solid #c0c0c0;
+    border-bottom: 1px solid #000000;
+    border-left: 1px solid #c0c0c0;
+    border-right: 1px solid #000000;
+    box-shadow: inset 1px 1px #FFFFFF,
+                inset -1px -1px #808080;
+    background-color: #c0c0c0;
+}
+
+.xfce4-panel button:active,
+.xfce4-panel button:checked {
+    padding: 2px;
+    margin: 2px;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #FFF;
+    border-left: 1px solid #000000;
+    border-right: 1px solid #FFF;
+    box-shadow: inset 1px 1px #808080;
+    background-color: #c0c0c0;
+}
+
+.xfce4-panel menu {
+    -gtk-icon-effect: none;
 }

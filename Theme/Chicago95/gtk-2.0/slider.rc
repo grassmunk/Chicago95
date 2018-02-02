@@ -9,7 +9,7 @@ style "range"
       function			= BOX
       detail			= "trough"
       file			= "Range/trough-horizontal.png"
-      border			= { 0, 0, 0, 0 }
+      border			= { 0, 0, 21, 0 }
       stretch			= TRUE
       orientation		= HORIZONTAL
     }	
@@ -18,7 +18,7 @@ style "range"
       function			= BOX
       detail			= "trough"
       file			= "Range/trough-vertical.png"
-      border			= { 0, 0, 0, 0 }
+      border			= { 21, 0, 0, 0 }
       stretch			= TRUE
       orientation		= VERTICAL
     }

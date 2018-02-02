@@ -17,7 +17,7 @@ engine "pixmap"
 		gap_side	= BOTTOM
 		file		= "/tabs/tab-top-active.png"
 		stretch		= TRUE
-		border		= { 2 ,2 ,2 ,2}
+		border		= { 4 ,4 ,4 ,4}
 	}
 
 	image
@@ -27,7 +27,7 @@ engine "pixmap"
 		gap_side	= BOTTOM
 		file		= "/tabs/tab-top.png"
 		stretch		= TRUE
-		border		= { 4 ,4 ,4 ,4}
+		border		= { 8 ,8 ,8 ,8}
 	}
 
 
@@ -48,7 +48,7 @@ engine "pixmap"
 		gap_side	= TOP
 		file		= "/tabs/tab-bottom.png"
 		stretch		= TRUE
-		border		= { 2 ,2 ,2 ,2}
+		border		= { 8 ,8 ,8 ,8}
 	}
 
 	image
@@ -56,26 +56,6 @@ engine "pixmap"
 		function	= EXTENSION
 		state		= NORMAL
 		gap_side	= LEFT
-		file		= "/tabs/tab-left-active.png"
-		stretch		= TRUE
-		border		= { 4 ,4 ,4 ,4}
-	}
-
-	image
-	{
-		function	= EXTENSION
-		state		= ACTIVE
-		gap_side	= LEFT
-		file		= "/tabs/tab-left.png"
-		stretch		= TRUE
-		border		= { 2 ,2 ,2 ,2}
-	}
-
-	image
-	{
-		function	= EXTENSION
-		state		= NORMAL
-		gap_side	= RIGHT
 		file		= "/tabs/tab-right-active.png"
 		stretch		= TRUE
 		border		= { 4 ,4 ,4 ,4}
@@ -85,10 +65,30 @@ engine "pixmap"
 	{
 		function	= EXTENSION
 		state		= ACTIVE
-		gap_side	= RIGHT
+		gap_side	= LEFT
 		file		= "/tabs/tab-right.png"
 		stretch		= TRUE
-		border		= { 2 ,2 ,2 ,2}
+		border		= { 4 ,4 ,4 ,4}
+	}
+
+	image
+	{
+		function	= EXTENSION
+		state		= NORMAL
+		gap_side	= RIGHT
+		file		= "/tabs/tab-left-active.png"
+		stretch		= TRUE
+		border		= { 4 ,4 ,4 ,4}
+	}
+
+	image
+	{
+		function	= EXTENSION
+		state		= ACTIVE
+		gap_side	= RIGHT
+		file		= "/tabs/tab-left.png"
+		stretch		= TRUE
+		border		= { 4 ,4 ,4 ,4}
 	}
 
 

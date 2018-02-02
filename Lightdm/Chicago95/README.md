@@ -4,12 +4,6 @@ Chicago95 Greeter
 Chicago95 is a greeter(read: a login screen) for use with lightdm and lightdm-webkit-greeter.
 
 It has very limited functionality, but reminds you of that 90s aesthetic.
-A screenshot of paddy-greeter in action can be found [here](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/lightdm.png).
-
-![Where do you want to go today?](https://raw.githubusercontent.com/grassmunk/Chicago95/master/Screenshots/lightdm.png)
-
-
-
 
 Documentation
 -------------
