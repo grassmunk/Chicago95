@@ -1,8 +1,9 @@
 /*# name: Chicago95
   # author: Grassmunk
   # author: AdrianoML (rewrite/gtk 3.22 update)
-  # date: December 4th, 2016
-  # description: Chicago 95 Default*/
+  # author: EMH-Mark-I (rewrite/gtk 3.22 update)
+  # date: February 7th, 2018
+  # description: A Windows 95 classic theme for XFCE4. */
 
 
 /* Comment about Pop-overs: I couldn't get over how much they looked like Clippy in MS Office 97 so thats why the buttons are different */
@@ -86,6 +87,8 @@
 @define-color progressbar_color @selected_bg_color;
 
 @import url("gtk-widgets.css");
+@import url("apps/xfce.css");
+@import url("apps/whiskermenu.css");
 
 /* @import url("apps/gnome-applications.css");
 @import url("apps/granite-widgets.css");

@@ -1,0 +1,50 @@
+/* File Chooser */
+
+
+filechooser box paned placessidebar viewport list {
+    background-color: white;
+}
+
+
+filechooser box paned box box stack placesview stack frame scrolledwindow viewport list {
+    border: 1px solid;
+}
+
+filechooser box paned box revealer box stack box widget button {
+padding-top: 1px;
+padding-bottom: 1px;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+filechooser box paned box revealer box stack box treeview {
+border-left: 2px solid black;
+}
+
+filechooser box paned placessidebar viewport list separator {
+    border-top: 1px solid #808080;
+    border-bottom: 1px solid white;
+}
+
+filechooser placessidebar viewport list {
+    background-color: white;
+}
+
+filechooser placessidebar viewport separator {
+    border-top: 1
+}
+
+dialog box box filechooser box  paned box box stack box scrolledwindow{
+border-left: 1px solid @bg_shade;
+border-top: 1px solid @bg_shade;
+border-right: 1px solid white;
+border-bottom: 1px solid white;
+box-shadow: inset -1px -1px @bg_shade,
+                     inset 1px 1px white;
+margin: 0px;
+}
+
+dialog box box filechooser box paned placessidebar viewport {
+border: none;
+box-shadow: none;
+}
