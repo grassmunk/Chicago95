@@ -106,6 +106,15 @@ Disable shadows in compositing for an authentic appearance, or at the very least
 - Uncheck "Show shadows under dock windows."
 - Uncheck "Show shadows under regular windows."
 
+#### GTK Overlay Scrollbars
+Note: You may have to enable `view hidden folders` in your file manager to see hidden files.
+
+GTK Overlay Scrollbars can be disabled from the `.xsessionrc` file located in the `Extras/override` folder.
+
+Copy the .xsessionrc file into your user directory `/home/$USER/` or append the contents if you already have a .xsessionrc file.
+
+Log out then log back in.
+
 ####  Icons
 To install the icons copy the folders `Icons/Chicago95` and `Icons/Chicago95-tux`to `~/.icons`.
 
