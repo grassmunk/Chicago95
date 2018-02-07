@@ -2454,3 +2454,15 @@ grid viewport box scrolledwindow viewport {
     box-shadow: inset 0 0;
     background-color: white;
 }
+
+printdialog notebook > stack > box {
+    padding: 10px;
+}
+
+printdialog notebook {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    box-shadow: inset 1 1 0 0 white,
+                inset -1 -1 @bg_shade;
+    margin: 7px;
+}
