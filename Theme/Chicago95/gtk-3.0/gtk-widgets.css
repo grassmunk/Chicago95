@@ -2174,7 +2174,7 @@ window.ssd .titlebar:backdrop label{
 
 headerbar,
 .titlebar {
-    padding: 3px;
+    padding: 0px;
     padding-left: 2px;
     padding-right: 2px;
     margin: 0px;
@@ -2324,7 +2324,6 @@ button.titlebutton:checked:not(.appmenu) {
     padding: 0px;
     border-top: 0px;
     border-left: 0px;
-    background-position: 1px 1px, center 2px;
     background-repeat: no-repeat;
 }
 
@@ -2391,11 +2390,14 @@ button.titlebutton:checked:not(.appmenu) {
 }
 
 /* Groups these buttons together */
-.titlebutton.close {
-    margin-right: 0px;
-    margin-left: -4px;
+.titlebutton.minimize {
+    margin-right: -4px;
 }
 .titlebutton.maximize {
+    margin-left: -4px;
+}
+
+.titlebutton.close {
     margin-left: -6px;
 }
 
@@ -2454,6 +2456,8 @@ grid viewport box scrolledwindow viewport {
     box-shadow: inset 0 0;
     background-color: white;
 }
+
+/* printdialog */
 
 printdialog notebook > stack > box {
     padding: 10px;
