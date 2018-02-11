@@ -20,15 +20,15 @@ boot_sprite = Sprite();
 
 progress = 0;
 
-
 fun refresh_callback ()
   {
-    resized_image = boot_images[Math.Int(progress) % 18].Scale(screen_width, screen_height);
+    resized_image = boot_images[Math.Int(progress)].Scale(screen_width, screen_height);
     boot_sprite.SetImage(resized_image);
     progress++;
   }
   
 Plymouth.SetRefreshFunction (refresh_callback);
+
 
 #----------------------------------------- Dialogue --------------------------------
 
@@ -54,7 +54,7 @@ fun dialog_setup()
     lock.x = box.x + box.image.GetWidth()/2 - (lock.image.GetWidth() + entry.image.GetWidth()) / 2;
     lock.y = box.y + box.image.GetHeight()/2 - lock.image.GetHeight()/2;
     lock.z = box.z + 1;
-    lock.sprite.SetPosition(lock.x, lock.y, lock.z);
+    lock.sprite.SetPosition(lock.x - 8, lock.y, lock.z);
     
     entry.sprite = Sprite(entry.image);
     entry.x = lock.x + lock.image.GetWidth();
@@ -94,12 +94,12 @@ fun display_password_callback (prompt, bullets)
 	dialog_setup();
     else
 	dialog_opacity(1);
-    for (index = 0; dialog.bullet[index] || index < bullets; index++)
+    for (index = 0; dialog.bullet[index] || index < 19; index++)
       {
         if (!dialog.bullet[index])
           {
             dialog.bullet[index].sprite = Sprite(dialog.bullet_image);
-            dialog.bullet[index].x = dialog.entry.x + index * dialog.bullet_image.GetWidth();
+            dialog.bullet[index].x = dialog.entry.x + index * dialog.bullet_image.GetWidth() + 4;
             dialog.bullet[index].y = dialog.entry.y + dialog.entry.image.GetHeight() / 2 - dialog.bullet_image.GetHeight() / 2;
             dialog.bullet[index].z = dialog.entry.z + 1;
             dialog.bullet[index].sprite.SetPosition(dialog.bullet[index].x, dialog.bullet[index].y, dialog.bullet[index].z);
