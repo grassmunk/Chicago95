@@ -22,8 +22,8 @@
     border-left: 1px solid #000000;
     box-shadow: inset -1px -1px #c0c0c0,
                 inset 1px 1px #808080;
-    background-color: pink;
-    background: url("../assets/backdrop.png");
-    background-repeat: no-repeat;
     border-radius: 0px;
+/* You can uncomment the following if you want a dotted border outline on the start button when activating it */
+/*    background: url("../assets/backdrop.png");
+    background-repeat: no-repeat;*/
 }
