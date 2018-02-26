@@ -69,7 +69,7 @@ style "panel"
 		state				= ACTIVE
 		file            		= "panel/panel-button-active.png"
 		border          		= { 5, 5, 5, 5 }
-		stretch         		= FALSE
+		stretch         		= TRUE
 	}  
 
 	image
@@ -89,7 +89,7 @@ style "panel"
 		state				= SELECTED
 		file            		= "panel/panel-button-active.png"
 		border          		= { 5, 5, 5, 5 }
-		stretch         		= FALSE
+		stretch         		= TRUE
 	}  
 
 
@@ -115,8 +115,8 @@ class "*Mail*" 				style "panel"
 class "*Tray*" 				style "panel"
 class "*tray*" 				style "panel"
 widget_class "*Mail*" 			style "panel"
-#widget_class "*notif*" 			style "panel"
-#widget_class "*Notif*" 			style "panel"
+#widget_class "*notif*" 		style "panel"
+#widget_class "*Notif*" 		style "panel"
 widget_class "*Tray*" 			style "panel"
 widget_class "*tray*" 			style "panel"
 widget_class "*BonoboDockItem" 		style "panel"
@@ -141,53 +141,13 @@ widget_class "*Netstatus*" 		style "panel"
 widget_class "*Tomboy*Tray*" 		style "panel"
 widget "*fast-user-switch*" 		style "panel"
 widget_class "*PanelToplevel*" 		style "panel"
-
-
+class "Xfce*Panel*" 			style "panel"
+widget_class "*Xfce*Panel*" 		style "panel"
 widget_class "*PanelApplet*" 		style "panel"
 widget_class "*PanelWidget*" 		style "panel"
 widget_class "*computertemp*"     style "panel"
 widget_class "*Applet*Tomboy*"    style "panel"
 widget_class "*Applet*Netstatus*" style "panel"
-
-#############################################################
-
-style "launcher"
-{
-xthickness            			= 5
-ythickness            			= 5
-
-#GtkWidget::focus_padding 		= 2
-
-engine "pixmap" {
-
-	image
-	{
-		function        		= BOX
-		recolorable     		= TRUE
-		state				= ACTIVE
-		file            		= "panel/launcher-button-active.png"
-		border          		= { 5, 5, 5, 5 }
-		stretch         		= TRUE
-	}  
-
-	image
-	{
-		function        		= BOX
-		shadow				= OUT
-		recolorable     		= TRUE
-		state				= PRELIGHT
-		file            		= "panel/panel-bg.png"
-		border          		= { 5, 5, 5, 5 }
-		stretch         		= TRUE
-	}
-}
-}
-#############################################################
-#Affects XFCE Launcher icons on the panel.
-#############################################################
-widget_class "*Xfce*Panel*" 		style "launcher"
-class "Xfce*Panel*" 			style "panel"
-#############################################################
 
 #############################################################
 #THIS MAKES THE APPLICATIONS PLACES SYSTEM MENU ON THE PANEL
@@ -252,7 +212,7 @@ engine "pixmap"
 
 style "panelbuttons"
 {
-        xthickness            			= 4
+        xthickness            			= 5
         ythickness            			= 2
 
 	GtkWidget::focus_padding 		= 2
@@ -345,82 +305,18 @@ widget_class "*Xfce*NetkTasklist*GtkToggleButton" style "panelbuttons"
 
 style "paneltogglebuttons"
 {
-xthickness            			= 4
-ythickness            			= 2
+ xthickness            			= 4
+ ythickness            			= 2
 
-	#GtkWidget::focus_padding = 2
+	GtkWidget::focus_padding = 2
 
-	engine "pixmap" {
-      
-	image
-	{
-		function        		= BOX
-		recolorable     		= TRUE
-		state				= NORMAL
-		file            		= "panel/panel-bg.png"
-		border          		= { 5, 5, 5, 5 }
-		stretch         		= TRUE
-	}
-		
-	image
-	{
-		function        		= BOX
-		shadow				= OUT
-		recolorable     		= TRUE
-		state				= PRELIGHT
-		file            		= "panel/panel-bg.png"
-		border          		= { 5, 5, 5, 5 }
-		stretch         		= TRUE
-	}		
-
-	image
-	{
-		function        		= BOX
-		recolorable     		= TRUE
-		shadow				= IN
-		state				= PRELIGHT
-		file            		= "panel/panel-bg.png"
-		border          		= { 5, 5, 5, 5 }
-		stretch         		= TRUE
-	}
-		
-
-	image
-	{
-		function        		= BOX
-		recolorable     		= TRUE
-		state				= ACTIVE
-		file            		= "panel/launcher-button-active.png"
-		border          		= { 5, 5, 5, 5 }
-		stretch         		= TRUE
-	}  
-
-	image
-	{
-		function        		= BOX
-		recolorable     		= TRUE
-		state				= INSENSITIVE
-		file            		= "panel/panel-bg.png"
-		border          		= { 5, 5, 5, 5 }
-		stretch         		= TRUE
-	} 
-
-	image
-	{
-		function        		= BOX
-		recolorable     		= TRUE
-		state				= SELECTED
-		file            		= "panel/panel-bg.png"
-		border          		= { 5, 5, 5, 5 }
-		stretch         		= TRUE
-	}  
-
-}
+	
 
 }
 
 widget_class "*PanelToplevel*Button" 		style "paneltogglebuttons"
 widget_class "*Panel*GtkToggleButton" 		style "paneltogglebuttons"
+
 
 style "whiskerbutton"
 {
@@ -464,7 +360,7 @@ style "whiskerbutton"
 		recolorable     		= TRUE
 		shadow				= IN
 		state				= PRELIGHT
-		file            		= "panel/start-button-shade.png" #Sets a backdrop colour. 
+		file            		= "panel/null.png" 
 		border          		= { 0, 0, 0, 0 }
 		stretch         		= TRUE
 	}
@@ -475,7 +371,7 @@ style "whiskerbutton"
 		function        		= BOX
 		recolorable     		= TRUE
 		state				= ACTIVE
-		file            		= "panel/start-button-shade.png" #Sets a backdrop colour. 
+		file            		= "panel/null.png" 
 		border          		= { 0, 0, 0, 0 }
 		stretch         		= TRUE
 	}  
@@ -504,5 +400,3 @@ style "whiskerbutton"
 widget "*applicationmenu-button" style "whiskerbutton" #for the application menu button.
 widget "*whiskermenu-button" style "whiskerbutton" #for Whisker menu button.
 #widget "*Xfce*Panel*isker" style "whiskerbutton"
-
-
