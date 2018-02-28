@@ -4,19 +4,19 @@ Note: You may have to enable `view hidden folders` in your file manager to see h
 
 Create a `.themes` folder in your user directory `/home/$USER/` if it doesn't already exist.
 
-    mkdir -p ~/.themes
+mkdir -p ~/.themes
 
 Copy the `Theme/Chicago95` folder into `.themes`.
 
-    cp -r Theme/Chicago95 ~/.themes
+cp -r Theme/Chicago95 ~/.themes
 
 Copy `Extras/override/gtk.css` file into `/home/$USER/.config/gtk-3.0/`.
 
-    cp Extras/override/gtk.css ~/.config/gtk-3.0/
+cp Extras/override/gtk.css ~/.config/gtk-3.0/
 
 (Note 1: You may have to create the "gtk-3.0" directory if it's not there.)
 
-    mkdir -p ~/.config/gtk-3.0
+mkdir -p ~/.config/gtk-3.0
 
 (Note 2: If you ever want to change your system theme to anything else, don't forget to remove the `gtk.css` override file! It makes adjustments based on this theme which might break other themes.)
 
@@ -35,7 +35,7 @@ Open the XFCE settings manager > Window Manager.
 - Choose Chicago95.
 - Set Title font to Sans Bold, 8 points.
 
-#### Enabling the theme for QT5 applications
+#### Enabling the theme for QT5 applications (optional)
 Open your terminal and install the qt5 style plugins package.
 
 - sudo apt install qt5-style-plugins
@@ -49,54 +49,57 @@ Open the XFCE settings manager > Notifications.
 - Adjust Opacity to 100%.
 
 #### Setting up the XFCE panel
+Note: The smallest optimal panel row size for this theme is 26 pixels. If your panel is below that, scaling may cause blurriness to icons.
 
-Create a new panel. A Horizontal panel with a Row Size of 32px is highly preffered for this theme. Vertical panel support for the theme is lacking, but possible with some additional work required. (Some help for a nice looking vertical panel would be appreciated!)
+Under the Appearance tab set the background style to "None (use system style.)"
 
-- Lock panel
-- Set the panel length to 100%
-- Under the Appearance tab set the background style to "None (use system style.)"
-
-Here's a list for the panel Items plugin layout as seen from the screenshots. This is optional, the item configuration is up to you after all.
+Here's a list for the panel Items plugin layout as seen from the screen-shots. This is optional, the item configuration is up to you after all.
 
 1. Application Menu or Whisker Menu;
 2. Separator (Handle Style);
-3. Custom Launcher, Custom Launcher, Custom Launcher, etc. (16x16px icons are preferred.);
+3. Custom Launcher, Custom Launcher, Custom Launcher, etc;
 4. “Show Desktop” plugin;
 5. Separator (Handle Style);
 6. Window Buttons (Uncheck "Show flat buttons" and "Show Handle.;" Sorting Order: None; Window grouping: Never);
 7. Separator (Transparent with Expanding);
 8. Separator (Handle Style);
-9. Indicator Plugin OR Notification Area (19px max icon size);
+9. Indicator Plugin OR Notification Area (19px max icon size preferred);
 10. Separator (Transparent);
 11. Orage Panel Clock. (Enable check box “Show frame” and replace the text in “Line 1” with %I:%M %p.)
 
-#### Whisker Menu and XFCE Aplication Menu Start Buttons
-Your panel has to be 32px high. If it’s any other size, the button won’t look correct. This is a work around for allowing a static button and icon with similar functionality to Windows95.
-
-Note: Whisker Menu is now GTK3 and Application Menu is GTK2.
-
-- Open the `Applications Menu` for Whisker Menu or Application Menu by right clicking on the panel icon and selecting `properties.`
-
-- In the Applications Menu window beside the icon section, click the icon badge to access the `Select An Icon` window.
-
-#### • Whisker Menu Steps
-Click on the "Select icon from" drop down menu, select the "Image Files" option in the bottom of the menu, and
-navigate to the following location ($USER is your account) `/home/$USER/.themes/Chicago95/misc/GTK3 start buttons/`
-
-Press Ctrl+H if you can't see the `.theme` folder.
-
-Select from one of the three images to become the Start Button.
-
-#### • Application Menu Steps
-navigate to the following location ($USER is your account) `/home/$USER/.themes/Chicago95/misc/GTK2 start buttons/`
-
-Press Ctrl+H if you can't see the `.theme` folder.
-
-Select from one of the four images to become the Start Button.
-
-If the icon appears crunched or blurry, then log out and log back in. The icon should appear a regular size.
-
 ## Optional configurations
+The following configurations are optional and not required but can be used to enhance the theme.
+
+#### Whisker Menu and XFCE Application Menu Start Buttons
+For XUbuntu 17.10, the Whisker Menu plugin is now GTK3. The Application Menu plugin is still GTK2. This will differ for other distributions.
+
+All start button icons from the theme are located in `/home/$USER/.themes/Chicago95/misc`
+
+Note: The smallest optimal panel row size for this theme is 26 pixels.
+
+#### • Whisker Menu
+Horizontal Panel: Icons are located in `/home/$USER/.themes/Chicago95/misc/GTK3 start buttons`
+
+Deskbar Panel: Icons are located in `/home/$USER/.themes/Chicago95/misc`
+
+If the icon appears crunched or blurry you may have to log out and log back in.
+
+#### • Application Menu
+Since the Application Menu plugin is still GTK2, you'll have to choose an icon associated with your panel size. For example, tux_32px.png would be ideal on a panel with a row size of 32 pixels.
+
+Horizontal Panel: Icons are located in `/home/$USER/.themes/Chicago95/misc/GTK2 start buttons`
+
+Deskbar Panel: There are two deskbar button style icons that you can choose from in `/home/$USER/.themes/Chicago95/misc/GTK2 start buttons`. Alternatively you can also use the tux, xue, or window icons located in `/home/$USER/.themes/Chicago95/misc`.
+
+If the icon appears crunched or blurry you may have to log out and log back in.
+
+#### Launcher Button scaling
+You've probably noticed that across different themes on XFCE, the panel launcher buttons and their icons typically grow very large as you increase the panels row size.
+
+If you want to enfore 16x16px icons in the launcher buttons, you can do this by editing the panel.rc file located at `/home/$USER/.themes/Chicago95/gtk-2.0/panel.rc`
+
+On line 268 of the file you will see a section for Launcher buttons. This section will contain options that you can comment and uncomment for specifying the launcher button icon scaling with the associated panel size.
+
 
 #### Shadows
 Disable shadows in compositing for an authentic appearance, or at the very least disable “show shadows under dock windows” to prevent dark shading from the panel bar overlapping onto maximized applications.
@@ -115,7 +118,7 @@ Copy the .xsessionrc file into your user directory `/home/$USER/` or append the 
 
 Log out then log back in.
 
-####  Icons
+#### Icons
 To install the icons copy the folders `Icons/Chicago95` and `Icons/Chicago95-tux`to `~/.icons`.
 
 In XFCE select Settings -> Appearance. Click on 'Icons' and select `Chicago95`.
