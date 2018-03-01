@@ -16,456 +16,472 @@ gtk-icon-sizes = "mini-commander-icon=32,32:print-manager=32,32:panel-button=32,
 
 style "standard-default"
 {
-  GtkWidget::interior_focus = 2
-  GtkButton::default_border = { 0, 0, 0, 0 }
-  GtkButton::default_outside_border = { 0, 0, 0, 0 }
-  GtkOptionMenu::indicator_size = { 9, 5 }
-  GtkOptionMenu::indicator_spacing = { 7, 5, 2, 2 }
-  GtkComboBox::appears-as-list = 1
-  GtkNotebook::tab-overlap = 4
+	GtkWidget::interior_focus = 2
+	GtkButton::default_border = { 0, 0, 0, 0 }
+	GtkButton::default_outside_border = { 0, 0, 0, 0 }
+	GtkOptionMenu::indicator_size = { 9, 5 }
+	GtkOptionMenu::indicator_spacing = { 7, 5, 2, 2 }
+	GtkComboBox::appears-as-list = 1
+	GtkNotebook::tab-overlap = 4
+	GtkButton::child_displacement_x = 1
+	GtkButton::child_displacement_y = 1
+	GtkMenu::horizontal-padding = 1
+	GtkMenu::vertical-padding = 1
+	GtkMenu::horizontal-offset = -6
+	GtkMenuItem::arrow-scaling = 0.5
+	GtkScrolledWindow::scrollbar-spacing = 0
+	GtkScrolledWindow::scrollbars-within-bevel = 1
+	GtkVScale::slider_length = 11
+	GtkVScale::slider_width = 21
+	GtkHScale::slider_length = 11
+	GtkHScale::slider_width = 21
+	fg[ACTIVE] = @fg_color
+	fg[INSENSITIVE] = shade (0.7,@bg_color)
+	fg[NORMAL] = @fg_color
+	fg[PRELIGHT] = @fg_color
+	fg[SELECTED] = @selected_fg_color
+	bg[ACTIVE] = @bg_color
+	bg[INSENSITIVE] = @bg_color
+	bg[NORMAL] = @bg_color
+	bg[PRELIGHT] = @bg_color
+	bg[SELECTED] = @selected_bg_color #{ 0.04, 0.14, 0.41 }
+#	base[ACTIVE] = @selected_bg_color
+#	base[INSENSITIVE] = @bg_color #{ 0.83, 0.81, 0.78 }
+#	base[NORMAL] = @base_color
+#	base[PRELIGHT] = @selected_bg_color
+#	base[SELECTED] = @selected_bg_color
+	base[NORMAL] = @base_color
+	base[PRELIGHT] = shade (0.95, @bg_color)
+	base[SELECTED] = @selected_bg_color
+	base[INSENSITIVE] = @bg_color
+	base[ACTIVE] = shade (0.9, @selected_bg_color)
+	text[ACTIVE] = shade (0.9,@selected_fg_color)
+	text[INSENSITIVE] = shade (0.7,@bg_color) #  shade (2.9,@fg_color)
+	text[NORMAL] = @text_color
+	text[PRELIGHT] = @selected_fg_color
+	text[SELECTED] = @selected_fg_color
 
-  GtkButton::child_displacement_x = 1
-  GtkButton::child_displacement_y = 1
+	engine "pixmap" {
+		# arrows
 
-  GtkMenu::horizontal-padding = 1
-  GtkMenu::vertical-padding = 1
-  GtkMenu::horizontal-offset = -6
+		image
+		{
+			function = ARROW
+			overlay_file = "arrows/arrow-up.png"
+			overlay_border = { 0, 0, 0, 0 }
+			overlay_stretch = FALSE
+			arrow_direction = UP
+		}
 
-  GtkMenuItem::arrow-scaling = 0.5
+		image
+		{
+			function = ARROW
+			state = PRELIGHT
+			overlay_file = "arrows/arrow-up-prelight.png"
+			overlay_border = { 0, 0, 0, 0 }
+			overlay_stretch = FALSE
+			arrow_direction = UP
+		}
 
-  GtkScrolledWindow::scrollbar-spacing = 0
-  GtkScrolledWindow::scrollbars-within-bevel = 1
+		image
+		{
+			function = ARROW
+			state = ACTIVE
+			overlay_file = "arrows/arrow-up-prelight.png"
+			overlay_border = { 0, 0, 0, 0 }
+			overlay_stretch = FALSE
+			arrow_direction = UP
+		}
 
-  GtkVScale::slider_length 			= 11
-  GtkVScale::slider_width 			= 21
-  GtkHScale::slider_length 			= 11
-  GtkHScale::slider_width 			= 21
+		image
+		{
+			function = ARROW
+			state = INSENSITIVE
+			overlay_file = "arrows/arrow-up-insens.png"
+			overlay_border = { 0, 0, 0, 0 }
+			overlay_stretch = FALSE
+			arrow_direction = UP
+		}
 
-  fg[ACTIVE]        = @fg_color
-  fg[INSENSITIVE]   = shade (0.7,@bg_color)
-  fg[NORMAL]        = @fg_color
-  fg[PRELIGHT]      = @fg_color
-  fg[SELECTED]      = @selected_fg_color
+		image
+		{
+			function = ARROW
+			state = NORMAL
+			overlay_file = "arrows/arrow-down.png"
+			overlay_border = { 0, 0, 0, 0 }
+			overlay_stretch = FALSE
+			arrow_direction = DOWN
+		}
 
-  bg[ACTIVE]        = @bg_color
-  bg[INSENSITIVE]   = @bg_color
-  bg[NORMAL]        = @bg_color
-  bg[PRELIGHT]      = @bg_color
-  bg[SELECTED]      = @selected_bg_color #{ 0.04, 0.14, 0.41 }
+		image
+		{
+			function = ARROW
+			state = PRELIGHT
+			overlay_file = "arrows/arrow-down-prelight.png"
+			overlay_border = { 0, 0, 0, 0 }
+			overlay_stretch = FALSE
+			arrow_direction = DOWN
+		}
 
-#  base[ACTIVE]      = @selected_bg_color
-#  base[INSENSITIVE] = @bg_color #{ 0.83, 0.81, 0.78 }
-#  base[NORMAL]      = @base_color
-#  base[PRELIGHT]    = @selected_bg_color
-#  base[SELECTED]    = @selected_bg_color
+		image
+		{
+			function = ARROW
+			state = ACTIVE
+			overlay_file = "arrows/arrow-down-prelight.png"
+			overlay_border = { 0, 0, 0, 0 }
+			overlay_stretch = FALSE
+			arrow_direction = DOWN
+		}
 
-  base[NORMAL] = @base_color
-  base[PRELIGHT] = shade (0.95, @bg_color)
-  base[SELECTED] = @selected_bg_color
-  base[INSENSITIVE] = @bg_color
-  base[ACTIVE] = shade (0.9, @selected_bg_color)
+		image
+		{
+			function = ARROW
+			state = INSENSITIVE
+			overlay_file = "arrows/arrow-down-insens.png"
+			overlay_border = { 0, 0, 0, 0 }
+			overlay_stretch = FALSE
+			arrow_direction = DOWN
+		}
 
-  text[ACTIVE]      = shade (0.9,@selected_fg_color)
-  text[INSENSITIVE] = shade (0.7,@bg_color) #  shade (2.9,@fg_color)
-  text[NORMAL]      = @text_color
-  text[PRELIGHT]    = @selected_fg_color
-  text[SELECTED]    = @selected_fg_color
+		image
+		{
+			function = ARROW
+			overlay_file = "arrows/arrow-left.png"
+			overlay_border = { 0, 0, 0, 0 }
+			overlay_stretch = FALSE
+			arrow_direction = LEFT
+		}
 
-engine "pixmap" {
-	# arrows
+		image
+		{
+			function = ARROW
+			state = PRELIGHT
+			overlay_file = "arrows/arrow-left-prelight.png"
+			overlay_border = { 0, 0, 0, 0 }
+			overlay_stretch = FALSE
+			arrow_direction = LEFT
+		}
 
-	image
-	{
-            function			= ARROW
-	    overlay_file		= "arrows/arrow-up.png"
-	    overlay_border		= { 0, 0, 0, 0 }
-	    overlay_stretch		= FALSE
-	    arrow_direction		= UP
-	}
-	image
-	{
-	    function			= ARROW
-	    state			= PRELIGHT
-	    overlay_file		= "arrows/arrow-up-prelight.png"
-	    overlay_border		= { 0, 0, 0, 0 }
-	    overlay_stretch		= FALSE
-	    arrow_direction		= UP
-	}
-	image
-	{
-	    function			= ARROW
-	    state			= ACTIVE
-	    overlay_file		= "arrows/arrow-up-prelight.png"
-	    overlay_border		= { 0, 0, 0, 0 }
-	    overlay_stretch		= FALSE
-	    arrow_direction		= UP
-	}
-	image
-	{
-	    function			= ARROW
-	    state			= INSENSITIVE
-	    overlay_file		= "arrows/arrow-up-insens.png"
-	    overlay_border		= { 0, 0, 0, 0 }
-	    overlay_stretch		= FALSE
-	    arrow_direction		= UP
-	}
+		image
+		{
+			function = ARROW
+			state = ACTIVE
+			overlay_file = "arrows/arrow-left-prelight.png"
+			overlay_border = { 0, 0, 0, 0 }
+			overlay_stretch = FALSE
+			arrow_direction = LEFT
+		}
 
+		image
+		{
+			function = ARROW
+			state = INSENSITIVE
+			overlay_file = "arrows/arrow-left-insens.png"
+			overlay_border = { 0, 0, 0, 0 }
+			overlay_stretch = FALSE
+			arrow_direction = LEFT
+		}
 
-	image
-	{
-            function			= ARROW
-	    state			= NORMAL
-	    overlay_file		= "arrows/arrow-down.png"
-	    overlay_border		= { 0, 0, 0, 0 }
-	    overlay_stretch		= FALSE
-	    arrow_direction		= DOWN
-	}
-	image
-	{
-	    function			= ARROW
-	    state			= PRELIGHT
-	    overlay_file		= "arrows/arrow-down-prelight.png"
-	    overlay_border		= { 0, 0, 0, 0 }
-	    overlay_stretch		= FALSE
-	    arrow_direction		= DOWN
-	}
-	image
-	{
-	    function			= ARROW
-	    state			= ACTIVE
-	    overlay_file		= "arrows/arrow-down-prelight.png"
-	    overlay_border		= { 0, 0, 0, 0 }
-	    overlay_stretch		= FALSE
-	    arrow_direction		= DOWN
-	}
-	image
-	{
-	    function			= ARROW
-	    state			= INSENSITIVE
-	    overlay_file		= "arrows/arrow-down-insens.png"
-	    overlay_border		= { 0, 0, 0, 0 }
-	    overlay_stretch		= FALSE
-	    arrow_direction		= DOWN
-	}
+		image
+		{
+			function = ARROW
+			overlay_file = "arrows/arrow-right.png"
+			overlay_border = { 0, 0, 0, 0 }
+			overlay_stretch = FALSE
+			arrow_direction = RIGHT
+		}
 
-	image
-	{
-	    function			= ARROW
-	    overlay_file		= "arrows/arrow-left.png"
-	    overlay_border		= { 0, 0, 0, 0 }
-	    overlay_stretch		= FALSE
-	    arrow_direction		= LEFT
-	}
-	image
-	{
-	    function			= ARROW
-	    state			= PRELIGHT
-	    overlay_file		= "arrows/arrow-left-prelight.png"
-	    overlay_border		= { 0, 0, 0, 0 }
-	    overlay_stretch		= FALSE
-	    arrow_direction		= LEFT
-	}
-	image
-	{
-	    function			= ARROW
-	    state			= ACTIVE
-	    overlay_file		= "arrows/arrow-left-prelight.png"
-	    overlay_border		= { 0, 0, 0, 0 }
-	    overlay_stretch		= FALSE
-	    arrow_direction		= LEFT
-	}
-	image
-	{
-	    function			= ARROW
-	    state			= INSENSITIVE
-	    overlay_file		= "arrows/arrow-left-insens.png"
-	    overlay_border		= { 0, 0, 0, 0 }
-	    overlay_stretch		= FALSE
-	    arrow_direction		= LEFT
-	}
+		image
+		{
+			function = ARROW
+			state = PRELIGHT
+			overlay_file = "arrows/arrow-right-prelight.png"
+			overlay_border = { 0, 0, 0, 0 }
+			overlay_stretch = FALSE
+			arrow_direction = RIGHT
+		}
 
-	image
-	{
-	    function			= ARROW
-	    overlay_file		= "arrows/arrow-right.png"
-	    overlay_border		= { 0, 0, 0, 0 }
-	    overlay_stretch		= FALSE
-	    arrow_direction		= RIGHT
-	}
-	image
-	{
-	    function			= ARROW
-	    state			= PRELIGHT
-	    overlay_file		= "arrows/arrow-right-prelight.png"
-	    overlay_border		= { 0, 0, 0, 0 }
-	    overlay_stretch		= FALSE
-	    arrow_direction		= RIGHT
-	}
-	image
-	{
-	    function			= ARROW
-	    state			= ACTIVE
-	    overlay_file		= "arrows/arrow-right-prelight.png"
-	    overlay_border		= { 0, 0, 0, 0 }
-	    overlay_stretch		= FALSE
-	    arrow_direction		= RIGHT
-	}
-	image
-	{
-	    function			= ARROW
-	    state			= INSENSITIVE
-	    overlay_file		= "arrows/arrow-right-insens.png"
-	    overlay_border		= { 0, 0, 0, 0 }
-	    overlay_stretch		= FALSE
-	    arrow_direction		= RIGHT
-	}
+		image
+		{
+			function = ARROW
+			state = ACTIVE
+			overlay_file = "arrows/arrow-right-prelight.png"
+			overlay_border = { 0, 0, 0, 0 }
+			overlay_stretch = FALSE
+			arrow_direction = RIGHT
+		}
 
+		image
+		{
+			function = ARROW
+			state = INSENSITIVE
+			overlay_file = "arrows/arrow-right-insens.png"
+			overlay_border = { 0, 0, 0, 0 }
+			overlay_stretch = FALSE
+			arrow_direction = RIGHT
+		}
 
-	# Option Menu arrows
+		# Option Menu arrows
+		image
+		{
+			function = TAB
+			state = INSENSITIVE
+			overlay_file = "arrows/arrow-down-insens.png"
+			overlay_stretch = FALSE
+		}
 
-	image
-	{
-	    function                    = TAB
-	    state		        = INSENSITIVE
-	    overlay_file	        = "arrows/arrow-down-insens.png"
-	    overlay_stretch	        = FALSE
-	}
-	image
-	{
-	    function			= TAB
-	    state			= NORMAL
-	    overlay_file		= "arrows/arrow-down.png"
-	    overlay_border		= { 0, 0, 0, 0 }
-	    overlay_stretch		= FALSE
-	}
-	image
-	{
-	    function			= TAB
-	    state			= PRELIGHT
-	    overlay_file		= "arrows/arrow-down-prelight.png"
-	    overlay_border		= { 0, 0, 0, 0 }
-	    overlay_stretch		= FALSE
-	}
+		image
+		{
+			function = TAB
+			state = NORMAL
+			overlay_file = "arrows/arrow-down.png"
+			overlay_border = { 0, 0, 0, 0 }
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = TAB
+			state = PRELIGHT
+			overlay_file = "arrows/arrow-down-prelight.png"
+			overlay_border = { 0, 0, 0, 0 }
+			overlay_stretch = FALSE
+		}
+
 		# Handles
+		image
+		{
+			function = HANDLE
+			overlay_file = "Handles/handle-h.png"
+			overlay_stretch = FALSE
+			orientation = HORIZONTAL
+		}
 
-	image
-	{
-	    function			= HANDLE
-	    overlay_file		= "Handles/handle-h.png"
-	    overlay_stretch		= FALSE
-	    orientation			= HORIZONTAL
+		image
+		{
+			function = HANDLE
+			overlay_file = "Handles/handle-v.png"
+			overlay_stretch = FALSE
+			orientation = VERTICAL
+		}
+
+		# Radio/Check Boxes
+		image
+		{
+			function = CHECK
+			recolorable = TRUE
+			state = NORMAL
+			shadow = OUT
+			overlay_file = "Check-Radio/checkbox-unchecked.png"
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = CHECK
+			recolorable = TRUE
+			state = PRELIGHT
+			shadow = OUT
+			overlay_file = "Check-Radio/checkbox-unchecked.png"
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = CHECK
+			recolorable = TRUE
+			state = ACTIVE
+			shadow = OUT
+			overlay_file = "Check-Radio/checkbox-unchecked.png"
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = CHECK
+			recolorable = TRUE
+			state = SELECTED
+			shadow = OUT
+			overlay_file = "Check-Radio/checkbox-unchecked.png"
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = CHECK
+			recolorable = TRUE
+			state = INSENSITIVE
+			shadow = OUT
+			overlay_file = "Check-Radio/checkbox-unchecked-insensitive.png"
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = CHECK
+			recolorable = TRUE
+			state = NORMAL
+			shadow = IN
+			overlay_file = "Check-Radio/checkbox-checked.png"
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = CHECK
+			recolorable = TRUE
+			state = PRELIGHT
+			shadow = IN
+			overlay_file = "Check-Radio/checkbox-checked.png"
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = CHECK
+			recolorable = TRUE
+			state = ACTIVE
+			shadow = IN
+			overlay_file = "Check-Radio/checkbox-checked.png"
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = CHECK
+			recolorable = TRUE
+			state = SELECTED
+			shadow = IN
+			overlay_file = "Check-Radio/checkbox-checked.png"
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = CHECK
+			recolorable = TRUE
+			state = INSENSITIVE
+			shadow = IN
+			overlay_file = "Check-Radio/checkbox-checked-insensitive.png"
+			overlay_stretch = FALSE
+		}
+
+		# Radio Buttons
+		image 
+		{
+			function = OPTION
+			state = NORMAL
+			shadow = OUT
+			overlay_file = "Check-Radio/option-unchecked.png"
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = OPTION
+			state = PRELIGHT
+			shadow = OUT
+			overlay_file = "Check-Radio/option-unchecked.png"
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = OPTION
+			state = ACTIVE
+			shadow = OUT
+			overlay_file = "Check-Radio/option-unchecked.png"
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = OPTION
+			state = SELECTED
+			shadow = OUT
+			overlay_file = "Check-Radio/option-unchecked.png"
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = OPTION
+			state = INSENSITIVE
+			shadow = OUT
+			overlay_file = "Check-Radio/option-unchecked-insensitive.png"
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = OPTION
+			state = NORMAL
+			shadow = IN
+			overlay_file = "Check-Radio/option-checked.png"
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = OPTION
+			state = PRELIGHT
+			shadow = IN
+			overlay_file = "Check-Radio/option-checked.png"
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = OPTION
+			state = ACTIVE
+			shadow = IN
+			overlay_file = "Check-Radio/option-checked.png"
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = OPTION
+			state = SELECTED
+			shadow = IN
+			overlay_file = "Check-Radio/option-checked.png"
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = OPTION
+			state = INSENSITIVE
+			shadow = IN
+			overlay_file = "Check-Radio/option-checked-insensitive.png"
+			overlay_stretch = FALSE
+		}
 	}
-	image
-	{
-	    function			= HANDLE
-	    overlay_file		= "Handles/handle-v.png"
-	    overlay_stretch		= FALSE
-	    orientation			= VERTICAL
-	}
 
-        # Radio/Check Boxes
-	image 
-	{
-            function        		= CHECK
-            recolorable     		= TRUE
-            state 			= NORMAL
-            shadow          		= OUT
-            overlay_file    		= "Check-Radio/checkbox-unchecked.png"
-            overlay_stretch 		= FALSE
-        }
-	image 
-	{
-            function        		= CHECK
-            recolorable     		= TRUE
-            state 			= PRELIGHT
-            shadow          		= OUT
-            overlay_file    		= "Check-Radio/checkbox-unchecked.png"
-            overlay_stretch 		= FALSE
-        }
-	image 
-	{
-            function        		= CHECK
-            recolorable     		= TRUE
-            state 			= ACTIVE
-            shadow          		= OUT
-            overlay_file    		= "Check-Radio/checkbox-unchecked.png"
-            overlay_stretch 		= FALSE
-        }
-	image
-	{
-            function        		= CHECK
-            recolorable     		= TRUE
-            state 			= SELECTED
-            shadow          		= OUT
-            overlay_file    		= "Check-Radio/checkbox-unchecked.png"
-            overlay_stretch 		= FALSE
-        }
-	image 
-	{
-            function        		= CHECK
-            recolorable     		= TRUE
-            state 			= INSENSITIVE
-            shadow          		= OUT
-            overlay_file    		= "Check-Radio/checkbox-unchecked-insensitive.png"
-            overlay_stretch 		= FALSE
-        }
-	image 
-	{
-            function        		= CHECK
-            recolorable     		= TRUE
-	    state	 		= NORMAL
-            shadow          		= IN
-            overlay_file    		= "Check-Radio/checkbox-checked.png"
-            overlay_stretch	 	= FALSE
-        }
-	image 
-	{
-            function        		= CHECK
-            recolorable     		= TRUE
-	    	  state 		= PRELIGHT
-            shadow          		= IN
-            overlay_file    		= "Check-Radio/checkbox-checked.png"
-            overlay_stretch 		= FALSE
-        }
-	image 
-	{
-            function        		= CHECK
-            recolorable     		= TRUE
-	    state 		        = ACTIVE
-            shadow          		= IN
-            overlay_file    		= "Check-Radio/checkbox-checked.png"
-            overlay_stretch 		= FALSE
-        }
-	image
-	{
-            function        		= CHECK
-            recolorable     		= TRUE
-	    state 		        = SELECTED
-            shadow          		= IN
-            overlay_file    		= "Check-Radio/checkbox-checked.png"
-            overlay_stretch 		= FALSE
-        }
-	image 
-  	{
-            function        		= CHECK
-            recolorable     		= TRUE
-            state 		        = INSENSITIVE
-            shadow          		= IN
-            overlay_file		= "Check-Radio/checkbox-checked-insensitive.png"
-            overlay_stretch 		= FALSE
-	}
+#	engine "xfce"
+#	{
+#		smooth_edge = false
+#		grip_style = none
+#	}
 
-	# Radio Buttons
-
-	image 
-	{
-            function        		= OPTION
-            state 			= NORMAL
-            shadow          		= OUT
-            overlay_file    		= "Check-Radio/option-unchecked.png"
-            overlay_stretch 		= FALSE
-        }
-	image 
-	{
-            function        		= OPTION
-            state 			= PRELIGHT
-            shadow          		= OUT
-            overlay_file    		= "Check-Radio/option-unchecked.png"
-            overlay_stretch 		= FALSE
-        }
-	image 
-	{
-            function        		= OPTION
-            state 			= ACTIVE
-            shadow          		= OUT
-            overlay_file    		= "Check-Radio/option-unchecked.png"
-            overlay_stretch 		= FALSE
-        }
-	image
-	{
-            function        		= OPTION
-            state 			= SELECTED
-            shadow          		= OUT
-            overlay_file    		= "Check-Radio/option-unchecked.png"
-            overlay_stretch 		= FALSE
-        }
-	image 
-	{
-            function        		= OPTION
-            state 			= INSENSITIVE
-            shadow         		= OUT
-            overlay_file    		= "Check-Radio/option-unchecked-insensitive.png"
-            overlay_stretch 		= FALSE
-        }
-	image 
-	{
-            function        		= OPTION
-	    state 			= NORMAL
-            shadow          		= IN
-            overlay_file    		= "Check-Radio/option-checked.png"
-            overlay_stretch 		= FALSE
-        }
- 	image 
-	{
-            function        		= OPTION
-	    state			= PRELIGHT
-            shadow          		= IN
-            overlay_file    		= "Check-Radio/option-checked.png"
-            overlay_stretch 		= FALSE
-        }
-	image 
-	{
-            function        		= OPTION
-	    state			= ACTIVE
-            shadow          		= IN
-            overlay_file    		= "Check-Radio/option-checked.png"
-            overlay_stretch	 	= FALSE
-        }
-	image
-	{
-            function        		= OPTION
-	    state			= SELECTED
-            shadow          		= IN
-            overlay_file    		= "Check-Radio/option-checked.png"
-            overlay_stretch	 	= FALSE
-        }
-	image 
-	{
-            function        		= OPTION
-	    state 			= INSENSITIVE
-            shadow          		= IN
-            overlay_file    		= "Check-Radio/option-checked-insensitive.png"
-            overlay_stretch 		= FALSE
-        }
-
-     }
-#engine "xfce"
-#{
-#	smooth_edge = false
-#	grip_style = none
-#
-#}
-
-  #engine "redmond95" {} #this gets rid of the black border around menu items etc
-
+#engine "redmond95" {} #this gets rid of the black border around menu items etc
 }
 
 class "GtkWidget" style "standard-default"
 
 style "standard-menu"
 {
-  bg[PRELIGHT] = @selected_bg_color
-  fg[PRELIGHT] = @selected_fg_color
-
+	bg[PRELIGHT] = @selected_bg_color
+	fg[PRELIGHT] = @selected_fg_color
 }
 
 widget_class "*MenuItem*" style "standard-menu"
 
 style "standard-menubar-item"
 {
-  bg[PRELIGHT] = @bg_color
-  fg[PRELIGHT] = @selected_fg_color
-  #engine "redmond95" {} #this gets rid of the black border around menus etc
+	bg[PRELIGHT] = @bg_color
+	fg[PRELIGHT] = @selected_fg_color
+	#engine "redmond95" {} #this gets rid of the black border around menus etc
 
 }
 
@@ -474,104 +490,104 @@ widget_class "*MenuBar.*MenuItem*" style "standard-menubar-item"
 
 style "standard-list"
 {
-  bg[NORMAL] = lighter (@bg_color) # { 0.9, 0.9, 0.9 }
-  bg[PRELIGHT] = @fg_color #{ 0.0, 0.0, 0.0 }
+	bg[NORMAL] = lighter (@bg_color) # { 0.9, 0.9, 0.9 }
+	bg[PRELIGHT] = @fg_color #{ 0.0, 0.0, 0.0 }
 }
 
 class "GtkList" style "standard-list"
 
 style "standard-scrollbar"
 {
-  GtkRange::trough-border = 0
-  GtkRange::slider-width = 16
-  GtkRange::stepper-size = 16
-  GtkRange::stepper-spacing = 0
+	GtkRange::trough-border = 0
+	GtkRange::slider-width = 16
+	GtkRange::stepper-size = 16
+	GtkRange::stepper-spacing = 0
 }
 
 class "GtkScrollbar" style "standard-scrollbar"
 
 style "standard-scales"
 {
-  GtkRange::slider-width = 11
-  GtkScale::slider-length = 21
-  bg[ACTIVE]        = shade (1.1,@bg_color)
+	GtkRange::slider-width = 11
+	GtkScale::slider-length = 21
+	bg[ACTIVE] = shade (1.1,@bg_color)
 }
 
 #class "*Scale*" style "standard-scales"
 
 style "standard-option-menu"
 {
-  GtkOptionMenu::indicator_width = 7
-  GtkOptionMenu::indicator_left_spacing = 6
-  GtkOptionMenu::indicator_right_spacing = 4
+	GtkOptionMenu::indicator_width = 7
+	GtkOptionMenu::indicator_left_spacing = 6
+	GtkOptionMenu::indicator_right_spacing = 4
 }
 
 class "GtkOptionMenu" style "standard-option-menu"
 
 style "gnome-color-chooser-tooltips"
 {
-  bg[NORMAL] = "#ffffe1"
-  fg[NORMAL] = "#000000"
+	bg[NORMAL] = "#ffffe1"
+	fg[NORMAL] = "#000000"
 }
 widget "gtk-tooltip*" style "gnome-color-chooser-tooltips"
 
 # Desktop shortcut icon style & text shadow
 style "xfdesktop-icon-view" {
-  XfdesktopIconView::label-radius = 0.99
-  XfdesktopIconView::label-alpha = 255
-  XfdesktopIconView::selected-label-alpha = 255
-#  XfdesktopIconView::shadow-x-offset = 1				#Enable these if you want a shadow behind text
-#  XfdesktopIconView::shadow-y-offset = 1				#Enable these if you want a shadow behind text
-#  XfdesktopIconView::selected-shadow-x-offset = 1			#Enable these if you want a shadow behind text
-#  XfdesktopIconView::selected-shadow-y-offset = 1			#Enable these if you want a shadow behind text
-#  XfdesktopIconView::shadow-color = "#000000"				#Enable these if you want a shadow behind text
-#  XfdesktopIconView::selected-shadow-color = "#000000"			#Enable these if you want a shadow behind text
-#  XfdesktopIconView::shadow-blur-radius = 2				#Enable this if you want a a blurry shadow behind text
-  XfdesktopIconView::cell-spacing = 5
-  XfdesktopIconView::cell-padding = 0
-  XfdesktopIconView::cell-color = "#c0c0c0"
-  XfdesktopIconView::cell-text-width-proportion = 2.4
-  XfdesktopIconView::ellipsize-icon-labels = 0
-
-  base[NORMAL] = "#008081"		#This is the desktop icon label background colour.
-  base[SELECTED] = @selected_bg_color	#This is the desktop icon label background colour selected state.
-  base[ACTIVE] = @selected_bg_color	#This is the desktop icon label background colour active state.
-  fg[NORMAL] = @selected_fg_color	#This is the desktop icon label TEXT colour state.
-  fg[SELECTED] = @selected_fg_color	#This is the desktop icon label TEXT colour selected state.
-  fg[ACTIVE] = @selected_fg_color	#This is the desktop icon label TEXT colour active state.
-
+	XfdesktopIconView::label-radius = 0.99
+	XfdesktopIconView::label-alpha = 255
+	XfdesktopIconView::selected-label-alpha = 255
+#	XfdesktopIconView::shadow-x-offset = 1			#Enable these if you want a shadow behind text
+#	XfdesktopIconView::shadow-y-offset = 1			#Enable these if you want a shadow behind text
+#	XfdesktopIconView::selected-shadow-x-offset = 1			#Enable these if you want a shadow behind text
+#	XfdesktopIconView::selected-shadow-y-offset = 1			#Enable these if you want a shadow behind text
+#	XfdesktopIconView::shadow-color = "#000000"			#Enable these if you want a shadow behind text
+#	XfdesktopIconView::selected-shadow-color = "#000000"			#Enable these if you want a shadow behind text
+#	XfdesktopIconView::shadow-blur-radius = 2			#Enable this if you want a a blurry shadow behind text
+	XfdesktopIconView::cell-spacing = 5
+	XfdesktopIconView::cell-padding = 0
+	XfdesktopIconView::cell-color = "#c0c0c0"
+	XfdesktopIconView::cell-text-width-proportion = 2.4
+	XfdesktopIconView::ellipsize-icon-labels = 0
+	base[NORMAL] = "#008081"			#This is the desktop icon label background colour.
+	base[SELECTED] = @selected_bg_color			#This is the desktop icon label background colour selected state.
+	base[ACTIVE] = @selected_bg_color			#This is the desktop icon label background colour active state.
+	fg[NORMAL] = @selected_fg_color			#This is the desktop icon label TEXT colour state.
+	fg[SELECTED] = @selected_fg_color			#This is the desktop icon label TEXT colour selected state.
+	fg[ACTIVE] = @selected_fg_color			#This is the desktop icon label TEXT colour active state.
 }
 
-widget_class "*XfdesktopIconView*"	style "xfdesktop-icon-view"
+widget_class "*XfdesktopIconView*" style "xfdesktop-icon-view"
 
 #Frame around orage
 style "frame"
 {
-  xthickness      = 1
-  ythickness      = 1
+	xthickness = 1
+	ythickness = 1
 
-  engine "pixmap"
+	engine "pixmap"
 	{
-    image
-	{
-		function				= SHADOW
-		file					= "Shadows/frame.png"
-		border					= { 1, 1, 1, 1 }
-		stretch					= TRUE
-		shadow					= IN
-	}
+		image
+		{
+			function = SHADOW
+			file = "Shadows/frame.png"
+			border = { 1, 1, 1, 1 }
+			stretch = TRUE
+			shadow = IN
+		}
 	}
 }
 
-class "GtkFrame"	                style "frame"
+class "GtkFrame" style "frame"
 
 style "my-launchers"
 {
-    xthickness = 7
-    ythickness = 7
+	xthickness = 7
+	ythickness = 7
 }
+
 widget "*launcher*" style "my-launchers"
 
+#Include .rc files
 include "tabwin.rc"
 include "panel.rc"
 include "scrollbar.rc"
@@ -582,4 +598,4 @@ include "slider.rc"
 include "toolbutton.rc"
 include "tabs.rc"
 include "menubar.rc"
-#include "button.rc"
+include "button.rc"

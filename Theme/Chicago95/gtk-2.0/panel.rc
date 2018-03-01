@@ -270,43 +270,44 @@ widget_class "*Xfce*NetkTasklist*GtkToggleButton"		style "panelbuttons"
 
 style "launcher"
 {
-	#Uncomment the following for 16x16px launcher icons on a 24px height panel.
+	#Uncomment the following two for 16x16px launcher icons on a 24px height panel.
 	#xthickness = 3
 	#ythickness = 3
 
-	#Uncomment the following for 16x16px launcher icons on a 26px height panel.
-	xthickness = 4
-	ythickness = 4
+		#Theme default
+		#Uncomment the following two for 16x16px launcher icons on a 26px height panel.
+		xthickness = 4
+		ythickness = 4
 
-	#Uncomment the following for 16x16px launcher icons on a 28px height panel.
+	#Uncomment the following two for 16x16px launcher icons on a 28px height panel.
 	#xthickness = 5
 	#ythickness = 5
 
-	#Uncomment the following for 16x16px launcher icons on a 30px height panel.
+	#Uncomment the following two for 16x16px launcher icons on a 30px height panel.
 	#xthickness = 6
 	#ythickness = 6
 
-	#Uncomment the following for 16x16px launcher icons on a 32px height panel.
+	#Uncomment the following two for 16x16px launcher icons on a 32px height panel.
 	#xthickness = 7
 	#ythickness = 7
 
-	#Uncomment the following for 16x16px launcher icons on a 34px height panel.
+	#Uncomment the following two for 16x16px launcher icons on a 34px height panel.
 	#xthickness = 8
 	#ythickness = 8
 
-	#Uncomment the following for 16x16px launcher icons on a 36px height panel.
+	#Uncomment the following two for 16x16px launcher icons on a 36px height panel.
 	#xthickness = 9
 	#ythickness = 9
 
-	#Uncomment the following for 16x16px launcher icons on a 38px height panel.
+	#Uncomment the following two for 16x16px launcher icons on a 38px height panel.
 	#xthickness = 10
 	#ythickness = 10
 
-	#Uncomment the following for 16x16px launcher icons on a 40px height panel.
+	#Uncomment the following two for 16x16px launcher icons on a 40px height panel.
 	#xthickness = 11
 	#ythickness = 11
 
-	#Uncomment the following for 16x16px launcher icons on a 42px height panel.
+	#Uncomment the following two for 16x16px launcher icons on a 42px height panel.
 	#xthickness = 12
 	#ythickness = 12
 }
