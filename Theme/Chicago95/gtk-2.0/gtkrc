@@ -67,6 +67,7 @@ style "standard-default"
 		image
 		{
 			function = ARROW
+			state = NORMAL
 			overlay_file = "arrows/arrow-up.png"
 			overlay_border = { 0, 0, 0, 0 }
 			overlay_stretch = FALSE
@@ -146,6 +147,7 @@ style "standard-default"
 		image
 		{
 			function = ARROW
+			state = NORMAL
 			overlay_file = "arrows/arrow-left.png"
 			overlay_border = { 0, 0, 0, 0 }
 			overlay_stretch = FALSE
@@ -185,6 +187,7 @@ style "standard-default"
 		image
 		{
 			function = ARROW
+			state = NORMAL
 			overlay_file = "arrows/arrow-right.png"
 			overlay_border = { 0, 0, 0, 0 }
 			overlay_stretch = FALSE
@@ -225,14 +228,6 @@ style "standard-default"
 		image
 		{
 			function = TAB
-			state = INSENSITIVE
-			overlay_file = "arrows/arrow-down-insens.png"
-			overlay_stretch = FALSE
-		}
-
-		image
-		{
-			function = TAB
 			state = NORMAL
 			overlay_file = "arrows/arrow-down.png"
 			overlay_border = { 0, 0, 0, 0 }
@@ -245,6 +240,23 @@ style "standard-default"
 			state = PRELIGHT
 			overlay_file = "arrows/arrow-down-prelight.png"
 			overlay_border = { 0, 0, 0, 0 }
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = TAB
+			state = ACTIVE
+			overlay_file = "arrows/arrow-down-prelight.png"
+			overlay_border = { 0, 0, 0, 0 }
+			overlay_stretch = FALSE
+		}
+
+		image
+		{
+			function = TAB
+			state = INSENSITIVE
+			overlay_file = "arrows/arrow-down-insens.png"
 			overlay_stretch = FALSE
 		}
 
