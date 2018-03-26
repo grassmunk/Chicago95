@@ -2466,7 +2466,7 @@ printdialog notebook > stack > box {
 printdialog notebook {
     border-right: 1px solid black;
     border-bottom: 1px solid black;
-    box-shadow: inset 1 1 0 0 white,
-                inset -1 -1 @bg_shade;
+    box-shadow: inset 1px 1px 0 0 white,
+                inset -1px -1px @bg_shade;
     margin: 7px;
 }
