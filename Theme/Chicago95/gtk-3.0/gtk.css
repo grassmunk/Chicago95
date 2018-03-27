@@ -86,6 +86,9 @@
 /*Progressbar bg color*/
 @define-color progressbar_color @selected_bg_color;
 
+/*Whisker Menu Panel Button text color*/
+@define-color whisker_button_text black;
+
 @import url("gtk-widgets.css");
 @import url("apps/xfce.css");
 @import url("apps/whiskermenu.css");
