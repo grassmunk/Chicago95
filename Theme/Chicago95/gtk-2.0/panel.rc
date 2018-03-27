@@ -363,7 +363,7 @@ style "whiskerbutton"
 			recolorable = TRUE
 			shadow = IN
 			state = PRELIGHT
-			file = "panel/null.png"
+			file = "Others/null.png"
 			border = { 0, 0, 0, 0 }
 			stretch = TRUE
 		}
@@ -373,7 +373,7 @@ style "whiskerbutton"
 			function = BOX
 			recolorable = TRUE
 			state = ACTIVE
-			file = "panel/null.png"
+			file = "Others/null.png"
 			border = { 0, 0, 0, 0 }
 			stretch = TRUE
 		}
