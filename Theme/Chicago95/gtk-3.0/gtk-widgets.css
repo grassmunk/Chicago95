@@ -402,27 +402,33 @@ radio {
 check:checked {
     -gtk-icon-source: url("assets/checkbox-checked.png");
     -gtk-icon-transform: none;
+    background: none;
 }
 
 check:not(:checked) {
     -gtk-icon-source: url("assets/checkbox-unchecked.png");
     -gtk-icon-transform: none;
+    background: none;
 }
 
 check:indeterminate {
     -gtk-icon-source: url("assets/checkbox-mixed.png");
+    background: none;
 }
 
 check:disabled:checked {
     -gtk-icon-source: url("assets/checkbox-checked-insensitive.png");
+    background: none;
 }
 
 check:disabled:not(checked) {
     -gtk-icon-source: url("assets/checkbox-unchecked-insensitive.png");
+    background: none;
 }
 
 check:indeterminate:disabled {
     -gtk-icon-source: url("assets/checkbox-mixed-insensitive.png");
+    background: none;
 }
 
 
