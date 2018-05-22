@@ -18,7 +18,7 @@ Xfce 4.12
 
 (A Window compositor is preferred.) [See here if you don't use a compositor.](https://github.com/EMH-Mark-I/Chicago95-Custom-XFCE4)
 
-(Preferred Linux distribution is Xubuntu 17.10) [See here for the 16.04 LTS version of the theme.](https://github.com/EMH-Mark-I/Chicago95-Custom-XUbuntu-16.04-)
+(Preferred Linux distribution is Xubuntu 17.10 or 18.04) [See here for the 16.04 LTS version of the theme.](https://github.com/EMH-Mark-I/Chicago95-Custom-XUbuntu-16.04-)
 
 ## Install the system theme
 [Click here](INSTALL.md) for install steps.
