@@ -99,12 +99,14 @@ Since the Application Menu plugin is still GTK2, you'll have to choose an icon a
 Note: The smallest optimal panel row size for this theme is 26 pixels. If your panel is below that size, you will encounter icon scaling issues.
 
 #### Launcher Button scaling (advanced)
+Note: This might be a little complicated since it's more of a work-around than a good solution. I tried making this as simple as possible where you will just adjust configurations in a file. If there are questions or issues with the following instructions, open a ticket and i'll try to walk you through it.
+
 If you want to force 16x16px icons in the launcher buttons, you can do this by making your own custom icons or through the theme by editing the panel.rc file.
 
 - Open a text editor and navigate to `/home/$USER/.themes/Chicago95/gtk-2.0/panel.rc` (with $USER being your username.)
 - Move to line 268 of the file where you will see a section specified for Launcher buttons.
 
-Example steps: You will first need to determine the panel bar row size since the launcher button icon padding is determined by the size of the panel bar.
+Example steps: You will first need to determine your current panel bar row size since the launcher button icon padding is determined by the vertical size of the panel bar.
 
 - Open the XFCE settings manager > Panel
 - Verify the "Row Size (pixels)". (Lets say that it's 38 pixels for this example.)
@@ -113,7 +115,9 @@ Example steps: You will first need to determine the panel bar row size since the
 - Now Insert a "#" pound character in front of the xthickness and the ythickness values of the previous default selection, which is for a 26px height panel.
 - Save the file and reload the xfce panel bar. You can run `xfce4-panel -r` in a terminal to reload the panel.
 
-Note: If you use a vertical deskbar, you could add a second row from the panel properties menu to organize the launcher buttons into rows.
+Notes: Even numbered panel bar row sizes seem to work best. If your panel bar row size is "29px" for example, the launcher icons may not scale correctly.
+
+If you use a vertical deskbar, you could add a second row from the panel properties menu to organize the launcher buttons into rows. This would have a more organized effect.
 
 #### Shadows
 Disable shadows in compositing for an authentic appearance, or at the very least disable “show shadows under dock windows” to prevent dark shading from the panel bar overlapping onto maximized applications.
@@ -137,8 +141,14 @@ To install the icons copy the folders `Icons/Chicago95` and `Icons/Chicago95-tux
 
 In XFCE select Settings -> Appearance. Click on 'Icons' and select `Chicago95`.
 
-#### Desktop icons
-If you want to change the icon label backdrop colour, text colours, or highlight colours you'll have to edit the gtkrc theme file located in `/home/$USER/.themes/Chicago95/gtk-2.0/` on line numbers 551 to 556. After any changes are made log out then log back in. You can use CSS colour properties as seen on line 551 for "#008081".
+#### Desktop icons (text shadows and label backdrop colour)(advanced)
+If you want to change the icon label backdrop colour, text colours, or highlight colours you'll have to edit the gtkrc theme file located in `/home/$USER/.themes/Chicago95/gtk-2.0/`.
+
+Text shadows can be modified from lines 551 to 557. These are currently commented out with "#."
+
+Label backdrop colours can be modified on line numbers 563 to 568.
+
+After any changes are made log out then log back in. You can use CSS colour properties as seen on line 551 for any colour you want.
 
 #### Cursors
 To install the cursors copy the folders in `Cursors` to `/usr/share/icons` or `~/.icons`.
