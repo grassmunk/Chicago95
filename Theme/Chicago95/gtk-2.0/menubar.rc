@@ -34,3 +34,49 @@ style "menu"
 
 class "GtkMenuBar*"             style "menubar"
 class "GtkMenu" style "menu"
+
+style "toolbar"
+{
+xthickness = 5
+ythickness = 1
+	engine "pixmap"
+	{
+		image
+		{
+			function = BOX
+			file = "toolbar/toolbar.png"
+			border = {4, 4, 4, 4}
+			stretch = TRUE
+		}
+	}
+}
+class "Gtk*Toolbar"			style "toolbar"
+
+style "handlebox" = "default"
+{
+xthickness = 0
+ythickness = 0
+	engine "pixmap"
+	{
+		image
+		{
+			function = HANDLE
+			overlay_file = "toolbar/handlebox-v.png"
+			overlay_border = {0, 0, 0, 0}
+			overlay_stretch = FALSE
+			orientation = VERTICAL
+		}
+
+		image
+		{
+			function = HANDLE
+			overlay_file = "toolbar/handlebox-h.png"
+			overlay_border = {0, 0, 0, 0}
+			overlay_stretch = FALSE
+			orientation = HORIZONTAL
+		}
+	}
+}
+
+#widget_class "*HandleBox"			style "handlebox"
+class "*HandleBox"			style "handlebox"
