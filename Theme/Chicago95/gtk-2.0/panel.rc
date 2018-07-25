@@ -276,12 +276,12 @@ style "launcher"
 
 		#Theme default
 		#Uncomment the following two for 16x16px launcher icons on a 26px height panel.
-		#xthickness = 4
-		#ythickness = 4
+		xthickness = 4
+		ythickness = 4
 
 	#Uncomment the following two for 16x16px launcher icons on a 28px height panel.
-	xthickness = 5
-	ythickness = 5
+	#xthickness = 5
+	#ythickness = 5
 
 	#Uncomment the following two for 16x16px launcher icons on a 30px height panel.
 	#xthickness = 6
