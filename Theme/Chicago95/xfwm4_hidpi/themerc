@@ -1,0 +1,20 @@
+# Name: Chicago95 xfwm4 Theme
+# Author: Grassmunk
+# License: GPL-3.0+
+# Changed slightly from Redmond to allow for a 
+# slight modification to the inactive bar colors.
+
+active_border_color=#000000
+button_layout=O|HMC
+button_offset=1
+button_spacing=0
+full_width_title=true
+inactive_border_color=#000000
+maximized_offset=2
+show_app_icon=true
+title_alignment=left
+title_horizontal_offset=2
+title_vertical_offset_active=1
+title_vertical_offset_inactive=1
+inactive_text_color=#C0C0C0
+inactive_color_1=#808080
