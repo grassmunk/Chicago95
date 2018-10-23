@@ -1,6 +1,6 @@
 # Chicago95
 #### XFCE / Xubuntu Windows 95 Total Conversion
-I was unhappy with the various XFCE/GTK2/GTK3 Windows 95 based themes and decided to make one that was more consistent accross the board for theming.
+I was unhappy with the various XFCE/GTK2/GTK3 Windows 95 based themes and decided to make one that was more consistent across the board for theming.
 
 Included in this theme:
 
