@@ -141,12 +141,12 @@ To install the icons copy the folders `Icons/Chicago95` and `Icons/Chicago95-tux
 
 In XFCE select Settings -> Appearance. Click on 'Icons' and select `Chicago95`.
 
-#### Desktop icons (text shadows and label backdrop colour)(advanced)
+#### Desktop icons (text shadows and label backdrop )(advanced)
 If you want to change the icon label backdrop colour, text colours, or highlight colours you'll have to edit the gtkrc theme file located in `/home/$USER/.themes/Chicago95/gtk-2.0/`.
 
-Text shadows can be modified from lines 551 to 557. These are currently commented out with "#."
+Text shadows can be modified from lines 553 to 559. These are currently commented out with "#."
 
-Label backdrop colours can be modified on line numbers 563 to 568.
+Label backdrop colours can be modified on line numbers 565 to 570.
 
 After any changes are made log out then log back in. You can use CSS colour properties as seen on line 551 for any colour you want.
 
@@ -183,19 +183,6 @@ To get the startup message, add the contents of `Extras/ZSHDOSrc` to your `.zshr
 #### Windows 95 login startup sound
 Copy the file `Extras/Microsoft Windows 95 Startup Sound.ogg` to `/home/$USER/.themes/Chicago95/misc/Microsoft Windows 95 Startup Sound.ogg` or where ever you want.
 
-##### XFCE
 - Open XFCE Settings Manager > Session and Startup > Application Autostart tab
 - Add a new entry
 - Give it a name and a command similar to the following: `play /home/$USER/.themes/Chicago95/misc/Microsoft\ Windows\ 95\ Startup\ Sound.ogg`
-
-##### LXDE
-- Create the file `./config/autostart/chicago95.desktop` with the following contents:
-
-```
-[Desktop Entry]
-Type=Application
-Name=Chicago95 Chime
-Comment=The Windows 95 startup sound
-Exec=sh -c 'play /home/$HOME/.themes/Chicago95/misc/Microsoft\ Windows\ 95\ Startup\ Sound.ogg'
-OnlyShowIn=LXDE
-```

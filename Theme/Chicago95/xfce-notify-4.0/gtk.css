@@ -1,13 +1,16 @@
 #XfceNotifyWindow {
-    background-color: #ffffe1;
-    color: #000000;
-    border: 1px solid black;
+  background-color: #ffffe1;
+  color: #000000;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 4px 4px @tooltip_bg_shade;
 }
 
 #XfceNotifyWindow:hover {
-    border: 1px solid white;
+  border: 1px solid white;
 }
 
 #XfceNotifyWindow progressbar trough {
-    padding: 2px;
+  padding: 2px;
+  
 }
