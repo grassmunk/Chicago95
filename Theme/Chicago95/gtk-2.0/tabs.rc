@@ -3,9 +3,8 @@ style "tabs"  = "default"
 xthickness = 5
 ythickness = 3
 
-  GtkNotebook::tab-border = 2                                                                                                                               
-  GtkNotebook::show-border = 0                                                                                                                              
-         
+GtkNotebook::tab-border = 2
+GtkNotebook::show-border = 0
 
 engine "pixmap"
 {

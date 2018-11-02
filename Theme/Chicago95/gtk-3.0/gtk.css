@@ -18,12 +18,21 @@
 @define-color selected_inactive_bg_color #808080;
 @define-color selected_inactive_fg_color #000000;
 @define-color tooltip_bg_color #ffffe1;
+@define-color tooltip_bg_shade #494940;
 @define-color tooltip_fg_color #000000;
 @define-color bg_bright shade(white, 0.99);
 @define-color bg_shade shade(@bg_color, 0.66);
 @define-color bg_dark shade(@bg_color, 0.13);
 @define-color border_bright white;
 @define-color border_dark black;
+@define-color border_shade #808080;
+@define-color outline_color black;
+@define-color font_color black;
+@define-color font_bright white;
+@define-color disabled_font_shadow white;
+@define-color disabled_font #808080;
+@defube0color icon_shadow black;
+@defube0color icon_shadow_bright white;
 
 /* dark color scheme */
 @define-color dark_bg_color @bg_color;

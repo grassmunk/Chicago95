@@ -139,50 +139,32 @@ widget_class "*Applet*Netstatus*"		style "panel"
 
 style "panelbar"
 {
-	xthickness = 5
-	ythickness = 2
 
 	engine "pixmap"
 	{
 		image
 		{
-			function = BOX
-			state		= NORMAL
-			file		= "panel/panel-bg.png"
-			border		= { 5 , 5 , 5 , 5}
-			stretch		= TRUE
+			function = HANDLE
+			overlay_file = "toolbar/handlebox-h.png"
+			overlay_stretch = FALSE
+			orientation = HORIZONTAL
 		}
 
 		image
 		{
-			function = BOX
-			state = ACTIVE
-			file = "panel/panel-bg.png"
-			border = { 5 , 5 , 5 , 5}
-			stretch = FALSE
-		}
-
-		image
-		{
-			function = BOX
-			state = INSENSITIVE
-			file = "panel/panel-bg.png"
-			border = { 5 , 5 , 5 , 5}
-			stretch = FALSE
-		}
-
-		image
-		{
-			function = BOX
-			state = PRELIGHT
-			recolorable = TRUE
-			file = "panel/panel-bg.png"
-			border = { 5 , 5 , 5 , 5}
-			stretch = TRUE
+			function = HANDLE
+			overlay_file = "toolbar/handlebox-v.png"
+			overlay_stretch = FALSE
+			orientation = VERTICAL
 		}
 	}
 }
 
+widget_class "*PanelToplevel*"		style "panelbar"
+class "Xfce*Panel*"		style "panelbar"
+widget_class "*Xfce*Panel*"		style "panelbar"
+widget_class "*PanelApplet*"		style "panelbar"
+widget_class "*PanelWidget*"		style "panelbar"
 #############################################################
 # Panel buttons
 #############################################################
