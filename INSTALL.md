@@ -183,6 +183,19 @@ To get the startup message, add the contents of `Extras/ZSHDOSrc` to your `.zshr
 #### Windows 95 login startup sound
 Copy the file `Extras/Microsoft Windows 95 Startup Sound.ogg` to `/home/$USER/.themes/Chicago95/misc/Microsoft Windows 95 Startup Sound.ogg` or where ever you want.
 
+##### XFCE
 - Open XFCE Settings Manager > Session and Startup > Application Autostart tab
 - Add a new entry
 - Give it a name and a command similar to the following: `play /home/$USER/.themes/Chicago95/misc/Microsoft\ Windows\ 95\ Startup\ Sound.ogg`
+
+##### LXDE
+- Create the file `./config/autostart/chicago95.desktop` with the following contents:
+
+```
+[Desktop Entry]
+Type=Application
+Name=Chicago95 Chime
+Comment=The Windows 95 startup sound
+Exec=sh -c 'play /home/$HOME/.themes/Chicago95/misc/Microsoft\ Windows\ 95\ Startup\ Sound.ogg'
+OnlyShowIn=LXDE
+``` 
