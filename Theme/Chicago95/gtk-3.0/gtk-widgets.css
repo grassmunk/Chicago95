@@ -2437,9 +2437,10 @@ overshoot, undershoot {
  *******/
  
 box label link {
-    color: white;
-    text-shadow: 1px 1px @selected_inactive_bg_color;
-}
+  color: @link_color;
+  text-shadow: 1px 1px @selected_inactive_bg_color; }
+  box label link:hover {
+    text-shadow: 1px 1px @link_color_shadow; }
 
 
 /*******
