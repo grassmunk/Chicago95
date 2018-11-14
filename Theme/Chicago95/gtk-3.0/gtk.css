@@ -63,6 +63,7 @@
 @define-color error_fg_color @fg_color;
 @define-color error_bg_color #FFCCCC;
 @define-color link_color #000080;
+@define-color link_color_shadow #ffffff;
 @define-color success_color #53d013;
 @define-color warning_color #f57600;
 @define-color error_color #cc0000;
