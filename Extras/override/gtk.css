@@ -1,64 +1,17 @@
-/* Panel plugins */
-#pulseaudio-button { 
-    padding: 6px 6px; 
-}
-
+/* This just keeps the power manager plugin icon to stay small. This trick 
+doesn't work for the pulse audio icon unfortunately.*/
 #xfce4-power-manager-plugin { 
-    padding: 6px 6px; 
-}
-
-/* File Chooser */
-filechooser box paned placessidebar viewport list {
-    background-color: white;
-}
-
-filechooser box paned placessidebar viewport list box {
-    padding: 3px;
-}
-
-filechooser box paned placessidebar viewport {
-    border: none;
-}
-
-
-filechooser box paned box box stack placesview stack frame scrolledwindow viewport list {
-    border: 1px solid;
-}
-
-filechooser box paned box revealer box stack box widget button {
-padding-top: 1px;
-padding-bottom: 1px;
-padding-left: 5px;
-padding-right: 5px;
-}
-
-filechooser box paned box revealer box stack box treeview {
-border-left: 2px solid black;
-}
-
-filechooser box paned placessidebar viewport list separator {
-    border-top: 1px solid #808080;
-    border-bottom: 1px solid white;
-}
-
-filechooser placessidebar viewport list {
-    background-color: white;
-}
-
-filechooser box paned placessidebar viewport list *:selected,
-filechooser box paned placessidebar viewport list *:active,
-filechooser box paned placessidebar viewport list *:focus {
-    outline: none;
-}
-
-filechooser placessidebar viewport separator {
-    border-top: 1
-}
+    padding: 6px 6px; }
 
 /* GNOME Disk utility */
+/* This is a fix for the GNOME disk application which uses its own CSS to 
+theme the grid style; overriding user themes. In reality this doesn’t work 
+so well, so we'll just override that with out own!*/ 
 
 .gnome-disk-utility-grid {
-background-color: #000080;
-padding: 20px;
-}
-
+background-color: @bg_shade;
+  color: @font_bright;
+  border-radius: 0px;
+  outline-color: white; }
+  .gnome-disk-utility-grid:backdrop {
+    background-color: @bg_shade; }

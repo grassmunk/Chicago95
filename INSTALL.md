@@ -1,6 +1,6 @@
 ## How To Install
 
-Note: You may have to enable `view hidden folders` in your file manager to see hidden files.
+Note: You will have to enable `view hidden folders` in your file manager to see hidden files.
 
 Create a `.themes` folder in your user directory `/home/$USER/` if it doesn't already exist. (with $USER being your username.)
 
@@ -104,13 +104,13 @@ Note: This might be a little complicated since it's more of a work-around than a
 If you want to force 16x16px icons in the launcher buttons, you can do this by making your own custom icons or through the theme by editing the panel.rc file.
 
 - Open a text editor and navigate to `/home/$USER/.themes/Chicago95/gtk-2.0/panel.rc` (with $USER being your username.)
-- Move to line 268 of the file where you will see a section specified for Launcher buttons.
+- Move to line 250 of the file where you will see a section specified for Launcher buttons.
 
 Example steps: You will first need to determine your current panel bar row size since the launcher button icon padding is determined by the vertical size of the panel bar.
 
 - Open the XFCE settings manager > Panel
 - Verify the "Row Size (pixels)". (Lets say that it's 38 pixels for this example.)
-- Return back to the text editor and locate the line comment that is specifying your panel bar row size. (38px height panel for this example is on line 302.)
+- Return back to the text editor and locate the line comment that is specifying your panel bar row size. (38px height panel for this example is on line 284.)
 - Delete the "#" pound character in front of the xthickness and the ythickness values for the specified panel bar size.
 - Now Insert a "#" pound character in front of the xthickness and the ythickness values of the previous default selection, which is for a 26px height panel.
 - Save the file and reload the xfce panel bar. You can run `xfce4-panel -r` in a terminal to reload the panel.

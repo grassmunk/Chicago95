@@ -1,41 +1,70 @@
 /* Whisker Menu Button style */
 
+/* We will remove the border effect and margin effects on the button and apply it to the box inside. 
+This will allow people to be able to run their pointer to the far corner of the screen and activate 
+the whisker menu without having to correct their pointer location. */
 #whiskermenu-button {
-  padding: 2px;
-  margin: 2px;
-  border-top: 1px solid #FFFFFF;
-  border-bottom: 1px solid #000000;
-  border-left: 1px solid #FFFFFF;
-  border-right: 1px solid #000000;
-  box-shadow: inset -1px -1px #808080;
-  background-color: #c0c0c0; }
+  border: none;
+  box-shadow: none;
+  margin: 0px; }
+  #whiskermenu-button box {
+    padding: 2px;
+    margin: 1px;
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px solid #000000;
+    border-left: 1px solid #FFFFFF;
+    border-right: 1px solid #000000;
+    box-shadow: inset -1px -1px #808080;
+    background-color: #c0c0c0; }
+    #whiskermenu-button:active box, #whiskermenu-button:checked box {
+      padding-left: 3px;
+      padding-right: 1px;
+      margin: 1px;
+      border-bottom: 1px solid #FFF;
+      border-right: 1px solid #FFF;
+      border-top: 1px solid #000000;
+      border-left: 1px solid #000000;
+      box-shadow: inset -1px -1px #c0c0c0,
+                  inset 1px 1px #808080;
+      border-radius: 0px; }
+  #whiskermenu-button image {
+    margin-right: -4px;
+    margin-left: 1px; }
+  #whiskermenu-button label {
+    padding: 0px;
+    margin-right: 1px;
+    margin-left: -1px;
+    border: none;
+    color: black;
+    font-family: "MS Sans Serif Bold", Sans, Sans-Serif;
+    font-weight: 600;
+    font-size: 11px; }
 
-#whiskermenu-button label {
-  color: @whisker_button_text;
-  font-size: 11px;
-  font-weight: bold; }
-
-#whiskermenu-button:active, #whiskermenu-button:checked {
-  padding-left: 3px;
-  padding-right: 1px;
-  margin: 2px;
-  border-bottom: 1px solid #FFF;
-  border-right: 1px solid #FFF;
-  border-top: 1px solid #000000;
-  border-left: 1px solid #000000;
-  box-shadow: inset -1px -1px #c0c0c0,
-              inset 1px 1px #808080;
-  border-radius: 0px; }
+/****************
+* Whisker Menu **
+****************/
 
 #whiskermenu-window treeview {
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 2px;
   padding-bottom: 2px;}
-
-#whiskermenu-window button {
-  padding: 2px;
-  min-height: 16px; }
-  #whiskermenu-window button:not(:hover):not(:checked) {
-    border-color: transparent;
-    box-shadow: none;}
+  #whiskermenu-window button {
+    padding: 2px;
+    min-height: 16px; }
+    #whiskermenu-window button:not(:hover):not(:checked) {
+      border-color: transparent;
+      box-shadow: none;}
+  #whiskermenu-window separator {
+    margin: 5px; }
+  #whiskermenu-window frame > box > box > scrolledwindow {
+    padding: 5px;
+    border: 1px solid;
+    background-color: @bg_color;
+    border-color: @bg_shade @bg_bright @bg_bright @bg_shade;
+    box-shadow: inset 1px 1px @bg_bright,
+                inset -1px -1px @bg_shade; }
+  #whiskermenu-window entry {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    min-height: 16px; }
