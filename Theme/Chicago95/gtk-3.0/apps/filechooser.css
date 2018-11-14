@@ -1,7 +1,7 @@
 /* File Chooser */
 
-
-filechooser box paned placessidebar viewport list {
+/* The commented out section below should not be required anymore, but I'm keeping it around for a little while.*/
+/*filechooser box paned placessidebar viewport list {
     background-color: white;
 }
 
@@ -47,4 +47,18 @@ margin: 0px;
 dialog box box filechooser box paned placessidebar viewport {
 border: none;
 box-shadow: none;
-}
+}*/
+
+filechooser revealer > box > stack {
+  border-left: 1px solid @bg_shade;
+  border-top: 1px solid @bg_shade;
+  border-right: 1px solid @bg_bright;
+  border-bottom: 1px solid @bg_bright;
+  box-shadow: inset 1px 1px @bg_bright,
+              inset -1px -1px @bg_shade;
+  padding: 0px;}
+  filechooser revealer > box > stack button  {
+    margin: 1px;
+    padding: 2px;
+    min-width: 20px;
+    min-height: 20px; }

@@ -31,8 +31,8 @@
 @define-color font_bright white;
 @define-color disabled_font_shadow white;
 @define-color disabled_font #808080;
-@defube0color icon_shadow black;
-@defube0color icon_shadow_bright white;
+@define-color icon_shadow black;
+@define-color icon_shadow_bright white;
 
 /* dark color scheme */
 @define-color dark_bg_color @bg_color;
@@ -101,6 +101,7 @@
 @import url("gtk-widgets.css");
 @import url("apps/xfce.css");
 @import url("apps/whiskermenu.css");
+@import url("apps/filechooser.css");
 
 /* @import url("apps/gnome-applications.css");
 @import url("apps/granite-widgets.css");

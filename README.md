@@ -1,5 +1,10 @@
 # Chicago95
 #### XFCE / Xubuntu Windows 95 Total Conversion
+
+<p align="center">
+<img src="Screenshots/Chicago95_Desktop.png" alt="Chicago95 Desktop"/>
+</p>
+
 I was unhappy with the various XFCE/GTK2/GTK3 Windows 95 based themes and decided to make one that was more consistent across the board for theming.
 
 Included in this theme:

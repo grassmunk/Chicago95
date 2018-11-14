@@ -79,23 +79,6 @@ slider, .slider {
   min-width: 10px;
   background-color: @bg_color;}
 
-frame {
-  background-color: transparent;
-  padding: 3px;
-  padding-right: 5px; }
-  .frame {
-    background-color: transparent;}
-
-/* since .view is white and frame is generally behind grey, lets nullify frame's padding */
-frame > list, frame > .view  {
-  margin: -2px; }
-  frame > scrolledwindow {
-    margin: -3px; }
-  /* frame always comes with a border element which is the one that should be decorated, but so far i found
-   * that decorating only the frame with sunken 2px is better */
-    frame > label {
-      margin-left: 6px; }
-
 border.flat {
     border-style: none;
     box-shadow: none; }
@@ -118,97 +101,52 @@ progressbar trough,
     margin-right: 4px;
 }
 
-/* Sunken 2px */
-/* stacksidebar list row:selected,
-stacksidebar list row:active, */
-colorswatch:selected,
-calendar.view,
-frame,
-entry,
-slider,
-switch,
-.sidebar list,
-scale trough,
-combobox button:checked,
-popover button.flat:selected, popover button.flat:active,
-button.appmenu:selected, button.appmenu:active,
-
-scrolledwindow.frame,
-/*scrolledwindow:not(.frame) > viewport,*/ /*Commenting out because it makes extra frames. */
-/*stack.view > box,
-.nautilus-list-view,*/
-notebook:not(.frame) > stack > box {
-    border-style: solid;
-    border-width: 1px;
-    border-color: @bg_shade @bg_bright @bg_bright @bg_shade;
-    box-shadow: inset 1px 1px @bg_dark,
-                inset -1px -1px @bg_color;
-    background-color: @theme_bg_color;
-}
-
-scrolledwindow:not(.frame) > viewport { /*Adding this for background colour. */
-    background-color: @theme_bg_color;
-}
-
-
-
-/* Raised 1px */
-/*button.appmenu button.flat,
-button.flat:hover,
-toolbar button,
-toolbar button:hover:not(:active):not(:checked):not(:selected),
-toolbar:not(.inline-toolbar),*/
 stepper {
     border-style: solid;
     border-width: 1px;
     border-color: white black black white;
     box-shadow: inset 1px 1px #dfdfdf,
                 inset -1px -1px @bg_dark;
-    border-radius: 0;
-}
+    border-radius: 0; }
 
-/* Raised 2px */
-window > frame,
-/* stacksidebar list row, */
-colorswatch,
-combobox > window,
-calendar.header,
-popover button.flat,
-slider,
-notebook > header > tabs > tab,
-notebook.frame {
-    border-style: solid;
-    border-width: 1px;
-    border-color: @bg_color @bg_dark @bg_dark @bg_color;
-    box-shadow: inset 1px 1px @bg_bright,
-                inset -1px -1px @bg_shade;
-    border-radius: 0px;
-}
-
-window box notebook stack box scrolledwindow viewport {
-    border-left: 1px solid @bg_shade;
-    border-top: 1px solid @bg_shade;
-    border-right: 1px solid white;
-    border-bottom: 1px solid white;
-    box-shadow: inset 1px 1px white,
-                     inset -1px -1px @bg_shade;
-}
-
-/* Makes a checkerboard */
-/*stacksidebar list row:selected:hover,
-stacksidebar list row:selected,*/
-/*button:selected, button:active, button:checked,*/
-/*toolbar button:active,
-toolbar button:checked,*/
-slider:disabled,
-trough,
-paned > separator {
+slider {
+  border-style: solid;
+  border-width: 1px;
+  border-color: @bg_color @bg_dark @bg_dark @bg_color;
+  box-shadow: inset 1px 1px @bg_bright,
+              inset -1px -1px @bg_shade;
+  border-radius: 0px; }
+  /* Makes a checkerboard */
+  slider:disabled, trough, paned > separator {
     background-color: @border_bright;
     background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @border_dark);
     background-size: 2px 2px;
-    background-position: 0 0, 1px 1px;
-}
- 
+    background-position: 0 0, 1px 1px; }
+
+combobox > window, notebook > header > tabs > tab {
+  border-style: solid;
+  border-width: 1px;
+  border-color: @bg_color @bg_dark @bg_dark @bg_color;
+  box-shadow: inset 1px 1px @bg_bright,
+              inset -1px -1px @bg_shade;
+  border-radius: 0px; }
+
+colorswatch:selected, calendar.view, entry, switch, scale trough, combobox button:checked, popover button.flat:selected, popover button.flat:active, button.appmenu:selected, button.appmenu:active {
+  border-style: solid;
+  border-width: 1px;
+  border-color: @bg_shade @bg_bright @bg_bright @bg_shade;
+  box-shadow: inset 1px 1px @bg_dark,
+              inset -1px -1px @bg_color;
+  background-color: @theme_bg_color; }
+
+colorswatch, calendar.header {
+  border-style: solid;
+  border-width: 1px;
+  border-color: @bg_color @bg_dark @bg_dark @bg_color;
+  box-shadow: inset 1px 1px @bg_bright,
+              inset -1px -1px @bg_shade;
+  border-radius: 0px; }
+
 /***********
  * Buttons *
  ***********/
@@ -218,8 +156,8 @@ paned > separator {
   to {
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(#398ee7), to(transparent)); } }
 button {
-  min-height: 20px;
-  min-width: 20px;
+  min-height: 16px;
+  min-width: 16px;
   padding: 2px;
   border: 1px solid;
   border-radius: 0px;
@@ -232,8 +170,11 @@ button {
   border-bottom-color: @border_dark;
   background-color: @bg_color;
   box-shadow: inset -1px -1px #808080;}
+  button.flat {
+    min-width: 16px;
+    min-height: 16px; }
   button.sidebar-button,
-  button.flat:not(toolbar button) {
+  button.flat {
     box-shadow: inset -1px -1px @border_shade;
     text-shadow: none;
     -gtk-icon-shadow: none;
@@ -251,7 +192,6 @@ button {
     border-left-color: @border_dark;
     border-bottom-color: @border_bright;
     box-shadow: inset 1px 1px @border_shade;}
-    transition-duration: none; }
   button.sidebar-button:backdrop,
   button:backdrop.flat,
   button:backdrop {
@@ -325,7 +265,7 @@ button {
         button:backdrop:disabled:active label,
         button:backdrop:disabled:checked label {
           color: @font_color; }
-  /* The commented option below can change the theme of a button in a non-active (non-focused) window. Currently leaving it as an option, but disabled./*
+  /* The commented option below can change the theme of a button in a non-active (non-focused) window. Currently leaving it as an option, but disabled.*/
   /*button.sidebar-button:backdrop, button.sidebar-button:disabled, button.sidebar-button:backdrop:disabled,
   button.flat:backdrop,
   button.flat:disabled,
@@ -362,7 +302,7 @@ button {
       button:disabled:checked label,
       button:disabled:checked {
         color: @font_color; }
-  button.image-button:not(toolbar button) {
+  button.image-button {
     min-height: 16px;
     min-width: 16px;
     padding-left: 4px;
@@ -466,7 +406,7 @@ button.osd {
 .osd button {
     color: @font_color;
     border-radius: 0px;
-    border-style: transparent;
+    border-style: none;
     background-color: @bg_color;
     box-shadow: none;
     background-clip: padding-box;
@@ -549,7 +489,7 @@ button.osd {
     .osd button.flat:disabled {
           color: @disabled_font;
           border-radius: 0px;
-          border-style: transparent;
+          border-style: none;
           background-color: @bg_color;
           box-shadow: none;
           background-clip: padding-box;
@@ -597,7 +537,6 @@ button.osd {
   .stack-switcher > button.needs-attention:active > label,
   .stack-switcher > button.needs-attention:active > image, .stack-switcher > button.needs-attention:checked > label,
   .stack-switcher > button.needs-attention:checked > image {
-    : none;
     background-image: none; }
 .inline-toolbar button, .inline-toolbar button:backdrop {
   border-radius: 0px;
@@ -757,57 +696,201 @@ radio:indeterminate:disabled {
     -gtk-icon-source: url("assets/radio-mixed-insensitive.png");
 }
 
+/*********
+* Frames *
+**********/
+
+frame {
+  padding: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: @bg_shade @bg_bright @bg_bright @bg_shade;
+  box-shadow: inset 1px 1px @bg_dark,
+              inset -1px -1px @bg_color;
+  background-color: @theme_bg_color; }
+  .frame {
+  background-color: transparent;}
+  frame.border-outset {
+    border-color: @bg_bright @bg_dark @bg_dark @bg_bright;
+    box-shadow: inset 1px 1px @bg_color,
+               inset -1px -1px @bg_shade; }
+    frame.border-inset {
+      border-color: @bg_shade @bg_bright @bg_bright @bg_shade;
+      box-shadow: inset 1px 1px @bg_dark,
+                  inset -1px -1px @bg_color;
+      background-color: @theme_bg_color; }
+  frame > list, frame > .view  {
+    margin: -2px; }
+      frame > label {
+        margin-left: 6px; }
+  window > frame {
+    border-style: solid;
+    border-width: 1px;
+    border-color: @bg_color @bg_dark @bg_dark @bg_color;
+    box-shadow: inset 1px 1px @bg_bright,
+                inset -1px -1px @bg_shade;
+    border-radius: 0px; }
+  dialog box box notebook stack box frame {
+    border-left: 1px solid @bg_shade;
+    border-top: 1px solid @bg_shade;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    box-shadow: inset 1px 1px white,
+                inset -1px -1px @bg_shade; }
+    dialog box box box notebook stack grid frame {
+      border-left: 1px solid @bg_shade;
+      border-top: 1px solid @bg_shade;
+      border-right: 1px solid white;
+      border-bottom: 1px solid white;
+      box-shadow: inset 1px 1px white,
+                  inset -1px -1px @bg_shade; }
+  viewport.frame > frame, viewport.frame > box > frame {
+    background-color: @base_color;
+    color: @font_color; }
+  scrolledwindow.frame {
+    padding: 1px;
+    background-color: white;
+    border-left: 1px solid @bg_dark;
+    border-top: 1px solid @bg_dark;
+    border-right: 1px solid @bg_bright;
+    border-bottom: 1px solid @bg_bright;
+    box-shadow: inset -1px -1px @bg_color,
+                inset 1px 1px @bg_shade;
+    margin: 0px; }
+    notebook.frame {
+      border-style: solid;
+      border-width: 1px;
+      border-color: @bg_color @bg_dark @bg_dark @bg_color;
+      box-shadow: inset 1px 1px @bg_bright,
+                  inset -1px -1px @bg_shade;
+      border-radius: 0px; }
+    notebook stack frame, frame frame {
+      border-left: 1px solid @bg_shade;
+      border-top: 1px solid @bg_shade;
+      border-right: 1px solid white;
+      border-bottom: 1px solid white;
+      box-shadow: inset 1px 1px white,
+                  inset -1px -1px @bg_shade; }
+  .osd.frame {
+    background-clip: border-box;
+    background-origin: border-box; }
+  statusbar frame {
+    padding: 1px; }
+
 /****************************
  * viewport, iconview, view *
  ****************************/
 
-viewport, viewport list, viewport iconview, viewport textview, viewport.frame > frame, viewport.frame > box > frame, viewport list.tweak-group, viewport list.tweak-categories {
+viewport, viewport list, viewport iconview, viewport textview, viewport list.tweak-group, viewport list.tweak-categories {
     background-color: @base_color;
     color: @font_color; }
+  viewport {
+    padding: 1px; }
+  viewport row {
+    padding: 1px;
+    min-height: 20px; }
     viewport list row box {
       background-color: transparent; }
+  viewport separator {
+    border-top: 1px solid @selected_inactive_bg_color;
+    border-bottom: 1px solid white; }
+  dialog viewport {
+    border-style: solid;
+    border-width: 1px;
+    border-color: @bg_shade @bg_bright @bg_bright @bg_shade;
+    box-shadow: inset 1px 1px @bg_dark,
+                inset -1px -1px @bg_color;
+    background-color: @theme_bg_color; }
+  /* If there is a viewport inside of a scrolled window, then the viewport wont need a border style because the scrolled window will already have one. Otherwise we would get a double border style effect.*/
+  scrolledwindow > viewport {
+    border: transparent;
+    box-shadow: none; }
+    scrolledwindow:not(.frame) > viewport { /*Adding this for background colour. */
+      background-color: @theme_bg_color; }
+      dialog scrolledwindow viewport {
+        padding: 5px; }
+  grid viewport box scrolledwindow viewport {
+    border: none;
+    box-shadow: inset 0 0;
+    background-color: white; }
+  grid viewport {
+    border: none;
+    background-color: white;
+    border: 1px solid black; }
 
 view, .view {
-    border-width: 0px;
-    background-color: @base_color;
-    color: @theme_text_color;
-}
-
-box.view {
+  border-width: 0px;
+  background-color: @base_color;
+  color: @theme_text_color; }
+  view:disabled,
+  view:disabled:disabled {
     background-color: @bg_color;
-    color: @fg_color;
-}
-
-view:disabled,
-view:disabled:disabled {
+    color: @fg_color; }
+    view:selected,
+    view:selected:focus {
+      background-color: @theme_selected_bg_color;
+      color: @font_bright; }
+  box.view {
     background-color: @bg_color;
-    color: @fg_color;
-}
+    color: @fg_color; }
 
-view:selected,
-view:selected:focus {
-    background-color: @theme_selected_bg_color;
-    color: @font_bright;
-}
-
-viewport separator {
-    border-top: 1px solid @selected_inactive_bg_color;
-    border-bottom: 1px solid white;
-}
-
-/*box viewport {
-    border-left: 1px solid black;
-    border-top: 1px solid black;
-    border-right: 1px solid white;
-    border-bottom: 1px solid white;
-    box-shadow: inset 1px 1px @bg_bright,
-                inset -1px -1px @bg_shade;
+.sidebar list {
+    padding: 0px;
+/*    border-left: 1px solid @bg_shade;
+    border-top: 1px solid @bg_shade;
+    border-right: 1px solid @bg_bright;
+    border-bottom: 1px solid @bg_bright;
+    box-shadow: inset 1px 1px @bg_dark,
+                inset -1px -1px @bg_color;*/
     border-radius: 0px;
-}*/
+}
 
 iconview {
     -GdMainIconView-icon-size: 48;
 }
+
+/*******************
+ * scrolled window *
+ *******************/
+
+scrolledwindow {
+  padding: 1px;
+  background-color: @bg_color;
+  border-left: 1px solid @bg_dark;
+  border-top: 1px solid @bg_dark;
+  border-right: 1px solid @bg_bright;
+  border-bottom: 1px solid @bg_bright;
+  box-shadow: inset -1px -1px @bg_color,
+              inset 1px 1px @bg_shade;
+  margin: 0px; }
+  scrolledwindow > viewport {
+    border: transparent;}
+    scrolledwindow viewport list row {
+      border: none;
+      box-shadow: none;
+      padding: 2px;
+      margin: 0px; }
+  .nautilus-window overlay > scrolledwindow {
+     background-color: @base_color; }
+  stacksidebar > scrolledwindow { 
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    box-shadow: none; }
+  .sidebar GtkScrolledWindow {
+     background-color: @selected_fg_color;
+     color: @text_color;
+     box-shadow: none;}
+  frame > scrolledwindow {
+    margin: 0px; }
+  notebook stack scrolledwindow {
+    border-left: 1px solid @bg_shade;
+    border-top: 1px solid @bg_shade;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    box-shadow: inset 1px 1px white,
+                inset -1px -1px @bg_shade;
+    margin: 3px; }
 
 /****************
  * List Box *
@@ -848,16 +931,6 @@ cell,:not(check):not(radio).cell,
 row, :not(check):not(radio).row {
     border-width: 0px 0px 1px 0px;
     border: solid transparent;
-}
-
-/* remove :not(.frame) for less elements separated with horizontla lines */
-viewport:not(.frame) list row {
-    border-bottom: 0px;
-    padding: 0px;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    margin-top: 1px;
-    margin-bottom: 1px;
 }
 
 list > row label,
@@ -928,30 +1001,37 @@ separator {
 }
 
 /* MUST KEEP min-width and min-height above zero, or else a default value of 4px is used! */
-paned > separator {
-    border: 0px;
-    min-width: 1px;
-    min-height: 1px;
-    -gtk-icon-source: none;
-}
+/*paned > separator {
+  padding: 0px;
+  min-width: 1px;
+  border-left: 1px dashed @bg_shade;
+  border-right: none;
+  border-bottom: none;
+  border-top: none;
+  background: none; }*/
 /* quodlibet likes to reset background-image here...
 paned separator {
 background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @border_dark);
 }*/
 
-
+/* GTK has the panes flipped. the .vertical is ACTUALLY a horizontal.*/
 paned.vertical > separator {
-    margin-top: 2px;
-    margin-bottom: 2px;
-    padding-top: 1px;
-    padding-bottom: 1px;
+  padding: 0px;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px dashed @bg_bright;
+  border-top: none;
+  background: none
 }
 
+/* GTK has the panes flipped. the .horizontal is ACTUALLY a vertical.*/
 paned.horizontal > separator {
-    margin-left: 2px;
-    margin-right: 2px;
-    padding-left: 1px;
-    padding-right: 1px;
+  padding: 0px;
+  border-left: 1px dashed @bg_bright;
+  border-right: none;
+  border-bottom: none;
+  border-top: none;
+  background: none
 }
 
 
@@ -1306,38 +1386,6 @@ expander arrow {
     min-width: 16px;
     min-height: 16px;
 }
-
-
-/*******************
- * scrolled window *
- *******************/
-
-scrolledwindow viewport list row {
-    border: none;
-    box-shadow: none;
-    padding: 2px;
-    margin: 0px;
-}
-
-scrolledwindow.frame,
-scrolledwindow {
-    padding: 0px;
-    padding-bottom: 0px;
-    margin: 1px;
-}
-
-/* transmission misteriously resets border-width to zero, cant even force it here*/
-scrolledwindow.frame {
-    border-width: 1px;
-    padding: 1px;
-}
-
-/* nautilus seems to have a special transparent icon canvas, since scrolledwindow is also transparent
-the default background color is shown, lets paint it with the base color */
-.nautilus-window overlay > scrolledwindow {
-    background-color: @base_color;
-}
-
 
 /************
  * iconview *
@@ -1720,8 +1768,9 @@ using borders or box-shadows on one side of the header > tabs */
 notebook {
     padding-left: 0px;
     padding-right: 0px;
-    margin-top: 0px;
-}
+    margin-top: 0px; }
+    notebook stack notebook {
+        margin: 5px; }
 
 notebook > header {
     background-color: @bg_color;
@@ -1739,11 +1788,6 @@ notebook header button.flat:checked {
 
 notebook > stack{
     margin: 3px;
-}
-
-notebook stack box frame {
-border: transparent;
-box-shadow: none;
 }
 
 notebook:not(.frame) > stack {
@@ -1776,31 +1820,10 @@ notebook > header.top tab:checked {
     outline: 1px dotted @border_dark;
 }
 
-/*notebook stack box scrolledwindow viewport {
-border: transparent;
-box-shadow: none;
-}*/
-
-dialog box box notebook stack box frame {
-border-left: 1px solid @bg_shade;
-border-top: 1px solid @bg_shade;
-border-right: 1px solid white;
-border-bottom: 1px solid white;
-box-shadow: inset 1px 1px white,
-            inset -1px -1px @bg_shade;
+notebook header.top {
+padding: 0px;
+margin-bottom: -4px;
 }
-
-dialog box box box notebook stack grid frame {
-border-left: 1px solid @bg_shade;
-border-top: 1px solid @bg_shade;
-border-right: 1px solid white;
-border-bottom: 1px solid white;
-box-shadow: inset 1px 1px white,
-            inset -1px -1px @bg_shade;
-}
-
-/* Note to self: bottom and right use a newer method better than top and left, update them
-in the future... */
 
 /* TOP tabs */
 notebook > header.top {
@@ -1855,7 +1878,7 @@ notebook > header.left > tabs {
 }
 notebook > header.left > tabs > tab {
     /* raised 2px EXCEPTION */
-    padding-bottom: 1px;
+    padding-bottom: 6px;
     border-right: 0px;
     box-shadow: inset 1px 1px @bg_bright,
                 inset 0px -1px @bg_shade;
@@ -1867,10 +1890,12 @@ notebook > header.left > tabs > tab {
 
 }
 notebook > header.left > tabs > tab:checked {
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: -3px;
-    margin-bottom: -3px;
+  padding: 0px;
+  padding-bottom: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: -3px;
+  margin-bottom: -3px;
 }
 
 notebook header.left tabs tab:checked label {
@@ -1935,7 +1960,7 @@ notebook > header.right > tabs {
 }
 notebook > header.right > tabs > tab {
     /* raised 2px EXCEPTION */
-    padding-bottom: 1px;
+    padding-bottom: 6px;
     border-left: 0px;
     box-shadow: inset 0px 1px @bg_bright,
                 inset -1px -1px @bg_shade;
@@ -1947,12 +1972,12 @@ notebook > header.right > tabs > tab {
 
 }
 notebook > header.right > tabs > tab:checked {
-    margin-left: -1px;
-    margin-right: -1px;
-
-    margin-top: -3px;
-    margin-bottom: -3px;
-}
+  padding: 0px;
+  padding-bottom: 5px;
+  margin-left: -1px;
+  margin-right: -1px;
+  margin-top: -3px;
+  margin-bottom: -3px; }
 
 notebook header.right tabs tab:checked label {
     margin: 5px;
@@ -2043,66 +2068,42 @@ levelbar.horizontal.discrete block {
 scale.vertical {
     margin-top: 3px;
     margin-bottom: 3px;
-    padding: 1px 7px 1px 7px;
-}
-
-scale.horizontal {
+    padding: 1px 7px 1px 7px; }
+  scale.horizontal {
     margin-left: 3px;
     margin-right: 3px;
-    padding: 9px 1px 9px 1px;
-}
-
-scale trough {
+    padding: 9px 1px 9px 1px; }
+  scale trough {
+    min-width: 1px;
+    min-height: 1px; }
+  scale highlight, scale empty {
     min-width: 1px;
     min-height: 1px;
-}
-
-scale highlight,
-scale empty {
-    min-width: 1px;
-    min-height: 1px;
-    background-color: transparent;
-}
-
-scale.vertical slider {
+    background-color: transparent; }
+  scale.vertical slider {
     min-width: 1px;
     min-height: 10px;
-    margin: 0px -12px 0px -12px;
-}
-scale.horizontal slider {
-    min-width: 10px;
-    min-height: 1px;
-    margin: -12px 0px -12px 0px;
-}
-
-/* there might be other cases where the inside is filled by other widgets */
-scale.color contents trough {
+    margin: 0px -12px 0px -12px; }
+    scale.horizontal slider {
+      min-width: 10px;
+      min-height: 1px;
+      margin: -12px 0px -12px 0px; }
+  /* there might be other cases where the inside is filled by other widgets */
+  scale.color contents trough {
     min-height: 8px;
-    min-width: 8px;
-}
-
-/* outline inside the trough node is terrible, this disables it but 
-can't put it in the slider...
-scale *:focus {
-outline: 0px;
-} */
-
-scale:focus trough {
-    outline-offset: 2px;
-}
+    min-width: 8px; }
+  /* outline inside the trough node is terrible, this disables it but can't put it in the slider...
+  scale *:focus {
+  outline: 0px; } */
+  scale:focus trough {
+    outline-offset: 2px; }
+  scale value {
+    padding: 4px }
 
 
 /****************
  * stacksidebar *
  ****************/
-
-stacksidebar > scrolledwindow { 
-    padding: 0px;
-    margin: 0px;
-    border: 0px;
-
-    box-shadow: none;
-}
 
 stacksidebar separator {
     padding: 0px;
@@ -2119,7 +2120,7 @@ stacksidebar.sidebar list{
 }
 
 stacksidebar list row {
-    padding: 2px;
+    padding: 3px;
     margin: 0px;
 }
 
@@ -2151,8 +2152,9 @@ stacksidebar list row:selected:hover {
  ***********/
  
 stack overlay box box scrolledwindow viewport list row {
-    border-bottom: 1px solid @bg_shade;
-}
+    border-bottom: 1px solid @bg_shade; }
+  notebook notebook stack {
+    margin: 2px; }
 
 /***********
  * sidebar *
@@ -2173,14 +2175,15 @@ placessidebar list > row,
  * sidebar *
  ***********/
 
-.sidebar,
+/*.sidebar,*/
 .sidebar.view,
-.sidebar .view,
-.sidebar GtkScrolledWindow {
+.sidebar .view {
+  background-color: @selected_fg_color;
+  color: @text_color;
+  box-shadow: none;}
+  .sidebar {
     background-color: @selected_fg_color;
-    color: @text_color;
-    box-shadow: none;
-}
+    color: @text_color;}
 
 .sidebar row:selected,
 .sidebar row:selected:hover,
@@ -2208,7 +2211,7 @@ NEW ON GTK 3.18
 ---------------*/
 
 GtkSidebarRow.list-row {
-    padding: 0px;
+    padding: 3px;
 }
 
 GtkSidebarRow .sidebar-revealer {
@@ -2450,11 +2453,6 @@ box label link {
 
 overlay.osd {
     background-color: transparent;
-}
-
-.osd.frame {
-    background-clip: border-box;
-    background-origin: border-box;
 }
 
 overlay toolbar.osd {
@@ -2879,32 +2877,15 @@ grid viewport box box textview {
     background-color: white;
 }
 
-grid viewport {
-    border: none;
-    background-color: white;
-    border: 1px solid black;
-}
-
 grid viewport box {
     background-color: white;
 }
 
-grid viewport box scrolledwindow viewport {
-    border: none;
-    box-shadow: inset 0 0;
-    background-color: white;
-}
-
 /* printdialog */
-
-printdialog notebook > stack > box {
-    padding: 10px;
-}
 
 printdialog notebook {
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     box-shadow: inset 1px 1px 0 0 white,
                 inset -1px -1px @bg_shade;
-    margin: 7px;
-}
+    margin: 7px; }
