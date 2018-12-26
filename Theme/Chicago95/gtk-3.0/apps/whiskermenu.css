@@ -29,7 +29,11 @@ the whisker menu without having to correct their pointer location. */
       border-radius: 0px; }
   #whiskermenu-button image {
     margin-right: -4px;
-    margin-left: 1px; }
+    margin-left: 1px;
+    padding: 1px;
+    background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center; }
   #whiskermenu-button label {
     padding: 0px;
     margin-right: 1px;
