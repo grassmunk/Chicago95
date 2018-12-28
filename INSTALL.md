@@ -141,6 +141,11 @@ To install the icons copy the folders `Icons/Chicago95` and `Icons/Chicago95-tux
 
 In XFCE select Settings -> Appearance. Click on 'Icons' and select `Chicago95`.
 
+To use the default Windows 95 icon size on the desktop and file manager, first right click the desktop and select Desktop Settings. Go to the Icons tab and set "Icon size" to 32.  Next, inside Thunar, right-click and select Normal Size, then right-click again and select Zoom Out.
+
+#### Desktop background color
+If you want to use the default Windows 95 gray instead of a background image, right click the desktop and select Desktop Settings.  On the Background tab, set "Color" to "Solid color", and for the first color picker set "Color name" to #008080.  Disable the background image by setting "Style" to "None".
+
 #### Desktop icons (text shadows and label backdrop )(advanced)
 If you want to change the icon label backdrop colour, text colours, or highlight colours you'll have to edit the gtkrc theme file located in `/home/$USER/.themes/Chicago95/gtk-2.0/`.
 
@@ -157,12 +162,23 @@ In XFCE select Settings -> Mouse and Touchpad. Click on 'Icons' and select `Chic
 
 Note: If you copied the icons to `/usr/share/icons` you may have to log out or reboot your system before the cursor theme is available.
 
+#### MS Sans Serif font
+For an authentic Windows 95 feel, you can use the original MS Sans Serif font.  Create a directory called `ms_sans_serif` inside `~/.fonts/truetype/`, and copy over to this directory the C:\Windows\Fonts\micross.ttf file from any modern Windows computer (this font is titled "Microsoft Sans Serif Regular"). Update the font cache by running `sudo fc-cache -f -v`.
+
+To set the main font for the entire system, open the XFCE settings manager > Appearance > Fonts tab.  Set the "Default font" to Microsoft Sans Serif, style Regular, size 8.
+
+**NOTE: This step will affect font rendering for the entire system.  Only apply these settings if you truly want an authentic Windows 95 look and feel.** In the "Rendering" section of the Fonts tab, uncheck "Enable anti-aliasing", and set "Hinting" to any value except None. Set the sub-pixel order as desired.
+
+To set the title bar font, open the XFCE settings manager > Window Manager > Style tab.  Set the "Title font" to Microsoft Sans Serif, style Regular, size 8.
+
+Finally, set the font for the Orage panel clock by right-clicking the panel clock, selecting Properties, then next to Line 1, change the font to Microsoft Sans Serif, style Regular, size 8.  Inside the Line 1 box, add two spaces before and after the value in the box, to apply some spacing.
+
 #### Bash terminal Fonts
 Copy the folder `Fonts/vga_font` to `~/.fonts/truetype/` if the `.fonts/truetype` folder doesn't exist just create it before you copy the files.
 
-Update your font cache: sudo fc-cache -f -v
+Update your font cache: `sudo fc-cache -f -v`
 
-In xfce-term selet the font `Less Perfect DOS VGA` or `More Pefect DOS VGA`.
+In xfce-term select the font `Less Perfect DOS VGA` or `More Pefect DOS VGA`, size 12.  For better readability, uncheck "Allow bold font".
 
 [Click here](https://int10h.org/oldschool-pc-fonts/fontlist/) for more classic fonts.
 
