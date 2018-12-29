@@ -178,7 +178,7 @@ Copy the folder `Fonts/vga_font` to `~/.fonts/truetype/` if the `.fonts/truetype
 
 Update your font cache: `sudo fc-cache -f -v`
 
-In xfce-term select the font `Less Perfect DOS VGA` or `More Pefect DOS VGA`, size 12.  For better readability, uncheck "Allow bold font".
+In xfce-term select the font `Less Perfect DOS VGA` or `More Pefect DOS VGA`, size 12.  For better readability, uncheck "Allow bold text".
 
 [Click here](https://int10h.org/oldschool-pc-fonts/fontlist/) for more classic fonts.
 
