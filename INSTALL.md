@@ -64,7 +64,7 @@ Here's a list for the panel Items plugin layout as seen from the screen-shots. T
 6. Window Buttons (Uncheck "Show flat buttons" and "Show Handle.;" Sorting Order: None; Window grouping: Never);
 7. Separator (Transparent with Expanding);
 8. Separator (Handle Style);
-9. Indicator Plugin OR Notification Area (19px max icon size preferred);
+9. Indicator Plugin OR Notification Area (19px max icon size preferred; also uncheck "Show frame");
 10. Separator (Transparent);
 11. Orage Panel Clock. (Enable check box “Show frame” and replace the text in “Line 1” with %I:%M %p.)
 
