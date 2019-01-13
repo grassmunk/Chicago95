@@ -305,17 +305,17 @@ button {
   button.image-button {
     min-height: 16px;
     min-width: 16px;
-    padding-left: 4px;
-    padding-right: 4px; }
-  button.text-button {
-    padding-left: 8px;
-    padding-right: 8px; }
-  button.text-button.image-button {
-    padding-left: 4px;
-    padding-right: 4px; }
-    button.text-button.image-button label {
-      padding-left: 4px;
-      padding-right: 4px; }
+ /*   padding-left: 4px;
+    padding-right: 4px;*/ }
+ /* button.text-button {*/
+ /*   padding-left: 8px;
+    padding-right: 8px;*/ }
+ /* button.text-button.image-button {*/
+ /*   padding-left: 4px;
+    padding-right: 4px;*/ }
+ /*   button.text-button.image-button label {*/
+ /*     padding-left: 4px;
+      padding-right: 4px; */}
   combobox:drop(active) button.combo,
   button:drop(active) {
     border-top-color: @border_dark;
@@ -1019,19 +1019,23 @@ paned.vertical > separator {
   padding: 0px;
   border-left: none;
   border-right: none;
-  border-bottom: 1px dashed @bg_bright;
+  border-bottom: none;
   border-top: none;
-  background: none
+  background: none;
+  box-shadow: inset 0px 1px @bg_shade;
+  margin: 4px;
 }
 
 /* GTK has the panes flipped. the .horizontal is ACTUALLY a vertical.*/
 paned.horizontal > separator {
   padding: 0px;
-  border-left: 1px dashed @bg_bright;
+  border-left: none;
   border-right: none;
   border-bottom: none;
   border-top: none;
-  background: none
+  background: none;
+  box-shadow: inset 1px 0px @bg_shade;
+  margin: 4px;
 }
 
 
@@ -1106,9 +1110,17 @@ entry:disabled {
     background-image: none;
 }
 
+/* Some entry boxes have buttons beside them */
+box.horizontal.linked > button,
+box.vertical.linked > button {
+	margin: 2px;}
+
 /************
  * combobox *
  ************/
+
+combobox {
+  margin: -2px; }
 
 combobox window menu {
     background-color: @bg_color;
@@ -1125,12 +1137,14 @@ combobox entry {
 combobox cellview {
     padding-left: 2px;
 }
+
 combobox button {
-padding: 0px;
-margin: 0px;
-min-width: 20px;
-min-height: 20px;
-}
+  padding: 0px;
+  margin: 0px;
+  min-width: 20px;
+  min-height: 20px; }
+  combobox button.combo {
+    margin: 2px; }
 
 combobox button arrow {
   padding: 0px;
@@ -1902,6 +1916,12 @@ notebook header.left tabs tab:checked label {
     margin: 5px;
 }
 
+notebook header.left button.flat {
+  margin-right: 2px;
+  margin-top: 3px; }
+  notebook header.left tab:checked button.flat {
+    margin-right: 5px; }
+
 
 /* BOTTOM tabs */
 notebook > header.bottom {
@@ -1934,8 +1954,7 @@ notebook > header.bottom > tabs > tab {
 }
 notebook > header.bottom > tabs > tab:checked {
     margin-top: -1px;
-    margin-bottom: -1px;
-
+    margin-bottom: 1px;
     margin-left: -3px;
     margin-right: -3px;
 }
@@ -1975,7 +1994,7 @@ notebook > header.right > tabs > tab:checked {
   padding: 0px;
   padding-bottom: 5px;
   margin-left: -1px;
-  margin-right: -1px;
+  margin-right: 1px;
   margin-top: -3px;
   margin-bottom: -3px; }
 
@@ -2262,6 +2281,7 @@ GtkSidebarRow .sidebar-label:dir(rtl) {
  **************/
 
 spinbutton.horizontal button {
+    padding: 0px;
     margin-top: 2px;
     margin-bottom: 2px;
     min-height: 16px;
@@ -2269,9 +2289,9 @@ spinbutton.horizontal button {
 }
 
 spinbutton.horizontal entry {
-    min-width: 80px;
-    min-height: 12px;
-    margin-right: -46px;
+    margin: 2px;
+    min-width: 35px;
+    min-height: 16px;
 }
 
 spinbutton.vertical button {
@@ -2532,9 +2552,9 @@ toolbar {
 }
 
 toolbar button {
-  margin: 2px;
-  min-width: 24px;
-  min-height: 24px;
+  margin: 1px;
+  min-width: 16px;
+  min-height: 16px;
   padding: 2px;
   border-color: @bg_bright @bg_dark @bg_dark @bg_bright;
   box-shadow: none; }
@@ -2890,3 +2910,4 @@ printdialog notebook {
     box-shadow: inset 1px 1px 0 0 white,
                 inset -1px -1px @bg_shade;
     margin: 7px; }
+
