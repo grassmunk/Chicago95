@@ -12,7 +12,8 @@
 
 ---
 <a name="install_theme"/>
-# Installing Chicago95
+
+## Installing Chicago95
 
 The following installation steps will require that you enable the `view hidden folders` option in your file manager to see hidden files.
 
@@ -52,7 +53,8 @@ After copying the theme files into their appropriate places, you might need to l
 
 ---
 <a name="config_theme"/>
-# Configuring Chicago95
+
+## Configuring Chicago95
 
 The following steps will guide you through enabling the theme and making additional configurations if desired.
 
@@ -88,7 +90,8 @@ For further tuning of QT5 with the Chicago95 GTK theme, read [QT5 theme configra
 
 ---
 <a name="xfce4_panel"/>
-# Configuring The XFCE4 Panelbar
+
+## Configuring The XFCE4 Panelbar
 
 The following steps will guide you through configuring the XFCE4 panelbar to resemble as closeley as possible the taskbar seen in MS Windows95. This won't appear 1-to-1, but it can point you in the right direction.
 
@@ -119,7 +122,8 @@ Here's an organized list for the panel Items plugin layout.
 
 ---
 <a name="start_buttons"/>
-# Start Buttons
+
+## Start Buttons
 
 The following steps will guide you through setting up an MS Windows 95 themed "Start" button.
 
@@ -149,7 +153,8 @@ Note: The smallest optimal panel row size for this theme is 24 pixels. If your p
 
 ---
 <a name="add_enhance"/>
-# Additional Enhancements
+
+## Additional Enhancements
 
 This section of the guide contains additional enchancements that can be made to improve the theme. These are all optional and might require some advanced knowledge of operating your system.
 
@@ -175,6 +180,7 @@ Note: Even numbered panel bar row sizes seem to work best. If your panel bar row
 If you use a vertical deskbar, you could add a second row from the panel properties menu to organize the launcher buttons into rows. This would have a more organized effect.
 
 <a name="config_qt5ct"/>
+
 #### QT5 theme configration with qt5ct (advanced)
 
 The following steps are written from the XUbuntu desktop. These will vary on other distributions.
