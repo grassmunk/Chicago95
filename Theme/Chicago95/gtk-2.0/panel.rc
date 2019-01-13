@@ -252,14 +252,14 @@ widget_class "*Xfce*NetkTasklist*GtkToggleButton"		style "panelbuttons"
 
 style "launcher"
 {
-	#Uncomment the following two for 16x16px launcher icons on a 24px height panel.
-	#xthickness = 3
-	#ythickness = 3
-
 		#Theme default
-		#Uncomment the following two for 16x16px launcher icons on a 26px height panel.
-		xthickness = 4
-		ythickness = 4
+		#Uncomment the following two for 16x16px launcher icons on a 24px height panel.
+		xthickness = 3
+		ythickness = 3
+
+	#Uncomment the following two for 16x16px launcher icons on a 26px height panel.
+	#xthickness = 4
+	#ythickness = 4
 
 	#Uncomment the following two for 16x16px launcher icons on a 28px height panel.
 	#xthickness = 5
