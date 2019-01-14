@@ -3,6 +3,12 @@ doesn't work for the pulse audio icon unfortunately.*/
 #xfce4-power-manager-plugin { 
     padding: 6px 6px; }
 
+/* Force MATE panel tasklist margins */
+#tasklist-button {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
 /* GNOME Disk utility */
 /* This is a fix for the GNOME disk application which uses its own CSS to 
 theme the grid style; overriding user themes. In reality this doesn’t work 
