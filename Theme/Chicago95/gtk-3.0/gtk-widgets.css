@@ -25,9 +25,7 @@
   outline-width: 1px;
   outline-offset: 0px;
   outline-color: @selected_inactive_bg_color;
-  outline-style: solid;
-  min-width: 8px;
-  min-height: 8px;}
+  outline-style: solid;}
 
 .background {
   background-color: @theme_bg_color;
@@ -97,8 +95,6 @@ progressbar trough,
     border-width: 1px;
     border-color: @bg_shade @bg_bright @bg_bright @bg_shade;
     border-radius: 0;
-    margin-left: 4px;
-    margin-right: 4px;
 }
 
 stepper {
@@ -2063,7 +2059,6 @@ levelbar.vertical trough,
 progressbar.vertical trough,
 progressbar.vertical progress {
     min-width: 14px;
-    min-height: 60px; /* vertical progressbar is squished in awf... */
 }
 
 levelbar block,
