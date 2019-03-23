@@ -6,26 +6,27 @@ the whisker menu without having to correct their pointer location. */
 #whiskermenu-button {
   border: none;
   box-shadow: none;
-  margin: 0px; }
+  margin: 0px;
+  background-color: transparent; }
   #whiskermenu-button box {
     padding: 2px;
     margin: 1px;
-    border-top: 1px solid #FFFFFF;
-    border-bottom: 1px solid #000000;
-    border-left: 1px solid #FFFFFF;
-    border-right: 1px solid #000000;
-    box-shadow: inset -1px -1px #808080;
-    background-color: #c0c0c0; }
+    border-top: 1px solid @bg_bright;
+    border-bottom: 1px solid @bg_dark;
+    border-left: 1px solid @bg_bright;
+    border-right: 1px solid @bg_dark;
+    box-shadow: inset -1px -1px @bg_shade;
+    background-color: @bg_color; }
     #whiskermenu-button:active box, #whiskermenu-button:checked box {
       padding-left: 3px;
       padding-right: 1px;
       margin: 1px;
-      border-bottom: 1px solid #FFF;
-      border-right: 1px solid #FFF;
-      border-top: 1px solid #000000;
-      border-left: 1px solid #000000;
-      box-shadow: inset -1px -1px #c0c0c0,
-                  inset 1px 1px #808080;
+      border-bottom: 1px solid @bg_bright;
+      border-right: 1px solid @bg_bright;
+      border-top: 1px solid @bg_dark;
+      border-left: 1px solid @bg_dark;
+      box-shadow: inset -1px -1px @bg_color,
+                  inset 1px 1px @bg_shade;
       border-radius: 0px; }
   #whiskermenu-button image {
     margin-right: -4px;
@@ -52,23 +53,28 @@ the whisker menu without having to correct their pointer location. */
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 2px;
-  padding-bottom: 2px;}
+  padding-bottom: 2px; }
   #whiskermenu-window button {
     padding: 2px;
     min-height: 16px; }
     #whiskermenu-window button:not(:hover):not(:checked) {
       border-color: transparent;
-      box-shadow: none;}
+      box-shadow: none;
+      background-color: transparent; }
   #whiskermenu-window separator {
     margin: 5px; }
   #whiskermenu-window frame > box > box > scrolledwindow {
     padding: 5px;
     border: 1px solid;
-    background-color: @bg_color;
+    background-color: transparent;
     border-color: @bg_shade @bg_bright @bg_bright @bg_shade;
     box-shadow: inset 1px 1px @bg_bright,
                 inset -1px -1px @bg_shade; }
+    #whiskermenu-window frame > box > box > box button image {
+    padding: 0px; }
   #whiskermenu-window entry {
     margin-top: 3px;
     margin-bottom: 3px;
     min-height: 16px; }
+   #whiskermenu-window frame, #whiskermenu-window GtkListBox, #whiskermenu-window scrolledwindow, #whiskermenu-window viewport {
+   background-color: transparent;}

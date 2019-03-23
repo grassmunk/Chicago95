@@ -194,7 +194,7 @@ After installing qt5ct you will have to configure an environment variable so tha
 - Open a text editor as root or sudo elevation and navigate to `/etc/X11/Xsession.d/56xubuntu-session` (Note: 56xubuntu-session may be a different name if you are on a different distribution.)
 - There will be a line with the following "# QT5 apps to use GTK style" and below that the variable `export QT_QPA_PLATFORMTHEME=gtk2`
 - Change the variable to `export QT_QPA_PLATFORMTHEME=qt5ct`
-- Saved changes made the log out and log back into your system.
+- Save changes made, then log out and log back into your system.
 
 Once you are logged back into your desktop you can access Qt5 Settings.
 

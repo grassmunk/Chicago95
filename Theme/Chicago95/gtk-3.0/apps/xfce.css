@@ -10,7 +10,7 @@ XfceHeading {
 }
 
 .xfce4-panel {
-    background-color: #c0c0c0;
+    background-color: @bg_color;
     color: @panel_fg_color;
     border: 0px;
     box-shadow: 0 0 0;
@@ -22,19 +22,18 @@ XfceHeading {
     border-radius: 0;
     border: 1px solid transparent;
     color: @panel_fg_color;
+    background-color: transparent;
     box-shadow: 0 0 0;
 }
 
 .xfce4-panel button:hover {
     padding: 2px;
     margin: 2px;
-    border-top: 1px solid #c0c0c0;
-    border-bottom: 1px solid #000000;
-    border-left: 1px solid #c0c0c0;
-    border-right: 1px solid #000000;
-    box-shadow: inset 1px 1px #FFFFFF,
-                inset -1px -1px #808080;
-    background-color: #c0c0c0;
+    border-radius: 0;
+    border: 1px solid transparent;
+    color: @panel_fg_color;
+    background-color: @selected_bg_color;
+    box-shadow: 0 0 0;
 }
 
 .xfce4-panel button:active,
