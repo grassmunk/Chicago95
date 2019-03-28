@@ -1,0 +1,7 @@
+style "my-xfce-tasklist-style"
+{
+    XfceTasklist::max-button-length = 400
+    XfceTasklist::menu-max-width-chars = 48
+    XfceTasklist::max-button-size = 64
+}
+class "XfceTasklist" style "my-xfce-tasklist-style"
