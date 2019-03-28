@@ -299,6 +299,11 @@ OnlyShowIn=LXDE
 
 There is only partial HiDPI support but it works pretty well
 
+#### Appearance settings
+
+- Increase DPI from 96 to 192
+- *(Optional)* Increase default font from Sans 8 to Sans 9
+
 #### Replace xfwm4 theme with HiDPI version
 
 Use HiDPI theme
@@ -328,12 +333,10 @@ Increase icon size in Thunar File Manager
     xfconf-query -c thunar -p /shortcuts-icon-size -s "THUNAR_ICON_SIZE_SMALL"
     xfconf-query -c thunar -p /tree-icon-size -s "THUNAR_ICON_SIZE_SMALLER"
 
-*Optional* Increase default font in Appearance to Sans 9
-
 #### Panelbar tweaks
 
 - Application Menu: Check show button title and set it to 𝗦𝘁𝗮𝗿𝘁 (copy+paste)
 - Notification Area: Set maximum icon size to 32
 - Indicator Plugin: Check square icons
 - Status Notifier Plugin: Set maximum icon size to 32
-- *Optional* Orage Panel Clock: Set width to 144 and font to Sans 9
+- *(Optional)* Orage Panel Clock: Set width to 144 and font to Sans 9
