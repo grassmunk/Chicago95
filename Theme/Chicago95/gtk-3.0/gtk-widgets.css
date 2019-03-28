@@ -305,13 +305,13 @@ button {
     padding-right: 4px;*/ }
  /* button.text-button {*/
  /*   padding-left: 8px;
-    padding-right: 8px;*/ }
+    padding-right: 8px; }*/
  /* button.text-button.image-button {*/
  /*   padding-left: 4px;
-    padding-right: 4px;*/ }
+    padding-right: 4px; }*/
  /*   button.text-button.image-button label {*/
  /*     padding-left: 4px;
-      padding-right: 4px; */}
+      padding-right: 4px; }*/
   combobox:drop(active) button.combo,
   button:drop(active) {
     border-top-color: @border_dark;

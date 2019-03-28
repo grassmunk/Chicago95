@@ -31,7 +31,7 @@ PanelApplet .button {
     background-color: red;
     border: 1px solid black;
     padding: 5px;
-    margin 5px;
+    margin: 5px;
 }
 
 /* Looks like there's a theme override built into the panelbar, otherwise this would have worked... */
