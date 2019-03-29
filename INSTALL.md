@@ -290,4 +290,62 @@ Name=Chicago95 Chime
 Comment=The Windows 95 startup sound
 Exec=sh -c 'play /home/$HOME/.themes/Chicago95/misc/Microsoft\ Windows\ 95\ Startup\ Sound.ogg'
 OnlyShowIn=LXDE
-``` 
+```
+
+---
+<a name="hidpi"/>
+
+## HiDPI
+
+There is only partial HiDPI support but it works pretty well
+
+#### Appearance settings
+
+- Increase DPI from 96 to 192
+- *(Optional)* Increase default font from Sans 8 to Sans 9
+
+#### Replace xfwm4 theme with HiDPI version
+
+Use HiDPI theme
+
+    mv ~/.themes/Chicago95/xfwm4 ~/.themes/Chicago95/xfwm4_lodpi
+    mv ~/.themes/Chicago95/xfwm4_hidpi ~/.themes/Chicago95/xfwm4
+
+#### Replace configs with HiDPI version
+
+Make GTK2 buttons bigger
+
+    sed -i 's/#include "button.rc"/include "button.rc"/' ~/.themes/Chicago95/gtk-2.0/gtkrc
+
+Increase taskbar size
+
+    cp ~/.gtkrc-2.0 ~/.gtkrc-2.0.bak
+    cp Chicago95-master/Extras/hidpi/.gtkrc-2.0 ~/.gtkrc-2.0
+
+#### Adjust settings for HiDPI
+
+Make GTK icons bigger
+
+    xfconf-query -c xsettings -p /Gtk/IconSizes -s "gtk-large-toolbar=32,32:gtk-small-toolbar=24,24:gtk-menu=32,32:gtk-dialog=88,88:gtk-button=32,32:gtk-dnd=32,32"
+
+Increase icon size in Thunar File Manager
+
+    xfconf-query -c thunar -p /shortcuts-icon-size -s "THUNAR_ICON_SIZE_SMALL"
+    xfconf-query -c thunar -p /tree-icon-size -s "THUNAR_ICON_SIZE_SMALLER"
+
+Increase icon size on desktop
+
+    xfconf-query -c xfce4-desktop -p /desktop-icons/icon-size -s 64
+
+#### Cursors
+
+The cursors in the theme do not support HiDPI but [Hackneyed](https://www.gnome-look.org/p/999998/startdownload?file_id=1549578280&file_name=Hackneyed-48px-0.7.2-right-handed.tar.bz2&file_type=application/x-bzip2&file_size=49921) is a good alternative. Download and extract to `~/.icons` and select it in Mouse settings.
+
+#### Panelbar tweaks
+
+- Set panel row size to 48
+- Application Menu: Check show button title and set it to 𝗦𝘁𝗮𝗿𝘁 (copy+paste)
+- Notification Area: Set maximum icon size to 32
+- Indicator Plugin: Check square icons
+- Status Notifier Plugin: Set maximum icon size to 32
+- *(Optional)* Orage Panel Clock: Set width to 144 and font to Sans 9
