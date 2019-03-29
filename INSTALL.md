@@ -343,6 +343,7 @@ The cursors in the theme do not support HiDPI but [Hackneyed](https://www.gnome-
 
 #### Panelbar tweaks
 
+- Set panel row size to 48
 - Application Menu: Check show button title and set it to 𝗦𝘁𝗮𝗿𝘁 (copy+paste)
 - Notification Area: Set maximum icon size to 32
 - Indicator Plugin: Check square icons
