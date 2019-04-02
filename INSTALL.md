@@ -10,6 +10,8 @@
 
 [Additional Enhancements](#add_enhance)
 
+[HiDPI](#hidpi)
+
 ---
 <a name="install_theme"/>
 
