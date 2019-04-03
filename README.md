@@ -15,6 +15,7 @@ Included in this theme:
 - Created GTK-3.0 theme from scratch (based on Win 10 and Mate themes)
 - Plymouth theme created from scratch
 - An MS-DOS inspired theme for oh-my-zsh
+- Partial support for HiDPI monitors
 
 #### Requirements
 GTK+ 3.22
