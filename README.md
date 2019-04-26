@@ -33,10 +33,9 @@ A Window compositor
 ## Install the LightDM login manager theme
 [Click here](Lightdm/Chicago95/README.md) for install steps.
 
-OR
-
-## Install the SDDM login manager theme
-Click `Install from file...` in Loggin Screen (SDDM) manager. Select `SDDM/Chicago95.tar.gz` to install the theme. 
+## KDE Support (experimental)
+- SDDM Logon Manager:: Click `Install from file...` in Loggin Screen (SDDM) manager. Select `SDDM/Chicago95.tar.gz` to install the theme. 
+- Splash Screen: `plasmapkg2 -t lookandfeel -i KDE/Splash/chicago95.splashscreen`
 
 ## Screenshots
 [Click here to view screenshots](Screenshots/SCREENSHOTS.md)

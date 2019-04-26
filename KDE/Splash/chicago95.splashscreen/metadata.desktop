@@ -1,0 +1,21 @@
+[Desktop Entry]
+Comment=Chicago95
+
+Encoding=UTF-8
+Keywords=Desktop;Workspace;Appearance;Look and Feel;Logout;Lock;Suspend;Shutdown;Hibernate;
+Name=Chicago95
+
+Type=Service
+
+X-KDE-ServiceTypes=Plasma/LookAndFeel
+X-KDE-ParentApp=
+X-KDE-PluginInfo-Author=Grassmunk
+X-KDE-PluginInfo-Category=KDE splashscreen
+X-KDE-PluginInfo-Email=
+X-KDE-PluginInfo-License=GNU GPL v3
+X-KDE-PluginInfo-Name=chicago95.splashscreen
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-Website=
+X-KDE-fallbackPackage=org.kde.breeze.desktop
+X-Plasma-MainScript=defaults
+X-KPackage-Dependencies=

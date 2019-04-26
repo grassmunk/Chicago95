@@ -1,0 +1,14 @@
+[kdeglobals][KDE]
+widgetStyle=breeze
+
+[kdeglobals][General]
+ColorScheme=Numix
+
+[kdeglobals][Icons]
+Theme=Numix-Circle
+
+[plasmarc][Theme]
+name=org.numixproject.kde
+
+[kcminputrc][Mouse]
+cursorTheme=breeze_cursors
