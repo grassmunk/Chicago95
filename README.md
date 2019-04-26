@@ -33,6 +33,11 @@ A Window compositor
 ## Install the LightDM login manager theme
 [Click here](Lightdm/Chicago95/README.md) for install steps.
 
+OR
+
+## Install the SDDM login manager theme
+Click `Install from file...` in Loggin Screen (SDDM) manager. Select `SDDM/Chicago95.tar.gz` to install the theme. 
+
 ## Screenshots
 [Click here to view screenshots](Screenshots/SCREENSHOTS.md)
 
