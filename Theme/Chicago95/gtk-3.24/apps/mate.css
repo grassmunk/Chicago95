@@ -1,0 +1,151 @@
+.mate-panel-menu-bar,
+.gnome-panel-menu-bar {
+	background-color: #c0c0c0; }
+    .mate-panel-menu-bar > grid,
+	.gnome-panel-menu-bar > grid {
+        padding: 3px;
+		border-style: solid;
+		border-width: 1px;
+		border-color: @bg_color @bg_dark @bg_dark @bg_color;
+		box-shadow: inset 1px 1px @bg_bright,
+					inset -1px -1px @bg_shade;
+		border-radius: 0px; }
+
+#clock-applet-button {
+    padding: 4px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: @bg_shade @bg_bright @bg_bright @bg_shade;
+    box-shadow: none;
+    border-radius: 0px; }
+
+#fast-user-switch-menubar,
+#fast-user-switch-menubar menuitem {
+    padding: 0px;
+    margin-right: 2px;
+    margin-left: 2px;
+    border: transparent;
+    box-shadow: none; }
+
+PanelApplet .button {
+    background-color: red;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px;
+}
+
+/* Looks like there's a theme override built into the panelbar, otherwise this would have worked... */
+#tasklist-button {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+#showdesktop-button {
+padding: 2px;
+box-shadow: none;
+}
+
+.gnome-panel-menu-bar.horizontal PanelSeparator {
+background-image: url("../assets/handle-v.png");
+background-repeat: repeat-y;
+padding: 15px;
+}
+
+.gnome-panel-menu-bar.vertical PanelSeparator {
+background-image: url("../assets/handle-h.png");
+background-repeat: repeat-x;
+padding: 15px;
+}
+
+.caja-desktop-window grid scrolledwindow {
+background: none;
+}
+/*
+.gnome-panel-menu-bar,
+PanelApplet > GtkMenuBar.menubar,
+PanelToplevel,
+PanelWidget,
+PanelAppletFrame,
+PanelApplet {
+    background-color: @bg_color;
+    background-image: none;
+    color: @text_color;
+}
+
+ClockBox,
+.gnome-panel-menu-bar.menubar,
+PanelApplet > GtkMenuBar.menubar {
+    font: bold;
+}
+
+.gnome-panel-menu-bar.menubar .menuitem *:hover,
+PanelApplet > GtkMenuBar.menubar .menuitem *:hover {
+    text-shadow: 0 1px @font_bright;
+}
+
+.gnome-panel-menu-bar.menubar .menu,
+PanelApplet > GtkMenuBar.menubar .menu {
+    font: regular;
+}
+
+.gnome-panel-menu-bar.menubar .menu *:hover,
+PanelApplet > GtkMenuBar.menubar .menu *:hover {
+    text-shadow: none;
+}
+
+.gnome-panel-menu-bar .menuitem:hover,
+PanelApplet > GtkMenuBar.menubar .menuitem:hover,
+.gnome-panel-menu-bar .menuitem *:hover,
+PanelApplet > GtkMenuBar.menubar .menuitem *:hover {
+    background-color: @selected_bg_color;
+    color: @font_bright;
+}
+
+.gnome-panel-menu-bar .menuitem *:hover,
+PanelApplet > GtkMenuBar.menubar .menuitem *:hover {
+    color: @font_bright;
+}
+
+PanelApplet .button,
+PanelApplet .button:hover {
+    padding: 4px;
+
+    border-image: none;
+    border-width: 0;
+    border-radius: 0;
+
+    background-image: none;
+    background-color: @bg_color;
+
+    color: @text_color;
+    text-shadow: none;
+}
+
+PanelApplet .button:active:hover,
+PanelApplet .button:active {
+    border-image: none;
+    background-image: none;
+    background-color: @bg_color;
+    border-width: 0;
+    border-radius: 0;
+}
+
+PanelApplet *:hover {
+    color: @text_color;
+}
+
+PanelApplet *:active,
+PanelApplet *:hover:active {
+    color: @text_color;
+}
+
+WnckPager {
+    background-color: @bg_color;
+}
+
+NaTrayApplet {
+    -NaTrayApplet-icon-padding: 12;
+    -NaTrayApplet-icon-size: 16;
+}
+
+*/
