@@ -1,0 +1,69 @@
+/* Xfdesktop */
+
+XfdesktopIconView.view {
+  background: @xfd_icon_backdrop;
+  color: @xfd_icon_text;
+  border-radius: 0px; }
+  XfdesktopIconView.view:active {
+    background: rgba(0,0,50.2,0.5);
+    text-shadow: none; }
+  XfdesktopIconView.view .label {
+    text-shadow: none; }
+  XfdesktopIconView.view .rubberband {
+    border-color: @selected_bg_color;
+    background: rgba(0,0,50.2,0.5);
+    border-radius: 0px; }
+
+/* Panel buttons */
+.xfce4-panel > widget > frame,
+.xfce4-panel .flat:not(.toggle),
+#xfce4-notification-plugin,
+#pulseaudio-button,
+#xfce4-power-manager-plugin {
+    padding: 0px;
+    border: transparent;
+    /*box-shadow: inset 0px 1px white;*/
+    box-shadow: none;
+    background-color: transparent; }
+    .xfce4-panel .flat:not(.toggle):hover,
+    #xfce4-notification-plugin:hover,
+    #pulseaudio-button:hover,
+    #xfce4-power-manager-plugin:hover {
+        color: @selected_fg_color;
+        border: transparent;
+        box-shadow: none;
+        background-color: @selected_bg_color; }
+
+#clock-button {
+    border: 2px solid transparent;
+    box-shadow: inset 1px 1px @bg_shade, inset -1px -1px @bg_bright;
+    margin: 0px;
+    background-color: transparent; }
+
+/* Tasklist */
+.tasklist .toggle {
+    border: none;
+    box-shadow: none;
+    margin: 0px;
+    background-color: transparent; }
+    .tasklist .toggle box {
+        margin: 2px;
+        border-left: 1px solid @bg_bright;
+        border-top: 1px solid @bg_bright;
+        border-right: 1px solid @bg_dark;
+        border-bottom: 1px solid @bg_dark;
+        box-shadow: inset -1px -1px @bg_shade; }
+        .tasklist .toggle:checked box {
+            /*font-family: "NotoSans-Bold";*/
+            font-weight: bold;
+            border-left: 1px solid @bg_dark;
+            border-top: 1px solid @bg_dark;
+            border-right: 1px solid @bg_bright;
+            border-bottom: 1px solid @bg_bright;
+            box-shadow: inset 1px 1px @bg_shade, inset -1px -1px @bg_color;
+            background-color: @border_bright;
+            background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @border_dark);
+            background-size: 2px 2px;
+            background-position: 0 0, 1px 1px; }
+            .tasklist .toggle label {
+                margin-right: 4px; }

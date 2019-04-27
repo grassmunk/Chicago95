@@ -1,5 +1,20 @@
-/* This just keeps the power manager plugin icon to stay small. This trick 
-doesn't work for the pulse audio icon unfortunately.*/
+/* Thunar */
+.thunar paned scrolledwindow {
+    border-right: 1px solid @bg_bright;
+}
+
+.xfce4-panel {
+    border-top: 1px solid @bg_bright;
+}
+
+/* XFCE Panel bar */
+.xfce4-panel {
+    border-right: 1px solid @bg_shade;
+    border-left: 1px solid @bg_bright;
+    border-top: 1px solid @bg_bright;
+}
+
+/* This just keeps the power manager plugin icon to stay small. Only useful for XUbuntu 18.04; not required for 19.04.*/
 #xfce4-power-manager-plugin { 
     padding: 6px 6px; }
 
@@ -10,9 +25,7 @@ doesn't work for the pulse audio icon unfortunately.*/
 }
 
 /* GNOME Disk utility */
-/* This is a fix for the GNOME disk application which uses its own CSS to 
-theme the grid style; overriding user themes. In reality this doesn’t work 
-so well, so we'll just override that with out own!*/ 
+/* This is a fix for the GNOME disk application grid style. */ 
 
 .gnome-disk-utility-grid {
 background-color: @bg_shade;
