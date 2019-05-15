@@ -468,7 +468,7 @@ Increase icon size on desktop
 
     xfconf-query -c xfce4-desktop -p /desktop-icons/icon-size -s 64
 
-#### Cursors
+#### Cursor theme
 
 The cursors in the theme do not support HiDPI but [Hackneyed](https://www.gnome-look.org/p/999998/startdownload?file_id=1549578280&file_name=Hackneyed-48px-0.7.2-right-handed.tar.bz2&file_type=application/x-bzip2&file_size=49921) is a good alternative. Download and extract to `~/.icons` and select it in Mouse settings.
 
