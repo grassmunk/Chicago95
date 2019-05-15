@@ -17,7 +17,7 @@
     * [GTK Overlay Scrollbars](#gtk_scroll)
     * [Desktop Shadow effects](#desktop_shadow)
     * [Desktop background color](#desktop_color)
-    * [Desktop icons effects](#desktop_icons)
+    * [Desktop icon effects](#desktop_icons)
     * [Cursors](#cursors)
     * [Terminal fonts](#terminal_fonts)
     * [Terminal themes](#terminal_themes)
@@ -34,11 +34,11 @@ The following installation steps will require that you enable the `view hidden f
 
 <a name="install_single"/>
 
-#### [ Single user install ]
+### [ Single user install ]
 
 If you intend to install the theme system-wide, then following the single user install process isn't necessary.
 
-#### • Step 1: Prepare theme and icon directories
+#### Step 1: Prepare theme and icon directories
 
 Create a `.themes` folder in your user directory `/home/$USER/` if it doesn't already exist. (with $USER being your username.)
 
@@ -48,7 +48,7 @@ Create a `.icons` folder in your user directory `/home/$USER/` if it doesn't alr
 
     mkdir -p ~/.icons
 
-#### • Step 2: Copy the Chicago95 GTK and icon themes
+#### Step 2: Copy the Chicago95 GTK and icon themes
 
 Copy the GTK theme from `Chicago95-master/Theme/` folder into `.themes`.
 
@@ -68,13 +68,13 @@ Copy the GTK3 CSS override file from `Chicago95-master/Extras/override/` into `/
 
 *Note 2: If you ever want to change your system theme to anything else, don't forget to remove the `gtk.css` override file! It makes adjustments based on this theme which might break other themes.*
 
-#### • Step 3:
+#### Step 3:
 
 After copying the theme files into their appropriate places, you might need to log out then log back in for any changes to take places.
 
 <a name="install_system"/>
 
-#### [ System-wide install ] (optional)
+### [ System-wide install ] (optional)
 
 Copy the GTK theme from `Chicago95-master/Theme/` folder into `/usr/share/themes/`.
 
@@ -137,7 +137,7 @@ The following steps will guide you through configuring the XFCE4 panelbar to res
 
 ### Configuring a horizontal taskbar
 
-#### • Step 1: Setting the panelbar size
+#### Step 1: Setting the panelbar size
 
 - Open the XFCE settings manager > Panel
 - From the Display tab set the panel mode to "Horizontal."
@@ -147,7 +147,7 @@ The following steps will guide you through configuring the XFCE4 panelbar to res
 - Number of rows will be "1."
 - Length will be 100%.
 
-#### • Step 2: Setting the panelbar appearance
+#### Step 2: Setting the panelbar appearance
 
 - In the Appearance tab set the background style to "None (use system style.)"
 - Disable the icons setting "Adjust size automatically" (*this option is not present for the GTK2 panelbar*)
@@ -155,7 +155,7 @@ The following steps will guide you through configuring the XFCE4 panelbar to res
 
 *Note: For GTK2 panelbar users, if you want to adjust the icon scaling of your launcher buttons, see [Launcher button icon scaling](#button_scale)*
 
-#### • Step 3: Adding panelbar plugins
+#### Step 3: Adding panelbar plugins
 Open the XFCE settings manager > Panel > Items
 
 Here's an organized list for the panel Items plugin layout.
@@ -175,7 +175,7 @@ Here's an organized list for the panel Items plugin layout.
 
 ### Configuring a vertical taskbar
 
-#### • Step 1: Setting the panelbar size
+#### Step 1: Setting the panelbar size
 
 - Open the XFCE settings manager > Panel
 - From the Display tab set the panel mode to "Deskbar." (*The "vertical" option looks bad, this is why we'll go with deskbar.*)
@@ -185,7 +185,7 @@ Here's an organized list for the panel Items plugin layout.
 - Number of rows can be 1 or 2. 2 looks nice if you want a wide panelbar.
 - Length will be 100%.
 
-#### • Step 2: Setting the panelbar appearance
+#### Step 2: Setting the panelbar appearance
 
 - In the Appearance tab set the background style to "None (use system style.)"
 - Disable the icons setting "Adjust size automatically" (*this option is not present for the GTK2 panelbar*)
@@ -193,7 +193,7 @@ Here's an organized list for the panel Items plugin layout.
 
 *Note: For GTK2 panelbar users, if you want to adjust the icon scaling of your launcher buttons, see [Launcher button icon scaling](#button_scale)*
 
-#### • Step 3: Adding panelbar plugins
+#### Step 3: Adding panelbar plugins
 Open the XFCE settings manager > Panel > Items
 
 Here's an organized list for the panel Items plugin layout.
@@ -334,17 +334,17 @@ Some options seen in the following steps may not be present across all versions 
 
 If you want to change the icon label backdrop colour or text colours, you'll have to edit the gtk.css theme file located in `/home/$USER/.themes/Chicago95/gtk-3.24/`.
 
-: Label backdrop colours can be modified on line 103 for "xfd_icon_backdrop."
-: Text color can be modified from line 104 for "xfd_icon_text."
-: You can use CSS colour properties. After any changes are made log out then log back in.
+- Label backdrop colours can be modified on line 103 for "xfd_icon_backdrop."
+- Text color can be modified from line 104 for "xfd_icon_text."
+- You can use CSS colour properties. After any changes are made log out then log back in.
 
 ##### xfdesktop 4.12.3
 
 If you want to change the icon label backdrop colour, text colours, or highlight colours you'll have to edit the gtkrc theme file located in `/home/$USER/.themes/Chicago95/gtk-2.0/`.
 
-: Text shadows can be modified from lines 553 to 559. These are currently commented out with "#."
-: Label backdrop colours can be modified on line numbers 565 to 570.
-: You can use CSS colour properties. After any changes are made log out then log back in.
+- Text shadows can be modified from lines 553 to 559. These are currently commented out with "#."
+- Label backdrop colours can be modified on line numbers 565 to 570.
+- You can use CSS colour properties. After any changes are made log out then log back in.
 
 <a name="cursors"/>
 
