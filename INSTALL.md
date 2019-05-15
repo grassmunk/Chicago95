@@ -1,16 +1,35 @@
-# Install Guide
+<a name="index"/>
 
-[Installing The Theme](#install_theme)
+# Index
 
-[Configuring The Theme](#config_theme)
+: [Installing Chicago95](#install_theme)
 
-[Configuring The XFCE4 Panelbar](#xfce4_panel)
+: ... [Single user install](#install_single)
+: .... [System-wide install (optional)](#install_system)
 
-[Start Buttons](#start_buttons)
+: [Enabling The Theme](#config_theme)
 
-[Additional Enhancements](#add_enhance)
+: [Configuring The XFCE4 Panelbar](#xfce4_panel)
 
-[HiDPI](#hidpi)
+: .... [Horizontal Panelbar](#horiz_panel)
+: .... [Vertical Panelbar](#vert_panel)
+
+: [Start Buttons](#start_buttons)
+
+: [Additional Enhancements](#add_enhance)
+
+: .... [Launcher Button icon scaling](#button_scale) (*For legacy GTK2 panelbars only*)
+: .... [QT5 theme configration with qt5ct](#config_qt5ct)
+: .... [GTK Overlay Scrollbars](#gtk_scroll)
+: .... [Desktop Shadow effects](#desktop_shadow)
+: .... [Desktop background color](#desktop_color)
+: .... [Desktop icons effects](#desktop_icons)
+: .... [Cursors](#cursors)
+: .... [Terminal fonts](#terminal_fonts)
+: .... [Terminal themes](#terminal_themes)
+: .... [Windows 95 login startup sound](#startup_sound)
+
+: [HiDPI (experimental)](#hidpi)
 
 ---
 <a name="install_theme"/>
@@ -19,7 +38,13 @@
 
 The following installation steps will require that you enable the `view hidden folders` option in your file manager to see hidden files.
 
-#### Step 1: Prepare theme and icon directories
+<a name="install_single"/>
+
+#### [ Single user install ]
+
+If you intend to install the theme system-wide, then following the single user install process isn't necessary.
+
+#### • Step 1: Prepare theme and icon directories
 
 Create a `.themes` folder in your user directory `/home/$USER/` if it doesn't already exist. (with $USER being your username.)
 
@@ -29,7 +54,7 @@ Create a `.icons` folder in your user directory `/home/$USER/` if it doesn't alr
 
     mkdir -p ~/.icons
 
-#### Step 2: Copy the Chicago95 GTK and icon themes
+#### • Step 2: Copy the Chicago95 GTK and icon themes
 
 Copy the GTK theme from `Chicago95-master/Theme/` folder into `.themes`.
 
@@ -43,20 +68,34 @@ Copy the GTK3 CSS override file from `Chicago95-master/Extras/override/` into `/
 
     cp Chicago95-master/Extras/override/gtk.css ~/.config/gtk-3.0/
 
-(Note 1: You may have to create the "gtk-3.0" directory if it's not there.)
+*Note 1: You may have to create the "gtk-3.0" directory if it's not there.*
 
     mkdir -p ~/.config/gtk-3.0
 
-(Note 2: If you ever want to change your system theme to anything else, don't forget to remove the `gtk.css` override file! It makes adjustments based on this theme which might break other themes.)
+*Note 2: If you ever want to change your system theme to anything else, don't forget to remove the `gtk.css` override file! It makes adjustments based on this theme which might break other themes.*
 
-#### Step 3:
+#### • Step 3:
 
 After copying the theme files into their appropriate places, you might need to log out then log back in for any changes to take places.
+
+<a name="install_system"/>
+
+#### [ System-wide install ] (optional)
+
+Copy the GTK theme from `Chicago95-master/Theme/` folder into `/usr/share/themes/`.
+
+    sudo cp -r Chicago95-master/Theme/Chicago95 /usr/share/themes/
+
+Copy the icon themes from `Chicago95-master/Icons/` folder into `/usr/share/icons/`.
+
+    sudo cp -r Chicago95-master/Icons/* /usr/share/icons/
+
+[[Return to Index]](#index)
 
 ---
 <a name="config_theme"/>
 
-## Configuring Chicago95
+## Enabling Chicago95
 
 The following steps will guide you through enabling the theme and making additional configurations if desired.
 
@@ -73,6 +112,11 @@ The following steps will guide you through enabling the theme and making additio
 - Choose Chicago95 as the theme style.
 - Set Title font to Sans Bold, 8 points.
 
+#### Enabling the notification theme
+- Open the XFCE settings manager > Notifications.
+- Choose Chicago95 for the theme.
+- Adjust Opacity to 100%.
+
 #### Enabling the theme for QT5 applications (optional)
 For QT5 applications such as KeePassXC or q4-Wine, you can enable GTK theme support.  This can improve theme consistency across a range of applications.  Chicago95 on QT5 applications works quite well, however there might occasionally be a few small bugs; one example being scrollbox buttons missing their borders.
 
@@ -84,74 +128,118 @@ After the installation is complete, relogin for changes to take place.
 
 For further tuning of QT5 with the Chicago95 GTK theme, read [QT5 theme configration with qt5ct](#config_qt5ct)
 
-#### Enabling the notification theme
-- Open the XFCE settings manager > Notifications.
-- Choose Chicago95 for the theme.
-- Adjust Opacity to 100%.
-
+[[Return to Index]](#index)
 
 ---
 <a name="xfce4_panel"/>
 
 ## Configuring The XFCE4 Panelbar
 
-The following steps will guide you through configuring the XFCE4 panelbar to resemble as closeley as possible the taskbar seen in MS Windows95. This won't appear 1-to-1, but it can point you in the right direction.
+The following steps will guide you through configuring the XFCE4 panelbar to resemble the taskbar seen in MS Windows 95. Some options seen in the following steps may not be present across all versions of the XFCE desktop environment and can vary between different Linux distributions.
 
-#### Step 1: Setting the panelbar size
-The following steps assume that the panelbar will be horizontal; seen on the top or bottom of your display.
+*The following steps are written from the perspective of XUbuntu 18.04 and 19.04.*
+
+<a name="horiz_panel"/>
+
+#### Configuring a horizontal taskbar
+
+#### • Step 1: Setting the panelbar size
 
 - Open the XFCE settings manager > Panel
 - From the Display tab set the panel mode to "Horizontal."
 - Check "Lock Panel."
-- Row Size (pixels): Set to 24px; Unless you want to use a different row size. If you choose to use a different row size, make note that even numbers for the Row Size slider are recommended (odd number row sizes will cause icon scaling issues.)
-- Under the Appearance tab set the background style to "None (use system style.)"
+- Set "Automatically hide the panel" to "Never."
+- Row Size (pixels): Can be at, or between, 24px to 32px; If your are using the GTK2 version of the XFCE panelbar, use even numbers for the row size since odd number row sizes will cause icon scaling issues for launcher buttons and status icons.
+- Number of rows will be "1."
+- Length will be 100%.
 
-#### Step 2: Adding panelbar plugins
+#### • Step 2: Setting the panelbar appearance
+
+- In the Appearance tab set the background style to "None (use system style.)"
+- Disable the icons setting "Adjust size automatically" (*this option is not present for the GTK2 panelbar*)
+- Set "Fixed Icon Size" to 16. (*this option is not present for the GTK2 panelbar*)
+
+*Note: For GTK2 panelbar users, if you want to adjust the icon scaling of your launcher buttons, see [Launcher button icon scaling](#button_scale)*
+
+#### • Step 3: Adding panelbar plugins
 Open the XFCE settings manager > Panel > Items
 
 Here's an organized list for the panel Items plugin layout.
 
 1. Application Menu or Whisker Menu;
-2. Separator (Handle Style);
-3. Custom Launcher, Custom Launcher, Custom Launcher, etc;
+2. Separator (*Handle Style*);
+3. Custom Launchers can go here to resemble quick launch toolbar from Windows.;
 4. “Show Desktop” plugin;
-5. Separator (Handle Style);
-6. Window Buttons (Uncheck "Show flat buttons" and "Show Handle.;" Sorting Order: None; Window grouping: Never);
-7. Separator (Transparent with Expanding enabled);
-8. Separator (Handle Style);
-9. Indicator Plugin OR Notification Area (19px max icon size preferred; also uncheck "Show frame");
-10. Orage Panel Clock. (Enable check box “Show frame” and replace the text in “Line 1” with %I:%M %p.)
+5. Separator (*Handle Style*);
+6. Window Buttons (*Uncheck "Show flat buttons" and "Show Handle.;" Sorting Order: None; Window grouping: Never*);
+7. Separator (*Transparent with Expanding enabled*);
+8. Separator (*Handle Style*);
+9. Indicator Plugin and Notification Area plugin (*19px max icon size preferred; also uncheck "Show frame"*);
+10. Orage Panel Clock. (*Enable check box “Show frame” and replace the text in “Line 1” with %I:%M %p.*)
+
+<a name="vert_panel"/>
+
+#### Configuring a vertical taskbar
+
+#### • Step 1: Setting the panelbar size
+
+- Open the XFCE settings manager > Panel
+- From the Display tab set the panel mode to "Deskbar." (*The "vertical" option looks bad, this is why we'll go with deskbar.*)
+- Check "Lock Panel."
+- Set "Automatically hide the panel" to "Never."
+- Row Size (pixels): Can be at, or between, 24px to 32px; If your are using the GTK2 version of the XFCE panelbar, use even numbers for the row size since odd number row sizes will cause icon scaling issues for launcher buttons and status icons.
+- Number of rows can be 1 or 2. 2 looks nice if you want a wide panelbar.
+- Length will be 100%.
+
+#### • Step 2: Setting the panelbar appearance
+
+- In the Appearance tab set the background style to "None (use system style.)"
+- Disable the icons setting "Adjust size automatically" (*this option is not present for the GTK2 panelbar*)
+- Set "Fixed Icon Size" to 16. (*this option is not present for the GTK2 panelbar*)
+
+*Note: For GTK2 panelbar users, if you want to adjust the icon scaling of your launcher buttons, see [Launcher button icon scaling](#button_scale)*
+
+#### • Step 3: Adding panelbar plugins
+Open the XFCE settings manager > Panel > Items
+
+Here's an organized list for the panel Items plugin layout.
+
+1. Application Menu or Whisker Menu; (*If you've set your panelbar row number to 1, then set the application / whisker menu button to display only the icon. If you've set your panelbar row number to 2, then set the application menu button to display only the title without the icon.*)
+2. Separator (*Handle Style*);
+3. Custom Launchers can go here to resemble the quick launch toolbar from Windows.;
+4. “Show Desktop” plugin;
+5. Separator (*Handle Style*);
+6. Window Buttons (*Uncheck "Show button labels," "Show flat buttons," and "Show Handle;" Sorting Order: None; Window grouping: Never*);
+7. Separator (*Transparent with Expanding enabled*);
+8. Separator (*Handle Style*);
+9. Indicator Plugin and Notification Area plugin (*19px max icon size preferred; also uncheck "Show frame"*);
+10. If you set the panelbar row number to 1, you'll might want to go without a panelclock. Orage Panel Clock or the normal panel clock plugin will look nice. (*If using Orage, enable check box “Show frame” and replace the text in “Line 1” with %H:%M %p.*)
+
+[[Return to Index]](#index)
 
 ---
 <a name="start_buttons"/>
 
 ## Start Buttons
 
-The following steps will guide you through setting up an MS Windows 95 themed "Start" button.
+The following steps will guide you through setting up a MS Windows 95 themed "Start" button.
 
-Something to keep in mind, the Whisker Menu plugin is now GTK3 since XUbuntu 17.10 and Debian Buster. The Application Menu plugin is still GTK2. This can differ for other distributions.
+Something to keep in mind, the Whisker Menu plugin is now GTK3 since XUbuntu 18.04. The Application Menu plugin as of XUbuntu 19.04 is GTK3.
 
-#### • Whisker Menu
-Open the XFCE settings manager > Panel > Items tab > Double click the Whisker menu item in the item list.
+Open the XFCE settings manager > Panel > Items tab > Double click the Whisker / Application menu item in the item list; alternatively you can also access their settings menu by right clicking the icon from he panelbar and selecting "properties."
 
-- In the whisker properties menu click the icon option.
-- In the icon select window navigate to `/home/$USER/.themes/Chicago95/misc` (with $USER being your username.)
+- In the Whisker / Application properties menu click the icon option (*This will appear as the icon badge on your start button that's currently in use.*)
+- In the "Select An Icon" window, navigate to `/home/$USER/.themes/Chicago95/misc` (*with $USER being your username.*) You may have to click the pull-down menu from "Select icon from" and then select "Image Files" so that you can navigate to a custom icon on your filesystem. You may also have to enable the filechooser to display hidden files. (*Press Ctrl+h to toggle this setting.*)
 
-`misc/` contains simple small icons badges in two sizes. (32x32px icons are ideal for larger panelbars)
+`misc/` contains simple small icon badges in two sizes.
 
-`Legacy GTK3 start buttons/` contains start buttons that were used for an older version of the Whisker Menu plugin.
+....`misc/GTK2 start buttons/` contains start buttons that are used for the GTK2 version of the Whisker / Application Menu plugin.
 
-Note: The smallest optimal panel row size for this theme is 24 pixels. If your panel is below that size, you will encounter icon scaling issues.
+....`misc/Legacy GTK3 start buttons/` contains start buttons that were used for an older GTK3 version of the Whisker / Application Menu plugin.
 
-#### • Application Menu
-Open the XFCE settings manager > Panel > Items tab > Double click the Applications Menu item in the item list.
+*Note: The smallest optimal panel row size for this theme is 24 pixels. If your panel is below that size, you will encounter icon scaling issues.*
 
-- In the Applications properties menu click the icon option.
-- In the icon select window navigate to `/home/$USER/.themes/Chicago95/misc/GTK2 start buttons` (with $USER being your username.)
-
-Since the Application Menu plugin is still GTK2, you'll have to choose an icon associated with your panel size. For example, tux_32px.png would be ideal on a panel with a row size of 32 pixels.
-
-Note: The smallest optimal panel row size for this theme is 24 pixels. If your panel is below that size, you will encounter icon scaling issues.
+[[Return to Index]](#index)
 
 ---
 <a name="add_enhance"/>
@@ -160,7 +248,11 @@ Note: The smallest optimal panel row size for this theme is 24 pixels. If your p
 
 This section of the guide contains additional enchancements that can be made to improve the theme. These are all optional and might require some advanced knowledge of operating your system.
 
-#### Launcher Button icon scaling (advanced)
+<a name="button_scale"/>
+
+#### [ Launcher button icon scaling ] (advanced)
+(Note: This step shouldn't be neccesary for the GTK3.24 version of the XFCE panelbar as-seen from XUbuntu 19.04. This only applies to the GTK2 version as-seen in XUbuntu 18.04.)
+
 This might be a little complicated since it's more of a work-around than a good solution. I tried making this as simple as possible where you can just adjust configurations in a file. If there are questions or issues with the following instructions, open a ticket and i'll try to walk you through it.
 
 If you want to force 16x16px icons in the launcher buttons, you can do this through the theme by editing the panel.rc file where there are commented options for icon scales.
@@ -181,9 +273,11 @@ Note: Even numbered panel bar row sizes seem to work best. If your panel bar row
 
 If you use a vertical deskbar, you could add a second row from the panel properties menu to organize the launcher buttons into rows. This would have a more organized effect.
 
+[[Return to Index]](#index)
+
 <a name="config_qt5ct"/>
 
-#### QT5 theme configration with qt5ct (advanced)
+#### [ QT5 theme configration with qt5ct ] (advanced)
 
 The following steps are written from the XUbuntu desktop. These will vary on other distributions.
 
@@ -191,28 +285,29 @@ You can use qt5ct for further modifying qt5 application themes to resemble the G
 
     sudo apt install qt5ct
 
-After installing qt5ct you will have to configure an environment variable so that the QT platform theme calls on qt5ct and not GTK.
+After installing qt5ct you will have to configure an environment variable so that the QT platform theme calls on qt5ct and not GTK. For non XUbuntu distributions, you can add `QT_QPA_PLATFORMTHEME=qt5ct` to the `/etc/environment` file. For XUbuntu distributions you will have to perform the following:
 
-- Open a text editor as root or sudo elevation and navigate to `/etc/X11/Xsession.d/56xubuntu-session` (Note: 56xubuntu-session may be a different name if you are on a different distribution.)
+- Open `/etc/X11/Xsession.d/56xubuntu-session` in a text editor as root or sudo elevation.
 - There will be a line with the following "# QT5 apps to use GTK style" and below that the variable `export QT_QPA_PLATFORMTHEME=gtk2`
-- Change the variable to `export QT_QPA_PLATFORMTHEME=qt5ct`
-- Save changes made, then log out and log back into your system.
+- Change the variable to `export QT_QPA_PLATFORMTHEME=qt5ct` and save changes made.
+
+Now lets copy the Chicago95 QT5 color palette.
+
+- Copy the Qt colour scheme file from `Chicago95-master/Extras/Chicago95_qt.conf` to `/usr/share/qt5ct/colors`.
+- Log out then log back in.
 
 Once you are logged back into your desktop you can access Qt5 Settings.
 
-- In the QT5 Settings window adjust the style dropdown to GTK2.
+- In the QT5 Settings window adjust the style dropdown to "Windows."
+- For the Palette Color scheme adjust the dropdown to Chicago95_qt. This will make the colour scheme match the Chicago95 theme.
 - In the Icon Theme tab you can select the Chicago95 icon theme here.
 - Click "Apply" to apply adjustments and OK to finish.
 
-#### Shadow effects
-Disable shadows in compositing for an authentic appearance, or at the very least disable “show shadows under dock windows” to prevent dark shading from the panel bar overlapping onto maximized applications.
+[[Return to Index]](#index)
 
-- Open the XFCE settings manager > Window Manager Tweaks > Compositor tab
-- Uncheck "Show shadows under pupup windows."
-- Uncheck "Show shadows under dock windows."
-- Uncheck "Show shadows under regular windows."
+<a name="gtk_scroll"/>
 
-#### GTK Overlay Scrollbars
+#### [ GTK Overlay Scrollbars ]
 Note: You may have to enable `view hidden folders` in your file manager to see hidden files.
 
 GTK Overlay Scrollbars can be disabled from the `.xsessionrc` file located in the `Chicago95-master/Extras/override` folder.
@@ -221,37 +316,67 @@ Copy the .xsessionrc file into your user directory `/home/$USER/` or append the 
 
 Log out then log back in.
 
-#### Desktop background color
+<a name="desktop_shadow"/>
+
+#### [ Desktop Shadow effects ]
+Disable shadows in compositing for an authentic appearance, or at the very least disable “show shadows under dock windows” to prevent dark shading from the panel bar overlapping onto maximized applications.
+
+- Open the XFCE settings manager > Window Manager Tweaks > Compositor tab
+- Uncheck "Show shadows under pupup windows."
+- Uncheck "Show shadows under dock windows."
+- Uncheck "Show shadows under regular windows."
+
+<a name="desktop_color"/>
+
+#### [ Desktop background color ]
 If you want to use the default Windows 95 gray instead of a background image, right click the desktop and select Desktop Settings.  On the Background tab, set "Color" to "Solid color", and for the first color picker set "Color name" to #008080.  Disable the background image by setting "Style" to "None".
 
-#### Desktop icons (text shadows and label backdrop )(advanced)
+<a name="desktop_icons"/>
+
+#### [ Desktop icon effects (text shadows and label backdrop ) ] (advanced)
+Some options seen in the following steps may not be present across all versions of the XFCE desktop environment and can vary between different Linux distributions. To find which version of xfdesktop you are running you can run `xfdesktop --version` from a terminal.
+
+##### xfdesktop 4.13.3
+
+If you want to change the icon label backdrop colour or text colours, you'll have to edit the gtk.css theme file located in `/home/$USER/.themes/Chicago95/gtk-3.24/`.
+
+: Label backdrop colours can be modified on line 103 for "xfd_icon_backdrop."
+: Text color can be modified from line 104 for "xfd_icon_text."
+: You can use CSS colour properties. After any changes are made log out then log back in.
+
+##### xfdesktop 4.12.3
+
 If you want to change the icon label backdrop colour, text colours, or highlight colours you'll have to edit the gtkrc theme file located in `/home/$USER/.themes/Chicago95/gtk-2.0/`.
 
-Text shadows can be modified from lines 553 to 559. These are currently commented out with "#."
+: Text shadows can be modified from lines 553 to 559. These are currently commented out with "#."
+: Label backdrop colours can be modified on line numbers 565 to 570.
+: You can use CSS colour properties. After any changes are made log out then log back in.
 
-Label backdrop colours can be modified on line numbers 565 to 570.
+<a name="cursors"/>
 
-After any changes are made log out then log back in. You can use CSS colour properties as seen on line 551 for any colour you want.
-
-#### Cursors
-To install the cursors copy the folders in `Cursors` to `/usr/share/icons` or `~/.icons`.
+#### [ Cursors ]
+To install the cursors theme copy the folders in `Cursors` to `/usr/share/icons` (for system-wide install) or `~/.icons` (for user only install.)
 
 In XFCE select Settings -> Mouse and Touchpad. Click on 'Icons' and select `Chicago95`.
 
-Note: If you copied the icons to `/usr/share/icons` you may have to log out or reboot your system before the cursor theme is available.
+*Note: If you copied the icons to `/usr/share/icons` you may have to log out or reboot your system before the cursor theme is available.*
 
-#### MS Sans Serif font
+#### [ MS Sans Serif font ] (experimental)
 For an authentic Windows 95 feel, you can use the original MS Sans Serif font.  Create a directory called `ms_sans_serif` inside `~/.fonts/truetype/`, and copy over to this directory the C:\Windows\Fonts\micross.ttf file from any modern Windows computer (this font is titled "Microsoft Sans Serif Regular"). Update the font cache by running `sudo fc-cache -f -v`.
 
 To set the main font for the entire system, open the XFCE settings manager > Appearance > Fonts tab.  Set the "Default font" to Microsoft Sans Serif, style Regular, size 8.
 
-**NOTE: This step will affect font rendering for the entire system.  Only apply these settings if you truly want an authentic Windows 95 look and feel.** In the "Rendering" section of the Fonts tab, uncheck "Enable anti-aliasing", and set "Hinting" to any value except None. Set the sub-pixel order as desired.
+##### **NOTE: This step will affect font rendering for the entire system.  Only apply these settings if you truly want an authentic Windows 95 look and feel.** In the "Rendering" section of the Fonts tab, uncheck "Enable anti-aliasing", and set "Hinting" to any value except None. Set the sub-pixel order as desired.
 
 To set the title bar font, open the XFCE settings manager > Window Manager > Style tab.  Set the "Title font" to Microsoft Sans Serif, style Regular, size 8.
 
 Finally, set the font for the Orage panel clock by right-clicking the panel clock, selecting Properties, then next to Line 1, change the font to Microsoft Sans Serif, style Regular, size 8.  Inside the Line 1 box, add two spaces before and after the value in the box, to apply some spacing.
 
-#### Bash terminal Fonts
+[[Return to Index]](#index)
+
+<a name="terminal_fonts"/>
+
+#### [ Bash terminal Fonts ]
 Copy the folder `Fonts/vga_font` to `~/.fonts/truetype/` if the `.fonts/truetype` folder doesn't exist just create it before you copy the files.
 
 Update your font cache: `sudo fc-cache -f -v`
@@ -260,21 +385,29 @@ In xfce-term select the font `Less Perfect DOS VGA` or `More Pefect DOS VGA`, si
 
 [Click here](https://int10h.org/oldschool-pc-fonts/fontlist/) for more classic fonts.
 
-#### Bash terminal MS-DOS theme
+<a name="terminal_themes"/>
+
+#### [ Terminal themes ]
+
+##### Bash terminal MS-DOS theme
 Copy the file `Extras/Chicago95.theme` to `~/.local/share/xfce4/terminal/colorschemes` (create the colorschemes folder if it doesn't exist: `mkdir .local/share/xfce4/terminal`).
 Under preferences in xfce-term select 'Colors.' Under `Presets` you should see `Chicago 95`.
 
 To get the MS-DOS `C:\>` prompt and startup message add the contents of `Extras/DOSrc` to your `.bashrc` file: `cat Extras/DOSrc >> ~/.bashrc`.
 To get MS-DOS Prompt title, go to the Preferences prompt and change title to MS-DOS Prompt and select isn't displayed on The Dynamically-Set Title
 
-#### oh-my-zsh MS-DOS theme
+##### oh-my-zsh MS-DOS theme
 Copy the file `Extras/Chicago95.zsh-theme` to `~/.oh-my-zsh/themes` (if you have changed your `.oh-my-zsh` config location, put the theme in that folder). In your `.zshrc` change your theme to Chicago95.
 
 This will add the MS-DOS prompt. You will get a C prompt by default. If the previous command had an exit code other than 0 you will get an F prompt. If you are in a git repository you will git a G prompt, followed by the branch (in yellow) and the status (clean in green, dirty in red).
 
 To get the startup message, add the contents of `Extras/ZSHDOSrc` to your `.zshrc` file: `cat Extras/ZSHDOSrc >> ~/.zshrc`.
 
-#### Windows 95 login startup sound
+[[Return to Index]](#index)
+
+<a name="startup_sound"/>
+
+#### [ Windows 95 login startup sound ]
 Copy the file `Extras/Microsoft Windows 95 Startup Sound.ogg` to `/home/$USER/.themes/Chicago95/misc/Microsoft Windows 95 Startup Sound.ogg` or where ever you want.
 
 ##### XFCE
@@ -293,6 +426,8 @@ Comment=The Windows 95 startup sound
 Exec=sh -c 'play /home/$HOME/.themes/Chicago95/misc/Microsoft\ Windows\ 95\ Startup\ Sound.ogg'
 OnlyShowIn=LXDE
 ```
+
+[[Return to Index]](#index)
 
 ---
 <a name="hidpi"/>
@@ -351,3 +486,5 @@ The cursors in the theme do not support HiDPI but [Hackneyed](https://www.gnome-
 - Indicator Plugin: Check square icons
 - Status Notifier Plugin: Set maximum icon size to 32
 - *(Optional)* Orage Panel Clock: Set width to 144 and font to Sans 9
+
+[[Return to Index]](#index)
