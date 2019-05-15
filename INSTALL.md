@@ -244,7 +244,7 @@ This section of the guide contains additional enchancements that can be made to 
 
 <a name="button_scale"/>
 
-#### [ Launcher button icon scaling ] (advanced)
+### [ Launcher button icon scaling ] (advanced)
 (Note: This step shouldn't be neccesary for the GTK3.24 version of the XFCE panelbar as-seen from XUbuntu 19.04. This only applies to the GTK2 version as-seen in XUbuntu 18.04.)
 
 This might be a little complicated since it's more of a work-around than a good solution. I tried making this as simple as possible where you can just adjust configurations in a file. If there are questions or issues with the following instructions, open a ticket and I'll try to walk you through it.
@@ -271,7 +271,7 @@ If you use a vertical deskbar, you could add a second row from the panel propert
 
 <a name="config_qt5ct"/>
 
-#### [ QT5 theme configration with qt5ct ] (advanced)
+### [ QT5 theme configration with qt5ct ] (advanced)
 
 The following steps are written from the XUbuntu desktop. These will vary on other distributions.
 
@@ -301,7 +301,7 @@ Once you are logged back into your desktop you can access Qt5 Settings.
 
 <a name="gtk_scroll"/>
 
-#### [ GTK Overlay Scrollbars ]
+### [ GTK Overlay Scrollbars ]
 Note: You may have to enable `view hidden folders` in your file manager to see hidden files.
 
 GTK Overlay Scrollbars can be disabled from the `.xsessionrc` file located in the `Chicago95-master/Extras/override` folder.
@@ -312,7 +312,7 @@ Log out then log back in.
 
 <a name="desktop_shadow"/>
 
-#### [ Desktop Shadow effects ]
+### [ Desktop Shadow effects ]
 Disable shadows in compositing for an authentic appearance, or at the very least disable “show shadows under dock windows” to prevent dark shading from the panel bar overlapping onto maximized applications.
 
 - Open the XFCE settings manager > Window Manager Tweaks > Compositor tab
@@ -322,15 +322,15 @@ Disable shadows in compositing for an authentic appearance, or at the very least
 
 <a name="desktop_color"/>
 
-#### [ Desktop background color ]
+### [ Desktop background color ]
 If you want to use the default Windows 95 gray instead of a background image, right click the desktop and select Desktop Settings.  On the Background tab, set "Color" to "Solid color", and for the first color picker set "Color name" to #008080.  Disable the background image by setting "Style" to "None".
 
 <a name="desktop_icons"/>
 
-#### [ Desktop icon effects (text shadows and label backdrop ) ] (advanced)
+### [ Desktop icon effects (text shadows and label backdrop ) ] (advanced)
 Some options seen in the following steps may not be present across all versions of the XFCE desktop environment and can vary between different Linux distributions. To find which version of xfdesktop you are running you can run `xfdesktop --version` from a terminal.
 
-##### xfdesktop 4.13.3
+#### xfdesktop 4.13.3
 
 If you want to change the icon label backdrop colour or text colours, you'll have to edit the gtk.css theme file located in `/home/$USER/.themes/Chicago95/gtk-3.24/`.
 
@@ -338,7 +338,7 @@ If you want to change the icon label backdrop colour or text colours, you'll hav
 - Text color can be modified from line 104 for "xfd_icon_text."
 - You can use CSS colour properties. After any changes are made log out then log back in.
 
-##### xfdesktop 4.12.3
+#### xfdesktop 4.12.3
 
 If you want to change the icon label backdrop colour, text colours, or highlight colours you'll have to edit the gtkrc theme file located in `/home/$USER/.themes/Chicago95/gtk-2.0/`.
 
@@ -348,14 +348,14 @@ If you want to change the icon label backdrop colour, text colours, or highlight
 
 <a name="cursors"/>
 
-#### [ Cursors ]
+### [ Cursors ]
 To install the cursors theme copy the folders in `Cursors` to `/usr/share/icons` (for system-wide install) or `~/.icons` (for user only install.)
 
 In XFCE select Settings -> Mouse and Touchpad. Click on 'Icons' and select `Chicago95`.
 
 *Note: If you copied the icons to `/usr/share/icons` you may have to log out or reboot your system before the cursor theme is available.*
 
-#### [ MS Sans Serif font ] (experimental)
+### [ MS Sans Serif font ] (experimental)
 For an authentic Windows 95 feel, you can use the original MS Sans Serif font.  Create a directory called `ms_sans_serif` inside `~/.fonts/truetype/`, and copy over to this directory the C:\Windows\Fonts\micross.ttf file from any modern Windows computer (this font is titled "Microsoft Sans Serif Regular"). Update the font cache by running `sudo fc-cache -f -v`.
 
 To set the main font for the entire system, open the XFCE settings manager > Appearance > Fonts tab.  Set the "Default font" to Microsoft Sans Serif, style Regular, size 8.
@@ -370,7 +370,7 @@ Finally, set the font for the Orage panel clock by right-clicking the panel cloc
 
 <a name="terminal_fonts"/>
 
-#### [ Bash terminal Fonts ]
+### [ Bash terminal Fonts ]
 Copy the folder `Fonts/vga_font` to `~/.fonts/truetype/` if the `.fonts/truetype` folder doesn't exist just create it before you copy the files.
 
 Update your font cache: `sudo fc-cache -f -v`
@@ -381,16 +381,16 @@ In xfce-term select the font `Less Perfect DOS VGA` or `More Pefect DOS VGA`, si
 
 <a name="terminal_themes"/>
 
-#### [ Terminal themes ]
+### [ Terminal themes ]
 
-##### Bash terminal MS-DOS theme
+#### Bash terminal MS-DOS theme
 Copy the file `Extras/Chicago95.theme` to `~/.local/share/xfce4/terminal/colorschemes` (create the colorschemes folder if it doesn't exist: `mkdir .local/share/xfce4/terminal`).
 Under preferences in xfce-term select 'Colors.' Under `Presets` you should see `Chicago 95`.
 
 To get the MS-DOS `C:\>` prompt and startup message add the contents of `Extras/DOSrc` to your `.bashrc` file: `cat Extras/DOSrc >> ~/.bashrc`.
 To get MS-DOS Prompt title, go to the Preferences prompt and change title to MS-DOS Prompt and select isn't displayed on The Dynamically-Set Title
 
-##### oh-my-zsh MS-DOS theme
+#### oh-my-zsh MS-DOS theme
 Copy the file `Extras/Chicago95.zsh-theme` to `~/.oh-my-zsh/themes` (if you have changed your `.oh-my-zsh` config location, put the theme in that folder). In your `.zshrc` change your theme to Chicago95.
 
 This will add the MS-DOS prompt. You will get a C prompt by default. If the previous command had an exit code other than 0 you will get an F prompt. If you are in a git repository you will git a G prompt, followed by the branch (in yellow) and the status (clean in green, dirty in red).
@@ -401,15 +401,15 @@ To get the startup message, add the contents of `Extras/ZSHDOSrc` to your `.zshr
 
 <a name="startup_sound"/>
 
-#### [ Windows 95 login startup sound ]
+### [ Windows 95 login startup sound ]
 Copy the file `Extras/Microsoft Windows 95 Startup Sound.ogg` to `/home/$USER/.themes/Chicago95/misc/Microsoft Windows 95 Startup Sound.ogg` or where ever you want.
 
-##### XFCE
+#### XFCE
 - Open XFCE Settings Manager > Session and Startup > Application Autostart tab
 - Add a new entry
 - Give it a name and a command similar to the following: `play /home/$USER/.themes/Chicago95/misc/Microsoft\ Windows\ 95\ Startup\ Sound.ogg`
 
-##### LXDE
+#### LXDE
 - Create the file `./config/autostart/chicago95.desktop` with the following contents:
 
 ```
