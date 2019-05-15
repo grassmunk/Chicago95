@@ -272,7 +272,7 @@ If you use a vertical deskbar, you could add a second row from the panel propert
 
 <a name="thunar"/>
 
-### Thunar status indicator
+### [ Thunar status indicator ]
 
 The thunar status indicator can be modified on line 57 in `/home/$USER/.themes/Chicago95/gtk-3.24/apps/thunar.css`. The line will appear as `background-image: url("../assets/status_badge_tux.png");`
 
