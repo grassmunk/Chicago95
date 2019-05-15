@@ -13,6 +13,7 @@
 * [Start Buttons](#start_buttons)
 * [Additional Enhancements](#add_enhance)
     * [Launcher Button icon scaling](#button_scale) (*For legacy GTK2 panelbars only*)
+    * [Thunar status indicator](#thunar)
     * [QT5 theme configration with qt5ct](#config_qt5ct)
     * [GTK Overlay Scrollbars](#gtk_scroll)
     * [Desktop Shadow effects](#desktop_shadow)
@@ -266,6 +267,22 @@ Example steps: You will first need to determine your current panel bar row size 
 Note: Even numbered panel bar row sizes seem to work best. If your panel bar row size is "29px" for example, the launcher icons may not scale correctly.
 
 If you use a vertical deskbar, you could add a second row from the panel properties menu to organize the launcher buttons into rows. This would have a more organized effect.
+
+[[Return to Index]](#index)
+
+<a name="thunar"/>
+
+### Thunar status indicator
+
+The thunar status indicator can be modified on line 57 in `/home/$USER/.themes/Chicago95/gtk-3.24/apps/thunar.css`. The line will appear as `background-image: url("../assets/status_badge_tux.png");`
+
+You can modify the background-image name with three of the following images.
+
+- status_badge_msw.png
+- status_badge_tux.png
+- status_badge_xue.png
+
+If you want to disable the background image you can delete the line as well as line 52 which sets the background colour.
 
 [[Return to Index]](#index)
 
