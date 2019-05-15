@@ -2,34 +2,44 @@
 
 # Index
 
-: [Installing Chicago95](#install_theme)
+[Installing Chicago95](#install_theme)
 
-: ... [Single user install](#install_single)
-: .... [System-wide install (optional)](#install_system)
+.... [Single user install](#install_single)
+.... [System-wide install (optional)](#install_system)
 
-: [Enabling The Theme](#config_theme)
+[Enabling The Theme](#config_theme)
 
-: [Configuring The XFCE4 Panelbar](#xfce4_panel)
+[Configuring The XFCE4 Panelbar](#xfce4_panel)
 
-: .... [Horizontal Panelbar](#horiz_panel)
-: .... [Vertical Panelbar](#vert_panel)
+.... [Horizontal Panelbar](#horiz_panel)
 
-: [Start Buttons](#start_buttons)
+.... [Vertical Panelbar](#vert_panel)
 
-: [Additional Enhancements](#add_enhance)
+[Start Buttons](#start_buttons)
 
-: .... [Launcher Button icon scaling](#button_scale) (*For legacy GTK2 panelbars only*)
-: .... [QT5 theme configration with qt5ct](#config_qt5ct)
-: .... [GTK Overlay Scrollbars](#gtk_scroll)
-: .... [Desktop Shadow effects](#desktop_shadow)
-: .... [Desktop background color](#desktop_color)
-: .... [Desktop icons effects](#desktop_icons)
-: .... [Cursors](#cursors)
-: .... [Terminal fonts](#terminal_fonts)
-: .... [Terminal themes](#terminal_themes)
-: .... [Windows 95 login startup sound](#startup_sound)
+[Additional Enhancements](#add_enhance)
 
-: [HiDPI (experimental)](#hidpi)
+.... [Launcher Button icon scaling](#button_scale) (*For legacy GTK2 panelbars only*)
+
+.... [QT5 theme configration with qt5ct](#config_qt5ct)
+
+.... [GTK Overlay Scrollbars](#gtk_scroll)
+
+.... [Desktop Shadow effects](#desktop_shadow)
+
+.... [Desktop background color](#desktop_color)
+
+.... [Desktop icons effects](#desktop_icons)
+
+.... [Cursors](#cursors)
+
+.... [Terminal fonts](#terminal_fonts)
+
+.... [Terminal themes](#terminal_themes)
+
+.... [Windows 95 login startup sound](#startup_sound)
+
+[HiDPI (experimental)](#hidpi)
 
 ---
 <a name="install_theme"/>
