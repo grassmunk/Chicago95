@@ -135,7 +135,7 @@ The following steps will guide you through configuring the XFCE4 panelbar to res
 
 <a name="horiz_panel"/>
 
-#### Configuring a horizontal taskbar
+### Configuring a horizontal taskbar
 
 #### • Step 1: Setting the panelbar size
 
@@ -173,7 +173,7 @@ Here's an organized list for the panel Items plugin layout.
 
 <a name="vert_panel"/>
 
-#### Configuring a vertical taskbar
+### Configuring a vertical taskbar
 
 #### • Step 1: Setting the panelbar size
 
@@ -247,7 +247,7 @@ This section of the guide contains additional enchancements that can be made to 
 #### [ Launcher button icon scaling ] (advanced)
 (Note: This step shouldn't be neccesary for the GTK3.24 version of the XFCE panelbar as-seen from XUbuntu 19.04. This only applies to the GTK2 version as-seen in XUbuntu 18.04.)
 
-This might be a little complicated since it's more of a work-around than a good solution. I tried making this as simple as possible where you can just adjust configurations in a file. If there are questions or issues with the following instructions, open a ticket and i'll try to walk you through it.
+This might be a little complicated since it's more of a work-around than a good solution. I tried making this as simple as possible where you can just adjust configurations in a file. If there are questions or issues with the following instructions, open a ticket and I'll try to walk you through it.
 
 If you want to force 16x16px icons in the launcher buttons, you can do this through the theme by editing the panel.rc file where there are commented options for icon scales.
 
