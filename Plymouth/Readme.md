@@ -14,8 +14,8 @@ Copy the theme folder into the Plymouth theme directory.
 
 Add to default.plymouth
 
-- `sudo update-alternatives --install /usr/share//plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/Chicago95/Chicago95.plymouth 100`
-- `sudo update-alternatives --install /usr/share//plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/RetroTux/RetroTux.plymouth 100`
+- `sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/Chicago95/Chicago95.plymouth 100`
+- `sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/RetroTux/RetroTux.plymouth 100`
 
 Choose the theme to load. (As you run the following command there will be a number assigned to each theme and located in the first column of a list. Use that number to specify the theme and press enter to continue.)
 
