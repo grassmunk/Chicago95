@@ -215,7 +215,7 @@ function handleFocus() {
     // Load the list of users
     initializeUsers();
     // Load actions (suspend, reboot, shutdown, etc.)
-    initializeActions();
+    // initializeActions();
     // Handle focusing
     handleFocus();
 })();
