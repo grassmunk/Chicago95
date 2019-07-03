@@ -20,6 +20,7 @@
     * [Desktop background color](#desktop_color)
     * [Desktop icon effects](#desktop_icons)
     * [Cursors](#cursors)
+    * [MS Sans Serif font](#ms_sans_serif)
     * [Terminal fonts](#terminal_fonts)
     * [Terminal themes](#terminal_themes)
     * [Windows 95 login startup sound](#startup_sound)
@@ -372,12 +373,22 @@ In XFCE select Settings -> Mouse and Touchpad. Click on 'Icons' and select `Chic
 
 *Note: If you copied the icons to `/usr/share/icons` you may have to log out or reboot your system before the cursor theme is available.*
 
-### [ MS Sans Serif font ] (experimental)
-For an authentic Windows 95 feel, you can use the original MS Sans Serif font.  Create a directory called `ms_sans_serif` inside `~/.fonts/truetype/`, and copy over to this directory the C:\Windows\Fonts\micross.ttf file from any modern Windows computer (this font is titled "Microsoft Sans Serif Regular"). Update the font cache by running `sudo fc-cache -f -v`.
+<a name="ms_sans_serif"/>
+
+### [ MS Sans Serif font ]
+For an authentic Windows 95 feel, you can use the original MS Sans Serif font.
+
+#### Single-user install: ####
+- Copy the folder `Fonts/ms_sans_serif` to `~/.fonts/truetype/`
+- Copy the file `Extras/99-ms-sans-serif.conf` to your home directory and rename it `.fonts.conf`
+- Update the font cache by running `sudo fc-cache -f -v`
+
+#### System-wide install: ####
+- Copy the folder `Fonts/ms_sans_serif` to `/usr/share/fonts/truetype/`
+- Copy the file `Extras/99-ms-sans-serif.conf` to `/etc/fonts/conf.d`
+- Update the font cache by running `sudo fc-cache -f -v`
 
 To set the main font for the entire system, open the XFCE settings manager > Appearance > Fonts tab.  Set the "Default font" to Microsoft Sans Serif, style Regular, size 8.
-
-##### **NOTE: This step will affect font rendering for the entire system.  Only apply these settings if you truly want an authentic Windows 95 look and feel.** In the "Rendering" section of the Fonts tab, uncheck "Enable anti-aliasing", and set "Hinting" to any value except None. Set the sub-pixel order as desired.
 
 To set the title bar font, open the XFCE settings manager > Window Manager > Style tab.  Set the "Title font" to Microsoft Sans Serif, style Regular, size 8.
 
