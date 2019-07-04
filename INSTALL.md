@@ -297,22 +297,24 @@ You can use qt5ct for further modifying qt5 application themes to resemble the G
 
     sudo apt install qt5ct
 
-After installing qt5ct you will have to configure an environment variable so that the QT platform theme calls on qt5ct and not GTK. For non XUbuntu distributions, you can add `QT_QPA_PLATFORMTHEME=qt5ct` to the `/etc/environment` file. For XUbuntu distributions you will have to perform the following:
+After installing qt5ct you will have to configure an environment variable so that the QT platform theme calls on qt5ct and not GTK. Navigate to `/etc/X11/Xsession.d/` and search for a file named `56xfce4-qtconfig`. This may or may not be present depending on your distribution and it may be under a different name (for XUbuntu the file name is `56xubuntu-session.`) If this file is not present, then you could try adding `QT_QPA_PLATFORMTHEME=qt5ct` to the `/etc/environment` file.
 
-- Open `/etc/X11/Xsession.d/56xubuntu-session` in a text editor as root or sudo elevation.
+- Open `/etc/X11/Xsession.d/56xubuntu-session` (or 56xfce4-qtconfig) in a text editor as root or sudo elevation.
 - There will be a line with the following "# QT5 apps to use GTK style" and below that the variable `export QT_QPA_PLATFORMTHEME=gtk2`
 - Change the variable to `export QT_QPA_PLATFORMTHEME=qt5ct` and save changes made.
 
 Now lets copy the Chicago95 QT5 color palette.
 
-- Copy the Qt colour scheme file from `Chicago95-master/Extras/Chicago95_qt.conf` to `/usr/share/qt5ct/colors`.
+- Copy the Qt colour scheme file from `Chicago95-master/Extras/Chicago95_qt.conf` to `/usr/share/qt5ct/colors`. If the directory path doesn't exist, them make it. (mkdir -p /usr/share/qt5ct/colors)
 - Log out then log back in.
 
-Once you are logged back into your desktop you can access Qt5 Settings.
+Once you are logged back into your desktop you can access `Qt5 Settings` (or run `qt5ct` from a terminal.)
 
 - In the QT5 Settings window adjust the style dropdown to "Windows."
-- For the Palette Color scheme adjust the dropdown to Chicago95_qt. This will make the colour scheme match the Chicago95 theme.
+- For the Palette Color scheme adjust the setting to `Custom`
+- From the Color scheme dropdown select Chicago95_qt. This will make the colour scheme match the Chicago95 theme.
 - In the Icon Theme tab you can select the Chicago95 icon theme here.
+- In the Fonts tab you can select the fonts to be used in QT applications. (Liberation Sans 8 for a general font looks nice.)
 - Click "Apply" to apply adjustments and OK to finish.
 
 [[Return to Index]](#index)
