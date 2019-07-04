@@ -376,15 +376,17 @@ In XFCE select Settings -> Mouse and Touchpad. Click on 'Icons' and select `Chic
 <a name="ms_sans_serif"/>
 
 ### [ MS Sans Serif font ]
-For an authentic Windows 95 feel, you can use the original MS Sans Serif font.
+For an authentic Windows 95 feel, you can use the original MS Sans Serif font.  To do this, you will need a copy of the C:\Windows\Fonts\micross.ttf file from any modern Windows computer (this font is titled "Microsoft Sans Serif Regular").
 
 #### Single-user install: ####
-- Copy the folder `Fonts/ms_sans_serif` to `~/.fonts/truetype/`
-- Copy the file `Extras/99-ms-sans-serif.conf` to your home directory and rename it `.fonts.conf`
+- Create a folder `ms_sans_serif` inside the `~/.fonts/truetype/` directory
+- Copy `micross.ttf` to the newly-created folder
+- Copy the file `Extras/99-ms-sans-serif.conf` to your home directory `~` and rename it `.fonts.conf`
 - Update the font cache by running `sudo fc-cache -f -v`
 
 #### System-wide install: ####
-- Copy the folder `Fonts/ms_sans_serif` to `/usr/share/fonts/truetype/`
+- Create a folder `ms_sans_serif` inside the `/usr/share/fonts/truetype/` directory
+- Copy `micross.ttf` to the newly-created folder
 - Copy the file `Extras/99-ms-sans-serif.conf` to `/etc/fonts/conf.d`
 - Update the font cache by running `sudo fc-cache -f -v`
 
