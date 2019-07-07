@@ -24,9 +24,9 @@
     -GtkTreeView-tree-line-pattern: '';
     background-clip: padding-box;
     outline-width: 1px;
-    outline-offset: 0px;
+    outline-offset: -3px;
     outline-color: @selected_inactive_bg_color;
-    outline-style: solid;}
+    outline-style: dotted;}
 
 .background {
     background-color: @theme_bg_color;

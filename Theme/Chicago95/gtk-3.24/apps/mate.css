@@ -1,6 +1,7 @@
+/* Mate Panel Bar */
 .mate-panel-menu-bar,
 .gnome-panel-menu-bar {
-	background-color: #c0c0c0; }
+	background-color: @bg_color; }
     .mate-panel-menu-bar > grid,
 	.gnome-panel-menu-bar > grid {
         padding: 3px;
@@ -131,6 +132,11 @@ PanelApplet .button:active {
 }
 
 PanelApplet *:hover {
+#MyControlCenter frame scrolledwindow {
+    margin: 2px; }
+
+#MyControlCenter #slab_section_style1 button.flat {
+    margin: 1px; }
     color: @text_color;
 }
 
@@ -149,3 +155,50 @@ NaTrayApplet {
 }
 
 */
+
+/* Mate Control Center */
+#MyControlCenter frame scrolledwindow {
+    margin: 2px; }
+
+#MyControlCenter #slab_section_style1 button.flat {
+    margin: 1px; }
+
+/* Caja */
+.caja-navigation-window #Toolbar button:not(:hover) {
+    padding: 0px;
+    min-width: 16px;
+    min-height: 16px;
+    border: 1px solid transparent;
+    box-shadow: none; }
+
+.caja-navigation-window #Toolbar button label {
+    padding: 4px; }
+
+.caja-navigation-window #Toolbar button:hover {
+    padding: 0px;
+    min-width: 16px;
+    min-height: 16px; }
+
+.caja-navigation-window #Toolbar button:disabled {
+    padding: 0px;
+    min-width: 16px;
+    min-height: 16px;
+    border-left: 1px solid @bg_shade;
+    border-top: 1px solid @bg_shade;
+    border-bottom: 1px solid @bg_bright;
+    border-right: 1px solid @bg_bright; }
+
+.caja-pathbar .toggle,
+.caja-pathbar .slider-button {
+    border-right: 1px solid @bg_shade;
+    border-bottom: 1px solid @bg_shade;
+    box-shadow: none; }
+
+.caja-pathbar .toggle:checked,
+.caja-pathbar .slider-button:checked,
+.caja-pathbar .slider-button:disabled {
+    border-right: 1px solid @bg_bright;
+    border-bottom: 1px solid @bg_bright;
+    border-top: 1px solid @bg_shade;
+    border-left: 1px solid @bg_shade;
+    box-shadow: none; }
