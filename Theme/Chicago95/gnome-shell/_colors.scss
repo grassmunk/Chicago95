@@ -1,0 +1,53 @@
+// Vars missing from original but present upstream
+$font-size : 16;
+
+// When color definition differs for dark and light variant,
+// it gets @if ed depending on $variant
+
+$base_color: #ffffff;
+$bg_color: #c0c0c0;
+$fg_color: #000000;
+
+$tooltip_bg_color: #ffffe1;
+
+$dark_fg_color: #ffffff;
+
+$selected_fg_color: #ffffff;
+$selected_bg_color: #000080;
+$selected_borders_color: darken($selected_bg_color, 20%);
+$borders_color: #000000;
+$borders_edge: #808080;
+$link_color: #000080;
+$link_visited_color: darken($link_color,10%);
+$top_hilight: $borders_edge;
+
+$panel_bg_color : #c0c0c0;
+$panel_solid_bg_color : #c0c0c0;
+$panel_fg_color : #000000;
+$dash_bg_color : #c0c0c0;
+$dash_fg_color : #000000;
+
+$warning_color: #FF8300;
+$error_color: #FF0000;
+$success_color: darken(#39e4a3,10%);
+$destructive_color: darken(#CC0000,10%);
+
+$osd_fg_color: #000000;
+$osd_bg_color: #c0c0c0;
+$osd_borders_color: #000000;
+$osd_outer_borders_color: #808080;
+
+$tooltip_borders_color: $osd_outer_borders_color;
+
+//insensitive state derived colors
+$insensitive_fg_color: mix($fg_color, $bg_color, 50%);
+$insensitive_bg_color: mix($bg_color, $base_color, 60%);
+$insensitive_borders_color: $borders_color;
+
+//colors for the backdrop state, derived from the main colors.
+$backdrop_base_color: lighten($base_color,1%);
+$backdrop_bg_color: $bg_color;
+$backdrop_fg_color: mix($fg_color, $backdrop_bg_color, 80%);
+$backdrop_insensitive_color: lighten($backdrop_bg_color,15%);
+$backdrop_borders_color: mix($borders_color, $bg_color, 90%);
+$backdrop_dark_fill: mix($backdrop_borders_color,$backdrop_bg_color, 35%);
