@@ -24,6 +24,8 @@ Xfce 4.12
 
 A Window compositor
 
+(If your are using an older desktop that uses GTK3.18, you can use [this forked version of the theme.](https://github.com/EMH-Mark-I/Chicago95-Custom-XUbuntu-16.04-))
+
 ## Install the system theme
 [Click here](INSTALL.md) for install steps.
 
