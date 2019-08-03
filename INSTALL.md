@@ -340,6 +340,8 @@ Disable shadows in compositing for an authentic appearance, or at the very least
 - Uncheck "Show shadows under dock windows."
 - Uncheck "Show shadows under regular windows."
 
+If using the compton compositor, copy the `compton.conf` file inside the Extras folder to `~/.config/compton/compton.conf` (or for system-wide install, `/etc/xdg/compton.conf`).
+
 <a name="desktop_color"/>
 
 ### [ Desktop background color ]
@@ -407,7 +409,9 @@ Copy the folder `Fonts/vga_font` to `~/.fonts/truetype/` if the `.fonts/truetype
 
 Update your font cache: `sudo fc-cache -f -v`
 
-In xfce-term select the font `Less Perfect DOS VGA` or `More Pefect DOS VGA`, size 12.  For better readability, uncheck "Allow bold text".
+In xfce-term preferences, go to the Appearance tab and select the font `Less Perfect DOS VGA` or `More Pefect DOS VGA`, size 12.  For better readability, uncheck "Allow bold text".
+
+If desired, you can use an MS-DOS style cursor by going to the General tab, setting "Cursor shape" to "Underline" and checking the box for "Cursor blinks".
 
 [Click here](https://int10h.org/oldschool-pc-fonts/fontlist/) for more classic fonts.
 
@@ -434,7 +438,9 @@ To get the startup message, add the contents of `Extras/ZSHDOSrc` to your `.zshr
 <a name="startup_sound"/>
 
 ### [ Windows 95 login startup sound ]
-Copy the file `Extras/Microsoft Windows 95 Startup Sound.ogg` to `/home/$USER/.themes/Chicago95/misc/Microsoft Windows 95 Startup Sound.ogg` or where ever you want.
+First, ensure that the SoX program is installed by running: `sudo apt install sox`
+
+Then, copy the file `Extras/Microsoft Windows 95 Startup Sound.ogg` to `/home/$USER/.themes/Chicago95/misc/Microsoft Windows 95 Startup Sound.ogg` or where ever you want.
 
 #### XFCE
 - Open XFCE Settings Manager > Session and Startup > Application Autostart tab
