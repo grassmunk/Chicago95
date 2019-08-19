@@ -20,6 +20,7 @@
     * [Desktop background color](#desktop_color)
     * [Desktop icon effects](#desktop_icons)
     * [Cursors](#cursors)
+    * [MS Sans Serif font](#ms_sans_serif)
     * [Terminal fonts](#terminal_fonts)
     * [Terminal themes](#terminal_themes)
     * [Windows 95 login startup sound](#startup_sound)
@@ -296,22 +297,24 @@ You can use qt5ct for further modifying qt5 application themes to resemble the G
 
     sudo apt install qt5ct
 
-After installing qt5ct you will have to configure an environment variable so that the QT platform theme calls on qt5ct and not GTK. For non XUbuntu distributions, you can add `QT_QPA_PLATFORMTHEME=qt5ct` to the `/etc/environment` file. For XUbuntu distributions you will have to perform the following:
+After installing qt5ct you will have to configure an environment variable so that the QT platform theme calls on qt5ct and not GTK. Navigate to `/etc/X11/Xsession.d/` and search for a file named `56xfce4-qtconfig`. This may or may not be present depending on your distribution and it may be under a different name (for XUbuntu the file name is `56xubuntu-session.`) If this file is not present, then you could try adding `QT_QPA_PLATFORMTHEME=qt5ct` to the `/etc/environment` file.
 
-- Open `/etc/X11/Xsession.d/56xubuntu-session` in a text editor as root or sudo elevation.
+- Open `/etc/X11/Xsession.d/56xubuntu-session` (or 56xfce4-qtconfig) in a text editor as root or sudo elevation.
 - There will be a line with the following "# QT5 apps to use GTK style" and below that the variable `export QT_QPA_PLATFORMTHEME=gtk2`
 - Change the variable to `export QT_QPA_PLATFORMTHEME=qt5ct` and save changes made.
 
 Now lets copy the Chicago95 QT5 color palette.
 
-- Copy the Qt colour scheme file from `Chicago95-master/Extras/Chicago95_qt.conf` to `/usr/share/qt5ct/colors`.
+- Copy the Qt colour scheme file from `Chicago95-master/Extras/Chicago95_qt.conf` to `/usr/share/qt5ct/colors`. If the directory path doesn't exist, them make it. (mkdir -p /usr/share/qt5ct/colors)
 - Log out then log back in.
 
-Once you are logged back into your desktop you can access Qt5 Settings.
+Once you are logged back into your desktop you can access `Qt5 Settings` (or run `qt5ct` from a terminal.)
 
 - In the QT5 Settings window adjust the style dropdown to "Windows."
-- For the Palette Color scheme adjust the dropdown to Chicago95_qt. This will make the colour scheme match the Chicago95 theme.
+- For the Palette Color scheme adjust the setting to `Custom`
+- From the Color scheme dropdown select Chicago95_qt. This will make the colour scheme match the Chicago95 theme.
 - In the Icon Theme tab you can select the Chicago95 icon theme here.
+- In the Fonts tab you can select the fonts to be used in QT applications. (Liberation Sans 8 for a general font looks nice.)
 - Click "Apply" to apply adjustments and OK to finish.
 
 [[Return to Index]](#index)
@@ -336,6 +339,8 @@ Disable shadows in compositing for an authentic appearance, or at the very least
 - Uncheck "Show shadows under pupup windows."
 - Uncheck "Show shadows under dock windows."
 - Uncheck "Show shadows under regular windows."
+
+If using the compton compositor, copy the `compton.conf` file inside the Extras folder to `~/.config/compton/compton.conf` (or for system-wide install, `/etc/xdg/compton.conf`).
 
 <a name="desktop_color"/>
 
@@ -372,12 +377,24 @@ In XFCE select Settings -> Mouse and Touchpad. Click on 'Icons' and select `Chic
 
 *Note: If you copied the icons to `/usr/share/icons` you may have to log out or reboot your system before the cursor theme is available.*
 
-### [ MS Sans Serif font ] (experimental)
-For an authentic Windows 95 feel, you can use the original MS Sans Serif font.  Create a directory called `ms_sans_serif` inside `~/.fonts/truetype/`, and copy over to this directory the C:\Windows\Fonts\micross.ttf file from any modern Windows computer (this font is titled "Microsoft Sans Serif Regular"). Update the font cache by running `sudo fc-cache -f -v`.
+<a name="ms_sans_serif"/>
+
+### [ MS Sans Serif font ]
+For an authentic Windows 95 feel, you can use the original MS Sans Serif font.  To do this, you will need a copy of the C:\Windows\Fonts\micross.ttf file from any modern Windows computer (this font is titled "Microsoft Sans Serif Regular").
+
+#### Single-user install: ####
+- Create a folder `ms_sans_serif` inside the `~/.fonts/truetype/` directory
+- Copy `micross.ttf` to the newly-created folder
+- Copy the file `Extras/99-ms-sans-serif.conf` to your home directory `~` and rename it `.fonts.conf`
+- Update the font cache by running `sudo fc-cache -f -v`
+
+#### System-wide install: ####
+- Create a folder `ms_sans_serif` inside the `/usr/share/fonts/truetype/` directory
+- Copy `micross.ttf` to the newly-created folder
+- Copy the file `Extras/99-ms-sans-serif.conf` to `/etc/fonts/conf.d`
+- Update the font cache by running `sudo fc-cache -f -v`
 
 To set the main font for the entire system, open the XFCE settings manager > Appearance > Fonts tab.  Set the "Default font" to Microsoft Sans Serif, style Regular, size 8.
-
-##### **NOTE: This step will affect font rendering for the entire system.  Only apply these settings if you truly want an authentic Windows 95 look and feel.** In the "Rendering" section of the Fonts tab, uncheck "Enable anti-aliasing", and set "Hinting" to any value except None. Set the sub-pixel order as desired.
 
 To set the title bar font, open the XFCE settings manager > Window Manager > Style tab.  Set the "Title font" to Microsoft Sans Serif, style Regular, size 8.
 
@@ -392,7 +409,9 @@ Copy the folder `Fonts/vga_font` to `~/.fonts/truetype/` if the `.fonts/truetype
 
 Update your font cache: `sudo fc-cache -f -v`
 
-In xfce-term select the font `Less Perfect DOS VGA` or `More Pefect DOS VGA`, size 12.  For better readability, uncheck "Allow bold text".
+In xfce-term preferences, go to the Appearance tab and select the font `Less Perfect DOS VGA` or `More Pefect DOS VGA`, size 12.  For better readability, uncheck "Allow bold text".
+
+If desired, you can use an MS-DOS style cursor by going to the General tab, setting "Cursor shape" to "Underline" and checking the box for "Cursor blinks".
 
 [Click here](https://int10h.org/oldschool-pc-fonts/fontlist/) for more classic fonts.
 
@@ -419,7 +438,9 @@ To get the startup message, add the contents of `Extras/ZSHDOSrc` to your `.zshr
 <a name="startup_sound"/>
 
 ### [ Windows 95 login startup sound ]
-Copy the file `Extras/Microsoft Windows 95 Startup Sound.ogg` to `/home/$USER/.themes/Chicago95/misc/Microsoft Windows 95 Startup Sound.ogg` or where ever you want.
+First, ensure that the SoX program is installed by running: `sudo apt install sox`
+
+Then, copy the file `Extras/Microsoft Windows 95 Startup Sound.ogg` to `/home/$USER/.themes/Chicago95/misc/Microsoft Windows 95 Startup Sound.ogg` or where ever you want.
 
 #### XFCE
 - Open XFCE Settings Manager > Session and Startup > Application Autostart tab

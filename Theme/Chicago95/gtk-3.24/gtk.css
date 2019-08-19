@@ -10,6 +10,8 @@
 /* default color scheme */
 @define-color bg_color #c0c0c0;
 @define-color fg_color #000000;
+@define-color panel_fg_color #000000;
+@define-color panel_fg_color_bright #ffffff;
 @define-color base_color #ffffff;
 @define-color text_color #000000;
 @define-color selected_bg_color #000080;
