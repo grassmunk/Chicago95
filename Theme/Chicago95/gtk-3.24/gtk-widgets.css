@@ -44,7 +44,7 @@ iconview:selected,
     -gtk-icon-effect: dim; }
 
 /* There appears to be a bug in gtk treeviews on :focus with outlines that will cause a momentary displacement of the UI. Keep the treeview exclusion! */
-:focus:not(treeview):not(view):not(checkbutton) {
+:focus:not(treeview):not(view):not(checkbutton):not(radiobutton) {
     outline: 1px dotted @border_dark;
     -gtk-outline-radius: 0px;
     outline-offset: -4px; }
