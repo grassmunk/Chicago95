@@ -1,36 +1,37 @@
 /* Thunar */
 .thunar paned scrolledwindow {
-    border-right: 1px solid @bg_bright;
-}
+  border-right: 1px solid @bg_bright; }
 
 .xfce4-panel {
-    border-top: 1px solid @bg_bright;
-}
+  border-top: 1px solid @bg_bright; }
 
 /* XFCE Panel bar */
 .xfce4-panel {
-    border-right: 1px solid @bg_shade;
-    border-left: 1px solid @bg_bright;
-    border-top: 1px solid @bg_bright;
-}
+  border-right: 1px solid @bg_shade;
+  border-left: 1px solid @bg_bright;
+  border-top: 1px solid @bg_bright; }
 
 /* This just keeps the power manager plugin icon to stay small. Only useful for XUbuntu 18.04; not required for 19.04.*/
 #xfce4-power-manager-plugin { 
-    padding: 6px 6px; }
+  padding: 6px 6px; }
 
 /* Force MATE panel tasklist margins */
 #tasklist-button {
-    margin-left: 2px;
-    margin-right: 2px;
-}
+  margin-left: 2px;
+  margin-right: 2px; }
 
 /* GNOME Disk utility */
 /* This is a fix for the GNOME disk application grid style. */ 
 
 .gnome-disk-utility-grid {
-background-color: @bg_shade;
+  background-color: @bg_shade;
   color: @font_bright;
   border-radius: 0px;
   outline-color: white; }
   .gnome-disk-utility-grid:backdrop {
     background-color: @bg_shade; }
+
+/* XFCE APP: Color Profiles */
+/* Force a background colour since the color profile app overrides the GTK theme. */
+.color-profiles {
+  background-color: #c0c0c0; }
