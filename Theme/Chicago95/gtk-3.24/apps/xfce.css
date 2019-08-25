@@ -54,6 +54,14 @@ XfdesktopIconView.view {
   margin: 0px;
   background-color: transparent; }
 
+wnck-pager {
+  color: white; }
+  wnck-pager:selected {
+    background-color: @selected_bg_color; }
+  wnck-pager:hover {
+    background-color: @bg_shade;
+    color: white; }
+
 /* Tasklist */
 .tasklist .toggle {
   border: none;
