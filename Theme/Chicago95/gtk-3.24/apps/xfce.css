@@ -47,6 +47,8 @@ XfdesktopIconView.view {
     box-shadow: none;
     color: @panel_fg_color_bright;
     background-color: @selected_bg_color; }
+  #xfce4-power-manager-plugin {
+    margin-bottom: -2px; }
 
 #clock-button {
   border: 2px solid transparent;
