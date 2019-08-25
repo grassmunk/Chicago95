@@ -2901,14 +2901,14 @@ button.appmenu {
 	padding-top: 4px;*/
 }
 
-/* declaration of .view was causing problems with white background rubberband in nautilus, putting this here for now */
-flowbox rubberband, treeview.view rubberband, .content-view rubberband,
-.rubberband, rubberband {
-    border: 1px solid @border_dark;
-    background-color: transparent;
-    /* box-shadow: inset 1px 1px 0px 0px @border_dark,
-                   inset -1px -1px 0px 0px @border_dark; */
-}
+.rubberband,
+rubberband,
+flowbox rubberband,
+treeview.view rubberband,
+.content-view rubberband {
+  border: 1px solid @selected_bg_color;
+  background: rgba(0,0,50.2,0.5);
+  border-radius: 0px; }
 
 /* Misc stuff */
 
