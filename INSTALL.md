@@ -380,23 +380,34 @@ In XFCE select Settings -> Mouse and Touchpad. Click on 'Icons' and select `Chic
 <a name="ms_sans_serif"/>
 
 ### [ MS Sans Serif font ]
-For an authentic Windows 95 feel, you can use the original MS Sans Serif font.  To do this, you will need a copy of the C:\Windows\Fonts\micross.ttf file from any modern Windows computer (this font is titled "Microsoft Sans Serif Regular").
+For an authentic Windows 95 feel, you can use the original MS Sans Serif font.  To do this, you will need a copy of both the "MS Sans Serif Regular" and "Microsoft Sans Serif Regular" fonts from the `C:\Windows\Fonts` directory of any modern Windows computer.  (The filenames for these fonts are `sserife.fon` and `micross.ttf` respectively)
+
+After copying over the files to your Linux install, we now need to convert the `sserife.fon` file to a TrueType font using FontForge.  (This step is optional; you can still use MS Sans Serif, but bold fonts will not be available)
+
+- Install FontForge with `sudo apt install fontforge`
+- Open FontForge and open the `sserife.fon` file
+- After the font is opened, go to File -> Generate Fonts...
+- Below the new filename `MSSansSerif.ttf` there will be two dropdowns, make sure the left one is set to "No Outline Font", then set the right one to "(faked) MS Bitmap only sfnt (ttf)"
+- Click the Generate button.  You may now close FontForge and delete the original `sserife.fon` file
+
+We now need to install the MS Sans Serif fonts, as well as their font configuration files.
 
 #### Single-user install: ####
-- Create a folder `ms_sans_serif` inside the `~/.fonts/truetype/` directory
-- Copy `micross.ttf` to the newly-created folder
-- Copy the file `Extras/99-ms-sans-serif.conf` to your home directory `~` and rename it `.fonts.conf`
+- Run `mkdir -p ~/.fonts/truetype/ms_sans_serif/`
+- Copy `micross.ttf` and `MSSansSerif.ttf` to `~/.fonts/truetype/ms_sans_serif/`
+- Run `mkdir -p ~/.config/fontconfig/conf.d/`
+- Copy `Extras/99-ms-sans-serif.conf` and `Extras/99-ms-sans-serif-bold.conf` to `~/.config/fontconfig/conf.d/`
 - Update the font cache by running `sudo fc-cache -f -v`
 
 #### System-wide install: ####
-- Create a folder `ms_sans_serif` inside the `/usr/share/fonts/truetype/` directory
-- Copy `micross.ttf` to the newly-created folder
-- Copy the file `Extras/99-ms-sans-serif.conf` to `/etc/fonts/conf.d`
+- Run `sudo mkdir -p /usr/share/fonts/truetype/ms_sans_serif`
+- Copy `micross.ttf` to `/usr/share/fonts/truetype/ms_sans_serif`
+- Copy `Extras/99-ms-sans-serif.conf` and `Extras/99-ms-sans-serif-bold.conf` to `/etc/fonts/conf.d`
 - Update the font cache by running `sudo fc-cache -f -v`
 
 To set the main font for the entire system, open the XFCE settings manager > Appearance > Fonts tab.  Set the "Default font" to Microsoft Sans Serif, style Regular, size 8.
 
-To set the title bar font, open the XFCE settings manager > Window Manager > Style tab.  Set the "Title font" to Microsoft Sans Serif, style Regular, size 8.
+To set the title bar font, open the XFCE settings manager > Window Manager > Style tab.  Set the "Title font" to Microsoft Sans Serif, style Bold, size 8.
 
 Finally, set the font for the Orage panel clock by right-clicking the panel clock, selecting Properties, then next to Line 1, change the font to Microsoft Sans Serif, style Regular, size 8.  Inside the Line 1 box, add two spaces before and after the value in the box, to apply some spacing.
 
