@@ -1415,9 +1415,11 @@ calendar.header {
  ************/
 
 expander arrow {
-    min-width: 16px;
-    min-height: 16px;
-}
+  min-width: 16px;
+  min-height: 16px; }
+
+treeview.view.expander {
+  -gtk-icon-transform: scale(1.7); }
 
 /************
  * iconview *
