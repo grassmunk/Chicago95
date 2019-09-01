@@ -14,6 +14,11 @@ XfdesktopIconView.view {
     background: rgba(0,0,50.2,0.5);
     border-radius: 0px; }
 
+.xfce4-panel {
+box-shadow: none;
+border: none;
+}
+
 /* Panel buttons */
 /* Note: The ".xfce4-panel > widget > frame" and ".xfce4-panel .flat:not(.toggle)" CSS classes are specified in this manner due to the volatility in the naming of CSS IDs presented by the XFCE panelbar.*/
 .xfce4-panel > widget > frame, /* affects the frame of the notification area plugin for GTK2 notifications. */
@@ -21,13 +26,17 @@ XfdesktopIconView.view {
 #sn-button, /* Specifying this class is redundant due to ".xfce4-panel .flat:not(.toggle)" but included for consistency. */
 #xfce4-notification-plugin,
 #pulseaudio-button,
-#xfce4-power-manager-plugin {
+#xfce4-power-manager-plugin,
+#indicator-button {
   padding: 0px;
   border: transparent;
   /*box-shadow: inset 0px 1px white;*/
   box-shadow: none;
   color: @panel_fg_color;
   background-color: transparent; }
+  #indicator-button:hover,
+  #indicator-button:active,
+  #indicator-button:checked,
   .xfce4-panel .flat:not(.toggle):hover,
   .xfce4-panel .flat:not(.toggle):active,
   .xfce4-panel .flat:not(.toggle):checked,
