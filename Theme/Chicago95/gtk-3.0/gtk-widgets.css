@@ -30,7 +30,7 @@
 
 .background {
     background-color: @theme_bg_color;
-    color: @theme_fg_color;}
+    color: @theme_fg_color; }
 
 iconview:selected,
 /*iconview in nautilus breaks without this, but with it radio and check buttons background break in lists... */
@@ -70,12 +70,14 @@ image:disabled,
 label,
 label:disabled,
 box,
-box:disabled,
+box:disabled {
+  background-color: transparent;
+  min-width: 0px;
+  min-height: 0px; }
+
 grid,
-grid:disabled {
-    background-color: transparent;
-    min-width: 0px;
-    min-height: 0px; }
+grid:disabled  {
+  background-color: @bg_color; }
 
 stepper,
 .stepper {
@@ -554,8 +556,24 @@ button.osd {
   .stack-switcher > button.needs-attention:checked > image {
     background-image: none; }
 .inline-toolbar button, .inline-toolbar button:backdrop {
+  margin: 1px;
   border-radius: 0px;
-  border-width: 1px; }
+  border-left: 1px solid @bg_bright;
+  border-top: 1px solid @bg_bright;
+  border-bottom: 1px solid @bg_shade;
+  border-right: 1px solid @bg_shade;
+  box-shadow: none; }
+  .inline-toolbar button:active {
+    border-left: 1px solid @bg_dark;
+    border-top: 1px solid @bg_dark;
+    border-bottom: 1px solid @bg_bright;
+    border-right: 1px solid @bg_bright;
+    box-shadow: inset 1px 1px @bg_shade; }
+  .inline-toolbar button:disabled {
+    border-left: 1px solid @bg_shade;
+    border-top: 1px solid @bg_shade;
+    border-bottom: 1px solid @bg_bright;
+    border-right: 1px solid @bg_bright; }
 .primary-toolbar button {
   -gtk-icon-shadow: none; }
 
@@ -707,77 +725,79 @@ frame {
   box-shadow: inset 1px 1px @bg_dark,
               inset -1px -1px @bg_color;
   background-color: @theme_bg_color; }
-  .frame {
-  background-color: transparent;}
   frame.border-outset {
     border-color: @bg_bright @bg_dark @bg_dark @bg_bright;
-    box-shadow: inset 1px 1px @bg_color,
-               inset -1px -1px @bg_shade; }
-    frame.border-inset {
-      border-color: @bg_shade @bg_bright @bg_bright @bg_shade;
-      box-shadow: inset 1px 1px @bg_dark,
-                  inset -1px -1px @bg_color;
+    box-shadow: inset 1px 1px @bg_color, inset -1px -1px @bg_shade; }
+  frame.border-inset {
+    border-color: @bg_shade @bg_bright @bg_bright @bg_shade;
+    box-shadow: inset 1px 1px @bg_dark, inset -1px -1px @bg_color;
       background-color: @theme_bg_color; }
   frame > list, frame > .view  {
     margin: -2px; }
-      frame > label {
-        margin-left: 6px; }
-  window > frame {
-    border-style: solid;
-    border-width: 1px;
-    border-color: @bg_color @bg_dark @bg_dark @bg_color;
-    box-shadow: inset 1px 1px @bg_bright,
-                inset -1px -1px @bg_shade;
-    border-radius: 0px; }
-  dialog box box notebook stack box frame {
-    border-left: 1px solid @bg_shade;
-    border-top: 1px solid @bg_shade;
-    border-right: 1px solid white;
-    border-bottom: 1px solid white;
-    box-shadow: inset 1px 1px white,
-                inset -1px -1px @bg_shade; }
-    dialog box box box notebook stack grid frame {
-      border-left: 1px solid @bg_shade;
-      border-top: 1px solid @bg_shade;
-      border-right: 1px solid white;
-      border-bottom: 1px solid white;
-      box-shadow: inset 1px 1px white,
-                  inset -1px -1px @bg_shade; }
-  viewport.frame > frame, viewport.frame > box > frame {
-    background-color: @base_color;
-    color: @font_color; }
-  scrolledwindow.frame {
-    padding: 1px;
-    background-color: white;
-    border-left: 1px solid @bg_dark;
-    border-top: 1px solid @bg_dark;
-    border-right: 1px solid @bg_bright;
-    border-bottom: 1px solid @bg_bright;
-    box-shadow: inset -1px -1px @bg_color,
-                inset 1px 1px @bg_shade;
-    margin: 0px; }
-    notebook.frame {
-      border-style: solid;
-      border-width: 1px;
-      border-color: @bg_color @bg_dark @bg_dark @bg_color;
-      box-shadow: inset 1px 1px @bg_bright,
-                  inset -1px -1px @bg_shade;
-      border-radius: 0px; }
-    notebook stack frame, frame frame {
-      border-left: 1px solid @bg_shade;
-      border-top: 1px solid @bg_shade;
-      border-right: 1px solid white;
-      border-bottom: 1px solid white;
-      box-shadow: inset 1px 1px white,
-                  inset -1px -1px @bg_shade; }
-  .osd.frame {
-    background-clip: border-box;
-    background-origin: border-box; }
-  statusbar frame {
-    padding: 1px;
-    border-left: 1px solid @bg_shade;
-    border-top: 1px solid @bg_shade;
-    box-shadow: none; }
+  frame > label {
+    margin-left: 6px; }
+
+dialog box box notebook stack box frame {
+  border-left: 1px solid @bg_shade;
+  border-top: 1px solid @bg_shade;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  box-shadow: inset 1px 1px white, inset -1px -1px @bg_shade; }
+dialog box box box notebook stack grid frame {
+  border-left: 1px solid @bg_shade;
+  border-top: 1px solid @bg_shade;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  box-shadow: inset 1px 1px white, inset -1px -1px @bg_shade; }
+
+/*viewport.frame > frame, viewport.frame > box > frame {
+  background-color: @base_color;
+  color: @font_color; }*/
+
+scrolledwindow.frame {
+  padding: 1px;
+  background-color: white;
+  border-left: 1px solid @bg_dark;
+  border-top: 1px solid @bg_dark;
+  border-right: 1px solid @bg_bright;
+  border-bottom: 1px solid @bg_bright;
+  box-shadow: inset -1px -1px @bg_color, inset 1px 1px @bg_shade;
+  margin: 0px; }
+
+notebook.frame {
+  border-style: solid;
+  border-width: 1px;
+  border-color: @bg_color @bg_dark @bg_dark @bg_color;
+  box-shadow: inset 1px 1px @bg_bright, inset -1px -1px @bg_shade;
+  border-radius: 0px; }
+notebook stack frame, frame frame {
+  border-left: 1px solid @bg_shade;
+  border-top: 1px solid @bg_shade;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  box-shadow: inset 1px 1px white, inset -1px -1px @bg_shade; }
+notebook scrolledwindow frame {
+  background-color: @bg_color; }
+
+.osd.frame {
+  background-clip: border-box;
+  background-origin: border-box; }
+
+statusbar frame {
+  padding: 1px;
+  border-left: 1px solid @bg_shade;
+  border-top: 1px solid @bg_shade;
+  box-shadow: none; }
+
+.frame {
+  background-color: transparent;}
+
+window > frame {
+  border-style: solid;
+  border-width: 1px;
+  border-color: @bg_color @bg_dark @bg_dark @bg_color;
+  box-shadow: inset 1px 1px @bg_bright, inset -1px -1px @bg_shade;
+  border-radius: 0px; }
 
 /****************************
  * viewport, iconview, view *
@@ -1024,9 +1044,8 @@ paned.vertical > separator {
   border-bottom: none;
   border-top: none;
   background: none;
-  box-shadow: inset 0px 1px @bg_shade;
-  margin: 4px;
-}
+  /*box-shadow: inset 0px 1px @bg_shade;*/
+  margin: 0px; }
 
 /* GTK has the panes flipped. the .horizontal is ACTUALLY a vertical.*/
 paned.horizontal > separator {
@@ -1036,9 +1055,8 @@ paned.horizontal > separator {
   border-bottom: none;
   border-top: none;
   background: none;
-  box-shadow: inset 1px 0px @bg_shade;
-  margin: 4px;
-}
+  /*box-shadow: inset 1px 0px @bg_shade;*/
+  margin: 0px; }
 
 
 toolbar > separator {
@@ -1122,92 +1140,134 @@ box.vertical.linked > button {
  ************/
 
 combobox {
-  margin: -2px; }
-
-combobox window menu {
-    background-color: @bg_color;
-    color: @fg_color;
-    border: none;
-    box-shadow: none;
-}
-
-combobox entry {
-    min-width: 20px;
-    min-height: 20px;
-}
-
-combobox cellview {
-    padding-left: 2px;
-}
-
-combobox button {
-  padding: 0px;
-  margin: 0px;
-  min-width: 20px;
-  min-height: 20px; }
+  background-color: @bg_color; }
+  combobox button {
+    padding: 2px;
+    margin: 0px;
+    min-width: 16px;
+    min-height: 16px;
+    outline: none; }
   combobox button.combo {
     margin: 2px; }
-
-combobox button arrow {
-  padding: 0px;
-  margin: 0px;
-  min-width: 20px;
-  min-height: 20px;
-  border: 1px solid transparent; }
-  combobox button:disabled arrow {
-  background-image: url("assets/arrow-down-disabled.png");}
+  combobox button arrow {
+    padding: 0px;
+    margin: 0px;
+    min-width: 16px;
+    min-height: 16px;
+    border: 1px solid transparent; }
+    combobox button:disabled arrow {
+      background-image: url("assets/arrow-down-disabled.png"); }
+  combobox entry, entry {
+    min-width: 20px;
+    min-height: 16px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    min-height: 16px;
+    border: 1px solid @bg_shade;
+    box-shadow: none; }
+  combobox cellview {
+    padding-left: 2px; }
+  combobox arrow {
+    -gtk-icon-source: url("assets/arrow-down_test.png");
+    -gtk-icon-transform: scale(0.39); }
+    combobox:disabled arrow {
+      -gtk-icon-source: url("assets/arrow-down-disabled.png");
+      -gtk-icon-transform: scale(0.5); }
+  combobox window menu {
+    background-color: @bg_color;
+    color: @text_color;
+    border: none;
+    box-shadow: none; }
 
 /*************
  * scrollbar *
  *************/
 
-scrollbar button {
-    margin: 0px;
-    padding: 0px;
-    background-color: @bg_color;
-    -gtk-icon-source: none;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-width: 0px;
-    border-style: solid;
-    min-width: 16px;
-    min-height: 16px;
-    box-shadow: none;
-}
-
-scrollbar button:active {
-    margin: 0px;
-    padding: 0px;
-    background-color: @bg_color;
-    -gtk-icon-source: none;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-width: 0px;
-    border-style: solid;
-    min-width: 16px;
-    min-height: 16px;
-    box-shadow: none;
-}
-
-
-scrollbar slider {
-    margin: 0px;
+scrollbar {
+  border-top: 0px solid; 
+   border-bottom: 0px solid;
+   border: none;
+   background-color: @bg_color; }
+   scrollbar trough {
+   border: none;
+   border-radius: 0; }
+  scrollbar slider {
+    margin-top: 0px;
     padding: 0px;
     background-color: @bg_color;
     border-color: @bg_color @bg_dark @bg_dark @bg_color;
-    box-shadow: inset 1px 1px @selected_fg_color,
-                inset -1px -1px @bg_shade;
+    box-shadow: inset 1px 1px @selected_fg_color, inset -1px -1px @bg_shade;
     border-style: solid;
     border-width: 1px;
     min-width: 14px;
-    min-height: 14px;
-}
-
-scrollbar {
+    min-height: 14px; }
+  /* This is for Libreoffice scrollbar buttons */
+  scrollbar button,
+  scrollbar .button {
+    background-image: url("scrollbar/scrollbar_button.png");
+    background-position: center; /* Note: This can affect other applications, such as Whisker Menu */
+    background-repeat: no-repeat; /* Note: This can affect other applications, such as Whisker Menu */
+    min-height: 16px;
+    min-width: 16px; 
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    background-color: @bg_color;
+    box-shadow: none; }
+    scrollbar button:disabled {
+      background-image: url("scrollbar/scrollbar_button_disabled.png"); }
+    scrollbar button:active,
+    scrollbar .button:active {
+      min-width: 16px;
+      min-height: 16px;
+      border: 1px solid @bg_shade; 
+      background-color: @bg_color;
+      background-image: none;
+      box-shadow: none; }
+  /* Every other scrollbar that isn't Libreoffice */
+  scrollbar button.up,
+  scrollbar button.down,
+  scrollbar button.left,
+  scrollbar button.right {
+    margin: 0px;
+    padding: 0px;
+    background-color: @bg_color;
+    -gtk-icon-source: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: none;
+    border-width: 0px;
+    border-style: solid;
+    min-width: 16px;
+    min-height: 16px; }
+    scrollbar button.up:disabled,
+    scrollbar button.down:disabled,
+    scrollbar button.left:disabled,
+    scrollbar button.right:disabled {
+      box-shadow: inset 1px 1px @bg_shade; }
+    scrollbar button.up:active,
+    scrollbar button.down:active,
+    scrollbar button.left:active,
+    scrollbar button.right:active {
+      border: none;
+      box-shadow: none; }
+  /* Scrollbar buttons for GTK3 applications (such as Firefox or Thunderbird) using deprecated selectors */
+  scrollbar .button {
+    -gtk-icon-source: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-width: 0px;
     min-width: 16px;
     min-height: 16px;
-    border-width: 0px;
-}
+    box-shadow: none; }
+    scrollbar .button:active {
+      -gtk-icon-source: none;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-width: 0px;
+      min-width: 16px;
+      min-height: 16px;
+      box-shadow: none; }
 
 /* where is the junction? in scrollablewindow? doesent exists anymore? */
 scrollbar.junction,
@@ -1218,124 +1278,47 @@ scrollbar .junction {
     background-color: red;
 }
 
+/* Vertical scrollbar button icons */
 scrollbar.vertical button.up,
-.scrollbar.button.vertical.top {
-    background-image: url("scrollbar/stepper-up.png");
-}
-
-scrollbar.vertical button.up:active {
-    background-image: url("scrollbar/stepper-up-active.png");
-}
-
-scrollbar.vertical button.up:disabled {
-    background-image: url("scrollbar/stepper-up-insense.png");
-}
-
-scrollbar.vertical button.down {
-    background-image: url("scrollbar/stepper-down.png");
-}
-
-scrollbar.vertical button.down:active {
-    background-image: url("scrollbar/stepper-down-active.png");
-}
-
-scrollbar.vertical button.down:disabled {
-    background-image: url("scrollbar/stepper-down-insense.png");
-}
-
-scrollbar.horizontal button.up {
-    background-image: url("scrollbar/stepper-left.png");
-}
-
-scrollbar.horizontal button.up:active {
-    background-image: url("scrollbar/stepper-left-active.png");
-}
-
-scrollbar.horizontal button.up:disabled {
-    background-image: url("scrollbar/stepper-left-insense.png");
-}
-
-scrollbar.horizontal button.down {
-    background-image: url("scrollbar/stepper-right.png");
-}
-
-scrollbar.horizontal button.down:active {
-    background-image: url("scrollbar/stepper-right-active.png");
-}
-
-scrollbar.horizontal button.down:disabled {
-    background-image: url("scrollbar/stepper-right-insense.png");
-}
-
-/* Scrollbar buttons for older GTK3 applications (such as Firefox or Thunderbird) */
-
-scrollbar .button {
-    -gtk-icon-source: none;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-width: 0px;
-    min-width: 16px;
-    min-height: 16px;
-    box-shadow: none;
-}
-
-scrollbar .button:active {
-    -gtk-icon-source: none;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-width: 0px;
-    min-width: 16px;
-    min-height: 16px;
-    box-shadow: none;
-}
-
 scrollbar .button.vertical.top {
-    background-image: url("scrollbar/stepper-up.png");
-}
-
-scrollbar .button.vertical.top:active {
-    background-image: url("scrollbar/stepper-up-active.png");
-}
-
-scrollbar .button.vertical.top:disabled {
-    background-image: url("scrollbar/stepper-up-insense.png");
-}
-
+  background-image: url("scrollbar/stepper-up.png"); }
+  scrollbar.vertical button.up:active,
+  scrollbar .button.vertical.top:active {
+    background-image: url("scrollbar/stepper-up-active.png"); }
+  scrollbar.vertical button.up:disabled,
+  scrollbar .button.vertical.top:disabled {
+    background-image: url("scrollbar/stepper-up-insense.png"); }
+scrollbar.vertical button.down,
 scrollbar .button.vertical.bottom {
-    background-image: url("scrollbar/stepper-down.png");
-}
+  background-image: url("scrollbar/stepper-down.png"); }
+  scrollbar.vertical button.down:active,
+  scrollbar .button.vertical.bottom:active {
+    background-image: url("scrollbar/stepper-down-active.png"); }
+  scrollbar.vertical button.down:disabled,
+  scrollbar .button.vertical.bottom:disabled {
+    background-image: url("scrollbar/stepper-down-insense.png");}
 
-scrollbar .button.vertical.bottom:active {
-    background-image: url("scrollbar/stepper-down-active.png");
-}
-
-scrollbar .button.vertical.bottom:disabled {
-    background-image: url("scrollbar/stepper-down-insense.png");
-}
-
+/* Horizontal scrollbar button icons */
+scrollbar.horizontal button.up,
 scrollbar .button.horizontal.left {
-    background-image: url("scrollbar/stepper-left.png");
-}
-
-scrollbar .button.horizontal.left:active {
-    background-image: url("scrollbar/stepper-left-active.png");
-}
-
-scrollbar .button.horizontal.left:disabled {
-    background-image: url("scrollbar/stepper-left-insense.png");
-}
-
+  background-image: url("scrollbar/stepper-left.png"); }
+  scrollbar.horizontal button.up:active,
+  scrollbar .button.horizontal.left:active {
+    background-image: url("scrollbar/stepper-left-active.png"); }
+  scrollbar.horizontal button.up:disabled,
+  scrollbar .button.horizontal.left:disabled {
+    background-image: url("scrollbar/stepper-left-insense.png"); }
+scrollbar.horizontal button.down,
 scrollbar .button.horizontal.right {
-    background-image: url("scrollbar/stepper-right.png");
-}
+  background-image: url("scrollbar/stepper-right.png"); }
+  scrollbar.horizontal button.down:active,
+  scrollbar .button.horizontal.right:active {
+    background-image: url("scrollbar/stepper-right-active.png"); }
+  scrollbar.horizontal button.down:disabled,
+  scrollbar .button.horizontal.right:disabled {
+    background-image: url("scrollbar/stepper-right-insense.png"); }
 
-scrollbar .button.horizontal.right:active {
-    background-image: url("scrollbar/stepper-right-active.png");
-}
 
-scrollbar .button.horizontal.right:disabled {
-    background-image: url("scrollbar/stepper-right-insense.png");
-}
 
 /*************
  * assistant *
@@ -1403,7 +1386,7 @@ expander arrow {
   min-height: 16px; }
 
 treeview.view.expander {
-  -gtk-icon-transform: scale(1.7); }
+  -gtk-icon-transform: scale(1.7); } /* NOTE: This is specific for GTK3.22! */
 
 /************
  * iconview *
@@ -1508,11 +1491,11 @@ border-bottom: 2px solid transparent;
 
 menubar, 
 .menubar {
-    padding: 1px;
-	border-bottom: 1px solid white;
-	box-shadow: inset 0 -1px @selected_inactive_bg_color;
-    -GtkWidget-window-dragging: true;
-}
+  padding: 1px;
+  border-bottom: 1px solid white;
+  box-shadow: inset 0 -1px @selected_inactive_bg_color;
+  -GtkWidget-window-dragging: true;
+  background-color: @bg_color; }
 
 
 /***************
@@ -1533,6 +1516,12 @@ menu menuitem {
     padding-top: 2px;
     padding-bottom: 2px;
     background-color: @menu_bg_color;
+}
+
+/* we dont want any extra padding in those */
+menuitem > window,
+window > menu {
+    padding: 0px;
 }
 
 menuitem:active,
@@ -2310,32 +2299,45 @@ GtkSidebarRow .sidebar-label:dir(rtl) {
  * spinbutton *
  **************/
 
-spinbutton.horizontal button {
-    padding: 0px;
-    margin-top: 2px;
-    margin-bottom: 2px;
+spinbutton:not(.vertical) {
+  min-height: 16px;
+  border: 1px solid @bg_shade;
+  border-radius: 0px;
+  background-color: @bg_color; }
+  spinbutton:not(.vertical) entry {
+    min-width: 28px;
+    margin: 0;
+    background: none;
+    background-color: @base_color;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none; }
+  spinbutton:not(.vertical) button {
     min-height: 16px;
     min-width: 16px;
-}
-
-spinbutton.horizontal entry {
-    margin: 2px;
-    min-width: 35px;
-    min-height: 16px;
-}
-
-spinbutton.vertical button {
-    margin: 1px;
-    min-height: 16px;
-    min-width: 16px;
-    padding: 0px;
-}
-
-spinbutton.vertical entry {
-    min-width: 16px;
-    min-height: 16px;
-    padding: 2px;
-}
+    margin-right: -1px;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    padding-bottom: 0px;
+    padding-top: 0;
+    background-image: none;
+    /*border-style: none none none solid;*/
+    border-left: 1px solid @bg_shade;
+    border-top: 1px solid @bg_shade;
+    border-right: 1px solid @bg_shade;
+    border-bottom: 1px solid black;
+    border-radius: 0px;
+    box-shadow: inset 1px 1px @bg_bright; }
+    /* For some reason this has to be specified on its own or else Libreoffice doesn't colour the spinbuttons */
+    spinbutton:not(.vertical) button {
+      color: @bg_dark;
+      background-color: rgba(192, 192, 192, 0.05); }
+    spinbutton:not(.vertical) button:active {
+      border-left: 1px solid @bg_dark;
+      border-top: 1px solid @bg_dark;
+      border-right: 1px solid @bg_bright;
+      border-bottom: 1px solid @bg_bright;
+      box-shadow: inset 1px 1px @bg_shade }
 
 /**********
  * switch *
@@ -2511,6 +2513,11 @@ border-bottom: none;
 box-shadow: none;
 }
 
+overlay frame {
+border: none;
+box-shadow: none;
+}
+
 /* toolitem box button */
 toolitem button {
 background-color: @bg_color;
@@ -2572,14 +2579,14 @@ headerbar box button image {
  ***********/
 
 toolbar {
-    -GtkWidget-window-dragging: true;
-    padding: 4px;
-    border-left: 0px;
-    border-right: 0px;
-    border-bottom: 1px solid;
-    border-color: @bg_color @bg_color @bg_bright @bg_color;
-    box-shadow: inset 0px -1px @bg_shade;
-}
+  -GtkWidget-window-dragging: true;
+  padding: 4px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 1px solid;
+  border-color: @bg_color @bg_color @bg_bright @bg_color;
+  box-shadow: inset 0px -1px @bg_shade;
+  background-color: @bg_color; }
 
 toolbar button {
   margin: 1px;
@@ -2588,7 +2595,7 @@ toolbar button {
   padding: 2px;
   border-color: @bg_bright @bg_dark @bg_dark @bg_bright;
   box-shadow: inset -1px -1px @bg_shade; }
-  toolbar button:disabled {
+  toolbar > toolbutton > button:disabled {
     background-color: @border_bright;
     background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @border_dark);
     background-size: 2px 2px;
@@ -2634,158 +2641,131 @@ window.ssd .titlebar:backdrop {
     background-color: @selected_inactive_bg_color;
     color: @selected_inactive_fg_color;
 }
-/*
-.default-decoration
-{
-background-color: red;
-border: 0px solid @bg_color;
-border-bottom: 0px;
-border-radius: 0px;
-}
- */
 
-window.ssd .titlebar label{
-    padding: 0px;
-    margin: 0px;
-    font-size: 8pt;
-    color: @selected_fg_color;
-}
-
-window.ssd .titlebar label:backdrop,
-window.ssd .titlebar:backdrop label{
-    color: @selected_inactive_fg_color;
-}
-
-headerbar,
-.titlebar {
-    padding: 0px;
-    padding-left: 2px;
-    padding-right: 2px;
-    margin: 0px;
-    background-color: @selected_bg_color;
-    background-image: none;
-    text-shadow: none;
-}
-
-headerbar:backdrop,
-.titlebar:backdrop {
-    background-image: none;
-    background-color: @selected_inactive_bg_color;
-}
-
-headerbar > label,
-.titlebar > label,
-headerbar > box > label,
-.titlebar > box > label {
-    font-size: 8pt;
-    color: @selected_fg_color;
-}
-
-headerbar:backdrop > label,
-.titlebar:backdrop > label,
-headerbar:backdrop > box > label,
-.titlebar:backdrop > box > label {
-    color: @selected_inactive_fg_color;
-}
-
-headerbar entry {
-    margin: 3px;
-    padding-top: 1px;
-    padding-bottom: 1px;
-}
-
-/* we dont want any extra padding in those */
-menuitem > window,
-window > menu {
-    padding: 0px;
-}
-
-.titlebar button  {
-    margin: 0px;
-    padding: 0px;
-    min-height: 16px;
-	min-width: 16px;
-}
-
-.titlebar button label  {
-    padding-left: 4px;
-    padding-right: 4px;
-}
-
-/* following button definitions allows us to have slim buttons on
- * headerbars with no big elements while still maintaining a good
- * looking headerbar with big elements */
-.titlebar button:not(.titlebutton) {
-    padding-top: 0px;
-	padding-bottom: 0px;
-	padding-left: 1px;
-	padding-right: 1px;
-	margin-top: 2px;
-	margin-bottom: 2px;
-	min-height: 16px;
-	min-width: 16px;
-}
-
-
-headerbar button:not(.titlebutton) > image {
-	border: solid 1px;
-	border-color: transparent;
-	padding-left: 3px;
-	padding-right: 3px;
-	margin-top: -3px;
-	margin-bottom: -3px;
-}
-
-headerbar button:active:not(.titlebutton) > image {
-	border: solid;
-	border-color: transparent;
-	border-left-width: 2px;
-	border-right-width: 0px;
-	border-top-width: 2px;
-	border-bottom-width: 0px;
-}
-
-headerbar separator {
-	margin-right: 3px;
-	border-left-width: 1px;
-	border-style: solid;
-}
-
-headerbar scale {
-    margin-top: 4px;
-    margin-bottom: -6px;
-}
+/* Window server-side decorations (SSD) */
+window.ssd headerbar,
+window.ssd .titlebar,
+headerbar {
+  border-radius: 0px;
+  padding: 0px;
+  background-color: @selected_bg_color;
+  background-image: none;
+  text-shadow: none; }
+    window.ssd .titlebar:backdrop {
+      padding: 0px;
+      margin: 0px;
+      background-color: @selected_inactive_bg_color;
+      color: @selected_inactive_fg_color; }
+    window.ssd .titlebar label {
+      padding: 0px;
+      margin: 0px;
+      font-size: 8pt;
+      color: @selected_fg_color; }
+      window.ssd .titlebar label:backdrop,
+      window.ssd .titlebar:backdrop label{
+        color: @selected_inactive_fg_color; }
 
 window.csd tooltip {
     border-radius: 0;
     border: 0 none @border_dark;
-    box-shadow: none; 
-}
+    box-shadow: none; }
+
+headerbar,
+.titlebar {
+  padding: 0px;
+  padding-left: 2px;
+  padding-right: 2px;
+  background-color: @selected_bg_color;
+  background-image: none;
+  text-shadow: none; }
+  headerbar:backdrop,
+  .titlebar:backdrop {
+    background-image: none;
+    background-color: @selected_inactive_bg_color; }
+  headerbar > label,
+  .titlebar > label,
+  headerbar > box > label,
+  .titlebar > box > label {
+    font-size: 8pt;
+    color: @selected_fg_color; }
+    headerbar:backdrop > label,
+    .titlebar:backdrop > label,
+    headerbar:backdrop > box > label,
+    .titlebar:backdrop > box > label {
+      color: @selected_inactive_fg_color; }
+  headerbar entry {
+    margin: 3px;
+    padding-top: 1px;
+    padding-bottom: 1px; }
+  headerbar button:not(.titlebutton) > image {
+    border: solid 1px;
+    border-color: transparent;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-top: -3px;
+    margin-bottom: -3px; }
+    headerbar button:active:not(.titlebutton) > image {
+      border: solid;
+      border-color: transparent;
+      border-left-width: 2px;
+      border-right-width: 0px;
+      border-top-width: 2px;
+      border-bottom-width: 0px; }
+  headerbar separator {
+    margin-right: 3px;
+    border-left-width: 1px;
+    border-style: solid; }
+  headerbar scale {
+    margin-top: 4px;
+    margin-bottom: -6px; }
+
+.titlebar button {
+  margin: 0px;
+  padding: 0px;
+  min-height: 16px;
+  min-width: 16px; }
+  .titlebar button label  {
+    padding-left: 4px;
+    padding-right: 4px; }
+  /* The following button definitions allows us to have slim buttons on
+   * headerbars with no big elements while still maintaining a good
+   * looking headerbar with big elements */
+  .titlebar button:not(.titlebutton) {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    min-height: 16px;
+    min-width: 16px; }
+
+window.ssd.maximized headerbar,
+window.ssd.maximized .titlebar {
+  border: 0px;
+  border-bottom: 1px solid transparent;
+  box-shadow: none;
+  margin: 0px; }
 
 .maximized > decoration,
 window.maximized,
 window.tiled {
-    border: 0px;
-    box-shadow: none;
-    margin: 0px;
-}
-
-window.ssd.maximized headerbar,
-window.ssd.maximized .titlebar {
-    border: 0px;
-    border-bottom: 1px solid transparent;
-    box-shadow: none;
-    margin: 0px;
-}
+  border: 0px;
+  box-shadow: none;
+  margin: 0px; }
 
 .tiled headerbar,
 .maximized headerbar,
 .tiled .titlebar,
 .maximized .titlebar {
-    border: 0px;
-    box-shadow: none;
-    border-radius: 0;
-}
+  border: 0px;
+  box-shadow: none;
+  border-radius: 0; }
+
+/* Removed the frame seen in Lireoffice. */
+window > grid > grid > scrolledwindow {
+  border: none;
+  box-shadow: none; }
 
 /******************
  * window buttons *
