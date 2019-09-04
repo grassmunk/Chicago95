@@ -85,7 +85,7 @@
   padding: 2px;
   margin: 0;
   color: @active_title_text;
-  background-image: linear-gradient(to right, @selected_bg_color, @transparent); /* Note: You can setup a gradient here if you want! */ }
+  /*background-image: linear-gradient(to right, @selected_bg_color, @transparent);*/ /* Note: You can setup a gradient here if you want! */ }
 #whiskermenu-window frame > box > box > box button image {
   padding: 0px; }
 #whiskermenu-window entry {
