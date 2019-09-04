@@ -1,4 +1,8 @@
-/* Whisker Menu Button style */
+/**********************
+* Whisker Menu Button *
+**********************/
+
+/* FOR GTK3.22 */
 
 /* We will remove the border effect and margin effects on the button and apply it to the box inside. 
 This will allow people to be able to run their pointer to the far corner of the screen and activate 
@@ -33,8 +37,8 @@ the whisker menu without having to correct their pointer location. */
     margin-left: 1px;
     padding: 1px;
     background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center; }
+    background-size: contain;
+    background-position: center; }
   #whiskermenu-button label {
     padding: 0px;
     margin-right: 1px;
@@ -45,22 +49,22 @@ the whisker menu without having to correct their pointer location. */
     font-weight: 600;
     font-size: 11px; }
 
-/****************
-* Whisker Menu **
-****************/
+/***************
+* Whisker Menu *
+***************/
 
 #whiskermenu-window treeview {
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 2px;
   padding-bottom: 2px; }
-  #whiskermenu-window button {
-    padding: 2px;
-    min-height: 16px; }
-    #whiskermenu-window button:not(:hover):not(:checked) {
-      border-color: transparent;
-      box-shadow: none;
-      background-color: transparent; }
+#whiskermenu-window button {
+  padding: 2px;
+  min-height: 16px; }
+  #whiskermenu-window button:not(:hover):not(:checked) {
+    border-color: transparent;
+    box-shadow: none;
+    background-color: transparent; }
 #whiskermenu-window separator {
   margin: 5px; }
 #whiskermenu-window scrolledwindow {
@@ -95,13 +99,13 @@ the whisker menu without having to correct their pointer location. */
   border: 1px solid @bg_shade;
   padding: 0px; }
 #whiskermenu-window frame > box > box > box button image {
-    padding: 0px; }
-  #whiskermenu-window entry {
-    margin-top: 3px;
-    margin-bottom: 3px;
-    min-height: 16px; }
-   #whiskermenu-window frame, #whiskermenu-window GtkListBox, #whiskermenu-window scrolledwindow, #whiskermenu-window viewport {
-   background-color: transparent;}
+  padding: 0px; }
+#whiskermenu-window entry {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  min-height: 16px; }
+#whiskermenu-window frame, #whiskermenu-window GtkListBox, #whiskermenu-window scrolledwindow, #whiskermenu-window viewport {
+  background-color: transparent;}
 #whiskermenu-window scrollbar button {
   margin: 0px;
   padding: 0px;
