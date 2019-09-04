@@ -1,4 +1,6 @@
-/* Xfdesktop */
+/************
+* Xfdesktop *
+************/
 
 XfdesktopIconView.view {
   background: @xfd_icon_backdrop;
@@ -14,50 +16,51 @@ XfdesktopIconView.view {
     background: rgba(0,0,50.2,0.5);
     border-radius: 0px; }
 
-.xfce4-panel {
-box-shadow: none;
-border: none;
-}
+/*****************
+* XFCE Panel Bar *
+*****************/
 
-/* Panel buttons */
-/* Note: The ".xfce4-panel > widget > frame" and ".xfce4-panel .flat:not(.toggle)" CSS classes are specified in this manner due to the volatility in the naming of CSS IDs presented by the XFCE panelbar.*/
-.xfce4-panel > widget > frame, /* affects the frame of the notification area plugin for GTK2 notifications. */
-.xfce4-panel .flat:not(.toggle), /* affects the launcher buttons as well and the status notifier plugin. */
-#sn-button, /* Specifying this class is redundant due to ".xfce4-panel .flat:not(.toggle)" but included for consistency. */
-#xfce4-notification-plugin,
-#pulseaudio-button,
-#xfce4-power-manager-plugin,
-#indicator-button {
-  padding: 0px;
-  border: transparent;
-  /*box-shadow: inset 0px 1px white;*/
+.xfce4-panel {
   box-shadow: none;
-  color: @panel_fg_color;
-  background-color: transparent; }
-  #indicator-button:hover,
-  #indicator-button:active,
-  #indicator-button:checked,
-  .xfce4-panel .flat:not(.toggle):hover,
-  .xfce4-panel .flat:not(.toggle):active,
-  .xfce4-panel .flat:not(.toggle):checked,
-  #sn-button:hover,
-  #sn-button:active,
-  #sn-button:checked,
-  #xfce4-notification-plugin:hover,
-  #xfce4-notification-plugin:active,
-  #xfce4-notification-plugin:checked,
-  #pulseaudio-button:hover,
-  #pulseaudio-button:active,
-  #pulseaudio-button:checked,
-  #xfce4-power-manager-plugin:hover,
-  #xfce4-power-manager-plugin:active,
-  #xfce4-power-manager-plugin:checked {
+  border: none; }
+  /* Note: The ".xfce4-panel > widget > frame" and ".xfce4-panel .flat:not(.toggle)" CSS classes are specified in this manner due to the volatility in the naming of CSS IDs presented by the XFCE panelbar.*/
+  .xfce4-panel > widget > frame, /* affects the frame of the notification area plugin for GTK2 notifications. */
+  .xfce4-panel .flat:not(.toggle), /* affects the launcher buttons as well and the status notifier plugin. */
+  #sn-button, /* Specifying this class is redundant due to ".xfce4-panel .flat:not(.toggle)" but included for consistency. */
+  #xfce4-notification-plugin,
+  #pulseaudio-button,
+  #xfce4-power-manager-plugin,
+  #indicator-button {
+    padding: 0px;
     border: transparent;
+    /*box-shadow: inset 0px 1px white;*/
     box-shadow: none;
-    color: @panel_fg_color_bright;
-    background-color: @selected_bg_color; }
-  #xfce4-power-manager-plugin {
-    margin-bottom: -2px; }
+    color: @panel_fg_color;
+    background-color: transparent; }
+    #indicator-button:hover,
+    #indicator-button:active,
+    #indicator-button:checked,
+    .xfce4-panel .flat:not(.toggle):hover,
+    .xfce4-panel .flat:not(.toggle):active,
+    .xfce4-panel .flat:not(.toggle):checked,
+    #sn-button:hover,
+    #sn-button:active,
+    #sn-button:checked,
+    #xfce4-notification-plugin:hover,
+    #xfce4-notification-plugin:active,
+    #xfce4-notification-plugin:checked,
+    #pulseaudio-button:hover,
+    #pulseaudio-button:active,
+    #pulseaudio-button:checked,
+    #xfce4-power-manager-plugin:hover,
+    #xfce4-power-manager-plugin:active,
+    #xfce4-power-manager-plugin:checked {
+      border: transparent;
+      box-shadow: none;
+      color: @panel_fg_color_bright;
+      background-color: @selected_bg_color; }
+    #xfce4-power-manager-plugin {
+      margin-bottom: -2px; }
 
 #clock-button {
   border: 2px solid transparent;
@@ -65,6 +68,7 @@ border: none;
   margin: 0px;
   background-color: transparent; }
 
+/*  Workspace switcher */
 wnck-pager {
   color: white; }
   wnck-pager:selected {
@@ -87,15 +91,15 @@ wnck-pager {
     border-bottom: 1px solid @bg_dark;
     box-shadow: inset -1px -1px @bg_shade; }
     .tasklist .toggle:checked box {
-       /*font-family: "NotoSans-Bold";*/
-       font-weight: bold;
-       border-left: 1px solid @bg_dark;
-       border-top: 1px solid @bg_dark;
-       border-right: 1px solid @bg_bright;
-       border-bottom: 1px solid @bg_bright;
-       box-shadow: inset 1px 1px @bg_shade, inset -1px -1px @bg_color;
-       background-color: @border_bright;
-       background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @border_dark);
+      /*font-family: "NotoSans-Bold";*/
+      font-weight: bold;
+      border-left: 1px solid @bg_dark;
+      border-top: 1px solid @bg_dark;
+      border-right: 1px solid @bg_bright;
+      border-bottom: 1px solid @bg_bright;
+      box-shadow: inset 1px 1px @bg_shade, inset -1px -1px @bg_color;
+      background-color: @border_bright;
+      background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @border_dark);
        background-size: 2px 2px;
        background-position: 0 0, 1px 1px; }
        .tasklist .toggle label {
