@@ -12,6 +12,7 @@
     * [Vertical Panelbar](#vert_panel)
 * [Start Buttons](#start_buttons)
 * [Additional Enhancements](#add_enhance)
+    * [GTK3 override configuration](#gtk3_override)
     * [Launcher Button icon scaling](#button_scale) (*For legacy GTK2 panelbars only*)
     * [Thunar status indicator](#thunar)
     * [QT5 theme configration with qt5ct](#config_qt5ct)
@@ -59,16 +60,6 @@ Copy the GTK theme from `Chicago95-master/Theme/` folder into `.themes`.
 Copy the icon themes from `Chicago95-master/Icons/` folder into `.icons`.
 
     cp -r Chicago95-master/Icons/* ~/.icons
-
-Copy the GTK3 CSS override file from `Chicago95-master/Extras/override/` into `/home/$USER/.config/gtk-3.0/`.
-
-    cp Chicago95-master/Extras/override/gtk.css ~/.config/gtk-3.0/
-
-*Note 1: You may have to create the "gtk-3.0" directory if it's not there.*
-
-    mkdir -p ~/.config/gtk-3.0
-
-*Note 2: If you ever want to change your system theme to anything else, don't forget to remove the `gtk.css` override file! It makes adjustments based on this theme which might break other themes.*
 
 #### Step 3:
 
@@ -145,17 +136,17 @@ The following steps will guide you through configuring the XFCE4 panelbar to res
 - From the Display tab set the panel mode to "Horizontal."
 - Check "Lock Panel."
 - Set "Automatically hide the panel" to "Never."
-- Row Size (pixels): Can be at, or between, 24px to 32px; If your are using the GTK2 version of the XFCE panelbar, use even numbers for the row size since odd number row sizes will cause icon scaling issues for launcher buttons and status icons.
+- Row Size (pixels): Can be at, or between, 24px to 32px; If your are using the 4.12 version of the XFCE panelbar, use even numbers for the row size since odd number row sizes will cause icon scaling issues for launcher buttons and status icons.
 - Number of rows will be "1."
 - Length will be 100%.
 
 #### Step 2: Setting the panelbar appearance
 
 - In the Appearance tab set the background style to "None (use system style.)"
-- Disable the icons setting "Adjust size automatically" (*this option is not present for the GTK2 panelbar*)
-- Set "Fixed Icon Size" to 16. (*this option is not present for the GTK2 panelbar*)
+- Disable the icons setting "Adjust size automatically" (*this option is only available for the 4.14 version panelbar*)
+- Set "Fixed Icon Size" to 16. (*this option is only available for the 4.14 version panelbar*)
 
-*Note: For GTK2 panelbar users, if you want to adjust the icon scaling of your launcher buttons, see [Launcher button icon scaling](#button_scale)*
+*Note: For 4.12 version panelbar users, if you want to adjust the icon scaling of your launcher buttons, see [Launcher button icon scaling](#button_scale)*
 
 #### Step 3: Adding panelbar plugins
 Open the XFCE settings manager > Panel > Items
@@ -164,7 +155,7 @@ Here's an organized list for the panel Items plugin layout.
 
 1. Application Menu or Whisker Menu;
 2. Separator (*Handle Style*);
-3. Custom Launchers can go here to resemble quick launch toolbar from Windows.;
+3. Custom Launchers can go here to resemble the quick launch toolbar from Windows.;
 4. “Show Desktop” plugin;
 5. Separator (*Handle Style*);
 6. Window Buttons (*Uncheck "Show flat buttons" and "Show Handle.;" Sorting Order: None; Window grouping: Never*);
@@ -183,17 +174,17 @@ Here's an organized list for the panel Items plugin layout.
 - From the Display tab set the panel mode to "Deskbar." (*The "vertical" option looks bad, this is why we'll go with deskbar.*)
 - Check "Lock Panel."
 - Set "Automatically hide the panel" to "Never."
-- Row Size (pixels): Can be at, or between, 24px to 32px; If your are using the GTK2 version of the XFCE panelbar, use even numbers for the row size since odd number row sizes will cause icon scaling issues for launcher buttons and status icons.
+- Row Size (pixels): Can be at, or between, 24px to 32px; If your are using the 4.12 version of the XFCE panelbar, use even numbers for the row size since odd number row sizes will cause icon scaling issues for launcher buttons and status icons.
 - Number of rows can be 1 or 2. 2 looks nice if you want a wide panelbar.
 - Length will be 100%.
 
 #### Step 2: Setting the panelbar appearance
 
 - In the Appearance tab set the background style to "None (use system style.)"
-- Disable the icons setting "Adjust size automatically" (*this option is not present for the GTK2 panelbar*)
-- Set "Fixed Icon Size" to 16. (*this option is not present for the GTK2 panelbar*)
+- Disable the icons setting "Adjust size automatically" (*this option is only available for the 4.14 version panelbar*)
+- Set "Fixed Icon Size" to 16. (*this option is only available for the 4.14 version panelbar*)
 
-*Note: For GTK2 panelbar users, if you want to adjust the icon scaling of your launcher buttons, see [Launcher button icon scaling](#button_scale)*
+*Note: For 4.12 panelbar users, if you want to adjust the icon scaling of your launcher buttons, see [Launcher button icon scaling](#button_scale)*
 
 #### Step 3: Adding panelbar plugins
 Open the XFCE settings manager > Panel > Items
@@ -220,14 +211,19 @@ Here's an organized list for the panel Items plugin layout.
 
 The following steps will guide you through setting up a MS Windows 95 themed "Start" button.
 
-Something to keep in mind, the Whisker Menu plugin is now GTK3 since XUbuntu 18.04. The Application Menu plugin as of XUbuntu 19.04 is GTK3.
+Something to keep in mind:
 
-Open the XFCE settings manager > Panel > Items tab > Double click the Whisker / Application menu item in the item list; alternatively you can also access their settings menu by right clicking the icon from he panelbar and selecting "properties."
+- The Whisker Menu plugin as of XFCE 4.13 is a GTK3 based application. Prior versions of the XFCE desktop utilized a GTK2 version.
+- The Application Menu plugin as of XFCE4.14 is a GTK3 based application. Prior versions of the XFCE desktop utilized a GTK2 version.
+
+*Note: Some distributions may implement older versions of the panelbar plugins, regardless of the XFCE desktop version.*
+
+Open the XFCE settings manager > Panel > Items tab > Double click the Whisker / Application menu item in the item list; alternatively you can also access their settings menu by right clicking the icon from the panelbar and selecting "properties."
 
 - In the Whisker / Application properties menu click the icon option (*This will appear as the icon badge on your start button that's currently in use.*)
 - In the "Select An Icon" window, navigate to `/home/$USER/.themes/Chicago95/misc` (*with $USER being your username.*) You may have to click the pull-down menu from "Select icon from" and then select "Image Files" so that you can navigate to a custom icon on your filesystem. You may also have to enable the filechooser to display hidden files. (*Press Ctrl+h to toggle this setting.*)
 
-`misc/` contains simple small icon badges in two sizes.
+`misc/` contains simple small icon badges in different sizes. You may have to experiment a little until you can find a size that fits correctly
 
 ....`misc/GTK2 start buttons/` contains start buttons that are used for the GTK2 version of the Whisker / Application Menu plugin.
 
@@ -244,10 +240,31 @@ Open the XFCE settings manager > Panel > Items tab > Double click the Whisker / 
 
 This section of the guide contains additional enchancements that can be made to improve the theme. These are all optional and might require some advanced knowledge of operating your system.
 
+<a name="gtk3_override"/>
+
+### [ GTK3 override configuration ]
+
+The GTK3 override configuration file can be used to make some additional minor enchantments to the theme. There are currently two versions of the configuration file that can be used.
+
+For XFCE 4.12 desktops, copy the configuration file from `Chicago95-master/Extras/override/gtk-3.22/` into `/home/$USER/.config/gtk-3.0/`.
+
+cp Chicago95-master/Extras/override/gtk-3.22/gtk.css ~/.config/gtk-3.0/
+
+For XFCE 4.14 desktops, copy the configuration file from `Chicago95-master/Extras/override/gtk-3.24/` into `/home/$USER/.config/gtk-3.0/`.
+
+cp Chicago95-master/Extras/override/gtk-3.24/gtk.css ~/.config/gtk-3.0/
+
+*Note 1: You may have to create the "gtk-3.0" directory if it's not there.*
+
+mkdir -p ~/.config/gtk-3.0
+
+*Note 2: If you ever want to change your system theme to anything else, don't forget to remove the `gtk.css` configuration file! It makes adjustments based on this theme which might break other themes.*
+
+
 <a name="button_scale"/>
 
 ### [ Launcher button icon scaling ] (advanced)
-(Note: This step shouldn't be neccesary for the GTK3.24 version of the XFCE panelbar as-seen from XUbuntu 19.04. This only applies to the GTK2 version as-seen in XUbuntu 18.04.)
+(Note: This step shouldn't be neccesary for the XFCE 4.14 panelbar as-seen from XUbuntu 19.04. This only applies to the XFCE 4.12 version as-seen in XUbuntu 18.04.)
 
 This might be a little complicated since it's more of a work-around than a good solution. I tried making this as simple as possible where you can just adjust configurations in a file. If there are questions or issues with the following instructions, open a ticket and I'll try to walk you through it.
 
@@ -273,17 +290,18 @@ If you use a vertical deskbar, you could add a second row from the panel propert
 
 <a name="thunar"/>
 
-### [ Thunar status indicator ]
+### [ Thunar status indicator ] (for XFCE 4.14)
 
-The thunar status indicator can be modified on line 57 in `/home/$USER/.themes/Chicago95/gtk-3.24/apps/thunar.css`. The line will appear as `background-image: url("../assets/status_badge_tux.png");`
+The thunar status indicator can be modified on line 81 in `/home/$USER/.themes/Chicago95/gtk-3.24/apps/thunar.css`. The line will appear as `background-image: url("../assets/status_badge_c95.png");`
 
-You can modify the background-image name with three of the following images.
+You can modify the background-image name with four of the following images.
 
+- status_badge_c95.png
 - status_badge_msw.png
 - status_badge_tux.png
 - status_badge_xue.png
 
-If you want to disable the background image you can delete the line as well as line 52 which sets the background colour.
+If you want to disable the background image you can delete the line as well as line 76 which sets the background colour.
 
 [[Return to Index]](#index)
 
@@ -352,21 +370,21 @@ If you want to use the default Windows 95 gray instead of a background image, ri
 ### [ Desktop icon effects (text shadows and label backdrop ) ] (advanced)
 Some options seen in the following steps may not be present across all versions of the XFCE desktop environment and can vary between different Linux distributions. To find which version of xfdesktop you are running you can run `xfdesktop --version` from a terminal.
 
-#### xfdesktop 4.13.3
-
-If you want to change the icon label backdrop colour or text colours, you'll have to edit the gtk.css theme file located in `/home/$USER/.themes/Chicago95/gtk-3.24/`.
-
-- Label backdrop colours can be modified on line 103 for "xfd_icon_backdrop."
-- Text color can be modified from line 104 for "xfd_icon_text."
-- You can use CSS colour properties. After any changes are made log out then log back in.
-
-#### xfdesktop 4.12.3
+#### xfdesktop 4.12
 
 If you want to change the icon label backdrop colour, text colours, or highlight colours you'll have to edit the gtkrc theme file located in `/home/$USER/.themes/Chicago95/gtk-2.0/`.
 
 - Text shadows can be modified from lines 553 to 559. These are currently commented out with "#."
 - Label backdrop colours can be modified on line numbers 565 to 570.
 - You can use CSS colour properties. After any changes are made log out then log back in.
+
+#### xfdesktop 4.14
+
+If you want to change the icon label backdrop colour or text colours, you'll have to edit the `gtk.css` configuration file located in `/home/$USER/.themes/Chicago95/gtk-3.24/`.
+
+- Label backdrop colours can be modified on line 105 for "xfd_icon_backdrop."
+- Text color can be modified from line 106 for "xfd_icon_text."
+- You can use CSS colour properties. After any changes are made, log out then log back in.
 
 <a name="cursors"/>
 

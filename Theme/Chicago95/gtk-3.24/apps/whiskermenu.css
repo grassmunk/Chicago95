@@ -1,16 +1,18 @@
-/* Whisker Menu Panel Button style */
+/* Whisker Menu and Application Menu Panel Button style */
 
 /* FOR GTK3.24 */
 
 /* We will remove the border effect and margin effects on the button and apply it to the box inside. 
 This will allow people to be able to run their pointer to the far corner of the screen and activate 
 the whisker menu without having to correct their pointer location. */
-#whiskermenu-button {
+#whiskermenu-button,
+#applicationmenu-button {
   border: none;
   box-shadow: none;
   margin: 0px;
   background-color: transparent; }
-  #whiskermenu-button box {
+  #whiskermenu-button box,
+  #applicationmenu-button box {
     padding: 2px;
     margin: 1px;
     border-top: 1px solid @bg_bright;
@@ -20,7 +22,9 @@ the whisker menu without having to correct their pointer location. */
     box-shadow: inset -1px -1px @bg_shade;
     background-color: @bg_color; }
     #whiskermenu-button:active box,
-    #whiskermenu-button:checked box {
+    #whiskermenu-button:checked box,
+    #applicationmenu-button:active box,
+    #applicationmenu-button:checked box {
       padding-left: 3px;
       padding-right: 1px;
       margin: 1px;
@@ -30,17 +34,15 @@ the whisker menu without having to correct their pointer location. */
       border-left: 1px solid @bg_dark;
       box-shadow: inset -1px -1px @bg_color, inset 1px 1px @bg_shade;
       border-radius: 0px; }
-  #whiskermenu-button image {
-    margin-right: -4px;
-    margin-left: 1px;
+  #whiskermenu-button image,
+  #applicationmenu-button image {
     padding: 1px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center; }
-  #whiskermenu-button label {
-    padding: 0px;
-    margin-right: 1px;
-    margin-left: -1px;
+  #whiskermenu-button label,
+  #applicationmenu-button label {
+    padding: 1px;
     border: none;
     color: black;
     font-family: "MS Sans Serif Bold", Sans, Sans-Serif;
