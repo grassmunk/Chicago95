@@ -59,8 +59,6 @@ XfdesktopIconView.view {
       box-shadow: none;
       color: @panel_fg_color_bright;
       background-color: @selected_bg_color; }
-    #xfce4-power-manager-plugin {
-      margin-bottom: -2px; }
 
 #clock-button {
   border: 2px solid transparent;
@@ -90,7 +88,8 @@ wnck-pager {
     border-right: 1px solid @bg_dark;
     border-bottom: 1px solid @bg_dark;
     box-shadow: inset -1px -1px @bg_shade; }
-    .tasklist .toggle:checked box {
+    .tasklist .toggle:checked box,
+    .tasklist .toggle:active box {
       /*font-family: "NotoSans-Bold";*/
       font-weight: bold;
       border-left: 1px solid @bg_dark;

@@ -1,15 +1,9 @@
-/* Thunar */
-.thunar paned scrolledwindow {
-  border-right: 1px solid @bg_bright; }
-
-.xfce4-panel {
-  border-top: 1px solid @bg_bright; }
-
 /* XFCE Panel bar */
 .xfce4-panel {
   border-right: 1px solid @bg_shade;
   border-left: 1px solid @bg_bright;
-  border-top: 1px solid @bg_bright; }
+  border-top: 1px solid @bg_bright;
+  border-bottom: 1px solid @bg_shade; }
 
 /* This just keeps the power manager plugin icon to stay small. Only useful for XUbuntu 18.04; not required for 19.04.*/
 #xfce4-power-manager-plugin { 
