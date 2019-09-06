@@ -93,7 +93,7 @@ the whisker menu without having to correct their pointer location. */
 #whiskermenu-window frame > box > box:nth-child(1) {
   padding: 2px;
   margin: 0;
-  color: @active_title_text;
+  color: @text_color;
   /* background-image: linear-gradient(to right, @selected_bg_color, @transparent);*/ /* Note: You can setup a gradient here if you want! */ }
 #whiskermenu-window frame > box > box:nth-child(2) .frame {
   border: 1px solid @bg_shade;
