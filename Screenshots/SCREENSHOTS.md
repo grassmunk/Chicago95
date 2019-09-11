@@ -14,6 +14,8 @@
 
 ![alt text](Desktop1.png "Desktop1")
 
+![alt text](web_browser.png "Web Browser")
+
 ![alt text](Desktop2.png "Desktop2")
 
 ![alt text](Desktop3.png "Desktop3")
