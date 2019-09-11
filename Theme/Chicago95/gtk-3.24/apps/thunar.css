@@ -62,6 +62,9 @@
     border-right: 1px solid @bg_bright;
     box-shadow: inset 1px 1px @bg_shade; }
 
+.thunar toolbar toolitem entry image.left {
+  margin-right: 4px; }
+
 .thunar #main-menu {
   border-top: 1px solid @bg_shade;
   box-shadow: inset 0px 1px @bg_bright, inset -1px -1px @bg_shade;

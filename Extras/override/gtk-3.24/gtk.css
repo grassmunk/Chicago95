@@ -24,3 +24,7 @@
 /* XFCE APP: Color Profiles */
 .color-profiles {
   background-color: #c0c0c0; }
+
+/* Thunar sidebar border */
+.thunar .sidebar {
+  border-right: 1px solid @bg_bright; }
