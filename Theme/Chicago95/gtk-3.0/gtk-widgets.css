@@ -1679,6 +1679,9 @@ tabs arrow.up {
     background-position: 5px 10px; 
 }
 
+#gtk-combobox-popup-menu arrow  {
+  -gtk-icon-source: none; }
+
 /*******************
  * slider / switch *
  *******************/

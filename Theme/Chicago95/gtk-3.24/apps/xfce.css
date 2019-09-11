@@ -30,7 +30,8 @@ XfdesktopIconView.view {
   #xfce4-notification-plugin,
   #pulseaudio-button,
   #xfce4-power-manager-plugin,
-  #indicator-button {
+  #indicator-button,
+  #showdesktop-button {
     padding: 0px;
     border: transparent;
     /*box-shadow: inset 0px 1px white;*/
@@ -59,12 +60,21 @@ XfdesktopIconView.view {
       box-shadow: none;
       color: @panel_fg_color_bright;
       background-color: @selected_bg_color; }
+    #showdesktop-button:checked {
+      border-bottom: 1px solid @bg_bright;
+      border-right: 1px solid @bg_bright;
+      border-top: 1px solid @bg_dark;
+      border-left: 1px solid @bg_dark;
+      box-shadow: inset -1px -1px @bg_color, inset 1px 1px @bg_shade; }
+    
 
 #clock-button {
   border: 2px solid transparent;
   box-shadow: inset 1px 1px @bg_shade, inset -1px -1px @bg_bright;
   margin: 0px;
   background-color: transparent; }
+  #clock-button label {
+    padding: 2px; }
 
 /*  Workspace switcher */
 wnck-pager {
@@ -82,14 +92,22 @@ wnck-pager {
   margin: 0px;
   background-color: transparent; }
   .tasklist .toggle box {
+    transition: 0s font-weight, border-left, border-right, border-top, border-bottom, box-shadow;
     margin: 2px;
     border-left: 1px solid @bg_bright;
     border-top: 1px solid @bg_bright;
     border-right: 1px solid @bg_dark;
     border-bottom: 1px solid @bg_dark;
     box-shadow: inset -1px -1px @bg_shade; }
-    .tasklist .toggle:checked box,
     .tasklist .toggle:active box {
+      font-weight: bold;
+      border-left: 1px solid @bg_dark;
+      border-top: 1px solid @bg_dark;
+      border-right: 1px solid @bg_bright;
+      border-bottom: 1px solid @bg_bright;
+      box-shadow: inset 1px 1px @bg_shade, inset -1px -1px @bg_color;
+      transition-delay: 1s; }
+    .tasklist .toggle:checked box {
       /*font-family: "NotoSans-Bold";*/
       font-weight: bold;
       border-left: 1px solid @bg_dark;
@@ -99,10 +117,10 @@ wnck-pager {
       box-shadow: inset 1px 1px @bg_shade, inset -1px -1px @bg_color;
       background-color: @border_bright;
       background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @border_dark);
-       background-size: 2px 2px;
-       background-position: 0 0, 1px 1px; }
-       .tasklist .toggle label {
-         margin-right: 4px; }
+      background-size: 2px 2px;
+      background-position: 0 0, 1px 1px; }
+      .tasklist .toggle label {
+        margin-right: 4px; }
 
 /* XFCE APP: Color Profiles */
 .color-profiles {
