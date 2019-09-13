@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+# You must remove unused comment lines for the released package.
+#export DH_VERBOSE = 1
+#export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+#export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
+#export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
+export debuilddir="debian"
+export buildroot="${debuilddir}/${appname}"
+export _datadir="/usr/share"
+export _bindir="/usr/bin"
+
+%:
+	dh $@
+
+override_dh_auto_install:
+	dh_auto_install
+
+	install -m0755 -d ${buildroot}${_datadir}/sounds/Chicago95
+	install -m0644	"Extras/Microsoft Windows 95 Startup Sound.ogg" ${buildroot}${_datadir}/sounds/Chicago95/startup.ogg
+
+override_dh_auto_clean:
+	rm -f ${buildroot}${_datadir}/sounds/Chicago95/startup.ogg
+	dh_auto_clean
