@@ -1,0 +1,25 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+    remove|deconfigure)
+    update-alternatives --remove default.plymouth /usr/share/plymouth/themes/Chicago95/Chicago95.plymouth
+    update-alternatives --remove default.plymouth /usr/share/plymouth/themes/RetroTux/RetroTux.plymouth
+    ;;
+
+    upgrade)
+    ;;
+
+    failed-upgrade)
+    ;;
+
+    *)
+        echo "prerm called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+
+#DEBHELPER#
+
+exit 0
