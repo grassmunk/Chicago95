@@ -44,7 +44,7 @@ iconview:selected,
     -gtk-icon-effect: dim; }
 
 /* There appears to be a bug in gtk treeviews on :focus with outlines that will cause a momentary displacement of the UI. Keep the treeview exclusion! */
-:focus:not(treeview):not(view) {
+:focus:not(treeview):not(view):not(checkbutton):not(radiobutton) {
     outline: 1px dotted @border_dark;
     -gtk-outline-radius: 0px;
     outline-offset: -4px; }
@@ -554,8 +554,24 @@ button.osd {
   .stack-switcher > button.needs-attention:checked > image {
     background-image: none; }
 .inline-toolbar button, .inline-toolbar button:backdrop {
+  margin: 1px;
   border-radius: 0px;
-  border-width: 1px; }
+  border-left: 1px solid @bg_bright;
+  border-top: 1px solid @bg_bright;
+  border-bottom: 1px solid @bg_shade;
+  border-right: 1px solid @bg_shade;
+  box-shadow: none; }
+  .inline-toolbar button:active {
+    border-left: 1px solid @bg_dark;
+    border-top: 1px solid @bg_dark;
+    border-bottom: 1px solid @bg_bright;
+    border-right: 1px solid @bg_bright;
+    box-shadow: inset 1px 1px @bg_shade; }
+  .inline-toolbar button:disabled {
+    border-left: 1px solid @bg_shade;
+    border-top: 1px solid @bg_shade;
+    border-bottom: 1px solid @bg_bright;
+    border-right: 1px solid @bg_bright; }
 .primary-toolbar button {
   -gtk-icon-shadow: none; }
 
@@ -631,85 +647,69 @@ button.color {
 /* disabling focus outline because it looks bad around the whole element... */
 radiobutton:focus,
 checkbutton:focus {
-    outline: 0px
-}
+  outline: 0px;
+  outline: none; }
 
 /* ...instead we are going to enable it around the label */
 /* but outline doesen't work inside a label! so we use borders */
 radiobutton label,
 checkbutton label{
-    padding-left: 4px;
-    padding-right: 4px;
-    border: 1px dotted alpha(@border_dark,0);
-}
+  padding-left: 4px;
+  padding-right: 4px;
+  border: 1px dotted alpha(@border_dark,0); }
 
 radiobutton:focus label,
 checkbutton:focus label{
-    border: 1px dotted @border_dark;
-}
+  border: 1px dotted @border_dark; }
 
 check,
 radio {
-    min-width: 16px;
-    min-height: 16px;
-}
+  min-width: 16px;
+  min-height: 16px; }
 
 check:checked {
-    -gtk-icon-source: url("assets/checkbox-checked.png");
-    -gtk-icon-transform: none;
-    background: none;
-}
+  -gtk-icon-source: url("assets/checkbox-checked.png");
+  -gtk-icon-transform: none;
+  background: none; }
 
 check:not(:checked) {
-    -gtk-icon-source: url("assets/checkbox-unchecked.png");
-    -gtk-icon-transform: none;
-    background: none;
-}
+  -gtk-icon-source: url("assets/checkbox-unchecked.png");
+  -gtk-icon-transform: none;
+  background: none; }
 
 check:indeterminate {
-    -gtk-icon-source: url("assets/checkbox-mixed.png");
-    background: none;
-}
+  -gtk-icon-source: url("assets/checkbox-mixed.png");
+  background: none; }
 
 check:disabled:checked {
-    -gtk-icon-source: url("assets/checkbox-checked-insensitive.png");
-    background: none;
-}
+  -gtk-icon-source: url("assets/checkbox-checked-insensitive.png");
+  background: none; }
 
 check:disabled:not(checked) {
-    -gtk-icon-source: url("assets/checkbox-unchecked-insensitive.png");
-    background: none;
-}
+  -gtk-icon-source: url("assets/checkbox-unchecked-insensitive.png");
+  background: none; }
 
 check:indeterminate:disabled {
-    -gtk-icon-source: url("assets/checkbox-mixed-insensitive.png");
-    background: none;
-}
-
+  -gtk-icon-source: url("assets/checkbox-mixed-insensitive.png");
+  background: none; }
 
 radio:checked {
-    -gtk-icon-source: url("assets/radio-selected.png");
-}
+  -gtk-icon-source: url("assets/radio-selected.png"); }
 
 radio:not(:checked) {
-    -gtk-icon-source: url("assets/radio-unselected.png");
-}
+  -gtk-icon-source: url("assets/radio-unselected.png"); }
 
 radio:indeterminate {
-    -gtk-icon-source: url("assets/radio-mixed.png");
-}
+  -gtk-icon-source: url("assets/radio-mixed.png"); }
 
 radio:disabled:checked {
-    -gtk-icon-source: url("assets/radio-selected-insensitive.png");
-}
+  -gtk-icon-source: url("assets/radio-selected-insensitive.png"); }
 
 radio:disabled:not(checked) {
-    -gtk-icon-source: url("assets/radio-unselected-insensitive.png");
-}
+  -gtk-icon-source: url("assets/radio-unselected-insensitive.png"); }
 
 radio:indeterminate:disabled {
-    -gtk-icon-source: url("assets/radio-mixed-insensitive.png");
-}
+  -gtk-icon-source: url("assets/radio-mixed-insensitive.png"); }
 
 /*********
 * Frames *
@@ -2917,14 +2917,14 @@ button.appmenu {
 	padding-top: 4px;*/
 }
 
-/* declaration of .view was causing problems with white background rubberband in nautilus, putting this here for now */
-flowbox rubberband, treeview.view rubberband, .content-view rubberband,
-.rubberband, rubberband {
-    border: 1px solid @border_dark;
-    background-color: transparent;
-    /* box-shadow: inset 1px 1px 0px 0px @border_dark,
-                   inset -1px -1px 0px 0px @border_dark; */
-}
+.rubberband,
+rubberband,
+flowbox rubberband,
+treeview.view rubberband,
+.content-view rubberband {
+  border: 1px solid @selected_bg_color;
+  background: rgba(0,0,50.2,0.5);
+  border-radius: 0px; }
 
 /* Misc stuff */
 
