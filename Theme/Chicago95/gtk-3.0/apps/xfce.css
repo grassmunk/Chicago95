@@ -52,3 +52,6 @@ XfceHeading {
 .xfce4-panel menu {
     -gtk-icon-effect: none;
 }
+
+#xfce4-power-manager-plugin {
+  margin-bottom: -2px; }
