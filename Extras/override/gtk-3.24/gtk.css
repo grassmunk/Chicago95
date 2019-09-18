@@ -1,19 +1,9 @@
-/* Thunar */
-.thunar paned scrolledwindow {
-  border-right: 1px solid @bg_bright; }
-
-.xfce4-panel {
-  border-top: 1px solid @bg_bright; }
-
 /* XFCE Panel bar */
 .xfce4-panel {
   border-right: 1px solid @bg_shade;
   border-left: 1px solid @bg_bright;
-  border-top: 1px solid @bg_bright; }
-
-/* This just keeps the power manager plugin icon to stay small. Only useful for XUbuntu 18.04; not required for 19.04.*/
-#xfce4-power-manager-plugin { 
-  padding: 6px 6px; }
+  border-top: 1px solid @bg_bright;
+  border-bottom: 1px solid @bg_shade; }
 
 /* Force MATE panel tasklist margins */
 #tasklist-button {
@@ -32,6 +22,9 @@
     background-color: @bg_shade; }
 
 /* XFCE APP: Color Profiles */
-/* Force a background colour since the color profile app overrides the GTK theme. */
 .color-profiles {
   background-color: #c0c0c0; }
+
+/* Thunar sidebar border */
+.thunar .sidebar {
+  border-right: 1px solid @bg_bright; }

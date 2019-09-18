@@ -18,9 +18,10 @@ Included in this theme:
 - Partial support for HiDPI monitors
 
 #### Requirements
+
 GTK+ 3.22 or 3.24
 
-Xfce 4.12
+Xfce 4.12 or 4.14
 
 A Window compositor
 

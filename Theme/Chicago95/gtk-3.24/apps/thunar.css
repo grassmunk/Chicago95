@@ -7,10 +7,20 @@
   border-right: 1px solid @bg_bright;
   box-shadow: none; }
 
-.thunar paned scrolledwindow {
-  border-right: 1px solid @bg_bright; }
-  .thunar paned .view:focus {
-    outline-color: white; }
+/*.thunar grid grid scrolledwindow .view { background-color: transparent; }*/
+
+.thunar scrolledwindow {
+  padding-top: 0px;
+  padding-left: 0px;
+  border-right: 1px solid @bg_bright;
+  border-top: 1px solid @bg_shade;
+  border-left: 1px solid @bg_shade; }
+
+.thunar paned .view:focus {
+  outline-color: white; }
+
+.thunar grid grid scrolledwindow {
+  padding-left: 1px; }
 
 .thunar notebook tab {
   padding: 0px;
@@ -52,6 +62,9 @@
     border-right: 1px solid @bg_bright;
     box-shadow: inset 1px 1px @bg_shade; }
 
+.thunar toolbar toolitem entry image.left {
+  margin-right: 4px; }
+
 .thunar #main-menu {
   border-top: 1px solid @bg_shade;
   box-shadow: inset 0px 1px @bg_bright, inset -1px -1px @bg_shade;
@@ -68,7 +81,7 @@
       box-shadow: inset 1px 0px @bg_bright;
       min-width: 21px;
       min-height: 17px;
-      background-image: url("../assets/status_badge_msw.png");
+      background-image: url("../assets/status_badge_c95.png");
       background-repeat: no-repeat;
       background-position: center;
       background-size: 21px 17px;
