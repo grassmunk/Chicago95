@@ -1,43 +1,36 @@
 /* Panel buttons */
 
 XfceHeading {
-    margin: 0;
-    padding: 0;
-    border-width: 0;
-    background-color: @theme_base_color;
-    background-image: none;
-    color: @theme_text_color;
-}
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+  background-color: @theme_base_color;
+  background-image: none;
+  color: @theme_text_color; }
 
 .xfce4-panel {
-    background-color: @bg_color;
-    color: @panel_fg_color;
-    border: 0px;
-    box-shadow: 0 0 0;
-}
-
-.xfce4-panel button {
+  background-color: @bg_color;
+  color: @panel_fg_color;
+  border: 0px;
+  box-shadow: 0 0 0; }
+  .xfce4-panel button {
     padding: 2px;
     margin: 2px;
     border-radius: 0;
     border: 1px solid transparent;
     color: @panel_fg_color;
     background-color: transparent;
-    box-shadow: 0 0 0;
-}
-
-.xfce4-panel button:hover {
+    box-shadow: 0 0 0; }
+  .xfce4-panel button:hover {
     padding: 2px;
     margin: 2px;
     border-radius: 0;
     border: 1px solid transparent;
     color: @panel_fg_color_bright;
     background-color: @selected_bg_color;
-    box-shadow: 0 0 0;
-}
-
-.xfce4-panel button:active,
-.xfce4-panel button:checked {
+    box-shadow: 0 0 0; }
+  .xfce4-panel button:active,
+  .xfce4-panel button:checked {
     padding: 2px;
     margin: 2px;
     border-top: 1px solid #000000;
@@ -46,12 +39,10 @@ XfceHeading {
     border-right: 1px solid #FFF;
     box-shadow: inset 1px 1px #808080;
     color: @panel_fg_color_bright;
-    background-color: @selected_bg_color;
-}
+    background-color: @selected_bg_color; }
 
 .xfce4-panel menu {
-    -gtk-icon-effect: none;
-}
+  -gtk-icon-effect: none; }
 
 #xfce4-power-manager-plugin {
   margin-bottom: -2px; }
