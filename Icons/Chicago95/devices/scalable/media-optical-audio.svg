@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
-  "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg width="48" height="48">
-  <image id="image0" width="48" height="48" x="0" y="0"
-    xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAABGdBTUEAALGPC/xhBQAAACBjSFJN
-AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAGFBMVEUAAAAAAACAgID//wDA
-wMAA//////8A/wBjuPy4AAAAAXRSTlMAQObYZgAAAAFiS0dEBmFmuH0AAAAHdElNRQfgBAEXDRe4
-uD74AAABWUlEQVQ4y63US27DIBAGYMwJjGWp23pEmgN4kbURIevI5gCtuECkVL5+Z4ZgoLI3VVlY
-Fp9+HgO2ENiaVuy3RrVHcCAI+0KwK01LsgviEMQhiL8AYNvZnoJxtBbeM/QMUs0E1mzSOAJ5Up4h
-SwMEZ5/ATmWh5JrBthnEGR8JXIpQ4DEhzBFCyPU8958bOLdFhNDdsEEIYUj90lLZI2DAmDSW9Nj/
-9s2AAa0TaHtX6rbOADFgpg2st/aGOwUO6CEDilEA6oMCKSF5+X7AmkNHgTRJBDtg9WRnuJVgOnof
-dFGu/wReiI6Tl0cieSEuLrc6Kw6EL9qgrk4XKOAcluS0VMCBECzA01cgOYAd4+W6FFPQsijA4EsQ
-EAMIT7/kkXCSGCCgSAYZAwjrFSP5+mAkwrha73NgOxIEHKsIxNN9wb36qKR+wTpVAbzbPcPl8auf
-bj3B7g+i+j38ACyOgB2/RKMsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE2LTAzLTMxVDIzOjIwOjIy
-LTA3OjAwzNCVoQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNi0wMy0zMVQyMzowNToxNy0wNzowMN9/
-d9wAAAAASUVORK5CYII=" />
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   id="svg3"
+   version="1.1"
+   height="48"
+   width="48">
+  <metadata
+     id="metadata9">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs7" />
+  <image
+     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAABGdBTUEAALGPC/xhBQAAACBjSFJN AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAGFBMVEUAAAAAAACAgID//wDA wMAA//////8A/wBjuPy4AAAAAXRSTlMAQObYZgAAAAFiS0dEBmFmuH0AAAAHdElNRQfgBAEXDRe4 uD74AAABWUlEQVQ4y63US27DIBAGYMwJjGWp23pEmgN4kbURIevI5gCtuECkVL5+Z4ZgoLI3VVlY Fp9+HgO2ENiaVuy3RrVHcCAI+0KwK01LsgviEMQhiL8AYNvZnoJxtBbeM/QMUs0E1mzSOAJ5Up4h SwMEZ5/ATmWh5JrBthnEGR8JXIpQ4DEhzBFCyPU8958bOLdFhNDdsEEIYUj90lLZI2DAmDSW9Nj/ 9s2AAa0TaHtX6rbOADFgpg2st/aGOwUO6CEDilEA6oMCKSF5+X7AmkNHgTRJBDtg9WRnuJVgOnof dFGu/wReiI6Tl0cieSEuLrc6Kw6EL9qgrk4XKOAcluS0VMCBECzA01cgOYAd4+W6FFPQsijA4EsQ EAMIT7/kkXCSGCCgSAYZAwjrFSP5+mAkwrha73NgOxIEHKsIxNN9wb36qKR+wTpVAbzbPcPl8auf bj3B7g+i+j38ACyOgB2/RKMsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE2LTAzLTMxVDIzOjIwOjIy LTA3OjAwzNCVoQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNi0wMy0zMVQyMzowNToxNy0wNzowMN9/ d9wAAAAASUVORK5CYII="
+     y="0"
+     x="0"
+     height="48"
+     width="48"
+     id="image0" />
 </svg>
