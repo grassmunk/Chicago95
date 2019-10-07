@@ -1,622 +1,86 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="48px"
-   height="48px"
-   id="svg4289"
-   sodipodi:version="0.32"
-   inkscape:version="0.45"
-   sodipodi:docbase="/home/dobey/Projects/gnome-icon-theme/scalable/places"
+   id="svg3854"
+   width="144px"
+   version="1.1"
+   height="144px"
    sodipodi:docname="network-server.svg"
-   inkscape:output_extension="org.inkscape.output.svg.inkscape">
-  <defs
-     id="defs4291">
-    <linearGradient
-       id="linearGradient4391"
-       inkscape:collect="always">
-      <stop
-         id="stop4393"
-         offset="0"
-         style="stop-color:#729fcf;stop-opacity:1" />
-      <stop
-         id="stop4395"
-         offset="1"
-         style="stop-color:#729fcf;stop-opacity:0" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       id="linearGradient4241">
-      <stop
-         style="stop-color:black;stop-opacity:1;"
-         offset="0"
-         id="stop4243" />
-      <stop
-         style="stop-color:black;stop-opacity:0;"
-         offset="1"
-         id="stop4245" />
-    </linearGradient>
-    <linearGradient
-       id="linearGradient4233">
-      <stop
-         id="stop4235"
-         offset="0"
-         style="stop-color:#d7d7d7;stop-opacity:1;" />
-      <stop
-         id="stop4237"
-         offset="1"
-         style="stop-color:#eeeeec;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient
-       id="linearGradient4227">
-      <stop
-         id="stop4229"
-         offset="0"
-         style="stop-color:#d7d7d7;stop-opacity:1;" />
-      <stop
-         id="stop4231"
-         offset="1"
-         style="stop-color:#eeeeec;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       id="linearGradient4175">
-      <stop
-         style="stop-color:#d3d7cf;stop-opacity:1"
-         offset="0"
-         id="stop4177" />
-      <stop
-         style="stop-color:#eeeeec;stop-opacity:1"
-         offset="1"
-         id="stop4179" />
-    </linearGradient>
-    <linearGradient
-       id="linearGradient2833">
-      <stop
-         id="stop2835"
-         offset="0"
-         style="stop-color:#959595;stop-opacity:1;" />
-      <stop
-         id="stop2837"
-         offset="1"
-         style="stop-color:white;stop-opacity:0.85576922;" />
-    </linearGradient>
-    <radialGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5060"
-       id="radialGradient6719"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(-2.774389,0,0,1.969706,112.7623,-872.8854)"
-       cx="605.71429"
-       cy="486.64789"
-       fx="605.71429"
-       fy="486.64789"
-       r="117.14286" />
-    <linearGradient
-       inkscape:collect="always"
-       id="linearGradient5060">
-      <stop
-         style="stop-color:black;stop-opacity:1;"
-         offset="0"
-         id="stop5062" />
-      <stop
-         style="stop-color:black;stop-opacity:0;"
-         offset="1"
-         id="stop5064" />
-    </linearGradient>
-    <radialGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5060"
-       id="radialGradient6717"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(2.774389,0,0,1.969706,-1891.633,-872.8854)"
-       cx="605.71429"
-       cy="486.64789"
-       fx="605.71429"
-       fy="486.64789"
-       r="117.14286" />
-    <linearGradient
-       id="linearGradient5048">
-      <stop
-         style="stop-color:black;stop-opacity:0;"
-         offset="0"
-         id="stop5050" />
-      <stop
-         id="stop5056"
-         offset="0.5"
-         style="stop-color:black;stop-opacity:1;" />
-      <stop
-         style="stop-color:black;stop-opacity:0;"
-         offset="1"
-         id="stop5052" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5048"
-       id="linearGradient6715"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(2.774389,0,0,1.969706,-1892.179,-872.8854)"
-       x1="302.85715"
-       y1="366.64789"
-       x2="302.85715"
-       y2="609.50507" />
-    <linearGradient
-       inkscape:collect="always"
-       id="linearGradient6837">
-      <stop
-         style="stop-color:#729fcf;stop-opacity:1"
-         offset="0"
-         id="stop6839" />
-      <stop
-         style="stop-color:#729fcf;stop-opacity:0"
-         offset="1"
-         id="stop6841" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient2809"
-       id="linearGradient6835"
-       gradientUnits="userSpaceOnUse"
-       x1="7.5030818"
-       y1="27.499998"
-       x2="1.0550151"
-       y2="27.499998"
-       gradientTransform="matrix(0.909091,0,0,1,1.045449,-1)" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient6837"
-       id="linearGradient6843"
-       x1="6.5030808"
-       y1="24.500002"
-       x2="0.055013988"
-       y2="24.500002"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.909091,0,0,1,1.954541,1.999997)" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient2809"
-       id="linearGradient6847"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(-0.909091,0,0,1,46.95455,-0.999999)"
-       x1="7.5030818"
-       y1="27.499998"
-       x2="1.0550151"
-       y2="27.499998" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4391"
-       id="linearGradient6849"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(-0.909091,0,0,1,46.04546,1.999997)"
-       x1="6.5030808"
-       y1="24.500002"
-       x2="0.055013988"
-       y2="24.500002" />
-    <linearGradient
-       id="linearGradient3859">
-      <stop
-         style="stop-color:#d3d7cf;stop-opacity:1"
-         offset="0"
-         id="stop3861" />
-      <stop
-         style="stop-color:#eeeeec;stop-opacity:1;"
-         offset="0.30973485"
-         id="stop3037" />
-      <stop
-         id="stop3039"
-         offset="0.88648254"
-         style="stop-color:white;stop-opacity:1;" />
-      <stop
-         style="stop-color:#d3d7cf;stop-opacity:1"
-         offset="1"
-         id="stop3863" />
-    </linearGradient>
-    <linearGradient
-       id="linearGradient3942">
-      <stop
-         style="stop-color:#888a85;stop-opacity:1"
-         offset="0"
-         id="stop3944" />
-      <stop
-         style="stop-color:#eeeeec;stop-opacity:1"
-         offset="1"
-         id="stop3946" />
-    </linearGradient>
-    <linearGradient
-       id="linearGradient2809">
-      <stop
-         id="stop2811"
-         offset="0"
-         style="stop-color:#d3d7cf;stop-opacity:1;" />
-      <stop
-         id="stop2813"
-         offset="1"
-         style="stop-color:#eeeeec;stop-opacity:0;" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient3942"
-       id="linearGradient2319"
-       gradientUnits="userSpaceOnUse"
-       x1="53.5625"
-       y1="4.4916701"
-       x2="53.5625"
-       y2="37.256325"
-       gradientTransform="translate(-40,-1)" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient2833"
-       id="linearGradient2325"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.999998,0,0,1.000003,6.00003,-7.000134)"
-       x1="10.249995"
-       y1="32.593761"
-       x2="12.500004"
-       y2="36.374992" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4227"
-       id="linearGradient2329"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.882353,0,0,1,2.70589,1)"
-       x1="24.960155"
-       y1="19.00001"
-       x2="24.92893"
-       y2="17.762573" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4233"
-       id="linearGradient2332"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.882353,0,0,1,2.70589,1)"
-       x1="24.92893"
-       y1="12.001067"
-       x2="24.92893"
-       y2="10.868282" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4175"
-       id="linearGradient2335"
-       gradientUnits="userSpaceOnUse"
-       x1="60.426777"
-       y1="18.520107"
-       x2="60.426777"
-       y2="72.082878"
-       gradientTransform="translate(-40,-1)" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient3859"
-       id="linearGradient2339"
-       gradientUnits="userSpaceOnUse"
-       x1="73.05397"
-       y1="6.5458651"
-       x2="53.61911"
-       y2="6.5458651"
-       gradientTransform="translate(-40,-1)" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4241"
-       id="linearGradient2341"
-       gradientUnits="userSpaceOnUse"
-       x1="57.49662"
-       y1="38.277283"
-       x2="57.49662"
-       y2="31.250401" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4241"
-       id="linearGradient2343"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(2,0)"
-       x1="57.49662"
-       y1="38.277283"
-       x2="57.49662"
-       y2="31.250401" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4241"
-       id="linearGradient2345"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(4,0)"
-       x1="57.49662"
-       y1="38.277283"
-       x2="57.49662"
-       y2="31.250401" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4241"
-       id="linearGradient2347"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(6,0)"
-       x1="57.49662"
-       y1="38.277283"
-       x2="57.49662"
-       y2="31.250401" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4241"
-       id="linearGradient2349"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(8,0)"
-       x1="57.49662"
-       y1="38.277283"
-       x2="57.49662"
-       y2="31.250401" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4241"
-       id="linearGradient2351"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(10,0)"
-       x1="57.49662"
-       y1="38.277283"
-       x2="57.49662"
-       y2="31.250401" />
-  </defs>
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
   <sodipodi:namedview
-     id="base"
-     pagecolor="white"
-     bordercolor="#666"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
      borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="24.904886"
-     inkscape:cy="6.4536358"
-     inkscape:current-layer="layer1"
+     inkscape:window-width="1280"
+     inkscape:window-height="716"
+     id="namedview154"
      showgrid="false"
-     inkscape:grid-bbox="true"
-     inkscape:document-units="px"
-     inkscape:window-width="1085"
-     inkscape:window-height="808"
-     inkscape:window-x="289"
-     inkscape:window-y="91"
-     inkscape:showpageshadow="false"
-     showborder="false"
-     gridspacingx="0.5px"
-     gridspacingy="0.5px"
-     gridempspacing="2"
-     showguides="true" />
+     inkscape:zoom="1.6388889"
+     inkscape:cx="73.220339"
+     inkscape:cy="72"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3854" />
   <metadata
-     id="metadata4294">
+     id="metadata3858">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <cc:license
-           rdf:resource="http://creativecommons.org/licenses/GPL/2.0/" />
-        <dc:title>Network Server</dc:title>
-        <dc:date>August 2006</dc:date>
-        <dc:creator>
-          <cc:Agent>
-            <dc:title>Andreas Nilsson</dc:title>
-          </cc:Agent>
-        </dc:creator>
-        <dc:source>http://www.gnome.org</dc:source>
-        <dc:subject>
-          <rdf:Bag>
-            <rdf:li>server</rdf:li>
-            <rdf:li>network</rdf:li>
-            <rdf:li>station</rdf:li>
-          </rdf:Bag>
-        </dc:subject>
-        <dc:contributor>
-          <cc:Agent>
-            <dc:title>Jakub Steiner</dc:title>
-          </cc:Agent>
-        </dc:contributor>
       </cc:Work>
-      <cc:License
-         rdf:about="http://creativecommons.org/licenses/GPL/2.0/">
-        <cc:permits
-           rdf:resource="http://web.resource.org/cc/Reproduction" />
-        <cc:permits
-           rdf:resource="http://web.resource.org/cc/Distribution" />
-        <cc:requires
-           rdf:resource="http://web.resource.org/cc/Notice" />
-        <cc:permits
-           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
-        <cc:requires
-           rdf:resource="http://web.resource.org/cc/ShareAlike" />
-        <cc:requires
-           rdf:resource="http://web.resource.org/cc/SourceCode" />
-      </cc:License>
     </rdf:RDF>
   </metadata>
-  <g
-     id="layer1"
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer">
-    <g
-       id="g3952"
-       transform="matrix(1.477517e-2,0,0,2.195012e-2,36.14156,38.80781)"
-       style="opacity:0.6;display:inline">
-      <rect
-         y="-150.69685"
-         x="-1559.2523"
-         height="478.35718"
-         width="1339.6335"
-         id="rect3954"
-         style="opacity:0.40206185;color:black;fill:url(#linearGradient6715);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible" />
-      <path
-         sodipodi:nodetypes="cccc"
-         id="path3956"
-         d="M -219.61876,-150.68038 C -219.61876,-150.68038 -219.61876,327.65041 -219.61876,327.65041 C -76.744594,328.55086 125.78146,220.48075 125.78138,88.454235 C 125.78138,-43.572302 -33.655436,-150.68036 -219.61876,-150.68038 z "
-         style="opacity:0.40206185;color:black;fill:url(#radialGradient6717);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible" />
-      <path
-         style="opacity:0.40206185;color:black;fill:url(#radialGradient6719);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible"
-         d="M -1559.2523,-150.68038 C -1559.2523,-150.68038 -1559.2523,327.65041 -1559.2523,327.65041 C -1702.1265,328.55086 -1904.6525,220.48075 -1904.6525,88.454235 C -1904.6525,-43.572302 -1745.2157,-150.68036 -1559.2523,-150.68038 z "
-         id="path3958"
-         sodipodi:nodetypes="cccc" />
-    </g>
-    <path
-       style="fill:url(#linearGradient6847);fill-opacity:1;stroke:url(#linearGradient6849);stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 46.5,25.5 L 36.499996,25.5 L 36.499996,27.499997 L 46.5,27.499997"
-       id="path6845"
-       sodipodi:nodetypes="cccc" />
-    <path
-       sodipodi:type="arc"
-       style="opacity:1;fill:#d0d0ca;fill-opacity:1;stroke:#729fcf;stroke-width:1.31249964;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="path6851"
-       sodipodi:cx="35.625"
-       sodipodi:cy="27.5625"
-       sodipodi:rx="2.625"
-       sodipodi:ry="2.625"
-       d="M 38.25 27.5625 A 2.625 2.625 0 1 1  33,27.5625 A 2.625 2.625 0 1 1  38.25 27.5625 z"
-       transform="matrix(0.761905,0,0,0.761905,7.388392,5.500001)" />
-    <path
-       style="fill:url(#linearGradient6835);fill-opacity:1;stroke:url(#linearGradient6843);stroke-width:1.00000036;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1"
-       d="M 1.4999956,25.5 L 11.5,25.5 L 11.5,27.499997 L 1.4999956,27.499997"
-       id="rect6804"
-       sodipodi:nodetypes="cccc" />
-    <path
-       style="color:black;fill:url(#linearGradient2339);fill-opacity:1;fill-rule:nonzero;stroke:#888a85;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.4;stroke-opacity:1;visibility:visible;display:inline;overflow:visible"
-       d="M 18.125,2.5 C 17.380943,2.5 16.72635,2.8133048 16.25,3.3125 L 12.03125,8.5625 C 11.703624,9.146009 11.5,9.811876 11.5,10.53125 L 11.5,39.46875 C 11.5,41.702062 13.297934,43.499999 15.53125,43.5 L 30.46875,43.5 C 32.70207,43.499999 34.5,41.702062 34.5,39.46875 L 34.5,10.53125 C 34.5,9.811876 34.29638,9.146009 33.96875,8.5625 L 29.75,3.3125 C 29.27365,2.8133048 28.61906,2.5 27.875,2.5 L 18.125,2.5 z "
-       id="path2371"
-       sodipodi:nodetypes="ccccccccccccc" />
-    <path
-       sodipodi:type="inkscape:offset"
-       inkscape:radius="-1"
-       inkscape:original="M 58.125 3.5 C 57.380943 3.5 56.72635 3.8133048 56.25 4.3125 L 52.03125 9.5625 C 51.703624 10.146009 51.5 10.811876 51.5 11.53125 L 51.5 37.46875 C 51.5 39.702062 53.297934 41.499999 55.53125 41.5 L 70.46875 41.5 C 72.70207 41.499999 74.5 39.702062 74.5 37.46875 L 74.5 11.53125 C 74.5 10.811876 74.29638 10.146009 73.96875 9.5625 L 69.75 4.3125 C 69.27365 3.8133048 68.61906 3.5 67.875 3.5 L 58.125 3.5 z "
-       style="opacity:0.7;color:black;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#f9f9f9;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.4;stroke-opacity:1;visibility:visible;display:inline;overflow:visible"
-       id="path4329"
-       d="M 58.125,4.5 C 57.67221,4.5 57.301304,4.6939871 57,5 L 56.96875,5 L 52.90625,10.0625 C 52.651026,10.51706 52.5,11.000581 52.5,11.53125 L 52.5,37.46875 C 52.5,39.16536 53.834636,40.499999 55.53125,40.5 L 70.46875,40.5 C 72.165369,40.499999 73.5,39.165361 73.5,37.46875 L 73.5,11.53125 C 73.5,11.000577 73.348974,10.517055 73.09375,10.0625 L 69.03125,5 C 69.024311,4.9927285 69.00702,5.0071301 69,5 C 68.698695,4.6939857 68.327794,4.5 67.875,4.5 L 58.125,4.5 z "
-       transform="translate(-40,-1)" />
-    <path
-       sodipodi:nodetypes="ccccccccc"
-       id="rect2377"
-       d="M 15.528487,7.5000019 L 30.47148,7.5000019 C 32.149267,7.5000019 33.499975,8.8507106 33.499975,10.528497 L 33.499975,39.471538 C 33.499975,41.149324 32.149267,42.500032 30.47148,42.500032 L 15.528487,42.500032 C 13.850701,42.500032 12.499992,41.149324 12.499992,39.471538 L 12.499992,10.528497 C 12.499992,8.8507106 13.850701,7.5000019 15.528487,7.5000019 z "
-       style="color:black;fill:url(#linearGradient2335);fill-opacity:1;fill-rule:nonzero;stroke:white;stroke-width:1.00000012;stroke-linecap:round;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dashoffset:1.4;stroke-opacity:1;visibility:visible;display:inline;overflow:visible" />
-    <rect
-       style="color:black;fill:url(#linearGradient2332);fill-opacity:1;fill-rule:nonzero;stroke:#babdb6;stroke-width:1.00000048;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible"
-       id="rect4183"
-       width="14.999999"
-       height="5.0000067"
-       x="15.500004"
-       y="10.500004"
-       rx="0"
-       ry="0" />
-    <rect
-       style="fill:url(#linearGradient2329);fill-opacity:1;stroke:#babdb6;stroke-width:1.00000048;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect4187"
-       width="14.999999"
-       height="5.0000067"
-       x="15.500004"
-       y="17.500006"
-       rx="0"
-       ry="0" />
-    <path
-       sodipodi:type="arc"
-       style="fill:#d0d0ca;fill-opacity:1;stroke:#555753;stroke-width:1.04761803;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="path4191"
-       sodipodi:cx="17"
-       sodipodi:cy="26"
-       sodipodi:rx="1.5714285"
-       sodipodi:ry="1.5714285"
-       d="M 18.571429 26 A 1.5714285 1.5714285 0 1 1  15.428571,26 A 1.5714285 1.5714285 0 1 1  18.571429 26 z"
-       transform="matrix(0.954546,0,0,0.954547,0.77272,3.181783)" />
-    <rect
-       style="fill:none;fill-opacity:1;stroke:url(#linearGradient2325);stroke-width:1.00000036;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.20000057;stroke-opacity:1"
-       id="rect4193"
-       width="5.000001"
-       height="4.9999981"
-       x="14.500004"
-       y="25.49999"
-       rx="2.4999905"
-       ry="2.4999907" />
-    <rect
-       style="fill:#eeeeec;fill-opacity:1;stroke:#babdb6;stroke-width:1.00000036;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect4195"
-       width="10.000003"
-       height="3.0000033"
-       x="21.5"
-       y="26.500006"
-       rx="0"
-       ry="0" />
-    <path
-       sodipodi:type="arc"
-       style="fill:#f7f7f7;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="path4197"
-       sodipodi:cx="16.639107"
-       sodipodi:cy="25.61565"
-       sodipodi:rx="0.53033012"
-       sodipodi:ry="0.46403882"
-       d="M 17.169437 25.61565 A 0.53033012 0.46403882 0 1 1  16.108777,25.61565 A 0.53033012 0.46403882 0 1 1  17.169437 25.61565 z"
-       transform="matrix(0.942803,0,0,1.077485,0.8126,-0.100478)" />
-    <path
-       sodipodi:type="arc"
-       style="fill:#f7f7f7;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="path4213"
-       sodipodi:cx="16.639107"
-       sodipodi:cy="25.61565"
-       sodipodi:rx="0.53033012"
-       sodipodi:ry="0.46403882"
-       d="M 17.169437 25.61565 A 0.53033012 0.46403882 0 1 1  16.108777,25.61565 A 0.53033012 0.46403882 0 1 1  17.169437 25.61565 z"
-       transform="matrix(0.942803,0,0,1.008364,0.8126,1.670102)" />
-    <rect
-       style="opacity:0.8;color:black;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:url(#linearGradient2319);stroke-width:0.99999988;stroke-linecap:round;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.4;stroke-opacity:1;visibility:visible;display:inline;overflow:visible"
-       id="rect2379"
-       width="18.999966"
-       height="33"
-       x="13.499996"
-       y="8.499999"
-       rx="2.0110888"
-       ry="2.0110888" />
-    <g
-       id="g4307"
-       style="opacity:0.19699246"
-       transform="translate(-40,2)">
-      <rect
-         y="31"
-         x="57"
-         height="8.000001"
-         width="1.0130863"
-         id="rect4239"
-         style="opacity:1;color:black;fill:url(#linearGradient2341);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.4;stroke-opacity:1;visibility:visible;display:inline;overflow:visible" />
-      <rect
-         y="31"
-         x="59"
-         height="8.000001"
-         width="1.0130863"
-         id="rect4249"
-         style="opacity:1;color:black;fill:url(#linearGradient2343);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.4;stroke-opacity:1;visibility:visible;display:inline;overflow:visible" />
-      <rect
-         y="31"
-         x="61"
-         height="8.000001"
-         width="1.0130863"
-         id="rect4253"
-         style="opacity:1;color:black;fill:url(#linearGradient2345);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.4;stroke-opacity:1;visibility:visible;display:inline;overflow:visible" />
-      <rect
-         y="31"
-         x="63"
-         height="8.000001"
-         width="1.0130863"
-         id="rect4257"
-         style="opacity:1;color:black;fill:url(#linearGradient2347);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.4;stroke-opacity:1;visibility:visible;display:inline;overflow:visible" />
-      <rect
-         y="31"
-         x="65"
-         height="8.000001"
-         width="1.0130863"
-         id="rect4261"
-         style="opacity:1;color:black;fill:url(#linearGradient2349);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.4;stroke-opacity:1;visibility:visible;display:inline;overflow:visible" />
-      <rect
-         y="31"
-         x="67"
-         height="8.000001"
-         width="1.0130863"
-         id="rect4265"
-         style="opacity:1;color:black;fill:url(#linearGradient2351);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.4;stroke-opacity:1;visibility:visible;display:inline;overflow:visible" />
-    </g>
-  </g>
+  <defs
+     id="defs2" />
+  <rect
+     style="opacity:1;fill:#ffff00;fill-opacity:1"
+     id="rect13"
+     width="135"
+     height="96"
+     x="4.9999995"
+     y="30" />
+  <path
+     style="opacity:1;fill:#ffff00;fill-opacity:1"
+     d="M 17,12 H 56 L 68,24 H 8 Z"
+     id="rect15"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccccc" />
+  <path
+     style="fill:#808080"
+     d="M 18 6 L 18 9 L 21 9 L 24 9 L 27 9 L 30 9 L 33 9 L 36 9 L 39 9 L 42 9 L 45 9 L 48 9 L 51 9 L 54 9 L 57 9 L 57 6 L 54 6 L 51 6 L 48 6 L 45 6 L 42 6 L 39 6 L 36 6 L 33 6 L 30 6 L 27 6 L 24 6 L 21 6 L 18 6 z M 57 9 L 57 12 L 60 12 L 60 9 L 57 9 z M 60 12 L 60 15 L 63 15 L 63 12 L 60 12 z M 63 15 L 63 18 L 66 18 L 66 15 L 63 15 z M 66 18 L 66 21 L 69 21 L 69 18 L 66 18 z M 69 21 L 69 24 L 72 24 L 72 21 L 69 21 z M 72 24 L 72 27 L 75 27 L 78 27 L 81 27 L 84 27 L 87 27 L 90 27 L 93 27 L 96 27 L 99 27 L 102 27 L 105 27 L 108 27 L 111 27 L 114 27 L 117 27 L 120 27 L 123 27 L 126 27 L 129 27 L 132 27 L 135 27 L 138 27 L 138 24 L 135 24 L 132 24 L 129 24 L 126 24 L 123 24 L 120 24 L 117 24 L 114 24 L 111 24 L 108 24 L 105 24 L 102 24 L 99 24 L 96 24 L 93 24 L 90 24 L 87 24 L 84 24 L 81 24 L 78 24 L 75 24 L 72 24 z M 18 9 L 15 9 L 15 12 L 18 12 L 18 9 z M 15 12 L 12 12 L 12 15 L 15 15 L 15 12 z M 12 15 L 9 15 L 9 18 L 12 18 L 12 15 z M 9 18 L 6 18 L 6 21 L 9 21 L 9 18 z M 6 21 L 3 21 L 3 24 L 6 24 L 6 21 z M 3 24 L 0 24 L 0 27 L 0 30 L 0 33 L 0 36 L 0 39 L 0 42 L 0 45 L 0 48 L 0 51 L 0 54 L 0 57 L 0 60 L 0 63 L 0 66 L 0 69 L 0 72 L 0 75 L 0 78 L 0 81 L 0 84 L 0 87 L 0 90 L 0 93 L 0 96 L 0 99 L 0 102 L 0 105 L 0 108 L 0 111 L 0 114 L 0 117 L 0 120 L 0 123 L 0 126 L 3 126 L 3 123 L 3 120 L 3 117 L 3 114 L 3 111 L 3 108 L 3 105 L 3 102 L 3 99 L 3 96 L 3 93 L 3 90 L 3 87 L 3 84 L 3 81 L 3 78 L 3 75 L 3 72 L 3 69 L 3 66 L 3 63 L 3 60 L 3 57 L 3 54 L 3 51 L 3 48 L 3 45 L 3 42 L 3 39 L 3 36 L 3 33 L 3 30 L 3 27 L 3 24 z M 3 132 L 3 135 L 6 135 L 6 132 L 3 132 z M 9 132 L 9 135 L 12 135 L 15 135 L 18 135 L 21 135 L 24 135 L 27 135 L 30 135 L 33 135 L 36 135 L 39 135 L 42 135 L 45 135 L 48 135 L 51 135 L 54 135 L 57 135 L 60 135 L 60 132 L 57 132 L 54 132 L 51 132 L 48 132 L 45 132 L 42 132 L 39 132 L 36 132 L 33 132 L 30 132 L 27 132 L 24 132 L 21 132 L 18 132 L 15 132 L 12 132 L 9 132 z M 81 132 L 81 135 L 84 135 L 87 135 L 90 135 L 93 135 L 96 135 L 99 135 L 102 135 L 105 135 L 108 135 L 111 135 L 114 135 L 117 135 L 120 135 L 123 135 L 126 135 L 129 135 L 132 135 L 135 135 L 135 132 L 132 132 L 129 132 L 126 132 L 123 132 L 120 132 L 117 132 L 114 132 L 111 132 L 108 132 L 105 132 L 102 132 L 99 132 L 96 132 L 93 132 L 90 132 L 87 132 L 84 132 L 81 132 z M 138 132 L 138 135 L 141 135 L 141 132 L 138 132 z "
+     id="rect3662" />
+  <path
+     style="fill:#ffffff"
+     d="M 18 9 L 18 12 L 21 12 L 24 12 L 27 12 L 30 12 L 33 12 L 36 12 L 39 12 L 42 12 L 45 12 L 48 12 L 51 12 L 54 12 L 57 12 L 57 9 L 54 9 L 51 9 L 48 9 L 45 9 L 42 9 L 39 9 L 36 9 L 33 9 L 30 9 L 27 9 L 24 9 L 21 9 L 18 9 z M 18 12 L 15 12 L 15 15 L 18 15 L 18 12 z M 15 15 L 12 15 L 12 18 L 15 18 L 15 15 z M 12 18 L 9 18 L 9 21 L 12 21 L 12 18 z M 9 21 L 6 21 L 6 24 L 9 24 L 9 21 z M 3 27 L 3 30 L 3 33 L 3 36 L 3 39 L 3 42 L 3 45 L 3 48 L 3 51 L 3 54 L 3 57 L 3 60 L 3 63 L 3 66 L 3 69 L 3 72 L 3 75 L 3 78 L 3 81 L 3 84 L 3 87 L 3 90 L 3 93 L 3 96 L 3 99 L 3 102 L 3 105 L 3 108 L 3 111 L 3 114 L 3 117 L 3 120 L 3 123 L 6 123 L 6 120 L 6 117 L 6 114 L 6 111 L 6 108 L 6 105 L 6 102 L 6 99 L 6 96 L 6 93 L 6 90 L 6 87 L 6 84 L 6 81 L 6 78 L 6 75 L 6 72 L 6 69 L 6 66 L 6 63 L 6 60 L 6 57 L 6 54 L 6 51 L 6 48 L 6 45 L 6 42 L 6 39 L 6 36 L 6 33 L 6 30 L 9 30 L 12 30 L 15 30 L 18 30 L 21 30 L 24 30 L 27 30 L 30 30 L 33 30 L 36 30 L 39 30 L 42 30 L 45 30 L 48 30 L 51 30 L 54 30 L 57 30 L 60 30 L 63 30 L 66 30 L 69 30 L 72 30 L 75 30 L 78 30 L 81 30 L 84 30 L 87 30 L 90 30 L 93 30 L 96 30 L 99 30 L 102 30 L 105 30 L 108 30 L 111 30 L 114 30 L 117 30 L 120 30 L 123 30 L 126 30 L 129 30 L 132 30 L 135 30 L 138 30 L 138 27 L 135 27 L 132 27 L 129 27 L 126 27 L 123 27 L 120 27 L 117 27 L 114 27 L 111 27 L 108 27 L 105 27 L 102 27 L 99 27 L 96 27 L 93 27 L 90 27 L 87 27 L 84 27 L 81 27 L 78 27 L 75 27 L 72 27 L 69 27 L 66 27 L 63 27 L 60 27 L 57 27 L 54 27 L 51 27 L 48 27 L 45 27 L 42 27 L 39 27 L 36 27 L 33 27 L 30 27 L 27 27 L 24 27 L 21 27 L 18 27 L 15 27 L 12 27 L 9 27 L 6 27 L 3 27 z M 69 129 L 69 132 L 72 132 L 72 129 L 69 129 z M 3 135 L 3 138 L 6 138 L 6 135 L 3 135 z M 9 135 L 9 138 L 12 138 L 15 138 L 18 138 L 21 138 L 24 138 L 27 138 L 30 138 L 33 138 L 36 138 L 39 138 L 42 138 L 45 138 L 48 138 L 51 138 L 54 138 L 57 138 L 60 138 L 60 135 L 57 135 L 54 135 L 51 135 L 48 135 L 45 135 L 42 135 L 39 135 L 36 135 L 33 135 L 30 135 L 27 135 L 24 135 L 21 135 L 18 135 L 15 135 L 12 135 L 9 135 z M 66 135 L 66 138 L 66 141 L 69 141 L 69 138 L 69 135 L 66 135 z M 81 135 L 81 138 L 84 138 L 87 138 L 90 138 L 93 138 L 96 138 L 99 138 L 102 138 L 105 138 L 108 138 L 111 138 L 114 138 L 117 138 L 120 138 L 123 138 L 126 138 L 129 138 L 132 138 L 135 138 L 135 135 L 132 135 L 129 135 L 126 135 L 123 135 L 120 135 L 117 135 L 114 135 L 111 135 L 108 135 L 105 135 L 102 135 L 99 135 L 96 135 L 93 135 L 90 135 L 87 135 L 84 135 L 81 135 z M 138 135 L 138 138 L 141 138 L 141 135 L 138 135 z "
+     id="rect3792" />
+  <path
+     style="fill:#ffff00"
+     d="M 18 12 L 18 15 L 21 15 L 21 12 L 18 12 z M 21 15 L 21 18 L 24 18 L 24 15 L 21 15 z M 24 15 L 27 15 L 27 12 L 24 12 L 24 15 z M 27 15 L 27 18 L 30 18 L 30 15 L 27 15 z M 30 15 L 33 15 L 33 12 L 30 12 L 30 15 z M 33 15 L 33 18 L 36 18 L 36 15 L 33 15 z M 36 15 L 39 15 L 39 12 L 36 12 L 36 15 z M 39 15 L 39 18 L 42 18 L 42 15 L 39 15 z M 42 15 L 45 15 L 45 12 L 42 12 L 42 15 z M 45 15 L 45 18 L 48 18 L 48 15 L 45 15 z M 48 15 L 51 15 L 51 12 L 48 12 L 48 15 z M 51 15 L 51 18 L 54 18 L 54 15 L 51 15 z M 54 15 L 57 15 L 57 12 L 54 12 L 54 15 z M 57 15 L 57 18 L 60 18 L 60 15 L 57 15 z M 60 18 L 60 21 L 63 21 L 63 18 L 60 18 z M 63 21 L 63 24 L 66 24 L 66 21 L 63 21 z M 60 21 L 57 21 L 57 24 L 60 24 L 60 21 z M 57 21 L 57 18 L 54 18 L 54 21 L 57 21 z M 54 21 L 51 21 L 51 24 L 54 24 L 54 21 z M 51 21 L 51 18 L 48 18 L 48 21 L 51 21 z M 48 21 L 45 21 L 45 24 L 48 24 L 48 21 z M 45 21 L 45 18 L 42 18 L 42 21 L 45 21 z M 42 21 L 39 21 L 39 24 L 42 24 L 42 21 z M 39 21 L 39 18 L 36 18 L 36 21 L 39 21 z M 36 21 L 33 21 L 33 24 L 36 24 L 36 21 z M 33 21 L 33 18 L 30 18 L 30 21 L 33 21 z M 30 21 L 27 21 L 27 24 L 30 24 L 30 21 z M 27 21 L 27 18 L 24 18 L 24 21 L 27 21 z M 24 21 L 21 21 L 21 24 L 24 24 L 24 21 z M 21 21 L 21 18 L 18 18 L 18 21 L 21 21 z M 18 21 L 15 21 L 15 24 L 18 24 L 18 21 z M 15 21 L 15 18 L 12 18 L 12 21 L 15 21 z M 12 21 L 9 21 L 9 24 L 12 24 L 12 21 z M 15 18 L 18 18 L 18 15 L 15 15 L 15 18 z M 6 30 L 6 33 L 9 33 L 9 30 L 6 30 z M 9 33 L 9 36 L 12 36 L 12 33 L 9 33 z M 12 33 L 15 33 L 15 30 L 12 30 L 12 33 z M 15 33 L 15 36 L 18 36 L 18 33 L 15 33 z M 18 33 L 21 33 L 21 30 L 18 30 L 18 33 z M 21 33 L 21 36 L 24 36 L 24 33 L 21 33 z M 24 33 L 27 33 L 27 30 L 24 30 L 24 33 z M 27 33 L 27 36 L 30 36 L 30 33 L 27 33 z M 30 33 L 33 33 L 33 30 L 30 30 L 30 33 z M 33 33 L 33 36 L 36 36 L 36 33 L 33 33 z M 36 33 L 39 33 L 39 30 L 36 30 L 36 33 z M 39 33 L 39 36 L 42 36 L 42 33 L 39 33 z M 42 33 L 45 33 L 45 30 L 42 30 L 42 33 z M 45 33 L 45 36 L 48 36 L 48 33 L 45 33 z M 48 33 L 51 33 L 51 30 L 48 30 L 48 33 z M 51 33 L 51 36 L 54 36 L 54 33 L 51 33 z M 54 33 L 57 33 L 57 30 L 54 30 L 54 33 z M 57 33 L 57 36 L 60 36 L 60 33 L 57 33 z M 60 33 L 63 33 L 63 30 L 60 30 L 60 33 z M 63 33 L 63 36 L 66 36 L 66 33 L 63 33 z M 66 33 L 69 33 L 69 30 L 66 30 L 66 33 z M 69 33 L 69 36 L 72 36 L 72 33 L 69 33 z M 72 33 L 75 33 L 75 30 L 72 30 L 72 33 z M 75 33 L 75 36 L 78 36 L 78 33 L 75 33 z M 78 33 L 81 33 L 81 30 L 78 30 L 78 33 z M 81 33 L 81 36 L 84 36 L 84 33 L 81 33 z M 84 33 L 87 33 L 87 30 L 84 30 L 84 33 z M 87 33 L 87 36 L 90 36 L 90 33 L 87 33 z M 90 33 L 93 33 L 93 30 L 90 30 L 90 33 z M 93 33 L 93 36 L 96 36 L 96 33 L 93 33 z M 96 33 L 99 33 L 99 30 L 96 30 L 96 33 z M 99 33 L 99 36 L 102 36 L 102 33 L 99 33 z M 102 33 L 105 33 L 105 30 L 102 30 L 102 33 z M 105 33 L 105 36 L 108 36 L 108 33 L 105 33 z M 108 33 L 111 33 L 111 30 L 108 30 L 108 33 z M 111 33 L 111 36 L 114 36 L 114 33 L 111 33 z M 114 33 L 117 33 L 117 30 L 114 30 L 114 33 z M 117 33 L 117 36 L 120 36 L 120 33 L 117 33 z M 120 33 L 123 33 L 123 30 L 120 30 L 120 33 z M 123 33 L 123 36 L 126 36 L 126 33 L 123 33 z M 126 33 L 129 33 L 129 30 L 126 30 L 126 33 z M 129 33 L 129 36 L 132 36 L 132 33 L 129 33 z M 132 33 L 135 33 L 135 30 L 132 30 L 132 33 z M 135 33 L 135 36 L 138 36 L 138 33 L 135 33 z M 135 36 L 132 36 L 132 39 L 135 39 L 135 36 z M 135 39 L 135 42 L 138 42 L 138 39 L 135 39 z M 135 42 L 132 42 L 132 45 L 135 45 L 135 42 z M 135 45 L 135 48 L 138 48 L 138 45 L 135 45 z M 135 48 L 132 48 L 132 51 L 135 51 L 135 48 z M 135 51 L 135 54 L 138 54 L 138 51 L 135 51 z M 135 54 L 132 54 L 132 57 L 135 57 L 135 54 z M 135 57 L 135 60 L 138 60 L 138 57 L 135 57 z M 135 60 L 132 60 L 132 63 L 135 63 L 135 60 z M 135 63 L 135 66 L 138 66 L 138 63 L 135 63 z M 135 66 L 132 66 L 132 69 L 135 69 L 135 66 z M 135 69 L 135 72 L 138 72 L 138 69 L 135 69 z M 135 72 L 132 72 L 132 75 L 135 75 L 135 72 z M 135 75 L 135 78 L 138 78 L 138 75 L 135 75 z M 135 78 L 132 78 L 132 81 L 135 81 L 135 78 z M 135 81 L 135 84 L 138 84 L 138 81 L 135 81 z M 135 84 L 132 84 L 132 87 L 135 87 L 135 84 z M 135 87 L 135 90 L 138 90 L 138 87 L 135 87 z M 135 90 L 132 90 L 132 93 L 135 93 L 135 90 z M 135 93 L 135 96 L 138 96 L 138 93 L 135 93 z M 135 96 L 132 96 L 132 99 L 135 99 L 135 96 z M 135 99 L 135 102 L 138 102 L 138 99 L 135 99 z M 135 102 L 132 102 L 132 105 L 135 105 L 135 102 z M 135 105 L 135 108 L 138 108 L 138 105 L 135 105 z M 135 108 L 132 108 L 132 111 L 135 111 L 135 108 z M 135 111 L 135 114 L 138 114 L 138 111 L 135 111 z M 135 114 L 132 114 L 132 117 L 135 117 L 135 114 z M 135 117 L 135 120 L 138 120 L 138 117 L 135 117 z M 135 120 L 132 120 L 132 123 L 135 123 L 135 120 z M 132 120 L 132 117 L 129 117 L 129 120 L 132 120 z M 129 120 L 126 120 L 126 123 L 129 123 L 129 120 z M 126 120 L 126 117 L 123 117 L 123 120 L 126 120 z M 123 120 L 120 120 L 120 123 L 123 123 L 123 120 z M 120 120 L 120 117 L 117 117 L 117 120 L 120 120 z M 117 120 L 114 120 L 114 123 L 117 123 L 117 120 z M 114 120 L 114 117 L 111 117 L 111 120 L 114 120 z M 111 120 L 108 120 L 108 123 L 111 123 L 111 120 z M 108 120 L 108 117 L 105 117 L 105 120 L 108 120 z M 105 120 L 102 120 L 102 123 L 105 123 L 105 120 z M 102 120 L 102 117 L 99 117 L 99 120 L 102 120 z M 99 120 L 96 120 L 96 123 L 99 123 L 99 120 z M 96 120 L 96 117 L 93 117 L 93 120 L 96 120 z M 93 120 L 90 120 L 90 123 L 93 123 L 93 120 z M 90 120 L 90 117 L 87 117 L 87 120 L 90 120 z M 87 120 L 84 120 L 84 123 L 87 123 L 87 120 z M 84 120 L 84 117 L 81 117 L 81 120 L 84 120 z M 81 120 L 78 120 L 78 123 L 81 123 L 81 120 z M 78 120 L 78 117 L 75 117 L 75 120 L 78 120 z M 75 120 L 72 120 L 72 123 L 75 123 L 75 120 z M 72 120 L 72 117 L 69 117 L 69 120 L 72 120 z M 69 120 L 66 120 L 66 123 L 69 123 L 69 120 z M 66 120 L 66 117 L 63 117 L 63 120 L 66 120 z M 63 120 L 60 120 L 60 123 L 63 123 L 63 120 z M 60 120 L 60 117 L 57 117 L 57 120 L 60 120 z M 57 120 L 54 120 L 54 123 L 57 123 L 57 120 z M 54 120 L 54 117 L 51 117 L 51 120 L 54 120 z M 51 120 L 48 120 L 48 123 L 51 123 L 51 120 z M 48 120 L 48 117 L 45 117 L 45 120 L 48 120 z M 45 120 L 42 120 L 42 123 L 45 123 L 45 120 z M 42 120 L 42 117 L 39 117 L 39 120 L 42 120 z M 39 120 L 36 120 L 36 123 L 39 123 L 39 120 z M 36 120 L 36 117 L 33 117 L 33 120 L 36 120 z M 33 120 L 30 120 L 30 123 L 33 123 L 33 120 z M 30 120 L 30 117 L 27 117 L 27 120 L 30 120 z M 27 120 L 24 120 L 24 123 L 27 123 L 27 120 z M 24 120 L 24 117 L 21 117 L 21 120 L 24 120 z M 21 120 L 18 120 L 18 123 L 21 123 L 21 120 z M 18 120 L 18 117 L 15 117 L 15 120 L 18 120 z M 15 120 L 12 120 L 12 123 L 15 123 L 15 120 z M 12 120 L 12 117 L 9 117 L 9 120 L 12 120 z M 9 120 L 6 120 L 6 123 L 9 123 L 9 120 z M 9 117 L 9 114 L 6 114 L 6 117 L 9 117 z M 9 114 L 12 114 L 12 111 L 9 111 L 9 114 z M 9 111 L 9 108 L 6 108 L 6 111 L 9 111 z M 9 108 L 12 108 L 12 105 L 9 105 L 9 108 z M 9 105 L 9 102 L 6 102 L 6 105 L 9 105 z M 9 102 L 12 102 L 12 99 L 9 99 L 9 102 z M 9 99 L 9 96 L 6 96 L 6 99 L 9 99 z M 9 96 L 12 96 L 12 93 L 9 93 L 9 96 z M 9 93 L 9 90 L 6 90 L 6 93 L 9 93 z M 9 90 L 12 90 L 12 87 L 9 87 L 9 90 z M 9 87 L 9 84 L 6 84 L 6 87 L 9 87 z M 9 84 L 12 84 L 12 81 L 9 81 L 9 84 z M 9 81 L 9 78 L 6 78 L 6 81 L 9 81 z M 9 78 L 12 78 L 12 75 L 9 75 L 9 78 z M 9 75 L 9 72 L 6 72 L 6 75 L 9 75 z M 9 72 L 12 72 L 12 69 L 9 69 L 9 72 z M 9 69 L 9 66 L 6 66 L 6 69 L 9 69 z M 9 66 L 12 66 L 12 63 L 9 63 L 9 66 z M 9 63 L 9 60 L 6 60 L 6 63 L 9 63 z M 9 60 L 12 60 L 12 57 L 9 57 L 9 60 z M 9 57 L 9 54 L 6 54 L 6 57 L 9 57 z M 9 54 L 12 54 L 12 51 L 9 51 L 9 54 z M 9 51 L 9 48 L 6 48 L 6 51 L 9 51 z M 9 48 L 12 48 L 12 45 L 9 45 L 9 48 z M 9 45 L 9 42 L 6 42 L 6 45 L 9 45 z M 9 42 L 12 42 L 12 39 L 9 39 L 9 42 z M 9 39 L 9 36 L 6 36 L 6 39 L 9 39 z M 12 39 L 15 39 L 15 36 L 12 36 L 12 39 z M 15 39 L 15 42 L 18 42 L 18 39 L 15 39 z M 18 39 L 21 39 L 21 36 L 18 36 L 18 39 z M 21 39 L 21 42 L 24 42 L 24 39 L 21 39 z M 24 39 L 27 39 L 27 36 L 24 36 L 24 39 z M 27 39 L 27 42 L 30 42 L 30 39 L 27 39 z M 30 39 L 33 39 L 33 36 L 30 36 L 30 39 z M 33 39 L 33 42 L 36 42 L 36 39 L 33 39 z M 36 39 L 39 39 L 39 36 L 36 36 L 36 39 z M 39 39 L 39 42 L 42 42 L 42 39 L 39 39 z M 42 39 L 45 39 L 45 36 L 42 36 L 42 39 z M 45 39 L 45 42 L 48 42 L 48 39 L 45 39 z M 48 39 L 51 39 L 51 36 L 48 36 L 48 39 z M 51 39 L 51 42 L 54 42 L 54 39 L 51 39 z M 54 39 L 57 39 L 57 36 L 54 36 L 54 39 z M 57 39 L 57 42 L 60 42 L 60 39 L 57 39 z M 60 39 L 63 39 L 63 36 L 60 36 L 60 39 z M 63 39 L 63 42 L 66 42 L 66 39 L 63 39 z M 66 39 L 69 39 L 69 36 L 66 36 L 66 39 z M 69 39 L 69 42 L 72 42 L 72 39 L 69 39 z M 72 39 L 75 39 L 75 36 L 72 36 L 72 39 z M 75 39 L 75 42 L 78 42 L 78 39 L 75 39 z M 78 39 L 81 39 L 81 36 L 78 36 L 78 39 z M 81 39 L 81 42 L 84 42 L 84 39 L 81 39 z M 84 39 L 87 39 L 87 36 L 84 36 L 84 39 z M 87 39 L 87 42 L 90 42 L 90 39 L 87 39 z M 90 39 L 93 39 L 93 36 L 90 36 L 90 39 z M 93 39 L 93 42 L 96 42 L 96 39 L 93 39 z M 96 39 L 99 39 L 99 36 L 96 36 L 96 39 z M 99 39 L 99 42 L 102 42 L 102 39 L 99 39 z M 102 39 L 105 39 L 105 36 L 102 36 L 102 39 z M 105 39 L 105 42 L 108 42 L 108 39 L 105 39 z M 108 39 L 111 39 L 111 36 L 108 36 L 108 39 z M 111 39 L 111 42 L 114 42 L 114 39 L 111 39 z M 114 39 L 117 39 L 117 36 L 114 36 L 114 39 z M 117 39 L 117 42 L 120 42 L 120 39 L 117 39 z M 120 39 L 123 39 L 123 36 L 120 36 L 120 39 z M 123 39 L 123 42 L 126 42 L 126 39 L 123 39 z M 126 39 L 129 39 L 129 36 L 126 36 L 126 39 z M 129 39 L 129 42 L 132 42 L 132 39 L 129 39 z M 129 42 L 126 42 L 126 45 L 129 45 L 129 42 z M 129 45 L 129 48 L 132 48 L 132 45 L 129 45 z M 129 48 L 126 48 L 126 51 L 129 51 L 129 48 z M 129 51 L 129 54 L 132 54 L 132 51 L 129 51 z M 129 54 L 126 54 L 126 57 L 129 57 L 129 54 z M 129 57 L 129 60 L 132 60 L 132 57 L 129 57 z M 129 60 L 126 60 L 126 63 L 129 63 L 129 60 z M 129 63 L 129 66 L 132 66 L 132 63 L 129 63 z M 129 66 L 126 66 L 126 69 L 129 69 L 129 66 z M 129 69 L 129 72 L 132 72 L 132 69 L 129 69 z M 129 72 L 126 72 L 126 75 L 129 75 L 129 72 z M 129 75 L 129 78 L 132 78 L 132 75 L 129 75 z M 129 78 L 126 78 L 126 81 L 129 81 L 129 78 z M 129 81 L 129 84 L 132 84 L 132 81 L 129 81 z M 129 84 L 126 84 L 126 87 L 129 87 L 129 84 z M 129 87 L 129 90 L 132 90 L 132 87 L 129 87 z M 129 90 L 126 90 L 126 93 L 129 93 L 129 90 z M 129 93 L 129 96 L 132 96 L 132 93 L 129 93 z M 129 96 L 126 96 L 126 99 L 129 99 L 129 96 z M 129 99 L 129 102 L 132 102 L 132 99 L 129 99 z M 129 102 L 126 102 L 126 105 L 129 105 L 129 102 z M 129 105 L 129 108 L 132 108 L 132 105 L 129 105 z M 129 108 L 126 108 L 126 111 L 129 111 L 129 108 z M 129 111 L 129 114 L 132 114 L 132 111 L 129 111 z M 129 114 L 126 114 L 126 117 L 129 117 L 129 114 z M 126 114 L 126 111 L 123 111 L 123 114 L 126 114 z M 123 114 L 120 114 L 120 117 L 123 117 L 123 114 z M 120 114 L 120 111 L 117 111 L 117 114 L 120 114 z M 117 114 L 114 114 L 114 117 L 117 117 L 117 114 z M 114 114 L 114 111 L 111 111 L 111 114 L 114 114 z M 111 114 L 108 114 L 108 117 L 111 117 L 111 114 z M 108 114 L 108 111 L 105 111 L 105 114 L 108 114 z M 105 114 L 102 114 L 102 117 L 105 117 L 105 114 z M 102 114 L 102 111 L 99 111 L 99 114 L 102 114 z M 99 114 L 96 114 L 96 117 L 99 117 L 99 114 z M 96 114 L 96 111 L 93 111 L 93 114 L 96 114 z M 93 114 L 90 114 L 90 117 L 93 117 L 93 114 z M 90 114 L 90 111 L 87 111 L 87 114 L 90 114 z M 87 114 L 84 114 L 84 117 L 87 117 L 87 114 z M 84 114 L 84 111 L 81 111 L 81 114 L 84 114 z M 81 114 L 78 114 L 78 117 L 81 117 L 81 114 z M 78 114 L 78 111 L 75 111 L 75 114 L 78 114 z M 75 114 L 72 114 L 72 117 L 75 117 L 75 114 z M 72 114 L 72 111 L 69 111 L 69 114 L 72 114 z M 69 114 L 66 114 L 66 117 L 69 117 L 69 114 z M 66 114 L 66 111 L 63 111 L 63 114 L 66 114 z M 63 114 L 60 114 L 60 117 L 63 117 L 63 114 z M 60 114 L 60 111 L 57 111 L 57 114 L 60 114 z M 57 114 L 54 114 L 54 117 L 57 117 L 57 114 z M 54 114 L 54 111 L 51 111 L 51 114 L 54 114 z M 51 114 L 48 114 L 48 117 L 51 117 L 51 114 z M 48 114 L 48 111 L 45 111 L 45 114 L 48 114 z M 45 114 L 42 114 L 42 117 L 45 117 L 45 114 z M 42 114 L 42 111 L 39 111 L 39 114 L 42 114 z M 39 114 L 36 114 L 36 117 L 39 117 L 39 114 z M 36 114 L 36 111 L 33 111 L 33 114 L 36 114 z M 33 114 L 30 114 L 30 117 L 33 117 L 33 114 z M 30 114 L 30 111 L 27 111 L 27 114 L 30 114 z M 27 114 L 24 114 L 24 117 L 27 117 L 27 114 z M 24 114 L 24 111 L 21 111 L 21 114 L 24 114 z M 21 114 L 18 114 L 18 117 L 21 117 L 21 114 z M 18 114 L 18 111 L 15 111 L 15 114 L 18 114 z M 15 114 L 12 114 L 12 117 L 15 117 L 15 114 z M 15 111 L 15 108 L 12 108 L 12 111 L 15 111 z M 15 108 L 18 108 L 18 105 L 15 105 L 15 108 z M 15 105 L 15 102 L 12 102 L 12 105 L 15 105 z M 15 102 L 18 102 L 18 99 L 15 99 L 15 102 z M 15 99 L 15 96 L 12 96 L 12 99 L 15 99 z M 15 96 L 18 96 L 18 93 L 15 93 L 15 96 z M 15 93 L 15 90 L 12 90 L 12 93 L 15 93 z M 15 90 L 18 90 L 18 87 L 15 87 L 15 90 z M 15 87 L 15 84 L 12 84 L 12 87 L 15 87 z M 15 84 L 18 84 L 18 81 L 15 81 L 15 84 z M 15 81 L 15 78 L 12 78 L 12 81 L 15 81 z M 15 78 L 18 78 L 18 75 L 15 75 L 15 78 z M 15 75 L 15 72 L 12 72 L 12 75 L 15 75 z M 15 72 L 18 72 L 18 69 L 15 69 L 15 72 z M 15 69 L 15 66 L 12 66 L 12 69 L 15 69 z M 15 66 L 18 66 L 18 63 L 15 63 L 15 66 z M 15 63 L 15 60 L 12 60 L 12 63 L 15 63 z M 15 60 L 18 60 L 18 57 L 15 57 L 15 60 z M 15 57 L 15 54 L 12 54 L 12 57 L 15 57 z M 15 54 L 18 54 L 18 51 L 15 51 L 15 54 z M 15 51 L 15 48 L 12 48 L 12 51 L 15 51 z M 15 48 L 18 48 L 18 45 L 15 45 L 15 48 z M 15 45 L 15 42 L 12 42 L 12 45 L 15 45 z M 18 45 L 21 45 L 21 42 L 18 42 L 18 45 z M 21 45 L 21 48 L 24 48 L 24 45 L 21 45 z M 24 45 L 27 45 L 27 42 L 24 42 L 24 45 z M 27 45 L 27 48 L 30 48 L 30 45 L 27 45 z M 30 45 L 33 45 L 33 42 L 30 42 L 30 45 z M 33 45 L 33 48 L 36 48 L 36 45 L 33 45 z M 36 45 L 39 45 L 39 42 L 36 42 L 36 45 z M 39 45 L 39 48 L 42 48 L 42 45 L 39 45 z M 42 45 L 45 45 L 45 42 L 42 42 L 42 45 z M 45 45 L 45 48 L 48 48 L 48 45 L 45 45 z M 48 45 L 51 45 L 51 42 L 48 42 L 48 45 z M 51 45 L 51 48 L 54 48 L 54 45 L 51 45 z M 54 45 L 57 45 L 57 42 L 54 42 L 54 45 z M 57 45 L 57 48 L 60 48 L 60 45 L 57 45 z M 60 45 L 63 45 L 63 42 L 60 42 L 60 45 z M 63 45 L 63 48 L 66 48 L 66 45 L 63 45 z M 66 45 L 69 45 L 69 42 L 66 42 L 66 45 z M 69 45 L 69 48 L 72 48 L 72 45 L 69 45 z M 72 45 L 75 45 L 75 42 L 72 42 L 72 45 z M 75 45 L 75 48 L 78 48 L 78 45 L 75 45 z M 78 45 L 81 45 L 81 42 L 78 42 L 78 45 z M 81 45 L 81 48 L 84 48 L 84 45 L 81 45 z M 84 45 L 87 45 L 87 42 L 84 42 L 84 45 z M 87 45 L 87 48 L 90 48 L 90 45 L 87 45 z M 90 45 L 93 45 L 93 42 L 90 42 L 90 45 z M 93 45 L 93 48 L 96 48 L 96 45 L 93 45 z M 96 45 L 99 45 L 99 42 L 96 42 L 96 45 z M 99 45 L 99 48 L 102 48 L 102 45 L 99 45 z M 102 45 L 105 45 L 105 42 L 102 42 L 102 45 z M 105 45 L 105 48 L 108 48 L 108 45 L 105 45 z M 108 45 L 111 45 L 111 42 L 108 42 L 108 45 z M 111 45 L 111 48 L 114 48 L 114 45 L 111 45 z M 114 45 L 117 45 L 117 42 L 114 42 L 114 45 z M 117 45 L 117 48 L 120 48 L 120 45 L 117 45 z M 120 45 L 123 45 L 123 42 L 120 42 L 120 45 z M 123 45 L 123 48 L 126 48 L 126 45 L 123 45 z M 123 48 L 120 48 L 120 51 L 123 51 L 123 48 z M 123 51 L 123 54 L 126 54 L 126 51 L 123 51 z M 123 54 L 120 54 L 120 57 L 123 57 L 123 54 z M 123 57 L 123 60 L 126 60 L 126 57 L 123 57 z M 123 60 L 120 60 L 120 63 L 123 63 L 123 60 z M 123 63 L 123 66 L 126 66 L 126 63 L 123 63 z M 123 66 L 120 66 L 120 69 L 123 69 L 123 66 z M 123 69 L 123 72 L 126 72 L 126 69 L 123 69 z M 123 72 L 120 72 L 120 75 L 123 75 L 123 72 z M 123 75 L 123 78 L 126 78 L 126 75 L 123 75 z M 123 78 L 120 78 L 120 81 L 123 81 L 123 78 z M 123 81 L 123 84 L 126 84 L 126 81 L 123 81 z M 123 84 L 120 84 L 120 87 L 123 87 L 123 84 z M 123 87 L 123 90 L 126 90 L 126 87 L 123 87 z M 123 90 L 120 90 L 120 93 L 123 93 L 123 90 z M 123 93 L 123 96 L 126 96 L 126 93 L 123 93 z M 123 96 L 120 96 L 120 99 L 123 99 L 123 96 z M 123 99 L 123 102 L 126 102 L 126 99 L 123 99 z M 123 102 L 120 102 L 120 105 L 123 105 L 123 102 z M 123 105 L 123 108 L 126 108 L 126 105 L 123 105 z M 123 108 L 120 108 L 120 111 L 123 111 L 123 108 z M 120 108 L 120 105 L 117 105 L 117 108 L 120 108 z M 117 108 L 114 108 L 114 111 L 117 111 L 117 108 z M 114 108 L 114 105 L 111 105 L 111 108 L 114 108 z M 111 108 L 108 108 L 108 111 L 111 111 L 111 108 z M 108 108 L 108 105 L 105 105 L 105 108 L 108 108 z M 105 108 L 102 108 L 102 111 L 105 111 L 105 108 z M 102 108 L 102 105 L 99 105 L 99 108 L 102 108 z M 99 108 L 96 108 L 96 111 L 99 111 L 99 108 z M 96 108 L 96 105 L 93 105 L 93 108 L 96 108 z M 93 108 L 90 108 L 90 111 L 93 111 L 93 108 z M 90 108 L 90 105 L 87 105 L 87 108 L 90 108 z M 87 108 L 84 108 L 84 111 L 87 111 L 87 108 z M 84 108 L 84 105 L 81 105 L 81 108 L 84 108 z M 81 108 L 78 108 L 78 111 L 81 111 L 81 108 z M 78 108 L 78 105 L 75 105 L 75 108 L 78 108 z M 75 108 L 72 108 L 72 111 L 75 111 L 75 108 z M 72 108 L 72 105 L 69 105 L 69 108 L 72 108 z M 69 108 L 66 108 L 66 111 L 69 111 L 69 108 z M 66 108 L 66 105 L 63 105 L 63 108 L 66 108 z M 63 108 L 60 108 L 60 111 L 63 111 L 63 108 z M 60 108 L 60 105 L 57 105 L 57 108 L 60 108 z M 57 108 L 54 108 L 54 111 L 57 111 L 57 108 z M 54 108 L 54 105 L 51 105 L 51 108 L 54 108 z M 51 108 L 48 108 L 48 111 L 51 111 L 51 108 z M 48 108 L 48 105 L 45 105 L 45 108 L 48 108 z M 45 108 L 42 108 L 42 111 L 45 111 L 45 108 z M 42 108 L 42 105 L 39 105 L 39 108 L 42 108 z M 39 108 L 36 108 L 36 111 L 39 111 L 39 108 z M 36 108 L 36 105 L 33 105 L 33 108 L 36 108 z M 33 108 L 30 108 L 30 111 L 33 111 L 33 108 z M 30 108 L 30 105 L 27 105 L 27 108 L 30 108 z M 27 108 L 24 108 L 24 111 L 27 111 L 27 108 z M 24 108 L 24 105 L 21 105 L 21 108 L 24 108 z M 21 108 L 18 108 L 18 111 L 21 111 L 21 108 z M 21 105 L 21 102 L 18 102 L 18 105 L 21 105 z M 21 102 L 24 102 L 24 99 L 21 99 L 21 102 z M 21 99 L 21 96 L 18 96 L 18 99 L 21 99 z M 21 96 L 24 96 L 24 93 L 21 93 L 21 96 z M 21 93 L 21 90 L 18 90 L 18 93 L 21 93 z M 21 90 L 24 90 L 24 87 L 21 87 L 21 90 z M 21 87 L 21 84 L 18 84 L 18 87 L 21 87 z M 21 84 L 24 84 L 24 81 L 21 81 L 21 84 z M 21 81 L 21 78 L 18 78 L 18 81 L 21 81 z M 21 78 L 24 78 L 24 75 L 21 75 L 21 78 z M 21 75 L 21 72 L 18 72 L 18 75 L 21 75 z M 21 72 L 24 72 L 24 69 L 21 69 L 21 72 z M 21 69 L 21 66 L 18 66 L 18 69 L 21 69 z M 21 66 L 24 66 L 24 63 L 21 63 L 21 66 z M 21 63 L 21 60 L 18 60 L 18 63 L 21 63 z M 21 60 L 24 60 L 24 57 L 21 57 L 21 60 z M 21 57 L 21 54 L 18 54 L 18 57 L 21 57 z M 21 54 L 24 54 L 24 51 L 21 51 L 21 54 z M 21 51 L 21 48 L 18 48 L 18 51 L 21 51 z M 24 51 L 27 51 L 27 48 L 24 48 L 24 51 z M 27 51 L 27 54 L 30 54 L 30 51 L 27 51 z M 30 51 L 33 51 L 33 48 L 30 48 L 30 51 z M 33 51 L 33 54 L 36 54 L 36 51 L 33 51 z M 36 51 L 39 51 L 39 48 L 36 48 L 36 51 z M 39 51 L 39 54 L 42 54 L 42 51 L 39 51 z M 42 51 L 45 51 L 45 48 L 42 48 L 42 51 z M 45 51 L 45 54 L 48 54 L 48 51 L 45 51 z M 48 51 L 51 51 L 51 48 L 48 48 L 48 51 z M 51 51 L 51 54 L 54 54 L 54 51 L 51 51 z M 54 51 L 57 51 L 57 48 L 54 48 L 54 51 z M 57 51 L 57 54 L 60 54 L 60 51 L 57 51 z M 60 51 L 63 51 L 63 48 L 60 48 L 60 51 z M 63 51 L 63 54 L 66 54 L 66 51 L 63 51 z M 66 51 L 69 51 L 69 48 L 66 48 L 66 51 z M 69 51 L 69 54 L 72 54 L 72 51 L 69 51 z M 72 51 L 75 51 L 75 48 L 72 48 L 72 51 z M 75 51 L 75 54 L 78 54 L 78 51 L 75 51 z M 78 51 L 81 51 L 81 48 L 78 48 L 78 51 z M 81 51 L 81 54 L 84 54 L 84 51 L 81 51 z M 84 51 L 87 51 L 87 48 L 84 48 L 84 51 z M 87 51 L 87 54 L 90 54 L 90 51 L 87 51 z M 90 51 L 93 51 L 93 48 L 90 48 L 90 51 z M 93 51 L 93 54 L 96 54 L 96 51 L 93 51 z M 96 51 L 99 51 L 99 48 L 96 48 L 96 51 z M 99 51 L 99 54 L 102 54 L 102 51 L 99 51 z M 102 51 L 105 51 L 105 48 L 102 48 L 102 51 z M 105 51 L 105 54 L 108 54 L 108 51 L 105 51 z M 108 51 L 111 51 L 111 48 L 108 48 L 108 51 z M 111 51 L 111 54 L 114 54 L 114 51 L 111 51 z M 114 51 L 117 51 L 117 48 L 114 48 L 114 51 z M 117 51 L 117 54 L 120 54 L 120 51 L 117 51 z M 117 54 L 114 54 L 114 57 L 117 57 L 117 54 z M 117 57 L 117 60 L 120 60 L 120 57 L 117 57 z M 117 60 L 114 60 L 114 63 L 117 63 L 117 60 z M 117 63 L 117 66 L 120 66 L 120 63 L 117 63 z M 117 66 L 114 66 L 114 69 L 117 69 L 117 66 z M 117 69 L 117 72 L 120 72 L 120 69 L 117 69 z M 117 72 L 114 72 L 114 75 L 117 75 L 117 72 z M 117 75 L 117 78 L 120 78 L 120 75 L 117 75 z M 117 78 L 114 78 L 114 81 L 117 81 L 117 78 z M 117 81 L 117 84 L 120 84 L 120 81 L 117 81 z M 117 84 L 114 84 L 114 87 L 117 87 L 117 84 z M 117 87 L 117 90 L 120 90 L 120 87 L 117 87 z M 117 90 L 114 90 L 114 93 L 117 93 L 117 90 z M 117 93 L 117 96 L 120 96 L 120 93 L 117 93 z M 117 96 L 114 96 L 114 99 L 117 99 L 117 96 z M 117 99 L 117 102 L 120 102 L 120 99 L 117 99 z M 117 102 L 114 102 L 114 105 L 117 105 L 117 102 z M 114 102 L 114 99 L 111 99 L 111 102 L 114 102 z M 111 102 L 108 102 L 108 105 L 111 105 L 111 102 z M 108 102 L 108 99 L 105 99 L 105 102 L 108 102 z M 105 102 L 102 102 L 102 105 L 105 105 L 105 102 z M 102 102 L 102 99 L 99 99 L 99 102 L 102 102 z M 99 102 L 96 102 L 96 105 L 99 105 L 99 102 z M 96 102 L 96 99 L 93 99 L 93 102 L 96 102 z M 93 102 L 90 102 L 90 105 L 93 105 L 93 102 z M 90 102 L 90 99 L 87 99 L 87 102 L 90 102 z M 87 102 L 84 102 L 84 105 L 87 105 L 87 102 z M 84 102 L 84 99 L 81 99 L 81 102 L 84 102 z M 81 102 L 78 102 L 78 105 L 81 105 L 81 102 z M 78 102 L 78 99 L 75 99 L 75 102 L 78 102 z M 75 102 L 72 102 L 72 105 L 75 105 L 75 102 z M 72 102 L 72 99 L 69 99 L 69 102 L 72 102 z M 69 102 L 66 102 L 66 105 L 69 105 L 69 102 z M 66 102 L 66 99 L 63 99 L 63 102 L 66 102 z M 63 102 L 60 102 L 60 105 L 63 105 L 63 102 z M 60 102 L 60 99 L 57 99 L 57 102 L 60 102 z M 57 102 L 54 102 L 54 105 L 57 105 L 57 102 z M 54 102 L 54 99 L 51 99 L 51 102 L 54 102 z M 51 102 L 48 102 L 48 105 L 51 105 L 51 102 z M 48 102 L 48 99 L 45 99 L 45 102 L 48 102 z M 45 102 L 42 102 L 42 105 L 45 105 L 45 102 z M 42 102 L 42 99 L 39 99 L 39 102 L 42 102 z M 39 102 L 36 102 L 36 105 L 39 105 L 39 102 z M 36 102 L 36 99 L 33 99 L 33 102 L 36 102 z M 33 102 L 30 102 L 30 105 L 33 105 L 33 102 z M 30 102 L 30 99 L 27 99 L 27 102 L 30 102 z M 27 102 L 24 102 L 24 105 L 27 105 L 27 102 z M 27 99 L 27 96 L 24 96 L 24 99 L 27 99 z M 27 96 L 30 96 L 30 93 L 27 93 L 27 96 z M 27 93 L 27 90 L 24 90 L 24 93 L 27 93 z M 27 90 L 30 90 L 30 87 L 27 87 L 27 90 z M 27 87 L 27 84 L 24 84 L 24 87 L 27 87 z M 27 84 L 30 84 L 30 81 L 27 81 L 27 84 z M 27 81 L 27 78 L 24 78 L 24 81 L 27 81 z M 27 78 L 30 78 L 30 75 L 27 75 L 27 78 z M 27 75 L 27 72 L 24 72 L 24 75 L 27 75 z M 27 72 L 30 72 L 30 69 L 27 69 L 27 72 z M 27 69 L 27 66 L 24 66 L 24 69 L 27 69 z M 27 66 L 30 66 L 30 63 L 27 63 L 27 66 z M 27 63 L 27 60 L 24 60 L 24 63 L 27 63 z M 27 60 L 30 60 L 30 57 L 27 57 L 27 60 z M 27 57 L 27 54 L 24 54 L 24 57 L 27 57 z M 30 57 L 33 57 L 33 54 L 30 54 L 30 57 z M 33 57 L 33 60 L 36 60 L 36 57 L 33 57 z M 36 57 L 39 57 L 39 54 L 36 54 L 36 57 z M 39 57 L 39 60 L 42 60 L 42 57 L 39 57 z M 42 57 L 45 57 L 45 54 L 42 54 L 42 57 z M 45 57 L 45 60 L 48 60 L 48 57 L 45 57 z M 48 57 L 51 57 L 51 54 L 48 54 L 48 57 z M 51 57 L 51 60 L 54 60 L 54 57 L 51 57 z M 54 57 L 57 57 L 57 54 L 54 54 L 54 57 z M 57 57 L 57 60 L 60 60 L 60 57 L 57 57 z M 60 57 L 63 57 L 63 54 L 60 54 L 60 57 z M 63 57 L 63 60 L 66 60 L 66 57 L 63 57 z M 66 57 L 69 57 L 69 54 L 66 54 L 66 57 z M 69 57 L 69 60 L 72 60 L 72 57 L 69 57 z M 72 57 L 75 57 L 75 54 L 72 54 L 72 57 z M 75 57 L 75 60 L 78 60 L 78 57 L 75 57 z M 78 57 L 81 57 L 81 54 L 78 54 L 78 57 z M 81 57 L 81 60 L 84 60 L 84 57 L 81 57 z M 84 57 L 87 57 L 87 54 L 84 54 L 84 57 z M 87 57 L 87 60 L 90 60 L 90 57 L 87 57 z M 90 57 L 93 57 L 93 54 L 90 54 L 90 57 z M 93 57 L 93 60 L 96 60 L 96 57 L 93 57 z M 96 57 L 99 57 L 99 54 L 96 54 L 96 57 z M 99 57 L 99 60 L 102 60 L 102 57 L 99 57 z M 102 57 L 105 57 L 105 54 L 102 54 L 102 57 z M 105 57 L 105 60 L 108 60 L 108 57 L 105 57 z M 108 57 L 111 57 L 111 54 L 108 54 L 108 57 z M 111 57 L 111 60 L 114 60 L 114 57 L 111 57 z M 111 60 L 108 60 L 108 63 L 111 63 L 111 60 z M 111 63 L 111 66 L 114 66 L 114 63 L 111 63 z M 111 66 L 108 66 L 108 69 L 111 69 L 111 66 z M 111 69 L 111 72 L 114 72 L 114 69 L 111 69 z M 111 72 L 108 72 L 108 75 L 111 75 L 111 72 z M 111 75 L 111 78 L 114 78 L 114 75 L 111 75 z M 111 78 L 108 78 L 108 81 L 111 81 L 111 78 z M 111 81 L 111 84 L 114 84 L 114 81 L 111 81 z M 111 84 L 108 84 L 108 87 L 111 87 L 111 84 z M 111 87 L 111 90 L 114 90 L 114 87 L 111 87 z M 111 90 L 108 90 L 108 93 L 111 93 L 111 90 z M 111 93 L 111 96 L 114 96 L 114 93 L 111 93 z M 111 96 L 108 96 L 108 99 L 111 99 L 111 96 z M 108 96 L 108 93 L 105 93 L 105 96 L 108 96 z M 105 96 L 102 96 L 102 99 L 105 99 L 105 96 z M 102 96 L 102 93 L 99 93 L 99 96 L 102 96 z M 99 96 L 96 96 L 96 99 L 99 99 L 99 96 z M 96 96 L 96 93 L 93 93 L 93 96 L 96 96 z M 93 96 L 90 96 L 90 99 L 93 99 L 93 96 z M 90 96 L 90 93 L 87 93 L 87 96 L 90 96 z M 87 96 L 84 96 L 84 99 L 87 99 L 87 96 z M 84 96 L 84 93 L 81 93 L 81 96 L 84 96 z M 81 96 L 78 96 L 78 99 L 81 99 L 81 96 z M 78 96 L 78 93 L 75 93 L 75 96 L 78 96 z M 75 96 L 72 96 L 72 99 L 75 99 L 75 96 z M 72 96 L 72 93 L 69 93 L 69 96 L 72 96 z M 69 96 L 66 96 L 66 99 L 69 99 L 69 96 z M 66 96 L 66 93 L 63 93 L 63 96 L 66 96 z M 63 96 L 60 96 L 60 99 L 63 99 L 63 96 z M 60 96 L 60 93 L 57 93 L 57 96 L 60 96 z M 57 96 L 54 96 L 54 99 L 57 99 L 57 96 z M 54 96 L 54 93 L 51 93 L 51 96 L 54 96 z M 51 96 L 48 96 L 48 99 L 51 99 L 51 96 z M 48 96 L 48 93 L 45 93 L 45 96 L 48 96 z M 45 96 L 42 96 L 42 99 L 45 99 L 45 96 z M 42 96 L 42 93 L 39 93 L 39 96 L 42 96 z M 39 96 L 36 96 L 36 99 L 39 99 L 39 96 z M 36 96 L 36 93 L 33 93 L 33 96 L 36 96 z M 33 96 L 30 96 L 30 99 L 33 99 L 33 96 z M 33 93 L 33 90 L 30 90 L 30 93 L 33 93 z M 33 90 L 36 90 L 36 87 L 33 87 L 33 90 z M 33 87 L 33 84 L 30 84 L 30 87 L 33 87 z M 33 84 L 36 84 L 36 81 L 33 81 L 33 84 z M 33 81 L 33 78 L 30 78 L 30 81 L 33 81 z M 33 78 L 36 78 L 36 75 L 33 75 L 33 78 z M 33 75 L 33 72 L 30 72 L 30 75 L 33 75 z M 33 72 L 36 72 L 36 69 L 33 69 L 33 72 z M 33 69 L 33 66 L 30 66 L 30 69 L 33 69 z M 33 66 L 36 66 L 36 63 L 33 63 L 33 66 z M 33 63 L 33 60 L 30 60 L 30 63 L 33 63 z M 36 63 L 39 63 L 39 60 L 36 60 L 36 63 z M 39 63 L 39 66 L 42 66 L 42 63 L 39 63 z M 42 63 L 45 63 L 45 60 L 42 60 L 42 63 z M 45 63 L 45 66 L 48 66 L 48 63 L 45 63 z M 48 63 L 51 63 L 51 60 L 48 60 L 48 63 z M 51 63 L 51 66 L 54 66 L 54 63 L 51 63 z M 54 63 L 57 63 L 57 60 L 54 60 L 54 63 z M 57 63 L 57 66 L 60 66 L 60 63 L 57 63 z M 60 63 L 63 63 L 63 60 L 60 60 L 60 63 z M 63 63 L 63 66 L 66 66 L 66 63 L 63 63 z M 66 63 L 69 63 L 69 60 L 66 60 L 66 63 z M 69 63 L 69 66 L 72 66 L 72 63 L 69 63 z M 72 63 L 75 63 L 75 60 L 72 60 L 72 63 z M 75 63 L 75 66 L 78 66 L 78 63 L 75 63 z M 78 63 L 81 63 L 81 60 L 78 60 L 78 63 z M 81 63 L 81 66 L 84 66 L 84 63 L 81 63 z M 84 63 L 87 63 L 87 60 L 84 60 L 84 63 z M 87 63 L 87 66 L 90 66 L 90 63 L 87 63 z M 90 63 L 93 63 L 93 60 L 90 60 L 90 63 z M 93 63 L 93 66 L 96 66 L 96 63 L 93 63 z M 96 63 L 99 63 L 99 60 L 96 60 L 96 63 z M 99 63 L 99 66 L 102 66 L 102 63 L 99 63 z M 102 63 L 105 63 L 105 60 L 102 60 L 102 63 z M 105 63 L 105 66 L 108 66 L 108 63 L 105 63 z M 105 66 L 102 66 L 102 69 L 105 69 L 105 66 z M 105 69 L 105 72 L 108 72 L 108 69 L 105 69 z M 105 72 L 102 72 L 102 75 L 105 75 L 105 72 z M 105 75 L 105 78 L 108 78 L 108 75 L 105 75 z M 105 78 L 102 78 L 102 81 L 105 81 L 105 78 z M 105 81 L 105 84 L 108 84 L 108 81 L 105 81 z M 105 84 L 102 84 L 102 87 L 105 87 L 105 84 z M 105 87 L 105 90 L 108 90 L 108 87 L 105 87 z M 105 90 L 102 90 L 102 93 L 105 93 L 105 90 z M 102 90 L 102 87 L 99 87 L 99 90 L 102 90 z M 99 90 L 96 90 L 96 93 L 99 93 L 99 90 z M 96 90 L 96 87 L 93 87 L 93 90 L 96 90 z M 93 90 L 90 90 L 90 93 L 93 93 L 93 90 z M 90 90 L 90 87 L 87 87 L 87 90 L 90 90 z M 87 90 L 84 90 L 84 93 L 87 93 L 87 90 z M 84 90 L 84 87 L 81 87 L 81 90 L 84 90 z M 81 90 L 78 90 L 78 93 L 81 93 L 81 90 z M 78 90 L 78 87 L 75 87 L 75 90 L 78 90 z M 75 90 L 72 90 L 72 93 L 75 93 L 75 90 z M 72 90 L 72 87 L 69 87 L 69 90 L 72 90 z M 69 90 L 66 90 L 66 93 L 69 93 L 69 90 z M 66 90 L 66 87 L 63 87 L 63 90 L 66 90 z M 63 90 L 60 90 L 60 93 L 63 93 L 63 90 z M 60 90 L 60 87 L 57 87 L 57 90 L 60 90 z M 57 90 L 54 90 L 54 93 L 57 93 L 57 90 z M 54 90 L 54 87 L 51 87 L 51 90 L 54 90 z M 51 90 L 48 90 L 48 93 L 51 93 L 51 90 z M 48 90 L 48 87 L 45 87 L 45 90 L 48 90 z M 45 90 L 42 90 L 42 93 L 45 93 L 45 90 z M 42 90 L 42 87 L 39 87 L 39 90 L 42 90 z M 39 90 L 36 90 L 36 93 L 39 93 L 39 90 z M 39 87 L 39 84 L 36 84 L 36 87 L 39 87 z M 39 84 L 42 84 L 42 81 L 39 81 L 39 84 z M 39 81 L 39 78 L 36 78 L 36 81 L 39 81 z M 39 78 L 42 78 L 42 75 L 39 75 L 39 78 z M 39 75 L 39 72 L 36 72 L 36 75 L 39 75 z M 39 72 L 42 72 L 42 69 L 39 69 L 39 72 z M 39 69 L 39 66 L 36 66 L 36 69 L 39 69 z M 42 69 L 45 69 L 45 66 L 42 66 L 42 69 z M 45 69 L 45 72 L 48 72 L 48 69 L 45 69 z M 48 69 L 51 69 L 51 66 L 48 66 L 48 69 z M 51 69 L 51 72 L 54 72 L 54 69 L 51 69 z M 54 69 L 57 69 L 57 66 L 54 66 L 54 69 z M 57 69 L 57 72 L 60 72 L 60 69 L 57 69 z M 60 69 L 63 69 L 63 66 L 60 66 L 60 69 z M 63 69 L 63 72 L 66 72 L 66 69 L 63 69 z M 66 69 L 69 69 L 69 66 L 66 66 L 66 69 z M 69 69 L 69 72 L 72 72 L 72 69 L 69 69 z M 72 69 L 75 69 L 75 66 L 72 66 L 72 69 z M 75 69 L 75 72 L 78 72 L 78 69 L 75 69 z M 78 69 L 81 69 L 81 66 L 78 66 L 78 69 z M 81 69 L 81 72 L 84 72 L 84 69 L 81 69 z M 84 69 L 87 69 L 87 66 L 84 66 L 84 69 z M 87 69 L 87 72 L 90 72 L 90 69 L 87 69 z M 90 69 L 93 69 L 93 66 L 90 66 L 90 69 z M 93 69 L 93 72 L 96 72 L 96 69 L 93 69 z M 96 69 L 99 69 L 99 66 L 96 66 L 96 69 z M 99 69 L 99 72 L 102 72 L 102 69 L 99 69 z M 99 72 L 96 72 L 96 75 L 99 75 L 99 72 z M 99 75 L 99 78 L 102 78 L 102 75 L 99 75 z M 99 78 L 96 78 L 96 81 L 99 81 L 99 78 z M 99 81 L 99 84 L 102 84 L 102 81 L 99 81 z M 99 84 L 96 84 L 96 87 L 99 87 L 99 84 z M 96 84 L 96 81 L 93 81 L 93 84 L 96 84 z M 93 84 L 90 84 L 90 87 L 93 87 L 93 84 z M 90 84 L 90 81 L 87 81 L 87 84 L 90 84 z M 87 84 L 84 84 L 84 87 L 87 87 L 87 84 z M 84 84 L 84 81 L 81 81 L 81 84 L 84 84 z M 81 84 L 78 84 L 78 87 L 81 87 L 81 84 z M 78 84 L 78 81 L 75 81 L 75 84 L 78 84 z M 75 84 L 72 84 L 72 87 L 75 87 L 75 84 z M 72 84 L 72 81 L 69 81 L 69 84 L 72 84 z M 69 84 L 66 84 L 66 87 L 69 87 L 69 84 z M 66 84 L 66 81 L 63 81 L 63 84 L 66 84 z M 63 84 L 60 84 L 60 87 L 63 87 L 63 84 z M 60 84 L 60 81 L 57 81 L 57 84 L 60 84 z M 57 84 L 54 84 L 54 87 L 57 87 L 57 84 z M 54 84 L 54 81 L 51 81 L 51 84 L 54 84 z M 51 84 L 48 84 L 48 87 L 51 87 L 51 84 z M 48 84 L 48 81 L 45 81 L 45 84 L 48 84 z M 45 84 L 42 84 L 42 87 L 45 87 L 45 84 z M 45 81 L 45 78 L 42 78 L 42 81 L 45 81 z M 45 78 L 48 78 L 48 75 L 45 75 L 45 78 z M 45 75 L 45 72 L 42 72 L 42 75 L 45 75 z M 48 75 L 51 75 L 51 72 L 48 72 L 48 75 z M 51 75 L 51 78 L 54 78 L 54 75 L 51 75 z M 54 75 L 57 75 L 57 72 L 54 72 L 54 75 z M 57 75 L 57 78 L 60 78 L 60 75 L 57 75 z M 60 75 L 63 75 L 63 72 L 60 72 L 60 75 z M 63 75 L 63 78 L 66 78 L 66 75 L 63 75 z M 66 75 L 69 75 L 69 72 L 66 72 L 66 75 z M 69 75 L 69 78 L 72 78 L 72 75 L 69 75 z M 72 75 L 75 75 L 75 72 L 72 72 L 72 75 z M 75 75 L 75 78 L 78 78 L 78 75 L 75 75 z M 78 75 L 81 75 L 81 72 L 78 72 L 78 75 z M 81 75 L 81 78 L 84 78 L 84 75 L 81 75 z M 84 75 L 87 75 L 87 72 L 84 72 L 84 75 z M 87 75 L 87 78 L 90 78 L 90 75 L 87 75 z M 90 75 L 93 75 L 93 72 L 90 72 L 90 75 z M 93 75 L 93 78 L 96 78 L 96 75 L 93 75 z M 93 78 L 90 78 L 90 81 L 93 81 L 93 78 z M 87 78 L 84 78 L 84 81 L 87 81 L 87 78 z M 81 78 L 78 78 L 78 81 L 81 81 L 81 78 z M 75 78 L 72 78 L 72 81 L 75 81 L 75 78 z M 69 78 L 66 78 L 66 81 L 69 81 L 69 78 z M 63 78 L 60 78 L 60 81 L 63 81 L 63 78 z M 57 78 L 54 78 L 54 81 L 57 81 L 57 78 z M 51 78 L 48 78 L 48 81 L 51 81 L 51 78 z M 63 135 L 63 138 L 63 141 L 66 141 L 66 138 L 66 135 L 63 135 z M 69 135 L 69 138 L 69 141 L 72 141 L 72 138 L 72 135 L 69 135 z "
+     id="rect3794" />
+  <path
+     style="fill:#c0c0c0"
+     d="M 21 12 L 21 15 L 24 15 L 24 12 L 21 12 z M 24 15 L 24 18 L 27 18 L 27 15 L 24 15 z M 27 15 L 30 15 L 30 12 L 27 12 L 27 15 z M 30 15 L 30 18 L 33 18 L 33 15 L 30 15 z M 33 15 L 36 15 L 36 12 L 33 12 L 33 15 z M 36 15 L 36 18 L 39 18 L 39 15 L 36 15 z M 39 15 L 42 15 L 42 12 L 39 12 L 39 15 z M 42 15 L 42 18 L 45 18 L 45 15 L 42 15 z M 45 15 L 48 15 L 48 12 L 45 12 L 45 15 z M 48 15 L 48 18 L 51 18 L 51 15 L 48 15 z M 51 15 L 54 15 L 54 12 L 51 12 L 51 15 z M 54 15 L 54 18 L 57 18 L 57 15 L 54 15 z M 57 15 L 60 15 L 60 12 L 57 12 L 57 15 z M 60 15 L 60 18 L 63 18 L 63 15 L 60 15 z M 63 18 L 63 21 L 66 21 L 66 18 L 63 18 z M 66 21 L 66 24 L 63 24 L 63 21 L 60 21 L 60 24 L 57 24 L 57 21 L 54 21 L 54 24 L 51 24 L 51 21 L 48 21 L 48 24 L 45 24 L 45 21 L 42 21 L 42 24 L 39 24 L 39 21 L 36 21 L 36 24 L 33 24 L 33 21 L 30 21 L 30 24 L 27 24 L 27 21 L 24 21 L 24 24 L 21 24 L 21 21 L 18 21 L 18 24 L 15 24 L 15 21 L 12 21 L 12 24 L 9 24 L 6 24 L 3 24 L 3 27 L 6 27 L 9 27 L 12 27 L 15 27 L 18 27 L 21 27 L 24 27 L 27 27 L 30 27 L 33 27 L 36 27 L 39 27 L 42 27 L 45 27 L 48 27 L 51 27 L 54 27 L 57 27 L 60 27 L 63 27 L 66 27 L 69 27 L 72 27 L 72 24 L 69 24 L 69 21 L 66 21 z M 15 21 L 18 21 L 18 18 L 15 18 L 15 21 z M 18 18 L 21 18 L 21 15 L 18 15 L 18 18 z M 21 18 L 21 21 L 24 21 L 24 18 L 21 18 z M 27 21 L 30 21 L 30 18 L 27 18 L 27 21 z M 33 21 L 36 21 L 36 18 L 33 18 L 33 21 z M 39 21 L 42 21 L 42 18 L 39 18 L 39 21 z M 45 21 L 48 21 L 48 18 L 45 18 L 45 21 z M 51 21 L 54 21 L 54 18 L 51 18 L 51 21 z M 57 21 L 60 21 L 60 18 L 57 18 L 57 21 z M 9 30 L 9 33 L 12 33 L 12 30 L 9 30 z M 12 33 L 12 36 L 15 36 L 15 33 L 12 33 z M 15 33 L 18 33 L 18 30 L 15 30 L 15 33 z M 18 33 L 18 36 L 21 36 L 21 33 L 18 33 z M 21 33 L 24 33 L 24 30 L 21 30 L 21 33 z M 24 33 L 24 36 L 27 36 L 27 33 L 24 33 z M 27 33 L 30 33 L 30 30 L 27 30 L 27 33 z M 30 33 L 30 36 L 33 36 L 33 33 L 30 33 z M 33 33 L 36 33 L 36 30 L 33 30 L 33 33 z M 36 33 L 36 36 L 39 36 L 39 33 L 36 33 z M 39 33 L 42 33 L 42 30 L 39 30 L 39 33 z M 42 33 L 42 36 L 45 36 L 45 33 L 42 33 z M 45 33 L 48 33 L 48 30 L 45 30 L 45 33 z M 48 33 L 48 36 L 51 36 L 51 33 L 48 33 z M 51 33 L 54 33 L 54 30 L 51 30 L 51 33 z M 54 33 L 54 36 L 57 36 L 57 33 L 54 33 z M 57 33 L 60 33 L 60 30 L 57 30 L 57 33 z M 60 33 L 60 36 L 63 36 L 63 33 L 60 33 z M 63 33 L 66 33 L 66 30 L 63 30 L 63 33 z M 66 33 L 66 36 L 69 36 L 69 33 L 66 33 z M 69 33 L 72 33 L 72 30 L 69 30 L 69 33 z M 72 33 L 72 36 L 75 36 L 75 33 L 72 33 z M 75 33 L 78 33 L 78 30 L 75 30 L 75 33 z M 78 33 L 78 36 L 81 36 L 81 33 L 78 33 z M 81 33 L 84 33 L 84 30 L 81 30 L 81 33 z M 84 33 L 84 36 L 87 36 L 87 33 L 84 33 z M 87 33 L 90 33 L 90 30 L 87 30 L 87 33 z M 90 33 L 90 36 L 93 36 L 93 33 L 90 33 z M 93 33 L 96 33 L 96 30 L 93 30 L 93 33 z M 96 33 L 96 36 L 99 36 L 99 33 L 96 33 z M 99 33 L 102 33 L 102 30 L 99 30 L 99 33 z M 102 33 L 102 36 L 105 36 L 105 33 L 102 33 z M 105 33 L 108 33 L 108 30 L 105 30 L 105 33 z M 108 33 L 108 36 L 111 36 L 111 33 L 108 33 z M 111 33 L 114 33 L 114 30 L 111 30 L 111 33 z M 114 33 L 114 36 L 117 36 L 117 33 L 114 33 z M 117 33 L 120 33 L 120 30 L 117 30 L 117 33 z M 120 33 L 120 36 L 123 36 L 123 33 L 120 33 z M 123 33 L 126 33 L 126 30 L 123 30 L 123 33 z M 126 33 L 126 36 L 129 36 L 129 33 L 126 33 z M 129 33 L 132 33 L 132 30 L 129 30 L 129 33 z M 132 33 L 132 36 L 135 36 L 135 33 L 132 33 z M 135 33 L 138 33 L 138 30 L 135 30 L 135 33 z M 135 36 L 135 39 L 138 39 L 138 36 L 135 36 z M 135 39 L 132 39 L 132 42 L 135 42 L 135 39 z M 135 42 L 135 45 L 138 45 L 138 42 L 135 42 z M 135 45 L 132 45 L 132 48 L 135 48 L 135 45 z M 135 48 L 135 51 L 138 51 L 138 48 L 135 48 z M 135 51 L 132 51 L 132 54 L 135 54 L 135 51 z M 135 54 L 135 57 L 138 57 L 138 54 L 135 54 z M 135 57 L 132 57 L 132 60 L 135 60 L 135 57 z M 135 60 L 135 63 L 138 63 L 138 60 L 135 60 z M 135 63 L 132 63 L 132 66 L 135 66 L 135 63 z M 135 66 L 135 69 L 138 69 L 138 66 L 135 66 z M 135 69 L 132 69 L 132 72 L 135 72 L 135 69 z M 135 72 L 135 75 L 138 75 L 138 72 L 135 72 z M 135 75 L 132 75 L 132 78 L 135 78 L 135 75 z M 135 78 L 135 81 L 138 81 L 138 78 L 135 78 z M 135 81 L 132 81 L 132 84 L 135 84 L 135 81 z M 135 84 L 135 87 L 138 87 L 138 84 L 135 84 z M 135 87 L 132 87 L 132 90 L 135 90 L 135 87 z M 135 90 L 135 93 L 138 93 L 138 90 L 135 90 z M 135 93 L 132 93 L 132 96 L 135 96 L 135 93 z M 135 96 L 135 99 L 138 99 L 138 96 L 135 96 z M 135 99 L 132 99 L 132 102 L 135 102 L 135 99 z M 135 102 L 135 105 L 138 105 L 138 102 L 135 102 z M 135 105 L 132 105 L 132 108 L 135 108 L 135 105 z M 135 108 L 135 111 L 138 111 L 138 108 L 135 108 z M 135 111 L 132 111 L 132 114 L 135 114 L 135 111 z M 135 114 L 135 117 L 138 117 L 138 114 L 135 114 z M 135 117 L 132 117 L 132 120 L 135 120 L 135 117 z M 135 120 L 135 123 L 138 123 L 138 120 L 135 120 z M 132 120 L 129 120 L 129 123 L 132 123 L 132 120 z M 129 120 L 129 117 L 126 117 L 126 120 L 129 120 z M 126 120 L 123 120 L 123 123 L 126 123 L 126 120 z M 123 120 L 123 117 L 120 117 L 120 120 L 123 120 z M 120 120 L 117 120 L 117 123 L 120 123 L 120 120 z M 117 120 L 117 117 L 114 117 L 114 120 L 117 120 z M 114 120 L 111 120 L 111 123 L 114 123 L 114 120 z M 111 120 L 111 117 L 108 117 L 108 120 L 111 120 z M 108 120 L 105 120 L 105 123 L 108 123 L 108 120 z M 105 120 L 105 117 L 102 117 L 102 120 L 105 120 z M 102 120 L 99 120 L 99 123 L 102 123 L 102 120 z M 99 120 L 99 117 L 96 117 L 96 120 L 99 120 z M 96 120 L 93 120 L 93 123 L 96 123 L 96 120 z M 93 120 L 93 117 L 90 117 L 90 120 L 93 120 z M 90 120 L 87 120 L 87 123 L 90 123 L 90 120 z M 87 120 L 87 117 L 84 117 L 84 120 L 87 120 z M 84 120 L 81 120 L 81 123 L 84 123 L 84 120 z M 81 120 L 81 117 L 78 117 L 78 120 L 81 120 z M 78 120 L 75 120 L 75 123 L 78 123 L 78 120 z M 75 120 L 75 117 L 72 117 L 72 120 L 75 120 z M 72 120 L 69 120 L 69 123 L 72 123 L 72 120 z M 69 120 L 69 117 L 66 117 L 66 120 L 69 120 z M 66 120 L 63 120 L 63 123 L 66 123 L 66 120 z M 63 120 L 63 117 L 60 117 L 60 120 L 63 120 z M 60 120 L 57 120 L 57 123 L 60 123 L 60 120 z M 57 120 L 57 117 L 54 117 L 54 120 L 57 120 z M 54 120 L 51 120 L 51 123 L 54 123 L 54 120 z M 51 120 L 51 117 L 48 117 L 48 120 L 51 120 z M 48 120 L 45 120 L 45 123 L 48 123 L 48 120 z M 45 120 L 45 117 L 42 117 L 42 120 L 45 120 z M 42 120 L 39 120 L 39 123 L 42 123 L 42 120 z M 39 120 L 39 117 L 36 117 L 36 120 L 39 120 z M 36 120 L 33 120 L 33 123 L 36 123 L 36 120 z M 33 120 L 33 117 L 30 117 L 30 120 L 33 120 z M 30 120 L 27 120 L 27 123 L 30 123 L 30 120 z M 27 120 L 27 117 L 24 117 L 24 120 L 27 120 z M 24 120 L 21 120 L 21 123 L 24 123 L 24 120 z M 21 120 L 21 117 L 18 117 L 18 120 L 21 120 z M 18 120 L 15 120 L 15 123 L 18 123 L 18 120 z M 15 120 L 15 117 L 12 117 L 12 120 L 15 120 z M 12 120 L 9 120 L 9 123 L 12 123 L 12 120 z M 9 120 L 9 117 L 6 117 L 6 120 L 9 120 z M 9 117 L 12 117 L 12 114 L 9 114 L 9 117 z M 9 114 L 9 111 L 6 111 L 6 114 L 9 114 z M 9 111 L 12 111 L 12 108 L 9 108 L 9 111 z M 9 108 L 9 105 L 6 105 L 6 108 L 9 108 z M 9 105 L 12 105 L 12 102 L 9 102 L 9 105 z M 9 102 L 9 99 L 6 99 L 6 102 L 9 102 z M 9 99 L 12 99 L 12 96 L 9 96 L 9 99 z M 9 96 L 9 93 L 6 93 L 6 96 L 9 96 z M 9 93 L 12 93 L 12 90 L 9 90 L 9 93 z M 9 90 L 9 87 L 6 87 L 6 90 L 9 90 z M 9 87 L 12 87 L 12 84 L 9 84 L 9 87 z M 9 84 L 9 81 L 6 81 L 6 84 L 9 84 z M 9 81 L 12 81 L 12 78 L 9 78 L 9 81 z M 9 78 L 9 75 L 6 75 L 6 78 L 9 78 z M 9 75 L 12 75 L 12 72 L 9 72 L 9 75 z M 9 72 L 9 69 L 6 69 L 6 72 L 9 72 z M 9 69 L 12 69 L 12 66 L 9 66 L 9 69 z M 9 66 L 9 63 L 6 63 L 6 66 L 9 66 z M 9 63 L 12 63 L 12 60 L 9 60 L 9 63 z M 9 60 L 9 57 L 6 57 L 6 60 L 9 60 z M 9 57 L 12 57 L 12 54 L 9 54 L 9 57 z M 9 54 L 9 51 L 6 51 L 6 54 L 9 54 z M 9 51 L 12 51 L 12 48 L 9 48 L 9 51 z M 9 48 L 9 45 L 6 45 L 6 48 L 9 48 z M 9 45 L 12 45 L 12 42 L 9 42 L 9 45 z M 9 42 L 9 39 L 6 39 L 6 42 L 9 42 z M 9 39 L 12 39 L 12 36 L 9 36 L 9 39 z M 9 36 L 9 33 L 6 33 L 6 36 L 9 36 z M 12 39 L 12 42 L 15 42 L 15 39 L 12 39 z M 15 39 L 18 39 L 18 36 L 15 36 L 15 39 z M 18 39 L 18 42 L 21 42 L 21 39 L 18 39 z M 21 39 L 24 39 L 24 36 L 21 36 L 21 39 z M 24 39 L 24 42 L 27 42 L 27 39 L 24 39 z M 27 39 L 30 39 L 30 36 L 27 36 L 27 39 z M 30 39 L 30 42 L 33 42 L 33 39 L 30 39 z M 33 39 L 36 39 L 36 36 L 33 36 L 33 39 z M 36 39 L 36 42 L 39 42 L 39 39 L 36 39 z M 39 39 L 42 39 L 42 36 L 39 36 L 39 39 z M 42 39 L 42 42 L 45 42 L 45 39 L 42 39 z M 45 39 L 48 39 L 48 36 L 45 36 L 45 39 z M 48 39 L 48 42 L 51 42 L 51 39 L 48 39 z M 51 39 L 54 39 L 54 36 L 51 36 L 51 39 z M 54 39 L 54 42 L 57 42 L 57 39 L 54 39 z M 57 39 L 60 39 L 60 36 L 57 36 L 57 39 z M 60 39 L 60 42 L 63 42 L 63 39 L 60 39 z M 63 39 L 66 39 L 66 36 L 63 36 L 63 39 z M 66 39 L 66 42 L 69 42 L 69 39 L 66 39 z M 69 39 L 72 39 L 72 36 L 69 36 L 69 39 z M 72 39 L 72 42 L 75 42 L 75 39 L 72 39 z M 75 39 L 78 39 L 78 36 L 75 36 L 75 39 z M 78 39 L 78 42 L 81 42 L 81 39 L 78 39 z M 81 39 L 84 39 L 84 36 L 81 36 L 81 39 z M 84 39 L 84 42 L 87 42 L 87 39 L 84 39 z M 87 39 L 90 39 L 90 36 L 87 36 L 87 39 z M 90 39 L 90 42 L 93 42 L 93 39 L 90 39 z M 93 39 L 96 39 L 96 36 L 93 36 L 93 39 z M 96 39 L 96 42 L 99 42 L 99 39 L 96 39 z M 99 39 L 102 39 L 102 36 L 99 36 L 99 39 z M 102 39 L 102 42 L 105 42 L 105 39 L 102 39 z M 105 39 L 108 39 L 108 36 L 105 36 L 105 39 z M 108 39 L 108 42 L 111 42 L 111 39 L 108 39 z M 111 39 L 114 39 L 114 36 L 111 36 L 111 39 z M 114 39 L 114 42 L 117 42 L 117 39 L 114 39 z M 117 39 L 120 39 L 120 36 L 117 36 L 117 39 z M 120 39 L 120 42 L 123 42 L 123 39 L 120 39 z M 123 39 L 126 39 L 126 36 L 123 36 L 123 39 z M 126 39 L 126 42 L 129 42 L 129 39 L 126 39 z M 129 39 L 132 39 L 132 36 L 129 36 L 129 39 z M 129 42 L 129 45 L 132 45 L 132 42 L 129 42 z M 129 45 L 126 45 L 126 48 L 129 48 L 129 45 z M 129 48 L 129 51 L 132 51 L 132 48 L 129 48 z M 129 51 L 126 51 L 126 54 L 129 54 L 129 51 z M 129 54 L 129 57 L 132 57 L 132 54 L 129 54 z M 129 57 L 126 57 L 126 60 L 129 60 L 129 57 z M 129 60 L 129 63 L 132 63 L 132 60 L 129 60 z M 129 63 L 126 63 L 126 66 L 129 66 L 129 63 z M 129 66 L 129 69 L 132 69 L 132 66 L 129 66 z M 129 69 L 126 69 L 126 72 L 129 72 L 129 69 z M 129 72 L 129 75 L 132 75 L 132 72 L 129 72 z M 129 75 L 126 75 L 126 78 L 129 78 L 129 75 z M 129 78 L 129 81 L 132 81 L 132 78 L 129 78 z M 129 81 L 126 81 L 126 84 L 129 84 L 129 81 z M 129 84 L 129 87 L 132 87 L 132 84 L 129 84 z M 129 87 L 126 87 L 126 90 L 129 90 L 129 87 z M 129 90 L 129 93 L 132 93 L 132 90 L 129 90 z M 129 93 L 126 93 L 126 96 L 129 96 L 129 93 z M 129 96 L 129 99 L 132 99 L 132 96 L 129 96 z M 129 99 L 126 99 L 126 102 L 129 102 L 129 99 z M 129 102 L 129 105 L 132 105 L 132 102 L 129 102 z M 129 105 L 126 105 L 126 108 L 129 108 L 129 105 z M 129 108 L 129 111 L 132 111 L 132 108 L 129 108 z M 129 111 L 126 111 L 126 114 L 129 114 L 129 111 z M 129 114 L 129 117 L 132 117 L 132 114 L 129 114 z M 126 114 L 123 114 L 123 117 L 126 117 L 126 114 z M 123 114 L 123 111 L 120 111 L 120 114 L 123 114 z M 120 114 L 117 114 L 117 117 L 120 117 L 120 114 z M 117 114 L 117 111 L 114 111 L 114 114 L 117 114 z M 114 114 L 111 114 L 111 117 L 114 117 L 114 114 z M 111 114 L 111 111 L 108 111 L 108 114 L 111 114 z M 108 114 L 105 114 L 105 117 L 108 117 L 108 114 z M 105 114 L 105 111 L 102 111 L 102 114 L 105 114 z M 102 114 L 99 114 L 99 117 L 102 117 L 102 114 z M 99 114 L 99 111 L 96 111 L 96 114 L 99 114 z M 96 114 L 93 114 L 93 117 L 96 117 L 96 114 z M 93 114 L 93 111 L 90 111 L 90 114 L 93 114 z M 90 114 L 87 114 L 87 117 L 90 117 L 90 114 z M 87 114 L 87 111 L 84 111 L 84 114 L 87 114 z M 84 114 L 81 114 L 81 117 L 84 117 L 84 114 z M 81 114 L 81 111 L 78 111 L 78 114 L 81 114 z M 78 114 L 75 114 L 75 117 L 78 117 L 78 114 z M 75 114 L 75 111 L 72 111 L 72 114 L 75 114 z M 72 114 L 69 114 L 69 117 L 72 117 L 72 114 z M 69 114 L 69 111 L 66 111 L 66 114 L 69 114 z M 66 114 L 63 114 L 63 117 L 66 117 L 66 114 z M 63 114 L 63 111 L 60 111 L 60 114 L 63 114 z M 60 114 L 57 114 L 57 117 L 60 117 L 60 114 z M 57 114 L 57 111 L 54 111 L 54 114 L 57 114 z M 54 114 L 51 114 L 51 117 L 54 117 L 54 114 z M 51 114 L 51 111 L 48 111 L 48 114 L 51 114 z M 48 114 L 45 114 L 45 117 L 48 117 L 48 114 z M 45 114 L 45 111 L 42 111 L 42 114 L 45 114 z M 42 114 L 39 114 L 39 117 L 42 117 L 42 114 z M 39 114 L 39 111 L 36 111 L 36 114 L 39 114 z M 36 114 L 33 114 L 33 117 L 36 117 L 36 114 z M 33 114 L 33 111 L 30 111 L 30 114 L 33 114 z M 30 114 L 27 114 L 27 117 L 30 117 L 30 114 z M 27 114 L 27 111 L 24 111 L 24 114 L 27 114 z M 24 114 L 21 114 L 21 117 L 24 117 L 24 114 z M 21 114 L 21 111 L 18 111 L 18 114 L 21 114 z M 18 114 L 15 114 L 15 117 L 18 117 L 18 114 z M 15 114 L 15 111 L 12 111 L 12 114 L 15 114 z M 15 111 L 18 111 L 18 108 L 15 108 L 15 111 z M 15 108 L 15 105 L 12 105 L 12 108 L 15 108 z M 15 105 L 18 105 L 18 102 L 15 102 L 15 105 z M 15 102 L 15 99 L 12 99 L 12 102 L 15 102 z M 15 99 L 18 99 L 18 96 L 15 96 L 15 99 z M 15 96 L 15 93 L 12 93 L 12 96 L 15 96 z M 15 93 L 18 93 L 18 90 L 15 90 L 15 93 z M 15 90 L 15 87 L 12 87 L 12 90 L 15 90 z M 15 87 L 18 87 L 18 84 L 15 84 L 15 87 z M 15 84 L 15 81 L 12 81 L 12 84 L 15 84 z M 15 81 L 18 81 L 18 78 L 15 78 L 15 81 z M 15 78 L 15 75 L 12 75 L 12 78 L 15 78 z M 15 75 L 18 75 L 18 72 L 15 72 L 15 75 z M 15 72 L 15 69 L 12 69 L 12 72 L 15 72 z M 15 69 L 18 69 L 18 66 L 15 66 L 15 69 z M 15 66 L 15 63 L 12 63 L 12 66 L 15 66 z M 15 63 L 18 63 L 18 60 L 15 60 L 15 63 z M 15 60 L 15 57 L 12 57 L 12 60 L 15 60 z M 15 57 L 18 57 L 18 54 L 15 54 L 15 57 z M 15 54 L 15 51 L 12 51 L 12 54 L 15 54 z M 15 51 L 18 51 L 18 48 L 15 48 L 15 51 z M 15 48 L 15 45 L 12 45 L 12 48 L 15 48 z M 15 45 L 18 45 L 18 42 L 15 42 L 15 45 z M 18 45 L 18 48 L 21 48 L 21 45 L 18 45 z M 21 45 L 24 45 L 24 42 L 21 42 L 21 45 z M 24 45 L 24 48 L 27 48 L 27 45 L 24 45 z M 27 45 L 30 45 L 30 42 L 27 42 L 27 45 z M 30 45 L 30 48 L 33 48 L 33 45 L 30 45 z M 33 45 L 36 45 L 36 42 L 33 42 L 33 45 z M 36 45 L 36 48 L 39 48 L 39 45 L 36 45 z M 39 45 L 42 45 L 42 42 L 39 42 L 39 45 z M 42 45 L 42 48 L 45 48 L 45 45 L 42 45 z M 45 45 L 48 45 L 48 42 L 45 42 L 45 45 z M 48 45 L 48 48 L 51 48 L 51 45 L 48 45 z M 51 45 L 54 45 L 54 42 L 51 42 L 51 45 z M 54 45 L 54 48 L 57 48 L 57 45 L 54 45 z M 57 45 L 60 45 L 60 42 L 57 42 L 57 45 z M 60 45 L 60 48 L 63 48 L 63 45 L 60 45 z M 63 45 L 66 45 L 66 42 L 63 42 L 63 45 z M 66 45 L 66 48 L 69 48 L 69 45 L 66 45 z M 69 45 L 72 45 L 72 42 L 69 42 L 69 45 z M 72 45 L 72 48 L 75 48 L 75 45 L 72 45 z M 75 45 L 78 45 L 78 42 L 75 42 L 75 45 z M 78 45 L 78 48 L 81 48 L 81 45 L 78 45 z M 81 45 L 84 45 L 84 42 L 81 42 L 81 45 z M 84 45 L 84 48 L 87 48 L 87 45 L 84 45 z M 87 45 L 90 45 L 90 42 L 87 42 L 87 45 z M 90 45 L 90 48 L 93 48 L 93 45 L 90 45 z M 93 45 L 96 45 L 96 42 L 93 42 L 93 45 z M 96 45 L 96 48 L 99 48 L 99 45 L 96 45 z M 99 45 L 102 45 L 102 42 L 99 42 L 99 45 z M 102 45 L 102 48 L 105 48 L 105 45 L 102 45 z M 105 45 L 108 45 L 108 42 L 105 42 L 105 45 z M 108 45 L 108 48 L 111 48 L 111 45 L 108 45 z M 111 45 L 114 45 L 114 42 L 111 42 L 111 45 z M 114 45 L 114 48 L 117 48 L 117 45 L 114 45 z M 117 45 L 120 45 L 120 42 L 117 42 L 117 45 z M 120 45 L 120 48 L 123 48 L 123 45 L 120 45 z M 123 45 L 126 45 L 126 42 L 123 42 L 123 45 z M 123 48 L 123 51 L 126 51 L 126 48 L 123 48 z M 123 51 L 120 51 L 120 54 L 123 54 L 123 51 z M 123 54 L 123 57 L 126 57 L 126 54 L 123 54 z M 123 57 L 120 57 L 120 60 L 123 60 L 123 57 z M 123 60 L 123 63 L 126 63 L 126 60 L 123 60 z M 123 63 L 120 63 L 120 66 L 123 66 L 123 63 z M 123 66 L 123 69 L 126 69 L 126 66 L 123 66 z M 123 69 L 120 69 L 120 72 L 123 72 L 123 69 z M 123 72 L 123 75 L 126 75 L 126 72 L 123 72 z M 123 75 L 120 75 L 120 78 L 123 78 L 123 75 z M 123 78 L 123 81 L 126 81 L 126 78 L 123 78 z M 123 81 L 120 81 L 120 84 L 123 84 L 123 81 z M 123 84 L 123 87 L 126 87 L 126 84 L 123 84 z M 123 87 L 120 87 L 120 90 L 123 90 L 123 87 z M 123 90 L 123 93 L 126 93 L 126 90 L 123 90 z M 123 93 L 120 93 L 120 96 L 123 96 L 123 93 z M 123 96 L 123 99 L 126 99 L 126 96 L 123 96 z M 123 99 L 120 99 L 120 102 L 123 102 L 123 99 z M 123 102 L 123 105 L 126 105 L 126 102 L 123 102 z M 123 105 L 120 105 L 120 108 L 123 108 L 123 105 z M 123 108 L 123 111 L 126 111 L 126 108 L 123 108 z M 120 108 L 117 108 L 117 111 L 120 111 L 120 108 z M 117 108 L 117 105 L 114 105 L 114 108 L 117 108 z M 114 108 L 111 108 L 111 111 L 114 111 L 114 108 z M 111 108 L 111 105 L 108 105 L 108 108 L 111 108 z M 108 108 L 105 108 L 105 111 L 108 111 L 108 108 z M 105 108 L 105 105 L 102 105 L 102 108 L 105 108 z M 102 108 L 99 108 L 99 111 L 102 111 L 102 108 z M 99 108 L 99 105 L 96 105 L 96 108 L 99 108 z M 96 108 L 93 108 L 93 111 L 96 111 L 96 108 z M 93 108 L 93 105 L 90 105 L 90 108 L 93 108 z M 90 108 L 87 108 L 87 111 L 90 111 L 90 108 z M 87 108 L 87 105 L 84 105 L 84 108 L 87 108 z M 84 108 L 81 108 L 81 111 L 84 111 L 84 108 z M 81 108 L 81 105 L 78 105 L 78 108 L 81 108 z M 78 108 L 75 108 L 75 111 L 78 111 L 78 108 z M 75 108 L 75 105 L 72 105 L 72 108 L 75 108 z M 72 108 L 69 108 L 69 111 L 72 111 L 72 108 z M 69 108 L 69 105 L 66 105 L 66 108 L 69 108 z M 66 108 L 63 108 L 63 111 L 66 111 L 66 108 z M 63 108 L 63 105 L 60 105 L 60 108 L 63 108 z M 60 108 L 57 108 L 57 111 L 60 111 L 60 108 z M 57 108 L 57 105 L 54 105 L 54 108 L 57 108 z M 54 108 L 51 108 L 51 111 L 54 111 L 54 108 z M 51 108 L 51 105 L 48 105 L 48 108 L 51 108 z M 48 108 L 45 108 L 45 111 L 48 111 L 48 108 z M 45 108 L 45 105 L 42 105 L 42 108 L 45 108 z M 42 108 L 39 108 L 39 111 L 42 111 L 42 108 z M 39 108 L 39 105 L 36 105 L 36 108 L 39 108 z M 36 108 L 33 108 L 33 111 L 36 111 L 36 108 z M 33 108 L 33 105 L 30 105 L 30 108 L 33 108 z M 30 108 L 27 108 L 27 111 L 30 111 L 30 108 z M 27 108 L 27 105 L 24 105 L 24 108 L 27 108 z M 24 108 L 21 108 L 21 111 L 24 111 L 24 108 z M 21 108 L 21 105 L 18 105 L 18 108 L 21 108 z M 21 105 L 24 105 L 24 102 L 21 102 L 21 105 z M 21 102 L 21 99 L 18 99 L 18 102 L 21 102 z M 21 99 L 24 99 L 24 96 L 21 96 L 21 99 z M 21 96 L 21 93 L 18 93 L 18 96 L 21 96 z M 21 93 L 24 93 L 24 90 L 21 90 L 21 93 z M 21 90 L 21 87 L 18 87 L 18 90 L 21 90 z M 21 87 L 24 87 L 24 84 L 21 84 L 21 87 z M 21 84 L 21 81 L 18 81 L 18 84 L 21 84 z M 21 81 L 24 81 L 24 78 L 21 78 L 21 81 z M 21 78 L 21 75 L 18 75 L 18 78 L 21 78 z M 21 75 L 24 75 L 24 72 L 21 72 L 21 75 z M 21 72 L 21 69 L 18 69 L 18 72 L 21 72 z M 21 69 L 24 69 L 24 66 L 21 66 L 21 69 z M 21 66 L 21 63 L 18 63 L 18 66 L 21 66 z M 21 63 L 24 63 L 24 60 L 21 60 L 21 63 z M 21 60 L 21 57 L 18 57 L 18 60 L 21 60 z M 21 57 L 24 57 L 24 54 L 21 54 L 21 57 z M 21 54 L 21 51 L 18 51 L 18 54 L 21 54 z M 21 51 L 24 51 L 24 48 L 21 48 L 21 51 z M 24 51 L 24 54 L 27 54 L 27 51 L 24 51 z M 27 51 L 30 51 L 30 48 L 27 48 L 27 51 z M 30 51 L 30 54 L 33 54 L 33 51 L 30 51 z M 33 51 L 36 51 L 36 48 L 33 48 L 33 51 z M 36 51 L 36 54 L 39 54 L 39 51 L 36 51 z M 39 51 L 42 51 L 42 48 L 39 48 L 39 51 z M 42 51 L 42 54 L 45 54 L 45 51 L 42 51 z M 45 51 L 48 51 L 48 48 L 45 48 L 45 51 z M 48 51 L 48 54 L 51 54 L 51 51 L 48 51 z M 51 51 L 54 51 L 54 48 L 51 48 L 51 51 z M 54 51 L 54 54 L 57 54 L 57 51 L 54 51 z M 57 51 L 60 51 L 60 48 L 57 48 L 57 51 z M 60 51 L 60 54 L 63 54 L 63 51 L 60 51 z M 63 51 L 66 51 L 66 48 L 63 48 L 63 51 z M 66 51 L 66 54 L 69 54 L 69 51 L 66 51 z M 69 51 L 72 51 L 72 48 L 69 48 L 69 51 z M 72 51 L 72 54 L 75 54 L 75 51 L 72 51 z M 75 51 L 78 51 L 78 48 L 75 48 L 75 51 z M 78 51 L 78 54 L 81 54 L 81 51 L 78 51 z M 81 51 L 84 51 L 84 48 L 81 48 L 81 51 z M 84 51 L 84 54 L 87 54 L 87 51 L 84 51 z M 87 51 L 90 51 L 90 48 L 87 48 L 87 51 z M 90 51 L 90 54 L 93 54 L 93 51 L 90 51 z M 93 51 L 96 51 L 96 48 L 93 48 L 93 51 z M 96 51 L 96 54 L 99 54 L 99 51 L 96 51 z M 99 51 L 102 51 L 102 48 L 99 48 L 99 51 z M 102 51 L 102 54 L 105 54 L 105 51 L 102 51 z M 105 51 L 108 51 L 108 48 L 105 48 L 105 51 z M 108 51 L 108 54 L 111 54 L 111 51 L 108 51 z M 111 51 L 114 51 L 114 48 L 111 48 L 111 51 z M 114 51 L 114 54 L 117 54 L 117 51 L 114 51 z M 117 51 L 120 51 L 120 48 L 117 48 L 117 51 z M 117 54 L 117 57 L 120 57 L 120 54 L 117 54 z M 117 57 L 114 57 L 114 60 L 117 60 L 117 57 z M 117 60 L 117 63 L 120 63 L 120 60 L 117 60 z M 117 63 L 114 63 L 114 66 L 117 66 L 117 63 z M 117 66 L 117 69 L 120 69 L 120 66 L 117 66 z M 117 69 L 114 69 L 114 72 L 117 72 L 117 69 z M 117 72 L 117 75 L 120 75 L 120 72 L 117 72 z M 117 75 L 114 75 L 114 78 L 117 78 L 117 75 z M 117 78 L 117 81 L 120 81 L 120 78 L 117 78 z M 117 81 L 114 81 L 114 84 L 117 84 L 117 81 z M 117 84 L 117 87 L 120 87 L 120 84 L 117 84 z M 117 87 L 114 87 L 114 90 L 117 90 L 117 87 z M 117 90 L 117 93 L 120 93 L 120 90 L 117 90 z M 117 93 L 114 93 L 114 96 L 117 96 L 117 93 z M 117 96 L 117 99 L 120 99 L 120 96 L 117 96 z M 117 99 L 114 99 L 114 102 L 117 102 L 117 99 z M 117 102 L 117 105 L 120 105 L 120 102 L 117 102 z M 114 102 L 111 102 L 111 105 L 114 105 L 114 102 z M 111 102 L 111 99 L 108 99 L 108 102 L 111 102 z M 108 102 L 105 102 L 105 105 L 108 105 L 108 102 z M 105 102 L 105 99 L 102 99 L 102 102 L 105 102 z M 102 102 L 99 102 L 99 105 L 102 105 L 102 102 z M 99 102 L 99 99 L 96 99 L 96 102 L 99 102 z M 96 102 L 93 102 L 93 105 L 96 105 L 96 102 z M 93 102 L 93 99 L 90 99 L 90 102 L 93 102 z M 90 102 L 87 102 L 87 105 L 90 105 L 90 102 z M 87 102 L 87 99 L 84 99 L 84 102 L 87 102 z M 84 102 L 81 102 L 81 105 L 84 105 L 84 102 z M 81 102 L 81 99 L 78 99 L 78 102 L 81 102 z M 78 102 L 75 102 L 75 105 L 78 105 L 78 102 z M 75 102 L 75 99 L 72 99 L 72 102 L 75 102 z M 72 102 L 69 102 L 69 105 L 72 105 L 72 102 z M 69 102 L 69 99 L 66 99 L 66 102 L 69 102 z M 66 102 L 63 102 L 63 105 L 66 105 L 66 102 z M 63 102 L 63 99 L 60 99 L 60 102 L 63 102 z M 60 102 L 57 102 L 57 105 L 60 105 L 60 102 z M 57 102 L 57 99 L 54 99 L 54 102 L 57 102 z M 54 102 L 51 102 L 51 105 L 54 105 L 54 102 z M 51 102 L 51 99 L 48 99 L 48 102 L 51 102 z M 48 102 L 45 102 L 45 105 L 48 105 L 48 102 z M 45 102 L 45 99 L 42 99 L 42 102 L 45 102 z M 42 102 L 39 102 L 39 105 L 42 105 L 42 102 z M 39 102 L 39 99 L 36 99 L 36 102 L 39 102 z M 36 102 L 33 102 L 33 105 L 36 105 L 36 102 z M 33 102 L 33 99 L 30 99 L 30 102 L 33 102 z M 30 102 L 27 102 L 27 105 L 30 105 L 30 102 z M 27 102 L 27 99 L 24 99 L 24 102 L 27 102 z M 27 99 L 30 99 L 30 96 L 27 96 L 27 99 z M 27 96 L 27 93 L 24 93 L 24 96 L 27 96 z M 27 93 L 30 93 L 30 90 L 27 90 L 27 93 z M 27 90 L 27 87 L 24 87 L 24 90 L 27 90 z M 27 87 L 30 87 L 30 84 L 27 84 L 27 87 z M 27 84 L 27 81 L 24 81 L 24 84 L 27 84 z M 27 81 L 30 81 L 30 78 L 27 78 L 27 81 z M 27 78 L 27 75 L 24 75 L 24 78 L 27 78 z M 27 75 L 30 75 L 30 72 L 27 72 L 27 75 z M 27 72 L 27 69 L 24 69 L 24 72 L 27 72 z M 27 69 L 30 69 L 30 66 L 27 66 L 27 69 z M 27 66 L 27 63 L 24 63 L 24 66 L 27 66 z M 27 63 L 30 63 L 30 60 L 27 60 L 27 63 z M 27 60 L 27 57 L 24 57 L 24 60 L 27 60 z M 27 57 L 30 57 L 30 54 L 27 54 L 27 57 z M 30 57 L 30 60 L 33 60 L 33 57 L 30 57 z M 33 57 L 36 57 L 36 54 L 33 54 L 33 57 z M 36 57 L 36 60 L 39 60 L 39 57 L 36 57 z M 39 57 L 42 57 L 42 54 L 39 54 L 39 57 z M 42 57 L 42 60 L 45 60 L 45 57 L 42 57 z M 45 57 L 48 57 L 48 54 L 45 54 L 45 57 z M 48 57 L 48 60 L 51 60 L 51 57 L 48 57 z M 51 57 L 54 57 L 54 54 L 51 54 L 51 57 z M 54 57 L 54 60 L 57 60 L 57 57 L 54 57 z M 57 57 L 60 57 L 60 54 L 57 54 L 57 57 z M 60 57 L 60 60 L 63 60 L 63 57 L 60 57 z M 63 57 L 66 57 L 66 54 L 63 54 L 63 57 z M 66 57 L 66 60 L 69 60 L 69 57 L 66 57 z M 69 57 L 72 57 L 72 54 L 69 54 L 69 57 z M 72 57 L 72 60 L 75 60 L 75 57 L 72 57 z M 75 57 L 78 57 L 78 54 L 75 54 L 75 57 z M 78 57 L 78 60 L 81 60 L 81 57 L 78 57 z M 81 57 L 84 57 L 84 54 L 81 54 L 81 57 z M 84 57 L 84 60 L 87 60 L 87 57 L 84 57 z M 87 57 L 90 57 L 90 54 L 87 54 L 87 57 z M 90 57 L 90 60 L 93 60 L 93 57 L 90 57 z M 93 57 L 96 57 L 96 54 L 93 54 L 93 57 z M 96 57 L 96 60 L 99 60 L 99 57 L 96 57 z M 99 57 L 102 57 L 102 54 L 99 54 L 99 57 z M 102 57 L 102 60 L 105 60 L 105 57 L 102 57 z M 105 57 L 108 57 L 108 54 L 105 54 L 105 57 z M 108 57 L 108 60 L 111 60 L 111 57 L 108 57 z M 111 57 L 114 57 L 114 54 L 111 54 L 111 57 z M 111 60 L 111 63 L 114 63 L 114 60 L 111 60 z M 111 63 L 108 63 L 108 66 L 111 66 L 111 63 z M 111 66 L 111 69 L 114 69 L 114 66 L 111 66 z M 111 69 L 108 69 L 108 72 L 111 72 L 111 69 z M 111 72 L 111 75 L 114 75 L 114 72 L 111 72 z M 111 75 L 108 75 L 108 78 L 111 78 L 111 75 z M 111 78 L 111 81 L 114 81 L 114 78 L 111 78 z M 111 81 L 108 81 L 108 84 L 111 84 L 111 81 z M 111 84 L 111 87 L 114 87 L 114 84 L 111 84 z M 111 87 L 108 87 L 108 90 L 111 90 L 111 87 z M 111 90 L 111 93 L 114 93 L 114 90 L 111 90 z M 111 93 L 108 93 L 108 96 L 111 96 L 111 93 z M 111 96 L 111 99 L 114 99 L 114 96 L 111 96 z M 108 96 L 105 96 L 105 99 L 108 99 L 108 96 z M 105 96 L 105 93 L 102 93 L 102 96 L 105 96 z M 102 96 L 99 96 L 99 99 L 102 99 L 102 96 z M 99 96 L 99 93 L 96 93 L 96 96 L 99 96 z M 96 96 L 93 96 L 93 99 L 96 99 L 96 96 z M 93 96 L 93 93 L 90 93 L 90 96 L 93 96 z M 90 96 L 87 96 L 87 99 L 90 99 L 90 96 z M 87 96 L 87 93 L 84 93 L 84 96 L 87 96 z M 84 96 L 81 96 L 81 99 L 84 99 L 84 96 z M 81 96 L 81 93 L 78 93 L 78 96 L 81 96 z M 78 96 L 75 96 L 75 99 L 78 99 L 78 96 z M 75 96 L 75 93 L 72 93 L 72 96 L 75 96 z M 72 96 L 69 96 L 69 99 L 72 99 L 72 96 z M 69 96 L 69 93 L 66 93 L 66 96 L 69 96 z M 66 96 L 63 96 L 63 99 L 66 99 L 66 96 z M 63 96 L 63 93 L 60 93 L 60 96 L 63 96 z M 60 96 L 57 96 L 57 99 L 60 99 L 60 96 z M 57 96 L 57 93 L 54 93 L 54 96 L 57 96 z M 54 96 L 51 96 L 51 99 L 54 99 L 54 96 z M 51 96 L 51 93 L 48 93 L 48 96 L 51 96 z M 48 96 L 45 96 L 45 99 L 48 99 L 48 96 z M 45 96 L 45 93 L 42 93 L 42 96 L 45 96 z M 42 96 L 39 96 L 39 99 L 42 99 L 42 96 z M 39 96 L 39 93 L 36 93 L 36 96 L 39 96 z M 36 96 L 33 96 L 33 99 L 36 99 L 36 96 z M 33 96 L 33 93 L 30 93 L 30 96 L 33 96 z M 33 93 L 36 93 L 36 90 L 33 90 L 33 93 z M 33 90 L 33 87 L 30 87 L 30 90 L 33 90 z M 33 87 L 36 87 L 36 84 L 33 84 L 33 87 z M 33 84 L 33 81 L 30 81 L 30 84 L 33 84 z M 33 81 L 36 81 L 36 78 L 33 78 L 33 81 z M 33 78 L 33 75 L 30 75 L 30 78 L 33 78 z M 33 75 L 36 75 L 36 72 L 33 72 L 33 75 z M 33 72 L 33 69 L 30 69 L 30 72 L 33 72 z M 33 69 L 36 69 L 36 66 L 33 66 L 33 69 z M 33 66 L 33 63 L 30 63 L 30 66 L 33 66 z M 33 63 L 36 63 L 36 60 L 33 60 L 33 63 z M 36 63 L 36 66 L 39 66 L 39 63 L 36 63 z M 39 63 L 42 63 L 42 60 L 39 60 L 39 63 z M 42 63 L 42 66 L 45 66 L 45 63 L 42 63 z M 45 63 L 48 63 L 48 60 L 45 60 L 45 63 z M 48 63 L 48 66 L 51 66 L 51 63 L 48 63 z M 51 63 L 54 63 L 54 60 L 51 60 L 51 63 z M 54 63 L 54 66 L 57 66 L 57 63 L 54 63 z M 57 63 L 60 63 L 60 60 L 57 60 L 57 63 z M 60 63 L 60 66 L 63 66 L 63 63 L 60 63 z M 63 63 L 66 63 L 66 60 L 63 60 L 63 63 z M 66 63 L 66 66 L 69 66 L 69 63 L 66 63 z M 69 63 L 72 63 L 72 60 L 69 60 L 69 63 z M 72 63 L 72 66 L 75 66 L 75 63 L 72 63 z M 75 63 L 78 63 L 78 60 L 75 60 L 75 63 z M 78 63 L 78 66 L 81 66 L 81 63 L 78 63 z M 81 63 L 84 63 L 84 60 L 81 60 L 81 63 z M 84 63 L 84 66 L 87 66 L 87 63 L 84 63 z M 87 63 L 90 63 L 90 60 L 87 60 L 87 63 z M 90 63 L 90 66 L 93 66 L 93 63 L 90 63 z M 93 63 L 96 63 L 96 60 L 93 60 L 93 63 z M 96 63 L 96 66 L 99 66 L 99 63 L 96 63 z M 99 63 L 102 63 L 102 60 L 99 60 L 99 63 z M 102 63 L 102 66 L 105 66 L 105 63 L 102 63 z M 105 63 L 108 63 L 108 60 L 105 60 L 105 63 z M 105 66 L 105 69 L 108 69 L 108 66 L 105 66 z M 105 69 L 102 69 L 102 72 L 105 72 L 105 69 z M 105 72 L 105 75 L 108 75 L 108 72 L 105 72 z M 105 75 L 102 75 L 102 78 L 105 78 L 105 75 z M 105 78 L 105 81 L 108 81 L 108 78 L 105 78 z M 105 81 L 102 81 L 102 84 L 105 84 L 105 81 z M 105 84 L 105 87 L 108 87 L 108 84 L 105 84 z M 105 87 L 102 87 L 102 90 L 105 90 L 105 87 z M 105 90 L 105 93 L 108 93 L 108 90 L 105 90 z M 102 90 L 99 90 L 99 93 L 102 93 L 102 90 z M 99 90 L 99 87 L 96 87 L 96 90 L 99 90 z M 96 90 L 93 90 L 93 93 L 96 93 L 96 90 z M 93 90 L 93 87 L 90 87 L 90 90 L 93 90 z M 90 90 L 87 90 L 87 93 L 90 93 L 90 90 z M 87 90 L 87 87 L 84 87 L 84 90 L 87 90 z M 84 90 L 81 90 L 81 93 L 84 93 L 84 90 z M 81 90 L 81 87 L 78 87 L 78 90 L 81 90 z M 78 90 L 75 90 L 75 93 L 78 93 L 78 90 z M 75 90 L 75 87 L 72 87 L 72 90 L 75 90 z M 72 90 L 69 90 L 69 93 L 72 93 L 72 90 z M 69 90 L 69 87 L 66 87 L 66 90 L 69 90 z M 66 90 L 63 90 L 63 93 L 66 93 L 66 90 z M 63 90 L 63 87 L 60 87 L 60 90 L 63 90 z M 60 90 L 57 90 L 57 93 L 60 93 L 60 90 z M 57 90 L 57 87 L 54 87 L 54 90 L 57 90 z M 54 90 L 51 90 L 51 93 L 54 93 L 54 90 z M 51 90 L 51 87 L 48 87 L 48 90 L 51 90 z M 48 90 L 45 90 L 45 93 L 48 93 L 48 90 z M 45 90 L 45 87 L 42 87 L 42 90 L 45 90 z M 42 90 L 39 90 L 39 93 L 42 93 L 42 90 z M 39 90 L 39 87 L 36 87 L 36 90 L 39 90 z M 39 87 L 42 87 L 42 84 L 39 84 L 39 87 z M 39 84 L 39 81 L 36 81 L 36 84 L 39 84 z M 39 81 L 42 81 L 42 78 L 39 78 L 39 81 z M 39 78 L 39 75 L 36 75 L 36 78 L 39 78 z M 39 75 L 42 75 L 42 72 L 39 72 L 39 75 z M 39 72 L 39 69 L 36 69 L 36 72 L 39 72 z M 39 69 L 42 69 L 42 66 L 39 66 L 39 69 z M 42 69 L 42 72 L 45 72 L 45 69 L 42 69 z M 45 69 L 48 69 L 48 66 L 45 66 L 45 69 z M 48 69 L 48 72 L 51 72 L 51 69 L 48 69 z M 51 69 L 54 69 L 54 66 L 51 66 L 51 69 z M 54 69 L 54 72 L 57 72 L 57 69 L 54 69 z M 57 69 L 60 69 L 60 66 L 57 66 L 57 69 z M 60 69 L 60 72 L 63 72 L 63 69 L 60 69 z M 63 69 L 66 69 L 66 66 L 63 66 L 63 69 z M 66 69 L 66 72 L 69 72 L 69 69 L 66 69 z M 69 69 L 72 69 L 72 66 L 69 66 L 69 69 z M 72 69 L 72 72 L 75 72 L 75 69 L 72 69 z M 75 69 L 78 69 L 78 66 L 75 66 L 75 69 z M 78 69 L 78 72 L 81 72 L 81 69 L 78 69 z M 81 69 L 84 69 L 84 66 L 81 66 L 81 69 z M 84 69 L 84 72 L 87 72 L 87 69 L 84 69 z M 87 69 L 90 69 L 90 66 L 87 66 L 87 69 z M 90 69 L 90 72 L 93 72 L 93 69 L 90 69 z M 93 69 L 96 69 L 96 66 L 93 66 L 93 69 z M 96 69 L 96 72 L 99 72 L 99 69 L 96 69 z M 99 69 L 102 69 L 102 66 L 99 66 L 99 69 z M 99 72 L 99 75 L 102 75 L 102 72 L 99 72 z M 99 75 L 96 75 L 96 78 L 99 78 L 99 75 z M 99 78 L 99 81 L 102 81 L 102 78 L 99 78 z M 99 81 L 96 81 L 96 84 L 99 84 L 99 81 z M 99 84 L 99 87 L 102 87 L 102 84 L 99 84 z M 96 84 L 93 84 L 93 87 L 96 87 L 96 84 z M 93 84 L 93 81 L 90 81 L 90 84 L 93 84 z M 90 84 L 87 84 L 87 87 L 90 87 L 90 84 z M 87 84 L 87 81 L 84 81 L 84 84 L 87 84 z M 84 84 L 81 84 L 81 87 L 84 87 L 84 84 z M 81 84 L 81 81 L 78 81 L 78 84 L 81 84 z M 78 84 L 75 84 L 75 87 L 78 87 L 78 84 z M 75 84 L 75 81 L 72 81 L 72 84 L 75 84 z M 72 84 L 69 84 L 69 87 L 72 87 L 72 84 z M 69 84 L 69 81 L 66 81 L 66 84 L 69 84 z M 66 84 L 63 84 L 63 87 L 66 87 L 66 84 z M 63 84 L 63 81 L 60 81 L 60 84 L 63 84 z M 60 84 L 57 84 L 57 87 L 60 87 L 60 84 z M 57 84 L 57 81 L 54 81 L 54 84 L 57 84 z M 54 84 L 51 84 L 51 87 L 54 87 L 54 84 z M 51 84 L 51 81 L 48 81 L 48 84 L 51 84 z M 48 84 L 45 84 L 45 87 L 48 87 L 48 84 z M 45 84 L 45 81 L 42 81 L 42 84 L 45 84 z M 45 81 L 48 81 L 48 78 L 45 78 L 45 81 z M 45 78 L 45 75 L 42 75 L 42 78 L 45 78 z M 45 75 L 48 75 L 48 72 L 45 72 L 45 75 z M 48 75 L 48 78 L 51 78 L 51 75 L 48 75 z M 51 75 L 54 75 L 54 72 L 51 72 L 51 75 z M 54 75 L 54 78 L 57 78 L 57 75 L 54 75 z M 57 75 L 60 75 L 60 72 L 57 72 L 57 75 z M 60 75 L 60 78 L 63 78 L 63 75 L 60 75 z M 63 75 L 66 75 L 66 72 L 63 72 L 63 75 z M 66 75 L 66 78 L 69 78 L 69 75 L 66 75 z M 69 75 L 72 75 L 72 72 L 69 72 L 69 75 z M 72 75 L 72 78 L 75 78 L 75 75 L 72 75 z M 75 75 L 78 75 L 78 72 L 75 72 L 75 75 z M 78 75 L 78 78 L 81 78 L 81 75 L 78 75 z M 81 75 L 84 75 L 84 72 L 81 72 L 81 75 z M 84 75 L 84 78 L 87 78 L 87 75 L 84 75 z M 87 75 L 90 75 L 90 72 L 87 72 L 87 75 z M 90 75 L 90 78 L 93 78 L 93 75 L 90 75 z M 93 75 L 96 75 L 96 72 L 93 72 L 93 75 z M 93 78 L 93 81 L 96 81 L 96 78 L 93 78 z M 90 78 L 87 78 L 87 81 L 90 81 L 90 78 z M 84 78 L 81 78 L 81 81 L 84 81 L 84 78 z M 78 78 L 75 78 L 75 81 L 78 81 L 78 78 z M 72 78 L 69 78 L 69 81 L 72 81 L 72 78 z M 66 78 L 63 78 L 63 81 L 66 81 L 66 78 z M 60 78 L 57 78 L 57 81 L 60 81 L 60 78 z M 54 78 L 51 78 L 51 81 L 54 81 L 54 78 z M 72 135 L 72 138 L 72 141 L 75 141 L 75 138 L 75 135 L 72 135 z "
+     id="rect3796" />
+  <path
+     style="fill:#808000"
+     d="M 138 30 L 138 33 L 138 36 L 138 39 L 138 42 L 138 45 L 138 48 L 138 51 L 138 54 L 138 57 L 138 60 L 138 63 L 138 66 L 138 69 L 138 72 L 138 75 L 138 78 L 138 81 L 138 84 L 138 87 L 138 90 L 138 93 L 138 96 L 138 99 L 138 102 L 138 105 L 138 108 L 138 111 L 138 114 L 138 117 L 138 120 L 138 123 L 135 123 L 132 123 L 129 123 L 126 123 L 123 123 L 120 123 L 117 123 L 114 123 L 111 123 L 108 123 L 105 123 L 102 123 L 99 123 L 96 123 L 93 123 L 90 123 L 87 123 L 84 123 L 81 123 L 78 123 L 75 123 L 72 123 L 69 123 L 66 123 L 63 123 L 60 123 L 57 123 L 54 123 L 51 123 L 48 123 L 45 123 L 42 123 L 39 123 L 36 123 L 33 123 L 30 123 L 27 123 L 24 123 L 21 123 L 18 123 L 15 123 L 12 123 L 9 123 L 6 123 L 3 123 L 3 126 L 6 126 L 9 126 L 12 126 L 15 126 L 18 126 L 21 126 L 24 126 L 27 126 L 30 126 L 33 126 L 36 126 L 39 126 L 42 126 L 45 126 L 48 126 L 51 126 L 54 126 L 57 126 L 60 126 L 63 126 L 66 126 L 69 126 L 72 126 L 75 126 L 78 126 L 81 126 L 84 126 L 87 126 L 90 126 L 93 126 L 96 126 L 99 126 L 102 126 L 105 126 L 108 126 L 111 126 L 114 126 L 117 126 L 120 126 L 123 126 L 126 126 L 129 126 L 132 126 L 135 126 L 138 126 L 141 126 L 141 123 L 141 120 L 141 117 L 141 114 L 141 111 L 141 108 L 141 105 L 141 102 L 141 99 L 141 96 L 141 93 L 141 90 L 141 87 L 141 84 L 141 81 L 141 78 L 141 75 L 141 72 L 141 69 L 141 66 L 141 63 L 141 60 L 141 57 L 141 54 L 141 51 L 141 48 L 141 45 L 141 42 L 141 39 L 141 36 L 141 33 L 141 30 L 138 30 z M 60 132 L 60 135 L 60 138 L 60 141 L 63 141 L 63 138 L 63 135 L 66 135 L 69 135 L 72 135 L 75 135 L 75 138 L 75 141 L 78 141 L 78 138 L 78 135 L 78 132 L 75 132 L 72 132 L 69 132 L 66 132 L 63 132 L 60 132 z "
+     id="rect3798" />
+  <path
+     style="fill:#000000"
+     d="M 138 27 L 138 30 L 141 30 L 141 27 L 138 27 z M 141 30 L 141 33 L 141 36 L 141 39 L 141 42 L 141 45 L 141 48 L 141 51 L 141 54 L 141 57 L 141 60 L 141 63 L 141 66 L 141 69 L 141 72 L 141 75 L 141 78 L 141 81 L 141 84 L 141 87 L 141 90 L 141 93 L 141 96 L 141 99 L 141 102 L 141 105 L 141 108 L 141 111 L 141 114 L 141 117 L 141 120 L 141 123 L 141 126 L 144 126 L 144 123 L 144 120 L 144 117 L 144 114 L 144 111 L 144 108 L 144 105 L 144 102 L 144 99 L 144 96 L 144 93 L 144 90 L 144 87 L 144 84 L 144 81 L 144 78 L 144 75 L 144 72 L 144 69 L 144 66 L 144 63 L 144 60 L 144 57 L 144 54 L 144 51 L 144 48 L 144 45 L 144 42 L 144 39 L 144 36 L 144 33 L 144 30 L 141 30 z M 141 126 L 138 126 L 135 126 L 132 126 L 129 126 L 126 126 L 123 126 L 120 126 L 117 126 L 114 126 L 111 126 L 108 126 L 105 126 L 102 126 L 99 126 L 96 126 L 93 126 L 90 126 L 87 126 L 84 126 L 81 126 L 78 126 L 75 126 L 72 126 L 69 126 L 66 126 L 63 126 L 60 126 L 57 126 L 54 126 L 51 126 L 48 126 L 45 126 L 42 126 L 39 126 L 36 126 L 33 126 L 30 126 L 27 126 L 24 126 L 21 126 L 18 126 L 15 126 L 12 126 L 9 126 L 6 126 L 3 126 L 3 129 L 6 129 L 9 129 L 12 129 L 15 129 L 18 129 L 21 129 L 24 129 L 27 129 L 30 129 L 33 129 L 36 129 L 39 129 L 42 129 L 45 129 L 48 129 L 51 129 L 54 129 L 57 129 L 60 129 L 63 129 L 66 129 L 66 132 L 69 132 L 69 129 L 72 129 L 72 132 L 75 132 L 75 129 L 78 129 L 81 129 L 84 129 L 87 129 L 90 129 L 93 129 L 96 129 L 99 129 L 102 129 L 105 129 L 108 129 L 111 129 L 114 129 L 117 129 L 120 129 L 123 129 L 126 129 L 129 129 L 132 129 L 135 129 L 138 129 L 141 129 L 141 126 z M 78 132 L 78 135 L 78 138 L 78 141 L 75 141 L 72 141 L 69 141 L 66 141 L 63 141 L 60 141 L 60 144 L 63 144 L 66 144 L 69 144 L 72 144 L 75 144 L 78 144 L 81 144 L 81 141 L 84 141 L 87 141 L 90 141 L 93 141 L 96 141 L 99 141 L 102 141 L 105 141 L 108 141 L 111 141 L 114 141 L 117 141 L 120 141 L 123 141 L 126 141 L 129 141 L 132 141 L 135 141 L 135 138 L 132 138 L 129 138 L 126 138 L 123 138 L 120 138 L 117 138 L 114 138 L 111 138 L 108 138 L 105 138 L 102 138 L 99 138 L 96 138 L 93 138 L 90 138 L 87 138 L 84 138 L 81 138 L 81 135 L 81 132 L 78 132 z M 60 141 L 60 138 L 57 138 L 54 138 L 51 138 L 48 138 L 45 138 L 42 138 L 39 138 L 36 138 L 33 138 L 30 138 L 27 138 L 24 138 L 21 138 L 18 138 L 15 138 L 12 138 L 9 138 L 9 141 L 12 141 L 15 141 L 18 141 L 21 141 L 24 141 L 27 141 L 30 141 L 33 141 L 36 141 L 39 141 L 42 141 L 45 141 L 48 141 L 51 141 L 54 141 L 57 141 L 60 141 z M 3 138 L 3 141 L 6 141 L 6 138 L 3 138 z M 138 138 L 138 141 L 141 141 L 141 138 L 138 138 z "
+     id="rect3852" />
 </svg>
