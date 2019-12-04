@@ -465,7 +465,7 @@ def get_file_name(config, section, key):
 
 def null_string(data):
 	data = bytearray(data)
-	return data[:data.find(0)].decode('ascii')
+	return data[:data.find(0)].decode('cp1252')
 
 
 def parse_IconMetrics(IconMetrics):
