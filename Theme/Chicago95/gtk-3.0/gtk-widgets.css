@@ -75,9 +75,11 @@ box:disabled {
   min-width: 0px;
   min-height: 0px; }
 
+/*Disabled below since it was setting a grey background on MATE desktops. (Affects Caja)/*
+/*
 grid,
 grid:disabled  {
-  background-color: @bg_color; }
+  background-color: @bg_color; }*/
 
 stepper,
 .stepper {
@@ -555,7 +557,7 @@ button.osd {
   .stack-switcher > button.needs-attention:active > image, .stack-switcher > button.needs-attention:checked > label,
   .stack-switcher > button.needs-attention:checked > image {
     background-image: none; }
-.inline-toolbar button, .inline-toolbar button:backdrop {
+.inline-toolbar button, .inline-toolbar button:backdrop, .primary-toolbar button, .primary-toolbar button:hover {
   margin: 1px;
   border-radius: 0px;
   border-left: 1px solid @bg_bright;
@@ -563,19 +565,21 @@ button.osd {
   border-bottom: 1px solid @bg_shade;
   border-right: 1px solid @bg_shade;
   box-shadow: none; }
-  .inline-toolbar button:active {
+  .inline-toolbar button:active, .primary-toolbar button:active {
     border-left: 1px solid @bg_dark;
     border-top: 1px solid @bg_dark;
     border-bottom: 1px solid @bg_bright;
     border-right: 1px solid @bg_bright;
     box-shadow: inset 1px 1px @bg_shade; }
-  .inline-toolbar button:disabled {
+  .inline-toolbar button:disabled, .primary-toolbar button:disabled {
     border-left: 1px solid @bg_shade;
     border-top: 1px solid @bg_shade;
     border-bottom: 1px solid @bg_bright;
     border-right: 1px solid @bg_bright; }
 .primary-toolbar button {
-  -gtk-icon-shadow: none; }
+  -gtk-icon-shadow: none;
+  border-color: transparent;
+  box-shadow: none; }
 
 toolbar.inline-toolbar toolbutton > button.flat,
 toolbar.inline-toolbar toolbutton:backdrop > button.flat, .linked:not(.vertical) > spinbutton:not(.vertical), .linked:not(.vertical) >
@@ -2383,7 +2387,9 @@ colorswatch:selected {
 .floating-bar,
 .app-notification,
 tooltip.background,
-tooltip {
+.tooltip.background,
+tooltip,
+.tooltip {
     background-color: @theme_tooltip_bg_color;
     color: @theme_tooltip_fg_color;
     border: 1px solid @border_dark;

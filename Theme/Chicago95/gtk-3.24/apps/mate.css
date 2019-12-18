@@ -3,9 +3,9 @@
   background-color: #c0c0c0; }
   .mate-panel-menu-bar > grid,
   .gnome-panel-menu-bar > grid {
-    padding: 3px;
+    padding: 0px;
     border-style: solid;
-    border-width: 1px;
+    border-width: 0px;
     border-color: @bg_color @bg_dark @bg_dark @bg_color;
     box-shadow: inset 1px 1px @bg_bright,
                 inset -1px -1px @bg_shade;
@@ -50,77 +50,87 @@ PanelApplet .button {
   padding: 2px;
   box-shadow: none; }
 
+/* This will prevent caja from printing over the desktop wallpaper */
 .caja-desktop-window grid scrolledwindow {
-  background: none; }
-/*
-.gnome-panel-menu-bar,
-PanelApplet > GtkMenuBar.menubar,
-PanelToplevel,
-PanelWidget,
-PanelAppletFrame,
-PanelApplet {
-  background-color: @bg_color;
-  background-image: none;
-  color: @text_color; }
+  background: none;
+  border-color: transparent;
+  box-shadow: none; }
 
-ClockBox,
-.gnome-panel-menu-bar.menubar,
-PanelApplet > GtkMenuBar.menubar {
-  font: bold; }
+/* MATE Control Center */
+#MyControlCenter button,
+#MyControlCenter button.flat {
+  border: 1px solid transparent;
+  box-shadow: none;
+  background-color: transparent;
+  outline-style: dotted;
+  outline-color: @bg_dark;
+  -gtk-outline-radius: 0px;
+  outline-offset: -2px; }
+  #MyControlCenter button:hover {
+    background-color: transparent;
+    border: 1px solid @selected_bg_color; }
+#MyControlCenter > frame {
+  border-color: transparent;
+  box-shadow: none; }
+#MyControlCenter scrolledwindow {
+  border-top-color: @bg_shade;
+  border-right-color: @bg_bright;
+  border-left-color: @bg_shade;
+  border-bottom-color: @bg_bright;
+  box-shadow: inset 1px 1px @bg_bright, inset -1px -1px @bg_shade; }
 
-.gnome-panel-menu-bar.menubar .menuitem *:hover,
-PanelApplet > GtkMenuBar.menubar .menuitem *:hover {
-  text-shadow: 0 1px @font_bright; }
-
-.gnome-panel-menu-bar.menubar .menu,
-PanelApplet > GtkMenuBar.menubar .menu {
-  font: regular; }
-
-.gnome-panel-menu-bar.menubar .menu *:hover,
-PanelApplet > GtkMenuBar.menubar .menu *:hover {
-  text-shadow: none; }
-
-.gnome-panel-menu-bar .menuitem:hover,
-PanelApplet > GtkMenuBar.menubar .menuitem:hover,
-.gnome-panel-menu-bar .menuitem *:hover,
-PanelApplet > GtkMenuBar.menubar .menuitem *:hover {
-  background-color: @selected_bg_color;
-  color: @font_bright; }
-
-.gnome-panel-menu-bar .menuitem *:hover,
-PanelApplet > GtkMenuBar.menubar .menuitem *:hover {
-  color: @font_bright; }
-
-PanelApplet .button,
-PanelApplet .button:hover {
-  padding: 4px;
-  border-image: none;
-  border-width: 0;
-  border-radius: 0;
-  background-image: none;
-  background-color: @bg_color;
-  color: @text_color;
-  text-shadow: none; }
-
-PanelApplet .button:active:hover,
-PanelApplet .button:active {
-  border-image: none;
-  background-image: none;
-  background-color: @bg_color;
-  border-width: 0;
-  border-radius: 0; }
-
-PanelApplet *:hover {
-  color: @text_color; }
-
-PanelApplet *:active,
-PanelApplet *:hover:active {
-  color: @text_color; }
-
-WnckPager {
+/* Brisk Menu */
+.brisk-menu {
   background-color: @bg_color; }
-
-NaTrayApplet {
-  -NaTrayApplet-icon-padding: 12;
-  -NaTrayApplet-icon-size: 16; }
-*/
+  .brisk-menu .apps-list {
+  padding: 2px;
+  border: 1px solid @bg_shade;
+  box-shadow: none; }
+  .brisk-menu .apps-list button.flat,
+  .brisk-menu .categories-list button.flat,
+  .brisk-menu .session-button {
+    border: 1px solid transparent;
+    box-shadow: none;
+    background-color: transparent; }
+    .brisk-menu .session-button {
+      margin-left: 1px;
+      margin-right: 1px;
+      padding: 4px;
+      background-color: @bg_color; }
+     .brisk-menu .apps-list button.flat,
+     .brisk-menu .categories-list button.flat {
+       padding: 2px ; }
+    .brisk-menu .categories-list button.flat:hover {
+      background-color: @selected_bg_color;
+      color: @font_bright; }
+    .brisk-menu .session-button:hover {
+      background-color: @selected_bg_color;
+      color: @font_bright; }
+  .brisk-menu scrolledwindow,
+  .brisk-menu .categories-list {
+    padding: 0px;
+    border: 1px solid transparent;
+    background-color: @bg_color;
+    box-shadow: none; }
+  .brisk-menu > box {
+    padding: 4px;
+    border: 1px solid;
+    border-top-color: @border_bright;
+    border-right-color: @border_dark;
+    border-left-color: @border_bright;
+    border-bottom-color: @border_dark;
+    box-shadow: inset -1px -1px #808080; }
+  .brisk-menu entry {
+    padding: 2px; }
+  .brisk-menu .apps-list row:hover,
+  .brisk-menu .apps-list row:hover button.flat {
+    background-color: @selected_bg_color;
+    color: @font_bright; }
+  .brisk-menu .apps-list row:selected:focus {
+    outline-width: 1px;
+    outline-offset: -4px;
+    background-color: transparent; }
+  .brisk-menu .apps-list row:selected:focus button.flat,
+  .brisk-menu .apps-list row:selected:focus label {
+    color: @font_color;
+    background-color: transparent; }

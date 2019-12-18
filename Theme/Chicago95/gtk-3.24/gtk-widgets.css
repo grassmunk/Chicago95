@@ -75,9 +75,11 @@ box:disabled {
   min-width: 0px;
   min-height: 0px; }
 
+/*Disabled below since it was setting a grey background on MATE desktops. (Affects Caja)/*
+/*
 grid,
 grid:disabled  {
-  background-color: @bg_color; }
+  background-color: @bg_color; }*/
 
 stepper,
 .stepper {
@@ -2383,7 +2385,9 @@ colorswatch:selected {
 .floating-bar,
 .app-notification,
 tooltip.background,
-tooltip {
+.tooltip.background,
+tooltip,
+.tooltip {
     background-color: @theme_tooltip_bg_color;
     color: @theme_tooltip_fg_color;
     border: 1px solid @border_dark;
