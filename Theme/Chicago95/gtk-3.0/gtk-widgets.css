@@ -2897,7 +2897,7 @@ rubberband,
 flowbox rubberband,
 treeview.view rubberband,
 .content-view rubberband {
-  border: 1px solid @selected_bg_color;
+  border: 1px dotted #ccc;
   background: rgba(0,0,50.2,0.5);
   border-radius: 0px; }
 

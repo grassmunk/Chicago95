@@ -1,4 +1,93 @@
 .mate-panel-menu-bar,
+#PanelPlug,
+#PanelApplet button,
+PanelToplevel.background,
+#PanelApplet-window-menu-applet-button {
+    border-image: none;
+    background-image: none;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+#PanelPlug,
+.mate-panel-menu-bar,
+PanelToplevel.background {
+  background-color: @bg_color;
+  background-image: none;
+  color: @font_color;
+  text-shadow: none;
+}
+
+/* Top Panel */
+PanelToplevel.horizontal.top > grid {
+  border-style: outset;
+  border-width: 0px 0px 1px 0px;
+  border-color: @bg_shade; }
+
+/* Bottom Panel */
+PanelToplevel.horizontal.bottom > grid {
+  border-style: outset;
+  border-width: 1px 0px 0px 0px;
+  border-color: @bg_bright; }
+
+/* Vertical Left Panel */
+PanelToplevel.vertical.left > grid {
+  border-style: outset;
+  border-width: 0px 1px 0px 0px;
+  border-color: @bg_shade; }
+
+/* Vertical Right Panel */
+PanelToplevel.vertical.right > grid {
+  border-style: outset;
+  border-width: 0px 0px 0px 1px;
+  border-color: @bg_bright; }
+
+/* hide buttons */
+PanelToplevel > grid > button,
+PanelToplevel > grid > button:active {
+  background: transparent;
+  border-image: none;
+  border-radius: 0px;
+  border-width: 0px;
+  padding: 0px;
+  box-shadow: none; }
+  PanelToplevel > grid > button image {
+    margin: 4px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: @bg_bright @bg_dark @bg_dark @bg_bright;
+    box-shadow: inset -1px -1px @bg_shade }
+    PanelToplevel > grid > button:active image {
+      margin: 4px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: @bg_dark @bg_bright @bg_bright @bg_dark;
+      box-shadow: inset -1px -1px @bg_shade }
+
+/* MATE Panel Separator */
+PanelSeparator {
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent; }
+
+/* MATE Main Menu */
+.mate-panel-menu-bar menubar {
+  border: none;
+  box-shadow: none; }
+
+na-tray-applet {
+    -NaTrayApplet-icon-padding: 1px;
+}
+
+/* mate-menu, mintmenu */
+#mintmenu.background,
+#mate-menu.background {
+    border-color: @bg_bright @bg_dark @bg_dark @bg_bright;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: inset 1px 1px @bg_shade;
+}
+
+.mate-panel-menu-bar,
 .gnome-panel-menu-bar {
   background-color: #c0c0c0; }
   .mate-panel-menu-bar > grid,
@@ -7,8 +96,8 @@
     border-style: solid;
     border-width: 0px;
     border-color: @bg_color @bg_dark @bg_dark @bg_color;
-    box-shadow: inset 1px 1px @bg_bright,
-                inset -1px -1px @bg_shade;
+    /*box-shadow: inset 1px 1px @bg_bright,
+                inset -1px -1px @bg_shade;*/
     border-radius: 0px; }
   .gnome-panel-menu-bar.horizontal PanelSeparator {
     background-image: url("../assets/handle-v.png");
@@ -19,37 +108,66 @@
     background-repeat: repeat-x;
     padding: 15px; }
 
-#clock-applet-button {
-  padding: 4px;
+#PanelApplet #tasklist-button,
+.mate-panel-menu-bar #PanelApplet button,
+.mate-panel-menu-bar #PanelApplet button:active,
+.mate-panel-menu-bar #PanelApplet button:checked {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  box-shadow: none; }
+  .mate-panel-menu-bar #PanelApplet button image {
+    padding: 2px; }
+
+#PanelApplet #tasklist-button box,
+.brisk-button box {
+  transition: 0s font-weight, border-left, border-right, border-top, border-bottom, box-shadow;
+  margin: 2px;
   border-style: solid;
   border-width: 1px;
-  border-color: @bg_shade @bg_bright @bg_bright @bg_shade;
-  box-shadow: none;
-  border-radius: 0px; }
-
-#fast-user-switch-menubar,
-#fast-user-switch-menubar menuitem {
-  padding: 0px;
-  margin-right: 2px;
-  margin-left: 2px;
-  border: transparent;
-  box-shadow: none; }
-
-PanelApplet .button {
-  background-color: red;
-  border: 1px solid black;
-  padding: 5px;
-  margin: 5px; }
-
-/* Looks like there's a theme override built into the panelbar, otherwise this would have worked... */
-#tasklist-button {
-  margin-left: 2px;
-  margin-right: 2px; }
+  border-color: @bg_bright @bg_dark @bg_dark @bg_bright;
+  box-shadow: inset -1px -1px @bg_shade;
+  -gtk-icon-effect: none; }
+  #PanelApplet #tasklist-button:checked box {
+    font-weight: bold;
+    border-style: solid;
+    border-width: 1px;
+    border-color: @bg_dark @bg_bright @bg_bright @bg_dark;
+    box-shadow: inset 1px 1px @bg_shade;
+    background-color: @border_bright;
+    background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @border_dark);
+    background-size: 2px 2px;
+    background-position: 0 0, 1px 1px; }
+  .brisk-button:checked box {
+    border-style: solid;
+    border-width: 1px;
+    border-color: @bg_dark @bg_bright @bg_bright @bg_dark;
+    box-shadow: inset 1px 1px @bg_shade;
+    background-color: @border_bright;
+    background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @border_dark);
+    background-size: 2px 2px;
+    background-position: 0 0, 1px 1px; }
+  #PanelApplet #tasklist-button:active box {
+    font-weight: bold;
+    border-style: solid;
+    border-width: 1px;
+    border-color: @bg_dark @bg_bright @bg_bright @bg_dark;
+    box-shadow: inset 1px 1px @bg_shade;
+    transition-delay: 1s; }
+  .brisk-button:active box {
+    font-weight: bold;
+    border-style: solid;
+    border-width: 1px;
+    border-color: @bg_dark @bg_bright @bg_bright @bg_dark;
+    box-shadow: inset 1px 1px @bg_shade; }
 
 #showdesktop-button {
   padding: 2px;
   box-shadow: none; }
 
+.caja-desktop-window .rubberband {
+  border: 1px solid @selected_bg_color;
+  background: rgba(0,0,50.2,0.5); }
 /* This will prevent caja from printing over the desktop wallpaper */
 .caja-desktop-window grid scrolledwindow {
   background: none;
@@ -80,6 +198,8 @@ PanelApplet .button {
   box-shadow: inset 1px 1px @bg_bright, inset -1px -1px @bg_shade; }
 
 /* Brisk Menu */
+.brisk-button image {
+  margin: 0px; }
 .brisk-menu {
   background-color: @bg_color; }
   .brisk-menu .apps-list {
@@ -135,75 +255,50 @@ PanelApplet .button {
     color: @font_color;
     background-color: transparent; }
 
-/*
-.gnome-panel-menu-bar,
-PanelApplet > GtkMenuBar.menubar,
-PanelToplevel,
-PanelWidget,
-PanelAppletFrame,
-PanelApplet {
-  background-color: @bg_color;
-  background-image: none;
-  color: @text_color; }
-
-ClockBox,
-.gnome-panel-menu-bar.menubar,
-PanelApplet > GtkMenuBar.menubar {
-  font: bold; }
-
-.gnome-panel-menu-bar.menubar .menuitem *:hover,
-PanelApplet > GtkMenuBar.menubar .menuitem *:hover {
-  text-shadow: 0 1px @font_bright; }
-
-.gnome-panel-menu-bar.menubar .menu,
-PanelApplet > GtkMenuBar.menubar .menu {
-  font: regular; }
-
-.gnome-panel-menu-bar.menubar .menu *:hover,
-PanelApplet > GtkMenuBar.menubar .menu *:hover {
-  text-shadow: none; }
-
-.gnome-panel-menu-bar .menuitem:hover,
-PanelApplet > GtkMenuBar.menubar .menuitem:hover,
-.gnome-panel-menu-bar .menuitem *:hover,
-PanelApplet > GtkMenuBar.menubar .menuitem *:hover {
-  background-color: @selected_bg_color;
-  color: @font_bright; }
-
-.gnome-panel-menu-bar .menuitem *:hover,
-PanelApplet > GtkMenuBar.menubar .menuitem *:hover {
-  color: @font_bright; }
-
-PanelApplet .button,
-PanelApplet .button:hover {
+/* Advanced MATE Menu */
+#mate-menu > widget > box {
   padding: 4px;
-  border-image: none;
-  border-width: 0;
-  border-radius: 0;
-  background-image: none;
-  background-color: @bg_color;
-  color: @text_color;
-  text-shadow: none; }
-
-PanelApplet .button:active:hover,
-PanelApplet .button:active {
-  border-image: none;
-  background-image: none;
-  background-color: @bg_color;
-  border-width: 0;
-  border-radius: 0; }
-
-PanelApplet *:hover {
-  color: @text_color; }
-
-PanelApplet *:active,
-PanelApplet *:hover:active {
-  color: @text_color; }
-
-WnckPager {
+  box-shadow: inset -1px -1px @bg_shade;
   background-color: @bg_color; }
+#mate-menu notebook {
+  padding: 4px;
+  border: 1px solid;
+  border-top-color: @bg_shade;
+  border-right-color: @bg_bright;
+  border-left-color: @bg_shade;
+  border-bottom-color: @bg_bright;
+  box-shadow: inset 1px 1px @bg_bright, inset -1px -1px @bg_shade;}
+  #mate-menu notebook button {
+    border: none;
+    box-shadow: none; }
+    #mate-menu notebook button:hover,
+    #mate-menu scrolledwindow button:hover {
+      background-color: @selected_bg_color;
+      color: @font_bright;
+      outline-color: @font_bright;  }
+#mate-menu scrolledwindow,
+#mate-menu scrolledwindow button {
+  border: none;
+  box-shadow: none; }
+/* The search button next to the search entry */
+#mate-menu widget > box > widget > box > box > widget > box > box > button {
+margin: 2px; }
 
-NaTrayApplet {
-  -NaTrayApplet-icon-padding: 12;
-  -NaTrayApplet-icon-size: 16; }
-*/
+#fast-user-switch-menubar,
+#fast-user-switch-menubar menuitem {
+  padding: 0px;
+  margin-right: 2px;
+  margin-left: 2px;
+  border: transparent;
+  box-shadow: none; }
+/*#fast-user-switch-menubar {
+  margin: 2px;
+  padding: 0px;
+  box-shadow: inset 1px 1px @bg_shade, inset -1px -1px @bg_bright; }*/
+
+#clock-applet-button box {
+  margin: 2px;
+  padding: 2px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: @bg_shade @bg_bright @bg_bright @bg_shade; }
