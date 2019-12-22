@@ -165,7 +165,8 @@ na-tray-applet {
   padding: 2px;
   box-shadow: none; }
 
-.caja-desktop-window .rubberband {
+.caja-desktop-window .rubberband,
+.caja-navigation-window .rubberband {
   border: 1px solid @selected_bg_color;
   background: rgba(0,0,50.2,0.5); }
 /* This will prevent caja from printing over the desktop wallpaper */
