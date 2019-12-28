@@ -14,17 +14,31 @@ resized_boot_image = boot_image.Scale(screen_width, screen_height);
 boot_sprite.SetImage(resized_boot_image);
 
 
-for (i = 0; i < 18; i++) 
+for (i = 0; i <= 19; i++)
     boot_images[i] = Image("win95_boot_" + i + ".png");
 boot_sprite = Sprite();
+
+shutdown_image = Image("win95_shutdown-01.png");
 
 progress = 0;
 
 fun refresh_callback ()
   {
-    resized_image = boot_images[Math.Int(progress)].Scale(screen_width, screen_height);
-    boot_sprite.SetImage(resized_image);
-    progress++;
+    if (Plymouth.GetMode () == "boot")
+      {
+        Plymouth.SetRefreshRate(10);
+        resized_image = boot_images[Math.Int(progress)].Scale(screen_width, screen_height);
+        boot_sprite.SetImage(resized_image);
+        progress++;
+        if (progress > 19)
+          progress = 0;
+      }
+    if (Plymouth.GetMode () == "shutdown")
+      {
+        Plymouth.SetRefreshRate(0);
+        resized_image = shutdown_image.Scale(screen_width, screen_height);
+        boot_sprite.SetImage(resized_image);
+      }
   }
   
 Plymouth.SetRefreshFunction (refresh_callback);
@@ -91,9 +105,9 @@ fun display_password_callback (prompt, bullets)
   {
     global.status = "password";
     if (!global.dialog)
-	dialog_setup();
+      dialog_setup();
     else
-	dialog_opacity(1);
+      dialog_opacity(1);
     for (index = 0; dialog.bullet[index] || index < 19; index++)
       {
         if (!dialog.bullet[index])
