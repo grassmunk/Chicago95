@@ -75,7 +75,7 @@ box:disabled {
   min-width: 0px;
   min-height: 0px; }
 
-/*Disabled below since it was setting a grey background on MATE desktops. (Affects Caja)/*
+/*Disabled below since it was setting a grey background on MATE desktops. (Affects Caja)*/
 /*
 grid,
 grid:disabled  {
