@@ -1,0 +1,10 @@
+{ 
+   "cinnamon-theme": {
+   "name": "Chicago95", 
+   "author": "EMH-Mark-I", 
+   "version": "1.0",
+   "type":   "custom",
+   "thumbnail": "thumbnail.png", 
+   "url": "" 
+    }
+}
