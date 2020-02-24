@@ -561,7 +561,7 @@ The cursors in the theme do not support HiDPI but [Hackneyed](https://www.gnome-
 - This can occur if a GTK3 theme override is configured in  `~/.config/gtk-3.0/`. 
 - From a file-manager or terminal, navigate to `~/.config/gtk-3.0/` (Press Ctrl-h to display hidden files & directories.)
 - You should see a file by the name of `gtk.css`. Rename that file to gtk_bak.css, then log out and log back in.
-- Optionally, there's also a gtk.css file provided by Chicago95 which you can copy into your `~/.config/gtk-3.0/ directory.` For instructions on this, checkout [GTK3 override configuration](#gtk3_override).
+- Optionally, there's also a gtk.css file provided by Chicago95 which you can copy into your `~/.config/gtk-3.0/` directory. For instructions on this, checkout [GTK3 override configuration](#gtk3_override).
 
 "Themeing looks completely broken and unusable, especially for GTK3 applications. Windows are black and buttons are not visible."
 
