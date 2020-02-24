@@ -26,6 +26,7 @@
     * [Terminal themes](#terminal_themes)
     * [Windows 95 login startup sound](#startup_sound)
 * [HiDPI (experimental)](#hidpi)
+* [Common issues](#common_issues)
 <!--te-->
 
 ---
@@ -122,7 +123,7 @@ For further tuning of QT5 with the Chicago95 GTK theme, read [QT5 theme configra
 
 ## Configuring The XFCE4 Panelbar
 
-The following steps will guide you through configuring the XFCE4 panelbar to resemble the taskbar seen in MS Windows 95. Some options seen in the following steps may not be present across all versions of the XFCE desktop environment and can vary between different Linux distributions.
+The following steps will guide you through configuring the XFCE4 panelbar to resemble the taskbar seen in MS Windows 95. Some options seen in the following steps may not be present across all versions of the XFCE desktop environment and can vary between different Linux/Unix-like operating systems.
 
 *The following steps are written from the perspective of XUbuntu 18.04 and 19.04.*
 
@@ -248,15 +249,15 @@ The GTK3 override configuration file can be used to make some additional minor e
 
 For XFCE 4.12 desktops, copy the configuration file from `Chicago95-master/Extras/override/gtk-3.22/` into `/home/$USER/.config/gtk-3.0/`.
 
-cp Chicago95-master/Extras/override/gtk-3.22/gtk.css ~/.config/gtk-3.0/
+    cp Chicago95-master/Extras/override/gtk-3.22/gtk.css ~/.config/gtk-3.0/
 
 For XFCE 4.14 desktops, copy the configuration file from `Chicago95-master/Extras/override/gtk-3.24/` into `/home/$USER/.config/gtk-3.0/`.
 
-cp Chicago95-master/Extras/override/gtk-3.24/gtk.css ~/.config/gtk-3.0/
+    cp Chicago95-master/Extras/override/gtk-3.24/gtk.css ~/.config/gtk-3.0/
 
 *Note 1: You may have to create the "gtk-3.0" directory if it's not there.*
 
-mkdir -p ~/.config/gtk-3.0
+    mkdir -p ~/.config/gtk-3.0
 
 *Note 2: If you ever want to change your system theme to anything else, don't forget to remove the `gtk.css` configuration file! It makes adjustments based on this theme which might break other themes.*
 
@@ -368,7 +369,7 @@ If you want to use the default Windows 95 gray instead of a background image, ri
 <a name="desktop_icons"/>
 
 ### [ Desktop icon effects (text shadows and label backdrop ) ] (advanced)
-Some options seen in the following steps may not be present across all versions of the XFCE desktop environment and can vary between different Linux distributions. To find which version of xfdesktop you are running you can run `xfdesktop --version` from a terminal.
+Some options seen in the following steps may not be present across all versions of the XFCE desktop environment and can vary between different Linux/Unix-like operating systems. To find which version of xfdesktop you are running you can run `xfdesktop --version` from a terminal.
 
 #### xfdesktop 4.12
 
@@ -400,7 +401,7 @@ In XFCE select Settings -> Mouse and Touchpad. Click on 'Icons' and select `Chic
 ### [ MS Sans Serif font ]
 For an authentic Windows 95 feel, you can use the original MS Sans Serif font.  To do this, you will need a copy of both the "MS Sans Serif Regular" and "Microsoft Sans Serif Regular" fonts from the `C:\Windows\Fonts` directory of any modern Windows computer.  (The filenames for these fonts are `sserife.fon` and `micross.ttf` respectively)
 
-After copying over the files to your Linux install, we now need to convert the `sserife.fon` file to a TrueType font using FontForge.  (This step is optional; you can still use MS Sans Serif, but bold fonts will not be available)
+After copying over the files to your system, we now need to convert the `sserife.fon` file to a TrueType font using FontForge.  (This step is optional; you can still use MS Sans Serif, but bold fonts will not be available)
 
 - Install FontForge with `sudo apt install fontforge`
 - Open FontForge and open the `sserife.fon` file
@@ -547,5 +548,34 @@ The cursors in the theme do not support HiDPI but [Hackneyed](https://www.gnome-
 - Indicator Plugin: Check square icons
 - Status Notifier Plugin: Set maximum icon size to 32
 - *(Optional)* Orage Panel Clock: Set width to 144 and font to Sans 9
+
+[[Return to Index]](#index)
+
+---
+<a name="common_issues"/>
+
+## Common issues
+
+"I've installed the theme, but the colours look wrong."
+
+- This can occur if a GTK3 theme override is configured in  `~/.config/gtk-3.0/`. 
+- From a file-manager or terminal, navigate to `~/.config/gtk-3.0/` (Press Ctrl-h to display hidden files & directories.)
+- You should see a file by the name of `gtk.css`. Rename that file to gtk_bak.css, then log out and log back in.
+- Optionally, there's also a gtk.css file provided by Chicago95 which you can copy into your `~/.config/gtk-3.0/ directory.` For instructions on this, checkout [GTK3 override configuration](#gtk3_override).
+
+"Themeing looks completely broken and unusable, especially for GTK3 applications. Windows are black and buttons are not visible."
+
+- This can occur for Linux/Unix-like operating systems that don't support the required versions of GTK3. This theme requires GTK3.22 or GTK3.24. Chicago95 is also primarily an XFCE theme. There is also minimal support for Cinnamon and MATE desktop environments too.
+- There is a forked version of the theme for legacy GTK3 support targetting GTK3.18 (as seen in XUbuntu 16.04.) You can check it out [here.](https://github.com/EMH-Mark-I/Chicago95-Custom-XUbuntu-16.04-)
+
+"Some applications are missing the box arround their scrollbar buttons or missing scrollbar buttons altogether; they might display only an arrow or nothing at all."
+
+- Missing scrollbar buttons can be observed in QT based applications such as KeePassXC or q4Wine. There is currently no resolution for this issue.
+- Some applications may forcefully override the desktop theme and disable scrollbar buttons. This can be observed in the Cinnamon Brisk menu as an example. There is currently no resolution for this issue.
+
+"My scrollbar is missing or will momentarily appear then disappear."
+
+- Don't forget to checkout the instructions for disabling the [GTK Overlay Scrollbars](#gtk_scroll).
+- Some applications might override the theme or employee their own scrollbar from outside the scope of the desktop toolkit. This has been observed in a few applications, namely Firefox; in this case, there is currently no resolution for this issue.
 
 [[Return to Index]](#index)
