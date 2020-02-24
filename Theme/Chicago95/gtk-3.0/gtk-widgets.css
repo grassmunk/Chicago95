@@ -12,7 +12,7 @@
     -GtkTextView-error-underline-color: @error_color;
     -GtkToolButton-icon-spacing: 6;
     -GtkToolItemGroup-expander-size: 8;
-    -GtkTreeView-expander-size: 8;
+    -GtkTreeView-expander-size: 18;
     -GtkWindow-resize-grip-default: true;
     -GtkWindow-resize-grip-height: 16;
     -GtkWindow-resize-grip-width: 16;
@@ -223,7 +223,8 @@ button {
     -gtk-icon-shadow: none;
     transition: none;
     -gtk-icon-effect: none; }
-    button.sidebar-button:backdrop label, button.sidebar-button:backdrop,
+    /* The commented option below can change the theme of a button in a non-active (non-focused) window. Currently leaving it as an option, but disabled.*/
+    /* button.sidebar-button:backdrop label, button.sidebar-button:backdrop,
     button:backdrop.flat label,
     button:backdrop.flat,
     button:backdrop label,
@@ -284,8 +285,7 @@ button {
         button:backdrop:disabled:active label,
         button:backdrop:disabled:checked label {
           color: @font_color; }
-  /* The commented option below can change the theme of a button in a non-active (non-focused) window. Currently leaving it as an option, but disabled.*/
-  /*button.sidebar-button:backdrop, button.sidebar-button:disabled, button.sidebar-button:backdrop:disabled,
+  button.sidebar-button:backdrop, button.sidebar-button:disabled, button.sidebar-button:backdrop:disabled,
   button.flat:backdrop,
   button.flat:disabled,
   button.flat:backdrop:disabled {
@@ -323,18 +323,7 @@ button {
         color: @font_color; }
   button.image-button {
     min-height: 16px;
-    min-width: 16px;
- /*   padding-left: 4px;
-    padding-right: 4px;*/ }
- /* button.text-button {*/
- /*   padding-left: 8px;
-    padding-right: 8px; }*/
- /* button.text-button.image-button {*/
- /*   padding-left: 4px;
-    padding-right: 4px; }*/
- /*   button.text-button.image-button label {*/
- /*     padding-left: 4px;
-      padding-right: 4px; }*/
+    min-width: 16px; }
   combobox:drop(active) button.combo,
   button:drop(active) {
     border-top-color: @border_dark;
@@ -557,7 +546,7 @@ button.osd {
   .stack-switcher > button.needs-attention:active > image, .stack-switcher > button.needs-attention:checked > label,
   .stack-switcher > button.needs-attention:checked > image {
     background-image: none; }
-.inline-toolbar button, .inline-toolbar button:backdrop, .primary-toolbar button, .primary-toolbar button:hover {
+.inline-toolbar button, .primary-toolbar button, .primary-toolbar button:hover, .primary-toolbar button:hover:backdrop {
   margin: 1px;
   border-radius: 0px;
   border-left: 1px solid @bg_bright;
@@ -571,12 +560,12 @@ button.osd {
     border-bottom: 1px solid @bg_bright;
     border-right: 1px solid @bg_bright;
     box-shadow: inset 1px 1px @bg_shade; }
-  .inline-toolbar button:disabled, .primary-toolbar button:disabled {
+  .inline-toolbar button:disabled, .primary-toolbar button:disabled, .primary-toolbar button:disabled:backdrop {
     border-left: 1px solid @bg_shade;
     border-top: 1px solid @bg_shade;
     border-bottom: 1px solid @bg_bright;
     border-right: 1px solid @bg_bright; }
-.primary-toolbar button {
+.primary-toolbar button, .inline-toolbar button:backdrop, .primary-toolbar button:backdrop {
   -gtk-icon-shadow: none;
   border-color: transparent;
   box-shadow: none; }
@@ -1153,14 +1142,6 @@ combobox {
     outline: none; }
   combobox button.combo {
     margin: 2px; }
-  combobox button arrow {
-    padding: 0px;
-    margin: 0px;
-    min-width: 16px;
-    min-height: 16px;
-    border: 1px solid transparent; }
-    combobox button:disabled arrow {
-      background-image: url("assets/arrow-down-disabled.png"); }
   combobox entry, entry {
     min-width: 20px;
     min-height: 16px;
@@ -1171,12 +1152,26 @@ combobox {
     box-shadow: none; }
   combobox cellview {
     padding-left: 2px; }
+
+/* The following is specifically for Lireoffice comboboxes. This will affect the rest of the theme too. */
   combobox arrow {
-    -gtk-icon-source: url("assets/arrow-down_test.png");
-    -gtk-icon-transform: scale(0.39); }
+    -gtk-icon-source: url("assets/vcl-combobox-arrow-down.png");
+    min-width: 16px;
+    min-height: 16px; } /* 16px icons only or else Libreoffice will distort the icon. */
     combobox:disabled arrow {
-      -gtk-icon-source: url("assets/arrow-down-disabled.png");
-      -gtk-icon-transform: scale(0.5); }
+    -gtk-icon-source: url("assets/vcl-combobox-arrow-down-disabled.png");
+    min-width: 16px;
+    min-height: 16px; }
+/* The following should apply for the rest of the theme. This won't affect Libreoffice comboboxes. */
+  combobox > box > button > box > arrow {
+    -gtk-icon-source: url("assets/combobox-arrow-down.png");
+    min-width: 16px;
+    min-height: 21px; } /* 21px height seems to be the absolute minimum GTK will allow for SOME combobox arrow icons. */
+    combobox:disabled > box > button > box > arrow {
+      -gtk-icon-source: url("assets/combobox-arrow-down-disabled.png");
+      min-width: 16px;
+      min-height: 21px; }
+
   combobox window menu {
     background-color: @bg_color;
     color: @text_color;
@@ -1390,7 +1385,7 @@ expander arrow {
   min-height: 16px; }
 
 treeview.view.expander {
-  -gtk-icon-transform: scale(1.7); } /* NOTE: This is specific for GTK3.22! */
+  -gtk-icon-transform: scale(0.55); } /* NOTE: This sets the treeview expander arrow size within the expander button area. */
 
 /************
  * iconview *
@@ -1549,7 +1544,7 @@ menu separator {
 * Menu arrows*
   ************/
 arrow {
-    background-image: url("assets/arrow-down.png");
+/*    background-image: url("assets/arrow-down.png");*/
     background-position: center;
     background-repeat: no-repeat;
     background-size: 10px;
@@ -2601,7 +2596,7 @@ toolbar button {
   margin: 1px;
   min-width: 16px;
   min-height: 16px;
-  padding: 2px;
+  padding: 1px;
   border-color: @bg_bright @bg_dark @bg_dark @bg_bright;
   box-shadow: inset -1px -1px @bg_shade; }
   toolbar > toolbutton > button:disabled {
@@ -2914,10 +2909,6 @@ flowbox {
 }
 
 grid viewport box box textview {
-    background-color: white;
-}
-
-grid viewport box {
     background-color: white;
 }
 
