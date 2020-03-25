@@ -24,6 +24,7 @@
     * [MS Sans Serif font](#ms_sans_serif)
     * [Terminal fonts](#terminal_fonts)
     * [Terminal themes](#terminal_themes)
+    * [Whisker Menu](#whiker_menu)
     * [Windows 95 login startup sound](#startup_sound)
 * [HiDPI (experimental)](#hidpi)
 * [Common issues](#common_issues)
@@ -463,6 +464,22 @@ Copy the file `Extras/Chicago95.zsh-theme` to `~/.oh-my-zsh/themes` (if you have
 This will add the MS-DOS prompt. You will get a C prompt by default. If the previous command had an exit code other than 0 you will get an F prompt. If you are in a git repository you will git a G prompt, followed by the branch (in yellow) and the status (clean in green, dirty in red).
 
 To get the startup message, add the contents of `Extras/ZSHDOSrc` to your `.zshrc` file: `cat Extras/ZSHDOSrc >> ~/.zshrc`.
+
+[[Return to Index]](#index)
+
+
+<a name="whiker_menu"/>
+#### Whisker Menu Side Bar Theme
+Whisker menu comes with the *Windows 95* side bar. You can change this by editing the file `~/.themes/Chicago95/gtk-3.24/apps/whiskermenu.css`
+
+Find the line `background-image: url("../assets/branding_w95-orig.png");` comment it by placing `/*` and `*/` around it and uncomment one of the other lines:
+
+* branding_w95-orig.png: the original from the boss
+* branding_w95.png: Replicated version of the origina in a higher resolution
+* branding_l95.png: A linux version
+* branding_C95.png: Branded version of this theme
+
+If none of these catch your fancy edit `~/.themes/Chicago95/misc/whisker-sidebar.svg` in Inkscape, export as PNG and replace `branding_w95-orig.png`
 
 [[Return to Index]](#index)
 
