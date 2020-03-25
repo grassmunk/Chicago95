@@ -469,7 +469,9 @@ To get the startup message, add the contents of `Extras/ZSHDOSrc` to your `.zshr
 
 
 <a name="whiker_menu"/>
-#### Whisker Menu Side Bar Theme
+
+#### [ Whisker Menu Side Bar Theme ]
+
 Whisker menu comes with the *Windows 95* side bar. You can change this by editing the file `~/.themes/Chicago95/gtk-3.24/apps/whiskermenu.css`
 
 Find the line `background-image: url("../assets/branding_w95-orig.png");` comment it by placing `/*` and `*/` around it and uncomment one of the other lines:
