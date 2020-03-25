@@ -421,6 +421,7 @@ We now need to install the MS Sans Serif fonts, as well as their font configurat
 #### System-wide install: ####
 - Run `sudo mkdir -p /usr/share/fonts/truetype/ms_sans_serif`
 - Copy `micross.ttf` and `MSSansSerif.ttf` to `/usr/share/fonts/truetype/ms_sans_serif`
+- Verify that file permissions are set to -rw-r--r-- `sudo chmod 644 /usr/share/fonts/truetype/ms_sans_serif/*`
 - Copy `Extras/99-ms-sans-serif.conf` and `Extras/99-ms-sans-serif-bold.conf` to `/etc/fonts/conf.d`
 - Update the font cache by running `sudo fc-cache -f -v`
 

@@ -53,6 +53,9 @@ the whisker menu without having to correct their pointer location. */
 * Whisker Menu **
 ****************/
 
+
+#whiskermenu-window  {
+  box-shadow: inset 22px 0 @bg_shade; }
 #whiskermenu-window treeview {
   padding-left: 5px;
   padding-right: 5px;
@@ -71,28 +74,34 @@ the whisker menu without having to correct their pointer location. */
   border: 1px solid @bg_shade;
   box-shadow: none;
   padding: 0px; }
-#whiskermenu-window frame > stack > box > stack > box > scrolledwindow {
-  padding: 5px;
-  border-top: 1px solid transparent;
-  border-right: 1px solid transparent;
-  border-bottom: 1px solid transparent;
-  border-left: 1px solid @bg_shade;
-  box-shadow: inset 1px 0px @bg_bright; }
-  #whiskermenu-window frame > stack > box > stack > box > scrolledwindow button {
-    border: 1px solid transparent;
-    background-color: @selected_bg_color;
-    box-shadow: none; }
-    #whiskermenu-window frame > stack > box > stack > box > scrolledwindow button:checked {
-    background-color: @bg_shade; }
-    #whiskermenu-window frame > stack > box > stack > box > scrolledwindow button:hover,
-    #whiskermenu-window frame > stack > box > stack > box > scrolledwindow button:active,
-    #whiskermenu-window frame > stack > box > stack > box > scrolledwindow button:checked {
-      color: white; }
-#whiskermenu-window > frame > stack > box > box:first-child {
-  padding: 2px;
-  margin: 0;
-  color: @text_color;
-  /*background-image: linear-gradient(to right, @selected_bg_color, @transparent);*/ /* Note: You can setup a gradient here if you want! */ }
+#whiskermenu-window frame {
+  background-image: url("../assets/branding_w95.png");
+  background-repeat: no-repeat;
+  background-position: 0% 100%; }
+#whiskermenu-window frame > stack {
+margin-left: 18px; }
+  #whiskermenu-window frame > stack > box > stack > box > scrolledwindow {
+    padding: 5px;
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-left: 1px solid @bg_shade;
+    box-shadow: inset 1px 0px @bg_bright; }
+    #whiskermenu-window frame > stack > box > stack > box > scrolledwindow button {
+      border: 1px solid transparent;
+      background-color: @selected_bg_color;
+      box-shadow: none; }
+      #whiskermenu-window frame > stack > box > stack > box > scrolledwindow button:checked {
+      background-color: @bg_shade; }
+      #whiskermenu-window frame > stack > box > stack > box > scrolledwindow button:hover,
+      #whiskermenu-window frame > stack > box > stack > box > scrolledwindow button:active,
+      #whiskermenu-window frame > stack > box > stack > box > scrolledwindow button:checked {
+        color: white; }
+  #whiskermenu-window > frame > stack > box > box:first-child {
+    padding: 2px;
+    margin: 0;
+    color: @text_color;
+    /*background-image: linear-gradient(to right, @selected_bg_color, @transparent);*/ /* Note: You can setup a gradient here if you want! */ }
 #whiskermenu-window frame > box > box > box button image {
   padding: 0px; }
 #whiskermenu-window entry {
