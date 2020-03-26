@@ -53,6 +53,8 @@ the whisker menu without having to correct their pointer location. */
 * Whisker Menu *
 ***************/
 
+#whiskermenu-window  {
+  box-shadow: inset 22px 0 @bg_shade; }
 #whiskermenu-window treeview {
   padding-left: 5px;
   padding-right: 5px;
@@ -71,6 +73,25 @@ the whisker menu without having to correct their pointer location. */
   border: 1px solid @bg_shade;
   box-shadow: none;
   padding: 0px; }
+#whiskermenu-window frame {
+/* 
+   These are the Whisker Menu side bar images to replicate Windows 95.
+   Comment branding_C95.png and uncomment which one you would prefer to use:
+    - w95-orig: the original from the boss
+    - w95: Replicated version of the original in a higher resolution
+    - l95: A linux version
+    - C95: Branded version of this theme
+   If none of these catch your fancy edit misc/whisker-sidebar.svg in 
+   Inkscape
+*/
+/*  background-image: url("../assets/branding_w95-orig.png"); */
+/*  background-image: url("../assets/branding_w95.png"); */
+/*  background-image: url("../assets/branding_l95.png"); */
+  background-image: url("../assets/branding_C95.png");
+  background-repeat: no-repeat;
+  background-position: 0% 100%; }
+#whiskermenu-window frame > box {
+margin-left: 18px; }
 #whiskermenu-window frame > box > box > scrolledwindow {
   padding: 5px;
   border-top: 1px solid transparent;
