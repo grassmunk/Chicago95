@@ -76,7 +76,7 @@ the whisker menu without having to correct their pointer location. */
   padding: 0px; }
 #whiskermenu-window frame {
 /* 
-   These are the Whisker Menu side bar to replicate Windows 95
+   These are the Whisker Menu side bar to replicate Windows 95.
    comment w95-orig and uncomment which one you would prefer to use:
     - w95-orig: the original from the boss
     - w95: Replicated version of the origina in a higher resolution
@@ -85,10 +85,10 @@ the whisker menu without having to correct their pointer location. */
    If none of these catch your fancy edit misc/whisker-sidebar.svg in 
    Inkscape
 */
-  background-image: url("../assets/branding_w95-orig.png");
+/*  background-image: url("../assets/branding_w95-orig.png"); */
 /*  background-image: url("../assets/branding_w95.png"); */
 /*  background-image: url("../assets/branding_l95.png"); */
-/*  background-image: url("../assets/branding_C95.png"); */
+  background-image: url("../assets/branding_C95.png"); 
   background-repeat: no-repeat;
   background-position: 0% 100%; }
 #whiskermenu-window frame > stack {
