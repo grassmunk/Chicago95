@@ -76,10 +76,10 @@ the whisker menu without having to correct their pointer location. */
   padding: 0px; }
 #whiskermenu-window frame {
 /* 
-   These are the Whisker Menu side bar to replicate Windows 95.
-   comment w95-orig and uncomment which one you would prefer to use:
+   These are the Whisker Menu side bar images to replicate Windows 95.
+   comment branding_C95.png and uncomment which one you would prefer to use:
     - w95-orig: the original from the boss
-    - w95: Replicated version of the origina in a higher resolution
+    - w95: Replicated version of the original in a higher resolution
     - l95: A linux version
     - C95: Branded version of this theme
    If none of these catch your fancy edit misc/whisker-sidebar.svg in 
