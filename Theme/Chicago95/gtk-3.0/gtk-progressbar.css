@@ -77,30 +77,6 @@ scale trough {
   outline-offset: -8px;
   border-image-slice: 1 1 1 1;
   border-image-repeat: repeat; }
-  scale.vertical trough {
-    min-width: 36px;
-    background-color: transparent;
-    border: 1px solid transparent;
-    background-image: url("assets/scale_vertical.png");
-    background-size: 36px 16px;
-    background-repeat: repeat-y;
-    border-image: none;
-    box-shadow: none; }
-  scale.horizontal trough {
-    min-height: 36px;
-    border: 1px solid transparent;
-    background-color: transparent;
-    background-image: url("assets/scale_horizontal.png");
-    background-size: 16px 36px;
-    background-repeat: repeat-x;
-    border-image: none;
-    box-shadow: none; }
-    menu menuitem:hover .horizontal trough {
-      background-image: url("assets/scale_horizontal_highlight.png");
-      outline-color: @selected_fg_color; }
-    menu menuitem:hover .vertical trough {
-      background-image: url("assets/scale_vertical_highlight.png");
-      outline-color: @selected_fg_color; }
 scale highlight,
 scale empty {
   min-width: 1px;
