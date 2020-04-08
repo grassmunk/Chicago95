@@ -1,10 +1,18 @@
-/************
-* Xfdesktop *
-************/
+/****************
+ * XFCE DESKTOP *
+ ****************/
 
+/*
+   Contributor notes:
+   Please use two space indentions.
+   Stack all related and child selectors and selector states into a logical hierarchy to a readable degree.
+   Make sure that all changes made here are part of the XFCE desktop.
+*/
+
+/* Xfdesktop */
 XfdesktopIconView.view {
   background: @xfd_icon_backdrop;
-  color: @selected_bg_color;;
+  color: @selected_bg_color;
   border-radius: 0px; }
   XfdesktopIconView.view:active {
     background: @selected_bg_color;
@@ -16,13 +24,12 @@ XfdesktopIconView.view {
     border: 1px dotted #ccc;
     background: rgba(0,0,50.2,0.5); }
 
-/*****************
-* XFCE Panel Bar *
-*****************/
-
+/* XFCE Panel Bar */
 .xfce4-panel {
   box-shadow: none;
-  border: none; }
+  border: 1px solid @border_dark;
+  border-image: url("../buttons/dialog_button_normal.png");
+  border-image-slice: 1 1 1 1; }
   /* Note: The ".xfce4-panel > widget > frame" and ".xfce4-panel .flat:not(.toggle)" CSS classes are specified in this manner due to the volatility in the naming of CSS IDs presented by the XFCE panelbar.*/
   .xfce4-panel > widget > frame, /* affects the frame of the notification area plugin for GTK2 notifications. */
   .xfce4-panel .flat:not(.toggle), /* affects the launcher buttons as well and the status notifier plugin. */
@@ -32,12 +39,21 @@ XfdesktopIconView.view {
   #xfce4-power-manager-plugin,
   #indicator-button,
   #showdesktop-button {
-    padding: 0px;
-    border: transparent;
-    /*box-shadow: inset 0px 1px white;*/
-    box-shadow: none;
     color: @panel_fg_color;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding: 0px;
+    border: 2px solid transparent;
+    box-shadow: none;
     background-color: transparent; }
+    #showdesktop-button:checked {
+      border: 2px solid @border_dark;
+      border-image: url("../buttons/button_pressed.png");
+      border-image-slice: 2 2 2 2;
+      background-color: @bg_bright;
+      background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_dark);
+      background-size: 2px 2px;
+      background-position: 0 0, 1px 1px;}
     #indicator-button:hover,
     #indicator-button:active,
     #indicator-button:checked,
@@ -58,19 +74,13 @@ XfdesktopIconView.view {
     #xfce4-power-manager-plugin:checked {
       border: transparent;
       box-shadow: none;
-      color: @panel_fg_color_bright;
-      background-color: @selected_bg_color; }
-    #showdesktop-button:checked {
-      border-bottom: 1px solid @bg_bright;
-      border-right: 1px solid @bg_bright;
-      border-top: 1px solid @bg_dark;
-      border-left: 1px solid @bg_dark;
-      box-shadow: inset -1px -1px @bg_color, inset 1px 1px @bg_shade; }
-    
+      /*color: @panel_fg_color_bright;*/ /*If you choose to add a background colour, don't forget to uncomment the colour property here so that symbolic icons are properly shaded. You can change the colour propery value to whatever you want. */
+      background-color: transparent; }   /* Adding a background colour to the following will highlight panel icons when hovered or checked if desired. */
 
+/* Clock plugin */
 #clock-button {
   border: 2px solid transparent;
-  box-shadow: inset 1px 1px @bg_shade, inset -1px -1px @bg_bright;
+  box-shadow: inset 1px 1px @border_shade, inset -1px -1px @border_bright;
   margin: 0px;
   background-color: transparent; }
   #clock-button label {
@@ -82,43 +92,52 @@ wnck-pager {
   wnck-pager:selected {
     background-color: @selected_bg_color; }
   wnck-pager:hover {
-    background-color: @bg_shade;
+    background-color: @border_shade;
     color: white; }
 
 /* Tasklist */
 .tasklist .toggle {
+  /* We remove borders and shadows for the '.tasklist' '.toggle' button 
+   * directly so that we can apply margins to the inner toggle button 
+   * box without impacting usability in which the user would otherwise 
+   * require pointer precision to interact with the tasklist buttons.
+   * NOTE OF REGRESSION: By choosing to apply border and shading effects
+   * to the inner tasklist toggle button box, this will introduce a 
+   * regression in the "show flat buttons" feature presented by the XFCE
+   * Window Buttons plugin configuration setting.*/
   border: none;
   box-shadow: none;
   margin: 0px;
   background-color: transparent; }
   .tasklist .toggle box {
-    transition: 0s font-weight, border-left, border-right, border-top, border-bottom, box-shadow;
+    transition: 0s font-weight;
     margin: 2px;
-    border-left: 1px solid @bg_bright;
-    border-top: 1px solid @bg_bright;
-    border-right: 1px solid @bg_dark;
-    border-bottom: 1px solid @bg_dark;
-    box-shadow: inset -1px -1px @bg_shade; }
+    border: 2px solid @border_dark;
+    border-top: 3px solid @border_dark; /* Checked toggle buttons in Windows95 have a 3px multi-colour border.*/
+    border-image: url("../buttons/dialog_button_normal.png");
+    border-image-slice: 3 2 2 2;
+    box-shadow: none; }
     .tasklist .toggle:active box {
       font-weight: bold;
-      border-left: 1px solid @bg_dark;
-      border-top: 1px solid @bg_dark;
-      border-right: 1px solid @bg_bright;
-      border-bottom: 1px solid @bg_bright;
-      box-shadow: inset 1px 1px @bg_shade, inset -1px -1px @bg_color;
-      transition-delay: 1s; }
+      border: 2px solid @border_dark;
+      border-top: 3px solid @border_dark;
+      border-image: url("../buttons/button_pressed.png");
+      border-image-slice: 3 2 2 2;
+      transition-delay: 1s;
+      box-shadow: none; }
     .tasklist .toggle:checked box {
       /*font-family: "NotoSans-Bold";*/
       font-weight: bold;
-      border-left: 1px solid @bg_dark;
-      border-top: 1px solid @bg_dark;
-      border-right: 1px solid @bg_bright;
-      border-bottom: 1px solid @bg_bright;
-      box-shadow: inset 1px 1px @bg_shade, inset -1px -1px @bg_color;
+      border: 2px solid @border_dark;
+      border-top: 3px solid @border_dark;
+      border-image: url("../buttons/toggle_pressed.png");
+      border-image-slice: 3 2 2 2;
       background-color: @border_bright;
-      background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @border_dark);
+      background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_dark);
       background-size: 2px 2px;
-      background-position: 0 0, 1px 1px; }
+      background-position: 0 0, 1px 1px;
+      box-shadow: none; }
+
       .tasklist .toggle label {
         margin-right: 4px; }
 
@@ -128,3 +147,58 @@ wnck-pager {
   .color-profiles .inline-toolbar {
     border: 1px solid transparent;
     box-shadow: none; }
+
+/* XFCE Power Manager plugin */
+#xfce4-power-manager-plugin,
+#xfce4-power-manager-plugin:active {
+  margin: 0px;
+  box-shadow: none;
+  border: transparent; }
+  #xfce4-power-manager-plugin * {
+    -gtk-icon-transform: scale(1); }
+
+/* XFCE Notification plugin */
+#xfce4-notification-plugin,
+#xfce4-notification-plugin:active {
+  margin: 0px;
+  padding: 2px;
+  box-shadow: none;
+  border: transparent; }
+  #xfce4-notification-plugin * {
+    -gtk-icon-transform: scale(1); }
+
+/* Pulse audio plugin buttons */
+.xfce4-panel #pulseaudio-button,
+.xfce4-panel #pulseaudio-button:active {
+  margin: 0px;
+  box-shadow: none;
+  border: transparent; }
+.xfce4-panel #pulseaudio-button * {
+  -gtk-icon-transform: scale(1); }
+.xfce4-panel #pulseaudio-button menu .linked button {
+  color: @text_color;
+  border-top-color: @border_bright;
+  border-right-color: @border_dark;
+  border-left-color: @border_bright;
+  border-bottom-color: @border_dark;
+  box-shadow: inset -1px -1px @border_shade; }
+  .xfce4-panel #pulseaudio-button menu .linked button:active {
+    color: @text_color;
+    border-top-color: @border_dark;
+    border-right-color: @border_bright;
+    border-left-color: @border_dark;
+    border-bottom-color: @border_bright;
+    box-shadow: inset 1px 1px @border_shade; }
+  .xfce4-panel #pulseaudio-button menu .linked button:disabled {
+    color: @text_color;
+    border-top-color: @border_bright;
+    border-right-color: @border_dark;
+    border-left-color: @border_bright;
+    border-bottom-color: @border_dark; }
+
+/* XFCE terminal */
+#xfce4-terminal-notebook overlay > box {
+  border: 2px solid @border_dark;
+  border-image: url("../assets/frame_inset.png");
+  border-image-slice: 2 2 2 2;
+  box-shadow: none; }

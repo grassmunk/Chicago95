@@ -4,13 +4,13 @@
 /*filechooser treeview:focus {
   outline: 1px solid @bg_dark;
   outline-offset: -4px;
-  -gtk-outline-radius: 0px }*/
+  -gtk-outline-radius: 0px; }*/
 
 filechooser treeview:selected {
   outline: 1px dotted @bg_bright;
   outline-offset: -4px;
   -gtk-outline-radius: 0px }
-
+/*
 filechooser .sidebar-row:focus {
   outline: 1px dotted @bg_bright;
   outline-offset: -4px;
@@ -21,7 +21,7 @@ filechooser .sidebar-row:selected:backdrop {
 
 filechooser placessidebar viewport {
   border: 1px solid @bg_shade;
-  box-shadow: none; }
+  box-shadow: none; }*/
 
 filechooser scrolledwindow {
   border: 1px solid @bg_shade;

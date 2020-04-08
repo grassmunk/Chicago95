@@ -14,6 +14,7 @@
 @define-color panel_fg_color_bright #ffffff;
 @define-color base_color #ffffff;
 @define-color text_color #000000;
+@define-color text_color_light #808080;
 @define-color selected_bg_color #000080;
 @define-color selected_fg_color #ffffff;
 @define-color selected_inactive_bg_color #808080;
@@ -24,9 +25,12 @@
 @define-color bg_bright shade(white, 0.99);
 @define-color bg_shade shade(@bg_color, 0.66);
 @define-color bg_dark shade(@bg_color, 0.13);
-@define-color border_bright white;
-@define-color border_dark black;
+@define-color border_color #c0c0c0;
+@define-color border_bright #ffffff;
+@define-color border_light #dfdfdf;
+@define-color border_dark #000000;
 @define-color border_shade #808080;
+@define-color border_shade_dark #4a4a4a;
 @define-color outline_color black;
 @define-color font_color black;
 @define-color font_bright white;
@@ -91,17 +95,29 @@
 @define-color wm_icons_unfocused_prelight @selected_bg_color;
 @define-color wm_icons_unfocused_pressed shade(@selected_bg_color, 0.8);
 
-/*Terminal Text color*/
+/* Terminal Text color */
 @define-color terminal_text_color @text_color;
 
-/*Progressbar bg color*/
+/* Progressbar bg color */
 @define-color progressbar_color @selected_bg_color;
 
-/*Whisker Menu Panel Button text color & size*/
+/* Notebook colors */
+@define-color notebook_label @font_color;
+@define-color notebook_label_selected @font_color;
+@define-color notebook_label_hover @font_color;
+@define-color notebook_bg @bg_color;
+@define-color notebook_bg_selected @bg_color;
+@define-color notebook_bg_hover @bg_color;
+@define-color notebook_bg_arrow transparent;
+
+/* Whisker Menu Panel Button text color & size*/
 @define-color whisker_button_text black;
 #whiskermenu-button label {font-size: 11px;}
 
-/*XFCE desktop icon colours*/
+/* Whisker Menu side logo background color */
+@define-color whisker_menu_logo @bg_shade;
+
+/* XFCE desktop icon colours*/
 @define-color xfd_icon_backdrop #008081;
 @define-color xfd_icon_text #ffffff;
 
@@ -112,6 +128,34 @@
 @import url("apps/mate.css");
 @import url("apps/thunar.css");
 @import url("apps/cinnamon.css");
+
+/* Please keep these in their originial load order. */
+@import url("gtk-widgets.css");
+@import url("gtk-basic-effects.css");
+@import url("gtk-buttons.css");
+@import url("gtk-checks_radio.css");
+@import url("gtk-frames.css");
+@import url("gtk-viewports.css");
+@import url("gtk-scrolledwindows.css");
+@import url("gtk-list_cell_and_rows.css");
+@import url("gtk-paned.css");
+@import url("gtk-separators.css");
+@import url("gtk-treeviews.css");
+@import url("gtk-entry.css");
+@import url("gtk-combobox.css");
+@import url("gtk-scrollbar.css");
+@import url("gtk-assistant.css");
+@import url("gtk-headerbars.css");
+@import url("gtk-menu.css");
+@import url("gtk-notebooks.css");
+@import url("gtk-progressbar.css");
+@import url("gtk-popovers.css");
+@import url("gtk-titlebars.css");
+@import url("gtk-toolbar.css");
+@import url("gtk-window.css");
+@import url("gtk-windowbuttons.css");
+
+
 
 /* @import url("apps/gnome-applications.css");
 @import url("apps/granite-widgets.css");

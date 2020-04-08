@@ -117,10 +117,11 @@ na-tray-applet {
   border: none;
   box-shadow: none; }
   .mate-panel-menu-bar #PanelApplet button image {
+    margin-top: 4px;
     padding: 2px; }
 
 #PanelApplet #tasklist-button box,
-.brisk-button box {
+.mate-panel-menu-bar #PanelApplet button box {
   transition: 0s font-weight, border-left, border-right, border-top, border-bottom, box-shadow;
   margin: 2px;
   border-style: solid;
@@ -138,7 +139,7 @@ na-tray-applet {
     background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @border_dark);
     background-size: 2px 2px;
     background-position: 0 0, 1px 1px; }
-  .brisk-button:checked box {
+  .mate-panel-menu-bar #PanelApplet button:checked box {
     border-style: solid;
     border-width: 1px;
     border-color: @bg_dark @bg_bright @bg_bright @bg_dark;
@@ -154,7 +155,7 @@ na-tray-applet {
     border-color: @bg_dark @bg_bright @bg_bright @bg_dark;
     box-shadow: inset 1px 1px @bg_shade;
     transition-delay: 1s; }
-  .brisk-button:active box {
+  .mate-panel-menu-bar #PanelApplet button:active box {
     font-weight: bold;
     border-style: solid;
     border-width: 1px;
@@ -199,8 +200,6 @@ na-tray-applet {
   box-shadow: inset 1px 1px @bg_bright, inset -1px -1px @bg_shade; }
 
 /* Brisk Menu */
-.brisk-button image {
-  margin: 0px; }
 .brisk-menu {
   background-color: @bg_color; }
   .brisk-menu .apps-list {
@@ -292,14 +291,9 @@ margin: 2px; }
   margin-left: 2px;
   border: transparent;
   box-shadow: none; }
-/*#fast-user-switch-menubar {
-  margin: 2px;
+  
+#fast-user-switch-menubar {
   padding: 0px;
-  box-shadow: inset 1px 1px @bg_shade, inset -1px -1px @bg_bright; }*/
-
-#clock-applet-button box {
-  margin: 2px;
-  padding: 2px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: @bg_shade @bg_bright @bg_bright @bg_shade; }
+  margin-right: 2px;
+  margin-left: 2px;
+  box-shadow: inset 1px 1px @bg_shade, inset -1px -1px @bg_bright; }

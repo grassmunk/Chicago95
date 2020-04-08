@@ -15,11 +15,11 @@ the whisker menu without having to correct their pointer location. */
   #applicationmenu-button box {
     padding: 2px;
     margin: 1px;
-    border-top: 1px solid @bg_bright;
-    border-bottom: 1px solid @bg_dark;
-    border-left: 1px solid @bg_bright;
-    border-right: 1px solid @bg_dark;
-    box-shadow: inset -1px -1px @bg_shade;
+    border-top: 1px solid @border_bright;
+    border-bottom: 1px solid @border_dark;
+    border-left: 1px solid @border_bright;
+    border-right: 1px solid @border_dark;
+    box-shadow: inset -1px -1px @border_shade, inset 1px 1px @border_light;
     background-color: @bg_color; }
     #whiskermenu-button:active box,
     #whiskermenu-button:checked box,
@@ -28,11 +28,11 @@ the whisker menu without having to correct their pointer location. */
       padding-left: 3px;
       padding-right: 1px;
       margin: 1px;
-      border-bottom: 1px solid @bg_bright;
-      border-right: 1px solid @bg_bright;
-      border-top: 1px solid @bg_dark;
-      border-left: 1px solid @bg_dark;
-      box-shadow: inset -1px -1px @bg_color, inset 1px 1px @bg_shade;
+      border-bottom: 1px solid @border_bright;
+      border-right: 1px solid @border_bright;
+      border-top: 1px solid @border_dark;
+      border-left: 1px solid @border_dark;
+      box-shadow: inset -1px -1px @border_color, inset 1px 1px @border_shade;
       border-radius: 0px; }
   #whiskermenu-button image,
   #applicationmenu-button image {
@@ -53,9 +53,12 @@ the whisker menu without having to correct their pointer location. */
 * Whisker Menu **
 ****************/
 
-
-#whiskermenu-window  {
-  box-shadow: inset 22px 0 @bg_shade; }
+#whiskermenu-window {
+  box-shadow: inset 23px 0 @whisker_menu_logo; }
+  #whiskermenu-window > frame {
+    border: 2px solid @border_dark;
+    border-image: url("../assets/frame_outset.png");
+    border-image-slice: 2 2 2 2;}
 #whiskermenu-window treeview {
   padding-left: 5px;
   padding-right: 5px;
@@ -70,10 +73,6 @@ the whisker menu without having to correct their pointer location. */
       background-color: transparent; }
 #whiskermenu-window separator {
   margin: 5px; }
-#whiskermenu-window scrolledwindow {
-  border: 1px solid @bg_shade;
-  box-shadow: none;
-  padding: 0px; }
 #whiskermenu-window frame {
 /* 
    These are the Whisker Menu side bar images to replicate Windows 95.
@@ -85,10 +84,10 @@ the whisker menu without having to correct their pointer location. */
    If none of these catch your fancy edit misc/whisker-sidebar.svg in 
    Inkscape
 */
-/*  background-image: url("../assets/branding_w95-orig.png"); */
+  background-image: url("../assets/branding_w95-orig.png");
 /*  background-image: url("../assets/branding_w95.png"); */
 /*  background-image: url("../assets/branding_l95.png"); */
-  background-image: url("../assets/branding_C95.png"); 
+/*  background-image: url("../assets/branding_C95.png"); */
   background-repeat: no-repeat;
   background-position: 0% 100%; }
 #whiskermenu-window frame > stack {
@@ -98,14 +97,14 @@ margin-left: 18px; }
     border-top: 1px solid transparent;
     border-right: 1px solid transparent;
     border-bottom: 1px solid transparent;
-    border-left: 1px solid @bg_shade;
-    box-shadow: inset 1px 0px @bg_bright; }
+    border-left: 1px solid @border_shade;
+    box-shadow: inset 1px 0px @border_bright; }
     #whiskermenu-window frame > stack > box > stack > box > scrolledwindow button {
       border: 1px solid transparent;
       background-color: @selected_bg_color;
       box-shadow: none; }
       #whiskermenu-window frame > stack > box > stack > box > scrolledwindow button:checked {
-      background-color: @bg_shade; }
+      background-color: @border_shade; }
       #whiskermenu-window frame > stack > box > stack > box > scrolledwindow button:hover,
       #whiskermenu-window frame > stack > box > stack > box > scrolledwindow button:active,
       #whiskermenu-window frame > stack > box > stack > box > scrolledwindow button:checked {
@@ -120,9 +119,7 @@ margin-left: 18px; }
 #whiskermenu-window entry {
   margin-top: 3px;
   margin-bottom: 3px;
-  min-height: 16px;
-  border: 1px solid @bg_shade;
-  box-shadow: none; }
+  min-height: 16px; }
 #whiskermenu-window frame, #whiskermenu-window GtkListBox, #whiskermenu-window scrolledwindow, #whiskermenu-window viewport {
   background-color: transparent; }
 #whiskermenu-window scrollbar button {
@@ -132,3 +129,11 @@ margin-left: 18px; }
   min-height: 16px;
   border: none;
   box-shadow: none; }
+#whiskermenu-window stack > scrolledwindow {
+  border-left: 1px solid @border_dark;
+  border-right: 1px solid @border_bright;
+  border-top: 1px solid @border_dark;
+  border-bottom: 1px solid @border_bright;
+  box-shadow: inset -1px -1px @border_color, inset 1px 1px @border_shade;
+  background: @base_color;
+  padding: 1px; }

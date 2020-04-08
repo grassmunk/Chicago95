@@ -1,0 +1,50 @@
+/*******************
+ * scrolled window *
+ *******************/
+
+/*
+   Contributor notes:
+   Please use two space indentions.
+   Stack all related and child selectors and selector states into a logical hierarchy to a readable degree.
+   Make sure that all changes made here are part of the GtkScrolledwindow.
+*/
+
+scrolledwindow {
+  padding: 1px;
+  background-color: @bg_color;
+  border-left: 1px solid @border_dark;
+  border-top: 1px solid @border_dark;
+  border-right: 1px solid @border_bright;
+  border-bottom: 1px solid @border_bright;
+  box-shadow: inset -1px -1px @border_color, inset 1px 1px @border_shade;
+  margin: 0px; }
+  scrolledwindow viewport list row {
+    border: none;
+    box-shadow: none;
+    padding: 2px;
+    margin: 0px; }
+
+.nautilus-window overlay > scrolledwindow {
+  background-color: @base_color; }
+
+stacksidebar > scrolledwindow { 
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  box-shadow: none; }
+
+.sidebar GtkScrolledWindow {
+  background-color: @selected_fg_color;
+  color: @text_color;
+  box-shadow: none;}
+
+frame > scrolledwindow {
+  margin: 0px; }
+
+notebook stack scrolledwindow {
+  border-left: 1px solid @border_shade;
+  border-top: 1px solid @border_shade;
+  border-right: 1px solid @border_bright;
+  border-bottom: 1px solid @border_dark;
+  box-shadow: inset 1px 1px white, inset -1px -1px @border_shade;
+  margin: 3px; }
