@@ -29,9 +29,10 @@ combobox {
     * combobox button {
     padding-left: 0px; }
 
-    /* The default cellview top or bottom margin will affect the arrow icon scaling in the combobox button. To resolve this, we will add a negative margin. */ 
-    combobox button cellview {
-      margin-bottom: -1px; }
+/* The default cellview top or bottom margin will affect the arrow icon scaling in the combobox button. To resolve this, we will add a negative margin. */ 
+combobox button cellview {
+  margin-bottom: -1px;
+  padding-left: 1px; }
 
 /* Combobox entry */
 combobox entry {
