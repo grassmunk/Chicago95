@@ -84,7 +84,7 @@ combobox arrow {
     min-width: 16px;
     min-height: 16px;
     -gtk-icon-source: none; }
-    combobox:disabled > box > button > box > arrow {
+    combobox:disabled > box > button > box > arrow:disabled {
       background-image: url("assets/vcl-combobox-arrow-down-disabled.png");
       background-repeat: no-repeat;
       background-position: center center;
