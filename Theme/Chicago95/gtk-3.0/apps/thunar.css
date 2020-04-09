@@ -82,3 +82,9 @@ Make sure that all changes made here are part of the Thunar application.
   border-image: url("../assets/frame_inset.png");
   border-image-slice: 2 2 2 2;
   box-shadow: none; }
+
+.thunar widget.view:selected {
+  background-color: shade(@selected_bg_color, 3.0); }
+  .thunar widget.view:selected:focus {
+    background-color: @selected_bg_color; }
+
