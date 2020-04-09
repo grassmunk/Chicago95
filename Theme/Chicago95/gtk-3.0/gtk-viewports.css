@@ -34,8 +34,8 @@ grid viewport {
     box-shadow: inset 0 0;
     background-color: @bg_bright; }
 
-view:not(.rubberband),
-.view:not(.rubberband) {
+view,
+.view {
   border-width: 0px;
   background-color: @bg_bright;
   color: @theme_text_color;
