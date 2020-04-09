@@ -47,6 +47,11 @@ scale slider:active {
 scale.vertical {
   margin: 3px;
   padding: 1px 7px 1px 7px; }
+  scale.vertical indicator {
+    padding-left: 10px;
+    padding-right: 10px;
+    min-height: 1px;
+    min-width: 3px; }
   scale.vertical slider {
     min-width: 1px;
     min-height: 10px;
@@ -59,6 +64,10 @@ scale.vertical {
 scale.horizontal {
   margin: 3px;
   padding: 9px 1px 9px 1px; }
+  scale.horizontal indicator {
+    padding-top: 10px;
+    min-height: 3px;
+    min-width: 1px; }
   scale.horizontal slider {
     min-width: 10px;
     min-height: 1px;
@@ -77,23 +86,20 @@ scale trough {
   outline-offset: -8px;
   border-image-slice: 1 1 1 1;
   border-image-repeat: repeat; }
+  scale:focus trough {
+  outline-offset: 8px; }
 scale highlight,
 scale empty {
   min-width: 1px;
   min-height: 1px;
   background-color: transparent; }
 
-  /* there might be other cases where the inside is filled by other widgets */
-  scale.color contents trough {
-    min-height: 8px;
-    min-width: 8px; }
-  /* outline inside the trough node is terrible, this disables it but can't put it in the slider...
-  scale *:focus {
-  outline: 0px; } */
-  scale:focus trough {
-    outline-offset: 2px; }
-  scale value {
-    padding: 4px }
+/* there might be other cases where the inside is filled by other widgets */
+scale.color contents trough {
+  min-height: 8px;
+  min-width: 8px; }
+scale value {
+  padding: 4px }
 
 treeview.view.progressbar {
   border: none;
@@ -126,4 +132,5 @@ treeview.view.trough {
     border-right: 1px solid @border_dark;
     background-color: @bg_bright;
     border-radius: 0px; }
+
 
