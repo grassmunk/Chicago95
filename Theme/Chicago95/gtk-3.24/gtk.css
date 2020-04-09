@@ -120,6 +120,7 @@
 /* XFCE desktop icon colours*/
 @define-color xfd_icon_backdrop #008081;
 @define-color xfd_icon_text #ffffff;
+@define-color xfd_rubberband_outline #ff7f7f;
 
 @import url("gtk-widgets.css");
 @import url("apps/xfce.css");

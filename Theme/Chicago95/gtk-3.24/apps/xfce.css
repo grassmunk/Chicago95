@@ -16,13 +16,14 @@ XfdesktopIconView.view {
   border-radius: 0px; }
   XfdesktopIconView.view:active {
     background: @selected_bg_color;
-    text-shadow: none; }
+    text-shadow: none;
+    color: shade(@selected_bg_color, 3.0); }
   XfdesktopIconView.view .label {
     text-shadow: none;
     color: @font_bright; }
   XfdesktopIconView.view .rubberband {
-    border: 1px dotted #ccc;
-    background: rgba(0,0,50.2,0.5); }
+    border: 1px dotted @xfd_rubberband_outline;
+    background: rgba(0,0,50.2,0.01); }
 
 /* XFCE Panel Bar */
 .xfce4-panel {

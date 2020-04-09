@@ -96,3 +96,13 @@ stack > box > frame {
   border-radius: 0px;
   background-color: @theme_bg_color;
   box-shadow: none; }
+
+entry window frame {
+  padding: 0px;
+  border: 1px solid @border_dark;
+  background-color: @bg_bright; }
+entry window frame scrolledwindow {
+  background-color: @bg_bright;
+  border: none;
+  box-shadow: none; }
+
