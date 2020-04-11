@@ -36,20 +36,6 @@ headerbar,
     margin: 3px;
     padding-top: 1px;
     padding-bottom: 1px; }
-  headerbar button:not(.titlebutton) > image {
-    border: solid 1px;
-    border-color: transparent;
-    padding-left: 3px;
-    padding-right: 3px;
-    margin-top: -3px;
-    margin-bottom: -3px; }
-    headerbar button:active:not(.titlebutton) > image {
-      border: solid;
-      border-color: transparent;
-      border-left-width: 2px;
-      border-right-width: 0px;
-      border-top-width: 2px;
-      border-bottom-width: 0px; }
   headerbar separator {
     margin-right: 3px;
     border-left-width: 1px;

@@ -417,14 +417,9 @@ headerbar .title {
 headerbar .subtitle {
   font-size: smaller; }
 
-headerbar box {
-  margin: 1px; }
-
-headerbar button image {
-  padding: 1px; }
-
-headerbar box button image {
-  padding: 1px; }
+/**************
+ * rubberband *
+ **************/
 
 .rubberband,
 rubberband,
@@ -451,3 +446,11 @@ grid viewport box box textview {
 /* dialog-vbox */
 .dialog-vbox flowbox flowboxchild:focus {
   outline-color: @selected_fg_color; }
+
+.dialog-vbox > grid {
+  border: 1px solid red;
+  border: 2px solid @border_dark;
+  border-image: url("assets/frame_inset.png");
+  border-image-slice: 2 2 2 2;
+  border-radius: 0px;
+  box-shadow: none; }

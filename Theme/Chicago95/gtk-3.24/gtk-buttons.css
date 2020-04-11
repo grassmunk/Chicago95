@@ -233,8 +233,7 @@ box-shadow: inset 1px 1px @border_color, inset -1px -1px @border_color; }
 /* image buttons */
 .image-button {
   padding: 0px;
-  min-width: 20px;
-  min-height: 20px; }
+  color: @text_color; }
   .image-button label {
     padding-left: 4px;
     padding-right: 4px; }

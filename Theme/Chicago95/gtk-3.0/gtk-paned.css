@@ -3,7 +3,8 @@
  *********/
 
 paned  {
-  margin: 0px; }
+  margin: 0px;
+  padding: 1px; }
 
 /* GTK has the panes flipped. the .horizontal is ACTUALLY a vertical.*/
 paned.horizontal > separator {
