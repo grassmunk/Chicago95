@@ -59,19 +59,25 @@ check:indeterminate:disabled {
   background: none; }
 
 radio:checked {
-  -gtk-icon-source: url("assets/radio-selected.png"); }
+  -gtk-icon-source: url("assets/radio-selected.png");
+  background: none }
 
 radio:not(:checked) {
-  -gtk-icon-source: url("assets/radio-unselected.png"); }
+  -gtk-icon-source: url("assets/radio-unselected.png");
+  background: none }
 
 radio:indeterminate {
-  -gtk-icon-source: url("assets/radio-mixed.png"); }
+  -gtk-icon-source: url("assets/radio-mixed.png");
+  background: none }
 
 radio:disabled:checked {
-  -gtk-icon-source: url("assets/radio-selected-insensitive.png"); }
+  -gtk-icon-source: url("assets/radio-selected-insensitive.png");
+  background: none }
 
 radio:disabled:not(checked) {
-  -gtk-icon-source: url("assets/radio-unselected-insensitive.png"); }
+  -gtk-icon-source: url("assets/radio-unselected-insensitive.png");
+  background: none }
 
 radio:indeterminate:disabled {
-  -gtk-icon-source: url("assets/radio-mixed-insensitive.png"); }
+  -gtk-icon-source: url("assets/radio-mixed-insensitive.png");
+  background: none }

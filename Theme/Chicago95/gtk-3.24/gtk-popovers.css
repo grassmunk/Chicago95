@@ -28,8 +28,13 @@ popover.background {
 
 modelbutton label {
   padding: 2px 6px; }
-  modelbutton:hover {
-    background-color: @selected_fg_color; }
+  modelbutton.flat:hover {
+    background-color: @selected_bg_color;
+    color: @selected_fg_color;
+    outline-color: @selected_fg_color }
+modelbutton arrow {
+  background-repeat: no-repeat;
+  background-position: center; }
 
 .app-notification,
 popover stack {
@@ -80,15 +85,29 @@ popover arrow.right {
   -gtk-icon-source: none; }
   popover arrow.right:hover {
     margin-right: 4px;
-    background-image: url("arrow-right-disabled.png");
+    background-image: url("assets/arrow-right-selected.png");
     -gtk-icon-source: none; }
-
 popover arrow.left {
   margin-left: 4px;
   background-image: url("assets/arrow-left.png");
   -gtk-icon-source: none; }
   popover arrow.left:hover {
     margin-left: 4px;
-    background-image: url("assets/arrow-left-disabled.png");
+    background-image: url("assets/arrow-left-selected.png");
     -gtk-icon-source: none; }
-
+popover arrow.up {
+  margin-top: 4px;
+  background-image: url("assets/arrow-up.png");
+  -gtk-icon-source: none; }
+  popover arrow.up:hover {
+    margin-top: 4px;
+    background-image: url("assets/arrow-up-selected.png");
+    -gtk-icon-source: none; }
+popover arrow.down {
+  margin-bottom: 4px;
+  background-image: url("assets/arrow-down.png");
+  -gtk-icon-source: none; }
+  popover arrow.down:hover {
+    margin-bottom: 4px;
+    background-image: url("assets/arrow-down-selected.png");
+    -gtk-icon-source: none; }
