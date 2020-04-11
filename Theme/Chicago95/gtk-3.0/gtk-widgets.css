@@ -319,7 +319,7 @@ stack overlay box box scrolledwindow viewport list row {
     color: @text_color;
     box-shadow: none;}
     .sidebar {
-      background-color: @selected_fg_color;
+      background-color: @bg_color;
       color: @text_color;}
 
 .sidebar-item {

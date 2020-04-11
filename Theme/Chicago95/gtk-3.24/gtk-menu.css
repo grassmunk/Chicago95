@@ -18,8 +18,8 @@ window > menu {
   padding: 0px;
   border-top: 1px solid @border_light;
   border-bottom: 1px solid @border_dark;
-  border-left: 1px solid @border_dark;
-  border-right: 1px solid @border_bright;
+  border-left: 1px solid @border_light;
+  border-right: 1px solid @border_dark;
   box-shadow: inset 1px 1px @border_bright, inset -1px -1px @border_shade;
   background-color: @menu_bg_color;
   color: @text_color; }
