@@ -13,7 +13,8 @@ treeview {
   -GtkTreeView-vertical-separator: 0;
   outline-width: 1px;
   outline-offset: 1px;
-  padding: 2px; }
+  padding: 2px;
+  -gtk-icon-style: regular; }
 
 /* outline effects in treeviews are causing issues with the interface expanding on focus and strange graphical artifacts that will stay around. */
 treeview {

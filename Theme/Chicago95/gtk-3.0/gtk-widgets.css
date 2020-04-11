@@ -293,7 +293,8 @@ stack overlay box box scrolledwindow viewport list row {
  ***********/
 
 .sidebar {
-  background-color: @bg_color; }
+  background-color: @bg_color;
+  -gtk-icon-style: regular; }
   .sidebar viewport.frame {
     padding: 0px;
     border: 2px solid @border_dark;
