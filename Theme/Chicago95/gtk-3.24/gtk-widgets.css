@@ -887,7 +887,7 @@ scrolledwindow {
       margin: 0px; }
   .nautilus-window overlay > scrolledwindow {
      background-color: @base_color; }
-  .nautilus-background-window overlay > scrolledwindow {
+  .nautilus-desktop-window overlay > scrolledwindow {
     background-color: transparent;
     border: none;
     box-shadow: none; }
