@@ -105,6 +105,10 @@
 @define-color xfd_icon_backdrop #008081;
 @define-color xfd_icon_text #ffffff;
 
+/* Nautilus desktop icon text colour */
+@define-color nautilus_icon_text @base_color;
+@define-color nautilus_icon_text_shadow @text_color;
+
 @import url("gtk-widgets.css");
 @import url("apps/xfce.css");
 @import url("apps/whiskermenu.css");
