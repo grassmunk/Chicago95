@@ -26,6 +26,9 @@ scrolledwindow {
 
 .nautilus-window overlay > scrolledwindow {
   background-color: @base_color; }
+.nautilus-desktop-window .nautilus-canvas-item {
+  color: @nautilus_icon_text;
+  text-shadow: 1px 1px @nautilus_icon_text_shadow; }
 
 stacksidebar > scrolledwindow { 
   padding: 0px;
