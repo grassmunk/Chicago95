@@ -74,6 +74,8 @@ the whisker menu without having to correct their pointer location. */
       border-color: transparent;
       box-shadow: none;
       background-color: transparent; }
+#whiskermenu-window scrolledwindow viewport button:hover {
+  outline-color: @border_bright; }
 #whiskermenu-window separator {
   margin: 5px; }
 #whiskermenu-window scrolledwindow {
