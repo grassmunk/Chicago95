@@ -122,6 +122,10 @@
 @define-color xfd_icon_text #ffffff;
 @define-color xfd_rubberband_outline #ff7f7f;
 
+/* Nautilus desktop icon text cololur */
+@define-color nautilus_icon_text @base_color;
+@define-color nautilus_icon_text_shadow @text_color;
+
 @import url("apps/xfce.css");
 @import url("apps/whiskermenu.css");
 @import url("apps/filechooser.css");
