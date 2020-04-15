@@ -9,8 +9,8 @@
    Make sure that all changes made here are part of the list cell and row.
 */
 
-cell,:not(check):not(radio).cell,
-row, :not(check):not(radio).row {
+cell:not(check):not(radio),
+row:not(check):not(radio) {
   border-width: 0px 0px 1px 0px;
   border: solid transparent; }
 

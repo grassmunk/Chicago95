@@ -116,7 +116,8 @@ button.color {
 .inline-toolbar button,
 .primary-toolbar button,
 toolbutton button,
-toolbutton .toggle {
+toolbutton .toggle,
+.path-bar button {
   margin: 0px;
   border-radius: 0px;
   border-left: 1px solid @border_bright;
@@ -127,16 +128,20 @@ toolbutton .toggle {
   .inline-toolbar button:active,
   .primary-toolbar button:active,
   toolbutton button:active,
+  .path-bar button:active
   .inline-toolbar button:checked,
   .primary-toolbar button:checked,
-  toolbutton button:checked {
+  toolbutton button:checked,
+  .path-bar button:checked {
     border-left: 1px solid @border_dark;
     border-top: 1px solid @border_dark;
     border-bottom: 1px solid @border_bright;
     border-right: 1px solid @border_bright;
     box-shadow: inset 1px 1px @border_shade; }
   toolbutton .toggle:active,
-  toolbutton .toggle:checked {
+  toolbutton .toggle:checked,
+  .path-bar button:active,
+  .path-bar button:checked {
     border-left: 1px solid @border_dark;
     border-top: 1px solid @border_dark;
     border-bottom: 1px solid @border_bright;
@@ -147,7 +152,9 @@ toolbutton .toggle {
     background-size: 2px 2px;
     background-position: 0 0, 1px 1px; }
     toolbutton .toggle:active > label,
-    toolbutton .toggle:checked > label {
+    toolbutton .toggle:checked > label,
+    .path-bar button:active,
+    .path-bar button:checked {
       text-shadow: 1px 1px @bg_color; } /* The text shadow helps with reading text while against a checkered background. */
     toolbutton .toggle:checked:disabled {
       box-shadow: inset 1px 1px @border_shade;

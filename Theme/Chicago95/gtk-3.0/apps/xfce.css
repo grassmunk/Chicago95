@@ -183,6 +183,9 @@ wnck-pager {
   border-left-color: @border_bright;
   border-bottom-color: @border_dark;
   box-shadow: inset -1px -1px @border_shade; }
+  .xfce4-panel #pulseaudio-button menu .linked button * {
+    padding-left: 1px;
+    padding-right: 1px; }
   .xfce4-panel #pulseaudio-button menu .linked button:active {
     color: @text_color;
     border-top-color: @border_dark;
@@ -203,3 +206,15 @@ wnck-pager {
   border-image: url("../assets/frame_inset.png");
   border-image-slice: 2 2 2 2;
   box-shadow: none; }
+#xfce4-terminal-notebook header tabs tab box {
+    padding: 0px;
+    margin-top: -4px;
+    margin-bottom: -4px; }
+  #xfce4-terminal-notebook header tabs tab button {
+    background: none;
+    border: none;
+    box-shadow: none; }
+  #xfce4-terminal-notebook header tabs tab button image {
+      padding: 0px;
+      margin-top: -1px;
+      margin-bottom: -2px; }

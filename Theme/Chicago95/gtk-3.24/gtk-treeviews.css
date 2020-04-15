@@ -43,8 +43,9 @@ treeview entry {
   background-color: @theme_base_color;
   background-image: none; }
 
-/*header > button {
-  padding-top: 0px;
-  padding-bottom: 0px;
-}*/
-
+/* This creates the treeview border path for expanded items. */
+treeview.view {
+  border-left-color: @border_shade;
+  border-top-color: @border_shade; }
+treeview.view:selected {
+  border-left-color: @border_bright; }

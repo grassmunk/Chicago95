@@ -72,6 +72,14 @@ statusbar frame {
   box-shadow: none; }
   statusbar frame label {
     padding-right: 2px;}
+statusbar {
+  padding: 0px; }
+  statusbar frame box {
+    margin-bottom: -1px;
+    margin-top: -2px; }
+    statusbar frame box label {
+      margin-top: 1px;
+      margin-bottom: -1px; }
 
 scrolledwindow.frame {
   padding: 1px;
