@@ -15,11 +15,9 @@ the whisker menu without having to correct their pointer location. */
   #applicationmenu-button box {
     padding: 2px;
     margin: 1px;
-    border-top: 1px solid @border_bright;
-    border-bottom: 1px solid @border_dark;
-    border-left: 1px solid @border_bright;
-    border-right: 1px solid @border_dark;
-    box-shadow: inset -1px -1px @border_shade, inset 1px 1px @border_light;
+    border: 2px solid @border_color;
+    border-image: url("../buttons/dialog_button_normal.png");
+    border-image-slice: 2 2 2 2;
     background-color: @bg_color; }
     #whiskermenu-button:active box,
     #whiskermenu-button:checked box,
@@ -28,11 +26,8 @@ the whisker menu without having to correct their pointer location. */
       padding-left: 3px;
       padding-right: 1px;
       margin: 1px;
-      border-bottom: 1px solid @border_bright;
-      border-right: 1px solid @border_bright;
-      border-top: 1px solid @border_dark;
-      border-left: 1px solid @border_dark;
-      box-shadow: inset -1px -1px @border_color, inset 1px 1px @border_shade;
+      border-image: url("../buttons/button_pressed.png");
+      border-image-slice: 2 2 2 2;
       border-radius: 0px; }
   #whiskermenu-button image,
   #applicationmenu-button image {

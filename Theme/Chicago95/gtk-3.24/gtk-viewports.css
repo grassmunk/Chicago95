@@ -48,6 +48,15 @@ view,
     view:selected:focus {
       background-color: @theme_selected_bg_color;
       color: @font_bright; }
+  .view header button {
+    padding: 0px;
+    min-height: 16px;
+    min-width: 16px; }
+    .view header button label {
+      padding: 0px;
+      padding-left: 5px;
+      padding-right: 5px;
+      margin-bottom: -3px; }
 
 box.view {
   background-color: @bg_color;

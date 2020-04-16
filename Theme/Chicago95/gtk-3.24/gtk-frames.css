@@ -82,13 +82,15 @@ statusbar {
       margin-bottom: -1px; }
 
 scrolledwindow.frame {
-  padding: 1px;
-  background-color: white;
-  border-left: 1px solid @border_dark;
-  border-top: 1px solid @border_dark;
-  border-right: 1px solid @border_bright;
-  border-bottom: 1px solid @border_bright;
-  box-shadow: inset -1px -1px @border_color, inset 1px 1px @border_shade;
+  padding: 0px;
+  padding-right: 1px;
+  background-color: @base_color;
+  border: 2px solid @border_dark;
+  border-image: url("assets/frame_inset.png");
+  border-image-slice: 2 2 2 2;
+  border-radius: 0px;
+  background-color: @theme_bg_color;
+  box-shadow: none;
   margin: 0px; }
 
 

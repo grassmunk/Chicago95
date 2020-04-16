@@ -52,6 +52,8 @@ button.sidebar-button {
 /* Dialogue buttons. */
 /* We're using border images here since dialog button borders are 3px on Windows 95 with individual colour properties.*/
 .dialog-action-area button {
+  min-height: 16px;
+  min-width: 16px;
   box-shadow: none;
   border: 3px solid @border_dark;
   border-image: url("buttons/dialog_button_normal.png");

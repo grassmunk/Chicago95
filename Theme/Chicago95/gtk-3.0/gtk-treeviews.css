@@ -45,7 +45,13 @@ treeview entry {
 
 /* This creates the treeview border path for expanded items. */
 treeview.view {
+  padding: 0px;
+  padding-left: 1px;
   border-left-color: @border_shade;
   border-top-color: @border_shade; }
 treeview.view:selected {
   border-left-color: @border_bright; }
+
+/* Hey Windows95 didn't have arrows in the headerbar either! */
+treeview.view image {
+  color: transparent; }
