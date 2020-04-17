@@ -88,10 +88,12 @@ the whisker menu without having to correct their pointer location. */
    If none of these catch your fancy edit misc/whisker-sidebar.svg in 
    Inkscape
 */
-/*  background-image: url("../assets/branding_w95-orig.png"); */
-/*  background-image: url("../assets/branding_w95.png"); */
-/*  background-image: url("../assets/branding_l95.png"); */
-  background-image: url("../assets/branding_C95.png"); 
+/*  background-image: url("../assets/branding_W95.png"); */
+/*  background-image: url("../assets/branding_W95-orig.png"); */
+/*  background-image: url("../assets/branding_L95.png"); */
+/*  background-image: url("../assets/branding_L95_aliased.png"); */
+/*  background-image: url("../assets/branding_C95.png"); */
+  background-image: url("../assets/branding_C95_aliased.png");
   background-repeat: no-repeat;
   background-position: 0% 100%; }
 #whiskermenu-window frame > box {
