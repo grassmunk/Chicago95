@@ -20,7 +20,7 @@
 
 /* Thunar borders */
 .thunar .sidebar {
-  border-right: 1px solid @bg_bright; }
+  border-right: 2px solid @bg_bright; }
   
 .thunar notebook .standard-view {
   padding: 0px;
