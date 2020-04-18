@@ -112,39 +112,6 @@ wnck-pager {
   box-shadow: none;
   margin: 0px;
   background-color: transparent; }
-  .xfce4-panel .toggle > box,
-  #actions-button {
-    margin: 2px;
-    border: 2px solid transparent;
-    border-top: 3px solid transparent;
-    border-image: none;
-    box-shadow: none; }
-    .xfce4-panel .toggle:hover > box,
-    #actions-button:hover {
-      margin: 2px;
-      border: 2px solid @border_dark;
-      border-top: 3px solid @border_dark;
-      border-image: url("../buttons/dialog_button_normal.png");
-      border-image-slice: 3 2 2 2;
-      box-shadow: none; }
-    .xfce4-panel .toggle:active > box,
-    #actions-button:active {
-      border: 2px solid @border_dark;
-      border-top: 3px solid @border_dark;
-      border-image: url("../buttons/button_pressed.png");
-      border-image-slice: 3 2 2 2;
-      box-shadow: none; }
-    .xfce4-panel .toggle:checked > box,
-    #actions-button:checked {
-      border: 2px solid @border_dark;
-      border-top: 3px solid @border_dark;
-      border-image: url("../buttons/toggle_pressed.png");
-      border-image-slice: 3 2 2 2;
-      background-color: @border_bright;
-      background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_dark);
-      background-size: 2px 2px;
-      background-position: 0 0, 1px 1px;
-      box-shadow: none; }
 
 /* Tasklist */
 .tasklist .toggle {
@@ -201,11 +168,14 @@ wnck-pager {
 
 /* XFCE Power Manager plugin */
 #xfce4-power-manager-plugin,
-#xfce4-power-manager-plugin:active {
+#xfce4-power-manager-plugin:active,
+#xfce4-power-manager-plugin:hover,
+#xfce4-power-manager-plugin:checked {
   margin: 0px;
   box-shadow: none;
   border: transparent; }
   #xfce4-power-manager-plugin * {
+    -gtk-icon-style: regular;
     -gtk-icon-transform: scale(1); }
 
 /* XFCE Notification plugin */
