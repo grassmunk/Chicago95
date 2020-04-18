@@ -18,9 +18,17 @@
 .color-profiles {
   background-color: #c0c0c0; }
 
+/* XFCE Session logout dialogue */
+.xfsm-logout-dialog {
+  border-left: 1px solid @border_bright;
+  border-top: 1px solid @border_bright;
+  border-bottom: 1px solid @border_dark;
+  border-right: 1px solid @border_dark;
+  box-shadow: inset -1px -1px @border_shade, inset 1px 1px @border_light; }
+
 /* Thunar borders */
 .thunar .sidebar {
-  border-right: 1px solid @bg_bright; }
+  border-right: 2px solid @border_color; }
   
 .thunar notebook .standard-view {
   padding: 0px;

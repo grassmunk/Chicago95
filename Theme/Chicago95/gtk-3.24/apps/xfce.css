@@ -96,6 +96,23 @@ wnck-pager {
     background-color: @border_shade;
     color: white; }
 
+/* Panel entry */
+/* NOTE! Entry background colouring is bugged in some versions of XFCE. */
+.xfce4-panel entry {
+  background-color: @base_color;
+  margin: 2px;
+  box-shadow: none; }
+  .xfce4-panel entry selection {
+    background-color: @selected_bg_color;
+    color: @text_bright }
+
+/* Plugin buttons */
+.xfce4-panel .toggle {
+  border: none;
+  box-shadow: none;
+  margin: 0px;
+  background-color: transparent; }
+
 /* Tasklist */
 .tasklist .toggle {
   /* We remove borders and shadows for the '.tasklist' '.toggle' button 
@@ -151,11 +168,14 @@ wnck-pager {
 
 /* XFCE Power Manager plugin */
 #xfce4-power-manager-plugin,
-#xfce4-power-manager-plugin:active {
+#xfce4-power-manager-plugin:active,
+#xfce4-power-manager-plugin:hover,
+#xfce4-power-manager-plugin:checked {
   margin: 0px;
   box-shadow: none;
   border: transparent; }
   #xfce4-power-manager-plugin * {
+    -gtk-icon-style: regular;
     -gtk-icon-transform: scale(1); }
 
 /* XFCE Notification plugin */
@@ -201,7 +221,8 @@ wnck-pager {
     border-bottom-color: @border_dark; }
 
 /* XFCE terminal */
-#xfce4-terminal-notebook overlay > box {
+#xfce4-terminal-notebook overlay > box,
+#xfce4-terminal-notebook stack > box { {
   border: 2px solid @border_dark;
   border-image: url("../assets/frame_inset.png");
   border-image-slice: 2 2 2 2;
@@ -218,3 +239,12 @@ wnck-pager {
       padding: 0px;
       margin-top: -1px;
       margin-bottom: -2px; }
+
+/* XFCE Session logout dialogue */
+/* Doesn't look like this works, so moving it to the override... */
+.xfsm-logout-dialog {
+  border-left: 1px solid @border_bright;
+  border-top: 1px solid @border_bright;
+  border-bottom: 1px solid @border_dark;
+  border-right: 1px solid @border_dark;
+  box-shadow: inset -1px -1px @border_shade, inset 1px 1px @border_light; }
