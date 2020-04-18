@@ -10,7 +10,7 @@
 */
 
 scrolledwindow {
-  padding: 1px;
+  padding: 0px;
   background-color: @bg_color;
   border: 2px solid @border_dark;
   border-image: url("assets/frame_inset.png");

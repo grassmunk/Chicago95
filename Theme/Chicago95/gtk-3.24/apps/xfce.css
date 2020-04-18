@@ -96,6 +96,56 @@ wnck-pager {
     background-color: @border_shade;
     color: white; }
 
+/* Panel entry */
+/* NOTE! Entry background colouring is bugged in some versions of XFCE. */
+.panel entry {
+  background-color: @base_color;
+  margin: 2px;
+  box-shadow: none; }
+  .panel entry selection {
+    background-color: @selected_bg_color;
+    color: @text_bright }
+
+/* Plugin buttons */
+.panel .toggle {
+  border: none;
+  box-shadow: none;
+  margin: 0px;
+  background-color: transparent; }
+  .panel .toggle > box,
+  #actions-button {
+    margin: 2px;
+    border: 2px solid transparent;
+    border-top: 3px solid transparent;
+    border-image: none;
+    box-shadow: none; }
+    .panel .toggle:hover > box,
+    #actions-button:hover {
+      margin: 2px;
+      border: 2px solid @border_dark;
+      border-top: 3px solid @border_dark;
+      border-image: url("../buttons/dialog_button_normal.png");
+      border-image-slice: 3 2 2 2;
+      box-shadow: none; }
+    .panel .toggle:active > box,
+    #actions-button:active {
+      border: 2px solid @border_dark;
+      border-top: 3px solid @border_dark;
+      border-image: url("../buttons/button_pressed.png");
+      border-image-slice: 3 2 2 2;
+      box-shadow: none; }
+    .panel .toggle:checked > box,
+    #actions-button:checked {
+      border: 2px solid @border_dark;
+      border-top: 3px solid @border_dark;
+      border-image: url("../buttons/toggle_pressed.png");
+      border-image-slice: 3 2 2 2;
+      background-color: @border_bright;
+      background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_dark);
+      background-size: 2px 2px;
+      background-position: 0 0, 1px 1px;
+      box-shadow: none; }
+
 /* Tasklist */
 .tasklist .toggle {
   /* We remove borders and shadows for the '.tasklist' '.toggle' button 
@@ -201,7 +251,8 @@ wnck-pager {
     border-bottom-color: @border_dark; }
 
 /* XFCE terminal */
-#xfce4-terminal-notebook overlay > box {
+#xfce4-terminal-notebook overlay > box,
+#xfce4-terminal-notebook stack > box { {
   border: 2px solid @border_dark;
   border-image: url("../assets/frame_inset.png");
   border-image-slice: 2 2 2 2;
@@ -218,3 +269,4 @@ wnck-pager {
       padding: 0px;
       margin-top: -1px;
       margin-bottom: -2px; }
+
