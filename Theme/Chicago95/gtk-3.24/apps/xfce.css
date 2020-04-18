@@ -98,28 +98,28 @@ wnck-pager {
 
 /* Panel entry */
 /* NOTE! Entry background colouring is bugged in some versions of XFCE. */
-.panel entry {
+.xfce4-panel entry {
   background-color: @base_color;
   margin: 2px;
   box-shadow: none; }
-  .panel entry selection {
+  .xfce4-panel entry selection {
     background-color: @selected_bg_color;
     color: @text_bright }
 
 /* Plugin buttons */
-.panel .toggle {
+.xfce4-panel .toggle {
   border: none;
   box-shadow: none;
   margin: 0px;
   background-color: transparent; }
-  .panel .toggle > box,
+  .xfce4-panel .toggle > box,
   #actions-button {
     margin: 2px;
     border: 2px solid transparent;
     border-top: 3px solid transparent;
     border-image: none;
     box-shadow: none; }
-    .panel .toggle:hover > box,
+    .xfce4-panel .toggle:hover > box,
     #actions-button:hover {
       margin: 2px;
       border: 2px solid @border_dark;
@@ -127,14 +127,14 @@ wnck-pager {
       border-image: url("../buttons/dialog_button_normal.png");
       border-image-slice: 3 2 2 2;
       box-shadow: none; }
-    .panel .toggle:active > box,
+    .xfce4-panel .toggle:active > box,
     #actions-button:active {
       border: 2px solid @border_dark;
       border-top: 3px solid @border_dark;
       border-image: url("../buttons/button_pressed.png");
       border-image-slice: 3 2 2 2;
       box-shadow: none; }
-    .panel .toggle:checked > box,
+    .xfce4-panel .toggle:checked > box,
     #actions-button:checked {
       border: 2px solid @border_dark;
       border-top: 3px solid @border_dark;
@@ -270,3 +270,11 @@ wnck-pager {
       margin-top: -1px;
       margin-bottom: -2px; }
 
+/* XFCE Session logout dialogue */
+/* Doesn't look like this works, so moving it to the override... */
+.xfsm-logout-dialog {
+  border-left: 1px solid @border_bright;
+  border-top: 1px solid @border_bright;
+  border-bottom: 1px solid @border_dark;
+  border-right: 1px solid @border_dark;
+  box-shadow: inset -1px -1px @border_shade, inset 1px 1px @border_light; }
