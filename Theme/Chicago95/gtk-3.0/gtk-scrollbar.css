@@ -11,14 +11,14 @@
 
 scrollbar {
   border: none;
-  background-color: @bg_color; }
+  background-color: @scrollbar_trough_bg_color; }
   scrollbar trough {
     border: none;
     border-radius: 0; }
   scrollbar slider {
     margin-top: 0px;
     padding: 0px;
-    background-color: @bg_color;
+    background-color: @scrollbar_trough_bg_color;
     border: 2px solid @border_dark;
     box-shadow: none;
     border-image: url("scrollbar/scrollbar_button.png");
@@ -36,7 +36,7 @@ scrollbar {
     margin: 0px;
     padding: 0px;
     border: none;
-    background-color: @bg_color;
+    background-color: @scrollbar_trough_bg_color;
     box-shadow: none; }
     scrollbar button:disabled {
       background-image: url("scrollbar/scrollbar_button_disabled.png"); }
@@ -45,7 +45,7 @@ scrollbar {
       min-width: 16px;
       min-height: 16px;
       border: 1px solid @border_shade; 
-      background-color: @bg_color;
+      background-color: @scrollbar_trough_bg_color;
       background-image: none;
       box-shadow: none; }
   /* Every other scrollbar that isn't Libreoffice */
@@ -55,7 +55,7 @@ scrollbar {
   scrollbar button.right {
     margin: 0px;
     padding: 0px;
-    background-color: @bg_color;
+    background-color: @scrollbar_trough_bg_color;
     -gtk-icon-source: none;
     background-position: center;
     background-repeat: no-repeat;

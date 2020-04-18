@@ -28,7 +28,7 @@ window.ssd .titlebar {
   margin: 0px;
   border: 3px solid transparent;
   border-bottom: 1px solid transparent;
-  background-color: @selected_bg_color;
+  background-color: @window_title_bg_color;
   background-image: none;
   background-image: none;
   text-shadow: none; }
@@ -36,15 +36,15 @@ window.ssd .titlebar {
     padding: 0px;
     margin: 0px;
     background-color: @selected_inactive_bg_color;
-   color: @selected_inactive_fg_color; }
+   color: @inactive_title_text_color; }
   window.ssd .titlebar label {
     padding: 0px;
     margin: 0px;
     font-size: 8pt;
-    color: @selected_fg_color; }
+    color: @window_title_text_color; }
     window.ssd .titlebar label:backdrop,
     window.ssd .titlebar:backdrop label {
-      color: @selected_inactive_fg_color; }
+      color: @inactive_title_text_color; }
 
 window.csd tooltip {
   border-radius: 0;

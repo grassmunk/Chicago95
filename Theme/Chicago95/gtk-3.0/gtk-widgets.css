@@ -70,8 +70,8 @@ iconview:selected,
     background-color: shade(shade(@theme_bg_color, 0.95), 1.05);
     color: mix(@theme_fg_color, @theme_bg_color, 0.5); }
   .gtkstyle-fallback:selected {
-    background-color: @theme_selected_bg_color;
-    color: @theme_selected_fg_color; }
+    background-color: @window_title_bg_color;
+    color: @window_title_text_color; }
 
 image,
 image:disabled,
@@ -316,7 +316,7 @@ stack overlay box box scrolledwindow viewport list row {
       box-shadow: inset 1px 1px @border_shade_dark, inset -1px -1px @border_light; }
   .sidebar.view,
   .sidebar .view {
-    background-color: @selected_fg_color;
+    background-color: @bg_bright;
     color: @text_color;
     box-shadow: none;}
     .sidebar {

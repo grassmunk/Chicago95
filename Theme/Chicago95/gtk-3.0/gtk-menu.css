@@ -29,7 +29,9 @@ menu {
   border-left: 3px solid transparent;
   border-right: 3px solid transparent;
   border-top: 2px solid transparent;
-  border-bottom: 2px solid transparent; }
+  border-bottom: 2px solid transparent;
+  background-color: @menu_bg_color;
+  color: @menu_text_color; }
 
 /* menubar */
 menubar, 
@@ -52,7 +54,7 @@ menu menuitem {
   menuitem:active,
   menuitem:hover {
     background-color: @theme_selected_bg_color;
-    color: @theme_selected_fg_color; }
+    color: @selected_fg_color; }
 
 menu separator {
   padding: 3px;

@@ -34,7 +34,7 @@ slider {
   slider:disabled,
   trough,
   paned > separator {
-    background-color: @border_bright;
+    background-color: @scrollbar_trough_bg_color;
     background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_dark);
     background-size: 2px 2px;
     background-position: 0 0, 1px 1px; }

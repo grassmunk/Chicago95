@@ -17,13 +17,13 @@ button {
   border: 1px solid;
   border-radius: 0px;
   transition: none;
-  color: @text_color;
+  color: @button_text_color;
   outline-color: @outline_color;
   border-top-color: @border_bright;
   border-right-color: @border_dark;
   border-left-color: @border_bright;
   border-bottom-color: @border_dark;
-  background-color: @bg_color;
+  background-color: @button_bg_color;
   box-shadow: inset -1px -1px @border_shade, inset 1px 1px @border_light; }
   button:hover {
     -gtk-icon-effect: highlight; }
@@ -149,7 +149,7 @@ toolbutton .toggle,
     border-bottom: 1px solid @border_bright;
     border-right: 1px solid @border_bright;
     box-shadow: inset 1px 1px @border_shade;
-    background-color: @bg_bright;
+    background-color: @button_bg_color;
     background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_dark);
     background-size: 2px 2px;
     background-position: 0 0, 1px 1px; }
@@ -160,7 +160,7 @@ toolbutton .toggle,
       text-shadow: 1px 1px @bg_color; } /* The text shadow helps with reading text while against a checkered background. */
     toolbutton .toggle:checked:disabled {
       box-shadow: inset 1px 1px @border_shade;
-      background-color: @border_bright;
+      background-color: @button_bg_color;
       background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_dark);
       background-size: 2px 2px;
       background-position: 0 0, 1px 1px; }
@@ -226,7 +226,7 @@ spinbutton:not(.vertical) {
 
 /* toolitem box button */
 toolitem button {
-  background-color: @bg_color;
+  background-color: @button_bg_color;
   border-left: 1px solid @border_color;
   border-right: 1px solid @border_dark;
   border-bottom: 1px solid @border_dark;
