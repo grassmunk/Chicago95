@@ -222,7 +222,7 @@ wnck-pager {
 
 /* XFCE terminal */
 #xfce4-terminal-notebook overlay > box,
-#xfce4-terminal-notebook stack > box { {
+#xfce4-terminal-notebook stack > box {
   border: 2px solid @border_dark;
   border-image: url("../assets/frame_inset.png");
   border-image-slice: 2 2 2 2;

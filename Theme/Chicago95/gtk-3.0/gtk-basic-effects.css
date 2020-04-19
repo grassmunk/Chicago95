@@ -32,8 +32,7 @@ slider {
   border-radius: 0px; }
   /* Makes a checkerboard */
   slider:disabled,
-  trough,
-  paned > separator {
+  trough {
     background-color: @scrollbar_trough_bg_color;
     background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_dark);
     background-size: 2px 2px;

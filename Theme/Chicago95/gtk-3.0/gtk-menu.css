@@ -26,35 +26,33 @@ window > menu {
 
 /* NOTE: Menu border styling is moved to client side decorations. See gtk-window.css for menu border styling. */
 menu {
-  border-left: 3px solid transparent;
-  border-right: 3px solid transparent;
-  border-top: 2px solid transparent;
-  border-bottom: 2px solid transparent;
-  background-color: @menu_bg_color;
+  border: 1px solid transparent;
+  background-color: @menu_bg_color;    /* NOTE: While a background colour is required here, there will be a 2px internal padding applied to window decorations which will also have a background colour too. */ 
   color: @menu_text_color; }
+  /* menuitem */
+  menu menuitem {
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    background-color: transparent; }
+    menu menuitem check,
+    menu menuitem radio {
+      padding-right: 4px; }
+    menuitem:active,
+    menuitem:hover {
+      background-color: @theme_selected_bg_color;
+      color: @selected_fg_color; }
 
 /* menubar */
 menubar, 
 .menubar {
-  -GtkWidget-window-dragging: false; }
+  -GtkWidget-window-dragging: false;
+  background-color: @menu_bg_color;
+  color: @menu_text_color; }
   menubar menuitem {
     padding: 0px 6px;
     min-height:17px; }
-
-/* menuitem */
-menu menuitem {
-  padding-left: 2px;
-  padding-right: 2px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  background-color: @menu_bg_color; }
-  menu menuitem check,
-  menu menuitem radio {
-    padding-right: 4px; }
-  menuitem:active,
-  menuitem:hover {
-    background-color: @theme_selected_bg_color;
-    color: @selected_fg_color; }
 
 menu separator {
   padding: 3px;

@@ -7,7 +7,7 @@
 
 /* Comment about Pop-overs: I couldn't get over how much they looked like Clippy in MS Office 97 so thats why the buttons are different */
 
-/* Do not remove 
+/* Do not remove */
 
 /* default color scheme */
 @define-color bg_color #c0c0c0; /* Window Theme: buttonface */
@@ -51,7 +51,6 @@
 @define-color window_title_text_color @selected_fg_color;  /* Windows Theme: titletext */
 @define-color inactive_title_bg_color #808080; /* Windows Theme: inactivetitle */
 @define-color inactive_title_text_color #c0c0c0; /* Windows Theme: inactivetitletext */
-
 
 /* dark color scheme */
 @define-color dark_bg_color @bg_color;

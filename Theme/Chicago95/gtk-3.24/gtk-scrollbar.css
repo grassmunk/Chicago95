@@ -36,7 +36,7 @@ scrollbar {
     margin: 0px;
     padding: 0px;
     border: none;
-    background-color: @scrollbar_bg_color;
+    background-color: @scrollbar_trough_bg_color;
     box-shadow: none; }
     scrollbar button:disabled {
       background-image: url("scrollbar/scrollbar_button_disabled.png"); }
@@ -45,7 +45,7 @@ scrollbar {
       min-width: 16px;
       min-height: 16px;
       border: 1px solid @border_shade; 
-      background-color: @scrollbar_bg_color;
+      background-color: @scrollbar_trough_bg_color;
       background-image: none;
       box-shadow: none; }
   /* Every other scrollbar that isn't Libreoffice */
@@ -55,7 +55,7 @@ scrollbar {
   scrollbar button.right {
     margin: 0px;
     padding: 0px;
-    background-color: @scrollbar_bg_color;
+    background-color: @scrollbar_trough_bg_color;
     -gtk-icon-source: none;
     background-position: center;
     background-repeat: no-repeat;
