@@ -50,9 +50,7 @@ frame > scrolledwindow {
   margin: 0px; }
 
 notebook stack scrolledwindow {
-  border-left: 1px solid @border_shade;
-  border-top: 1px solid @border_shade;
-  border-right: 1px solid @border_bright;
-  border-bottom: 1px solid @border_dark;
-  box-shadow: inset 1px 1px white, inset -1px -1px @border_shade;
+  border: 2px solid @border_dark;
+  border-image: url("assets/frame_groove.png");
+  border-image-slice: 2 2 2 2;
   margin: 3px; }
