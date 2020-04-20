@@ -23,6 +23,8 @@ headerbar,
   .titlebar:backdrop {
     background-image: none;
     background-color: @inactive_title_bg_color; }
+  headerbar,
+  .titlebar,
   headerbar .title,
   headerbar .subtitle,
   headerbar > checkbutton label,
@@ -45,4 +47,3 @@ headerbar,
   headerbar scale {
     margin-top: 4px;
     margin-bottom: -6px; }
-
