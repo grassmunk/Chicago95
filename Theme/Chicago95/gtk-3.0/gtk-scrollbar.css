@@ -18,7 +18,7 @@ scrollbar {
   scrollbar slider {
     margin-top: 0px;
     padding: 0px;
-    background-color: @scrollbar_bg_color;
+    background-color: @scrollbar_trough_bg_color;
     border: 2px solid @border_dark;
     box-shadow: none;
     border-image: url("scrollbar/scrollbar_button.png");

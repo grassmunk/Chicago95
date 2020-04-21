@@ -448,9 +448,10 @@ grid viewport box box textview {
 .dialog-vbox flowbox flowboxchild:focus {
   outline-color: @selected_fg_color; }
 
-/*.dialog-vbox > grid {
+.dialog-vbox > grid {
+  border: 1px solid red;
   border: 2px solid @border_dark;
   border-image: url("assets/frame_inset.png");
   border-image-slice: 2 2 2 2;
   border-radius: 0px;
-  box-shadow: none; }*/
+  box-shadow: none; }

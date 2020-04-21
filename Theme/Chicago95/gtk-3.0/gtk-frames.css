@@ -83,6 +83,7 @@ statusbar {
 
 scrolledwindow.frame {
   padding: 0px;
+  padding-right: 1px;
   background-color: @base_color;
   border: 2px solid @border_dark;
   border-image: url("assets/frame_inset.png");

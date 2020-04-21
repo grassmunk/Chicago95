@@ -13,7 +13,7 @@
  * The border image contains a 8px surrounding transparency with an additional non-transparent 2px for the border. This gives the illusion of a 2px border image instead of the full 10px. */
 window decoration,
 dialog > decoration {
-  padding: 2px;    /* Padding is required so that there is some space between the window decoration border and any internal components. */
+  padding: 2px;
   border: 10px solid @border_dark;
   background-color: @bg_color;
   border-image: url("assets/window_decoration.png");
