@@ -25,7 +25,7 @@
     * [Terminal fonts](#terminal_fonts)
     * [Terminal themes](#terminal_themes)
     * [Whisker Menu](#whiker_menu)
-    * [Windows 95 login startup sound](#startup_sound)
+    * [Sound theme](#startup_sound)
 * [HiDPI (experimental)](#hidpi)
 * [Common issues](#common_issues)
 <!--te-->
@@ -487,10 +487,28 @@ If none of these catch your fancy edit `~/.themes/Chicago95/misc/whisker-sidebar
 
 <a name="startup_sound"/>
 
-### [ Windows 95 login startup sound ]
-First, ensure that the SoX program is installed by running: `sudo apt install sox`
+### [ Windows 95 sounds ]
+First, ensure that the SoX and gtk canberra are is installed by running: `sudo apt-get install gnome-session-canberra sox libcanberra-gtk3-module libcanberra-gtk-module`
 
-Then, copy the file `Extras/Microsoft Windows 95 Startup Sound.ogg` to `/home/$USER/.themes/Chicago95/misc/Microsoft Windows 95 Startup Sound.ogg` or where ever you want.
+If it doesn't exist create the directory sounds in `.local/share/`: `mkdir -p ~/.local/share/sounds`
+
+Copy the folder `sounds/Chicago95` to `~/.local/share/sounds`
+
+#### XFCE
+
+Open Settings > Appearance and click on tab Settings
+Make sure both Even Sounds are enabled (checked):
+
+* Enable even sounds
+* Enable input feedback sounds
+
+Set the new sound theme using xfconf-query: `xfconf-query -c xsettings -p /Net/SoundThemeName -s Chicago95`
+
+#### Startup Sound
+
+If the startup sound isn't working follow these instructions
+
+For startup, copy the file `Extras/Microsoft Windows 95 Startup Sound.ogg` to `/home/$USER/.themes/Chicago95/misc/Microsoft Windows 95 Startup Sound.ogg` or where ever you want.
 
 #### XFCE
 - Open XFCE Settings Manager > Session and Startup > Application Autostart tab
