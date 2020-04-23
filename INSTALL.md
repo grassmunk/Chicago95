@@ -497,10 +497,11 @@ Copy the folder `sounds/Chicago95` to `~/.local/share/sounds`
 #### XFCE
 
 Open Settings > Appearance and click on tab Settings
-Make sure both Even Sounds are enabled (checked):
 
-* Enable even sounds
-* Enable input feedback sounds
+Make sure both Event Sounds are enabled (checked):
+
+* Enable event sounds
+* Enable inputt feedback sounds
 
 Set the new sound theme using xfconf-query: `xfconf-query -c xsettings -p /Net/SoundThemeName -s Chicago95`
 
