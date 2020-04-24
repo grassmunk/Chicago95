@@ -47,4 +47,6 @@ headerbar,
   headerbar scale {
     margin-top: 4px;
     margin-bottom: -6px; }
+  headerbar .titlebutton * {
+    -gtk-icon-style: requested; }
 

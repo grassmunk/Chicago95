@@ -311,10 +311,10 @@ Size=32
 Context=Status
 Type=Fixed
 
-[status/48]
-Size=48
-Context=Status
-Type=Fixed
+#[status/48]
+#Size=48
+#Context=Status
+#Type=Fixed
 
 [status/scalable]
 Size=48

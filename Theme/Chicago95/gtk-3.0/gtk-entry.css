@@ -25,6 +25,9 @@ entry {
     background-color: @bg_color;
     color: @text_color;
     background-image: none; }
+  entry image {
+    padding-left: 2px;
+    padding-right: 2px; }
 
 /* Some entry boxes have buttons beside them */
 /*combobox box.horizontal.linked > button,

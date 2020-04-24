@@ -20,11 +20,19 @@ tooltip,
   border: 1px solid @border_dark;
   box-shadow: none; }
 
-popover.background {
-  background-color: @theme_tooltip_bg_color;
-  border: 1px solid @border_dark;
-  border-radius: 5px;
-  box-shadow: 4px 4px @tooltip_bg_shade; }
+popover {
+  -gtk-icon-style: regular; }
+  popover.background {
+    background-color: @theme_tooltip_bg_color;
+    border: 1px solid @border_dark;
+    border-radius: 5px;
+    box-shadow: 4px 4px @tooltip_bg_shade; }
+  popover button:checked {
+    font-weight: bold;
+    background-color: @bg_bright;
+    background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_dark);
+    background-size: 2px 2px;
+    background-position: 0 0, 1px 1px; }
 
 modelbutton label {
   padding: 2px 6px; }

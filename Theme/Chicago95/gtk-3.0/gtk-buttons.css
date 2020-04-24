@@ -149,7 +149,7 @@ toolbutton .toggle,
     border-bottom: 1px solid @border_bright;
     border-right: 1px solid @border_bright;
     box-shadow: inset 1px 1px @border_shade;
-    background-color: @button_bg_color;
+    background-color: @bg_bright;
     background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_dark);
     background-size: 2px 2px;
     background-position: 0 0, 1px 1px; }
@@ -160,7 +160,7 @@ toolbutton .toggle,
       text-shadow: 1px 1px @bg_color; } /* The text shadow helps with reading text while against a checkered background. */
     toolbutton .toggle:checked:disabled {
       box-shadow: inset 1px 1px @border_shade;
-      background-color: @button_bg_color;
+      background-color: @bg_bright;
       background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_dark);
       background-size: 2px 2px;
       background-position: 0 0, 1px 1px; }
