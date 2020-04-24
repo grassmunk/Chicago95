@@ -20,12 +20,11 @@ combobox {
     margin-right: 2px;
     margin-left: 2px;
     min-width: 16px;
-    min-height: 16px;
-    border-top: 1px solid @border_color;
-    border-left: 1px solid @border_color;
-    border-bottom: 1px solid @border_dark;
-    border-right: 1px solid @border_dark;
-    box-shadow: inset -1px -1px @border_shade, inset 1px 1px @border_bright; }
+    min-height: 16px; }
+    combobox button:active,
+    combobox button:checked {
+      border-color: @border_shade;
+      box-shadow: none; }
     * combobox button {
     padding-left: 0px; }
 

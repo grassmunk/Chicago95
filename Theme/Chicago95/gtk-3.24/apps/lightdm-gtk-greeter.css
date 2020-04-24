@@ -13,7 +13,7 @@
 #panel_window {
   -gtk-icon-style: regular; 
   color: @font_color;
-  font: bold;
+  font-weight: bold;
   border-top-color: @border_bright;
   border-right-color: @border_dark;
   border-left-color: @border_bright;
@@ -32,11 +32,11 @@
       border-style: none;
       background-color: @selected_bg_color;
       color: @font_bright; }
-    #panel_window .menubar > .menuitem:insensitive {
+    #panel_window .menubar > .menuitem:disabled {
       color: @disabled_font;
       text-shadow: 1px 1px 0 @disabled_font_shadow; }
   #panel_window .menubar .menu .menuitem {
-    font: normal;
+    font-weight: normal;
     text-shadow: none; }
 
 /****************
@@ -86,7 +86,7 @@
   margin-right: 4px;
   background-color: transparent;
   border: none;
-  font: bold; }
+  font-weight: bold; }
 
 #window {
 /* Keeping this blank */ }

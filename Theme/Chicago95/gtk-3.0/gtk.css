@@ -36,7 +36,7 @@
 @define-color outline_color black; 
 @define-color font_color @text_color; /* Windows Theme: windowtext (any white area text)*/
 @define-color font_bright white; 
-@define-color disabled_font_shadow @border_light; /* Windows Theme: buttonhilight, testing confirmed this is what Windows 95 Uses for this setting */
+@define-color disabled_font_shadow @border_bright; /* Windows Theme: buttonhilight, testing confirmed this is what Windows 95 Uses for this setting */
 @define-color disabled_font @border_shade; /* Windows Theme: buttonshadow, testing confirmed this is what Windows 95 Uses for this setting */
 @define-color icon_shadow black;
 @define-color icon_shadow_bright white;
@@ -179,5 +179,5 @@
 @import url("apps/unity.css");
 @import url("apps/xfce.css");
 @import url("apps/nemo.css"); 
-@import url("apps/synaptic.css");
-@import url("apps/lightdm-gtk-greeter.css"); */
+@import url("apps/synaptic.css");*/
+@import url("apps/lightdm-gtk-greeter.css");

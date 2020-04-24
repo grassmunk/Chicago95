@@ -38,12 +38,10 @@ slider {
     background-size: 2px 2px;
     background-position: 0 0, 1px 1px; }
 
-combobox > window,
 colorswatch:selected,
 entry,
 switch,
 scale trough,
-combobox button:checked,
 popover button.flat:selected,
 popover button.flat:active,
 button.appmenu:selected,
