@@ -16,6 +16,8 @@ Currently supports:
 
 Sounds are installed assuming you have XFCE sounds enabled per the Chicago95 Install instructions.
 
+To use Chicago95 Plus! on Xubuntu you need to install the following: `python3-svgwrite` `python3-fonttools` `inkscape`: `sudo apt install python3-svgwrite python3-fonttools inkscape`
+
 By default Chicago95 Plus! creates the theme in your working folder and copies the files to their required location then automatically changes the current theme to the new theme, just like Windows!
 
 If you want to get more out Chicago95 Plus! it supports multiple options:
@@ -34,7 +36,7 @@ usage: ChicagoPlus.py [options] MS_Theme_File
 Chicago95 Plus! is a python script that can parse Windows 95/98/ME/XP theme
 files and create new Chicago95 themes. Chicago95 Plus! supports Icons,
 Cursors, Fonts, Wallpapers, Sounds and Theme colors! Use this against themes
-you can find on ThemeWorld or any site that have Windows Plus! Themes! This
+you can find on ThemeWorld or any site that have Microsoft Plus! Themes! This
 script can be called from any folder, execute it and provide it the path to a
 theme file (e.g. ChicagoPlus.py /home/bgates/Wicked/Wicked.theme) and your new
 theme will be created!
@@ -92,9 +94,7 @@ Part of the Chicago95 theme project
 
 ```
 
-Here are two examples running Chicago95 Plus! to change the theme:
-
-Changing themes:
+Here are two examples of themes built using Chicago95 Plus!
 
 ![Tiberian Sun](Chicago95_theme_1.png)
 
