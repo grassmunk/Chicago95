@@ -182,13 +182,13 @@ class ChicagoPlus:
 			try:
 				convert_path = subprocess.check_output(["which", "convert"]).strip()
 			except subprocess.CalledProcessError:
-				self.logger.critical("You need imagemagick installed to use this library.")
+				self.logger.critical("You need imagemagick (convert) installed to use this library.")
 				error = True
 
 			try:
 				convert_path = subprocess.check_output(["which", "mogrify"]).strip()
 			except subprocess.CalledProcessError:
-				self.logger.critical("You need imagemagick installed to use this library.")
+				self.logger.critical("You need imagemagick (mogrify) installed to use this library.")
 				error = True
 
 		if error:

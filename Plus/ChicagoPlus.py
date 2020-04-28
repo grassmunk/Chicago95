@@ -10,7 +10,7 @@ import sys
 def main():
 	
 
-	desc = '''Chicago95 Plus! is a python script that can parse Windows 95/98/ME/XP theme files and create new Chicago95 themes. Chicago95 Plus! supports Icons, Cursors, Fonts, Wallpapers, Sounds and Theme colors! Use this against themes you can find on ThemeWorld or any site that have Windows Plus! Themes!\nThis script can be called from any folder, execute it and provide it the path to a theme file (e.g. %(prog)s /home/bgates/Wicked/Wicked.theme) and your new theme will be created!'''
+	desc = '''Chicago95 Plus! is a python script that can parse Windows 95/98/ME/XP theme files and create new Chicago95 themes. Chicago95 Plus! supports Icons, Cursors, Fonts, Wallpapers, Sounds and Theme colors! Use this against themes you can find on ThemeWorld or any site that have Microsoft Plus! Themes!\nThis script can be called from any folder, execute it and provide it the path to a theme file (e.g. %(prog)s /home/bgates/Wicked/Wicked.theme) and your new theme will be created!'''
 	arg_parser = argparse.ArgumentParser(description=desc, 
 						usage='%(prog)s [options] MS_Theme_File', 
 						epilog="Part of the Chicago95 theme project",
