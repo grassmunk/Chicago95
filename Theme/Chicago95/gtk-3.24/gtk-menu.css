@@ -16,12 +16,9 @@ window > menu {
 
 .menu {
   padding: 0px;
-  border-top: 1px solid @border_light;
-  border-bottom: 1px solid @border_dark;
-  border-left: 1px solid @border_light;
-  border-right: 1px solid @border_dark;
-  box-shadow: inset 1px 1px @border_bright, inset -1px -1px @border_shade;
-  background-color: @menu_bg_color;
+  border: 1px solid @border_dark;
+  box-shadow: none;
+  background-color: @bg_bright;
   color: @text_color; }
 
 /* NOTE: Menu border styling is moved to client side decorations. See gtk-window.css for menu border styling. */
@@ -55,7 +52,13 @@ menubar,
 
 menu separator {
   padding: 3px;
+  margin-left: -5px;
+  margin-right: -5px;
   border: none;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 1px solid transparent;
+  border-bottom: 2px solid transparent;
   background-image: url("assets/handle-h.png");
   background-repeat: repeat-x;
   background-position: center center;
