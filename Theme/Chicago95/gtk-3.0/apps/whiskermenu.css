@@ -16,7 +16,7 @@ the whisker menu without having to correct their pointer location. */
     border: 2px solid @border_color;
     border-image: url("../buttons/dialog_button_normal.png");
     border-image-slice: 2 2 2 2;
-    background-color: @bg_color; }
+    background-color: transparent; }
     #whiskermenu-button:active box,
     #whiskermenu-button:checked box,
     #applicationmenu-button:active box,
