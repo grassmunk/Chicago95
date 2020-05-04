@@ -55,3 +55,8 @@ treeview.view:selected {
 /* Hey Windows95 didn't have arrows in the headerbar either! */
 treeview.view image {
   color: transparent; }
+
+/* Have to specify this or else bad things happen! */
+treeview.view.separator {
+  min-height: 8px;
+  color: @border_dark; }
