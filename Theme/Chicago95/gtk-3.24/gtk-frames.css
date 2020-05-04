@@ -9,7 +9,8 @@
    Make sure that all changes made here are part of the GtkFrame.
 */
 
-frame {
+frame,
+frame.view {
   padding: 2px;
   border-radius: 0px;
   background-color: @theme_bg_color;

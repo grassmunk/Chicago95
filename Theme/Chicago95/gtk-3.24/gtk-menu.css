@@ -19,12 +19,14 @@ window > menu {
   border: 1px solid @border_dark;
   box-shadow: none;
   background-color: @bg_bright;
-  color: @text_color; }
+  color: @text_color;
+  -gtk-icon-style: regular }
 
 /* NOTE: Menu border styling is moved to client side decorations. See gtk-window.css for menu border styling. */
 menu {
   background-color: @menu_bg_color;    /* NOTE: While a background colour is required here, there will be a 2px internal padding applied to window decorations which will also have a background colour too. */ 
-  color: @menu_text_color; }
+  color: @menu_text_color;
+  -gtk-icon-style: regular }
   /* menuitem */
   menu menuitem {
     padding-left: 2px;
@@ -79,25 +81,29 @@ menu arrow {
     background-image: url("assets/arrow-right.png"); }
     menu :hover > arrow.right {
       background-image: url("assets/arrow-right-selected.png"); }
-    menu :checked > arrow.right {
+    menu :checked > arrow.right,
+    menu :disabled > arrow.right {
       background-image: url("assets/arrow-right-disabled.png"); }
   menu arrow.left {
     background-image: url("assets/arrow-left.png"); }
     menu :hover > arrow.left {
       background-image: url("assets/arrow-left-selected.png"); }
-    menu :checked > arrow.left {
+    menu :checked > arrow.left,
+    menu :disabled > arrow.left {
       background-image: url("assets/arrow-left-disabled.png"); }
   menu arrow.up {
     background-image: url("assets/arrow-up.png"); }
     menu :hover > arrow.up {
       background-image: url("assets/arrow-up-selected.png"); }
-    menu :checked > arrow.up {
+    menu :checked > arrow.up
+    menu :disabled > arrow.up {
       background-image: url("assets/arrow-up-disabled.png"); }
   menu arrow.down {
     background-image: url("assets/arrow-down.png"); }
     menu :hover > arrow.down {
       background-image: url("assets/arrow-down-selected.png"); }
-    menu :checked > arrow.down {
+    menu :checked > arrow.down,
+    menu :disabled > arrow.down {
       background-image: url("assets/arrow-down-disabled.png"); }
 
 /* Directional menu arrow styling */

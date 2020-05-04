@@ -284,7 +284,11 @@ stacksidebar list row:selected:hover {
 /***********
  * stack *
  ***********/
- 
+
+/* Some applications will use stacks in non-conventional ways. This should prevent theming of .view in gtk-viewports.css from affecting stack views. */
+stack.view {
+  background-color: @bg_color; }
+
 stack overlay box box scrolledwindow viewport list row {
   border-bottom: 1px solid @border_shade; }
 
