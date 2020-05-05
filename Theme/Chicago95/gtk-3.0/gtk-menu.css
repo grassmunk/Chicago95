@@ -27,12 +27,8 @@ menu {
   background-color: @menu_bg_color;    /* NOTE: While a background colour is required here, there will be a 2px internal padding applied to window decorations which will also have a background colour too. */ 
   color: @menu_text_color;
   -gtk-icon-style: regular }
-  /* menuitem */
   menu menuitem {
-    padding-left: 2px;
-    padding-right: 2px;
-    padding-top: 1px;
-    padding-bottom: 1px;
+    padding: 3px 2px;
     background-color: transparent; }
     menu menuitem check,
     menu menuitem radio {
@@ -150,4 +146,3 @@ menu > arrow.bottom,
   .menu > arrow.bottom:checked,
   .context-menu > arrow.bottom:checked {
     background-image: url("assets/arrow-down-disabled.png"); }
-
