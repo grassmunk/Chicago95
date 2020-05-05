@@ -26,6 +26,8 @@ window > menu {
 menu {
   background-color: @menu_bg_color;    /* NOTE: While a background colour is required here, there will be a 2px internal padding applied to window decorations which will also have a background colour too. */ 
   color: @menu_text_color;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
   -gtk-icon-style: regular }
   menu menuitem {
     padding: 3px 2px;
@@ -43,7 +45,9 @@ menubar,
 .menubar {
   -GtkWidget-window-dragging: false;
   background-color: @menu_bg_color;
-  color: @menu_text_color; }
+  color: @menu_text_color;
+  text-shadow: none;
+  -gtk-icon-shadow: none; }
   menubar menuitem {
     padding: 0px 6px;
     min-height:17px; }
