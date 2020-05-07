@@ -162,12 +162,14 @@
 @import url("gtk-combobox.css");
 @import url("gtk-scrollbar.css");
 @import url("gtk-assistant.css");
-@import url("gtk-headerbars.css");
+@import url("gtk-headerbars.css"); /* Comment out for gtk3-nocsd theme */
+/*@import url("gtk-headerbars_no-csd.css");*/ /* Uncomment for gtk3-nocsd theme */
 @import url("gtk-menu.css");
 @import url("gtk-notebooks.css");
 @import url("gtk-progressbar.css");
 @import url("gtk-popovers.css");
-@import url("gtk-titlebars.css");
+@import url("gtk-titlebars.css"); /* Comment out for gtk3-nocsd theme */
+/*@import url("gtk-titlebars_no-csd.css");*/ /* Uncomment for gtk3-nocsd theme */
 @import url("gtk-toolbar.css");
 @import url("gtk-window.css");
 @import url("gtk-windowbuttons.css");

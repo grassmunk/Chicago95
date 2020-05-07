@@ -16,26 +16,9 @@ headerbar,
   padding: 0px;
   padding-left: 2px;
   padding-right: 2px;
-  background-color: @window_title_bg_color;
+  background-color: @bg_color;
   background-image: none;
   text-shadow: none; }
-  headerbar:backdrop,
-  .titlebar:backdrop {
-    background-image: none;
-    background-color: @inactive_title_bg_color; }
-  headerbar,
-  .titlebar,
-  headerbar .title,
-  headerbar .subtitle,
-  headerbar > checkbutton label,
-  .titlebar > checkbutton label {
-    /*font-size: 8pt;*/ /* This can control font size in the headerbar */
-    color: @window_title_text_color; }
-    headerbar .title:backdrop,
-    headerbar .subtitle:backdrop,
-    headerbar:backdrop > checkbutton label,
-    .titlebar:backdrop > checkbutton label {
-      color: @inactive_title_bg_color; }
   headerbar entry {
     margin: 3px;
     padding-top: 1px;
@@ -49,4 +32,3 @@ headerbar,
     margin-bottom: -6px; }
   headerbar .titlebutton * {
     -gtk-icon-style: requested; }
-

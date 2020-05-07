@@ -29,7 +29,7 @@ headerbar,
   headerbar .subtitle,
   headerbar > checkbutton label,
   .titlebar > checkbutton label {
-    font-size: 8pt;
+    /*font-size: 8pt;*/ /* This can control font size in the headerbar */
     color: @window_title_text_color; }
     headerbar .title:backdrop,
     headerbar .subtitle:backdrop,
