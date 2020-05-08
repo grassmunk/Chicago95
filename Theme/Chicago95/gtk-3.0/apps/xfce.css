@@ -73,7 +73,7 @@ XfdesktopIconView.view {
     #xfce4-power-manager-plugin:hover,
     #xfce4-power-manager-plugin:active,
     #xfce4-power-manager-plugin:checked {
-      border: transparent;
+      border-color: transparent;
       box-shadow: none;
       /*color: @panel_fg_color_bright;*/ /*If you choose to add a background colour, don't forget to uncomment the colour property here so that symbolic icons are properly shaded. You can change the colour propery value to whatever you want. */
       background-color: transparent; }   /* Adding a background colour to the following will highlight panel icons when hovered or checked if desired. */
