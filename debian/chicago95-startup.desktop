@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Chicago95 startup sound
-Exec=play /usr/share/sounds/Chicago95/startup.ogg
-NoDisplay=true
-Terminal=false
-Categories=
-GenericName=startup sound
