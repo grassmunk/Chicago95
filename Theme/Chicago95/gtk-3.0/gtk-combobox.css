@@ -84,7 +84,7 @@ combobox arrow {
   combobox > box > button > box > arrow {
     background-image: url("assets/vcl-combobox-arrow-down.png");
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: 0px 0px;
     background-size: 16px 16px;
     min-width: 16px;
     min-height: 16px;
@@ -92,7 +92,7 @@ combobox arrow {
     combobox:disabled > box > button > box > arrow:disabled {
       background-image: url("assets/vcl-combobox-arrow-down-disabled.png");
       background-repeat: no-repeat;
-      background-position: center center;
+      background-position: 0px 0px;
       background-size: 16px 16px;
       min-width: 16px;
       min-height: 16px;
