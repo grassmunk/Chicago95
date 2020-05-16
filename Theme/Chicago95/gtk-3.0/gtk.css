@@ -135,7 +135,7 @@
 @define-color xfd_icon_text #ffffff;
 @define-color xfd_rubberband_outline #ff7f7f;
 
-/* Nautilus desktop icon text cololur */
+/* Nautilus desktop icon text colour */
 @define-color nautilus_icon_text @base_color;
 @define-color nautilus_icon_text_shadow @text_color;
 
@@ -144,6 +144,7 @@
 @import url("apps/filechooser.css");
 @import url("apps/mate.css");
 @import url("apps/thunar.css");
+@import url("apps/caja.css");
 @import url("apps/nemo.css");
 
 /* Please keep these in their originial load order. */

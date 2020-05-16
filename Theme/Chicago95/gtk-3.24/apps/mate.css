@@ -1,51 +1,49 @@
-.mate-panel-menu-bar,
-#PanelPlug,
-#PanelApplet button,
-PanelToplevel.background,
-#PanelApplet-window-menu-applet-button {
-    border-image: none;
-    background-image: none;
-    background-color: transparent;
-    box-shadow: none;
-}
+/**********
+ * MATE *
+ **********/
 
-#PanelPlug,
-.mate-panel-menu-bar,
-PanelToplevel.background {
-  background-color: @bg_color;
-  background-image: none;
-  color: @font_color;
-  text-shadow: none;
-}
+/*Contributor notes:
+Please use two space indentions.
+Stack all related and child selectors and selector states into a logical hierarchy to a readable degree.
+Make sure that all changes made here are part of the MATE desktop.
+*/
 
 /* Top Panel */
 PanelToplevel.horizontal.top > grid {
-  border-style: outset;
-  border-width: 0px 0px 1px 0px;
-  border-color: @bg_shade; }
-
+  padding: 0px;
+  box-shadow: none;
+  border: none;
+  border-top: 1px solid @border_dark;
+  border-image: url("../buttons/dialog_button_normal.png");
+  border-image-slice: 1 1 1 1; }
 /* Bottom Panel */
 PanelToplevel.horizontal.bottom > grid {
-  border-style: outset;
-  border-width: 1px 0px 0px 0px;
-  border-color: @bg_bright; }
-
+  padding: 0px;
+  box-shadow: none;
+  border: none;
+  border-bottom: 1px solid @border_dark;
+  border-image: url("../buttons/dialog_button_normal.png");
+  border-image-slice: 1 1 1 1; }
 /* Vertical Left Panel */
 PanelToplevel.vertical.left > grid {
-  border-style: outset;
-  border-width: 0px 1px 0px 0px;
-  border-color: @bg_shade; }
-
+  padding: 0px;
+  box-shadow: none;
+  border: none;
+  border-left: 1px solid @border_dark;
+  border-image: url("../buttons/dialog_button_normal.png");
+  border-image-slice: 1 1 1 1; }
 /* Vertical Right Panel */
 PanelToplevel.vertical.right > grid {
-  border-style: outset;
-  border-width: 0px 0px 0px 1px;
-  border-color: @bg_bright; }
-
-/* hide buttons */
+  padding: 0px;
+  box-shadow: none;
+  border: none;
+  border-right: 1px solid @border_dark;
+  border-image: url("../buttons/dialog_button_normal.png");
+  border-image-slice: 1 1 1 1; }
+/* MATE Panel hide buttons */
 PanelToplevel > grid > button,
 PanelToplevel > grid > button:active {
-  background: transparent;
+  background-color: transparent;
   border-image: none;
   border-radius: 0px;
   border-width: 0px;
@@ -62,198 +60,183 @@ PanelToplevel > grid > button:active {
       border-style: solid;
       border-width: 1px;
       border-color: @bg_dark @bg_bright @bg_bright @bg_dark;
-      box-shadow: inset -1px -1px @bg_shade }
+      box-shadow: inset 1px 1px @bg_shade }
 
-/* MATE Panel Separator */
-PanelSeparator {
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent; }
-
-/* MATE Main Menu */
-.mate-panel-menu-bar menubar {
-  border: none;
-  box-shadow: none; }
-
-na-tray-applet {
-    -NaTrayApplet-icon-padding: 1px;
-}
-
-/* mate-menu, mintmenu */
-#mintmenu.background,
-#mate-menu.background {
-    border-color: @bg_bright @bg_dark @bg_dark @bg_bright;
+/* Mate Panelbar */
+.mate-panel-menu-bar,
+.gnome-panel-menu-bar,
+PanelToplevel.background {
+  background-color: @bg_color;
+  background-image: none;
+  color: @font_color;
+  text-shadow: none; }
+/* MATE Panelbar Items */
+  .mate-panel-menu-bar #PanelPlug,
+  .mate-panel-menu-bar #PanelApplet button,
+  .mate-panel-menu-bar PanelToplevel.background,
+  .mate-panel-menu-bar #PanelApplet-window-menu-applet-button {
+    border-image: none;
+    background-image: none;
+    background-color: transparent;
+    box-shadow: none; }
+  .mate-panel-menu-bar PanelSeparator {
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent; }
+  /* Show desktop applet */
+  .mate-panel-menu-bar #showdesktop-button {
+    padding: 2px;
+    box-shadow: none; }
+  /* MATE Main Menu */
+  .mate-panel-menu-bar menubar {
+    border: none;
+    box-shadow: none; }
+  .mate-panel-menu-bar na-tray-applet {
+    -NaTrayApplet-icon-padding: 1px; }
+  /* mate-menu, mintmenu */
+  .mate-panel-menu-bar #mintmenu.background,
+  .mate-panel-menu-bar #mate-menu.background {
+    border-color: @border_bright @border_dark @border_dark @border_bright;
     border-style: solid;
     border-width: 1px;
-    box-shadow: inset 1px 1px @bg_shade;
-}
-
-.mate-panel-menu-bar,
-.gnome-panel-menu-bar {
-  background-color: #c0c0c0; }
-  .mate-panel-menu-bar > grid,
-  .gnome-panel-menu-bar > grid {
-    padding: 0px;
-    border-style: solid;
-    border-width: 0px;
-    border-color: @bg_color @bg_dark @bg_dark @bg_color;
-    /*box-shadow: inset 1px 1px @bg_bright,
-                inset -1px -1px @bg_shade;*/
-    border-radius: 0px; }
-  .gnome-panel-menu-bar.horizontal PanelSeparator {
+    box-shadow: inset 1px 1px @border_shade; }
+  .mate-panel-menu-bar.horizontal PanelSeparator {
     background-image: url("../assets/handle-v.png");
     background-repeat: repeat-y;
     padding: 15px; }
-  .gnome-panel-menu-bar.vertical PanelSeparator {
+  .mate-panel-menu-bar.vertical PanelSeparator {
     background-image: url("../assets/handle-h.png");
     background-repeat: repeat-x;
     padding: 15px; }
-
-#PanelApplet #tasklist-button,
-.mate-panel-menu-bar #PanelApplet button,
-.mate-panel-menu-bar #PanelApplet button:active,
-.mate-panel-menu-bar #PanelApplet button:checked {
-  margin: 0px;
-  padding: 0px;
-  border: none;
-  box-shadow: none; }
-  .mate-panel-menu-bar #PanelApplet button image {
-    margin-top: 4px;
-    padding: 2px; }
-
-#PanelApplet #tasklist-button box,
-.mate-panel-menu-bar #PanelApplet button box {
-  transition: 0s font-weight, border-left, border-right, border-top, border-bottom, box-shadow;
-  margin: 2px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: @bg_bright @bg_dark @bg_dark @bg_bright;
-  box-shadow: inset -1px -1px @bg_shade;
-  -gtk-icon-effect: none; }
-  #PanelApplet #tasklist-button:checked box {
-    font-weight: bold;
-    border-style: solid;
-    border-width: 1px;
-    border-color: @bg_dark @bg_bright @bg_bright @bg_dark;
-    box-shadow: inset 1px 1px @bg_shade;
-    background-color: @border_bright;
-    background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @border_dark);
-    background-size: 2px 2px;
-    background-position: 0 0, 1px 1px; }
-  .mate-panel-menu-bar #PanelApplet button:checked box {
-    border-style: solid;
-    border-width: 1px;
-    border-color: @bg_dark @bg_bright @bg_bright @bg_dark;
-    box-shadow: inset 1px 1px @bg_shade;
-    background-color: @border_bright;
-    background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @border_dark);
-    background-size: 2px 2px;
-    background-position: 0 0, 1px 1px; }
-  #PanelApplet #tasklist-button:active box {
-    font-weight: bold;
-    border-style: solid;
-    border-width: 1px;
-    border-color: @bg_dark @bg_bright @bg_bright @bg_dark;
-    box-shadow: inset 1px 1px @bg_shade;
-    transition-delay: 1s; }
-  .mate-panel-menu-bar #PanelApplet button:active box {
-    font-weight: bold;
-    border-style: solid;
-    border-width: 1px;
-    border-color: @bg_dark @bg_bright @bg_bright @bg_dark;
-    box-shadow: inset 1px 1px @bg_shade; }
-
-#showdesktop-button {
-  padding: 2px;
-  box-shadow: none; }
-
-.caja-desktop-window .rubberband,
-.caja-navigation-window .rubberband {
-  border: 1px solid @selected_bg_color;
-  background: rgba(0,0,50.2,0.5); }
-/* This will prevent caja from printing over the desktop wallpaper */
-.caja-desktop-window grid scrolledwindow {
-  background: none;
-  border-color: transparent;
-  box-shadow: none; }
-
-/* MATE Control Center */
-#MyControlCenter button,
-#MyControlCenter button.flat {
-  border: 1px solid transparent;
-  box-shadow: none;
-  background-color: transparent;
-  outline-style: dotted;
-  outline-color: @bg_dark;
-  -gtk-outline-radius: 0px;
-  outline-offset: -2px; }
-  #MyControlCenter button:hover {
-    background-color: transparent;
-    border: 1px solid @selected_bg_color; }
-#MyControlCenter > frame {
-  border-color: transparent;
-  box-shadow: none; }
-#MyControlCenter scrolledwindow {
-  border-top-color: @bg_shade;
-  border-right-color: @bg_bright;
-  border-left-color: @bg_shade;
-  border-bottom-color: @bg_bright;
-  box-shadow: inset 1px 1px @bg_bright, inset -1px -1px @bg_shade; }
+  /* Tasklist & PanelAppet buttons */
+  .mate-panel-menu-bar #tasklist-button,
+  .mate-panel-menu-bar #PanelApplet button,
+  .mate-panel-menu-bar #PanelApplet button:active,
+  .mate-panel-menu-bar #PanelApplet button:checked {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    box-shadow: none;
+    background-color: transparent; }
+    .mate-panel-menu-bar #tasklist-button box,
+    .mate-panel-menu-bar #PanelApplet button box {
+      transition: 0s font-weight;
+      margin: 2px;
+      border: 2px solid @border_dark;
+      border-top: 3px solid @border_dark; /* Checked toggle buttons in Windows95 have a 3px multi-colour border.*/
+      border-image: url("../buttons/dialog_button_normal.png");
+      border-image-slice: 3 2 2 2;
+      box-shadow: none; }
+      .mate-panel-menu-bar #tasklist-button:active box {
+        font-weight: bold;
+        border: 2px solid @border_dark;
+        border-top: 3px solid @border_dark;
+        border-image: url("../buttons/button_pressed.png");
+        border-image-slice: 3 2 2 2;
+        transition-delay: 1s;
+        box-shadow: none; }
+      .mate-panel-menu-bar #tasklist-button:checked box {
+         /*font-family: "NotoSans-Bold";*/
+        font-weight: bold;
+        border: 2px solid @border_dark;
+        border-top: 3px solid @border_dark;
+        border-image: url("../buttons/toggle_pressed.png");
+        border-image-slice: 3 2 2 2;
+        background-color: @scrollbar_trough_bg_color; /* This is how windows themes are applied */
+        background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_dark);
+        background-size: 2px 2px;
+        background-position: 0 0, 1px 1px;
+        box-shadow: none; }
+      .mate-panel-menu-bar #PanelApplet button:active box,
+      .mate-panel-menu-bar #PanelApplet button:checked box {
+        border: 2px solid @border_dark;
+        border-top: 3px solid @border_dark;
+        border-image: url("../buttons/button_pressed.png");
+        border-image-slice: 3 2 2 2;
+        box-shadow: none; }
 
 /* Brisk Menu */
 .brisk-menu {
   background-color: @bg_color; }
-  .brisk-menu .apps-list {
-  padding: 2px;
-  border: 1px solid @bg_shade;
-  box-shadow: none; }
-  .brisk-menu .apps-list button.flat,
-  .brisk-menu .categories-list button.flat,
-  .brisk-menu .session-button {
-    border: 1px solid transparent;
-    box-shadow: none;
-    background-color: transparent; }
-    .brisk-menu .session-button {
-      margin-left: 1px;
-      margin-right: 1px;
-      padding: 4px;
-      background-color: @bg_color; }
-     .brisk-menu .apps-list button.flat,
-     .brisk-menu .categories-list button.flat {
-       padding: 2px ; }
-    .brisk-menu .categories-list button.flat:hover {
-      background-color: @selected_bg_color;
-      color: @font_bright; }
-    .brisk-menu .session-button:hover {
-      background-color: @selected_bg_color;
-      color: @font_bright; }
   .brisk-menu scrolledwindow,
   .brisk-menu .categories-list {
     padding: 0px;
     border: 1px solid transparent;
-    background-color: @bg_color;
+    background-color: transparent;
     box-shadow: none; }
+  .brisk-menu .apps-list button.flat,
+  .brisk-menu .categories-list button.flat {
+    padding: 2px;
+    border: none;
+    box-shadow: none;
+    background-color: transparent; }
+  .brisk-menu .categories-list button.flat {
+    min-height: 21px; }
+    .brisk-menu .categories-list button.flat:hover {
+      background-color: @selected_bg_color;
+      color: @font_bright; }
+  .brisk-menu .session-button {
+    -gtk-icon-style: regular;
+    margin-left: 1px;
+    margin-right: 1px;
+    padding: 4px;
+    background-color: @bg_color; }
   .brisk-menu > box {
     padding: 4px;
+    padding-left: 2px;
     border: 1px solid;
     border-top-color: @border_bright;
     border-right-color: @border_dark;
     border-left-color: @border_bright;
     border-bottom-color: @border_dark;
-    box-shadow: inset -1px -1px #808080; }
+    box-shadow: inset -1px -1px #808080, inset 23px 0 @whisker_menu_logo; }
+    .brisk-menu > box > box {
+      padding-left: 25px;
+    /* 
+      These are the Whisker Menu side bar images to replicate Windows 95.
+      comment branding_C95.png and uncomment which one you would prefer to use:
+       - w95: Replicated version of the original in a higher resolution
+       - w95-orig: the original from the boss
+       - L95: A linux version
+       - L95_aliased: A linux version with aliased font style.
+       - C95: A Chicago95 version of this theme.
+       - C95_aliased: A Chicago95 version with aliased font style.
+      If none of these catch your fancy edit misc/whisker-sidebar.svg in 
+      Inkscape
+    */
+    /*    background-image: url("../assets/branding_W95.png"); */
+    /*    background-image: url("../assets/branding_W95-orig.png"); */
+    /*    background-image: url("../assets/branding_L95.png"); */
+    /*    background-image: url("../assets/branding_L95_aliased.png"); */
+    /*    background-image: url("../assets/branding_C95.png"); */
+      background-image: url("../assets/branding_C95_aliased.png");
+      background-repeat: no-repeat;
+      background-position: 0% 100%; }
   .brisk-menu entry {
-    padding: 2px; }
-  .brisk-menu .apps-list row:hover,
-  .brisk-menu .apps-list row:hover button.flat {
+    padding: 2px;
+    margin-left: 25px; }
+  .brisk-menu .apps-list row:hover {
     background-color: @selected_bg_color;
     color: @font_bright; }
-  .brisk-menu .apps-list row:selected:focus {
-    outline-width: 1px;
-    outline-offset: -4px;
+  .brisk-menu .apps-list row:focus:hover {
+    outline-color: white;
+    background-color: @selected_bg_color; }
+    .brisk-menu .apps-list row:hover label,
+    .brisk-menu .apps-list row:focus:hover label {
+      color: @font_bright; }
+  .brisk-menu .apps-list row:selected {
     background-color: transparent; }
-  .brisk-menu .apps-list row:selected:focus button.flat,
-  .brisk-menu .apps-list row:selected:focus label {
-    color: @font_color;
-    background-color: transparent; }
+    .brisk-menu .apps-list row:selected:hover,
+    .brisk-menu .apps-list row:selected:focus:hover {
+      background-color: @selected_bg_color;
+      color: @font_bright; }
+    .brisk-menu .apps-list row:selected:focus {
+      outline-width: 1px;
+      outline-offset: -4px;
+      background-color: transparent; }
+      .brisk-menu .apps-list row:selected:focus label {
+        color: @font_color; }
+      .brisk-menu .apps-list row:selected:focus:hover label {
+        color: @font_bright; }
 
 /* Advanced MATE Menu */
 #mate-menu > widget > box {
@@ -297,3 +280,26 @@ margin: 2px; }
   margin-right: 2px;
   margin-left: 2px;
   box-shadow: inset 1px 1px @bg_shade, inset -1px -1px @bg_bright; }
+
+/* MATE Control Center */
+#MyControlCenter button,
+#MyControlCenter button.flat {
+  border: 1px solid transparent;
+  box-shadow: none;
+  background-color: transparent;
+  outline-style: dotted;
+  outline-color: @bg_dark;
+  -gtk-outline-radius: 0px;
+  outline-offset: -2px; }
+  #MyControlCenter button:hover {
+    background-color: transparent;
+    border: 1px solid @selected_bg_color; }
+#MyControlCenter > frame {
+  border-color: transparent;
+  box-shadow: none; }
+#MyControlCenter scrolledwindow {
+  border-top-color: @bg_shade;
+  border-right-color: @bg_bright;
+  border-left-color: @bg_shade;
+  border-bottom-color: @bg_bright;
+  box-shadow: inset 1px 1px @bg_bright, inset -1px -1px @bg_shade; }

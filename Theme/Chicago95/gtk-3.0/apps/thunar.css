@@ -10,7 +10,12 @@ Stack all related and child selectors and selector states into a logical hierarc
 Make sure that all changes made here are part of the Thunar application.
 */
 
-
+.thunar #location-toolbar toolbutton button:not(:hover):not(:checked):not(:active),
+.thunar #location-toolbar #back button:not(:hover):not(:checked):not(:active),
+.thunar #location-toolbar #forward button:not(:hover):not(:checked):not(:active) {
+  border-color: transparent;
+  border-image: none;
+  box-shadow: none; }
 .thunar #location-toolbar toolbutton button:disabled {
   background-color: @border_bright;
   background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @border_dark);
