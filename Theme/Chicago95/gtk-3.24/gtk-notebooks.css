@@ -10,7 +10,8 @@
 */
 
 notebook {
-  padding: 0px; }
+  padding: 0px;
+  background-color: @bg_color; }
   notebook > stack:not(:only-child) {
     margin: 0px;
     border: 1px solid @border_dark;

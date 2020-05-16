@@ -8,38 +8,39 @@ Stack all related and child selectors and selector states into a logical hierarc
 Make sure that all changes made here are part of the MATE desktop.
 */
 
+
 /* Top Panel */
 PanelToplevel.horizontal.top > grid {
   padding: 0px;
   box-shadow: none;
   border: none;
-  border-top: 1px solid @border_dark;
+  border-bottom: 2px solid @border_dark;
   border-image: url("../buttons/dialog_button_normal.png");
-  border-image-slice: 1 1 1 1; }
+  border-image-slice: 2 2 2 2; }
 /* Bottom Panel */
 PanelToplevel.horizontal.bottom > grid {
   padding: 0px;
   box-shadow: none;
   border: none;
-  border-bottom: 1px solid @border_dark;
+  border-top: 2px solid @border_dark;
   border-image: url("../buttons/dialog_button_normal.png");
-  border-image-slice: 1 1 1 1; }
+  border-image-slice: 2 2 2 2; }
 /* Vertical Left Panel */
 PanelToplevel.vertical.left > grid {
   padding: 0px;
   box-shadow: none;
   border: none;
-  border-left: 1px solid @border_dark;
+  border-right: 2px solid @border_dark;
   border-image: url("../buttons/dialog_button_normal.png");
-  border-image-slice: 1 1 1 1; }
+  border-image-slice: 2 2 2 2; }
 /* Vertical Right Panel */
 PanelToplevel.vertical.right > grid {
   padding: 0px;
   box-shadow: none;
   border: none;
-  border-right: 1px solid @border_dark;
+  border-left: 2px solid @border_dark;
   border-image: url("../buttons/dialog_button_normal.png");
-  border-image-slice: 1 1 1 1; }
+  border-image-slice: 2 2 2 2; }
 /* MATE Panel hide buttons */
 PanelToplevel > grid > button,
 PanelToplevel > grid > button:active {
@@ -86,6 +87,15 @@ PanelToplevel.background {
   .mate-panel-menu-bar #showdesktop-button {
     padding: 2px;
     box-shadow: none; }
+  /* System tray icons */
+  .mate-panel-menu-bar #fast-user-switch-menubar {
+  padding: 0px;
+  margin: 2px;
+  box-shadow: inset 1px 1px @bg_shade, inset -1px -1px @bg_bright; }
+  /* Brisk button */
+  .mate-panel-menu-bar .brisk-button {
+    font-family: "MS Sans Serif Bold", Sans, Sans-Serif;
+    font-weight: bold; }
   /* MATE Main Menu */
   .mate-panel-menu-bar menubar {
     border: none;
@@ -153,6 +163,25 @@ PanelToplevel.background {
         border-image: url("../buttons/button_pressed.png");
         border-image-slice: 3 2 2 2;
         box-shadow: none; }
+  /* MATE Panel clock */
+  .mate-panel-menu-bar #PanelApplet #clock-applet-button box,
+  .mate-panel-menu-bar #PanelApplet #clock-applet-button:active box,
+  .mate-panel-menu-bar #PanelApplet #clock-applet-button:checked box {
+    border: 2px solid transparent;
+    box-shadow: inset 1px 1px @border_shade, inset -1px -1px @border_bright;
+    margin: 0px;
+    background-color: transparent; }
+    .mate-panel-menu-bar #PanelApplet #clock-applet-button box label {
+      padding: 2px; }
+  /* Clock popup window */
+  #MatePanelPopupWindow > frame {
+    border: 1px solid;
+    border-top-color: @border_bright;
+    border-right-color: @border_dark;
+    border-left-color: @border_bright;
+    border-bottom-color: @border_dark;
+    background-color: @button_bg_color;
+    box-shadow: inset -1px -1px @border_shade, inset 1px 1px @border_light; }
 
 /* Brisk Menu */
 .brisk-menu {
@@ -267,20 +296,6 @@ PanelToplevel.background {
 #mate-menu widget > box > widget > box > box > widget > box > box > button {
 margin: 2px; }
 
-#fast-user-switch-menubar,
-#fast-user-switch-menubar menuitem {
-  padding: 0px;
-  margin-right: 2px;
-  margin-left: 2px;
-  border: transparent;
-  box-shadow: none; }
-  
-#fast-user-switch-menubar {
-  padding: 0px;
-  margin-right: 2px;
-  margin-left: 2px;
-  box-shadow: inset 1px 1px @bg_shade, inset -1px -1px @bg_bright; }
-
 /* MATE Control Center */
 #MyControlCenter button,
 #MyControlCenter button.flat {
@@ -303,3 +318,22 @@ margin: 2px; }
   border-left-color: @bg_shade;
   border-bottom-color: @bg_bright;
   box-shadow: inset 1px 1px @bg_bright, inset -1px -1px @bg_shade; }
+
+/* MATE terminal */
+.mate-terminal notebook stack > box {
+  border: 2px solid @border_dark;
+  border-image: url("../assets/frame_inset.png");
+  border-image-slice: 2 2 2 2;
+  box-shadow: none; }
+.mate-terminal notebook header tabs tab box {
+    padding: 0px;
+    margin-top: -1px;
+    margin-bottom: -1px; }
+  .mate-terminal notebook header tabs tab button {
+    background: none;
+    border: none;
+    box-shadow: none; }
+  .mate-terminal notebook header tabs tab button image {
+      padding: 0px;
+      margin-top: -1px;
+      margin-bottom: -2px; }
