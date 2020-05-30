@@ -320,7 +320,7 @@ class ChicagoPlus:
 			self.new_theme_folder = self.installdir + "/" + self.theme_name + "_Chicago95/"
 		else:
 			self.new_theme_folder = self.installdir + self.theme_name + "_Chicago95/"
-
+		self.logger.debug("Path to theme: {}, theme file name: {}".format(self.path_to_theme, self.theme_file_name))
 		if "Program Files/Plus!/Themes/".lower() in self.path_to_theme.lower():
 			paths = self.splitall(self.path_to_theme)
 			
@@ -806,7 +806,7 @@ class ChicagoPlus:
 
 		self.iconmetrics['lfFont'] = {
 		"desc:" : "Font used to display icons",
-		"lfHeight" : int.from_bytes(x[16:20],"little"),
+		"lfHeight" : int.from_bytes(x[16:20],"little", signed=True),
 		"lfWidth" : int.from_bytes(x[20:24],"little"),
 		"lfEscapement" : int.from_bytes(x[24:28],"little"),
 		"lfOrientation" : int.from_bytes(x[28:32],"little"),
@@ -1918,6 +1918,9 @@ class ChicagoPlus:
 		group_type = { 3: 'RT_ICON', 14 :'RT_GROUP_ICON' }
 		ICONS = []
 
+		if not dll_file_path:
+			return False
+
 		f = open(dll_file_path,'rb')
 		dll_file = f.read()
 		f.close()
@@ -1986,7 +1989,7 @@ class ChicagoPlus:
 					try:
 						name = RESOURCENAMES[GRPICONDIRENTRY['rnID']]
 					except (KeyError, IndexError):
-						name = dll_file
+						name = os.path.splitext(dll_file_path.split("/")[-1])[0]
 						pass
 					idReserved = struct.unpack('<H',dll_bytes[GRPICONDIRENTRY['rnOffset']+0:GRPICONDIRENTRY['rnOffset']+2])[0]
 					idType = struct.unpack('<H',dll_bytes[GRPICONDIRENTRY['rnOffset']+2:GRPICONDIRENTRY['rnOffset']+4])[0]
