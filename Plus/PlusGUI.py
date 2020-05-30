@@ -1221,7 +1221,7 @@ class plusGTK:
 
 		self.theme.go(cursors=self.install_cursors, icons=self.install_icons, wallpaper=self.install_wallpaper, 
 			      sounds=self.install_sounds, colors=self.install_colors, fonts=self.install_fonts, screensaver=self.install_screensaver)
-		self.warning_popup.hide()
+
 
 
 
