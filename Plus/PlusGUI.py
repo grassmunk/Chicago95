@@ -9,11 +9,12 @@ from pprint import pprint
 import struct
 import subprocess
 import os
-import shutil
+from shutil import copyfile
 import textwrap
 import numpy as np
 import array
 import argparse
+import time
 
 import gi
 gi.require_version("Gtk", "3.0")
@@ -92,13 +93,14 @@ sounds = {
 class MakePreview:
 	def __init__(self, theme_object):
 		#print("Reading theme file... {}".format(theme_file))
+		print("[MakePreview] Generating Preview Image")
 		self.plus = theme_object
 		self.plus.parse_theme()
 		self.set_metrics()
 		self.set_fonts()
 		self.get_icons()
 		self.get_wallpaper()
-		self.plus.print_theme_config()
+		#self.plus.print_theme_config()
 
 		self.colors = {
 			"buttonface": "#C0C0C0",
@@ -136,7 +138,7 @@ class MakePreview:
 		self.buttons()
 		self.preview_gen()
 #		pprint(self.colors)
-		print("Preview Generated")
+		print("[MakePreview] Preview Generated")
 
 	def return_preview(self):
 		self.preview_window.save("preview.png", "PNG")
@@ -153,7 +155,7 @@ class MakePreview:
 		os.remove("preview_double.png")
 
 	def set_fonts(self):
-		print("Fonts...", end=' ')
+		print("[MakePreview] Fonts...", end=' ')
 		self.button_height = self.iCaptionHeight - 4
 		self.button_width = self.button_height + 2
 		self.lfMessageFont = self.get_font(self.msgfont)
@@ -168,7 +170,7 @@ class MakePreview:
 		print("OK", end='\n', flush=True)
 
 	def buttons(self):
-		print("Buttons...", end=' ')
+		print("[MakePreview] Buttons...", end=' ')
 		buttons = ['minimize','maximize','close']
 		button_width = self.button_width
 		button_height = self.button_height
@@ -253,7 +255,7 @@ class MakePreview:
 
 	def set_metrics(self):
 
-		print("Metrics...", end=' ', flush=True)
+		print("[MakePreview] Metrics...", end=' ', flush=True)
 		try:	
 			self.iCaptionHeight = self.plus.theme_config['nonclientmetrics']['iCaptionHeight']
 			self.iMenuHeight = self.plus.theme_config['nonclientmetrics']['iMenuHeight']
@@ -298,7 +300,7 @@ class MakePreview:
 		print("OK", end='\n', flush=True)
 
 	def get_icons(self):
-		print("Icons...", end=' ', flush=True)
+		print("[MakePreview] Icons...", end=' ', flush=True)
 		if self.plus.theme_config['icons']:
 			if self.plus.theme_config['icons']['my_computer']:
 				self.my_computer = self.make_icons(self.plus,'my_computer')
@@ -373,7 +375,7 @@ class MakePreview:
 
 
 	def preview_gen(self):
-		print("Preview...", end=' ', flush=True)
+		print("[MakePreview] Preview...", end=' ', flush=True)
 		colors = self.colors
 
 		tmp = Image.new('RGB', (500, 500), color = colors['activetitle'])
@@ -657,7 +659,7 @@ class MakePreview:
 		print("OK", end='\n', flush=True)
 
 	def get_wallpaper(self):
-		print("Wallpaper...", end=' ', flush=True)
+		print("[MakePreview] Wallpaper...", end=' ', flush=True)
 		# WallpaperStyle=2
 		#; 0:  The image is centered if TileWallpaper=0 or tiled if TileWallpaper=1
 		#; 2:  The image is stretched to fill the screen
@@ -961,7 +963,7 @@ class plusGTK:
 		# Populate cursor preview
 		self.cursor_store = self.builder.get_object("cursor_list")
 		for current_cursor in pointers:
-			print("Current cursor: {} (name: {})".format(current_cursor, pointers[current_cursor]))
+			print("[previews] Generating cursor preview for: {} (name: {})".format(current_cursor, pointers[current_cursor]))
 			if (current_cursor not in self.theme_config['cursors'] or not 
 			    self.theme_config['cursors'][current_cursor] or not 
 			    self.theme_config['cursors'][current_cursor]['path']): 
@@ -1010,14 +1012,20 @@ class plusGTK:
 					convert_args.append("0")
 					convert_args.append("tmp/"+current_cursor+".gif")
 #					pprint(convert_args)
-					subprocess.check_call(convert_args)
+					try:
+						subprocess.check_call(convert_args)
+					except:
+						copyfile("assets/blank-check.png", "tmp/"+current_cursor+".gif")
 				else:
 					cursor_file_config = self.theme.extract_cur(filename)
 					icon_file = cursor_file_config['icon'][0]['ico_file']
 					f = open("tmp/"+current_cursor+".cur","wb")
 					f.write(icon_file)
 					f.close()
-					subprocess.check_call(['convert', "tmp/"+current_cursor+".cur", "tmp/"+current_cursor+".gif"])
+					try:
+						subprocess.check_call(['convert', "tmp/"+current_cursor+".cur", "tmp/"+current_cursor+".gif"])
+					except:
+						copyfile("assets/blank-check.png", "tmp/"+current_cursor+".gif")
 
 				if not self.in_store(self.cursor_store, pointers[current_cursor]):
 					self.cursor_store.append([checkmark,pointers[current_cursor]])
@@ -1028,8 +1036,9 @@ class plusGTK:
 		# Populate Icons
 		self.icon_store = self.builder.get_object("icon_list")
 		#pprint(self.theme_config)
-		print(self.theme_config['wallpaper'] and self.theme_config['wallpaper']['theme_wallpaper'])
-		# Wallpaper		
+		#print(self.theme_config['wallpaper'] and self.theme_config['wallpaper']['theme_wallpaper'])
+		# Wallpaper
+		print("[previews] Getting wallpaper")		
 		if self.theme_config['wallpaper'] and self.theme_config['wallpaper']['theme_wallpaper']:
 			if not self.in_store(self.icon_store, "Wallpaper bitmap"):
 				self.icon_store.append([checkmark,"Wallpaper bitmap"])
@@ -1044,6 +1053,7 @@ class plusGTK:
 				self.icon_store[loc][0] = nocheckmark
 		# Icons
 		for icon in icons:
+			print("[previews] Generating icon preview for: {} (name: {})".format(icon, icons[icon]))
 			if not self.theme_config['icons'][icon]:
 				if not self.in_store(self.icon_store, icons[icon]):
 					self.icon_store.append([nocheckmark,icons[icon]])
@@ -1059,6 +1069,7 @@ class plusGTK:
 					loc = self.in_store_location(self.icon_store, icons[icon])
 					self.icon_store[loc][0] = checkmark
 		#screensaver
+		print("[previews] Getting screensaver")		
 		if self.theme_config['screensaver']:
 			if not self.in_store(self.icon_store, "Screen saver"):
 				self.icon_store.append([checkmark,"Screen saver"])
@@ -1075,6 +1086,7 @@ class plusGTK:
 		# Sounds
 		self.sound_store = self.builder.get_object("sound_list")
 		for sound in sounds:
+			print("[previews] Generating sound preview for: {} (name: {})".format(sound, sounds[sound]))
 			if sound not in self.theme_config['sounds']:
 				if not self.in_store(self.sound_store, sounds[sound]):
 					self.sound_store.append([nocheckmark,sounds[sound]])
@@ -1206,8 +1218,17 @@ class plusGTK:
 		self.install_sounds, self.install_colors, self.install_fonts, self.install_screensaver)
 		print(options)
 		print(checks)
+		#self.warning_msg(title="Installing", message="Installing {}.\n This will take a few moments, inkscape may open to convert icons.".format(self.theme_config['theme_name']))
+
+		self.warning_popup = self.builder.get_object("Warning")
+		warning_dialogue = self.builder.get_object("warning_label")
+		self.warning_popup.set_title("Installing")
+		warning_dialogue.set_text("Installing {}.\n This will take a few moments, inkscape may open to convert icons.".format(self.theme_config['theme_name']))
+		self.warning_popup.show_all()
+
 		self.theme.go(cursors=self.install_cursors, icons=self.install_icons, wallpaper=self.install_wallpaper, 
-			      sounds=self.install_sounds, colors=self.install_colors, fonts=self.install_fonts, screensaver=self.install_screensaver)	
+			      sounds=self.install_sounds, colors=self.install_colors, fonts=self.install_fonts, screensaver=self.install_screensaver)
+		self.warning_popup.hide()
 
 
 

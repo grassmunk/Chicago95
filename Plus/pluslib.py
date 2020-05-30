@@ -1018,7 +1018,7 @@ class ChicagoPlus:
 			self.logger.info("{:<21} | file: {}".format(current_cursor, theme_cursor_config['filename']))
 
 			x11_cursor_file_name = cursor_src_folder+pointers[current_cursor]+".png" # Target Folder for converted cursors
-			os.remove(x11_cursor_file_name)
+			#os.remove(x11_cursor_file_name)
 			
 			self.logger.debug("{:<21} | {} --> {}".format("", theme_cursor_config['filename'],os.path.split(x11_cursor_file_name)[1]))
 
@@ -1089,12 +1089,14 @@ class ChicagoPlus:
 				f = open(cursor_src_folder+pointers[current_cursor]+".cur","wb")
 				f.write(icon_file)
 				f.close()
-				self.convert_cur_files(cursor_src_folder+pointers[current_cursor]+".cur", cursor_src_folder+pointers[current_cursor]+".png")
-				write_conf = open(cursor_src_folder+pointers[current_cursor]+".conf", 'w')
-				self.logger.debug("{:<21} | Writting conf file {}: {size} {xhot} {yhot} {filename}".format(current_cursor, pointers[current_cursor]+".conf", size=size, xhot=xhot, yhot=yhot, filename=pointers[current_cursor]+".png"))
-				write_conf.write("{size} {xhot} {yhot} {filename}".format(size=size, xhot=xhot, yhot=yhot, filename=pointers[current_cursor]+".png"))
-				write_conf.close()				
-				
+				try:
+					self.convert_cur_files(cursor_src_folder+pointers[current_cursor]+".cur", cursor_src_folder+pointers[current_cursor]+".png")
+					write_conf = open(cursor_src_folder+pointers[current_cursor]+".conf", 'w')
+					self.logger.debug("{:<21} | Writting conf file {}: {size} {xhot} {yhot} {filename}".format(current_cursor, pointers[current_cursor]+".conf", size=size, xhot=xhot, yhot=yhot, filename=pointers[current_cursor]+".png"))
+					write_conf.write("{size} {xhot} {yhot} {filename}".format(size=size, xhot=xhot, yhot=yhot, filename=pointers[current_cursor]+".png"))
+					write_conf.close()				
+				except:
+					self.logger.critical("Error converting {}. Cursor file corrupt".format(cursor_src_folder+pointers[current_cursor]+".cur"))
 
 		# Cursors are all done now we need to generate X11 cursors with xcursorgen
 		self.build_cursors(self.folder_names['cursors'])
