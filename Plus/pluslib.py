@@ -950,14 +950,14 @@ class ChicagoPlus:
 			
 
 			if filetype in ['dll', 'icl', 'ico'] and not isinstance(icon_file, str):
-				f = open(self.folder_names['icons']+filename,"wb")
+				f = open(self.folder_names['icons']+icon_filename,"wb")
 				f.write(icon_file)
 				f.close()
 			else:
-				shutil.copyfile(path, self.folder_names['icons']+filename)
+				shutil.copyfile(path, self.folder_names['icons']+icon_filename)
 			
 				
-			svg_icon_file = self.convert_icon(self.folder_names['icons'], self.folder_names['icons']+filename)
+			svg_icon_file = self.convert_icon(self.folder_names['icons'], self.folder_names['icons']+icon_filename)
 			for size in icon_sizes:
 				if size <= 32 and iconname == "documents_ico" and not create_48_document_icon: 
 					continue
