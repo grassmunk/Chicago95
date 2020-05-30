@@ -367,7 +367,7 @@ class MakePreview:
 					#print("Found installed font {}: {}".format(fontname,installed_fonts[i]['glyphs']))
 					return installed_fonts[i]['glyphs']
 
-		print("Font: {} NOT FOUND".format(fontname))
+		#print("Font: {} NOT FOUND".format(fontname))
 		
 		return self.get_font("Noto-Sans-Regular")
 
@@ -1133,7 +1133,7 @@ class plusGTK:
 				self.icon_text_path.set_text("")
 			return
 		for icon in icons:
-			print(icon, icons[icon], model[row][1])
+			#print(icon, icons[icon], model[row][1])
 			if icons[icon] == model[row][1]:
 				if self.theme_config['icons'][icon] is not False:				
 					self.icon_preview.set_from_file("tmp/"+icon+".png")
@@ -1159,11 +1159,11 @@ class plusGTK:
 
 	def play_sound(self, button):
 		if self.sound_path:
-			print("Playing {} with aplay".format(self.sound_path))
+			#print("Playing {} with aplay".format(self.sound_path))
 			try:
 				subprocess.check_call(['aplay', self.sound_path])
 			except:
-				self.warning_msg("Error", "aplay required to play sound previews")
+				self.warning_msg("Error", "aplay required to play sound previews or sound file corrupt.")
 
 
 	def preview_closed(self, *args):
