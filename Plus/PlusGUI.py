@@ -1218,13 +1218,6 @@ class plusGTK:
 		self.install_sounds, self.install_colors, self.install_fonts, self.install_screensaver)
 		print(options)
 		print(checks)
-		#self.warning_msg(title="Installing", message="Installing {}.\n This will take a few moments, inkscape may open to convert icons.".format(self.theme_config['theme_name']))
-
-		self.warning_popup = self.builder.get_object("Warning")
-		warning_dialogue = self.builder.get_object("warning_label")
-		self.warning_popup.set_title("Installing")
-		warning_dialogue.set_text("Installing {}.\n This will take a few moments, inkscape may open to convert icons.".format(self.theme_config['theme_name']))
-		self.warning_popup.show_all()
 
 		self.theme.go(cursors=self.install_cursors, icons=self.install_icons, wallpaper=self.install_wallpaper, 
 			      sounds=self.install_sounds, colors=self.install_colors, fonts=self.install_fonts, screensaver=self.install_screensaver)
