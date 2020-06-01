@@ -245,6 +245,9 @@ class ChicagoPlus:
 			'screensaver': scr,
 			'all_files': self.theme_files
 		}
+		if logging.getLogger(__name__).getEffectiveLevel() == logging.DEBUG:
+			self.logger.debug("Printing current theme config")
+			self.print_theme_config()
 
 	def generate_theme(self, cursors=True, icons=True, wallpaper=True, sounds=True, colors=True, fonts=True, screensaver=True):
 
@@ -323,8 +326,10 @@ class ChicagoPlus:
 		self.logger.debug("Path to theme: {}, theme file name: {}".format(self.path_to_theme, self.theme_file_name))
 		if "Program Files/Plus!/Themes/".lower() in self.path_to_theme.lower():
 			paths = self.splitall(self.path_to_theme)
-			
 			self.path_to_theme = ('/'.join(paths[0:-4])) + "/"
+		
+		if self.path_to_theme[0:2] == "//":
+			self.path_to_theme = self.path_to_theme[1:]
 
 		self.logger.debug("Path to theme: {}, theme file name: {}".format(self.path_to_theme, self.theme_file_name))
 		self.logger.debug("New theme folder: {}".format(self.new_theme_folder))
@@ -2911,14 +2916,25 @@ class ChicagoPlus:
 			# image-style 3 == Streched
 			self.logger.info("Enabling New Wallpaper")
 			if self.theme_config['wallpaper']['theme_wallpaper'] and self.theme_config['wallpaper']['theme_wallpaper']['new_filename']:
-				self.xfconf_query('xfce4-desktop', '/backdrop/screen0/monitorVirtual1/workspace0/last-image', str(Path.home()) + "/Pictures/" + self.theme_config['wallpaper']['theme_wallpaper']['new_filename'])
+				try:
+				# If we're using a VM the wallpaper is different				
+					self.xfconf_query('xfce4-desktop', '/backdrop/screen0/monitorVirtual1/workspace0/last-image', str(Path.home()) + "/Pictures/" + self.theme_config['wallpaper']['theme_wallpaper']['new_filename'])
 
-				if self.theme_config['wallpaper']['theme_wallpaper']['tilewallpaper']:
-					self.xfconf_query('xfce4-desktop', '/backdrop/screen0/monitorVirtual1/workspace0/image-style', "2")
-				elif self.theme_config['wallpaper']['theme_wallpaper']['wallpaperstyle'] == 2:
-					self.xfconf_query('xfce4-desktop', '/backdrop/screen0/monitorVirtual1/workspace0/image-style', "3")
-				else:
-					self.xfconf_query('xfce4-desktop', '/backdrop/screen0/monitorVirtual1/workspace0/image-style', "4")
+					if self.theme_config['wallpaper']['theme_wallpaper']['tilewallpaper']:
+						self.xfconf_query('xfce4-desktop', '/backdrop/screen0/monitorVirtual1/workspace0/image-style', "2")
+					elif self.theme_config['wallpaper']['theme_wallpaper']['wallpaperstyle'] == 2:
+						self.xfconf_query('xfce4-desktop', '/backdrop/screen0/monitorVirtual1/workspace0/image-style', "3")
+					else:
+						self.xfconf_query('xfce4-desktop', '/backdrop/screen0/monitorVirtual1/workspace0/image-style', "4")
+				except:
+					self.xfconf_query('xfce4-desktop', '/backdrop/screen0/monitorVirtual1/workspace0/last-image', str(Path.home()) + "/Pictures/" + self.theme_config['wallpaper']['theme_wallpaper']['new_filename'])
+
+					if self.theme_config['wallpaper']['theme_wallpaper']['tilewallpaper']:
+						self.xfconf_query('xfce4-desktop', '/backdrop/screen0/monitor0/workspace0/image-style', "2")
+					elif self.theme_config['wallpaper']['theme_wallpaper']['wallpaperstyle'] == 2:
+						self.xfconf_query('xfce4-desktop', '/backdrop/screen0/monitor0/workspace0/image-style', "3")
+					else:
+						self.xfconf_query('xfce4-desktop', '/backdrop/screen0/monitor0/workspace0/image-style', "4")
 			else:
 				self.logger.debug("Wallpaper failed to install")
 			

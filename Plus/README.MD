@@ -1,6 +1,10 @@
 # Chicago95 Plus!
 #### Windows Plus! Theme Conversion for XFCE/Chicago95
 
+<p align="center">
+<img src="demo/demo_01.png" alt="Chicago95 Plus!"/>
+</p>
+
 Is Chicago95 not authentic enough for you? Do you want to use Microsoft Plus! themes to personalize your Chicago95 experience? Well look no further!
 
 Download any Windows 95, 98, ME or XP theme file (from places like themeworld.com or archive.org) and use this tool to switch to your new theme!
@@ -14,11 +18,137 @@ Currently supports:
 * Sounds
 * Wallpapers (installed to `/home/$USER/Pictures`)
 
-Sounds are installed assuming you have XFCE sounds enabled per the Chicago95 Install instructions.
+Two ways to install themes: GUI and CLI:
 
-To use Chicago95 Plus! on Xubuntu you need to install the following: `python3-svgwrite` `python3-fonttools` `inkscape`: `sudo apt install python3-svgwrite python3-fonttools inkscape`
+## Chicago95 Plus! GUI
 
-By default Chicago95 Plus! creates the theme in your working folder and copies the files to their required location then automatically changes the current theme to the new theme, just like Windows!
+Designed to look very familiar you can pick and choose exactly which theme options you'd like to install. It also supports all theme previews. To use simply execute from the Plus folder `./PlusGUI.py` and you'll be presented with this:
+
+<p align="center">
+<img src="demo/demo_01.png" alt="Chicago95 Plus!"/>
+</p>
+
+Click the file chooser and select a Microsoft Windows `.theme` (this example uses the Complete friends theme available here: https://archive.org/details/winfiles_cmfriend_202005)
+
+<p align="center">
+<img src="demo/demo_02.png" alt="Chicago95 Plus!"/>
+</p>
+
+Clicking on the *Screen Saver* will give you a demo of the themes screensaver (assuming you have `wine` installed).
+
+<p align="center">
+<img src="demo/demo_13_screensaver.png" alt="Chicago95 Plus! Screensaver Preview"/>
+</p>
+
+Clicks on *Pointers, Sounds, etc...* gives you a new window allowing you to preview the themes cursors, sounds and icons.
+
+Cursor Preview:
+
+<p align="center">
+<img src="demo_03_cursor_preview.gif" alt="Chicago95 Plus! Cursor Preview"/>
+</p>
+
+Sound Preview:
+
+<p align="center">
+<img src="demo_04_preview_sounds.png" alt="Chicago95 Plus! Sound Preview"/>
+</p>
+
+Icon Preview:
+
+<p align="center">
+<img src="demo_05_preview_icons.png" alt="Chicago95 Plus! Cursor Preview"/>
+</p>
+
+Once you've picked a theme you like press *Accept* to automatically install the theme or *OK* to automatically install the theme and exit.
+<p align="center">
+<img src="demo_06.png" alt="Chicago95 Plus! Installed Preview"/>
+</p>
+
+You can enable verbose output by enabling debug mode by passing the argument `--debug` to the script.
+
+You can also pass a `.theme` file to the script to generate the preview instead of having to select the file manually. 
+
+Multiple other command line options exist:
+
+```
+usage: PlusGUI.py [options] [MS Theme File]
+
+Chicago95 Plus!
+
+positional arguments:
+  theme_file            Microsoft Windows 95/98/ME .theme file (default:
+                        False)
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -d, --debug           Print lots of debugging statements (default: 30)
+  -v, --verbose         Be verbose (default: None)
+  -c COLORS, --colors COLORS
+                        How many colors before skipping Inkscape fix/merge for
+                        SVGs. Set to 1 to speed up conversion. WARNING: This
+                        may result in transparent icons! (default: 32)
+  -o OVERLAP, --overlap OVERLAP
+                        Pixel overlap for SVG icons (default: 1)
+  -s SQUARESIZE, --squaresize SQUARESIZE
+                        Square size for SVG icons (default: 20)
+  --cursorfolder CURSORFOLDER
+                        Chicago95 cursor folder to convert to new theme
+                        (default: /home/phil/.icons/Chicago95_Cursor_Black)
+  --themefolder THEMEFOLDER
+                        Chicago95 theme folder to convert to new theme
+                        (default: /home/phil/.themes/Chicago95)
+  --iconsfolder ICONSFOLDER
+                        Chicago95 icons folder to convert to new theme
+                        (default: /home/phil/.icons/Chicago95)
+  --installdir INSTALLDIR
+                        Folder to create new theme in, default is current
+                        working directory (default: /home/phil/Chicago95/Plus)
+  --logfile LOGFILE     Filename for debug logging (default:
+                        chicago95_plus.log)
+
+Part of the Chicago95 theme project
+
+```
+
+
+Notes:
+
+* Sounds are installed assuming you have XFCE sounds enabled per the Chicago95 Install instructions.
+* To use Chicago95 Plus! on Xubuntu you need to install the following: `python3-svgwrite` `python3-fonttools` `inkscape`: `sudo apt install python3-svgwrite python3-fonttools inkscape`
+* By default Chicago95 Plus! creates the theme in your working folder and copies the files to their required location then automatically changes the current theme to the new theme, just like Windows!
+* When you click accept it will freeze while it installs the theme, occasionally Inkscape will open (to remove icon transperencies), you may have to wait a few minutes for the theme to install. Run in debug mode to see whats going on behind the scenes.
+
+### Examples:
+
+<p align="center">
+<img src="demo_07.png" alt="Chicago95 Plus! Example"/>
+</p>
+
+<p align="center">
+<img src="demo_08.png" alt="Chicago95 Plus! Example"/>
+</p>
+
+<p align="center">
+<img src="demo_09.png" alt="Chicago95 Plus! Example"/>
+</p>
+
+<p align="center">
+<img src="demo_10.png" alt="Chicago95 Plus! Example"/>
+</p>
+
+<p align="center">
+<img src="demo_11.png" alt="Chicago95 Plus! Example"/>
+</p>
+
+<p align="center">
+<img src="demo_12.png" alt="Chicago95 Plus! Example"/>
+</p>
+
+
+## Chicago95 Plus! CLI
+
+Works like any command line tool. Requires a microsoft `.theme` file. By default it will install the theme. 
 
 If you want to get more out Chicago95 Plus! it supports multiple options:
 
@@ -94,9 +224,8 @@ Part of the Chicago95 theme project
 
 ```
 
-Here are two examples of themes built using Chicago95 Plus!
+Notes:
 
-![Tiberian Sun](Chicago95_theme_1.png)
-
-![FRIENDS](Chicago95_theme_2.png)
-
+* Sounds are installed assuming you have XFCE sounds enabled per the Chicago95 Install instructions.
+* To use Chicago95 Plus! on Xubuntu you need to install the following: `python3-svgwrite` `python3-fonttools` `inkscape`: `sudo apt install python3-svgwrite python3-fonttools inkscape`
+* By default Chicago95 Plus! creates the theme in your working folder and copies the files to their required location then automatically changes the current theme to the new theme, just like Windows!

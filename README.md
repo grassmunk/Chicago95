@@ -12,6 +12,7 @@ Included in this theme:
 - New icons to complete the icon theme started with Classic95
 - Edited Redmond XFWM theme to more accurately reflect Windows 95
 - Edited Xfce-Redmond by dbbolton to be more accurate and include XFCE panels
+- Chicago95 Plus! A tool to preview and install Windows 95/98/ME/XP themes
 - Created GTK-3.0 theme from scratch (based on Win 10 and Mate themes)
 - Plymouth theme created from scratch
 - An MS-DOS inspired theme for oh-my-zsh
@@ -29,6 +30,9 @@ A Window compositor
 
 ## Install the system theme
 [Click here](INSTALL.md) for install steps.
+
+## Install a Microsoft Windows Plus! theme
+[Click here](plus/README.MD) for installing custom themes.
 
 ## Install the Plymouth boot splash theme
 [Click here](Plymouth/Readme.md) for install steps.
