@@ -40,7 +40,7 @@ Clicking on the *Screen Saver* will give you a demo of the themes screensaver (a
 <img src="demo/demo_13_screensaver.png" alt="Chicago95 Plus! Screensaver Preview"/>
 </p>
 
-Clicks on *Pointers, Sounds, etc...* gives you a new window allowing you to preview the themes cursors, sounds and icons.
+Clicking on *Pointers, Sounds, etc...* gives you a new window allowing you to preview the themes cursors, sounds and icons.
 
 Cursor Preview:
 
@@ -124,26 +124,32 @@ Notes:
 <p align="center">
 <img src="demo/demo_07.png" alt="Chicago95 Plus! Example"/>
 </p>
+Source: https://archive.org/details/blink18t
 
 <p align="center">
 <img src="demo/demo_08.png" alt="Chicago95 Plus! Example"/>
 </p>
+Source: https://archive.org/details/american_202005
 
 <p align="center">
 <img src="demo/demo_09.png" alt="Chicago95 Plus! Example"/>
 </p>
-
+Source: https://archive.org/details/dune2thm
 <p align="center">
 <img src="demo/demo_10.png" alt="Chicago95 Plus! Example"/>
 </p>
+Source: https://archive.org/details/ra2theme
+
 
 <p align="center">
 <img src="demo/demo_11.png" alt="Chicago95 Plus! Example"/>
 </p>
+Source: https://archive.org/details/hackerz_202005
 
 <p align="center">
 <img src="demo/demo_12.png" alt="Chicago95 Plus! Example"/>
 </p>
+Source: https://archive.org/details/themes_dolphins_202005
 
 
 ## Chicago95 Plus! CLI
