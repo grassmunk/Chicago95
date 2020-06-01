@@ -32,7 +32,7 @@ A Window compositor
 [Click here](INSTALL.md) for install steps.
 
 ## Install a Microsoft Windows Plus! theme
-[Click here](plus/README.MD) for installing custom themes.
+[Click here](Plus/README.MD) for installing custom themes.
 
 ## Install the Plymouth boot splash theme
 [Click here](Plymouth/Readme.md) for install steps.

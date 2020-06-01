@@ -45,24 +45,24 @@ Clicks on *Pointers, Sounds, etc...* gives you a new window allowing you to prev
 Cursor Preview:
 
 <p align="center">
-<img src="demo_03_cursor_preview.gif" alt="Chicago95 Plus! Cursor Preview"/>
+<img src="demo/demo_03_cursor_preview.gif" alt="Chicago95 Plus! Cursor Preview"/>
 </p>
 
 Sound Preview:
 
 <p align="center">
-<img src="demo_04_preview_sounds.png" alt="Chicago95 Plus! Sound Preview"/>
+<img src="demo/demo_04_preview_sounds.png" alt="Chicago95 Plus! Sound Preview"/>
 </p>
 
 Icon Preview:
 
 <p align="center">
-<img src="demo_05_preview_icons.png" alt="Chicago95 Plus! Cursor Preview"/>
+<img src="demo/demo_05_preview_icons.png" alt="Chicago95 Plus! Cursor Preview"/>
 </p>
 
 Once you've picked a theme you like press *Accept* to automatically install the theme or *OK* to automatically install the theme and exit.
 <p align="center">
-<img src="demo_06.png" alt="Chicago95 Plus! Installed Preview"/>
+<img src="demo/demo_06.png" alt="Chicago95 Plus! Installed Preview"/>
 </p>
 
 You can enable verbose output by enabling debug mode by passing the argument `--debug` to the script.
@@ -122,27 +122,27 @@ Notes:
 ### Examples:
 
 <p align="center">
-<img src="demo_07.png" alt="Chicago95 Plus! Example"/>
+<img src="demo/demo_07.png" alt="Chicago95 Plus! Example"/>
 </p>
 
 <p align="center">
-<img src="demo_08.png" alt="Chicago95 Plus! Example"/>
+<img src="demo/demo_08.png" alt="Chicago95 Plus! Example"/>
 </p>
 
 <p align="center">
-<img src="demo_09.png" alt="Chicago95 Plus! Example"/>
+<img src="demo/demo_09.png" alt="Chicago95 Plus! Example"/>
 </p>
 
 <p align="center">
-<img src="demo_10.png" alt="Chicago95 Plus! Example"/>
+<img src="demo/demo_10.png" alt="Chicago95 Plus! Example"/>
 </p>
 
 <p align="center">
-<img src="demo_11.png" alt="Chicago95 Plus! Example"/>
+<img src="demo/demo_11.png" alt="Chicago95 Plus! Example"/>
 </p>
 
 <p align="center">
-<img src="demo_12.png" alt="Chicago95 Plus! Example"/>
+<img src="demo/demo_12.png" alt="Chicago95 Plus! Example"/>
 </p>
 
 
