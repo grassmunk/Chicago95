@@ -4,6 +4,7 @@
 
 <!--ts-->
 * [Installing Chicago95](#install_theme)
+    * [Single user automated install](#install_auto)
     * [Single user install](#install_single)
     * [System-wide install (optional)](#install_system)
 * [Enabling The Theme](#config_theme)
@@ -36,7 +37,9 @@
 ## Installing Chicago95
 
 
-### Automated Install
+<a name="install_auto"/>
+
+### [ Single user automated install ]
 
 Chicago 95 comes with an automated installer. Run the `installer.py` python script to walk through a guided install of Chicago 95.
 
