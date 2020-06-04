@@ -35,6 +35,30 @@
 
 ## Installing Chicago95
 
+
+### Automated Install
+
+Chicago 95 comes with an automated installer. Run the `installer.py` python script to walk through a guided install of Chicago 95.
+
+<p align="center">
+<img src="Screenshots/installer/installer_01.png" alt="Chicago95 Desktop"/>
+</p>
+
+Select components:
+<p align="center">
+<img src="Screenshots/installer/installer_02.png" alt="Chicago95 Desktop"/>
+</p>
+
+Select customization options:
+<p align="center">
+<img src="Screenshots/installer/installer_03.png" alt="Chicago95 Desktop"/>
+</p>
+
+Complete:
+<p align="center">
+<img src="Screenshots/installer/installer_04.png" alt="Chicago95 Desktop"/>
+</p>
+
 The following installation steps will require that you enable the `view hidden folders` option in your file manager to see hidden files.
 
 <a name="install_single"/>
