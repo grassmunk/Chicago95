@@ -132,25 +132,28 @@ The following steps will guide you through configuring the XFCE4 panelbar to res
 
 ### Configuring a horizontal taskbar
 
+Below outlines the manual process to set this all up. This process can be automated by running `xfce4-panel-profiles load Extras/Chicago95_Panel_Preferences.tar.bz2`. 
+
 #### Step 1: Setting the panelbar size
 
 - Open the XFCE settings manager > Panel
-- From the Display tab set the panel mode to "Horizontal."
-- Check "Lock Panel."
-- Set "Automatically hide the panel" to "Never."
+- From the Display tab set the panel mode to "Horizontal".
+- Check "Lock Panel".
+- Set "Automatically hide the panel" to "Never".
 - Row Size (pixels): Can be at, or between, 24px to 32px; If your are using the 4.12 version of the XFCE panelbar, use even numbers for the row size since odd number row sizes will cause icon scaling issues for launcher buttons and status icons.
-- Number of rows will be "1."
+- Number of rows will be "1".
 - Length will be 100%.
 
 #### Step 2: Setting the panelbar appearance
 
-- In the Appearance tab set the background style to "None (use system style.)"
+- In the Appearance tab set the background style to "None (use system style)"
 - Disable the icons setting "Adjust size automatically" (*this option is only available for the 4.14 version panelbar*)
 - Set "Fixed Icon Size" to 16. (*this option is only available for the 4.14 version panelbar*)
 
 *Note: For 4.12 version panelbar users, if you want to adjust the icon scaling of your launcher buttons, see [Launcher button icon scaling](#button_scale)*
 
 #### Step 3: Adding panelbar plugins
+
 Open the XFCE settings manager > Panel > Items
 
 Here's an organized list for the panel Items plugin layout.
@@ -164,7 +167,7 @@ Here's an organized list for the panel Items plugin layout.
 7. Separator (*Transparent with Expanding enabled*);
 8. Separator (*Handle Style*);
 9. Indicator Plugin and Notification Area plugin (*19px max icon size preferred; also uncheck "Show frame"*);
-10. Orage Panel Clock. (*Enable check box “Show frame” and replace the text in “Line 1” with %I:%M %p.*)
+10. Orage Panel Clock. (*Enable check box “Show frame” and replace the text in “Line 1” with %I:%M %p*)
 
 <a name="vert_panel"/>
 
@@ -189,6 +192,7 @@ Here's an organized list for the panel Items plugin layout.
 *Note: For 4.12 panelbar users, if you want to adjust the icon scaling of your launcher buttons, see [Launcher button icon scaling](#button_scale)*
 
 #### Step 3: Adding panelbar plugins
+
 Open the XFCE settings manager > Panel > Items
 
 Here's an organized list for the panel Items plugin layout.
@@ -294,16 +298,14 @@ If you use a vertical deskbar, you could add a second row from the panel propert
 
 ### [ Thunar status indicator ] (for XFCE 4.14)
 
-The thunar status indicator can be modified on line 81 in `/home/$USER/.themes/Chicago95/gtk-3.24/apps/thunar.css`. The line will appear as `background-image: url("../assets/status_badge_c95.png");`
+The thunar status indicator can be modified on line 51 in `/home/$USER/.themes/Chicago95/gtk-3.24/apps/thunar.css`. Uncomment the code down to line 62.
 
-You can modify the background-image name with four of the following images.
+You can replace `status_badge_c95.png` with four of the following images.
 
-- status_badge_c95.png
-- status_badge_msw.png
-- status_badge_tux.png
-- status_badge_xue.png
-
-If you want to disable the background image you can delete the line as well as line 76 which sets the background colour.
+- `status_badge_c95.png`
+- `status_badge_msw.png`
+- `status_badge_tux.png`
+- `status_badge_xue.png`
 
 [[Return to Index]](#index)
 
@@ -439,9 +441,9 @@ Finally, set the font for the Orage panel clock by right-clicking the panel cloc
 ### [ Bash terminal Fonts ]
 Copy the folder `Fonts/vga_font` to `~/.fonts/truetype/` if the `.fonts/truetype` folder doesn't exist just create it before you copy the files.
 
-Update your font cache: `sudo fc-cache -f -v`
+Update your font cache: `fc-cache -f -v`
 
-In xfce-term preferences, go to the Appearance tab and select the font `Less Perfect DOS VGA` or `More Pefect DOS VGA`, size 12.  For better readability, uncheck "Allow bold text".
+In xfce4-term go to the Edit->Preferences and click on the Appearance tab and select the font `Less Perfect DOS VGA` or `More Pefect DOS VGA`, size 12.  For better readability, uncheck "Allow bold text".
 
 If desired, you can use an MS-DOS style cursor by going to the General tab, setting "Cursor shape" to "Underline" and checking the box for "Cursor blinks".
 
@@ -452,13 +454,15 @@ If desired, you can use an MS-DOS style cursor by going to the General tab, sett
 ### [ Terminal themes ]
 
 #### Bash terminal MS-DOS theme
-Copy the file `Extras/Chicago95.theme` to `~/.local/share/xfce4/terminal/colorschemes` (create the colorschemes folder if it doesn't exist: `mkdir .local/share/xfce4/terminal`).
-Under preferences in xfce-term select 'Colors.' Under `Presets` you should see `Chicago 95`.
+
+Copy the file `Extras/Chicago95.theme` to `~/.local/share/xfce4/terminal/colorschemes` (create the colorschemes folder if it doesn't exist: `mkdir -p ~/.local/share/xfce4/terminal/colorschemes`).
+Under preferences in xfce-term select 'Colors.' Under `Presets` you should see `Chicago95`.
 
 To get the MS-DOS `C:\>` prompt and startup message add the contents of `Extras/DOSrc` to your `.bashrc` file: `cat Extras/DOSrc >> ~/.bashrc`.
 To get MS-DOS Prompt title, go to the Preferences prompt and change title to MS-DOS Prompt and select isn't displayed on The Dynamically-Set Title
 
 #### oh-my-zsh MS-DOS theme
+
 Copy the file `Extras/Chicago95.zsh-theme` to `~/.oh-my-zsh/themes` (if you have changed your `.oh-my-zsh` config location, put the theme in that folder). In your `.zshrc` change your theme to Chicago95.
 
 This will add the MS-DOS prompt. You will get a C prompt by default. If the previous command had an exit code other than 0 you will get an F prompt. If you are in a git repository you will git a G prompt, followed by the branch (in yellow) and the status (clean in green, dirty in red).
@@ -488,7 +492,7 @@ If none of these catch your fancy edit `~/.themes/Chicago95/misc/whisker-sidebar
 <a name="startup_sound"/>
 
 ### [ Windows 95 sounds ]
-First, ensure that the SoX and gtk canberra are is installed by running: `sudo apt-get install gnome-session-canberra sox libcanberra-gtk3-module libcanberra-gtk-module`
+First, ensure that SoX and gtk canberra are is installed by running: `sudo apt-get install gnome-session-canberra sox libcanberra-gtk3-module libcanberra-gtk-module`
 
 If it doesn't exist create the directory sounds in `.local/share/`: `mkdir -p ~/.local/share/sounds`
 
