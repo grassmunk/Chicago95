@@ -1,31 +1,31 @@
-/* XFCE Panel bar */
+/* GTK 3.22 Theme Override for the Chicago95 theme.
+ * REMOVE THIS FILE WHEN USING OTHER GTK THEMES! */
+
+/* XFCE APP: XFCE Panel bar
+ * Add a border around the panelbar. */
 .xfce4-panel {
   border-right: 1px solid @bg_shade;
   border-left: 1px solid @bg_bright;
   border-top: 1px solid @bg_bright;
   border-bottom: 1px solid @bg_shade; }
 
-/* This just keeps the power manager plugin icon to stay small. Only useful for XUbuntu 18.04; not required for 19.04.*/
+/* XFCE APP: XFCE Power Manager
+ * This helps keep the power manager plugin icon in the panel bar to
+ * stay small with the other plugin icons. */
 #xfce4-power-manager-plugin { 
   padding: 6px 6px; }
 
-/* Force MATE panel tasklist margins */
-#tasklist-button {
-  margin-left: 2px;
-  margin-right: 2px; }
+/* XFCE APP: Color Profiles
+ * Add a background colour since the color profile app overrides the GTK theme. */
+.color-profiles {
+  background-color: @bg_color; }
 
-/* GNOME Disk utility */
-/* This is a fix for the GNOME disk application grid style. */ 
-
+/* GNOME APP: GNOME Disks
+ * This is a fix for the GNOME Disks application grid style. */ 
 .gnome-disk-utility-grid {
   background-color: @bg_shade;
   color: @font_bright;
   border-radius: 0px;
-  outline-color: white; }
+  outline-color: @border_bright; }
   .gnome-disk-utility-grid:backdrop {
     background-color: @bg_shade; }
-
-/* XFCE APP: Color Profiles */
-/* Force a background colour since the color profile app overrides the GTK theme. */
-.color-profiles {
-  background-color: #c0c0c0; }
