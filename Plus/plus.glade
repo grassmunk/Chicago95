@@ -537,7 +537,7 @@
             <property name="margin_right">4</property>
             <property name="margin_top">4</property>
             <property name="margin_bottom">4</property>
-            <property name="spacing">11</property>
+            <property name="spacing">5</property>
             <child>
               <object class="GtkImage">
                 <property name="visible">True</property>
@@ -557,11 +557,11 @@
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">This is the generic warning message you would receive if you don't have something installed to view the preview.</property>
                 <property name="wrap">True</property>
-                <property name="width_chars">54</property>
-                <property name="max_width_chars">54</property>
+                <property name="width_chars">32</property>
+                <property name="max_width_chars">0</property>
               </object>
               <packing>
-                <property name="expand">False</property>
+                <property name="expand">True</property>
                 <property name="fill">True</property>
                 <property name="position">1</property>
               </packing>
