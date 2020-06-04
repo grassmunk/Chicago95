@@ -275,7 +275,6 @@ class InstallGUI:
 					print("Enabling Fonts in XFCE4")
 					# LOL this is a lie we don't have to do anything
 				elif from_file == "thunar" and self.copy_files["thunar"]:
-					print(os.path.expanduser("~/.themes/Chicago95/gtk-3.24/apps/thunar.css"))
 					if os.path.exists(os.path.expanduser("~/.themes/Chicago95/gtk-3.24/apps/thunar.css")):
 						print("Enabling authenticity in Thunar")
 						shutil.move( os.path.expanduser("~/.themes/Chicago95/gtk-3.24/apps/thunar.css"),os.path.expanduser("~/.themes/Chicago95/gtk-3.24/apps/thunar.css.bak") )
