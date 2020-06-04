@@ -128,7 +128,7 @@
 #whiskermenu-button label {font-size: 11px;}
 
 /* Whisker Menu side logo background color */
-@define-color whisker_menu_logo #808080;
+@define-color whisker_menu_logo @bg_shade;
 
 /* XFCE desktop icon colours*/
 @define-color xfd_icon_backdrop #008081;
