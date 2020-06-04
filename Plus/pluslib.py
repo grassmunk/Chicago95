@@ -245,9 +245,9 @@ class ChicagoPlus:
 			'screensaver': scr,
 			'all_files': self.theme_files
 		}
-		if logging.getLogger(__name__).getEffectiveLevel() == logging.DEBUG:
-			self.logger.debug("Printing current theme config")
-			self.print_theme_config()
+		#if logging.getLogger(__name__).getEffectiveLevel() == logging.DEBUG:
+		#	self.logger.debug("Printing current theme config")
+		#	self.print_theme_config()
 
 	def generate_theme(self, cursors=True, icons=True, wallpaper=True, sounds=True, colors=True, fonts=True, screensaver=True):
 
@@ -2927,7 +2927,7 @@ class ChicagoPlus:
 					else:
 						self.xfconf_query('xfce4-desktop', '/backdrop/screen0/monitorVirtual1/workspace0/image-style', "4")
 				except:
-					self.xfconf_query('xfce4-desktop', '/backdrop/screen0/monitorVirtual1/workspace0/last-image', str(Path.home()) + "/Pictures/" + self.theme_config['wallpaper']['theme_wallpaper']['new_filename'])
+					self.xfconf_query('xfce4-desktop', '/backdrop/screen0/monitor0/workspace0/last-image', str(Path.home()) + "/Pictures/" + self.theme_config['wallpaper']['theme_wallpaper']['new_filename'])
 
 					if self.theme_config['wallpaper']['theme_wallpaper']['tilewallpaper']:
 						self.xfconf_query('xfce4-desktop', '/backdrop/screen0/monitor0/workspace0/image-style', "2")
