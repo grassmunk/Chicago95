@@ -255,14 +255,18 @@ class InstallGUI:
 							'0.500000' ,'-t' ,'double' ,'-s', '0.500000' ,'-t' ,'double' ,
 							'-s' ,'1.000000']
 						subprocess.check_call(args, stdout=subprocess.DEVNULL)	
-					except:
-						self.xfconf_query('xfce4-desktop', '/backdrop/screen0/monitor0/workspace0/image-style', "0")
-						args = ['xfconf-query', '-c' ,'xfce4-desktop' ,
-							'-p' ,'/backdrop/screen0/monitor0/workspace0/rgba1' ,
-							'-t' ,'double' ,'-s' ,'0.000000' ,'-t' ,'double' ,'-s' ,
-							'0.500000' ,'-t' ,'double' ,'-s', '0.500000' ,'-t' ,'double' ,
-							'-s' ,'1.000000']
-						subprocess.check_call(args, stdout=subprocess.DEVNULL)	
+					except subprocess.CalledProcessError:
+						try:
+							self.xfconf_query('xfce4-desktop', '/backdrop/screen0/monitor0/workspace0/image-style', "0")
+							args = ['xfconf-query', '-c' ,'xfce4-desktop' ,
+								'-p' ,'/backdrop/screen0/monitor0/workspace0/rgba1' ,
+								'-t' ,'double' ,'-s' ,'0.000000' ,'-t' ,'double' ,'-s' ,
+								'0.500000' ,'-t' ,'double' ,'-s', '0.500000' ,'-t' ,'double' ,
+								'-s' ,'1.000000']
+							subprocess.check_call(args, stdout=subprocess.DEVNULL)	
+						except:
+							print("Could not update background. Set your background manually to #008080")
+
 				elif from_file == "install_cursors" and self.copy_files["install_cursors"]:
 					print("Enabling Cursors in XFCE4")
 					self.xfconf_query('xsettings', '/Gtk/CursorThemeName', "Chicago95_Cursor_White")
