@@ -250,7 +250,7 @@ class InstallGUI:
 					try: 
 						self.xfconf_query('xfce4-desktop', '/backdrop/screen0/monitorVirtual1/workspace0/image-style', "0")
 						args = ['xfconf-query', '-c' ,'xfce4-desktop' ,
-							'-p' ,'/backdrop/screen0/monitorVirtual1/workspace0/rgba1' ,
+							'-p' ,'/backdrop/screen0/monitorVirtual1/workspace0/rgba1' , '--create',
 							'-t' ,'double' ,'-s' ,'0.000000' ,'-t' ,'double' ,'-s' ,
 							'0.500000' ,'-t' ,'double' ,'-s', '0.500000' ,'-t' ,'double' ,
 							'-s' ,'1.000000']
@@ -288,8 +288,8 @@ class InstallGUI:
 									line = line.replace("/*","")
 								if "c95" in line:
 									line = line.replace("c95", "msw")
-								if "\*" in line:
-									line = line.replace("\*","")
+								if "*/" in line:
+									line = line.replace("*/","")
 									next_line = False
 
 							if "You can enable the spin button theme by uncommenting the following!" in line:
@@ -325,7 +325,7 @@ class InstallGUI:
 						prompts = prompts_file.read()
 						prompts_file.close()
 
-						shutil.copyfile(running_folder+"/Extras/Chicago95.zsh-theme", os.path.expanduser("~/.oh-my-zsh/themes"))
+						shutil.copyfile(running_folder+"/Extras/Chicago95.zsh-theme", os.path.expanduser("~/.oh-my-zsh/themes/Chicago95.zsh-theme"))
 						shutil.move( os.path.expanduser("~/.zshrc"),os.path.expanduser("~/.backup.zshrc.chicago95") )
 						fileh = open(os.path.expanduser("~/.backup.zshrc.chicago95"),"r")
 						nfileh = open(os.path.expanduser("~/.zshrc"),"w")
