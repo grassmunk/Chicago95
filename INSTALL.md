@@ -422,9 +422,20 @@ If you want to change the icon label backdrop colour or text colours, you'll hav
 ### [ Cursors ]
 To install the cursors theme copy the folders in `Cursors` to `/usr/share/icons` (for system-wide install) or `~/.icons` (for user only install.)
 
-In XFCE select Settings -> Mouse and Touchpad. Click on 'Icons' and select `Chicago95`.
+In XFCE select Settings -> Mouse and Touchpad. Click on 'Icons' and select one of:
+
+* **Chicago95 Standard Cursors**: Original Windows 95 cursor theme
+* **Chicago95 Standard Cursors Black**: Customized Windows 95 cursor theme in black
+* **Chicago95 Animated Hourglass Cursors**: Original Windows 95 animated cursor theme
+* **Chicago95_Cursor_White**: Original Chicago95 cursor theme (replaced by Standard Cursors)
+* **Chicago95_Cursor_Black**: Original Chicago95 cursor black theme (replaced by Standard Cursors Black	)
+* **Chicago95_Emerald**: A 3d cursor theme with some extra flair
 
 *Note: If you copied the icons to `/usr/share/icons` you may have to log out or reboot your system before the cursor theme is available.*
+
+#### Custom Cursor Themes
+
+If these themes aren't enough and you'd like to personalize your icon theme download your cursors (from sites like http://cd.textfiles.com/winfiles/winfiles1/cursors.html) and replace the cursor in `<cursor theme>/build/95` or `<cursor theme>/build/xcursors` (note: this only works in the Standard/Animated Hourgladd Cursors folders). You don't need to worry about the extension, the build script will work with regular cursors `.cur`, animated cursors `.ani` and icons `.ico`. So long as the file name before the file extension is the same. After you've made your changes run the python script `cursor_gen.py` from within the build directory and your new theme will be created. To give your theme a custom name edit the `index.theme` file. Then rename the folder and copy it using the same directions above. 
 
 <a name="ms_sans_serif"/>
 

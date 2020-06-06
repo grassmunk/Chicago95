@@ -635,7 +635,7 @@ for cursor in cursors:
 						f = open("tmp/"+cur_filename+".cur","wb")
 						f.write(icon['ico_file'])
 						f.close()
-						self.convert_cur_files("tmp/"+cur_filename+".cur", "tmp/"+cur_filename+".png")
+						convert_cur_files("tmp/"+cur_filename+".cur", "tmp/"+cur_filename+".png")
 						write_conf.write("{size} {xhot} {yhot} {filename} {rate}\n".format(size=size, xhot=xhot, yhot=yhot, filename=cur_filename+".png", rate=rate ))
 		else:
 			itericons = iter(ani_file_config['icon'])			
