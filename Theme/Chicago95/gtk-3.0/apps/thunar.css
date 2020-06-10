@@ -41,11 +41,13 @@ Make sure that all changes made here are part of the Thunar application.
   box-shadow: inset 0px 1px @bg_bright, inset -1px -1px @bg_shade;
   border-bottom: 1px solid @bg_bright;
   border-right: 1px solid @bg_bright; }*/
-  .thunar #main-menu spinner {
+/*  .thunar #main-menu spinner {
     min-width: 8px;
     min-height: 8px;
-    /*-gtk-icon-source: none;*/ 
-    background: #000000; }
+    -gtk-icon-source: none; 
+    background: #000000; } */
+.thunar #main-menu {
+    min-height: 24px;
 
 /*  You can enable the spin button theme by uncommenting the following! */
 /*    .thunar #main-menu > menuitem:not(#edit-menu):not(#file-menu):not(#view-menu):not(#go-menu):not(#help-menu) {
