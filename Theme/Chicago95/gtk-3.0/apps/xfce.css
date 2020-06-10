@@ -41,10 +41,9 @@ XfdesktopIconView.view {
   #indicator-button,
   #showdesktop-button {
     color: @panel_fg_color;
-    margin-top: 2px;
-    margin-bottom: 2px;
+    margin: 0px;
     padding: 0px;
-    border: 2px solid transparent;
+    border: none;
     box-shadow: none;
     background-color: transparent; }
     #showdesktop-button:checked {
