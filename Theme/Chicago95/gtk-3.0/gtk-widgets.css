@@ -461,3 +461,45 @@ grid viewport box box textview {
   border-image-slice: 2 2 2 2;
   border-radius: 0px;
   box-shadow: none; }*/
+
+/* Spinner */
+@keyframes spin {
+  0% { -gtk-icon-source: url("assets/hglass_f1.png"); }
+  5% { -gtk-icon-source: url("assets/hglass_f2.png"); }
+  10% { -gtk-icon-source: url("assets/hglass_f0.png"); }
+  15% { -gtk-icon-source: url("assets/hglass_f2.png"); }
+  20% { -gtk-icon-source: url("assets/hglass_f0.png"); }
+  25% { -gtk-icon-source: url("assets/hglass_f2.png"); }
+  30% { -gtk-icon-source: url("assets/hglass_f0.png"); }
+  35% { -gtk-icon-source: url("assets/hglass_f2.png"); }
+  40% { -gtk-icon-source: url("assets/hglass_f3.png"); }
+  45% { -gtk-icon-source: url("assets/hglass_f4.png"); }
+  50% { -gtk-icon-source: url("assets/hglass_f5.png"); }
+  55% { -gtk-icon-source: url("assets/hglass_f6.png"); }
+  60% { -gtk-icon-source: url("assets/hglass_f7.png"); }
+  65% { -gtk-icon-source: url("assets/hglass_f8.png"); }
+  70% { -gtk-icon-source: url("assets/hglass_f9.png"); }
+  75% { -gtk-icon-source: url("assets/hglass_f10.png"); }
+  80% { -gtk-icon-source: url("assets/hglass_f11.png"); }
+  85% { -gtk-icon-source: url("assets/hglass_f12.png"); }
+  90% { -gtk-icon-source: url("assets/hglass_f13.png"); }
+  95% { -gtk-icon-source: url("assets/hglass_f14.png"); }
+  100% { -gtk-icon-source: url("assets/hglass_f15.png"); }
+  }
+
+spinner {
+  min-width: 24px;
+  min-height: 24px;
+  background: none;
+  opacity: 0;
+  -gtk-icon-source: url("assets/hglass_f1.png"); }
+
+spinner:backdrop {
+  color: @bg_color; }
+
+spinner:checked {
+  opacity: 1;
+  animation: spin 2s steps(20) infinite; }
+
+spinner:checked:disabled {
+  opacity: 0.5; }
