@@ -47,7 +47,7 @@ Make sure that all changes made here are part of the Thunar application.
     -gtk-icon-source: none; 
     background: #000000; } */
 .thunar #main-menu {
-    min-height: 24px;
+    min-height: 24px; }
 
 /*  You can enable the spin button theme by uncommenting the following! */
 /*    .thunar #main-menu > menuitem:not(#edit-menu):not(#file-menu):not(#view-menu):not(#go-menu):not(#help-menu) {
