@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg50"
+   width="320px"
+   version="1.1"
+   height="320px"
+   sodipodi:docname="chicago95_tmp_file.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="452"
+     inkscape:window-height="423"
+     id="namedview28"
+     showgrid="false"
+     inkscape:zoom="0.7375"
+     inkscape:cx="160"
+     inkscape:cy="160"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg50" />
+  <metadata
+     id="metadata54">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2" />
+  <path
+     style="fill:#000080"
+     d="M 80 100 L 80 120 L 60 120 L 60 140 L 40 140 L 40 161 L 60 161 L 60 181 L 80 181 L 80 201 L 101 201 L 101 181 L 101 180 L 101 161 L 120 161 L 121 161 L 140 161 L 141 161 L 160 161 L 161 161 L 180 161 L 181 161 L 200 161 L 200 180 L 200 181 L 200 201 L 221 201 L 221 181 L 241 181 L 241 161 L 261 161 L 261 140 L 241 140 L 241 120 L 221 120 L 221 100 L 200 100 L 200 120 L 200 121 L 200 140 L 181 140 L 180 140 L 161 140 L 160 140 L 141 140 L 140 140 L 121 140 L 120 140 L 101 140 L 101 121 L 101 120 L 101 100 L 80 100 z "
+     id="rect48" />
+</svg>

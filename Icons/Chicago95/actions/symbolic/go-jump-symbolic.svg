@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg184"
+   width="320px"
+   version="1.1"
+   height="320px"
+   sodipodi:docname="chicago95_tmp_file.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="452"
+     inkscape:window-height="423"
+     id="namedview95"
+     showgrid="false"
+     inkscape:zoom="0.7375"
+     inkscape:cx="160"
+     inkscape:cy="160"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg184" />
+  <metadata
+     id="metadata188">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2" />
+  <path
+     style="fill:#00ffff"
+     d="M 220 80 L 220 100 L 220 101 L 220 120 L 220 121 L 220 140 L 220 141 L 220 160 L 201 160 L 200 160 L 181 160 L 180 160 L 161 160 L 160 160 L 141 160 L 140 160 L 121 160 L 120 160 L 101 160 L 101 140 L 80 140 L 80 160 L 60 160 L 60 180 L 40 180 L 40 201 L 60 201 L 60 221 L 80 221 L 80 241 L 101 241 L 101 221 L 120 221 L 121 221 L 140 221 L 141 221 L 160 221 L 161 221 L 180 221 L 181 221 L 200 221 L 201 221 L 220 221 L 221 221 L 240 221 L 241 221 L 260 221 L 261 221 L 281 221 L 281 201 L 281 200 L 281 181 L 281 180 L 281 161 L 281 160 L 281 141 L 281 140 L 281 121 L 281 120 L 281 101 L 281 100 L 281 80 L 261 80 L 260 80 L 241 80 L 240 80 L 220 80 z "
+     id="rect156" />
+  <path
+     style="fill:#000000"
+     d="M 200 60 L 200 80 L 200 81 L 200 100 L 200 101 L 200 120 L 200 121 L 200 140 L 181 140 L 180 140 L 161 140 L 160 140 L 141 140 L 140 140 L 121 140 L 121 121 L 121 120 L 121 100 L 100 100 L 100 120 L 80 120 L 80 140 L 60 140 L 60 160 L 40 160 L 40 180 L 20 180 L 20 201 L 40 201 L 40 221 L 60 221 L 60 241 L 80 241 L 80 261 L 100 261 L 100 281 L 121 281 L 121 261 L 121 260 L 121 241 L 140 241 L 141 241 L 160 241 L 161 241 L 180 241 L 181 241 L 200 241 L 201 241 L 220 241 L 221 241 L 240 241 L 241 241 L 260 241 L 261 241 L 280 241 L 281 241 L 301 241 L 301 221 L 301 220 L 301 201 L 301 200 L 301 181 L 301 180 L 301 161 L 301 160 L 301 141 L 301 140 L 301 121 L 301 120 L 301 101 L 301 100 L 301 81 L 301 80 L 301 60 L 281 60 L 280 60 L 261 60 L 260 60 L 241 60 L 240 60 L 221 60 L 220 60 L 200 60 z M 221 81 L 240 81 L 241 81 L 260 81 L 261 81 L 280 81 L 280 100 L 280 101 L 280 120 L 280 121 L 280 140 L 280 141 L 280 160 L 280 161 L 280 180 L 280 181 L 280 200 L 280 201 L 280 220 L 261 220 L 260 220 L 241 220 L 240 220 L 221 220 L 220 220 L 201 220 L 200 220 L 181 220 L 180 220 L 161 220 L 160 220 L 141 220 L 140 220 L 121 220 L 120 220 L 100 220 L 100 240 L 81 240 L 81 220 L 61 220 L 61 200 L 41 200 L 41 181 L 61 181 L 61 161 L 81 161 L 81 141 L 100 141 L 100 161 L 120 161 L 121 161 L 140 161 L 141 161 L 160 161 L 161 161 L 180 161 L 181 161 L 200 161 L 201 161 L 221 161 L 221 141 L 221 140 L 221 121 L 221 120 L 221 101 L 221 100 L 221 81 z "
+     id="rect182" />
+</svg>
