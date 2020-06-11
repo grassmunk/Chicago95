@@ -377,14 +377,21 @@ class InstallGUI:
 
 	def get_files(self, from_folder, target_folder, target):		
 		theme_files = {}
-		for root, dirs, files in os.walk(from_folder, topdown=False):
+		for root, dirs, files in os.walk(from_folder):
+
+			if root[-1] != "/":
+				root = root + "/"
+
+			loc = root.find(target)
+			to_dir = root[loc+len(target):]
+
+			for folder in dirs:
+				if os.path.islink(os.path.join(root,folder)):
+					from_file = "{}{}".format(root, folder)
+					to_file = "{}{}{}".format(target_folder,to_dir, folder)
+					theme_files[from_file] = to_file
+
 			for name in files:
-				if root[-1] != "/":
-					root = root + "/"
-
-				loc = root.find(target)
-				to_dir = root[loc+len(target):]
-
 				from_file = "{}{}".format(root, name)
 				to_file = "{}{}{}".format(target_folder,to_dir, name)
 				theme_files[from_file] = to_file
