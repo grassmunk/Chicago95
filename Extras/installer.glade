@@ -719,12 +719,12 @@ Press the Finish button to exit this installation.</property>
         <property name="margin_right">15</property>
         <property name="orientation">vertical</property>
         <child>
-          <object class="GtkLabel">
+          <object class="GtkLabel" id="progress label">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">start</property>
             <property name="margin_top">20</property>
-            <property name="label" translatable="yes">Installing component:</property>
+            <property name="label" translatable="yes">Installing component: GTK Theme</property>
           </object>
           <packing>
             <property name="expand">False</property>
