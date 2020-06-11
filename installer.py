@@ -63,7 +63,7 @@ class InstallGUI:
 			statvfs.f_frsize * statvfs.f_bfree      # Actual number of free bytes
 			self.available_kb = (statvfs.f_frsize * statvfs.f_bavail) / 1024
 			self.theme_size_kb = self.folder_size(running_folder+"/Theme")
-			self.icons_size_kb = self.folder_size(running_folder+"/Icons")
+			self.icons_size_kb = self.folder_size(running_folder+"/Icons/Chicago95")
 			self.cursors_size_kb = self.folder_size(running_folder+"/Cursors")
 			self.background_size_kb = 0
 			self.sounds_size_kb = self.folder_size(running_folder+"/sounds")
@@ -123,6 +123,16 @@ class InstallGUI:
 
 		else:
 			component_page = stack.get_child_by_name('page_customizations')
+			thunar_check = self.builder.get_object('thunar')
+			if not self.install_theme:
+				self.thunar = False
+				thunar_check.set_sensitive(False)
+				thunar_check.set_active(False)
+			else:
+				self.thunar = True
+				thunar_check.set_sensitive(True)
+				thunar_check.set_active(True)
+				
 			next_button.set_label("Install")
 			
 		stack.set_visible_child(component_page)
