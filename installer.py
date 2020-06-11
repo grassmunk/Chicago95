@@ -147,7 +147,7 @@ class InstallGUI:
 	def install_chicago95(self):
 		components = "\tTheme:\t\t{}\n\tIcons:\t\t{}\n\tCursors:\t{}\n\tBackground:\t{}\n\tSounds:\t\t{}\n\tFonts:\t\t{}".format(self.install_theme, self.install_icons, self.install_cursors, self.install_background, self.install_sounds, self.install_fonts)
 		customizations = "\tThunar Graphics:\t{}\n\tChange Terminal Colors:\t{}\n\tSet Bash Prompt:\t{}\n\tSet zsh promt/theme:\t{}\n\tCustomize Panel:\t{}".format(self.thunar, self.terminal_colors, self.bash, self.zsh, self.panel)
-
+		self.progress_label_sections = []
 		print("Installing Chicago 95 with the following options:\n Components:\n {}\n Customizations:\n {}".format(components, customizations))
 		self.copy_files = {}
 		if self.install_theme:
@@ -155,26 +155,33 @@ class InstallGUI:
 			Path(os.path.expanduser("~/.themes")).mkdir(parents=True, exist_ok=True)
 			self.copy_files.update(self.get_files(running_folder+"/Theme/Chicago95/", os.path.expanduser("~/.themes"), "Theme"))
 			self.copy_files["install_theme"] = self.install_theme
+			self.progress_label_sections.append("GTK Theme")
 		if self.install_icons:
 			Path(os.path.expanduser("~/.icons")).mkdir(parents=True, exist_ok=True)
 			self.copy_files.update(self.get_files(running_folder+"/Icons/Chicago95/", os.path.expanduser("~/.icons"), "Icons"))
 			self.copy_files["install_icons"] = self.install_icons
+			self.progress_label_sections.append("Icons")
 		if self.install_cursors:
 			Path(os.path.expanduser("~/.icons")).mkdir(parents=True, exist_ok=True)
 			self.copy_files.update(self.get_files(running_folder+"/Cursors/", os.path.expanduser("~/.icons"), "Cursors"))
 			self.copy_files["install_cursors"] = self.install_cursors
+			self.progress_label_sections.append("Cursors")
 		if self.install_background:
 			self.copy_files["install_background"] = self.install_background
+			self.progress_label_sections.append("Background")
 		if self.install_sounds:
 			Path(os.path.expanduser("~/.local/share/sounds")).mkdir(parents=True, exist_ok=True)
 			self.copy_files.update(self.get_files(running_folder+"/sounds/Chicago95/", os.path.expanduser("~/.local/share/sounds"), "sounds"))
 			self.copy_files["install_sounds"] = self.install_sounds
+			self.progress_label_sections.append("Sounds")
 		if self.install_fonts:
 			Path(os.path.expanduser("~/.fonts")).mkdir(parents=True, exist_ok=True)
 			self.copy_files.update(self.get_files(running_folder+"/Fonts/", os.path.expanduser("~/.fonts"), "Fonts"))
 			self.copy_files["install_fonts"] = self.install_fonts
+			self.progress_label_sections.append("Fonts")
 		if self.thunar:
 			self.copy_files["thunar"] = self.thunar
+			self.progress_label_sections.append("Thunar Spinner")
 		if self.terminal_colors:
 			Path(os.path.expanduser("~/.local/share/xfce4/terminal/colorschemes")).mkdir(parents=True, exist_ok=True)
 			Path(os.path.expanduser("~/.config/xfce4/terminal/")).mkdir(parents=True, exist_ok=True)
@@ -183,16 +190,23 @@ class InstallGUI:
 			if os.path.exists(os.path.expanduser("~/.config/xfce4/terminal/terminalrc")):
 				shutil.copyfile(os.path.expanduser("~/.config/xfce4/terminal/terminalrc"),os.path.expanduser("~/.config/xfce4/terminal/backup.terminalrc.chicago95"))
 			self.copy_files["terminal_colors"] = self.terminal_colors
+			self.progress_label_sections.append("Terminal Colors")
 		if self.bash:
 			self.copy_files["bash"] = self.bash
+			self.progress_label_sections.append("Bash Prompt")
 		if self.zsh:
 			self.copy_files["zsh"] = self.zsh
+			self.progress_label_sections.append("Zsh Prompt")
 		if self.panel:
 			self.copy_files["panel"] = self.panel
+			self.progress_label_sections.append("Panel")
 
+		self.progres_label_names = iter(self.progress_label_sections)
 		self.window_installer.hide()
 		self.progress_bar = self.builder.get_object('progress bar')
 		self.progress_label = self.builder.get_object('progress file')
+		self.progress_label_component = self.builder.get_object('progress label')
+		self.progress_label_component.set_label("Installing component: {}".format(next(self.progres_label_names)))
 		first_file_name = list(self.copy_files.keys())[0].split("/")[-1]
 		self.progress_label.set_label(first_file_name)
 		self.progress_bar.set_fraction(0.0)
@@ -205,6 +219,7 @@ class InstallGUI:
 	def install(self):
 		i = 0.0
 		print("Installing Chicago 95")
+
 		for from_file in self.copy_files:
 			self.progress_label.set_label(from_file.split("/")[-1])
 			i += 1.0
@@ -233,6 +248,7 @@ class InstallGUI:
 					self.xfconf_query("xfwm4","/general/show_popup_shadow","false")
 					self.xfconf_query("xfwm4","/general/title_shadow_active","false")
 					self.xfconf_query("xfwm4","/general/title_shadow_inactive","false")
+					self.change_component_label()
 
 				elif from_file == "install_icons" and self.copy_files["install_icons"]:
 					print("Enabling Icons in XFCE4")
@@ -241,6 +257,7 @@ class InstallGUI:
 					self.xfconf_query('xfce4-desktop','/desktop-icons/file-icons/show-filesystem', 'true')
 					self.xfconf_query('xfce4-desktop','/desktop-icons/file-icons/show-home', 'true')
 					self.xfconf_query('xfce4-desktop','/desktop-icons/file-icons/show-trash','true')
+					self.change_component_label()
 				elif from_file == "install_background" and self.copy_files["install_background"]:
 					print("Changing background")
 					r = "{:6f}".format(0/255)
@@ -266,17 +283,21 @@ class InstallGUI:
 							subprocess.check_call(args, stdout=subprocess.DEVNULL)	
 						except:
 							print("Could not update background. Set your background manually to #008080")
+					self.change_component_label()
 
 				elif from_file == "install_cursors" and self.copy_files["install_cursors"]:
 					print("Enabling Cursors in XFCE4")
 					self.xfconf_query('xsettings', '/Gtk/CursorThemeName', "Chicago95 Standard Cursors")
+					self.change_component_label()
 				elif from_file == "install_sounds" and self.copy_files["install_sounds"]:
 					print("Enabling Sounds in XFCE4")
 					self.xfconf_query('xsettings', '/Net/EnableEventSounds', "true")
 					self.xfconf_query('xsettings', '/Net/EnableInputFeedbackSounds', "true")
 					self.xfconf_query('xsettings', '/Net/SoundThemeName', "Chicago95")
+					self.change_component_label()
 				elif from_file == "install_fonts" and self.copy_files["install_fonts"]:
 					print("Enabling Fonts in XFCE4")
+					self.change_component_label()
 					# LOL this is a lie we don't have to do anything
 				elif from_file == "thunar" and self.copy_files["thunar"]:
 					if os.path.exists(os.path.expanduser("~/.themes/Chicago95/gtk-3.24/apps/thunar.css")):
@@ -302,8 +323,10 @@ class InstallGUI:
 						nfileh.close()
 					else:
 						print("Chicago95 theme not installed, cannot modify thunar")
+					self.change_component_label()
 				elif from_file == "terminal_colors" and self.copy_files["terminal_colors"]:
 					print("Enabling Terminal color theme")
+					self.change_component_label()
 					# This is done through the copy/paste of terminalrc
 				elif from_file == "bash" and self.copy_files["bash"]:
 					print("Enabling bash prompt")
@@ -319,6 +342,7 @@ class InstallGUI:
 						bashrc_out = open(os.path.expanduser("~/.bashrc"), "w")
 						bashrc_out.write(prompts)
 						bashrc_out.close()
+					self.change_component_label()
 		
 				elif from_file == "zsh" and self.copy_files["zsh"]:
 					if os.path.exists(os.path.expanduser("~/.oh-my-zsh")):
@@ -340,10 +364,13 @@ class InstallGUI:
 						nfileh.close()
 					else:
 						print("Oh my zsh not installed, cannot install theme")
+					self.change_component_label()
 				elif from_file == "panel" and self.copy_files["panel"]:
 					print("Generating XFCE panel")
 					#xfce4-panel-profiles load Extras/Chicago95_Panel_Preferences.tar.bz2
 					subprocess.check_call(["xfce4-panel-profiles", "load", running_folder+"/Extras/Chicago95_Panel_Preferences.tar.bz2"], stdout=subprocess.DEVNULL)
+					self.change_component_label()
+					
 			gc.collect()
 			yield True
 
@@ -358,7 +385,15 @@ class InstallGUI:
 		GLib.source_remove(self.id)
 		subprocess.Popen(["mousepad", running_folder+"/Extras/post_install.txt"])
 		yield False
-			
+
+
+	def change_component_label(self):
+		try:
+			self.progress_label_component.set_label("Installing component: {}".format(next(self.progres_label_names)))
+		except:
+			pass
+
+
 	def xfconf_query(self, channel, prop, new_value):
 		xfconf_query_path = subprocess.check_output(["which", "xfconf-query"]).strip()
 		print("Changing xfconf setting {}/{} to {}".format(channel, prop, new_value))
