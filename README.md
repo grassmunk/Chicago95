@@ -28,6 +28,8 @@ A Window compositor
 
 (If your are using an older desktop that uses GTK3.18, you can use [this forked version of the theme.](https://github.com/EMH-Mark-I/Chicago95-Custom-XUbuntu-16.04-))
 
+-----
+
 ## Install the system theme
 [Click here](INSTALL.md) for install steps.
 
@@ -36,9 +38,6 @@ A Window compositor
 
 ## Install the Plymouth boot splash theme
 [Click here](Plymouth/Readme.md) for install steps.
-
-## Install the LightDM login manager theme
-[Click here](Lightdm/Chicago95/README.md) for install steps.
 
 ## KDE Support (experimental)
 - SDDM Logon Manager:: Click `Install from file...` in Loggin Screen (SDDM) manager. Select `SDDM/Chicago95.tar.gz` to install the theme. 
