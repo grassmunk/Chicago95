@@ -54,8 +54,8 @@ Make sure that all changes made here are part of the Thunar application.
       background-color: black;
       border-left: 1px solid @bg_shade;
       box-shadow: inset 1px 0px @bg_bright;
-      min-width: 21px;
-      min-height: 17px;
+      min-width: 24px;
+      min-height: 24px;
       background-image: url("../assets/status_badge_c95.png");
       background-repeat: no-repeat;
       background-position: center;

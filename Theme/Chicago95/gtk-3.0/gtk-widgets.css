@@ -493,13 +493,11 @@ spinner {
   background: none;
   opacity: 0;
   -gtk-icon-source: url("assets/hglass_f1.png"); }
-
-spinner:backdrop {
-  color: @bg_color; }
-
-spinner:checked {
-  opacity: 1;
-  animation: spin 2s steps(20) infinite; }
-
-spinner:checked:disabled {
-  opacity: 0.5; }
+  spinner:backdrop {
+    color: @bg_color; }
+  spinner:checked {
+    opacity: 1;
+    animation: spin 2s steps(20) infinite; }
+  spinner:checked:disabled {
+    opacity: 0.5;
+    -gtk-icon-shadow: none; }
