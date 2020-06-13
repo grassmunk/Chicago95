@@ -29,7 +29,7 @@ button.titlebutton {
 .titlebutton.close,
 .titlebutton.maximize,
 .titlebutton.minimize {
-  color: transparent;
+  color: @bg_dark;
   border: none;
   box-shadow: none;
   padding: 0px;
@@ -37,39 +37,41 @@ button.titlebutton {
   background-color: transparent;
   min-width: 18px;
   min-height: 18px;
-  -gtk-icon-shadow: none; }
+  background-image: url("buttons/window_button_normal.png");
+  -gtk-icon-shadow: none;
+  -gtk-icon-style: requested; }
 
 .titlebutton.minimize {
-  background-image: url("buttons/minimize_normal.png"); }
+  background-image: url("buttons/window_button_normal.png"); }
   .titlebutton.minimize:backdrop {
-    background-image: url("buttons/minimize_normal.png"); }
+    background-image: url("buttons/window_button_normal.png"); }
   .titlebutton.minimize:checked,
   .titlebutton.minimize:active {
-    background-image: url("buttons/minimize_pressed.png"); }
+    background-image: url("buttons/window_button_pressed.png"); }
 
 .titlebutton.maximize {
-  background-image: url("buttons/maximize_normal.png"); }
+  background-image: url("buttons/window_button_normal.png"); }
   .titlebutton.maximize:backdrop {
-    background-image: url("buttons/maximize_normal.png"); }
+    background-image: url("buttons/window_button_normal.png"); }
   .titlebutton.maximize:checked,
   .titlebutton.maximize:active {
-    background-image: url("buttons/maximize_pressed.png"); }
+    background-image: url("buttons/window_button_pressed.png"); }
 
 .maximized .titlebutton.maximize  {
-  background-image: url("buttons/restore_normal.png"); }
+  background-image: url("buttons/window_button_normal.png"); }
   .maximized .titlebutton.maximize:backdrop {
-    background-image: url("buttons/restore_normal.png"); }
+    background-image: url("buttons/window_button_normal.png"); }
   .maximized .titlebutton.maximize:checked,
   .maximized .titlebutton.maximize:active  {
-    background-image: url("buttons/restore_pressed.png"); }
+    background-image: url("buttons/window_button_pressed.png"); }
 
 .titlebutton.close {
-  background-image: url("buttons/close_normal.png"); }
+  background-image: url("buttons/window_button_normal.png"); }
   .titlebutton.close:backdrop {
-    background-image: url("buttons/close_normal.png"); }
+    background-image: url("buttons/window_button_normal.png"); }
   .titlebutton.close:checked,
   .titlebutton.close:active {
-    background-image: url("buttons/close_pressed.png"); }
+    background-image: url("buttons/window_button_pressed.png"); }
 
 /* Groups these buttons together */
 .titlebutton.minimize {
