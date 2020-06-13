@@ -62,13 +62,11 @@ Complete:
 <img src="Screenshots/installer/installer_04.png" alt="Chicago95 Desktop"/>
 </p>
 
-The following installation steps will require that you enable the `view hidden folders` option in your file manager to see hidden files.
-
 <a name="install_single"/>
 
 ### [ Single user install ]
 
-If you intend to install the theme system-wide, then following the single user install process isn't necessary.
+The following installation steps will require that you enable the `view hidden folders` option in your file manager to see hidden files.
 
 #### Step 1: Prepare theme and icon directories
 
@@ -92,11 +90,13 @@ Copy the icon themes from `Chicago95-master/Icons/` folder into `.icons`.
 
 #### Step 3:
 
-After copying the theme files into their appropriate places, you might need to log out then log back in for any changes to take places.
+After copying the theme files into their appropriate places, you might need to log out then log back in for any changes to take places. Check out ["Enabling The Theme"](#config_theme) if you need help with setup.
 
 <a name="install_system"/>
 
 ### [ System-wide install ] (optional)
+
+The following installation steps will require that you enable the `view hidden folders` option in your file manager to see hidden files.
 
 Copy the GTK theme from `Chicago95-master/Theme/` folder into `/usr/share/themes/`.
 
@@ -153,7 +153,7 @@ For further tuning of QT5 with the Chicago95 GTK theme, read [QT5 theme configra
 
 The following steps will guide you through configuring the XFCE4 panelbar to resemble the taskbar seen in MS Windows 95. Some options seen in the following steps may not be present across all versions of the XFCE desktop environment and can vary between different Linux/Unix-like operating systems.
 
-*The following steps are written from the perspective of XUbuntu 18.04 and 19.04.*
+*The following steps are written from the perspective of XFCE4 Version 4.14.*
 
 <a name="horiz_panel"/>
 
@@ -177,7 +177,7 @@ Below outlines the manual process to set this all up. This process can be automa
 - Disable the icons setting "Adjust size automatically" (*this option is only available for the 4.14 version panelbar*)
 - Set "Fixed Icon Size" to 16. (*this option is only available for the 4.14 version panelbar*)
 
-*Note: For 4.12 version panelbar users, if you want to adjust the icon scaling of your launcher buttons, see [Launcher button icon scaling](#button_scale)*
+*Note: For 4.12 version panelbar users, if you want to adjust the icon scaling of your launcher buttons to a 16px icon, see [Launcher button icon scaling](#button_scale)*
 
 #### Step 3: Adding panelbar plugins
 
@@ -193,8 +193,8 @@ Here's an organized list for the panel Items plugin layout.
 6. Window Buttons (*Uncheck "Show flat buttons" and "Show Handle.;" Sorting Order: None; Window grouping: Never*);
 7. Separator (*Transparent with Expanding enabled*);
 8. Separator (*Handle Style*);
-9. Indicator Plugin and Notification Area plugin (*19px max icon size preferred; also uncheck "Show frame"*);
-10. Orage Panel Clock. (*Enable check box “Show frame” and replace the text in “Line 1” with %I:%M %p*)
+9. Indicator Plugin and Notification Area plugin (*16px max icon size preferred; also uncheck "Show frame"*);
+10. Orage Panel Clock for XFCE 4.12 (not required for 4.14). (*Enable check box “Show frame” and replace the text in “Line 1” with %I:%M %p*)
 
 <a name="vert_panel"/>
 
@@ -216,7 +216,7 @@ Here's an organized list for the panel Items plugin layout.
 - Disable the icons setting "Adjust size automatically" (*this option is only available for the 4.14 version panelbar*)
 - Set "Fixed Icon Size" to 16. (*this option is only available for the 4.14 version panelbar*)
 
-*Note: For 4.12 panelbar users, if you want to adjust the icon scaling of your launcher buttons, see [Launcher button icon scaling](#button_scale)*
+*Note: For 4.12 panelbar users, if you want to adjust the icon scaling of your launcher buttons to a 16px icon, see [Launcher button icon scaling](#button_scale)*
 
 #### Step 3: Adding panelbar plugins
 
@@ -232,7 +232,7 @@ Here's an organized list for the panel Items plugin layout.
 6. Window Buttons (*Uncheck "Show button labels," "Show flat buttons," and "Show Handle;" Sorting Order: None; Window grouping: Never*);
 7. Separator (*Transparent with Expanding enabled*);
 8. Separator (*Handle Style*);
-9. Indicator Plugin and Notification Area plugin (*19px max icon size preferred; also uncheck "Show frame"*);
+9. Indicator Plugin and Notification Area plugin (*16px max icon size preferred; also uncheck "Show frame"*);
 10. If you set the panelbar row number to 1, you'll might want to go without a panelclock. Orage Panel Clock or the normal panel clock plugin will look nice. (*If using Orage, enable check box “Show frame” and replace the text in “Line 1” with %H:%M %p.*)
 
 [[Return to Index]](#index)
@@ -325,11 +325,12 @@ If you use a vertical deskbar, you could add a second row from the panel propert
 
 ### [ Thunar status indicator ] (for XFCE 4.14)
 
-The thunar status indicator can be modified on line 51 in `/home/$USER/.themes/Chicago95/gtk-3.24/apps/thunar.css`. Uncomment the code down to line 62.
+The thunar status indicator can be modified on line 59 in `/home/$USER/.themes/Chicago95/gtk-3.24/apps/thunar.css`. Uncomment the code from line 53 to line 64.
 
 You can replace `status_badge_c95.png` with four of the following images.
 
 - `status_badge_c95.png`
+- `status_badge_ie.png`
 - `status_badge_msw.png`
 - `status_badge_tux.png`
 - `status_badge_xue.png`
@@ -466,11 +467,12 @@ We now need to install the MS Sans Serif fonts, as well as their font configurat
 - Copy `Extras/99-ms-sans-serif.conf` and `Extras/99-ms-sans-serif-bold.conf` to `/etc/fonts/conf.d`
 - Update the font cache by running `sudo fc-cache -f -v`
 
-To set the main font for the entire system, open the XFCE settings manager > Appearance > Fonts tab.  Set the "Default font" to Microsoft Sans Serif, style Regular, size 8.
-
-To set the title bar font, open the XFCE settings manager > Window Manager > Style tab.  Set the "Title font" to Microsoft Sans Serif, style Bold, size 8.
-
-Finally, set the font for the Orage panel clock by right-clicking the panel clock, selecting Properties, then next to Line 1, change the font to Microsoft Sans Serif, style Regular, size 8.  Inside the Line 1 box, add two spaces before and after the value in the box, to apply some spacing.
+#### Enabling the font: ####
+- Open the XFCE settings manager > Appearance > Fonts tab.
+- Set the "Default font" to "Microsoft Sans Serif Regular" size 8.
+- Open the XFCE settings manager > Window Manager.
+- Set the "Title font" to Microsoft Sans Serif Bold" size 8.
+- For XFCE 4.12 users, you can set the font for the Orage panel clock by right-clicking the panel clock, selecting Properties, then next to Line 1, change the font to Microsoft Sans Serif, style Regular, size 8.  Inside the Line 1 box, add two spaces before and after the value in the box, to apply some spacing.
 
 [[Return to Index]](#index)
 
