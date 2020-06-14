@@ -37,7 +37,7 @@ Type=Fixed
 
 [actions/scalable]
 Size=48
-MinSize=32
+MinSize=16
 MaxSize=256
 Context=Actions
 Type=Scalable
