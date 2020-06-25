@@ -19,7 +19,7 @@
   -GtkTextView-error-underline-color: @error_color;
   -GtkToolButton-icon-spacing: 6;
   -GtkToolItemGroup-expander-size: 8;
-  -GtkTreeView-expander-size: 18;
+  -GtkTreeView-expander-size: 16;
   -GtkWindow-resize-grip-default: true;
   -GtkWindow-resize-grip-height: 16;
   -GtkWindow-resize-grip-width: 16;
@@ -182,7 +182,13 @@ expander arrow {
     background-image: url("assets/arrow-down-selected.png"); }
 
 treeview.view.expander {
-  -gtk-icon-transform: scale(0.55); } /* NOTE: This sets the treeview expander arrow size within the expander button area. */
+ -gtk-icon-source: url("assets/expander_plus.png"); }
+  treeview.view.expander:selected {
+    -gtk-icon-source: url("assets/expander_plus_highlight.png"); }
+  treeview.view.expander:checked {
+    -gtk-icon-source: url("assets/expander_minus.png"); }
+  treeview.view.expander:checked:selected {
+    -gtk-icon-source: url("assets/expander_minus_highlight.png"); }
 
 /************
  * iconview *

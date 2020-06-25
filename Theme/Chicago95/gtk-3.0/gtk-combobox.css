@@ -20,7 +20,7 @@ combobox {
     margin-right: 2px;
     margin-left: 2px;
     min-width: 16px;
-    min-height: 16px; }
+    min-height: 15px; } /* Set to 15px to prevent scaling issues with arrow icon. */
     combobox button:active,
     combobox button:checked {
       border-color: @border_shade;
@@ -29,9 +29,7 @@ combobox {
     padding-left: 0px; }
 
 /* The default cellview top or bottom margin will affect the arrow icon scaling in the combobox button. To resolve this, we will add a negative margin. */ 
-combobox button cellview {
-  margin-bottom: -1px;
-  padding-left: 1px; }
+
 
 /* Combobox entry */
 combobox entry {
@@ -70,12 +68,15 @@ combobox window menu {    /* The combobox window menu is included for sub-menus 
     padding-right: 2px;    /* Need padding on the right to keep menuitem images from touching the border. */
     min-height: 16px; }
 
+
 /* Combobox arrows */
 combobox arrow {
   -gtk-icon-source: url("assets/vcl-combobox-arrow-down.png");
+  margin-bottom: -1px; 
   min-width: 16px;
   min-height: 16px; } /* 16px icons only or else Libreoffice will distort the icon. */
   combobox:disabled arrow:disabled {
+  margin-bottom: -1px; 
   min-width: 16px;
   min-height: 16px;
   -gtk-icon-source: url("assets/vcl-combobox-arrow-down-disabled.png");
@@ -84,16 +85,18 @@ combobox arrow {
   combobox > box > button > box > arrow {
     background-image: url("assets/vcl-combobox-arrow-down.png");
     background-repeat: no-repeat;
-    background-position: 0px 0px;
+    background-position: 50% 50%;
     background-size: 16px 16px;
+    margin-bottom: -1px; 
     min-width: 16px;
     min-height: 16px;
     -gtk-icon-source: none; }
     combobox:disabled > box > button > box > arrow:disabled {
       background-image: url("assets/vcl-combobox-arrow-down-disabled.png");
       background-repeat: no-repeat;
-      background-position: 0px 0px;
+      background-position: 50% 50%;
       background-size: 16px 16px;
+      margin-bottom: -1px; 
       min-width: 16px;
       min-height: 16px;
-      -gtk-icon-source: none; }
+-gtk-icon-source: none; }
