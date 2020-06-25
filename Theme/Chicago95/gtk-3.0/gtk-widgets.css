@@ -182,13 +182,16 @@ expander arrow {
     background-image: url("assets/arrow-down-selected.png"); }
 
 treeview.view.expander {
- -gtk-icon-source: url("assets/expander_plus.png"); }
+  -gtk-icon-palette: default;
+  -gtk-icon-source: -gtk-icontheme('pan-right-symbolic'); }
   treeview.view.expander:selected {
-    -gtk-icon-source: url("assets/expander_plus_highlight.png"); }
+    color: @selected_fg_color;
+    -gtk-icon-source: -gtk-icontheme('pan-right-symbolic'); }
   treeview.view.expander:checked {
-    -gtk-icon-source: url("assets/expander_minus.png"); }
+    -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
   treeview.view.expander:checked:selected {
-    -gtk-icon-source: url("assets/expander_minus_highlight.png"); }
+    color: @selected_fg_color;
+    -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
 
 /************
  * iconview *
