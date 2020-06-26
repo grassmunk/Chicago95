@@ -6,9 +6,6 @@
 #### RetroTux Plymouth boot screen
 ![alt text](retrotux.png "RetroTux Plymouth Boot Splash")
 
-#### LightDM login manager theme
-![alt text](lightdm_theme.png "LightDM")
-
 #### Desktop screenshots
 ![alt text](Desktop0.png "Desktop")
 
@@ -22,8 +19,9 @@
 
 ![alt text](Desktop4.png "Desktop4")
 
-#### Widget Factory screenshots
+#### XFCE4 Screensaver lock screen
 
-![alt text](awf-gtk2.png "awf-gtk2")
+![alt text](lock_screen.png "Screensaver lock")
 
-![alt text](awf-gtk3.png "awf-gtk3")
+#### LightDM login manager theme
+![alt text](lightdm_theme.png "LightDM")
