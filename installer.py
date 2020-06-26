@@ -405,15 +405,30 @@ class InstallGUI:
 
 
 	def xfconf_query(self, channel, prop, new_value):
-		xfconf_query_path = subprocess.check_output(["which", "xfconf-query"]).strip()
-		print("Changing xfconf setting {}/{} to {}".format(channel, prop, new_value))
-		args = [
-			xfconf_query_path,
-			"--channel", channel,
-			"--property", prop,
-			"--set", new_value
-			]
-		subprocess.check_call(args, stdout=subprocess.DEVNULL)	
+
+		try:
+			xfconf_query_path = subprocess.check_output(["which", "xfconf-query"]).strip()
+			print("Changing xfconf setting {}/{} to {}".format(channel, prop, new_value))
+			args = [
+				xfconf_query_path,
+				"--channel", channel,
+				"--property", prop,
+				"--set", new_value
+				]
+			subprocess.check_call(args, stdout=subprocess.DEVNULL)
+
+		except subprocess.CalledProcessError:
+
+			xfconf_query_path = subprocess.check_output(["which", "xfconf-query"]).strip()
+			print("Changing xfconf setting {}/{} to {}".format(channel, prop, new_value))
+			args = [
+				xfconf_query_path,
+				"--channel", channel,
+				"--property", prop,
+				"--create",
+				"--set", new_value
+				]
+			subprocess.check_call(args, stdout=subprocess.DEVNULL)	
 		
 	def cancel_install(self, button):
 		print("cancelling install")
