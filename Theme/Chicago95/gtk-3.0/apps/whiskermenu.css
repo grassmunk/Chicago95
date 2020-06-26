@@ -96,11 +96,11 @@ the whisker menu without having to correct their pointer location. */
    Inkscape
 */
 /*    background-image: url("../assets/branding_W95.png"); */
-    background-image: url("../assets/branding_W95-orig.png");
+/*    background-image: url("../assets/branding_W95-orig.png"); */
 /*    background-image: url("../assets/branding_L95.png"); */
 /*    background-image: url("../assets/branding_L95_aliased.png"); */
 /*    background-image: url("../assets/branding_C95.png"); */
-/*    background-image: url("../assets/branding_C95_aliased.png"); */
+    background-image: url("../assets/branding_C95_aliased.png");
     background-repeat: no-repeat;
     background-position: 0% 100%; }
     #whiskermenu-window frame > stack,
