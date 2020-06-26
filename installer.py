@@ -425,7 +425,7 @@ class InstallGUI:
 				xfconf_query_path,
 				"--channel", channel,
 				"--property", prop,
-				"--create",
+				"--create", "--type", "string",
 				"--set", new_value
 				]
 			subprocess.check_call(args, stdout=subprocess.DEVNULL)	
