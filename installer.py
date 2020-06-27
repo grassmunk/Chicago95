@@ -417,9 +417,15 @@ class InstallGUI:
 
 
 	def xfconf_query(self, channel, prop, new_value):
-
+		
 		try:
 			xfconf_query_path = subprocess.check_output(["which", "xfconf-query"]).strip()
+		except:
+			print("Warning: xfconf-query not installed, cannot auto-enable theme. Use your distros theme management to install Chicago95")
+			return
+
+		try:
+
 			print("Changing xfconf setting {}/{} to {}".format(channel, prop, new_value))
 			args = [
 				xfconf_query_path,
@@ -431,7 +437,6 @@ class InstallGUI:
 
 		except subprocess.CalledProcessError:
 
-			xfconf_query_path = subprocess.check_output(["which", "xfconf-query"]).strip()
 			print("Changing xfconf setting {}/{} to {}".format(channel, prop, new_value))
 			args = [
 				xfconf_query_path,
