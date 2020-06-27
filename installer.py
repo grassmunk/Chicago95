@@ -38,6 +38,7 @@ class InstallGUI:
 		self.progress_window.connect('delete-event', lambda x,y: Gtk.main_quit())
 		window.show_all()
 		self.window_installer.show_all()
+		print("Installer running from: " + running_folder)
 
 	def set_style(self):
 		# From https://gist.github.com/carlos-jenkins/8923124
@@ -124,6 +125,7 @@ class InstallGUI:
 		else:
 			component_page = stack.get_child_by_name('page_customizations')
 			thunar_check = self.builder.get_object('thunar')
+			panel_check = self.builder.get_object('panel')
 			if not self.install_theme:
 				self.thunar = False
 				thunar_check.set_sensitive(False)
@@ -132,6 +134,11 @@ class InstallGUI:
 				self.thunar = True
 				thunar_check.set_sensitive(True)
 				thunar_check.set_active(True)
+
+			if not self.check_xfce_panel():
+				self.panel = False
+				panel_check.set_sensitive(False)
+				panel_check.set_active(False)
 				
 			next_button.set_label("Install")
 			
@@ -377,6 +384,7 @@ class InstallGUI:
 					self.change_component_label()
 				elif from_file == "panel" and self.copy_files["panel"]:
 					print("Generating XFCE panel")
+					print("Installing Panel config from: "+ running_folder +"/Extras/Chicago95_Panel_Preferences.tar.bz2")
 					#xfce4-panel-profiles load Extras/Chicago95_Panel_Preferences.tar.bz2
 					subprocess.check_call(["xfce4-panel-profiles", "load", running_folder+"/Extras/Chicago95_Panel_Preferences.tar.bz2"], stdout=subprocess.DEVNULL)
 					self.change_component_label()
@@ -429,7 +437,18 @@ class InstallGUI:
 				"--set", new_value
 				]
 			subprocess.check_call(args, stdout=subprocess.DEVNULL)	
-		
+
+	def check_xfce_panel(self):	
+
+		try:
+			xfce_panel = subprocess.check_output(["which", "xfce4-panel-profiles"]).strip()
+		except subprocess.CalledProcessError:
+			print("WARNING! xfce4-panel-profiles not installed, manual panel installation required. View INSTALL.md.")
+			return False
+		return True
+
+
+
 	def cancel_install(self, button):
 		print("cancelling install")
 		Gtk.main_quit()
