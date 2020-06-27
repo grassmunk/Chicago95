@@ -9,7 +9,6 @@ import subprocess
 import time
 
 from pathlib import Path
-from pprint import pprint
 import shutil
 
 
@@ -50,7 +49,7 @@ class InstallGUI:
 		Gtk.StyleContext.add_provider_for_screen( screen, provider, GTK_STYLE_PROVIDER_PRIORITY_APPLICATION )
 
 	def on_window_destroy(self, window):
-		print("closing window")
+		print("Closing Window")
 		Gtk.main_quit()
 		return False
 
@@ -93,7 +92,7 @@ class InstallGUI:
 			return
 		
 		if next_button.get_label() == "Finish":
-			print("Install completed")
+			print("Install Completed! Enjoy Chicago95!")
 			Gtk.main_quit()
 			return False
 
@@ -127,18 +126,23 @@ class InstallGUI:
 			thunar_check = self.builder.get_object('thunar')
 			panel_check = self.builder.get_object('panel')
 			if not self.install_theme:
-				self.thunar = False
+				print('[THUNAR] Warning: GTK Theme not selected, cannot install Thunar status bar image')
+				thunar_check.set_tooltip_text("Warning: GTK Theme not selected, cannot install Thunar status bar image")
 				thunar_check.set_sensitive(False)
 				thunar_check.set_active(False)
+				self.thunar = False
 			else:
-				self.thunar = True
+				thunar_check.set_tooltip_text("Enables the Thunar status bar image")
 				thunar_check.set_sensitive(True)
 				thunar_check.set_active(True)
+				self.thunar = True
 
 			if not self.check_xfce_panel():
-				self.panel = False
+				print("[PANEL] Warning: xfce4-panel-profiles not installed, manual panel installation required. See INSTALL.md")
+				panel_check.set_tooltip_text("Warning: xfce4-panel-profiles not installed, manual panel installation required. See INSTALL.md")
 				panel_check.set_sensitive(False)
 				panel_check.set_active(False)
+				self.panel = False
 				
 			next_button.set_label("Install")
 			
@@ -443,14 +447,13 @@ class InstallGUI:
 		try:
 			xfce_panel = subprocess.check_output(["which", "xfce4-panel-profiles"]).strip()
 		except subprocess.CalledProcessError:
-			print("WARNING! xfce4-panel-profiles not installed, manual panel installation required. View INSTALL.md.")
 			return False
 		return True
 
 
 
 	def cancel_install(self, button):
-		print("cancelling install")
+		print("Cancelling Install")
 		Gtk.main_quit()
 		return False
 
