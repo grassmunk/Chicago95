@@ -2,19 +2,58 @@
 # Author: Grassmunk
 # License: GPL-3.0+
 # Changed slightly from Redmond to allow for a 
-# slight modification to the inactive bar colors.
+# Rewritten 2020 to match whats happening in Windows 95 
 
-active_border_color=#000000
+#activetitle
+active_color_1=#000080
+active_color_2=#000080
+
+#inactivetitle
+inactive_color_1=#808080
+inactive_color_2=#808080
+
+#activetext
+active_text_color=#ffffff
+
+#inactivetext
+inactive_text_color=#C0C0C0
+
+#buttonface
+active_mid_1=#C0C0C0
+inactive_mid_1=#C0C0C0
+
+#buttonLight
+active_hilight_1=#DFDFDF
+inactive_hilight_1=#DFDFDF
+
+#buttonhilight
+active_hilight_2=#ffffff
+inactive_hilight_2=#ffffff
+
+#activeborder
+active_border_color=#C0C0C0
+inactive_border_color=#C0C0C0
+
+#buttonShadow
+active_shadow_2=#808080
+inactive_shadow_2=#808080
+
+#buttonDKShadow
+active_shadow_1=#000000
+inactive_shadow_1=#000000
+
+#buttontext
+active_mid_2=#000000
+inactive_mid_2=#000000
+
 button_layout=O|HMC
 button_offset=1
 button_spacing=0
 full_width_title=true
-inactive_border_color=#000000
 maximized_offset=2
 show_app_icon=true
 title_alignment=left
 title_horizontal_offset=2
 title_vertical_offset_active=1
 title_vertical_offset_inactive=1
-inactive_text_color=#C0C0C0
-inactive_color_1=#808080
+

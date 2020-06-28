@@ -1,0 +1,62 @@
+/************
+ * treeview *
+ ************/
+
+/*
+   Contributor notes:
+   Please use two space indentions.
+   Stack all related and child selectors and selector states into a logical hierarchy to a readable degree.
+   Make sure that all changes made here are part of the GtkTreeview.
+*/
+
+treeview {
+  -GtkTreeView-vertical-separator: 0;
+  outline-width: 1px;
+  outline-offset: 1px;
+  padding: 2px;
+  -gtk-icon-style: regular; }
+
+/* outline effects in treeviews are causing issues with the interface expanding on focus and strange graphical artifacts that will stay around. */
+treeview {
+  outline: none; }
+
+treeview.dnd {
+  border-width: 1px;
+  border-style: solid;
+  border-color: @theme_selected_bg_color;
+  border-radius: 0; }
+
+/* treeview misbehaves if we only define selection/focus globally, so we’ll specify it here. */
+treeview:selected,
+treeview:selected:focus {
+  background-color: @theme_selected_bg_color;
+  color: @theme_selected_fg_color; }
+
+scrolledwindow treeview check,
+scrolledwindow treeview radio,
+scrolledwindow treeview check:checked,
+scrolledwindow treeview radio:checked {
+  padding: 0px; }
+
+treeview entry {
+  border-radius: 0;
+  background-color: @theme_base_color;
+  background-image: none; }
+
+/* This creates the treeview border path for expanded items. */
+treeview.view {
+  padding: 0px;
+  padding-left: 1px;
+  border-left-color: @border_shade;
+  border-top-color: @border_shade; }
+treeview.view:selected {
+  border-left-color: @border_bright; }
+
+/* Hey Windows95 didn't have arrows in the headerbar either! */
+treeview.view image {
+  color: transparent; }
+
+/* Have to specify this or else bad things happen! */
+treeview.view.separator {
+  min-height: 8px;
+  color: @border_dark; }

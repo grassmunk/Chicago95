@@ -1,0 +1,143 @@
+/*************
+ * scrollbar *
+ *************/
+
+/*
+   Contributor notes:
+   Please use two space indentions.
+   Stack all related and child selectors and selector states into a logical hierarchy to a readable degree.
+   Make sure that all changes made here are part of the GtkScrollbar.
+*/
+
+scrollbar {
+  border: none;
+  background-color: @scrollbar_trough_bg_color; }
+  scrollbar trough {
+    border: none;
+    border-radius: 0; }
+  scrollbar slider {
+    margin-top: 0px;
+    padding: 0px;
+    background-color: @scrollbar_bg_color;
+    border: 2px solid @border_dark;
+    box-shadow: none;
+    border-image: url("scrollbar/scrollbar_button.png");
+    border-image-slice: 2 2 2 2;
+    min-width: 12px;
+    min-height: 12px; }
+  /* This is for Libreoffice scrollbar buttons */
+  scrollbar button,
+  scrollbar .button {
+    background-image: url("scrollbar/scrollbar_button.png");
+    background-position: center; /* Note: This can affect other applications, such as Whisker Menu */
+    background-repeat: no-repeat; /* Note: This can affect other applications, such as Whisker Menu */
+    min-height: 16px;
+    min-width: 16px; 
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    background-color: @scrollbar_trough_bg_color;
+    box-shadow: none; }
+    scrollbar button:disabled {
+      background-image: url("scrollbar/scrollbar_button_disabled.png"); }
+    scrollbar button:active,
+    scrollbar .button:active {
+      min-width: 16px;
+      min-height: 16px;
+      border: 1px solid @border_shade; 
+      background-color: @scrollbar_trough_bg_color;
+      background-image: none;
+      box-shadow: none; }
+  /* Every other scrollbar that isn't Libreoffice */
+  scrollbar button.up,
+  scrollbar button.down,
+  scrollbar button.left,
+  scrollbar button.right {
+    margin: 0px;
+    padding: 0px;
+    background-color: @scrollbar_trough_bg_color;
+    -gtk-icon-source: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: none;
+    border-width: 0px;
+    border-style: solid;
+    min-width: 16px;
+    min-height: 16px; }
+    scrollbar button.up:disabled,
+    scrollbar button.down:disabled,
+    scrollbar button.left:disabled,
+    scrollbar button.right:disabled {
+      box-shadow: inset 1px 1px @border_shade; }
+    scrollbar button.up:active,
+    scrollbar button.down:active,
+    scrollbar button.left:active,
+    scrollbar button.right:active {
+      border: none;
+      box-shadow: none; }
+  /* Scrollbar buttons for GTK3 applications (such as Firefox or Thunderbird) using deprecated selectors */
+  scrollbar .button {
+    -gtk-icon-source: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-width: 0px;
+    min-width: 16px;
+    min-height: 16px;
+    box-shadow: none; }
+    scrollbar .button:active {
+      -gtk-icon-source: none;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-width: 0px;
+      min-width: 16px;
+      min-height: 16px;
+      box-shadow: none; }
+
+/* where is the junction? in scrollablewindow? Does it exists anymore? */
+scrollbar.junction,
+scrollbar .junction {
+  border-width: 1px;
+  border-style: solid;
+  border-color: @border_color;
+  background-color: red; }
+
+/* Vertical scrollbar button icons */
+scrollbar.vertical button.up,
+scrollbar .button.vertical.top {
+  background-image: url("scrollbar/stepper-up.png"); }
+  scrollbar.vertical button.up:active,
+  scrollbar .button.vertical.top:active {
+    background-image: url("scrollbar/stepper-up-active.png"); }
+  scrollbar.vertical button.up:disabled,
+  scrollbar .button.vertical.top:disabled {
+    background-image: url("scrollbar/stepper-up-insense.png"); }
+scrollbar.vertical button.down,
+scrollbar .button.vertical.bottom {
+  background-image: url("scrollbar/stepper-down.png"); }
+  scrollbar.vertical button.down:active,
+  scrollbar .button.vertical.bottom:active {
+    background-image: url("scrollbar/stepper-down-active.png"); }
+  scrollbar.vertical button.down:disabled,
+  scrollbar .button.vertical.bottom:disabled {
+    background-image: url("scrollbar/stepper-down-insense.png");}
+
+/* Horizontal scrollbar button icons */
+scrollbar.horizontal button.up,
+scrollbar .button.horizontal.left {
+  background-image: url("scrollbar/stepper-left.png"); }
+  scrollbar.horizontal button.up:active,
+  scrollbar .button.horizontal.left:active {
+    background-image: url("scrollbar/stepper-left-active.png"); }
+  scrollbar.horizontal button.up:disabled,
+  scrollbar .button.horizontal.left:disabled {
+    background-image: url("scrollbar/stepper-left-insense.png"); }
+scrollbar.horizontal button.down,
+scrollbar .button.horizontal.right {
+  background-image: url("scrollbar/stepper-right.png"); }
+  scrollbar.horizontal button.down:active,
+  scrollbar .button.horizontal.right:active {
+    background-image: url("scrollbar/stepper-right-active.png"); }
+  scrollbar.horizontal button.down:disabled,
+  scrollbar .button.horizontal.right:disabled {
+    background-image: url("scrollbar/stepper-right-insense.png"); }
+

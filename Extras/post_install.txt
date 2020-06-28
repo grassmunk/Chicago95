@@ -1,0 +1,28 @@
+Manual Steps:
+
+You're not done yet! Not everything could be automated. Here's what left:
+
+
+
+!! Enabling the notification theme
+
+- Open the XFCE settings manager > Notifications.
+- Choose Chicago95 for the theme.
+- Adjust Opacity to 100%.
+
+
+
+!! Start Button
+
+Open the XFCE settings manager > Panel > Items tab > Double click the Whisker / Application menu item in the item list; alternatively you can also access their settings menu by right clicking the icon from the panelbar and selecting "properties."
+
+- In the Whisker / Application properties menu click the icon option (*This will appear as the icon badge on your start button that's currently in use.*)
+- In the "Select An Icon" window, navigate to `/home/$USER/.themes/Chicago95/misc` (*with $USER being your username.*) You may have to click the pull-down menu from "Select icon from" and then select "Image Files" so that you can navigate to a custom icon on your filesystem. You may also have to enable the filechooser to display hidden files. (*Press Ctrl+h to toggle this setting.*)
+
+`misc/` contains simple small icon badges in different sizes. You may have to experiment a little until you can find a size that fits correctly
+
+....`misc/GTK2 start buttons/` contains start buttons that are used for the GTK2 version of the Whisker / Application Menu plugin.
+
+....`misc/Legacy GTK3 start buttons/` contains start buttons that were used for an older GTK3 version of the Whisker / Application Menu plugin.
+
+*Note: The smallest optimal panel row size for this theme is 24 pixels. If your panel is below that size, you will encounter icon scaling issues.*

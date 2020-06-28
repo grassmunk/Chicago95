@@ -1,0 +1,118 @@
+/*********
+* Frames *
+**********/
+
+/*
+   Contributor notes:
+   Please use two space indentions.
+   Stack all related and child selectors and selector states into a logical hierarchy to a readable degree.
+   Make sure that all changes made here are part of the GtkFrame.
+*/
+
+frame,
+frame.view {
+  padding: 2px;
+  border-radius: 0px;
+  background-color: @theme_bg_color;
+  box-shadow: none; }
+  frame.border-outset border {
+    padding: 2px;
+    border: 2px solid @border_dark;
+    border-image: url("assets/frame_outset.png");
+    border-image-slice: 2 2 2 2;
+    border-radius: 0px;
+    background-color: @theme_bg_color;
+    box-shadow: none; }
+    frame.border-outset label {
+      padding-right: 4px; }
+  frame.border-inset border {
+    padding: 2px;
+    border: 2px solid @border_dark;
+    border-image: url("assets/frame_inset.png");
+    border-image-slice: 2 2 2 2;
+    border-radius: 0px;
+    background-color: @theme_bg_color;
+    box-shadow: none; }
+    frame.border-inset label {
+      padding-right: 4px; }
+  frame.border-groove border {
+    padding: 2px;
+    border: 2px solid @border_dark;
+    border-image: url("assets/frame_groove.png");
+    border-image-slice: 2 2 2 2;
+    border-radius: 0px;
+    background-color: @theme_bg_color;
+    box-shadow: none; }
+    frame.border-groove label {
+      padding-right: 4px; }
+  frame.border-ridge border {
+    padding: 2px;
+    border: 2px solid @border_dark;
+    border-image: url("assets/frame_ridge.png");
+    border-image-slice: 2 2 2 2;
+    border-radius: 0px;
+    background-color: @theme_bg_color;
+    box-shadow: none; }
+    frame.border-ridge label {
+      padding-right: 4px; }
+  frame > list, frame > .view  {
+    margin: -2px; }
+  frame > label {
+    margin-left: 6px; }
+
+/*viewport.frame > frame, viewport.frame > box > frame {
+  background-color: @base_color;
+  color: @font_color; }*/
+
+statusbar frame {
+  margin-top: 3px;
+  padding: 0px;
+  border: 1px solid @border_dark;
+  border-image: url("assets/frame_basic.png");
+  border-image-slice: 1 1 1 1;
+  box-shadow: none; }
+  statusbar frame label {
+    padding-right: 2px;}
+statusbar {
+  padding: 0px; }
+  statusbar frame box {
+    margin-bottom: -1px;
+    margin-top: -2px; }
+    statusbar frame box label {
+      margin-top: 1px;
+      margin-bottom: -1px; }
+
+scrolledwindow.frame {
+  padding: 0px;
+  background-color: @base_color;
+  border: 2px solid @border_dark;
+  border-image: url("assets/frame_inset.png");
+  border-image-slice: 2 2 2 2;
+  border-radius: 0px;
+  background-color: @theme_bg_color;
+  box-shadow: none;
+  margin: 0px; }
+
+
+.osd.frame {
+  background-clip: border-box;
+  background-origin: border-box; }
+
+stack > box > frame {
+  padding: 2px;
+  border: 2px solid @border_dark;
+  border-image: url("assets/frame_groove.png");
+  border-image-slice: 2 2 2 2;
+  border-radius: 0px;
+  background-color: @theme_bg_color;
+  box-shadow: none; }
+
+entry window frame {
+  padding: 0px;
+  border: 1px solid @border_dark;
+  background-color: @bg_bright; }
+entry window frame scrolledwindow {
+  background-color: @bg_bright;
+  border: none;
+  box-shadow: none; }
+

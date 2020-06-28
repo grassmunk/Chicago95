@@ -1,0 +1,37 @@
+/*********
+ * entry *
+ *********/
+
+/*
+   Contributor notes:
+   Please use two space indentions.
+   Stack all related and child selectors and selector states into a logical hierarchy to a readable degree.
+   Make sure that all changes made here are part of the GtkEntry.
+*/
+
+entry {
+  min-width: 20px;
+  min-height: 16px;
+  padding-left: 2px;
+  padding-right: 2px;
+  color: @text_color;
+  border: 2px solid @border_dark;
+  border-image: url("assets/entry.png");
+  border-image-slice: 2 2 2 2;
+  border-radius: 0px;
+  box-shadow: none;
+  background-color: @bg_bright; }
+  entry:disabled {
+    background-color: @bg_color;
+    color: @text_color;
+    background-image: none; }
+  entry image {
+    padding-left: 2px;
+    padding-right: 2px; }
+
+/* Some entry boxes have buttons beside them */
+/*combobox box.horizontal.linked > button,
+combobox box.vertical.linked > button {
+  padding: 0px;
+  margin: 2px;}*/
+

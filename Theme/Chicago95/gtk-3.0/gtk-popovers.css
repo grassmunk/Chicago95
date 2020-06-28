@@ -1,0 +1,122 @@
+/*************************************************
+ * tooltip popover app-notification floating-bar *
+ *************************************************/
+
+/*
+   Contributor notes:
+   Please use two space indentions.
+   Stack all related and child selectors and selector states into a logical hierarchy to a readable degree.
+   Make sure that all changes made here are part of the tooltip, popover, app-notification, and floating-bar.
+*/
+
+.floating-bar,
+.app-notification,
+tooltip.background,
+.tooltip.background,
+tooltip,
+.tooltip {
+  background-color: @theme_tooltip_bg_color;
+  color: @theme_tooltip_fg_color;
+  border: 1px solid @border_dark;
+  box-shadow: none; }
+
+popover {
+  -gtk-icon-style: regular; }
+  popover.background {
+    background-color: @theme_tooltip_bg_color;
+    border: 1px solid @border_dark;
+    border-radius: 5px;
+    box-shadow: 4px 4px @tooltip_bg_shade; }
+  popover button:checked {
+    font-weight: bold;
+    background-color: @bg_bright;
+    background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_dark);
+    background-size: 2px 2px;
+    background-position: 0 0, 1px 1px; }
+
+modelbutton label {
+  padding: 2px 6px; }
+  modelbutton.flat:hover {
+    background-color: @selected_bg_color;
+    color: @selected_fg_color;
+    outline-color: @selected_fg_color }
+modelbutton arrow {
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.app-notification,
+popover stack {
+  padding: 1px;
+  margin: 2px; }
+
+.floating-bar,
+
+popover.background,
+tooltip.background,
+tooltip {
+  padding: 0px;
+  margin: 0px; }
+
+tooltip * {
+  background-color: @theme_tooltip_bg_color;
+  color: @theme_tooltip_fg_color; }
+  tooltip decoration {
+    border: 0px;
+    box-shadow: none;
+    padding: 0px;
+    margin: 0px; }
+
+popover list row {
+margin-right: 2px;
+margin-left: 2px;
+margin-top: 2px;
+margin-bottom: 2px; }
+  popover list row:hover {
+    background-color: @selected_bg_color;
+    color: @selected_fg_color }
+  popover list row checkbutton {
+    box-shadow: none;  }
+  popover list row checkbutton label,
+  popover list row box label {
+    padding: 0px; }
+popover list button {
+  padding: 0px;
+  margin: 4px; 
+  min-width: 16px; 
+  min-height: 16px; }
+popover list checkbutton check {
+  margin-left: 5px;
+  margin-right: 5px; }
+
+popover arrow.right {
+  margin-right: 4px;
+  background-image: url("assets/arrow-right.png");
+  -gtk-icon-source: none; }
+  popover arrow.right:hover {
+    margin-right: 4px;
+    background-image: url("assets/arrow-right-selected.png");
+    -gtk-icon-source: none; }
+popover arrow.left {
+  margin-left: 4px;
+  background-image: url("assets/arrow-left.png");
+  -gtk-icon-source: none; }
+  popover arrow.left:hover {
+    margin-left: 4px;
+    background-image: url("assets/arrow-left-selected.png");
+    -gtk-icon-source: none; }
+popover arrow.up {
+  margin-top: 4px;
+  background-image: url("assets/arrow-up.png");
+  -gtk-icon-source: none; }
+  popover arrow.up:hover {
+    margin-top: 4px;
+    background-image: url("assets/arrow-up-selected.png");
+    -gtk-icon-source: none; }
+popover arrow.down {
+  margin-bottom: 4px;
+  background-image: url("assets/arrow-down.png");
+  -gtk-icon-source: none; }
+  popover arrow.down:hover {
+    margin-bottom: 4px;
+    background-image: url("assets/arrow-down-selected.png");
+    -gtk-icon-source: none; }

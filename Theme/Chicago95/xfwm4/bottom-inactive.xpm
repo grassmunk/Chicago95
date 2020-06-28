@@ -1,12 +1,13 @@
 /* XPM */
 static char * bottom_inactive_xpm[] = {
-"16 5 4 1",
+"16 5 5 1",
 " 	c None",
-".	c #000000 s inactive_border_color",
-"@	c #C0C0C0 s inactive_color_2",
+".	c #000000 s inactive_shadow_1",
+"@	c #C0C0C0 s inactive_mid_1",
 "#	c #808080 s inactive_shadow_2",
+"&      c #FF00FF s inactive_border_color",
 "@@@@@@@@@@@@@@@@",
 "@@@@@@@@@@@@@@@@",
-"@@@@@@@@@@@@@@@@",
+"&&&&&&&&&&&&&&&&",
 "################",
 "................"};

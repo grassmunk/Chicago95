@@ -1,0 +1,93 @@
+/******************
+ * window buttons *
+ ******************/
+
+/*
+   Contributor notes:
+   Please use two space indentions.
+   Stack all related and child selectors and selector states into a logical hierarchy to a readable degree.
+   Make sure that all changes made here are part of the window buttons / titlebuttons.
+*/
+
+/* Makes the raised 2px effect slimmer on the top and left side */
+button.titlebutton {
+  padding: 0px;
+  margin: 0px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-top: 0px;
+  border-left: 0px;
+  background-position: center;
+  background-repeat: no-repeat; }
+  button.titlebutton:active:not(.appmenu),
+  button.titlebutton:checked:not(.appmenu) {
+    padding: 0px;
+    border-top: 0px;
+    border-left: 0px;
+    background-repeat: no-repeat; }
+
+.titlebutton.close,
+.titlebutton.maximize,
+.titlebutton.minimize {
+  color: @bg_dark;
+  border: none;
+  box-shadow: none;
+  padding: 0px;
+  margin: 0px;
+  background-color: transparent;
+  min-width: 18px;
+  min-height: 18px;
+  background-image: url("buttons/window_button_normal.png");
+  -gtk-icon-shadow: none;
+  -gtk-icon-style: requested; }
+
+.titlebutton.minimize {
+  background-image: url("buttons/window_button_normal.png"); }
+  .titlebutton.minimize:backdrop {
+    background-image: url("buttons/window_button_normal.png"); }
+  .titlebutton.minimize:checked,
+  .titlebutton.minimize:active {
+    background-image: url("buttons/window_button_pressed.png"); }
+
+.titlebutton.maximize {
+  background-image: url("buttons/window_button_normal.png"); }
+  .titlebutton.maximize:backdrop {
+    background-image: url("buttons/window_button_normal.png"); }
+  .titlebutton.maximize:checked,
+  .titlebutton.maximize:active {
+    background-image: url("buttons/window_button_pressed.png"); }
+
+.maximized .titlebutton.maximize  {
+  background-image: url("buttons/window_button_normal.png"); }
+  .maximized .titlebutton.maximize:backdrop {
+    background-image: url("buttons/window_button_normal.png"); }
+  .maximized .titlebutton.maximize:checked,
+  .maximized .titlebutton.maximize:active  {
+    background-image: url("buttons/window_button_pressed.png"); }
+
+.titlebutton.close {
+  background-image: url("buttons/window_button_normal.png"); }
+  .titlebutton.close:backdrop {
+    background-image: url("buttons/window_button_normal.png"); }
+  .titlebutton.close:checked,
+  .titlebutton.close:active {
+    background-image: url("buttons/window_button_pressed.png"); }
+
+/* Groups these buttons together */
+.titlebutton.minimize {
+  margin-right: -4px; }
+.titlebutton.maximize {
+  margin-left: -4px;
+  margin-right: -3px; }
+.titlebutton.close {
+  margin-left: -3px; }
+
+/* setting :not(.appmenu) in button.titlemenu breaks the main window buttons position,
+ * so restore any damage made to buttons styled with both .appmenu and .titlemenu here */
+button.appmenu {
+  border: solid 1px;
+  border-color: @border_color @border_dark @border_dark @border_color;
+  margin-top: 1px;
+  margin-left: 3px;
+  margin-right: 1px;
+  margin-bottom: 0px; }

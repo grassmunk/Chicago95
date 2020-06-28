@@ -1,0 +1,53 @@
+/**********
+ * Window *
+ **********/
+
+/*
+   Contributor notes:
+   Please use two space indentions.
+   Stack all related and child selectors and selector states into a logical hierarchy to a readable degree.
+   Make sure that all changes made here are part of the GtkWindow.
+*/
+
+/* A large border area for the window client decoration is recommended so that it provides easier interactivity when the user is resizing their application windows from a border edge with the cursor.
+ * The border image contains a 8px surrounding transparency with an additional non-transparent 2px for the border. This gives the illusion of a 2px border image instead of the full 10px. */
+window decoration,
+dialog > decoration {
+  padding: 2px;    /* Padding is required so that there is some space between the window decoration border and any internal components. */
+  border: 10px solid @border_dark;
+  background-color: @bg_color;
+  border-image: url("assets/window_decoration.png");
+  border-image-slice: 10 10 10 10;
+  box-shadow: none; }
+
+/* Server-side decoration (SSD) */
+window.ssd headerbar,
+window.ssd .titlebar {
+  border-radius: 0px;
+  padding: 0px;
+  margin: 0px;
+  border: 3px solid transparent;
+  border-bottom: 1px solid transparent;
+  background-color: @window_title_bg_color;
+  background-image: none;
+  background-image: none;
+  text-shadow: none; }
+  window.ssd .titlebar:backdrop {
+    padding: 0px;
+    margin: 0px;
+    background-color: @selected_inactive_bg_color;
+   color: @inactive_title_text_color; }
+  window.ssd .titlebar label {
+    padding: 0px;
+    margin: 0px;
+    font-size: 8pt;
+    color: @window_title_text_color; }
+    window.ssd .titlebar label:backdrop,
+    window.ssd .titlebar:backdrop label {
+      color: @inactive_title_text_color; }
+
+window.csd tooltip {
+  border-radius: 0;
+  border: 0 none @border_dark;
+  box-shadow: none; }
+

@@ -4,8 +4,9 @@
 
 <!--ts-->
 * [Installing Chicago95](#install_theme)
-    * [Single user install](#install_single)
-    * [System-wide install (optional)](#install_system)
+    * [Single user automated install](#install_auto)
+    * [Single user manual install](#install_single)
+    * [System-wide manual install (optional)](#install_system)
 * [Enabling The Theme](#config_theme)
 * [Configuring The XFCE4 Panelbar](#xfce4_panel)
     * [Horizontal Panelbar](#horiz_panel)
@@ -25,7 +26,7 @@
     * [Terminal fonts](#terminal_fonts)
     * [Terminal themes](#terminal_themes)
     * [Whisker Menu](#whiker_menu)
-    * [Windows 95 login startup sound](#startup_sound)
+    * [Sound theme](#startup_sound)
 * [HiDPI (experimental)](#hidpi)
 * [Common issues](#common_issues)
 <!--te-->
@@ -35,13 +36,37 @@
 
 ## Installing Chicago95
 
-The following installation steps will require that you enable the `view hidden folders` option in your file manager to see hidden files.
+
+<a name="install_auto"/>
+
+### [ Single user automated install ]
+
+Chicago 95 comes with an automated installer. Run the `installer.py` python script to walk through a guided install of Chicago 95.
+
+<p align="center">
+<img src="Screenshots/installer/installer_01.png" alt="Chicago95 Desktop"/>
+</p>
+
+Select components:
+<p align="center">
+<img src="Screenshots/installer/installer_02.png" alt="Chicago95 Desktop"/>
+</p>
+
+Select customization options:
+<p align="center">
+<img src="Screenshots/installer/installer_03.png" alt="Chicago95 Desktop"/>
+</p>
+
+Complete:
+<p align="center">
+<img src="Screenshots/installer/installer_04.png" alt="Chicago95 Desktop"/>
+</p>
 
 <a name="install_single"/>
 
-### [ Single user install ]
+### [ Single user manual install ]
 
-If you intend to install the theme system-wide, then following the single user install process isn't necessary.
+The following installation steps will require that you enable the `view hidden folders` option in your file manager to see hidden files.
 
 #### Step 1: Prepare theme and icon directories
 
@@ -65,11 +90,13 @@ Copy the icon themes from `Chicago95-master/Icons/` folder into `.icons`.
 
 #### Step 3:
 
-After copying the theme files into their appropriate places, you might need to log out then log back in for any changes to take places.
+After copying the theme files into their appropriate places, you might need to log out then log back in for any changes to take places. Check out ["Enabling The Theme"](#config_theme) if you need help with setup.
 
 <a name="install_system"/>
 
-### [ System-wide install ] (optional)
+### [ System-wide manual install ] (optional)
+
+The following installation steps will require that you enable the `view hidden folders` option in your file manager to see hidden files.
 
 Copy the GTK theme from `Chicago95-master/Theme/` folder into `/usr/share/themes/`.
 
@@ -126,31 +153,34 @@ For further tuning of QT5 with the Chicago95 GTK theme, read [QT5 theme configra
 
 The following steps will guide you through configuring the XFCE4 panelbar to resemble the taskbar seen in MS Windows 95. Some options seen in the following steps may not be present across all versions of the XFCE desktop environment and can vary between different Linux/Unix-like operating systems.
 
-*The following steps are written from the perspective of XUbuntu 18.04 and 19.04.*
+*The following steps are written from the perspective of XFCE4 Version 4.14.*
 
 <a name="horiz_panel"/>
 
 ### Configuring a horizontal taskbar
 
+Below outlines the manual process to set this all up. This process can be automated by running `xfce4-panel-profiles load Extras/Chicago95_Panel_Preferences.tar.bz2`. 
+
 #### Step 1: Setting the panelbar size
 
 - Open the XFCE settings manager > Panel
-- From the Display tab set the panel mode to "Horizontal."
-- Check "Lock Panel."
-- Set "Automatically hide the panel" to "Never."
+- From the Display tab set the panel mode to "Horizontal".
+- Check "Lock Panel".
+- Set "Automatically hide the panel" to "Never".
 - Row Size (pixels): Can be at, or between, 24px to 32px; If your are using the 4.12 version of the XFCE panelbar, use even numbers for the row size since odd number row sizes will cause icon scaling issues for launcher buttons and status icons.
-- Number of rows will be "1."
+- Number of rows will be "1".
 - Length will be 100%.
 
 #### Step 2: Setting the panelbar appearance
 
-- In the Appearance tab set the background style to "None (use system style.)"
+- In the Appearance tab set the background style to "None (use system style)"
 - Disable the icons setting "Adjust size automatically" (*this option is only available for the 4.14 version panelbar*)
 - Set "Fixed Icon Size" to 16. (*this option is only available for the 4.14 version panelbar*)
 
-*Note: For 4.12 version panelbar users, if you want to adjust the icon scaling of your launcher buttons, see [Launcher button icon scaling](#button_scale)*
+*Note: For 4.12 version panelbar users, if you want to adjust the icon scaling of your launcher buttons to a 16px icon, see [Launcher button icon scaling](#button_scale)*
 
 #### Step 3: Adding panelbar plugins
+
 Open the XFCE settings manager > Panel > Items
 
 Here's an organized list for the panel Items plugin layout.
@@ -163,8 +193,8 @@ Here's an organized list for the panel Items plugin layout.
 6. Window Buttons (*Uncheck "Show flat buttons" and "Show Handle.;" Sorting Order: None; Window grouping: Never*);
 7. Separator (*Transparent with Expanding enabled*);
 8. Separator (*Handle Style*);
-9. Indicator Plugin and Notification Area plugin (*19px max icon size preferred; also uncheck "Show frame"*);
-10. Orage Panel Clock. (*Enable check box “Show frame” and replace the text in “Line 1” with %I:%M %p.*)
+9. Indicator Plugin and Notification Area plugin (*16px max icon size preferred; also uncheck "Show frame"*);
+10. Orage Panel Clock for XFCE 4.12 (not required for 4.14). (*Enable check box “Show frame” and replace the text in “Line 1” with %I:%M %p*)
 
 <a name="vert_panel"/>
 
@@ -186,9 +216,10 @@ Here's an organized list for the panel Items plugin layout.
 - Disable the icons setting "Adjust size automatically" (*this option is only available for the 4.14 version panelbar*)
 - Set "Fixed Icon Size" to 16. (*this option is only available for the 4.14 version panelbar*)
 
-*Note: For 4.12 panelbar users, if you want to adjust the icon scaling of your launcher buttons, see [Launcher button icon scaling](#button_scale)*
+*Note: For 4.12 panelbar users, if you want to adjust the icon scaling of your launcher buttons to a 16px icon, see [Launcher button icon scaling](#button_scale)*
 
 #### Step 3: Adding panelbar plugins
+
 Open the XFCE settings manager > Panel > Items
 
 Here's an organized list for the panel Items plugin layout.
@@ -201,7 +232,7 @@ Here's an organized list for the panel Items plugin layout.
 6. Window Buttons (*Uncheck "Show button labels," "Show flat buttons," and "Show Handle;" Sorting Order: None; Window grouping: Never*);
 7. Separator (*Transparent with Expanding enabled*);
 8. Separator (*Handle Style*);
-9. Indicator Plugin and Notification Area plugin (*19px max icon size preferred; also uncheck "Show frame"*);
+9. Indicator Plugin and Notification Area plugin (*16px max icon size preferred; also uncheck "Show frame"*);
 10. If you set the panelbar row number to 1, you'll might want to go without a panelclock. Orage Panel Clock or the normal panel clock plugin will look nice. (*If using Orage, enable check box “Show frame” and replace the text in “Line 1” with %H:%M %p.*)
 
 [[Return to Index]](#index)
@@ -294,16 +325,15 @@ If you use a vertical deskbar, you could add a second row from the panel propert
 
 ### [ Thunar status indicator ] (for XFCE 4.14)
 
-The thunar status indicator can be modified on line 81 in `/home/$USER/.themes/Chicago95/gtk-3.24/apps/thunar.css`. The line will appear as `background-image: url("../assets/status_badge_c95.png");`
+The thunar status indicator can be modified on line 59 in `/home/$USER/.themes/Chicago95/gtk-3.24/apps/thunar.css`. Uncomment the code from line 53 to line 64.
 
-You can modify the background-image name with four of the following images.
+You can replace `status_badge_c95.png` with four of the following images.
 
-- status_badge_c95.png
-- status_badge_msw.png
-- status_badge_tux.png
-- status_badge_xue.png
-
-If you want to disable the background image you can delete the line as well as line 76 which sets the background colour.
+- `status_badge_c95.png`
+- `status_badge_ie.png`
+- `status_badge_msw.png`
+- `status_badge_tux.png`
+- `status_badge_xue.png`
 
 [[Return to Index]](#index)
 
@@ -393,9 +423,20 @@ If you want to change the icon label backdrop colour or text colours, you'll hav
 ### [ Cursors ]
 To install the cursors theme copy the folders in `Cursors` to `/usr/share/icons` (for system-wide install) or `~/.icons` (for user only install.)
 
-In XFCE select Settings -> Mouse and Touchpad. Click on 'Icons' and select `Chicago95`.
+In XFCE select Settings -> Mouse and Touchpad. Click on 'Icons' and select one of:
+
+* **Chicago95 Standard Cursors**: Original Windows 95 cursor theme
+* **Chicago95 Standard Cursors Black**: Customized Windows 95 cursor theme in black
+* **Chicago95 Animated Hourglass Cursors**: Original Windows 95 animated cursor theme
+* **Chicago95_Cursor_White**: Original Chicago95 cursor theme (replaced by Standard Cursors)
+* **Chicago95_Cursor_Black**: Original Chicago95 cursor black theme (replaced by Standard Cursors Black	)
+* **Chicago95_Emerald**: A 3d cursor theme with some extra flair
 
 *Note: If you copied the icons to `/usr/share/icons` you may have to log out or reboot your system before the cursor theme is available.*
+
+#### Custom Cursor Themes
+
+If these themes aren't enough and you'd like to personalize your icon theme download your cursors (from sites like http://cd.textfiles.com/winfiles/winfiles1/cursors.html) and replace the cursor in `<cursor theme>/build/95` or `<cursor theme>/build/xcursors` (note: this only works in the Standard/Animated Hourgladd Cursors folders). You don't need to worry about the extension, the build script will work with regular cursors `.cur`, animated cursors `.ani` and icons `.ico`. So long as the file name before the file extension is the same. After you've made your changes run the python script `cursor_gen.py` from within the build directory and your new theme will be created. To give your theme a custom name edit the `index.theme` file. Then rename the folder and copy it using the same directions above. 
 
 <a name="ms_sans_serif"/>
 
@@ -426,11 +467,12 @@ We now need to install the MS Sans Serif fonts, as well as their font configurat
 - Copy `Extras/99-ms-sans-serif.conf` and `Extras/99-ms-sans-serif-bold.conf` to `/etc/fonts/conf.d`
 - Update the font cache by running `sudo fc-cache -f -v`
 
-To set the main font for the entire system, open the XFCE settings manager > Appearance > Fonts tab.  Set the "Default font" to Microsoft Sans Serif, style Regular, size 8.
-
-To set the title bar font, open the XFCE settings manager > Window Manager > Style tab.  Set the "Title font" to Microsoft Sans Serif, style Bold, size 8.
-
-Finally, set the font for the Orage panel clock by right-clicking the panel clock, selecting Properties, then next to Line 1, change the font to Microsoft Sans Serif, style Regular, size 8.  Inside the Line 1 box, add two spaces before and after the value in the box, to apply some spacing.
+#### Enabling the font: ####
+- Open the XFCE settings manager > Appearance > Fonts tab.
+- Set the "Default font" to "Microsoft Sans Serif Regular" size 8.
+- Open the XFCE settings manager > Window Manager.
+- Set the "Title font" to Microsoft Sans Serif Bold" size 8.
+- For XFCE 4.12 users, you can set the font for the Orage panel clock by right-clicking the panel clock, selecting Properties, then next to Line 1, change the font to Microsoft Sans Serif, style Regular, size 8.  Inside the Line 1 box, add two spaces before and after the value in the box, to apply some spacing.
 
 [[Return to Index]](#index)
 
@@ -439,9 +481,9 @@ Finally, set the font for the Orage panel clock by right-clicking the panel cloc
 ### [ Bash terminal Fonts ]
 Copy the folder `Fonts/vga_font` to `~/.fonts/truetype/` if the `.fonts/truetype` folder doesn't exist just create it before you copy the files.
 
-Update your font cache: `sudo fc-cache -f -v`
+Update your font cache: `fc-cache -f -v`
 
-In xfce-term preferences, go to the Appearance tab and select the font `Less Perfect DOS VGA` or `More Pefect DOS VGA`, size 12.  For better readability, uncheck "Allow bold text".
+In xfce4-term go to the Edit->Preferences and click on the Appearance tab and select the font `Less Perfect DOS VGA` or `More Pefect DOS VGA`, size 12.  For better readability, uncheck "Allow bold text".
 
 If desired, you can use an MS-DOS style cursor by going to the General tab, setting "Cursor shape" to "Underline" and checking the box for "Cursor blinks".
 
@@ -452,13 +494,15 @@ If desired, you can use an MS-DOS style cursor by going to the General tab, sett
 ### [ Terminal themes ]
 
 #### Bash terminal MS-DOS theme
-Copy the file `Extras/Chicago95.theme` to `~/.local/share/xfce4/terminal/colorschemes` (create the colorschemes folder if it doesn't exist: `mkdir .local/share/xfce4/terminal`).
-Under preferences in xfce-term select 'Colors.' Under `Presets` you should see `Chicago 95`.
+
+Copy the file `Extras/Chicago95.theme` to `~/.local/share/xfce4/terminal/colorschemes` (create the colorschemes folder if it doesn't exist: `mkdir -p ~/.local/share/xfce4/terminal/colorschemes`).
+Under preferences in xfce-term select 'Colors.' Under `Presets` you should see `Chicago95`.
 
 To get the MS-DOS `C:\>` prompt and startup message add the contents of `Extras/DOSrc` to your `.bashrc` file: `cat Extras/DOSrc >> ~/.bashrc`.
 To get MS-DOS Prompt title, go to the Preferences prompt and change title to MS-DOS Prompt and select isn't displayed on The Dynamically-Set Title
 
 #### oh-my-zsh MS-DOS theme
+
 Copy the file `Extras/Chicago95.zsh-theme` to `~/.oh-my-zsh/themes` (if you have changed your `.oh-my-zsh` config location, put the theme in that folder). In your `.zshrc` change your theme to Chicago95.
 
 This will add the MS-DOS prompt. You will get a C prompt by default. If the previous command had an exit code other than 0 you will get an F prompt. If you are in a git repository you will git a G prompt, followed by the branch (in yellow) and the status (clean in green, dirty in red).
@@ -487,10 +531,29 @@ If none of these catch your fancy edit `~/.themes/Chicago95/misc/whisker-sidebar
 
 <a name="startup_sound"/>
 
-### [ Windows 95 login startup sound ]
-First, ensure that the SoX program is installed by running: `sudo apt install sox`
+### [ Windows 95 sounds ]
+First, ensure that SoX and gtk canberra are is installed by running: `sudo apt-get install gnome-session-canberra sox libcanberra-gtk3-module libcanberra-gtk-module`
 
-Then, copy the file `Extras/Microsoft Windows 95 Startup Sound.ogg` to `/home/$USER/.themes/Chicago95/misc/Microsoft Windows 95 Startup Sound.ogg` or where ever you want.
+If it doesn't exist create the directory sounds in `.local/share/`: `mkdir -p ~/.local/share/sounds`
+
+Copy the folder `sounds/Chicago95` to `~/.local/share/sounds`
+
+#### XFCE
+
+Open Settings > Appearance and click on tab Settings
+
+Make sure both Event Sounds are enabled (checked):
+
+* Enable event sounds
+* Enable inputt feedback sounds
+
+Set the new sound theme using xfconf-query: `xfconf-query -c xsettings -p /Net/SoundThemeName -s Chicago95`
+
+#### Startup Sound
+
+If the startup sound isn't working follow these instructions
+
+For startup, copy the file `Extras/Microsoft Windows 95 Startup Sound.ogg` to `/home/$USER/.themes/Chicago95/misc/Microsoft Windows 95 Startup Sound.ogg` or where ever you want.
 
 #### XFCE
 - Open XFCE Settings Manager > Session and Startup > Application Autostart tab

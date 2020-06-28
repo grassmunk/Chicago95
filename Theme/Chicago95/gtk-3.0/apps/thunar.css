@@ -1,0 +1,103 @@
+/**********
+ * Thunar *
+ **********/
+
+/*Contributor notes:
+Please use two space indentions.
+Stack all related and child selectors and selector states into a logical hierarchy to a readable degree.
+Make sure that all changes made here are part of the Thunar application.
+*/
+
+.thunar #location-toolbar toolbutton button:not(:hover):not(:checked):not(:active),
+.thunar #location-toolbar #back button:not(:hover):not(:checked):not(:active),
+.thunar #location-toolbar #forward button:not(:hover):not(:checked):not(:active) {
+  border-color: transparent;
+  border-image: none;
+  box-shadow: none; }
+.thunar #location-toolbar toolbutton button:disabled {
+  background-color: @border_bright;
+  background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @border_dark);
+  background-size: 2px 2px;
+  background-position: 0 0, 1px 1px; }
+
+.thunar #location-toolbar .path-bar button {
+  min-height: 16px;
+  min-width: 16px;
+  padding: 0px;
+  padding-left: 1px;
+  padding-right: 1px; }
+  .thunar #location-toolbar .path-bar button image {
+    margin-top: -2px;
+    margin-bottom: -2px; }
+
+.thunar toolbar toolitem entry image.left {
+  padding: 1px;
+  margin-right: 4px; }
+
+/*.thunar #main-menu {
+  border-top: 1px solid @bg_shade;
+  box-shadow: inset 0px 1px @bg_bright, inset -1px -1px @bg_shade;
+  border-bottom: 1px solid @bg_bright;
+  border-right: 1px solid @bg_bright; }*/
+/*  .thunar #main-menu spinner {
+    min-width: 8px;
+    min-height: 8px;
+    -gtk-icon-source: none; 
+    background: #000000; } */
+.thunar #main-menu {
+    min-height: 24px; }
+
+/*  You can enable the spin button theme by uncommenting the following! */
+/*    .thunar #main-menu > menuitem:not(#edit-menu):not(#file-menu):not(#view-menu):not(#go-menu):not(#help-menu) {
+      background-color: black;
+      border-left: 1px solid @bg_shade;
+      box-shadow: inset 1px 0px @bg_bright;
+      min-width: 24px;
+      min-height: 24px;
+      background-image: url("../assets/status_badge_c95.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 21px 17px;
+      padding-left: 1.5em;
+      padding-right: 1.5em; }*/
+
+.thunar notebook .standard-view {
+  padding: 0px;
+  border-top: 2px solid @border_dark;
+  border-bottom: 2px solid @border_dark;
+  border-left: 2px solid @border_dark;
+  border-right: 2px solid @border_dark;
+  border-image: url("../assets/frame_inset.png");
+  border-image-slice: 2 2 2 2;
+  box-shadow: none; }
+.thunar notebook header tabs tab {
+  padding: 0px; }
+  .thunar notebook header tabs tab box {
+    padding: 0px;
+    margin-top: -2px;
+    margin-bottom: -2px; }
+  .thunar notebook header tabs tab button {
+    background: none;
+    border: none;
+    box-shadow: none; }
+    .thunar notebook header tabs tab button image {
+      padding: 0px;
+      margin-top: -1px;
+      margin-bottom: -2px; }
+
+.thunar statusbar {
+  margin-right: -9px;
+  margin-left: -9px;
+  padding: 0px; }
+  .thunar statusbar frame box {
+    margin-bottom: -3px;
+    margin-top: -3px; }
+    .thunar statusbar frame box label {
+      margin-top: 1px;
+      margin-bottom: -1px; }
+
+.thunar widget.view:selected {
+  background-color: shade(@selected_bg_color, 3.0); }
+  .thunar widget.view:selected:focus {
+    background-color: @selected_bg_color; }
+

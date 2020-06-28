@@ -1,0 +1,152 @@
+/********
+ * menu *
+ ********/
+
+/*
+   Contributor notes:
+   Please use two space indentions.
+   Stack all related and child selectors and selector states into a logical hierarchy to a readable degree.
+   Make sure that all changes made here are part of the GtkMenu.
+*/
+
+/* we dont want any extra padding in these */
+menuitem > window,
+window > menu {
+  padding: 0px; }
+
+.menu {
+  padding: 0px;
+  border: 1px solid @border_dark;
+  box-shadow: none;
+  background-color: @bg_bright;
+  color: @text_color;
+  -gtk-icon-style: regular }
+
+/* NOTE: Menu border styling is moved to client side decorations. See gtk-window.css for menu border styling. */
+menu {
+  background-color: @menu_bg_color;    /* NOTE: While a background colour is required here, there will be a 2px internal padding applied to window decorations which will also have a background colour too. */ 
+  color: @menu_text_color;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+  -gtk-icon-style: regular }
+  menu menuitem {
+    padding: 3px 2px;
+    background-color: transparent; }
+    menu menuitem check,
+    menu menuitem radio {
+      padding-right: 4px; }
+    menuitem:active,
+    menuitem:hover {
+      background-color: @theme_selected_bg_color;
+      color: @selected_fg_color; }
+
+/* menubar */
+menubar, 
+.menubar {
+  -GtkWidget-window-dragging: false;
+  background-color: @menu_bg_color;
+  color: @menu_text_color;
+  text-shadow: none;
+  -gtk-icon-shadow: none; }
+  menubar menuitem {
+    padding: 0px 6px;
+    min-height:17px; }
+
+menu separator {
+  padding: 3px;
+  margin-left: -5px;
+  margin-right: -5px;
+  border: none;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 1px solid transparent;
+  border-bottom: 2px solid transparent;
+  background-image: url("assets/handle-h.png");
+  background-repeat: repeat-x;
+  background-position: center center;
+  border-image: none;
+  box-shadow: none; }
+
+/* Menu arrows */
+menu arrow {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 10px;
+  min-height: 10px;
+  min-width: 10px;
+  -gtk-icon-source: none; }
+  menu :hover > arrow {
+    background-image: url("assets/arrow-down-selected.png"); }
+  menu arrow.right {
+    background-image: url("assets/arrow-right.png"); }
+    menu :hover > arrow.right {
+      background-image: url("assets/arrow-right-selected.png"); }
+    menu :checked > arrow.right,
+    menu :disabled > arrow.right {
+      background-image: url("assets/arrow-right-disabled.png"); }
+  menu arrow.left {
+    background-image: url("assets/arrow-left.png"); }
+    menu :hover > arrow.left {
+      background-image: url("assets/arrow-left-selected.png"); }
+    menu :checked > arrow.left,
+    menu :disabled > arrow.left {
+      background-image: url("assets/arrow-left-disabled.png"); }
+  menu arrow.up {
+    background-image: url("assets/arrow-up.png"); }
+    menu :hover > arrow.up {
+      background-image: url("assets/arrow-up-selected.png"); }
+    menu :checked > arrow.up
+    menu :disabled > arrow.up {
+      background-image: url("assets/arrow-up-disabled.png"); }
+  menu arrow.down {
+    background-image: url("assets/arrow-down.png"); }
+    menu :hover > arrow.down {
+      background-image: url("assets/arrow-down-selected.png"); }
+    menu :checked > arrow.down,
+    menu :disabled > arrow.down {
+      background-image: url("assets/arrow-down-disabled.png"); }
+
+/* Directional menu arrow styling */
+/* Top arrow */
+menu > arrow.top,
+.menu > arrow.top,
+.context-menu > arrow.top {
+  background-image: url("assets/arrow-up.png");
+  background-color: @bg_color;
+  border-bottom: 1px solid @border_bright;
+  padding: 5px;
+  box-shadow: inset 0 -1px 0 0 @border_shade; }
+  menu > arrow.top:hover,
+  .menu > arrow.top:hover,
+  .context-menu > arrow.top:hover {
+    background-image: url("assets/arrow-up-selected.png"); }
+  menu > arrow.top:disabled,
+  .menu > arrow.top:disabled,
+  .context-menu > arrow.top:disabled {
+    background-image: url("assets/arrow-up-disabled.png"); }
+  menu > arrow.top:checked,
+  .menu > arrow.top:checked,
+  .context-menu > arrow.top:checked {
+    background-image: url("assets/arrow-up-disabled.png"); }
+
+/* Bottom arrow */
+menu > arrow.bottom,
+.menu > arrow.bottom,
+.context-menu > arrow.bottom {
+  background-image: url("assets/arrow-down.png");
+  background-color: @bg_color;
+  border-top: 1px solid @border_shade;
+  padding: 5px;
+  box-shadow: inset 0 1px 0 0 @border_bright; }
+  menu > arrow.bottom:hover,
+  .menu > arrow.bottom:hover,
+  .context-menu > arrow.bottom:hover {
+    background-image: url("assets/arrow-down-selected.png"); }
+  menu > arrow.bottom:disabled,
+  .menu > arrow.bottom:disabled,
+  .context-menu > arrow.bottom:disabled {
+    background-image: url("assets/arrow-down-disabled.png"); }
+  menu > arrow.bottom:checked,
+  .menu > arrow.bottom:checked,
+  .context-menu > arrow.bottom:checked {
+    background-image: url("assets/arrow-down-disabled.png"); }

@@ -1,0 +1,136 @@
+/***********************************
+ * progressbar, levelbar and scale *
+ ***********************************/
+
+/*
+   Contributor notes:
+   Please use two space indentions.
+   Stack all related and child selectors and selector states into a logical hierarchy to a readable degree.
+   Make sure that all changes made here are part of the progressbar, levelbar, and scale.
+*/
+
+levelbar,
+progressbar {
+  padding: 2px; }
+
+levelbar trough,
+progressbar trough {
+  background-color: @bg_color; }
+
+levelbar.horizontal trough,
+progressbar.horizontal trough,
+progressbar.horizontal progress {
+  min-height: 14px; }
+levelbar.vertical trough,
+progressbar.vertical trough,
+progressbar.vertical progress {
+  min-width: 14px; }
+
+levelbar block,
+progressbar progress {
+  background-image: none;
+  background-color: @selected_bg_color; }
+  levelbar block.empty {
+    background-color: @bg_color; }
+
+levelbar.vertical.discrete block {
+  margin-top: 2px; }
+levelbar.horizontal.discrete block {
+  margin-right: 2px; }
+
+scale slider:active {
+  background-color: @border_bright;
+  background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_dark);
+  background-size: 2px 2px;
+  background-position: 0 0, 1px 1px; }
+
+scale.vertical {
+  margin: 3px;
+  padding: 1px 7px 1px 7px; }
+  scale.vertical indicator {
+    padding-left: 10px;
+    padding-right: 10px;
+    min-height: 1px;
+    min-width: 3px; }
+  scale.vertical slider {
+    min-width: 1px;
+    min-height: 10px;
+    margin: 0px -11px 0px -11px;
+    border-left: 1px solid @border_bright;
+    border-right: 1px solid @border_dark;
+    border-bottom: 1px solid @border_dark;
+    border-top: 1px solid @border_bright;
+    box-shadow: inset -1px -1px @border_shade, inset 0px 0px @border_color; }
+scale.horizontal {
+  margin: 3px;
+  padding: 9px 1px 9px 1px; }
+  scale.horizontal indicator {
+    padding-top: 10px;
+    min-height: 3px;
+    min-width: 1px; }
+  scale.horizontal slider {
+    min-width: 10px;
+    min-height: 1px;
+    margin: -11px 0px -11px 0px;
+    border-left: 1px solid @border_bright;
+    border-right: 1px solid @border_dark;
+    border-bottom: 1px solid @border_dark;
+    border-top: 1px solid @border_bright;
+    box-shadow: inset -1px -1px @border_shade, inset 0px 0px @border_color; }
+scale trough {
+  padding: 0px;
+  min-width: 2px;
+  min-height: 2px;
+  border: 1px solid @border_dark;
+  border-image-source: url("assets/scale.png");
+  outline-offset: -8px;
+  border-image-slice: 1 1 1 1;
+  border-image-repeat: repeat; }
+  scale:focus trough {
+  outline-offset: 8px; }
+scale highlight,
+scale empty {
+  min-width: 1px;
+  min-height: 1px;
+  background-color: transparent; }
+
+/* there might be other cases where the inside is filled by other widgets */
+scale.color contents trough {
+  min-height: 8px;
+  min-width: 8px; }
+scale value {
+  padding: 4px }
+
+treeview.view.progressbar {
+  border: none;
+  background-color: @selected_bg_color;
+  background-image: none;
+  box-shadow: none }
+  treeview.view.progressbar:disabled {
+    background-color: @selected_inactive_bg_color; }
+    treeview.view.progressbar:disabled:selected:focus:backdrop,
+    treeview.view.progressbar:disabled:selected:backdrop {
+      border: none;
+      background-color: @selected_inactive_bg_color; }
+  treeview.view.progressbar:selected:focus:backdrop,
+  treeview.view.progressbar:selected:backdrop {
+    border: none;
+    background-color: @selected_bg_color; }
+
+treeview.view.trough {
+  border-left: 1px solid @border_shade;
+  border-top: 1px solid @border_shade;
+  border-bottom: 1px solid @border_dark;
+  border-right: 1px solid @border_dark;
+  background-color: @bg_bright;
+  border-radius: 0px; }
+  treeview.view.trough:selected:focus,
+  treeview.view.trough:selected {
+    border-left: 1px solid @border_shade;
+    border-top: 1px solid @border_shade;
+    border-bottom: 1px solid @border_dark;
+    border-right: 1px solid @border_dark;
+    background-color: @bg_bright;
+    border-radius: 0px; }
+
+

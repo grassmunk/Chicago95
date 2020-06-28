@@ -117,7 +117,7 @@ StScrollBar StButton#hhandle {
   border-radius: 0px;
   width: 250px;
   min-height: 16px;
-  border: 1px solid #808080;
+  border-image: url("misc-assets/entry.png") 6;
   background-color: white;
   selected-color: white;
   caret-color: black;
@@ -948,7 +948,8 @@ StScrollBar StButton#hhandle {
 
 .menu-applications-inner-box {
   margin: 8px;
-  border: 1px solid #808080;
+  border: 2px solid #808080;
+  border-image: url("frame/frame_menu.png") 6;
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;

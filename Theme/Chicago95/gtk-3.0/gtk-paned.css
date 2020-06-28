@@ -1,0 +1,28 @@
+/*********
+ * paned *
+ *********/
+
+paned  {
+  margin: 0px;
+  padding: 1px; }
+
+/* GTK has the panes flipped. the .horizontal is ACTUALLY a vertical.*/
+paned.horizontal > separator {
+  min-width: 4px;
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  background-image: url("assets/handle-v.png");
+  background-repeat: no-repeat;
+  background-position: 1px 50%;
+  background-size: 2px 48px; }
+paned.vertical > separator {
+  min-height: 4px;
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  background-image: url("assets/handle-h.png");
+  background-repeat: no-repeat;
+  background-position: 50% 1px;
+  background-size: 48px 2px; }
+

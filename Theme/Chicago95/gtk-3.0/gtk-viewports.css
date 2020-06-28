@@ -1,0 +1,72 @@
+/****************************
+ * viewport & view *
+ ****************************/
+
+/*
+   Contributor notes:
+   Please use two space indentions.
+   Stack all related and child selectors and selector states into a logical hierarchy to a readable degree.
+   Make sure that all changes made here are part of the viewport and view.
+*/
+
+viewport {
+  padding: 1px;
+  background-color: @bg_color; }
+viewport list,
+viewport iconview,
+viewport textview,
+viewport list.tweak-group,
+viewport list.tweak-categories {
+  background-color: @bg_bright;
+  color: black; }
+  viewport row {
+    padding: 1px;
+    min-height: 20px; }
+    viewport list row box {
+      background-color: transparent; }
+
+grid viewport {
+  border: none;
+  background-color: @bg_color;
+  border: 1px solid transparent; }
+  grid viewport box scrolledwindow viewport {
+    border: none;
+    box-shadow: inset 0 0;
+    background-color: @bg_bright; }
+
+view,
+.view {
+  border-width: 0px;
+  background-color: @bg_bright;
+  color: @theme_text_color;
+  outline: none; } /* outline effects in views are causing issues with the interface expanding on focus and strange graphical artifacts that will stay around. */
+  view:disabled,
+  view:disabled:disabled {
+    background-color: @bg_color;
+    color: @fg_color; }
+    view:selected,
+    view:selected:focus {
+      background-color: @theme_selected_bg_color;
+      color: @font_bright; }
+  .view header button {
+    padding: 0px;
+    min-height: 16px;
+    min-width: 16px; }
+    .view header button label {
+      padding: 0px;
+      padding-left: 5px;
+      padding-right: 5px;
+      margin-bottom: -3px; }
+
+box.view {
+  background-color: @bg_color;
+  color: @fg_color; }
+
+/*scrolledwindow:not(.frame) > viewport { *//*Adding this for background colour. */
+/*  background-color: @theme_bg_color; }
+  dialog scrolledwindow viewport {
+  padding: 5px; }*/
+
+dialog viewport {
+  border: 1px solid transparent;
+  background-color: @theme_bg_color; }

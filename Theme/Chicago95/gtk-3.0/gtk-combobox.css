@@ -1,0 +1,102 @@
+/************
+ * combobox *
+ ************/
+
+/*
+   Contributor notes:
+   Please use two space indentions.
+   Stack all related and child selectors and selector states into a logical hierarchy to a readable degree.
+   Make sure that all changes made here are part of the GtkCombobox.
+*/
+
+/* Combobox */
+combobox {
+  background-color: @bg_color; }
+  combobox button {
+    padding: 1px;
+    padding-left: 4px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-right: 2px;
+    margin-left: 2px;
+    min-width: 16px;
+    min-height: 15px; } /* Set to 15px to prevent scaling issues with arrow icon. */
+    combobox button:active,
+    combobox button:checked {
+      border-color: @border_shade;
+      box-shadow: none; }
+    * combobox button {
+    padding-left: 0px; }
+
+/* The default cellview top or bottom margin will affect the arrow icon scaling in the combobox button. To resolve this, we will add a negative margin. */ 
+
+
+/* Combobox entry */
+combobox entry {
+  /* This will move combobox buttons into the entry
+   * Libre Office is particular about the positioning of the button, or else it will hide the right side entry border. */
+  margin-right: -20px;
+  padding-right: 20px; }
+/* Since the above margins are not enough for regular GTK applications, we can use the following. LibreOffice VCL doesn't support the asterisk * wildcard selector in this case. */
+  * combobox entry {
+    margin-right: -23px;
+    padding-right: 22px; }
+
+/* Combobox window and menu decorations */
+combobox window decoration {
+  padding: 0px;    /* Padding is not required here. */
+  border: 1px solid @border_dark; }    /* Need to make the border 1px and a solid colour. */
+combobox window .context-menu,
+combobox window menu {    /* The combobox window menu is included for sub-menus that branch off of the .context-menu. */
+  background-color: @bg_bright;    /* Background colour needs to be applied. */
+  border: none; }    /* Borders are not necessary here. */
+  combobox window .context-menu menuitem {
+    padding: 1px; }    /* Menuitems need only be 1px. */
+    combobox window .context-menu separator {
+      margin-left: 1px;    /* A margin is required so that the separator isn't touching the menu border. */
+      margin-right: 1px; }    /* A margin is required so that the separator isn't touching the menu border. */
+#gtk-combobox-popup-menu,
+#gtk-combobox-popup-menu window {
+  border: none;    /* Borders are not necessary here. */
+  box-shadow: none;    /* Box shadows are not necessary here. */
+  background-color: @bg_bright; }    /* Background colour needs to be applied. */
+  #gtk-combobox-popup-menu arrow  {
+    -gtk-icon-source: none; }
+  #gtk-combobox-popup-menu menuitem {
+    padding: 0px;    /* Remove any inherited padding. */
+    padding-left: 2px;    /* Need padding on the left to keep menuitem images from touching the border. */
+    padding-right: 2px;    /* Need padding on the right to keep menuitem images from touching the border. */
+    min-height: 16px; }
+
+
+/* Combobox arrows */
+combobox arrow {
+  -gtk-icon-source: url("assets/vcl-combobox-arrow-down.png");
+  margin-bottom: -1px; 
+  min-width: 16px;
+  min-height: 16px; } /* 16px icons only or else Libreoffice will distort the icon. */
+  combobox:disabled arrow:disabled {
+  margin-bottom: -1px; 
+  min-width: 16px;
+  min-height: 16px;
+  -gtk-icon-source: url("assets/vcl-combobox-arrow-down-disabled.png");
+  -gtk-icon-shadow: none; }
+  /* The following should apply for the rest of the theme. This won't affect Libreoffice comboboxes. */
+  combobox > box > button > box > arrow {
+    background-image: url("assets/vcl-combobox-arrow-down.png");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 16px 16px;
+    margin-bottom: -1px; 
+    min-width: 16px;
+    min-height: 16px;
+    -gtk-icon-source: none; }
+    combobox:disabled > box > button > box > arrow:disabled {
+      background-image: url("assets/vcl-combobox-arrow-down-disabled.png");
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: 16px 16px;
+      margin-bottom: -1px; 
+      min-width: 16px;
+      min-height: 16px;
+-gtk-icon-source: none; }

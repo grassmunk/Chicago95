@@ -181,7 +181,7 @@ style "panelbuttons"
 			function = BOX
 			recolorable = TRUE
 			state = NORMAL
-			file = "panel/panel-bg.png"
+			file = "panel/panel-button.png"
 			border = { 5, 5, 5, 5 }
 			stretch = TRUE
 		}
@@ -192,7 +192,7 @@ style "panelbuttons"
 			shadow = OUT
 			recolorable = TRUE
 			state = PRELIGHT
-			file = "panel/panel-bg.png"
+			file = "panel/panel-button.png"
 			border = { 5, 5, 5, 5 }
 			stretch = TRUE
 		}
@@ -212,7 +212,7 @@ style "panelbuttons"
 			function = BOX
 			recolorable = TRUE
 			state = INSENSITIVE
-			file = "panel/panel-bg.png"
+			file = "panel/panel-button.png"
 			border = { 5, 5, 5, 5 }
 			stretch = TRUE
 		}

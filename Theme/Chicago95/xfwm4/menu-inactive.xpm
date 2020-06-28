@@ -1,9 +1,8 @@
 /* XPM */
 static char * menu_inactive_xpm[] = {
-"16 16 3 1",
+"16 16 2 1",
 "   c None",
-"#  c #C0C0C0 s inactive_color_2",
-"@  c #C0C0FF s inactive_color_1",
+"@  c #C0C0C0 s inactive_color_2",
 "@@@@@@@@@@@@@@@@",
 "@@@@@@@@@@@@@@@@",
 "@@@@@@@@@@@@@@@@",
