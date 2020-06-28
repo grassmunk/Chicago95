@@ -11,14 +11,32 @@ Download any Windows 95, 98, ME or XP theme file (from places like themeworld.co
 
 Currently supports:
 
-* Icons (ICL, DLL and ICO files)
-* Cursors (CUR and ANI files)
-* Theme colors
-* Fonts
-* Sounds
-* Wallpapers (installed to `/home/$USER/Pictures`)
+- Icons (ICL, DLL and ICO files)
+- Cursors (CUR and ANI files)
+- Theme colors
+- Fonts
+- Sounds
+- Wallpapers (installed to `/home/$USER/Pictures`)
 
 Two ways to install themes: GUI and CLI:
+
+#### Requirements
+
+- inkscape
+- python3-svgwrite
+- python3-fonttools
+- python3-numpy
+
+Notes:
+
+* Sounds are installed assuming you have XFCE sounds enabled per the [Chicago95 Install instructions](../INSTALL.md).
+* To use Chicago95 Plus! on Xubuntu you need to install the following: `python3-svgwrite` `python3-fonttools` `inkscape`:
+
+  sudo apt install python3-svgwrite python3-fonttools inkscape
+
+* By default Chicago95 Plus! creates the theme in your working folder and copies the files to their required location then automatically changes the current theme to the new theme, just like Windows!
+
+-----
 
 ## Chicago95 Plus! GUI
 
@@ -230,9 +248,3 @@ Specific Installs:
 Part of the Chicago95 theme project
 
 ```
-
-Notes:
-
-* Sounds are installed assuming you have XFCE sounds enabled per the Chicago95 Install instructions.
-* To use Chicago95 Plus! on Xubuntu you need to install the following: `python3-svgwrite` `python3-fonttools` `inkscape`: `sudo apt install python3-svgwrite python3-fonttools inkscape`
-* By default Chicago95 Plus! creates the theme in your working folder and copies the files to their required location then automatically changes the current theme to the new theme, just like Windows!
