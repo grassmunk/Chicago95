@@ -5,8 +5,8 @@
 <!--ts-->
 * [Installing Chicago95](#install_theme)
     * [Single user automated install](#install_auto)
-    * [Single user install](#install_single)
-    * [System-wide install (optional)](#install_system)
+    * [Single user manual install](#install_single)
+    * [System-wide manual install (optional)](#install_system)
 * [Enabling The Theme](#config_theme)
 * [Configuring The XFCE4 Panelbar](#xfce4_panel)
     * [Horizontal Panelbar](#horiz_panel)
@@ -64,7 +64,7 @@ Complete:
 
 <a name="install_single"/>
 
-### [ Single user install ]
+### [ Single user manual install ]
 
 The following installation steps will require that you enable the `view hidden folders` option in your file manager to see hidden files.
 
@@ -94,7 +94,7 @@ After copying the theme files into their appropriate places, you might need to l
 
 <a name="install_system"/>
 
-### [ System-wide install ] (optional)
+### [ System-wide manual install ] (optional)
 
 The following installation steps will require that you enable the `view hidden folders` option in your file manager to see hidden files.
 
