@@ -9,7 +9,7 @@
 
 I was unhappy with the various XFCE/GTK2/GTK3 Windows 95 based themes and decided to make one that was more consistent across the board for theming.
 
-Included in this theme:
+#### Included in this theme:
 
 - New icons to complete the icon theme started with Classic95
 - GTK2 and GTK3 themes

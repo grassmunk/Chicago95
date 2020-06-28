@@ -9,7 +9,7 @@ Is Chicago95 not authentic enough for you? Do you want to use Microsoft Plus! th
 
 Download any Windows 95, 98, ME or XP theme file (from places like themeworld.com or archive.org) and use this tool to switch to your new theme!
 
-Currently supports:
+#### Currently supports:
 
 - Icons (ICL, DLL and ICO files)
 - Cursors (CUR and ANI files)
@@ -18,7 +18,7 @@ Currently supports:
 - Sounds
 - Wallpapers (installed to `/home/$USER/Pictures`)
 
-Two ways to install themes: GUI and CLI:
+Two ways to install themes: [GUI](#run_GUI) and [CLI](#run_CLI):
 
 #### Requirements
 
@@ -32,11 +32,16 @@ Notes:
 * Sounds are installed assuming you have XFCE sounds enabled per the [Chicago95 Install instructions](../INSTALL.md).
 * To use Chicago95 Plus! on Xubuntu you need to install the following: `python3-svgwrite` `python3-fonttools` `inkscape`:
 
-  sudo apt install python3-svgwrite python3-fonttools inkscape
+    sudo apt install python3-svgwrite python3-fonttools inkscape
 
 * By default Chicago95 Plus! creates the theme in your working folder and copies the files to their required location then automatically changes the current theme to the new theme, just like Windows!
 
+### Screenshots
+[Click here to view screenshots](demo/SCREENSHOTS.md)
+
 -----
+
+<a name="run_GUI"/>
 
 ## Chicago95 Plus! GUI
 
@@ -78,7 +83,9 @@ Icon Preview:
 <img src="demo/demo_05_preview_icons.png" alt="Chicago95 Plus! Cursor Preview"/>
 </p>
 
-Once you've picked a theme you like press *Accept* to automatically install the theme or *OK* to automatically install the theme and exit.
+Once you've picked a theme you like press *Apply* to automatically install the theme or *OK* to automatically install the theme and exit.
+
+When you click Apply or OK, Chicago95 Plus will momentarily freeze while it installs the theme, occasionally Inkscape will open (to remove icon transperencies), you may have to wait a few minutes for the theme to install. Run in debug mode to see whats going on behind the scenes.
 <p align="center">
 <img src="demo/demo_06.png" alt="Chicago95 Plus! Installed Preview"/>
 </p>
@@ -128,48 +135,9 @@ optional arguments:
 Part of the Chicago95 theme project
 
 ```
+----
 
-
-Notes:
-
-* Sounds are installed assuming you have XFCE sounds enabled per the Chicago95 Install instructions.
-* To use Chicago95 Plus! on Xubuntu you need to install the following: `python3-svgwrite` `python3-fonttools` `inkscape`: `sudo apt install python3-svgwrite python3-fonttools inkscape`
-* By default Chicago95 Plus! creates the theme in your working folder and copies the files to their required location then automatically changes the current theme to the new theme, just like Windows!
-* When you click accept it will freeze while it installs the theme, occasionally Inkscape will open (to remove icon transperencies), you may have to wait a few minutes for the theme to install. Run in debug mode to see whats going on behind the scenes.
-
-### Examples:
-
-Source: https://archive.org/details/blink18t
-<p align="center">
-<img src="demo/demo_07.png" alt="Chicago95 Plus! Example"/>
-</p>
-
-Source: https://archive.org/details/american_202005
-<p align="center">
-<img src="demo/demo_08.png" alt="Chicago95 Plus! Example"/>
-</p>
-
-
-Source: https://archive.org/details/dune2thm
-<p align="center">
-<img src="demo/demo_09.png" alt="Chicago95 Plus! Example"/>
-</p>
-
-Source: https://archive.org/details/ra2theme
-<p align="center">
-<img src="demo/demo_10.png" alt="Chicago95 Plus! Example"/>
-</p>
-
-Source: https://archive.org/details/hackerz_202005
-<p align="center">
-<img src="demo/demo_11.png" alt="Chicago95 Plus! Example"/>
-</p>
-
-Source: https://archive.org/details/themes_dolphins_202005
-<p align="center">
-<img src="demo/demo_12.png" alt="Chicago95 Plus! Example"/>
-</p>
-
+<a name="run_CLI"/>
 
 ## Chicago95 Plus! CLI
 
