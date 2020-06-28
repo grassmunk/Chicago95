@@ -50,20 +50,31 @@ xargsbin   :=$(shell which xargs)
 
 .PHONY: clean install install_files build_man uninstall list deplist deplist_opts
 
+all:
+	@${echobin} "No compilation for this project."
+
 list:
 	@$(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null | ${awkbin} -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | ${sortbin} | ${grepbin} -E -v -e '^[^[:alnum:]]' -e '^$@$$'
 
 install: install_all
 
-install_all: install_cursors install_doc install_fonts install_greeter install_gtk_theme install_icons install_login_sound install_boot_screen
+install_all: install_cursors install_doc install_fonts install_gtk_theme install_icons install_login_sound install_boot_screen install_plus
 
 install_cursors:
-	${installbin} -dm0755 ${ICONSDIR}/Chicago95_Cursor_Black \
+	${installbin} -dm0755 \
+		${ICONSDIR}/Chicago95\ Animated\ Hourglass\ Cursors \
+		${ICONSDIR}/Chicago95_Cursor_Black \
 		${ICONSDIR}/Chicago95_Cursor_White \
-		${ICONSDIR}/Chicago95_Emerald
+		${ICONSDIR}/Chicago95_Emerald \
+		${ICONSDIR}/Chicago95\ Standard\ Cursors\ Black \
+		${ICONSDIR}/Chicago95\ Standard\ Cursors \
+
 	${cpbin} -pr ${SRCDIR}/Cursors/Chicago95_Cursor_Black/* ${ICONSDIR}/Chicago95_Cursor_Black
 	${cpbin} -pr ${SRCDIR}/Cursors/Chicago95_Cursor_White/* ${ICONSDIR}/Chicago95_Cursor_White
 	${cpbin} -pr ${SRCDIR}/Cursors/Chicago95_Emerald/* ${ICONSDIR}/Chicago95_Emerald
+	${cpbin} -pr ${SRCDIR}/Cursors/Chicago95\ Animated\ Hourglass\ Cursors/* ${ICONSDIR}/Chicago95\ Animated\ Hourglass\ Cursors
+	${cpbin} -pr ${SRCDIR}/Cursors/Chicago95\ Standard\ Cursors/* ${ICONSDIR}/Chicago95\ Standard\ Cursors
+	${cpbin} -pr ${SRCDIR}/Cursors/Chicago95\ Standard\ Cursors\ Black/* ${ICONSDIR}/Chicago95\ Standard\ Cursors\ Black
 	${findbin} ${ICONSDIR}/Chicago95* ! -type d -exec ${chmodbin} 0644 {} +
 
 install_doc:
@@ -77,16 +88,12 @@ install_fonts:
 	${installbin} -dm0755 ${FONTDIR}/truetype
 	${installbin} -m0644 -t ${FONTDIR}/truetype ${SRCDIR}/Fonts/vga_font/*ttf
 
-install_greeter:
-	${installbin} -dm0755 ${SHAREDIR}/lightdm-webkit/themes
-	${cpbin} -pr ${SRCDIR}/Lightdm/Chicago95 ${SHAREDIR}/lightdm-webkit/themes/
-	${findbin} ${SHAREDIR}/lightdm-webkit/themes/Chicago95 ! -type d -exec ${chmodbin} 0644 {} +
-
 install_gtk_theme:
 	${installbin} -dm0755 ${THEMESDIR}
 	${cpbin} -pr ${SRCDIR}/Theme/Chicago95 ${THEMESDIR}
 	${rmbin} -r ${THEMESDIR}/Chicago95/misc
 	${findbin} ${THEMESDIR}/Chicago95 ! -type d -exec ${chmodbin} 0644 {} +
+	${findbin} ${THEMESDIR}/Chicago95 -type d -exec ${chmodbin} 0755 {} +
 	@# xfce4-terminal theme
 	${installbin} -dm0755 ${SHAREDIR}/xfce4/terminal/colorschemes
 	${installbin} -m0644 -t ${SHAREDIR}/xfce4/terminal/colorschemes ${SRCDIR}/Extras/Chicago95.theme
@@ -108,10 +115,24 @@ install_boot_screen:
 	${installbin} -m0644 -t ${SHAREDIR}/plymouth/themes/Chicago95 ${SRCDIR}/Plymouth/Chicago95/*
 	${installbin} -m0644 -t ${SHAREDIR}/plymouth/themes/RetroTux ${SRCDIR}/Plymouth/RetroTux/*
 
+install_plus:
+	${installbin} -dm0755 ${SHAREDIR}/chicago95-theme-plus/assets ${BINDIR} ${LIBEXECDIR}/chicago95-theme-plus ${DOCDIR}/demo
+	${installbin} -m0755 -t ${SHAREDIR}/chicago95-theme-plus/assets ${SRCDIR}/Plus/assets/*
+	${installbin} -m0755 ${SRCDIR}/Plus/ChicagoPlus.py ${BINDIR}/ChicagoPlus
+	${installbin} -m0755 ${SRCDIR}/Plus/PlusGUI.py ${BINDIR}/PlusGUI
+	${installbin} -m0644 -t ${LIBEXECDIR}/chicago95-theme-plus ${SRCDIR}/Plus/pluslib.py ${SRCDIR}/Plus/plus.glade
+	${installbin} -m0644 ${SRCDIR}/Plus/README.MD ${DOCDIR}/Plus-README.MD
+	${installbin} -m0644 -t ${DOCDIR} ${SRCDIR}/Plus/*.png
+	${installbin} -m0644 -t ${DOCDIR}/demo ${SRCDIR}/Plus/demo/*
+
 uninstall:
-	${rmbin} -r ${ICONSDIR}/Chicago95_Cursor_Black \
+	${rmbin} -rf \
+		${ICONSDIR}/Chicago95\ Animated\ Hourglass\ Cursors \
+		${ICONSDIR}/Chicago95_Cursor_Black \
 		${ICONSDIR}/Chicago95_Cursor_White \
 		${ICONSDIR}/Chicago95_Emerald \
+		${ICONSDIR}/Chicago95\ Standard\ Cursors\ Black \
+		${ICONSDIR}/Chicago95\ Standard\ Cursors \
 		${DOCDIR} \
 		${FONTDIR}/truetype/LessPerfectDOSVGA.ttf \
 		${FONTDIR}/truetype/MorePerfectDOSVGA.ttf \
@@ -119,7 +140,9 @@ uninstall:
 		${THEMESDIR}/Chicago95 ${SHAREDIR}/xfce4/terminal/colorschemes/Chicago95.theme \
 		${ICONSDIR}/Chicago95 ${ICONSDIR}/Chicago95-tux \
 		${SOUNDSDIR}/Chicago95 \
-		${SHAREDIR}/plymouth/themes/Chicago95 ${SHAREDIR}/plymouth/themes/RetroTux 2>/dev/null || :
+		${LIBEXECDIR}/chicago95-theme-plus ${BINDIR}/ChicagoPlus ${BINDIR}/PlusGUI \
+		${SHAREDIR}/chicago95-theme-plus \
+		${SHAREDIR}/plymouth/themes/Chicago95 ${SHAREDIR}/plymouth/themes/RetroTux
 
 clean:
 	-@${echobin} "target $@ not implemented yet! Gotta say unh." && ${falsebin}
