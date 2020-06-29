@@ -7,11 +7,12 @@
 # History:
 # Usage:
 # Reference:
+#    spaces and underscores https://ftp.gnu.org/old-gnu/Manuals/make-3.79.1/html_chapter/make_6.html
 # Improve:
 # Dependencies:
 
 APPNAME    = chicago95
-APPVERSION = 0.0.2beta
+APPVERSION = 0.0.2
 SRCDIR     = $(CURDIR)
 prefix     = /usr
 SYSCONFDIR = $(DESTDIR)/etc
@@ -48,7 +49,15 @@ truebin    :=$(shell which true)
 uniqbin    :=$(shell which uniq)
 xargsbin   :=$(shell which xargs)
 
+use_underscores ?= NO
+
 .PHONY: clean install install_files build_man uninstall list deplist deplist_opts
+
+nullstring :=
+space :=\ $(nullstring)# end of the line
+ifeq ($(use_underscores),YES)
+space = _
+endif
 
 all:
 	@${echobin} "No compilation for this project."
@@ -58,23 +67,23 @@ list:
 
 install: install_all
 
-install_all: install_cursors install_doc install_fonts install_gtk_theme install_icons install_login_sound install_boot_screen install_plus
+install_all: install_cursors install_doc install_fonts install_gtk_theme install_icons install_sounds install_login_sound install_boot_screen install_plus
 
 install_cursors:
 	${installbin} -dm0755 \
-		${ICONSDIR}/Chicago95\ Animated\ Hourglass\ Cursors \
+		${ICONSDIR}/Chicago95$(space)Animated$(space)Hourglass$(space)Cursors \
 		${ICONSDIR}/Chicago95_Cursor_Black \
 		${ICONSDIR}/Chicago95_Cursor_White \
 		${ICONSDIR}/Chicago95_Emerald \
-		${ICONSDIR}/Chicago95\ Standard\ Cursors\ Black \
-		${ICONSDIR}/Chicago95\ Standard\ Cursors \
+		${ICONSDIR}/Chicago95$(space)Standard$(space)Cursors$(space)Black \
+		${ICONSDIR}/Chicago95$(space)Standard$(space)Cursors \
 
+	${cpbin} -pr ${SRCDIR}/Cursors/Chicago95\ Animated\ Hourglass\ Cursors/* ${ICONSDIR}/Chicago95$(space)Animated$(space)Hourglass$(space)Cursors
 	${cpbin} -pr ${SRCDIR}/Cursors/Chicago95_Cursor_Black/* ${ICONSDIR}/Chicago95_Cursor_Black
 	${cpbin} -pr ${SRCDIR}/Cursors/Chicago95_Cursor_White/* ${ICONSDIR}/Chicago95_Cursor_White
 	${cpbin} -pr ${SRCDIR}/Cursors/Chicago95_Emerald/* ${ICONSDIR}/Chicago95_Emerald
-	${cpbin} -pr ${SRCDIR}/Cursors/Chicago95\ Animated\ Hourglass\ Cursors/* ${ICONSDIR}/Chicago95\ Animated\ Hourglass\ Cursors
-	${cpbin} -pr ${SRCDIR}/Cursors/Chicago95\ Standard\ Cursors/* ${ICONSDIR}/Chicago95\ Standard\ Cursors
-	${cpbin} -pr ${SRCDIR}/Cursors/Chicago95\ Standard\ Cursors\ Black/* ${ICONSDIR}/Chicago95\ Standard\ Cursors\ Black
+	${cpbin} -pr ${SRCDIR}/Cursors/Chicago95\ Standard\ Cursors/* ${ICONSDIR}/Chicago95$(space)Standard$(space)Cursors
+	${cpbin} -pr ${SRCDIR}/Cursors/Chicago95\ Standard\ Cursors\ Black/* ${ICONSDIR}/Chicago95$(space)Standard$(space)Cursors$(space)Black
 	${findbin} ${ICONSDIR}/Chicago95* ! -type d -exec ${chmodbin} 0644 {} +
 
 install_doc:
@@ -92,8 +101,8 @@ install_gtk_theme:
 	${installbin} -dm0755 ${THEMESDIR}
 	${cpbin} -pr ${SRCDIR}/Theme/Chicago95 ${THEMESDIR}
 	${rmbin} -r ${THEMESDIR}/Chicago95/misc
-	${findbin} ${THEMESDIR}/Chicago95 ! -type d -exec ${chmodbin} 0644 {} +
-	${findbin} ${THEMESDIR}/Chicago95 -type d -exec ${chmodbin} 0755 {} +
+	${findbin} ${THEMESDIR}/Chicago95 ! -type d -exec ${chmodbin} 0644 {} + || :
+	${findbin} ${THEMESDIR}/Chicago95 -type d -exec ${chmodbin} 0755 {} + || :
 	@# xfce4-terminal theme
 	${installbin} -dm0755 ${SHAREDIR}/xfce4/terminal/colorschemes
 	${installbin} -m0644 -t ${SHAREDIR}/xfce4/terminal/colorschemes ${SRCDIR}/Extras/Chicago95.theme
@@ -103,12 +112,16 @@ install_icons:
 	${cpbin} -pr ${SRCDIR}/Icons/* ${ICONSDIR}/
 	${findbin} ${ICONSDIR}/Chicago95* ! -type d ! -type l -exec ${chmodbin} 0644 {} +
 
+install_sounds:
+	${installbin} -dm0755 ${SOUNDSDIR}/Chicago95/stereo
+	${installbin} -m0644 -t ${SOUNDSDIR}/Chicago95/stereo ${SRCDIR}/sounds/Chicago95/stereo/*
+	${installbin} -m0644 -t ${SOUNDSDIR}/Chicago95 ${SRCDIR}/sounds/Chicago95/index.theme
+
 install_login_sound:
-	${installbin} -dm0755 ${SOUNDSDIR}/Chicago95
-	# pending addition of debian/chicago95-startup.desktop to source ${XDGAUTODIR}
+	${installbin} -dm0755 ${SOUNDSDIR}/Chicago95 ${XDGAUTODIR}
 	${installbin} -m0644 ${SRCDIR}/Extras/Microsoft\ Windows\ 95\ Startup\ Sound.ogg ${SOUNDSDIR}/Chicago95/startup.ogg
 	# pending addition of debian/chicago95-startup.desktop to source ${XDGAUTODIR}
-	#${installbin} -m0644 -t ${XDGAUTODIR} ${SRCDIR}/Extras/chicago95-startup.desktop
+	${installbin} -m0644 -t ${XDGAUTODIR} ${SRCDIR}/sounds/chicago95-startup.desktop
 
 install_boot_screen:
 	${installbin} -dm0755 ${SHAREDIR}/plymouth/themes/Chicago95 ${SHAREDIR}/plymouth/themes/RetroTux
@@ -127,12 +140,12 @@ install_plus:
 
 uninstall:
 	${rmbin} -rf \
-		${ICONSDIR}/Chicago95\ Animated\ Hourglass\ Cursors \
+		${ICONSDIR}/Chicago95$(space)Animated$(space)Hourglass$(space)Cursors \
 		${ICONSDIR}/Chicago95_Cursor_Black \
 		${ICONSDIR}/Chicago95_Cursor_White \
 		${ICONSDIR}/Chicago95_Emerald \
-		${ICONSDIR}/Chicago95\ Standard\ Cursors\ Black \
-		${ICONSDIR}/Chicago95\ Standard\ Cursors \
+		${ICONSDIR}/Chicago95$(space)Standard$(space)Cursors$(space)Black \
+		${ICONSDIR}/Chicago95$(space)Standard$(space)Cursors \
 		${DOCDIR} \
 		${FONTDIR}/truetype/LessPerfectDOSVGA.ttf \
 		${FONTDIR}/truetype/MorePerfectDOSVGA.ttf \
