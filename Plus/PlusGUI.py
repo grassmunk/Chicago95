@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
+import sys
 from pluslib import ChicagoPlus
 import logging
-import sys
 from pathlib import Path
 from PIL import Image, ImageFont, ImageDraw, ImageEnhance, ImageOps
 from pprint import pprint
@@ -21,6 +21,16 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, GdkPixbuf, GLib
 
 running_folder = os.path.dirname(os.path.abspath(__file__))
+share_dir = running_folder
+libexec_dir = running_folder
+work_dir = running_folder
+if not os.path.exists(work_dir):
+    os.makedirs(work_dir)
+
+c95_packaged_cursor_path=str(Path.home())+"/.icons/Chicago95_Cursor_Black"
+c95_packaged_theme_path=str(Path.home())+"/.themes/Chicago95"
+c95_packaged_icons_path=str(Path.home())+"/.icons/Chicago95"
+
 #print("Font List...", end=' ', flush=True)
 fonts_output = subprocess.check_output(['convert', '-list', 'font'])
 fonts = fonts_output.decode().split('\n')
@@ -141,18 +151,18 @@ class MakePreview:
 		print("[MakePreview] Preview Generated")
 
 	def return_preview(self):
-		self.preview_window.save(running_folder+"/preview.png", "PNG")
-		return(running_folder+"/preview.png")
+		self.preview_window.save(work_dir+"/preview.png", "PNG")
+		return(work_dir+"/preview.png")
 		
 	def return_preview_double(self):
-		self.preview_window.save(running_folder+"/preview_double.png", "PNG")
-		return(running_folder+"/preview_double.png")
+		self.preview_window.save(work_dir+"/preview_double.png", "PNG")
+		return(work_dir+"/preview_double.png")
 
 	def delete_preview(self):
-		os.remove(running_folder+"/preview.png")
+		os.remove(work_dir+"/preview.png")
 
 	def delete_preview_double(self):
-		os.remove(running_folder+"/preview_double.png")
+		os.remove(work_dir+"/preview_double.png")
 
 	def set_fonts(self):
 		print("[MakePreview] Fonts...", end=' ')
@@ -239,7 +249,7 @@ class MakePreview:
 					draw.line([(button_width - 6, 4),(button_width - 6, button_height-5)],fill=colors['buttontext'], width=1)
 					self.max_button = img
 				elif button == 'close':
-					X = Image.open(running_folder+"/assets/X.png").convert('RGBA')
+					X = Image.open(share_dir+"/assets/X.png").convert('RGBA')
 					pixels = X.load()
 					rgb = struct.unpack('BBB',bytes.fromhex(colors['buttontext'].lstrip('#')))
 					for i in range(X.size[0]):
@@ -305,17 +315,17 @@ class MakePreview:
 			if self.plus.theme_config['icons']['my_computer']:
 				self.my_computer = self.make_icons(self.plus,'my_computer')
 			else:
-				self.my_computer = Image.open(running_folder+"/assets/my_computer~.png").convert('RGBA')
+				self.my_computer = Image.open(share_dir+"/assets/my_computer~.png").convert('RGBA')
 
 			if self.plus.theme_config['icons']['network_neighborhood']:
 				self.network_neighborhood= self.make_icons(self.plus,'network_neighborhood')
 			else:
-				self.network_neighborhood = Image.open(running_folder+"/assets/network_neighborhood~.png").convert('RGBA')
+				self.network_neighborhood = Image.open(share_dir+"/assets/network_neighborhood~.png").convert('RGBA')
 
 			if self.plus.theme_config['icons']['recycle_bin_empty']:
 				self.recycle_bin_empty = self.make_icons(self.plus,'recycle_bin_empty')
 			else:
-				self.recycle_bin_empty = Image.open(running_folder+"/assets/recycle_bin_empty~.png").convert('RGBA')
+				self.recycle_bin_empty = Image.open(share_dir+"/assets/recycle_bin_empty~.png").convert('RGBA')
 			
 			if self.plus.theme_config['icons']['my_documents']:
 				self.my_documents = self.make_icons(self.plus,'my_documents')
@@ -704,7 +714,7 @@ class MakePreview:
 
 	def make_icons(self, plus, ico_name):
 
-		icon = running_folder+"/assets/" + ico_name+"~"+".png"
+		icon = share_dir+"/assets/" + ico_name+"~"+".png"
 
 		if plus.theme_config['icons'][ico_name]['type'] in ['dll', 'icl']:
 			index = plus.theme_config['icons'][ico_name]['index']
@@ -713,12 +723,12 @@ class MakePreview:
 				icon_filename, icon_file = plus.get_icons_size_dll(icon_files, index)
 
 				if icon_filename:
-					f = open(running_folder+"/tmp/tmp_"+icon_filename,"wb")
+					f = open(work_dir+"/tmp_"+icon_filename,"wb")
 					f.write(icon_file)
 					f.close()
-					icon = running_folder+"/tmp/tmp_"+icon_filename
+					icon = work_dir+"/tmp_"+icon_filename
 				else:
-					icon = running_folder+"/assets/" + ico_name+"~"+".png"
+					icon = share_dir+"/assets/" + ico_name+"~"+".png"
 		else:
 			icon_files = plus.extract_ico(plus.theme_config['icons'][ico_name]['path'])
 			
@@ -741,7 +751,7 @@ class MakePreview:
 			icon_image =  Image.open(ico_name+".png").convert('RGBA')
 			os.remove(ico_name+".png")
 		except subprocess.CalledProcessError:
-			icon_image =  Image.open(running_folder+"/assets/" + ico_name+"~.png").convert('RGBA')
+			icon_image =  Image.open(share_dir+"/assets/" + ico_name+"~.png").convert('RGBA')
 		
 		return icon_image
 
@@ -752,9 +762,9 @@ class MakePreview:
 class plusGTK:
 	def __init__(self, themefile=False, colors=32, overlap=1, 
 			squaresize=20, installdir=os.getcwd(), 
-			chicago95_cursor_path=str(Path.home())+"/.icons/Chicago95_Cursor_Black",
-			chicago95_theme_path=str(Path.home())+"/.themes/Chicago95",
-			chicago95_icons_path=str(Path.home())+"/.icons/Chicago95",
+			chicago95_cursor_path=c95_packaged_cursor_path,
+			chicago95_theme_path=c95_packaged_theme_path,
+			chicago95_icons_path=c95_packaged_icons_path,
 			loglevel=logging.WARNING,
 			logfile='plus.log'):
 
@@ -798,7 +808,7 @@ class plusGTK:
 		
 		# GTK Initialization
 		self.builder = builder = Gtk.Builder()
-		self.builder.add_from_file(running_folder+"/plus.glade")
+		self.builder.add_from_file(libexec_dir+"/plus.glade")
 		self.window = self.builder.get_object("Main")
 		self.preview = self.builder.get_object("preview")
 		self.builder.connect_signals(self.handlers)
@@ -943,22 +953,22 @@ class plusGTK:
 
 
 	def other_previews(self, button):
-		checkmark = GdkPixbuf.Pixbuf.new_from_file(running_folder+"/assets/check.png")
-		nocheckmark = GdkPixbuf.Pixbuf.new_from_file(running_folder+"/assets/blank-check.png")
+		checkmark = GdkPixbuf.Pixbuf.new_from_file(share_dir+"/assets/check.png")
+		nocheckmark = GdkPixbuf.Pixbuf.new_from_file(share_dir+"/assets/blank-check.png")
 		self.previews_window = self.builder.get_object("Preview Window")
 		
 		self.cursor_preview = self.builder.get_object("cursor_preview")
-		self.cursor_preview.set_from_file(running_folder+"/assets/blank-check.png")
+		self.cursor_preview.set_from_file(share_dir+"/assets/blank-check.png")
 
 		self.icon_preview = self.builder.get_object("icon_preview")
-		self.icon_preview.set_from_file(running_folder+"/assets/blank-check.png")
+		self.icon_preview.set_from_file(share_dir+"/assets/blank-check.png")
 
 		self.sound_preview = self.builder.get_object("sound_preview")
-		self.sound_preview.set_from_file(running_folder+"/assets/blank-check.png")
+		self.sound_preview.set_from_file(share_dir+"/assets/blank-check.png")
 
 
 		self.cursor_preview = self.builder.get_object("cursor_preview")
-		self.cursor_preview.set_from_file(running_folder+"/assets/blank-check.png")
+		self.cursor_preview.set_from_file(share_dir+"/assets/blank-check.png")
 
 		# Populate cursor preview
 		self.cursor_store = self.builder.get_object("cursor_list")
@@ -992,40 +1002,40 @@ class plusGTK:
 							for icon in ani_file_config['icon']:
 								if icon['index'] == sequence:
 									cur_filename = current_cursor+"_"+str(sequence)
-									f = open(running_folder+"/tmp/"+cur_filename+".cur","wb")
+									f = open(work_dir+"/"+cur_filename+".cur","wb")
 									f.write(icon['ico_file'])
 									f.close()
 									convert_args.append("-delay")
 									convert_args.append("{}x60".format(rate))
-									convert_args.append(running_folder+"/tmp/"+cur_filename+".cur")
+									convert_args.append(work_dir+"/"+cur_filename+".cur")
 					else:
 						for icon in ani_file_config['icon']:
 							rate = ani_file_config['anih']['iDispRate'] + 5
 							cur_filename = current_cursor+"_"+str(icon['index'])
-							f = open(running_folder+"/tmp/"+cur_filename+".cur","wb")
+							f = open(work_dir+"/"+cur_filename+".cur","wb")
 							f.write(icon['ico_file'])
 							f.close()
 							convert_args.append("-delay")
 							convert_args.append("{}x60".format(rate))
-							convert_args.append(running_folder+"/tmp/"+cur_filename+".cur")
+							convert_args.append(work_dir+"/"+cur_filename+".cur")
 					convert_args.append("-loop")
 					convert_args.append("0")
-					convert_args.append(running_folder+"/tmp/"+current_cursor+".gif")
+					convert_args.append(work_dir+"/"+current_cursor+".gif")
 #					pprint(convert_args)
 					try:
 						subprocess.check_call(convert_args)
 					except:
-						copyfile(running_folder+"/assets/blank-check.png", running_folder+"/tmp/"+current_cursor+".gif")
+						copyfile(share_dir+"/assets/blank-check.png", work_dir+"/"+current_cursor+".gif")
 				else:
 					cursor_file_config = self.theme.extract_cur(filename)
 					icon_file = cursor_file_config['icon'][0]['ico_file']
-					f = open(running_folder+"/tmp/"+current_cursor+".cur","wb")
+					f = open(work_dir+"/"+current_cursor+".cur","wb")
 					f.write(icon_file)
 					f.close()
 					try:
-						subprocess.check_call(['convert', running_folder+"/tmp/"+current_cursor+".cur", running_folder+"/tmp/"+current_cursor+".gif"])
+						subprocess.check_call(['convert', work_dir+"/"+current_cursor+".cur", work_dir+"/"+current_cursor+".gif"])
 					except:
-						copyfile(running_folder+"/assets/blank-check.png", running_folder+"/tmp/"+current_cursor+".gif")
+						copyfile(share_dir+"/assets/blank-check.png", work_dir+"/"+current_cursor+".gif")
 
 				if not self.in_store(self.cursor_store, pointers[current_cursor]):
 					self.cursor_store.append([checkmark,pointers[current_cursor]])
@@ -1062,7 +1072,7 @@ class plusGTK:
 					self.icon_store[loc][0] = nocheckmark
 			else:
 				icon_image = self.preview_image.make_icons(self.theme, icon)
-				icon_image.save(running_folder+"/tmp/"+icon+".png", "PNG")
+				icon_image.save(work_dir+"/"+icon+".png", "PNG")
 				if not self.in_store(self.icon_store, icons[icon]):
 					self.icon_store.append([checkmark,icons[icon]])
 				else:
@@ -1116,10 +1126,10 @@ class plusGTK:
 		for cursor in pointers:
 			if pointers[cursor] == model[row][1]:
 				if cursor in self.theme_config['cursors'] and self.theme_config['cursors'][cursor] is not False:				
-					self.cursor_preview.set_from_file(running_folder+"/tmp/"+cursor+".gif")
+					self.cursor_preview.set_from_file(work_dir+"/"+cursor+".gif")
 					self.cursor_text_path.set_text(self.theme_config['cursors'][cursor]['path'])
 				else:
-					self.cursor_preview.set_from_file(running_folder+"/assets/blank-check.png")
+					self.cursor_preview.set_from_file(share_dir+"/assets/blank-check.png")
 					self.cursor_text_path.set_text("")
 				break
 
@@ -1131,27 +1141,27 @@ class plusGTK:
 		if model[row][1] == "Wallpaper bitmap":
 			if self.theme_config['wallpaper'] and self.theme_config['wallpaper']['theme_wallpaper']:
 				self.icon_text_path.set_text(self.theme_config['wallpaper']['theme_wallpaper']['path'])
-				self.icon_preview.set_from_file(running_folder+"/assets/blank-check.png")
+				self.icon_preview.set_from_file(share_dir+"/assets/blank-check.png")
 			else:
-				self.icon_preview.set_from_file(running_folder+"/assets/blank-check.png")
+				self.icon_preview.set_from_file(share_dir+"/assets/blank-check.png")
 				self.icon_text_path.set_text("")
 			return
 		if model[row][1] == "Screen saver":
 			if self.theme_config['screensaver'] :
 				self.icon_text_path.set_text(self.theme_config['screensaver'])
-				self.icon_preview.set_from_file(running_folder+"/assets/blank-check.png")
+				self.icon_preview.set_from_file(share_dir+"/assets/blank-check.png")
 			else:
-				self.icon_preview.set_from_file(running_folder+"/assets/blank-check.png")
+				self.icon_preview.set_from_file(share_dir+"/assets/blank-check.png")
 				self.icon_text_path.set_text("")
 			return
 		for icon in icons:
 			#print(icon, icons[icon], model[row][1])
 			if icons[icon] == model[row][1]:
 				if self.theme_config['icons'][icon] is not False:				
-					self.icon_preview.set_from_file(running_folder+"/tmp/"+icon+".png")
+					self.icon_preview.set_from_file(work_dir+"/"+icon+".png")
 					self.icon_text_path.set_text(self.theme_config['icons'][icon]['path'])
 				else:
-					self.icon_preview.set_from_file(running_folder+"/assets/blank-check.png")
+					self.icon_preview.set_from_file(share_dir+"/assets/blank-check.png")
 					self.icon_text_path.set_text("")
 				break
 
@@ -1239,9 +1249,9 @@ def main():
 	arg_parser.add_argument('-c', '--colors', help='How many colors before skipping Inkscape fix/merge for SVGs. Set to 1 to speed up conversion. WARNING: This may result in transparent icons!', default=32, type=int)
 	arg_parser.add_argument('-o', '--overlap', help='Pixel overlap for SVG icons', default=1, type=int)	
 	arg_parser.add_argument('-s', '--squaresize', help='Square size for SVG icons', default=20, type=int)
-	arg_parser.add_argument('--cursorfolder', help="Chicago95 cursor folder to convert to new theme", default=str(Path.home())+"/.icons/Chicago95_Cursor_Black")
-	arg_parser.add_argument('--themefolder', help="Chicago95 theme folder to convert to new theme", default=str(Path.home())+"/.themes/Chicago95")
-	arg_parser.add_argument('--iconsfolder', help="Chicago95 icons folder to convert to new theme", default=str(Path.home())+"/.icons/Chicago95")
+	arg_parser.add_argument('--cursorfolder', help="Chicago95 cursor folder to convert to new theme", default=c95_packaged_cursor_path)
+	arg_parser.add_argument('--themefolder', help="Chicago95 theme folder to convert to new theme", default=c95_packaged_theme_path)
+	arg_parser.add_argument('--iconsfolder', help="Chicago95 icons folder to convert to new theme", default=c95_packaged_icons_path)
 	arg_parser.add_argument("--installdir", help="Folder to create new theme in, default is current working directory", default=os.getcwd())
 	arg_parser.add_argument("--logfile", help="Filename for debug logging", default="chicago95_plus.log")
 	arg_parser.add_argument("theme_file", help="Microsoft Windows 95/98/ME .theme file", nargs="?",default=False)

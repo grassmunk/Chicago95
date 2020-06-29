@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
+import sys
 from pluslib import ChicagoPlus
 import argparse
 import logging
 import os
 from pathlib import Path
-import sys
 
 def main():
 	
