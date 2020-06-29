@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+   <mime-type type="application/x-plus-theme">
+      <sub-class-of type="application/x-theme">
+      <magic priority="75">
+         <match type="string" value="[Control Panel\Colors]" offset="0"/>
+      </magic>
+      <comment>Chicago95 Plus! theme</comment>
+      <glob pattern="*.theme"/>
+   </mime-type>
+</mime-info>
