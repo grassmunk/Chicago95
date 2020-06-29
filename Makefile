@@ -120,7 +120,6 @@ install_sounds:
 install_login_sound:
 	${installbin} -dm0755 ${SOUNDSDIR}/Chicago95 ${XDGAUTODIR}
 	${installbin} -m0644 ${SRCDIR}/Extras/Microsoft\ Windows\ 95\ Startup\ Sound.ogg ${SOUNDSDIR}/Chicago95/startup.ogg
-	# pending addition of debian/chicago95-startup.desktop to source ${XDGAUTODIR}
 	${installbin} -m0644 -t ${XDGAUTODIR} ${SRCDIR}/sounds/chicago95-startup.desktop
 
 install_boot_screen:
