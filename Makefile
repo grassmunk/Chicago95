@@ -92,6 +92,7 @@ install_doc:
 	@# rename a few files
 	${installbin} -m0644 ${SRCDIR}/Plymouth/Readme.md ${DOCDIR}/Plymouth-readme.md
 	${installbin} -m0644 ${SRCDIR}/Lightdm/Chicago95/README.md ${DOCDIR}/Lightdm-readme.md
+	${installbin} -m0644 -t ${DOCDIR} ${SRCDIR}/Extras/post_install.txt
 
 install_fonts:
 	${installbin} -dm0755 ${FONTDIR}/truetype
@@ -106,6 +107,9 @@ install_gtk_theme:
 	@# xfce4-terminal theme
 	${installbin} -dm0755 ${SHAREDIR}/xfce4/terminal/colorschemes
 	${installbin} -m0644 -t ${SHAREDIR}/xfce4/terminal/colorschemes ${SRCDIR}/Extras/Chicago95.theme
+	@# panel profile
+	${installbin} -dm0755 ${SHAREDIR}/xfce4-panel-profiles/layouts
+	${installbin} -m0644 -t ${SHAREDIR}/xfce4-panel-profiles/layouts ${SRCDIR}/Extras/Chicago95_Panel_Preferences.tar.bz2
 
 install_icons:
 	${installbin} -dm0755 ${ICONSDIR}
@@ -150,11 +154,13 @@ uninstall:
 		${FONTDIR}/truetype/MorePerfectDOSVGA.ttf \
 		${SHAREDIR}/lightdm-webkit/themes/Chicago95 \
 		${THEMESDIR}/Chicago95 ${SHAREDIR}/xfce4/terminal/colorschemes/Chicago95.theme \
+		${SHAREDIR}/xfce4-panel-profiles/layouts/Chicago95_Panel_Preferences.tar.bz2 \
 		${ICONSDIR}/Chicago95 ${ICONSDIR}/Chicago95-tux \
 		${SOUNDSDIR}/Chicago95 \
 		${LIBEXECDIR}/chicago95-theme-plus ${BINDIR}/ChicagoPlus ${BINDIR}/PlusGUI \
 		${SHAREDIR}/chicago95-theme-plus \
-		${SHAREDIR}/plymouth/themes/Chicago95 ${SHAREDIR}/plymouth/themes/RetroTux
+		${SHAREDIR}/plymouth/themes/Chicago95 ${SHAREDIR}/plymouth/themes/RetroTux \
+		${XDGAUTODIR}/chicago95-startup.desktop
 
 clean:
 	-@${echobin} "target $@ not implemented yet! Gotta say unh." && ${falsebin}
