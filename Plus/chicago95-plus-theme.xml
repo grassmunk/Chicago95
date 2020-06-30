@@ -7,6 +7,6 @@
       </magic>
       <comment>Chicago95 Plus! theme</comment>
       <glob pattern="*.theme"/>
-      <generic-icon name="desktop-preferences"/>
+      <generic-icon name="preferences-desktop-theme"/>
    </mime-type>
 </mime-info>
