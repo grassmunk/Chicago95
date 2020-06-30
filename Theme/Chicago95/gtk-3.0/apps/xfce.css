@@ -77,6 +77,9 @@ XfdesktopIconView.view {
       /*color: @panel_fg_color_bright;*/ /*If you choose to add a background colour, don't forget to uncomment the colour property here so that symbolic icons are properly shaded. You can change the colour propery value to whatever you want. */
       background-color: transparent; }   /* Adding a background colour to the following will highlight panel icons when hovered or checked if desired. */
 
+/* Manual override for pulseaudio-button */
+#pulseaudio-button { color: @panel_fg_color; background-color: #C0C0C0; }
+
 /* Clock plugin */
 #clock-button {
   border: 2px solid transparent;
