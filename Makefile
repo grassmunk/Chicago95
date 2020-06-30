@@ -25,7 +25,7 @@ DOCDIR     = $(SHAREDIR)/doc/$(APPNAME)
 APPDIR     = $(SHAREDIR)/$(APPNAME)
 APPSDIR    = $(SHAREDIR)/applications
 ICONSDIR   = $(SHAREDIR)/icons
-MIMEDIR    = $(SHAREDIR)/mime
+MIMEDIR    = $(SHAREDIR)/mime/packages
 MANDIR     = $(SHAREDIR)/man
 XDGAUTODIR = $(SYSCONFDIR)/xdg/autostart
 FONTDIR    = $(SHAREDIR)/fonts
@@ -92,6 +92,7 @@ install_doc:
 	@# rename a few files
 	${installbin} -m0644 ${SRCDIR}/Plymouth/Readme.md ${DOCDIR}/Plymouth-readme.md
 	${installbin} -m0644 ${SRCDIR}/Lightdm/Chicago95/README.md ${DOCDIR}/Lightdm-readme.md
+	${installbin} -m0644 -t ${DOCDIR} ${SRCDIR}/Extras/post_install.txt
 
 install_fonts:
 	${installbin} -dm0755 ${FONTDIR}/truetype
@@ -106,6 +107,9 @@ install_gtk_theme:
 	@# xfce4-terminal theme
 	${installbin} -dm0755 ${SHAREDIR}/xfce4/terminal/colorschemes
 	${installbin} -m0644 -t ${SHAREDIR}/xfce4/terminal/colorschemes ${SRCDIR}/Extras/Chicago95.theme
+	@# panel profile
+	${installbin} -dm0755 ${SHAREDIR}/xfce4-panel-profiles/layouts
+	${installbin} -m0644 -t ${SHAREDIR}/xfce4-panel-profiles/layouts ${SRCDIR}/Extras/Chicago95_Panel_Preferences.tar.bz2
 
 install_icons:
 	${installbin} -dm0755 ${ICONSDIR}
@@ -128,7 +132,7 @@ install_boot_screen:
 	${installbin} -m0644 -t ${SHAREDIR}/plymouth/themes/RetroTux ${SRCDIR}/Plymouth/RetroTux/*
 
 install_plus:
-	${installbin} -dm0755 ${SHAREDIR}/chicago95-theme-plus/assets ${BINDIR} ${LIBEXECDIR}/chicago95-theme-plus ${DOCDIR}/demo
+	${installbin} -dm0755 ${SHAREDIR}/chicago95-theme-plus/assets ${BINDIR} ${LIBEXECDIR}/chicago95-theme-plus ${DOCDIR}/demo ${APPSDIR} ${MIMEDIR}
 	${installbin} -m0755 -t ${SHAREDIR}/chicago95-theme-plus/assets ${SRCDIR}/Plus/assets/*
 	${installbin} -m0755 ${SRCDIR}/Plus/ChicagoPlus.py ${BINDIR}/ChicagoPlus
 	${installbin} -m0755 ${SRCDIR}/Plus/PlusGUI.py ${BINDIR}/PlusGUI
@@ -136,6 +140,8 @@ install_plus:
 	${installbin} -m0644 ${SRCDIR}/Plus/README.MD ${DOCDIR}/Plus-README.MD
 	${installbin} -m0644 -t ${DOCDIR} ${SRCDIR}/Plus/*.png
 	${installbin} -m0644 -t ${DOCDIR}/demo ${SRCDIR}/Plus/demo/*
+	${installbin} -m0644 -t ${APPSDIR} ${SRCDIR}/Plus/*.desktop
+	${installbin} -m0644 -t ${MIMEDIR} ${SRCDIR}/Plus/chicago95-plus-theme.xml
 
 uninstall:
 	${rmbin} -rf \
@@ -150,11 +156,14 @@ uninstall:
 		${FONTDIR}/truetype/MorePerfectDOSVGA.ttf \
 		${SHAREDIR}/lightdm-webkit/themes/Chicago95 \
 		${THEMESDIR}/Chicago95 ${SHAREDIR}/xfce4/terminal/colorschemes/Chicago95.theme \
+		${SHAREDIR}/xfce4-panel-profiles/layouts/Chicago95_Panel_Preferences.tar.bz2 \
 		${ICONSDIR}/Chicago95 ${ICONSDIR}/Chicago95-tux \
 		${SOUNDSDIR}/Chicago95 \
 		${LIBEXECDIR}/chicago95-theme-plus ${BINDIR}/ChicagoPlus ${BINDIR}/PlusGUI \
 		${SHAREDIR}/chicago95-theme-plus \
-		${SHAREDIR}/plymouth/themes/Chicago95 ${SHAREDIR}/plymouth/themes/RetroTux
+		${APPSDIR}/PlusGUI.desktop ${MIMEDIR}/chicago95-plus-theme.xml \
+		${SHAREDIR}/plymouth/themes/Chicago95 ${SHAREDIR}/plymouth/themes/RetroTux \
+		${XDGAUTODIR}/chicago95-startup.desktop
 
 clean:
 	-@${echobin} "target $@ not implemented yet! Gotta say unh." && ${falsebin}
