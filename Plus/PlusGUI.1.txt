@@ -1,0 +1,33 @@
+NAME
+  PlusGUI - gtk frontend for converting Windows 95 theme to Xfce theme
+SYNOPSIS
+  PlusGUI [options] _filename_
+OPTIONS
+  <filename>            Theme file to convert
+  -h, --help            show help message and exit
+  -d, --debug           Print lots of debugging statements (default: 30)
+  -v, --verbose         Be verbose (default: None)
+
+  -c COLORS, --colors COLORS  How many colors before skipping Inkscape fix/merge for SVGs. Set to 1 to speed up conversion. WARNING: This may result in transparent icons! (default: 32)
+
+  -o OVERLAP, --overlap OVERLAP  Pixel overlap for SVG icons (default: 1)
+
+  -s SQUARESIZE, --squaresize SQUARESIZE  Square size for SVG icons (default: 20)
+
+  --cursorfolder CURSORFOLDER  Chicago95 cursor folder to convert to new theme (default: ~/.icons/Chicago95_Cursor_Black)
+
+  --themefolder THEMEFOLDER  Chicago95 theme folder to convert to new theme (default: ~/.themes/Chicago95)
+
+  --iconsfolder ICONSFOLDER  Chicago95 icons folder to convert to new theme (default: ~/.icons/Chicago95)
+
+  --installdir INSTALLDIR  Folder to create new theme in, default is current working directory (default: . )
+
+  --logfile LOGFILE     Filename for debug logging (default: chicago95_plus.log)
+DESCRIPTION
+  Display a graphical window to choose, preview, and build Xfce themes. PlusGUI looks identical to the Microsoft Plus! 95 "Desktop Themes" utility.
+AUTHOR
+  grassmunk, adapted as a manpage by bgstack15
+COPYRIGHT
+  GPL 3.0+
+SEE ALSO
+ChicagoPlus(1)
