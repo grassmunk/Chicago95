@@ -12,7 +12,7 @@
 # Dependencies:
 
 APPNAME    = chicago95
-APPVERSION = 0.0.2
+APPVERSION = 2.0.1
 SRCDIR     = $(CURDIR)
 prefix     = /usr
 SYSCONFDIR = $(DESTDIR)/etc
@@ -31,6 +31,7 @@ XDGAUTODIR = $(SYSCONFDIR)/xdg/autostart
 FONTDIR    = $(SHAREDIR)/fonts
 THEMESDIR  = $(SHAREDIR)/themes
 SOUNDSDIR  = $(SHAREDIR)/sounds
+BKGDSDIR   = $(SHAREDIR)/backgrounds/Chicago95
 
 awkbin     :=$(shell which awk)
 chmodbin   :=$(shell which chmod)
@@ -67,7 +68,8 @@ list:
 
 install: install_all
 
-install_all: install_cursors install_doc install_fonts install_gtk_theme install_icons install_sounds install_login_sound install_boot_screen install_plus
+.PHONY: install_cursors install_doc install_fonts install_gtk_theme install_icons install_sounds install_login_sound install_boot_screen install_plus install_backgrounds
+install_all: install_cursors install_doc install_fonts install_gtk_theme install_icons install_sounds install_login_sound install_boot_screen install_plus install_backgrounds
 
 install_cursors:
 	${installbin} -dm0755 \
@@ -143,6 +145,11 @@ install_plus:
 	${installbin} -m0644 -t ${APPSDIR} ${SRCDIR}/Plus/*.desktop
 	${installbin} -m0644 -t ${MIMEDIR} ${SRCDIR}/Plus/chicago95-plus-theme.xml
 
+install_backgrounds:
+	${installbin} -dm0755 ${BKGDSDIR}/patterns ${BKGDSDIR}/wallpapers
+	${installbin} -m0644 -t ${BKGDSDIR}/patterns ${SRCDIR}/Extras/Backgrounds/Patterns/*
+	${installbin} -m0644 -t ${BKGDSDIR}/wallpapers ${SRCDIR}/Extras/Backgrounds/Wallpaper/*
+
 uninstall:
 	${rmbin} -rf \
 		${ICONSDIR}/Chicago95$(space)Animated$(space)Hourglass$(space)Cursors \
@@ -163,6 +170,7 @@ uninstall:
 		${SHAREDIR}/chicago95-theme-plus \
 		${APPSDIR}/PlusGUI.desktop ${MIMEDIR}/chicago95-plus-theme.xml \
 		${SHAREDIR}/plymouth/themes/Chicago95 ${SHAREDIR}/plymouth/themes/RetroTux \
+		${BKGDSDIR} \
 		${XDGAUTODIR}/chicago95-startup.desktop
 
 clean:
