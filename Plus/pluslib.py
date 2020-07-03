@@ -38,6 +38,13 @@ from fontTools import ttLib
 from configparser import ConfigParser
 from PIL import BmpImagePlugin, PngImagePlugin, Image
 
+running_folder = os.path.dirname(os.path.abspath(__file__))
+share_dir = running_folder
+libexec_dir = running_folder
+work_dir = running_folder
+if not os.path.exists(work_dir):
+    os.makedirs(work_dir)
+
 SCREEN_SAVER_SCRIPT = '''#!/bin/sh
 
 # *** DEPENDS ON xprintidle AND wmctrl AND wine ***
@@ -1533,7 +1540,7 @@ class ChicagoPlus:
 				
 		self.logger.debug("{:<21} | Colors: ButtonDKShadow={}, ButtonLight={}, ButtonShadow={}, ButtonHilight={}, ButtonFace={}, ButtonText={} ".format("Colors",ButtonDKShadow, ButtonLight, ButtonShadow, ButtonHilight, ButtonFace, ButtonText))
 
-		for i in ['gtk-3.0/','gtk-3.24/']:
+		for i in ['gtk-3.0/']:
 			
 			folder = path + i + "buttons/"
 
@@ -2358,7 +2365,7 @@ class ChicagoPlus:
 		return cursor
 
 
-	def convert_icon(self, target_folder, icon_file_path, tmp_file="./chicago95_tmp_file.svg"):
+	def convert_icon(self, target_folder, icon_file_path, tmp_file=work_dir + "/chicago95_tmp_file.svg"):
 		## Converts Icons to PNG
 		# Input:
 		#  folder: svg file destination folder
