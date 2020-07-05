@@ -2458,42 +2458,91 @@ class ChicagoPlus:
 
 	def convert_to_proper_svg_with_inkscape(self, svg_out, svg_in):
 		self.logger.debug("{:<21} | Converting {} to {} with Inkscape".format("",svg_out, svg_in))
+		# this is a bit of a hack to support both version of inkscape
 		inkscape_path = subprocess.check_output(["which", "inkscape"]).strip()
-		args = [
-		inkscape_path,
-		"-l", svg_out, svg_in
-		]
-		subprocess.check_call(args, stdout=subprocess.DEVNULL)
+		inkscape_version_cmd = subprocess.check_output([inkscape_path, "--version"])
+		inkscape_version = inkscape_version_cmd.splitlines()[0].split()[1].decode().split(".")[0]
+
+		if int(inkscape_version) < 1:
+			self.logger.debug("{:<21} | Using Inkscape v0.9x command".format(''))
+			# Works with version 0.9x
+			args = [
+			inkscape_path,
+			"-l", svg_out, svg_in
+			]
+		else:
+			self.logger.debug("{:<21} | Using Inkscape v1.0 command".format(''))
+			#works with version 1.0
+			args = [
+			inkscape_path,
+			"-l", "-o", svg_out, svg_in
+			]
+
+		subprocess.check_call(args, stderr=subprocess.DEVNULL ,stdout=subprocess.DEVNULL)
+		
 
 	def fix_with_inkscape(self, color, tmpfile):
 		self.logger.debug("{:<21} | Combining {} in {}".format("",color, tmpfile))
 		inkscape_path = subprocess.check_output(["which", "inkscape"]).strip()
-		args = [
-		inkscape_path,
-		"--select="+color,
-		"--verb", "EditSelectSameFillColor",
-		"--verb", "SelectionCombine", 
-		"--verb", "SelectionUnion", 
-		"--verb", "FileSave", 
-		"--verb", "FileQuit",
-		tmpfile
-		]
+
+		inkscape_version_cmd = subprocess.check_output([inkscape_path, "--version"])
+		inkscape_version = inkscape_version_cmd.splitlines()[0].split()[1].decode().split(".")[0]
+
+		if int(inkscape_version) < 1:
+			args = [
+			inkscape_path,
+			"--select="+color,
+			"--verb", "EditSelectSameFillColor",
+			"--verb", "SelectionCombine", 
+			"--verb", "SelectionUnion", 
+			"--verb", "FileSave", 
+			"--verb", "FileQuit",
+			tmpfile
+			]
+		else:
+			args = [
+			inkscape_path,
+			"-g",
+			"--select="+color,
+			"--verb", "EditSelectSameFillColor;SelectionCombine;SelectionUnion;FileSave;FileQuit",
+			tmpfile
+			]
+
 		subprocess.check_call(args, stderr=subprocess.DEVNULL ,stdout=subprocess.DEVNULL)
+
 
 	def convert_to_png_with_inkscape(self, svg_in, size, png_out):
 		self.logger.debug("{:<21} | Converting {} to {} of size {}".format("", svg_in, png_out, size))
 		inkscape_path = subprocess.check_output(["which", "inkscape"]).strip()	
+
+		inkscape_version_cmd = subprocess.check_output([inkscape_path, "--version"])
+		inkscape_version = inkscape_version_cmd.splitlines()[0].split()[1].decode().split(".")[0]
+
 		size = str(size)
-		args = [
-		inkscape_path,
-		"--without-gui",
-		"-f", svg_in,
-		"--export-area-page",
-		"-w", size,
-		"-h", size,
-		"--export-png=" + png_out
-		]
-		subprocess.check_call(args, stdout=subprocess.DEVNULL)
+
+		if int(inkscape_version) < 1:
+			args = [
+			inkscape_path,
+			"--without-gui",
+			"-f", svg_in,
+			"--export-area-page",
+			"-w", size,
+			"-h", size,
+			"--export-png=" + png_out
+			]
+		else:
+			args = [
+			inkscape_path,
+			"--export-area-page",
+			"--export-type=png",
+			"-w", size,
+			"-h", size,
+			"-o", png_out,
+			svg_in
+			]
+
+
+		subprocess.check_call(args, stderr=subprocess.DEVNULL ,stdout=subprocess.DEVNULL)
 
 	def convert_ico_files(self, icon_filename, output_file_name):
 		self.logger.debug("{:<21} | Converting {} to {}".format("", icon_filename, output_file_name))
