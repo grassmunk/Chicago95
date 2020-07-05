@@ -53,6 +53,9 @@ uniqbin    :=$(shell which uniq)
 xargsbin   :=$(shell which xargs)
 txt2manbin :=$(shell which txt2man)
 
+# Optional dependency
+webextbin  :=$(shell which web-ext 2>/dev/null)
+
 use_underscores ?= NO
 
 .PHONY: clean install install_files build_man uninstall list deplist deplist_opts build_man
@@ -63,7 +66,7 @@ ifeq ($(use_underscores),YES)
 space = _
 endif
 
-all: build_man
+all: build_man ${BUILDDIR}/chicago95_ie4.webext.zip ${BUILDDIR}/Chicago95_Panel_Preferences.tar.bz2 ${BUILDDIR}/Chicago95_KDE_SDDM.tar.gz
 
 list:
 	@$(MAKE) -pRrq -f $(lastword $(MAKEFILE_LIST)) : 2>/dev/null | ${awkbin} -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | ${sortbin} | ${grepbin} -E -v -e '^[^[:alnum:]]' -e '^$@$$'
@@ -73,6 +76,26 @@ build_man:
 	@test -d ${BUILDDIR} || mkdir -p ${BUILDDIR}
 	${txt2manbin} -P chicago95-theme-plus -r chicago95-theme-plus -d "June 2020" -t "PlusGUI" -s 1 -v "General Commands Manual" < ${SRCDIR}/Plus/PlusGUI.1.txt | ${gzipbin} > ${BUILDDIR}/PlusGUI.1.gz
 	${txt2manbin} -P chicago95-theme-plus -r chicago95-theme-plus -d "June 2020" -t "Chicago95" -s 1 -v "General Commands Manual" < ${SRCDIR}/Plus/ChicagoPlus.1.txt | ${gzipbin} > ${BUILDDIR}/ChicagoPlus.1.gz
+
+# Prefer web-ext for validation, but zip also works
+# https://extensionworkshop.com/documentation/develop/web-ext-command-reference/#web-ext-build
+# https://extensionworkshop.com/documentation/publish/package-your-extension/#package-linux
+# https://developer.chrome.com/webstore/get_started_simple?csw=1#step5
+${BUILDDIR}/chicago95_ie4.webext.zip:
+ifdef webextbin
+	${webextbin} build -a "$(shell dirname $@)" -s "${SRCDIR}/Extras/Chicago95_ie4_Theme_WebExtension/" -n "$(shell basename $@)"
+else
+	cd "${SRCDIR}/Extras/Chicago95_ie4_Theme_WebExtension/" && \
+	zip -r -FS "$@" ./*
+endif
+
+${BUILDDIR}/Chicago95_Panel_Preferences.tar.bz2:
+	cd "${SRCDIR}/Extras/Chicago95_Panel_Preferences/" && \
+	tar -cjf "$@" *
+
+${BUILDDIR}/Chicago95_KDE_SDDM.tar.gz:
+	cd "${SRCDIR}/KDE/SDDM/" && \
+	tar -czf "$@" *
 
 install: install_all
 
@@ -184,4 +207,4 @@ uninstall:
 		${XDGAUTODIR}/chicago95-startup.desktop
 
 clean:
-	-${rmbin} ${BUILDDIR}/*.1.gz
+	-${rmbin} ${BUILDDIR}/*.1.gz ${BUILDDIR}/*.zip ${BUILDDIR}/*.tar.bz2 ${BUILDDIR}/*.tar.gz

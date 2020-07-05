@@ -398,7 +398,7 @@ qrc_*.cpp
 ui_*.h
 *.qmlc
 *.jsc
-Makefile*
+# Makefile*   # Chicago95 has a Makefile
 *build-*
 *.qm
 *.prl
