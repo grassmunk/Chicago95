@@ -606,6 +606,11 @@ Increase taskbar size
 
 #### Adjust settings for HiDPI
 
+Set GDK scale to 2x
+
+    echo 'export GDK_SCALE=2' >> ~/.profile
+    echo 'export GDK_DPI_SCALE=0.5' >> ~/.profile
+
 Make GTK icons bigger
 
     xfconf-query -c xsettings -p /Gtk/IconSizes -s "gtk-large-toolbar=32,32:gtk-small-toolbar=24,24:gtk-menu=32,32:gtk-dialog=88,88:gtk-button=32,32:gtk-dnd=32,32"
@@ -627,9 +632,8 @@ The cursors in the theme do not support HiDPI but [Hackneyed](https://www.gnome-
 
 - Set panel row size to 48
 - Application Menu: Check show button title and set it to 𝗦𝘁𝗮𝗿𝘁 (copy+paste)
-- Notification Area: Set maximum icon size to 32
-- Indicator Plugin: Check square icons
-- Status Notifier Plugin: Set maximum icon size to 32
+- Notification Area: Set maximum icon size to 44
+- Status Notifier Plugin: Set maximum icon size to 22
 - *(Optional)* Orage Panel Clock: Set width to 144 and font to Sans 9
 
 [[Return to Index]](#index)
