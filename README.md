@@ -37,10 +37,10 @@ A Window compositor
 
 |Distro|Package Name/Link|
 |:----:|:----:|
-| Debian 9 | OBS Repo under construction |
-| Debian 10 | OBS Repo under construction |
-| Debian Testing/Unstable | OBS Repo under construction |
-| Ubuntu 18.04 - 20.04 | OBS Repo under construction |
+| Debian 9 | [obs-repo] |
+| Debian 10 | [obs-repo] |
+| Debian Testing/Unstable | [obs-repo] |
+| Ubuntu 18.04 - 20.04 | [obs-repo] |
 
 ### Manual Installation
 [Click here](INSTALL.md) for install steps.
