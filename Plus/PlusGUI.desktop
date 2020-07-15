@@ -1,0 +1,14 @@
+[Desktop Entry]
+Categories=Settings;DesktopSettings;
+Comment=Import Windows .theme files
+Exec=/usr/bin/PlusGUI %f
+GenericName=Windows theme importer
+Icon=preferences-desktop-theme
+Keywords=theme;import;
+MimeType=application/x-plus-theme;
+Name=Chicago95 Plus!
+Path=/tmp
+StartupNotify=true
+Terminal=false
+Type=Application
+Version=1.0

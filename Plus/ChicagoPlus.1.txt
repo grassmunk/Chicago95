@@ -1,0 +1,45 @@
+NAME
+  ChicagoPlus - convert Windows 95 theme to Xfce theme
+SYNOPSIS
+  ChicagoPlus [options] _filename_
+OPTIONS
+  <filename>            Theme file to convert
+  -h, --help            show help message and exit
+  -d, --debug           Print lots of debugging statements (default: 30)
+  -v, --verbose         Be verbose (default: None)
+  --noinstall           Do not place folders nor change theme (default: False)
+  --info                Prints the json conversion of the theme file (default: False)
+
+  -c COLORS, --colors COLORS  How many colors before skipping Inkscape fix/merge for SVGs. Set to 1 to speed up conversion. WARNING: This may result in transparent icons! (default: 32)
+
+  -o OVERLAP, --overlap OVERLAP  Pixel overlap for SVG icons (default: 1)
+
+  -s SQUARESIZE, --squaresize SQUARESIZE  Square size for SVG icons (default: 20)
+
+  --cursorfolder CURSORFOLDER  Chicago95 cursor folder to convert to new theme (default: ~/.icons/Chicago95_Cursor_Black)
+
+  --themefolder THEMEFOLDER  Chicago95 theme folder to convert to new theme (default: ~/.themes/Chicago95)
+
+  --iconsfolder ICONSFOLDER  Chicago95 icons folder to convert to new theme (default: ~/.icons/Chicago95)
+
+  --installdir INSTALLDIR  Folder to create new theme in, default is current working directory (default: . )
+
+  --logfile LOGFILE     Filename for debug logging (default: chicago95_plus.log)
+
+  SPECIFIC INSTALLS
+  --nocursors           Do not generate/install/enable the cursors (default: True)
+  --noicons             Do not generate/install/enable the icons (default: True)
+  --nowallpaper         Do not generate/install/enable the wallpaper (default: True)
+  --nosounds            Do not generate/install/enable the sounds (default: True)
+  --nocolors            Do not generate/install/enable the colors (default: True)
+  --nofonts             Do not generate/install/enable the fonts (default: True)
+  --noscreensaver       Do not generate/install the screensaver (default: True)
+DESCRIPTION
+  Chicago95 Plus! is a python script that can parse Windows 95/98/ME/XP theme files and create new Chicago95 themes.
+Chicago95 Plus! supports Icons, Cursors, Fonts, Wallpapers, Sounds and Theme colors! Use this against themes you can find on ThemeWorld or any site that have Microsoft Plus! Themes! This script can be called from any folder, execute it and provide it the path to a theme file (e.g. ChicagoPlus /home/bgates/Wicked/Wicked.theme) and your new theme will be created!
+AUTHOR
+  grassmunk, adapted as a manpage by bgstack15
+COPYRIGHT
+  GPL 3.0+
+SEE ALSO
+PlusGUI(1)
