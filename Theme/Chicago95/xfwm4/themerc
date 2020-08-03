@@ -58,4 +58,4 @@ title_vertical_offset_active=1
 title_vertical_offset_inactive=1
 
 # 창 최대화 시 상단 보더가 숨겨지지 않는 문제를 해결합니다.
-frame_border_top=5
+frame_border_top=4
