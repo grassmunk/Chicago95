@@ -1,0 +1,27 @@
+[Color Scheme]
+Name=Chicago95_TDE
+activeBackground=0,0,128
+activeBlend=0,0,128
+activeForeground=255,255,255
+activeTitleBtnBg=192,192,192
+alternateBackground=226,226,226
+background=192,192,192
+buttonBackground=192,192,192
+buttonForeground=0,0,0
+contrast=7
+foreground=0,0,0
+frame=192,192,192
+handle=192,192,192
+inactiveBackground=128,128,128
+inactiveBlend=128,128,128
+inactiveForeground=192,192,192
+inactiveFrame=192,192,192
+inactiveHandle=192,192,192
+inactiveTitleBtnBg=192,192,192
+linkColor=0,0,128
+selectBackground=0,0,128
+selectForeground=255,255,255
+shadeSortColumn=true
+visitedLinkColor=128,0,128
+windowBackground=255,255,255
+windowForeground=0,0,0
