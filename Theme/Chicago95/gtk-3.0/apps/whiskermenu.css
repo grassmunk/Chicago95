@@ -61,6 +61,11 @@ the whisker menu without having to correct their pointer location. */
       border-color: transparent;
       box-shadow: none;
       background-color: transparent; }
+  #whiskermenu-window frame border {
+    padding: none;
+    border: none;
+    border-image: none;
+    box-shadow: none; }
   #whiskermenu-window scrolledwindow {
     border: none;
     box-shadow: none; }

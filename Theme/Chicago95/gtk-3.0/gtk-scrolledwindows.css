@@ -12,9 +12,6 @@
 scrolledwindow {
   padding: 0px;
   background-color: @bg_color;
-  border: 2px solid @border_dark;
-  border-image: url("assets/frame_inset.png");
-  border-image-slice: 2 2 2 2;
   border-radius: 0px;
   background-color: @theme_bg_color;
   box-shadow: none;

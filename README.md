@@ -25,6 +25,8 @@ GTK+ 3.22 or 3.24
 
 Xfce 4.12 or 4.14
 
+gtk2-engines-pixbuf
+
 A Window compositor
 
 (If your are using an older desktop that uses GTK3.18, you can use [this forked version of the theme.](https://github.com/EMH-Mark-I/Chicago95-Custom-XUbuntu-16.04-))

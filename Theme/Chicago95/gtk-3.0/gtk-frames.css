@@ -15,6 +15,12 @@ frame.view {
   border-radius: 0px;
   background-color: @theme_bg_color;
   box-shadow: none; }
+  frame border {
+    border: 2px solid @border_dark;
+    border-image: url("assets/frame_inset.png");
+    border-image-slice: 2 2 2 2;
+    border-radius: 0px;
+    box-shadow: none; }
   frame.border-outset border {
     padding: 2px;
     border: 2px solid @border_dark;
