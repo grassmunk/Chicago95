@@ -62,7 +62,7 @@ the whisker menu without having to correct their pointer location. */
       box-shadow: none;
       background-color: transparent; }
   #whiskermenu-window frame border {
-    padding: none;
+    padding: 0px;
     border: none;
     border-image: none;
     box-shadow: none; }
