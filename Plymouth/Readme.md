@@ -24,3 +24,19 @@ Choose the theme to load. (As you run the following command there will be a numb
 Update initramfs
 
 - `sudo update-initramfs -u`
+
+#### Install instructions for Arch Linux
+
+Install Plymouth to your system
+
+[Link]{https://wiki.archlinux.org/index.php/Plymouth#Installation}
+
+Copy the theme folder into the Plymouth theme directory.
+
+- `sudo cp -r Chicago95/Plymouth/Chicago95 /usr/share/plymouth/themes/`
+- `sudo cp -r Chicago95/Plymouth/RetroTux /usr/share/plymouth/themes/`
+
+Set the theme as default to use
+
+- `sudo plymouth-set-default-theme -R Chicago95`
+- `sudo plymouth-set-default-theme -R RetroTux`
