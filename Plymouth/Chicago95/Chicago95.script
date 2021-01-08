@@ -1,43 +1,35 @@
 # Plymouth Windows 95 Boot Logo
 # Based on: http://brej.org/blog/?p=174
 
-# Load the image
-boot_image = Image("win95_boot_00000.png");
-
-# Create a sprite of the image
-boot_sprite = Sprite(boot_image);
-
-# Add your code here
 screen_width = Window.GetWidth();
 screen_height = Window.GetHeight();
-resized_boot_image = boot_image.Scale(screen_width, screen_height);
-boot_sprite.SetImage(resized_boot_image);
+progress = 0;
 
-
-for (i = 0; i <= 19; i++)
-    boot_images[i] = Image("win95_boot_" + i + ".png");
 boot_sprite = Sprite();
 
-shutdown_image = Image("win95_shutdown-01.png");
-
-progress = 0;
+for (i = 0; i < 20; i++)
+  {
+    boot_images[i] = Image("win95_boot_" + i + ".png");
+    resized_images[i] = boot_images[i].Scale(screen_width, screen_height);
+  }
 
 fun refresh_callback ()
   {
-    if (Plymouth.GetMode () == "boot")
+    if (Plymouth.GetMode () == "boot" || Plymouth.GetMode () == "resume")
       {
-        Plymouth.SetRefreshRate(10);
-        resized_image = boot_images[Math.Int(progress)].Scale(screen_width, screen_height);
-        boot_sprite.SetImage(resized_image);
+        if (progress == 0)
+          {
+            Plymouth.SetRefreshRate(10);
+          }
+        boot_sprite.SetImage(resized_images[progress % 20]);
         progress++;
-        if (progress > 19)
-          progress = 0;
       }
-    if (Plymouth.GetMode () == "shutdown")
+    if (Plymouth.GetMode () == "shutdown" || Plymouth.GetMode () == "suspend")
       {
-        Plymouth.SetRefreshRate(0);
+        shutdown_image = Image("win95_shutdown-01.png");
         resized_image = shutdown_image.Scale(screen_width, screen_height);
         boot_sprite.SetImage(resized_image);
+        Plymouth.SetRefreshRate(0);  //set refresh rate to 0 to prevent CPU overload
       }
   }
   
