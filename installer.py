@@ -42,7 +42,7 @@ class InstallGUI:
 	def set_style(self):
 		# From https://gist.github.com/carlos-jenkins/8923124
 		provider = Gtk.CssProvider()
-		provider.load_from_path(running_folder + "/Theme/Chicago95/gtk-3.24/gtk.css")
+		provider.load_from_path(running_folder + "/Theme/Chicago95/gtk-3.0/gtk.css")
 		screen = Gdk.Display.get_default_screen(Gdk.Display.get_default())
 		# I was unable to found instrospected version of this
 		GTK_STYLE_PROVIDER_PRIORITY_APPLICATION = 600
