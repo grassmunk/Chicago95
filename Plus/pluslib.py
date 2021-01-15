@@ -3058,14 +3058,19 @@ class ChicagoPlus:
 			self.get_font_list()
 			if 'nonclientmetrics' in self.theme_config:
 				
-				xfconf_query_path = subprocess.check_output(["which", "xfconf-query"]).strip()
-				self.logger.debug("Getting DPI")
-				args = [
-					xfconf_query_path,
-					"-v", '-l', '-c', 'xsettings',
-					"-p", '/Xft/DPI'
-					]
-				dpi = subprocess.check_output(args).split()[1]
+				try:
+					xfconf_query_path = subprocess.check_output(["which", "xfconf-query"]).strip()
+					self.logger.debug("Getting DPI")
+					args = [
+						xfconf_query_path,
+						"-v", '-l', '-c', 'xsettings',
+						"-p", '/Xft/DPI'
+						]
+					dpi = subprocess.check_output(args).split()[1]
+				
+				except subprocess.CalledProcessError:
+					self.logger.info("xfconf not installed, enable theme manually")
+					return
 
 				self.logger.debug("Getting MenuFont and CaptionFont")
 				for logfont in ['lfcaptionfont', 'lfMenuFont']:
@@ -3123,16 +3128,18 @@ class ChicagoPlus:
 
 ## Enable Helper functions
 	def xfconf_query(self, channel, prop, new_value):
-		xfconf_query_path = subprocess.check_output(["which", "xfconf-query"]).strip()
-		self.logger.debug("Changing xfconf setting {}/{} to {}".format(channel, prop, new_value))
-		args = [
-			xfconf_query_path,
-			"--channel", channel,
-			"--property", prop,
-			"--set", new_value
-			]
-		subprocess.check_call(args, stdout=subprocess.DEVNULL)
-		
+		try:
+			xfconf_query_path = subprocess.check_output(["which", "xfconf-query"]).strip()
+			self.logger.debug("Changing xfconf setting {}/{} to {}".format(channel, prop, new_value))
+			args = [
+				xfconf_query_path,
+				"--channel", channel,
+				"--property", prop,
+				"--set", new_value
+				]
+			subprocess.check_call(args, stdout=subprocess.DEVNULL)
+		except subprocess.CalledProcessError:
+			self.logger.info("xfconf not installed, enable theme manually")
 
 	def get_font_list(self):
 		fc_list = subprocess.check_output(["which", "fc-list"]).strip()
