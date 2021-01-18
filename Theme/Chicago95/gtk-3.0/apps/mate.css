@@ -182,6 +182,13 @@ PanelToplevel.background {
     border-bottom-color: @border_dark;
     background-color: @button_bg_color;
     box-shadow: inset -1px -1px @border_shade, inset 1px 1px @border_light; }
+  /* MATE context-menu window decoration */
+  .mate-panel-menu-bar window decoration {
+    border: 2px solid @border_dark;
+    background-color: @bg_color;
+    border-image: url("../assets/mate_menu_decoration.png");
+    border-image-slice: 2 2 2 2;
+    box-shadow: none; }
 
 /* Brisk Menu */
 .brisk-menu {
