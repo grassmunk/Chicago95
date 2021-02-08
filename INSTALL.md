@@ -668,6 +668,8 @@ After installing, you may need to reboot your computer. The Chicago95 GTK theme 
 
 - Log out then log back in. You can see the affect if you open the application Software centre as an example.
 
+[[Return to Index]](#index)
+
 ---
 <a name="common_issues"/>
 
