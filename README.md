@@ -33,6 +33,12 @@ A Window compositor
 
 -----
 
+## Documentation
+
+[Click here](INSTALL.md) for Chicago95 documentation and extra features.
+
+-----
+
 ## Installation
 
 ### Packages

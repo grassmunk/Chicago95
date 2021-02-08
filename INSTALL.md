@@ -641,21 +641,22 @@ The cursors in the theme do not support HiDPI but [Hackneyed](https://www.gnome-
 
 ---
 <a name="nocsd"/>
+
 ## Disabling GNOME Client Side Decorations
 
 To disable client side decorations for XFCE applications, you can install the the [libxfce4ui-nocsd](https://github.com/Xfce-Classic/libxfce4ui-nocsd) fork. *(Note: This library primarily affects XFCE applications.)*
 
 For XUbuntu users specifically, you can install libxfce4ui-nocsd from your package manager.
 
-  sudo apt install libxfce4ui-nocsd-2-0
+    sudo apt install libxfce4ui-nocsd-2-0
 
 Then open the XFCE Settings Editor > xsettings > DialogsUseHeader (remove check). Alternatively, you can also perform this action from the following terminal command.
 
-  xfconf-query -c xsettings -p /Gtk/DialogsUseHeader -s false
+    xfconf-query -c xsettings -p /Gtk/DialogsUseHeader -s false
 
 If you want to disable the CSD dialogue headers seen in most other GTK3 applications, you can also install the gtk3-nocsd package.
 
-  sudo apt install gtk3-nocsd.
+    sudo apt install gtk3-nocsd.
 
 After installing, you may need to reboot your computer. The Chicago95 GTK theme includes an optional gtk3-nocsd theme to mask the headerbars into simple toolbar buttons. To enable the gtk3-nocsd theme, follow the bellow steps:
 
@@ -663,7 +664,7 @@ After installing, you may need to reboot your computer. The Chicago95 GTK theme 
 - Scroll to the bottom of the gtk.css file. There are two comments stating, "Comment out for gtk3-nocsd theme" and two more comments stating, "Uncomment for gtk3-nocsd theme." Do so for the specified lines.
 - You can comment out a line C style seen in the below example.
 
-  /\* Commented gibberish \*/
+    /\* Commented gibberish \*/
 
 - Log out then log back in. You can see the affect if you open the application Software centre as an example.
 
