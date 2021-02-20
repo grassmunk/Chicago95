@@ -664,7 +664,7 @@ For XUbuntu 21.04 users specifically:
 
     sudo apt install libxfce4ui-nocsd-2-0
 
-For Arch bases platforms:
+For Arch based platforms:
 
     pacman -S libxfce4ui-nocsd
 
@@ -676,7 +676,7 @@ Open the XFCE Settings Editor > xsettings > DialogsUseHeader (remove check). Alt
 
     xfconf-query -c xsettings -p /Gtk/DialogsUseHeader -s false
 
-### Optional Step 1:
+### Optional Step 3:
 
 If you would like to return the titlebar and window manager borders for most other GTK3+ applications, you can also install the gtk3-nocsd package.
 
@@ -688,7 +688,7 @@ Arch based platforms:
 
     pacman -S gtk3-nocsd-git
 
-### Optional Step 2:
+### Optional Step 4:
 
 After installing the gtk3-nocsd package, you may need to reboot your computer. The Chicago95 GTK theme includes an optional gtk3-nocsd theme to mask the header bars into simple toolbar buttons. To enable the gtk3-nocsd theme, follow the bellow steps:
 
