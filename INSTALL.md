@@ -139,7 +139,13 @@ For QT5 applications such as KeePassXC or q4-Wine, you can enable GTK theme supp
 
 To begin setting this up install the qt5 style plugins package.
 
+Debian based platforms:
+
     sudo apt install qt5-style-plugins
+
+Arch based platforms:
+
+    pacman -S qt5-styleplugins
 
 After the installation is complete, relogin for changes to take place.
 
@@ -346,7 +352,13 @@ The following steps are written from the XUbuntu desktop. These will vary on oth
 
 You can use qt5ct for further modifying qt5 application themes to resemble the GTK theme. To set this up you can install qt5ct.
 
+Debian based platforms:
+
     sudo apt install qt5ct
+
+Arch based platforms:
+
+    pacman -S qt5ct
 
 After installing qt5ct you will have to configure an environment variable so that the QT platform theme calls on qt5ct and not GTK. Navigate to `/etc/X11/Xsession.d/` and search for a file named `56xfce4-qtconfig`. This may or may not be present depending on your distribution and it may be under a different name (for XUbuntu the file name is `56xubuntu-session.`) If this file is not present, then you could try adding `QT_QPA_PLATFORMTHEME=qt5ct` to the `/etc/environment` file.
 
@@ -446,7 +458,7 @@ For an authentic Windows 95 feel, you can use the original MS Sans Serif font.  
 
 After copying over the files to your system, we now need to convert the `sserife.fon` file to a TrueType font using FontForge.  (This step is optional; you can still use MS Sans Serif, but bold fonts will not be available)
 
-- Install FontForge with `sudo apt install fontforge`
+- Install FontForge with `sudo apt install fontforge` (For Arch platforms, run `pacman -S fontforge-git`)
 - Open FontForge and open the `sserife.fon` file
 - After the font is opened, go to File -> Generate Fonts...
 - Below the new filename `MSSansSerif.ttf` there will be two dropdowns, make sure the left one is set to "No Outline Font", then set the right one to "(faked) MS Bitmap only sfnt (ttf)"
@@ -621,7 +633,7 @@ Increase icon size in Thunar File Manager
     xfconf-query -c thunar -p /shortcuts-icon-size -s "THUNAR_ICON_SIZE_SMALL"
     xfconf-query -c thunar -p /tree-icon-size -s "THUNAR_ICON_SIZE_SMALLER"
 
-Increase icon size on desktop
+Inqt5ctcrease icon size on desktop
 
     xfconf-query -c xfce4-desktop -p /desktop-icons/icon-size -s 64
 
@@ -644,21 +656,41 @@ The cursors in the theme do not support HiDPI but [Hackneyed](https://www.gnome-
 
 ## Disabling GNOME Client Side Decorations
 
-To disable client side decorations for XFCE applications, you can install the the [libxfce4ui-nocsd](https://github.com/Xfce-Classic/libxfce4ui-nocsd) fork. *(Note: This library primarily affects XFCE applications.)*
+### Step 1:
 
-For XUbuntu users specifically, you can install libxfce4ui-nocsd from your package manager.
+To disable client side decorations for XFCE 4.16 applications, you can install the the [libxfce4ui-nocsd](https://github.com/Xfce-Classic/libxfce4ui-nocsd) fork. *(Note: This library primarily affects XFCE applications.)*
+
+For XUbuntu 21.04 users specifically:
 
     sudo apt install libxfce4ui-nocsd-2-0
 
-Then open the XFCE Settings Editor > xsettings > DialogsUseHeader (remove check). Alternatively, you can also perform this action from the following terminal command.
+For Arch bases platforms:
+
+    pacman -S libxfce4ui-nocsd
+
+For other platforms, such as Debian 11 or non XUbuntu 21.04 flavours, you may have to build libxfce4ui-nocsd for yourself. You may also check the [Chicago95 OBS repo](https://software.opensuse.org//download.html?project=home%3Abgstack15%3AChicago95&package=chicago95-theme-all) to see if your platform is available.
+
+### Step 2:
+
+Open the XFCE Settings Editor > xsettings > DialogsUseHeader (remove check). Alternatively, you can also perform this action from the following terminal command.
 
     xfconf-query -c xsettings -p /Gtk/DialogsUseHeader -s false
 
-If you want to disable the CSD dialogue headers seen in most other GTK3 applications, you can also install the gtk3-nocsd package.
+### Optional Step 1:
+
+If you would like to return the titlebar and window manager borders for most other GTK3+ applications, you can also install the gtk3-nocsd package.
+
+Debian based platforms:
 
     sudo apt install gtk3-nocsd.
 
-After installing, you may need to reboot your computer. The Chicago95 GTK theme includes an optional gtk3-nocsd theme to mask the headerbars into simple toolbar buttons. To enable the gtk3-nocsd theme, follow the bellow steps:
+Arch based platforms:
+
+    pacman -S gtk3-nocsd-git
+
+### Optional Step 2:
+
+After installing the gtk3-nocsd package, you may need to reboot your computer. The Chicago95 GTK theme includes an optional gtk3-nocsd theme to mask the header bars into simple toolbar buttons. To enable the gtk3-nocsd theme, follow the bellow steps:
 
 - Navigate to the location you've installed Chicago95. From there, navigate further more to gtk-3.0 > gtk.css.
 - Scroll to the bottom of the gtk.css file. There are two comments stating, "Comment out for gtk3-nocsd theme" and two more comments stating, "Uncomment for gtk3-nocsd theme." Do so for the specified lines.
