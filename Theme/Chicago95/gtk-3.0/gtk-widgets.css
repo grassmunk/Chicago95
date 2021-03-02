@@ -454,6 +454,7 @@ flowboxchild {
   flowbox checkbutton:checked {
     background-color: @bg_shade; }
 
+textview text,
 grid viewport box box textview {
   background-color: @bg_bright; }
 
