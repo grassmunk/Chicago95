@@ -304,6 +304,8 @@ class InstallGUI:
 							subprocess.check_call(args, stdout=subprocess.DEVNULL)	
 						except:
 							print("Could not update background. Set your background manually to #008080")
+					except:
+						print("Could not update background. Set your background manually to #008080")
 					self.change_component_label()
 
 				elif from_file == "install_cursors" and self.copy_files["install_cursors"]:
