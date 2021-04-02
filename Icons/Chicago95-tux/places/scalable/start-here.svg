@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   id="svg3"
+   version="1.1"
+   height="48"
+   width="48">
+  <metadata
+     id="metadata9">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs7" />
+  <image
+     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAABGdBTUEAALGPC/xhBQAAACBjSFJN AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAIVBMVEUAAAAAAACAAAD/AAAA /wAAgAAAAIAAAP///wCAgAD///8Zy0fQAAAAAXRSTlMAQObYZgAAAAFiS0dECmjQ9FYAAAAHdElN RQfgBAEWJg/cZjHwAAAAv0lEQVQ4y9XSwQ6CMAwG4JIddl1jjPHKE8z0FearcMZTX2G+tS0bOIZx O2pDCPRLWPlTgH8uXKofBszl9MVtbUAs5Bu43JVrpBuGe/oWyB0HXOBECiG0QKYRkOcdGK8H6Aim H4SkS1SfQR7IUIJRf+LcBDAKHo6RmDxCNxRZTfzA+DxmdWGFGFvwzqoEO6+R2H4Qki5zfQbPwJYT TPoT1yaAVZg/ZGXzCN1QZIV5U+tI1q1swZbVcf2L1e6Dn6sXqYBEvVcDQ2kAAAAldEVYdGRhdGU6 Y3JlYXRlADIwMTYtMDMtMzFUMjM6MDA6NDYtMDc6MDCmnAH0AAAAJXRFWHRkYXRlOm1vZGlmeQAy MDE2LTAzLTMxVDIyOjU3OjU0LTA3OjAwwunGQQAAAABJRU5ErkJggg=="
+     y="0"
+     x="0"
+     height="48"
+     width="48"
+     id="image0" />
+</svg>
