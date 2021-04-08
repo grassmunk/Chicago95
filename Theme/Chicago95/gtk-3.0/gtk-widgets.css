@@ -183,15 +183,15 @@ expander arrow {
 
 treeview.view.expander {
   -gtk-icon-palette: default;
-  -gtk-icon-source: -gtk-icontheme('pan-show-symbolic'); }
+  -gtk-icon-source: -gtk-icontheme('pane-show-symbolic'); }
   treeview.view.expander:selected {
     color: @selected_fg_color;
-    -gtk-icon-source: -gtk-icontheme('pan-show-symbolic'); }
+    -gtk-icon-source: -gtk-icontheme('pane-show-symbolic'); }
   treeview.view.expander:checked {
-    -gtk-icon-source: -gtk-icontheme('pan-hide-symbolic'); }
+    -gtk-icon-source: -gtk-icontheme('pane-hide-symbolic'); }
   treeview.view.expander:checked:selected {
     color: @selected_fg_color;
-    -gtk-icon-source: -gtk-icontheme('pan-hide-symbolic'); }
+    -gtk-icon-source: -gtk-icontheme('pane-hide-symbolic'); }
 
 /************
  * iconview *
