@@ -1,0 +1,71 @@
+/configver 2
+/panels uint32 1
+/panels/panel-0/autohide-behavior uint32 0
+/panels/panel-0/background-style uint32 0
+/panels/panel-0/disable-struts false
+/panels/panel-0/icon-size uint32 16
+/panels/panel-0/length uint32 100
+/panels/panel-0/length-adjust true
+/panels/panel-0/mode uint32 0
+/panels/panel-0/plugin-ids [<1>, <2>, <9>, <14>, <15>, <16>, <13>, <3>, <4>, <17>, <5>, <6>, <7>, <8>, <10>, <11>, <12>]
+/panels/panel-0/position 'p=8;x=400;y=583'
+/panels/panel-0/position-locked true
+/panels/panel-0/size uint32 32
+/panels/panel-0/span-monitors false
+/panels/panel-1/position 'p=8;x=0;y=300'
+/plugins/plugin-1 'whiskermenu'
+/plugins/plugin-10 'pulseaudio'
+/plugins/plugin-10/enable-keyboard-shortcuts true
+/plugins/plugin-10/enable-mpris true
+/plugins/plugin-10/mixer-command 'pavucontrol'
+/plugins/plugin-10/mpris-players 'parole'
+/plugins/plugin-10/show-notifications true
+/plugins/plugin-11 'separator'
+/plugins/plugin-11/expand false
+/plugins/plugin-11/style uint32 0
+/plugins/plugin-12 'clock'
+/plugins/plugin-12/digital-format '%I:%M %p'
+/plugins/plugin-13 'separator'
+/plugins/plugin-13/style uint32 2
+/plugins/plugin-14 'launcher'
+/plugins/plugin-14/items [<'15912267041.desktop'>]
+/plugins/plugin-15 'launcher'
+/plugins/plugin-15/items [<'15912267182.desktop'>]
+/plugins/plugin-16 'launcher'
+/plugins/plugin-16/disable-tooltips false
+/plugins/plugin-16/items [<'15912267393.desktop'>]
+/plugins/plugin-16/show-label false
+/plugins/plugin-17 'separator'
+/plugins/plugin-17/style uint32 2
+/plugins/plugin-2 'separator'
+/plugins/plugin-2/expand false
+/plugins/plugin-2/style uint32 2
+/plugins/plugin-3 'tasklist'
+/plugins/plugin-3/flat-buttons false
+/plugins/plugin-3/include-all-monitors true
+/plugins/plugin-3/show-handle false
+/plugins/plugin-3/sort-order uint32 4
+/plugins/plugin-3/window-scrolling false
+/plugins/plugin-4 'separator'
+/plugins/plugin-4/expand true
+/plugins/plugin-4/style uint32 0
+/plugins/plugin-5 'systray'
+/plugins/plugin-5/names-ordered [<'network'>, <'thunar'>]
+/plugins/plugin-5/show-frame true
+/plugins/plugin-5/size-max uint32 19
+/plugins/plugin-5/square-icons false
+/plugins/plugin-6 'notification-plugin'
+/plugins/plugin-7 'indicator'
+/plugins/plugin-7/blacklist [<'libappmenu.so'>]
+/plugins/plugin-7/known-indicators [<'com.canonical.indicator.messages'>]
+/plugins/plugin-7/single-row true
+/plugins/plugin-7/square-icons true
+/plugins/plugin-8 'statusnotifier'
+/plugins/plugin-8/icon-size 19
+/plugins/plugin-8/known-items [<'kazam'>, <'software-update-available'>, <'Dogecoin-Qt'>, <'nm-applet'>]
+/plugins/plugin-8/menu-is-primary true
+/plugins/plugin-8/mode-whitelist false
+/plugins/plugin-8/single-row true
+/plugins/plugin-8/square-icons true
+/plugins/plugin-8/symbolic-icons true
+/plugins/plugin-9 'showdesktop'

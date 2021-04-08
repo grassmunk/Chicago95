@@ -1,0 +1,14 @@
+{
+	"name": "Chicago95_ie4",
+	"manifest_version": 2,
+	"version": "1.0",
+	"theme": {
+		"images": {
+			"theme_frame": "firefox.png"
+		},
+		"colors": {
+			"frame": "rgba(192, 192, 192, 1)",
+			"tab_background_text": "rgba(0, 0, 0, 1)"
+		}
+	}
+}
