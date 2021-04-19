@@ -50,7 +50,7 @@ menubar,
   -gtk-icon-shadow: none; }
   menubar menuitem {
     padding: 0px 6px;
-    min-height:17px; }
+    min-height:20px; }
 
 menu separator {
   padding: 3px;
