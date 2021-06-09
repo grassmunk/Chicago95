@@ -57,7 +57,7 @@ A Window compositor
 [Click here](Plus/README.MD) for installing custom themes.
 
 ### Install the Plymouth boot splash theme
-[Click here](Plymouth/Readme.md) for install steps.
+[Click here](Plymouth/) for install steps.
 
 ## KDE Support (experimental)
 - SDDM Logon Manager:: Click `Install from file...` in Loggin Screen (SDDM) manager. Select `SDDM/Chicago95.tar.gz` to install the theme. 
