@@ -54,7 +54,8 @@ function onResize(el, callback) {
 // This is called by lightdm when the auth request is completed
 function authentication_complete() {
     if (lightdm.is_authenticated) {
-        lightdm.login (lightdm.authentication_user, lightdm.default_session);
+        //lightdm.login (lightdm.authentication_user, lightdm.default_session);
+	lightdm.login (lightdm.authentication_user, lightdm.start_session_sync, 'xfce4'); //lightdm-webkit2-greeter
     } else {
         message("Authentication failed", true);
         lightdm.cancel_authentication();
