@@ -1,17 +1,17 @@
 /* XPM */
 static char * close_active_xpm[] = {
 "18 24 7 1",
-"       c None",
+"       c #8CB754 s active_color_1",
 ".      c #000000 s active_mid_2",
 "&      c #000000 s active_shadow_1",
 "+      c #FFFFFF s active_hilight_2",
 "S      c #FFFFFF s active_hilight_1",
 "@      c #C0C0C0 s active_mid_1",
 "#      c #808080 s active_shadow_2",
-"                  ",
-"                  ",
-"                  ",
-"                  ",
+"SSSSSSSSSSSSSSSSSS",
+"++++++++++++++++++",
+"@@@@@@@@@@@@@@@@@@",
+"@@@@@@@@@@@@@@@@@@",
 "                  ",
 "                  ",
 "  +++++++++++++++&",
@@ -30,5 +30,5 @@ static char * close_active_xpm[] = {
 "  &&&&&&&&&&&&&&&&",
 "                  ",
 "                  ",
-"                  ",
-"                  "};
+"@@@@@@@@@@@@@@@@@@",
+"@@@@@@@@@@@@@@@@@@"};
