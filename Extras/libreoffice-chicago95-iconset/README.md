@@ -1,4 +1,9 @@
-# Readme for Chicago95-theme LibreOffice icon theme
+# Readme for Chicago95 LibreOffice icon theme
+
+<p align="center">
+<img src="Screenshots/libreoffice_writer_screenshot.png" alt="LibreOffice MS Icon Theme"/>
+</p>
+
 This is a highly experimental icon set for LibreOffice to use that will provide a vintage Microsoft Word 95 look and feel. It is only very loosely related to the official [Chicago95](https://github.com/grassmunk/Chicago95) project which is a more comprehensive project for the entire desktop experience.
 
 Note: This is not a 100% complete icon theme. It will mostly affect toolbar icons which are most often seen.
