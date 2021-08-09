@@ -26,6 +26,7 @@ Two ways to install themes: [GUI](#run_GUI) and [CLI](#run_CLI):
 - python3-svgwrite
 - python3-fonttools
 - python3-numpy
+- fonts-noto
 
 Notes:
 

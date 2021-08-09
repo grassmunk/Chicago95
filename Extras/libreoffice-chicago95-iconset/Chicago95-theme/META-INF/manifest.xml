@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<m:manifest xmlns:m="http://openoffice.org/2001/manifest">
+ <m:file-entry m:media-type="application/vnd.sun.star.configuration-data"
+   m:full-path="config.xcu"/>
+</m:manifest>

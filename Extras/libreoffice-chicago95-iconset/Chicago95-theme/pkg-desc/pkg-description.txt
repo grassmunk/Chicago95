@@ -1,0 +1,1 @@
+Chicago95 icons theme gives a classic vibe to your LibreOffice experience. To apply theme, go to Tools > Options > LibreOffice > View and change Icon style and size, then restart.
