@@ -50,11 +50,10 @@ button_layout=O|HMC
 button_offset=1
 button_spacing=0
 full_width_title=true
-maximized_offset=2
+maximized_offset=0
 show_app_icon=true
 title_alignment=left
 title_horizontal_offset=2
 title_vertical_offset_active=1
 title_vertical_offset_inactive=1
-
 frame_border_top=4

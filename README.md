@@ -18,6 +18,7 @@ I was unhappy with the various XFCE/GTK2/GTK3 Windows 95 based themes and decide
 - Plymouth theme created from scratch
 - An MS-DOS inspired theme for oh-my-zsh
 - Partial support for HiDPI monitors
+- Partial icon theme for Libre Office 6+
 
 #### Requirements
 
@@ -50,7 +51,7 @@ A Window compositor
 | Debian Testing/Unstable | [obs-repo] |
 | Ubuntu 18.04 - 20.04 | [obs-repo] |
 
-### Manual Installation
+### Manual installation and setup instructions
 [Click here](INSTALL.md) for install steps.
 
 ### Install a Microsoft Windows Plus! theme
@@ -58,6 +59,9 @@ A Window compositor
 
 ### Install the Plymouth boot splash theme
 [Click here](Plymouth/) for install steps.
+
+### Install the Libre Office icon theme
+[Click here](Extras/libreoffice-chicago95-iconset/README.md) for installing the Libre Office Chicago95 icon theme.
 
 ## KDE Support (experimental)
 - SDDM Logon Manager:: Click `Install from file...` in Loggin Screen (SDDM) manager. Select `SDDM/Chicago95.tar.gz` to install the theme. 

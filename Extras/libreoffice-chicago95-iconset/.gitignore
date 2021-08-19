@@ -1,0 +1,13 @@
+files
+*.zip
+sources.txt
+*.oxt
+iconsets/2013
+iconsets/colibre*
+iconsets/breeze*
+iconsets/*.zip
+# Yes, this is an important asset but it is derived from the build process
+Chicago95-theme/iconsets/images_chicago95.zip
+.*.swp
+build-b2.sh
+*.orig

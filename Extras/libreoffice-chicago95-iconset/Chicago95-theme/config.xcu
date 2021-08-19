@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oor:items xmlns:oor="http://openoffice.org/2001/registry">
+ <item oor:path="/org.openoffice.Office.Paths/Paths/Iconset/InternalPaths">
+  <node oor:name="%origin%/iconsets" oor:op="fuse"/>
+ </item>
+</oor:items>

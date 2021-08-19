@@ -100,7 +100,7 @@ install_doc:
 	${installbin} -dm0755 ${DOCDIR}
 	${installbin} -m0644 -t ${DOCDIR} ${SRCDIR}/*md Screenshots/SCREENSHOTS.md
 	@# rename a few files
-	${installbin} -m0644 ${SRCDIR}/Plymouth/Readme.md ${DOCDIR}/Plymouth-readme.md
+	${installbin} -m0644 ${SRCDIR}/Plymouth/README.md ${DOCDIR}/Plymouth-readme.md
 	${installbin} -m0644 ${SRCDIR}/Lightdm/Chicago95/README.md ${DOCDIR}/Lightdm-readme.md
 	${installbin} -m0644 -t ${DOCDIR} ${SRCDIR}/Extras/post_install.txt
 

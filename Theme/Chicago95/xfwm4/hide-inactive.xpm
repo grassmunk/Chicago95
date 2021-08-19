@@ -1,7 +1,8 @@
 /* XPM */
 static char * hide_inactive_xpm[] = {
-"16 24 7 1",
+"16 24 8 1",
 "       c None",
+"^      c #8CB754 s inactive_color_1",
 "&      c #000000 s inactive_shadow_1",
 "+      c #FFFFFF s inactive_hilight_2",
 "S      c #FFFFFF s inactive_hilight_1",
@@ -12,8 +13,8 @@ static char * hide_inactive_xpm[] = {
 "                ",
 "                ",
 "                ",
-"                ",
-"                ",
+"^^^^^^^^^^^^^^^^",
+"^^^^^^^^^^^^^^^^",
 "+++++++++++++++&",
 "+SSSSSSSSSSSSS#&",
 "+S@@@@@@@@@@@@#&",
@@ -28,8 +29,8 @@ static char * hide_inactive_xpm[] = {
 "+S@@@@@@@@@@@@#&",
 "+##############&",
 "&&&&&&&&&&&&&&&&",
-"                ",
-"                ",
+"^^^^^^^^^^^^^^^^",
+"^^^^^^^^^^^^^^^^",
 "                ",
 "                "};
 
