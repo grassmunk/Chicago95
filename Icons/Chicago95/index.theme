@@ -330,6 +330,7 @@ Type=Scalable
 Size=16
 MinSize=8
 MaxSize=512
+Context=Status
 Type=Scalable
 
 [notifications/16]
