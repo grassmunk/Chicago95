@@ -15,7 +15,7 @@ for (i = 0; i < 20; i++)
 
 fun refresh_callback ()
   {
-    if (Plymouth.GetMode () == "boot" || Plymouth.GetMode () == "resume")
+    if ((Plymouth.GetMode () == "boot" || Plymouth.GetMode () == "resume") && global.status == "normal")
       {
         if (progress == 0)
           {
@@ -45,6 +45,7 @@ fun dialog_setup()
     local.box;
     local.lock;
     local.entry;
+    local.text;
     
     box.image = Image("box.png");
     lock.image = Image("lock.png");
@@ -67,11 +68,16 @@ fun dialog_setup()
     entry.y = box.y + box.image.GetHeight()/2 - entry.image.GetHeight()/2;
     entry.z = box.z + 1;
     entry.sprite.SetPosition(entry.x, entry.y, entry.z);
-    
+
+    prompt_sprite = SpriteNew();
+    prompt_sprite.SetPosition(prompt_sprite.x, prompt_sprite.y, prompt_sprite.z);
+
     global.dialog.box = box;
     global.dialog.lock = lock;
     global.dialog.entry = entry;
     global.dialog.bullet_image = Image("bullet.png");
+    global.dialog.prompt_sprite = prompt_sprite;
+
     dialog_opacity (1);
   }
     
@@ -100,6 +106,8 @@ fun display_password_callback (prompt, bullets)
       dialog_setup();
     else
       dialog_opacity(1);
+    dialog.prompt_sprite.SetImage(Image.Text(prompt, 1, 0.5, 0, 1, "Mono Bold 14"));
+    dialog.prompt_sprite.SetPosition(((screen_width) * 0.3), (screen_height * 0.9), 2);
     for (index = 0; dialog.bullet[index] || index < 19; index++)
       {
         if (!dialog.bullet[index])
@@ -159,11 +167,11 @@ Plymouth.SetQuitFunction(quit_callback);
 #----------------------------------------- Message --------------------------------
 
 message_sprite = Sprite();
-message_sprite.SetPosition(10, 10, 10000);
+message_sprite.SetPosition((screen_width * 0.3), (screen_height * 0.9), 2);
 
 fun message_callback (text)
 {
-  my_image = Image.Text(text, 1, 1, 1);
+  my_image = Image.Text(text, 1, 0.5, 0, 1, "Mono Bold 14");
   message_sprite.SetImage(my_image);
 }
 
