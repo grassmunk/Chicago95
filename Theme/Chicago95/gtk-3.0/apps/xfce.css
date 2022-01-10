@@ -31,6 +31,11 @@ XfdesktopIconView.view {
   border: 1px solid @border_dark;
   border-image: url("../buttons/dialog_button_normal.png");
   border-image-slice: 1 1 1 1; }
+  .xfce4-panel .vertical .tasklist .toggle label {
+    margin-top: -6px; }
+  .xfce4-panel:not(.vertical) .tasklist .toggle label {
+    margin-left: -6px;
+    margin-right: 4px; }
   /* Note: The ".xfce4-panel > widget > frame" and ".xfce4-panel .flat:not(.toggle)" CSS classes are specified in this manner due to the volatility in the naming of CSS IDs presented by the XFCE panelbar.*/
   .xfce4-panel > widget > frame, /* affects the frame of the notification area plugin for GTK2 notifications. */
   .xfce4-panel .flat:not(.toggle), /* affects the launcher buttons as well and the status notifier plugin. */
@@ -154,9 +159,6 @@ wnck-pager {
       background-size: 2px 2px;
       background-position: 0 0, 1px 1px;
       box-shadow: none; }
-
-      .tasklist .toggle label {
-        margin-right: 4px; }
 
 /* XFCE APP: Color Profiles */
 .color-profiles {
