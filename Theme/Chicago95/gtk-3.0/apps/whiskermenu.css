@@ -30,6 +30,7 @@ the whisker menu without having to correct their pointer location. */
   #whiskermenu-button image,
   #applicationmenu-button image {
     padding: 0px;
+    margin-right: -1px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center; }

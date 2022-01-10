@@ -32,9 +32,9 @@ XfdesktopIconView.view {
   border-image: url("../buttons/dialog_button_normal.png");
   border-image-slice: 1 1 1 1; }
   .xfce4-panel .vertical .tasklist .toggle label {
-    margin-top: -6px; }
+    margin-top: -7px; }
   .xfce4-panel:not(.vertical) .tasklist .toggle label {
-    margin-left: -6px;
+    margin-left: -7px;
     margin-right: 4px; }
   /* Note: The ".xfce4-panel > widget > frame" and ".xfce4-panel .flat:not(.toggle)" CSS classes are specified in this manner due to the volatility in the naming of CSS IDs presented by the XFCE panelbar.*/
   .xfce4-panel > widget > frame, /* affects the frame of the notification area plugin for GTK2 notifications. */
