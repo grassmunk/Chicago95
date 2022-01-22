@@ -24,7 +24,7 @@ I was unhappy with the various XFCE/GTK2/GTK3 Windows 95 based themes and decide
 
 GTK+ 3.22 or 3.24
 
-Xfce 4.12 or 4.14
+Xfce 4.12, 4.14, 4.16
 
 gtk2-engines-pixbuf
 

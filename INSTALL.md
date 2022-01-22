@@ -660,15 +660,21 @@ The cursors in the theme do not support HiDPI but [Hackneyed](https://www.gnome-
 
 To disable client side decorations for XFCE 4.16 applications, you can install the the [libxfce4ui-nocsd](https://github.com/Xfce-Classic/libxfce4ui-nocsd) fork. *(Note: This library primarily affects XFCE applications.)*
 
-For XUbuntu 21.04 users specifically:
+For XUbuntu 21.04 users:
 
+    sudo apt install libxfce4ui-nocsd-2-0
+
+For XUbuntu 21.10 users you will have to install the [XUbuntu QA Experimental PPA.](https://launchpad.net/~xubuntu-dev/+archive/ubuntu/experimental/)
+
+    sudo add-apt-repository ppa:xubuntu-dev/experimental
+    sudo apt update
     sudo apt install libxfce4ui-nocsd-2-0
 
 For Arch based platforms:
 
     pacman -S libxfce4ui-nocsd
 
-For other platforms, such as Debian 11 or non XUbuntu 21.04 flavours, you may have to build libxfce4ui-nocsd for yourself. You may also check the [Chicago95 OBS repo](https://software.opensuse.org//download.html?project=home%3Abgstack15%3AChicago95&package=chicago95-theme-all) to see if your platform is available.
+For other platforms, such as Debian 11 or non XUbuntu 21.04 flavours, you may have to build libxfce4ui-nocsd for yourself. 
 
 ### Step 2:
 
