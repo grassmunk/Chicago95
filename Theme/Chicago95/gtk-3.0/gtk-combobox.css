@@ -34,7 +34,7 @@ combobox {
 /* Combobox entry */
 combobox entry {
   /* This will move combobox buttons into the entry
-   * Libre Office is particular about the positioning of the button, or else it will hide the right side entry border. */
+   * LibreOffice is particular about the positioning of the button, or else it will hide the right side entry border. */
   margin-right: -20px;
   padding-right: 20px; }
 /* Since the above margins are not enough for regular GTK applications, we can use the following. LibreOffice VCL doesn't support the asterisk * wildcard selector in this case. */
