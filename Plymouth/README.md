@@ -1,6 +1,6 @@
 ## Plymouth boot splash theme
 
-The Windows95 boot theme is based on the template provided by http://brej.org/blog/?p=174
+The Windows95 boot theme is based on the template provided by [http://brej.org/blog/?p=174](https://web.archive.org/web/20180210003217/https://brej.org/blog/?p=174)
 
 It is meant to simulate the Windows 95 boot screen and shutdown screen.
 
