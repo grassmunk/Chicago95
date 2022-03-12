@@ -410,6 +410,9 @@ box label link {
   color: @osd_fg;
   background-color: @osd_bg; }
 
+.osd .trough {
+  background-color: @osd_trough_bg;}
+
 overlay.osd {
   background-color: transparent; }
 

@@ -9,9 +9,9 @@
 
 I was unhappy with the various XFCE/GTK2/GTK3 Windows 95 based themes and decided to make one that was more consistent across the board for theming.
 
-#### Included in this theme:
+### Included in this theme:
 
-- New icons to complete the icon theme started with Classic95
+- Icons to complete the icon theme started with Classic95
 - GTK2 and GTK3 themes
 - Edited Redmond XFWM theme to more accurately reflect Windows 95
 - Chicago95 Plus! A tool to preview and install Windows 95/98/ME/XP themes
@@ -20,15 +20,12 @@ I was unhappy with the various XFCE/GTK2/GTK3 Windows 95 based themes and decide
 - Partial support for HiDPI monitors
 - Partial icon theme for LibreOffice 6+
 
-#### Requirements
+### Requirements:
 
-GTK+ 3.22 or 3.24
-
-Xfce 4.12, 4.14, 4.16
-
-gtk2-engines-pixbuf
-
-A Window compositor
+- GTK+ 3.22 or 3.24
+- Xfce 4.12, 4.14, 4.16
+- gtk2-engines-pixbuf (Recommended for GTK2 applications)
+- A Window compositor
 
 (If your are using an older desktop that uses GTK3.18, you can use [this forked version of the theme.](https://github.com/EMH-Mark-I/Chicago95-Custom-XUbuntu-16.04-))
 
@@ -42,7 +39,7 @@ A Window compositor
 
 ## Installation
 
-### Packages
+### Packages:
 
 |Distro|Package Name/Link|
 |:----:|:----:|
@@ -51,25 +48,32 @@ A Window compositor
 | Debian Testing/Unstable | [obs-repo] |
 | Ubuntu 18.04 - 20.04 | [obs-repo] |
 
-### Manual installation and setup instructions
+### Manual installation and setup instructions:
 [Click here](INSTALL.md) for install steps.
 
-### Install a Microsoft Windows Plus! theme
+### Install a Microsoft Windows Plus! theme:
 [Click here](Plus/README.MD) for installing custom themes.
 
-### Install the Plymouth boot splash theme
+### Install the Plymouth boot splash theme:
 [Click here](Plymouth/) for install steps.
 
-### Install the LibreOffice icon theme
+### Install the LibreOffice icon theme:
 [Click here](Extras/libreoffice-chicago95-iconset/README.md) for installing the LibreOffice Chicago95 icon theme.
 
-## KDE Support (experimental)
+----
+## Miscellaneous
+
+### KDE Support (experimental):
 - SDDM Logon Manager:: Click `Install from file...` in Loggin Screen (SDDM) manager. Select `SDDM/Chicago95.tar.gz` to install the theme. 
 - Splash Screen: `plasmapkg2 -t lookandfeel -i KDE/Splash/chicago95.splashscreen`
 
-### Screenshots
+### Screenshots:
 [Click here to view screenshots](Screenshots/SCREENSHOTS.md)
 
+### IRC server:
+[Click here](https://web.emhmki.org:8443/) to connect to the IRC server. Please read server rules and be kind.
+
+----
 
 ### Code and license
 License: GPL-3.0+/MIT

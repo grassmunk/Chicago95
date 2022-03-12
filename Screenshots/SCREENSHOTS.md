@@ -19,8 +19,11 @@
 
 ![alt text](Desktop4.png "Desktop4")
 
-#### XFCE4 Screensaver lock screen
+![alt text](Desktop5.png "Desktop5")
 
+![alt text](Desktop6.png "Desktop6")
+
+#### XFCE4 Screensaver lock screen
 ![alt text](lock_screen.png "Screensaver lock")
 
 #### LightDM login manager theme

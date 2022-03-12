@@ -332,7 +332,7 @@ If you use a vertical deskbar, you could add a second row from the panel propert
 
 ### [ Thunar status indicator ] (for XFCE 4.14)
 
-The thunar status indicator can be modified on line 59 in `/home/$USER/.themes/Chicago95/gtk-3.24/apps/thunar.css`. Uncomment the code from line 53 to line 64.
+The thunar status indicator can be modified on line 59 in `/home/$USER/.themes/Chicago95/gtk-3.24/apps/thunar.css`. Uncomment the code from line 49 to line 60.
 
 You can replace `status_badge_c95.png` with four of the following images.
 
@@ -454,7 +454,32 @@ If these themes aren't enough and you'd like to personalize your icon theme down
 <a name="ms_sans_serif"/>
 
 ### [ MS Sans Serif font ]
-For an authentic Windows 95 feel, you can use the original MS Sans Serif font.  To do this, you will need a copy of both the "MS Sans Serif Regular" and "Microsoft Sans Serif Regular" fonts from the `C:\Windows\Fonts` directory of any modern Windows computer.  (The filenames for these fonts are `sserife.fon` and `micross.ttf` respectively)
+For an authentic Windows 95 feel, you can use the included cronyx-cyrillic Helvetica OTB font or the original MS Sans Serif font *(not included)*. You may encounter many issues with the original MS Sans Serif compared to the Helvetica font.
+
+#### Helvetica install
+To install the Helvetica font, you'll need to copy the "cronyx-cyrillic" folder from the `Extras/` directory into either `~/.fonts` for only a user install or `/usr/share/fonts` for a system-wide install.
+
+    cp -r Chicago95-master/Extras/cronyx-cyrillic ~/.fonts
+
+    cp -r Chicago95-master/Extras/cronyx-cyrillic /usr/share/fonts
+
+By default, some systems block bitmap fonts. To enable this and other bitmap fonts, run the following command:
+
+    sudo mv /etc/fonts/conf.d/70-no-bitmaps.conf /etc/fonts/conf.d/70-no-bitmaps.conf.bak
+
+If you see "No such file or directory," then bitmap fonts were already enabled on your system.
+
+The name of the font is listed as "Helvetica" and so depending on distribution, it might conflict with Adobe's Helvetica font. Specifically, Debian lists both as Helvetica (Arch lists Adobe's font as "Adobe Helvetica" so there is no conflict). If, after installing this font, some programs show a different Helvetica font, the other font can be safely removed. To fix this for programs such as Firefox which still accept PCF and other legacy font formats, run the following command:
+
+    sudo rm /usr/share/fonts/X11/*dpi/helv*
+
+*Note: Do not uninstall xfonts-75dpi or xfonts-100dpi on Debian-based systems, as these are required by tasksel tasks.*
+
+There is some additional information about this font in the reported issue [ticket #218](https://github.com/grassmunk/Chicago95/issues/218).
+
+#### MS Sans Serif
+
+To do this, you will need a copy of both the "MS Sans Serif Regular" and "Microsoft Sans Serif Regular" fonts from the `C:\Windows\Fonts` directory of any modern Windows computer.  (The filenames for these fonts are `sserife.fon` and `micross.ttf` respectively)
 
 After copying over the files to your system, we now need to convert the `sserife.fon` file to a TrueType font using FontForge.  (This step is optional; you can still use MS Sans Serif, but bold fonts will not be available)
 

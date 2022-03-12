@@ -94,7 +94,7 @@ PanelToplevel.background {
   box-shadow: inset 1px 1px @bg_shade, inset -1px -1px @bg_bright; }
   /* Brisk button */
   .mate-panel-menu-bar .brisk-button {
-    font-family: "MS Sans Serif Bold", Sans, Sans-Serif;
+    font-family: Helvetica, "MS Sans Serif Bold", Sans, Sans-Serif;
     font-weight: bold; }
   /* MATE Main Menu */
   .mate-panel-menu-bar menubar {

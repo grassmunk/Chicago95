@@ -27,13 +27,14 @@ Two ways to install themes: [GUI](#run_GUI) and [CLI](#run_CLI):
 - python3-fonttools
 - python3-numpy
 - fonts-noto
+- aplay
 
 Notes:
 
 * Sounds are installed assuming you have XFCE sounds enabled per the [Chicago95 Install instructions](../INSTALL.md).
 * To use Chicago95 Plus! on Xubuntu you need to install the following: `python3-svgwrite` `python3-fonttools` `inkscape`:
 
-    `sudo apt install python3-svgwrite python3-fonttools inkscape`
+    `sudo apt install python3-svgwrite python3-fonttools inkscape aplay`
 
 * By default Chicago95 Plus! creates the theme in your working folder and copies the files to their required location then automatically changes the current theme to the new theme, just like Windows!
 

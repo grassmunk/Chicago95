@@ -1,9 +1,8 @@
 /* XPM */
 static char * left_active_xpm[] = {
-"5 1 5 1",
-" 	c None",
+"4 1 4 1",
 "$	c #FFFFFF s active_hilight_1",
 "+	c #DFDFDF s active_hilight_2",
 "@      c #C0C0C0 s active_mid_1",
 "&      c #FF00FF s active_border_color",
-"$+&@@"};
+"$+&@"};

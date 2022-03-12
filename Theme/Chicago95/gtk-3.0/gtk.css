@@ -90,6 +90,7 @@
 @define-color osd_base @dark_bg_color;
 @define-color osd_fg @dark_fg_color;
 @define-color osd_bg alpha(@osd_base, 0.8);
+@define-color osd_trough_bg @selected_bg_color;
 
 /* lightdm greeter colors */
 @define-color lightdm_bg_color @dark_bg_color;
