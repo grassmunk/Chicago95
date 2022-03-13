@@ -457,11 +457,11 @@ If these themes aren't enough and you'd like to personalize your icon theme down
 For an authentic Windows 95 feel, you can use the included cronyx-cyrillic Helvetica OTB font or the original MS Sans Serif font *(not included)*. You may encounter many issues with the original MS Sans Serif compared to the Helvetica font.
 
 #### Helvetica install
-To install the Helvetica font, you'll need to copy the "cronyx-cyrillic" folder from the `Extras/` directory into either `~/.fonts` for only a user install or `/usr/share/fonts` for a system-wide install.
+To install the Helvetica font, you'll need to copy the "cronyx-cyrillic" folder from the `Fonts/` directory into either `~/.fonts` for only a user install or `/usr/share/fonts` for a system-wide install.
 
-    cp -r Chicago95-master/Extras/cronyx-cyrillic ~/.fonts
+    cp -r Chicago95-master/Fonts/cronyx-cyrillic ~/.fonts
 
-    cp -r Chicago95-master/Extras/cronyx-cyrillic /usr/share/fonts
+    cp -r Chicago95-master/Fonts/cronyx-cyrillic /usr/share/fonts
 
 By default, some systems block bitmap fonts. To enable this and other bitmap fonts, run the following command:
 
