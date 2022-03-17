@@ -1,6 +1,6 @@
 /* XPM */
 static char * top_left_active_xpm[] = {
-"4 24 6 1",
+"8 48 6 1",
 "       c None",
 "$	c #0000FF s active_hilight_1",
 "+	c #FFFF00 s active_hilight_2",
