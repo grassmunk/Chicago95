@@ -257,6 +257,8 @@ class InstallGUI:
 				if from_file == "install_theme" and self.copy_files["install_theme"]:
 					print("Enabling Theme in XFCE4")
 					self.xfconf_query('xsettings', '/Net/ThemeName', "Chicago95")
+					self.xfconf_query('xfce4-notifyd', '/theme', "Chicago95")
+					self.xfconf_query('xfce4-notifyd', '/initial-opacity', "1.000000")
 					self.xfconf_query('xfwm4', '/general/theme', "Chicago95")
 					self.xfconf_query('xfwm4', '/general/title_font', "Sans Bold 8")
 					self.xfconf_query("xfwm4","/general/shadow_delta_height","0")
@@ -320,8 +322,8 @@ class InstallGUI:
 					self.change_component_label()
 				elif from_file == "install_fonts" and self.copy_files["install_fonts"]:
 					print("Enabling Fonts in XFCE4")
+					self.xfconf_query('xsettings', '/Gtk/FontName', "Helvetica 8")
 					self.change_component_label()
-					# LOL this is a lie we don't have to do anything
 				elif from_file == "thunar" and self.copy_files["thunar"]:
 					if os.path.exists(os.path.expanduser("~/.themes/Chicago95/gtk-3.24/apps/thunar.css")):
 						print("Enabling authenticity in Thunar")
