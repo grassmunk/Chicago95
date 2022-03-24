@@ -322,8 +322,8 @@ class InstallGUI:
 					self.change_component_label()
 				elif from_file == "install_fonts" and self.copy_files["install_fonts"]:
 					print("Enabling Fonts in XFCE4")
-					self.xfconf_query('xsettings', '/Gtk/FontName', "Helvetica 8")
 					self.change_component_label()
+          # LOL this is a lie we don't have to do anything
 				elif from_file == "thunar" and self.copy_files["thunar"]:
 					if os.path.exists(os.path.expanduser("~/.themes/Chicago95/gtk-3.24/apps/thunar.css")):
 						print("Enabling authenticity in Thunar")

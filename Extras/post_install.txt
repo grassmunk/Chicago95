@@ -3,13 +3,15 @@ Manual Steps:
 You're not done yet! Not everything could be automated. Here's what left:
 
 
+!! Enable the Helvetica font
 
-!! Enabling the notification theme
+If you run a Debian based operating system, you'll have to disable the bitmap font block. From a terminal, run the following:
 
-- Open the XFCE settings manager > Notifications.
-- Choose Chicago95 for the theme.
-- Adjust Opacity to 100%.
+$ mv /etc/fonts/conf.d/70-no-bitmaps.conf /etc/fonts/conf.d/70-no-bitmaps.conf.bak
 
+- Open the XFCE settings manager > Appearance
+- Click Fonts tab and select Helvetica Regular. Set to size 8.
+- Enable anti-aliasing and set hinting to "Full."
 
 
 !! Start Button
