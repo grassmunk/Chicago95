@@ -35,7 +35,7 @@ headerbar,
     headerbar .subtitle:backdrop,
     headerbar:backdrop > checkbutton label,
     .titlebar:backdrop > checkbutton label {
-      color: @inactive_title_bg_color; }
+      color: @inactive_title_text_color; }
   headerbar entry {
     margin: 3px;
     padding-top: 1px;

@@ -17,6 +17,7 @@
     * [Launcher Button icon scaling](#button_scale) (*For legacy GTK2 panelbars only*)
     * [Thunar status indicator](#thunar)
     * [QT5 theme configration with qt5ct](#config_qt5ct)
+    * [Apply GTK theme for Flatpak applications](#flatpak_config)
     * [GTK Overlay Scrollbars](#gtk_scroll)
     * [Desktop Shadow effects](#desktop_shadow)
     * [Desktop background color](#desktop_color)
@@ -379,6 +380,31 @@ Once you are logged back into your desktop you can access `Qt5 Settings` (or run
 - In the Icon Theme tab you can select the Chicago95 icon theme here.
 - In the Fonts tab you can select the fonts to be used in QT applications. (Liberation Sans 8 for a general font looks nice.)
 - Click "Apply" to apply adjustments and OK to finish.
+
+[[Return to Index]](#index)
+
+<a name="flatpak_config"/>
+
+### [ Apply GTK theme for Flatpak applications ] (advanced)
+If you would like to enable theme support for appplications installed through Flatpak, then follow the below steps.
+
+#### Step 1:
+
+Permit Flatpak container applications file level access to the theme directory.
+
+    sudo flatpak override --filesystem=$HOME/.themes
+
+*Note: Flatpak black lists `/usr/share/themes` from being accessible period, so you'll have to install the Chicago95 theme somewhere else; ideally in `~/.themes`*
+
+#### Step 2:
+
+Enable the Chicago95 GTK theme for Flatpak container applications.
+
+    sudo flatpak override --env=GTK_THEME=Chicago95
+
+Now reload your Flatpak application to verify the theme change.
+
+Something else worth noting. If you copy the Chicago95 icon theme into `/usr/share/icons`, then your Flatpak applications will default to that icon theme so long it's enabled.
 
 [[Return to Index]](#index)
 
