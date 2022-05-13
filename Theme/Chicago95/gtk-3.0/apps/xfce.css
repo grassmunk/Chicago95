@@ -228,6 +228,11 @@ wnck-pager {
   border-image: url("../assets/frame_inset.png");
   border-image-slice: 2 2 2 2;
   box-shadow: none; }
+  .maximized #xfce4-terminal-notebook overlay > box,
+  .maximized #xfce4-terminal-notebook stack > box {
+    border: none;
+    border-image: none;
+    box-shadow: none; }
 #xfce4-terminal-notebook header tabs tab box {
     padding: 0px;
     margin-top: -4px;
