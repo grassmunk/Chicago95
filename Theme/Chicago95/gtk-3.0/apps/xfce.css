@@ -11,11 +11,15 @@
 
 /* Xfdesktop */
 XfdesktopIconView.view {
-  background: @xfd_icon_backdrop;
+  background-image: -gtk-gradient(linear, left top, right bottom, from (@xfd_icon_backdrop));
+  background-repeat: no-repeat;
+  background-position: 4px 4px;
+  background-size: calc(100% - 10px) calc(100% - 10px);
   color: @selected_bg_color;
-  border-radius: 0px; }
+  border-radius: 0px; 
+  background-color: rgba(0, 0, 0, 0)}
   XfdesktopIconView.view:active {
-    background: @selected_bg_color;
+    background-image: -gtk-gradient(linear, left top, right bottom, from (@selected_bg_color));
     text-shadow: none;
     color: shade(@selected_bg_color, 3.0); }
   XfdesktopIconView.view .label {
