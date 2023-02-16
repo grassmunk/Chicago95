@@ -121,8 +121,8 @@ wnck-pager {
   border: none;
   box-shadow: none;
   margin: 0px;
-  background-color: @bg_color; }
-
+/*  background-color: @bg_color; } */
+  background-color: transparent; }
 /* Tasklist */
 .tasklist .toggle {
   /* We remove borders and shadows for the '.tasklist' '.toggle' button 
