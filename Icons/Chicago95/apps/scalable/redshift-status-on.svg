@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 -0.5 32 32"
+   shape-rendering="crispEdges"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="redshift-status-on.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs18" />
+  <sodipodi:namedview
+     id="namedview16"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     showgrid="false"
+     inkscape:zoom="20.85965"
+     inkscape:cx="4.3385196"
+     inkscape:cy="15.915895"
+     inkscape:window-width="1920"
+     inkscape:window-height="1035"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg14" />
+  <metadata
+     id="metadata2">Made with Pixels to Svg https://codepen.io/shshaw/pen/XbxvNj</metadata>
+  <path
+     stroke="#ffffff"
+     d="m 13,2 h 1 m 1,0 h 1 m 1,0 h 1 m -6,1 h 1 m 1,0 h 1 m 1,0 h 1 m 1,0 h 1 m 1,0 h 1 M 11,4 h 1 m 1,0 h 1 m 1,0 h 1 m 1,0 h 1 m 1,0 h 1 m 1,0 h 1 M 10,5 h 1 m 1,0 h 1 m 1,0 h 1 m 1,0 h 1 m 1,0 h 1 m 1,0 h 1 M 11,6 h 1 m 1,0 h 1 m 1,0 h 1 m 1,0 h 1 m 1,0 h 1 m 1,0 h 1 M 10,7 h 1 m 1,0 h 1 m 1,0 h 1 m 1,0 h 1 m 1,0 h 1 m 1,0 h 1 m 1,0 h 1 M 9,8 h 1 m 1,0 h 1 m 5,0 h 1 m 3,0 h 1 M 10,9 h 1 m 1,0 h 1 m 3,0 h 1 m 1,0 h 1 m 3,0 h 1 M 9,10 h 1 m 3,0 h 1 m 1,0 h 1 m 3,0 h 1 m 1,0 h 1 m -12,1 h 1 m 1,0 h 1 m 3,0 h 1 m 1,0 h 1 m 3,0 h 1 m -12,1 h 1 m 9,0 h 1 m -12,1 h 1 m 1,0 h 1 m 3,0 h 1 m 3,0 h 1 m -10,1 h 1 m 1,0 h 1 m 1,0 h 1 m 3,0 h 1 m -8,1 h 1 m 3,0 h 1 m 1,0 h 1 m -6,1 h 1 m 1,0 h 1 m 3,0 h 1 m -8,1 h 1 m 3,0 h 1 m 1,0 h 1 m -6,1 h 1 m 1,0 h 1 m 0,1 h 1 m 1,0 h 1 m -6,1 h 1 m 1,0 h 1 m 0,1 h 1"
+     id="path4"
+     sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
+  <path
+     stroke="#800000"
+     d="M5 0h1M26 0h1M6 1h1M13 1h6M25 1h1M7 2h1M11 2h2M19 2h2M24 2h1M10 3h1M21 3h1M4 4h3M9 4h1M22 4h1M25 4h3M9 5h1M22 5h1M6 6h1M9 6h1M22 6h1M25 6h1M5 7h1M8 7h1M23 7h1M26 7h1M4 8h1M8 8h1M12 8h2M15 8h2M18 8h2M23 8h1M27 8h1M8 9h1M11 9h1M14 9h1M17 9h1M20 9h1M23 9h1M8 10h1M11 10h1M14 10h1M17 10h1M20 10h1M23 10h1M8 11h1M11 11h1M14 11h1M17 11h1M20 11h1M23 11h1M9 12h1M12 12h8M22 12h1M9 13h1M13 13h2M17 13h2M22 13h1M4 14h3M10 14h1M14 14h1M17 14h1M21 14h1M25 14h3M11 15h1M14 15h1M17 15h1M20 15h1M7 16h1M11 16h1M14 16h1M17 16h1M20 16h1M24 16h1M6 17h1M9 17h1M11 17h1M14 17h1M17 17h1M20 17h1M22 17h1M25 17h1M5 18h1M9 18h1M12 18h1M14 18h1M17 18h1M19 18h1M22 18h1M26 18h1M9 19h1M12 19h1M14 19h1M17 19h1M19 19h1M22 19h1M12 20h1M14 20h1M17 20h1M19 20h1M13 21h2M17 21h2M15 22h2"
+     id="path6" />
+  <path
+     stroke="#ff0000"
+     d="M14 2h1M16 2h1M18 2h1M11 3h1M13 3h1M15 3h1M17 3h1M19 3h1M10 4h1M12 4h1M14 4h1M16 4h1M18 4h1M20 4h1M11 5h1M13 5h1M15 5h1M17 5h1M19 5h1M21 5h1M10 6h1M12 6h1M14 6h1M16 6h1M18 6h1M20 6h1M9 7h1M11 7h1M13 7h1M15 7h1M17 7h1M19 7h1M21 7h1M10 8h1M14 8h1M20 8h1M22 8h1M9 9h1M13 9h1M15 9h1M19 9h1M21 9h1M10 10h1M12 10h1M16 10h1M18 10h1M22 10h1M9 11h1M13 11h1M15 11h1M19 11h1M21 11h1M10 12h1M20 12h1M11 13h1M15 13h1M19 13h1M21 13h1M12 14h1M16 14h1M18 14h1M20 14h1M13 15h1M15 15h1M19 15h1M12 16h1M16 16h1M18 16h1M13 17h1M15 17h1M19 17h1M16 18h1M18 18h1M13 19h1M15 19h1M16 20h1M18 20h1M15 21h1"
+     id="path8" />
+  <path
+     stroke="#000000"
+     d="M12 21h1M19 21h1M12 22h3M17 22h3M12 23h1M15 23h2M19 23h1M12 24h3M17 24h3M12 25h1M15 25h2M19 25h1M12 26h3M17 26h3M12 27h1M15 27h2M19 27h1M13 28h2M17 28h2M15 29h2"
+     id="path10" />
+  <path
+     stroke="#808080"
+     d="M13 23h2M17 23h2M15 24h2M13 25h2M17 25h2M15 26h2M13 27h2M17 27h2M15 28h2"
+     id="path12" />
+</svg>
