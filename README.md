@@ -25,6 +25,7 @@ I was unhappy with the various XFCE/GTK2/GTK3 Windows 95 based themes and decide
 - GTK+ 3.22 or 3.24
 - Xfce 4.12, 4.14, 4.16
 - gtk2-engines-pixbuf (Recommended for GTK2 applications)
+- The xfce4-panel-profiles package
 - A Window compositor
 
 (If your are using an older desktop that uses GTK3.18, you can use [this forked version of the theme.](https://github.com/EMH-Mark-I/Chicago95-Custom-XUbuntu-16.04-))

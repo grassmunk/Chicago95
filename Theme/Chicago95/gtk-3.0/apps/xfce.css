@@ -121,8 +121,8 @@ wnck-pager {
   border: none;
   box-shadow: none;
   margin: 0px;
-/*  background-color: @bg_color; } */
-  background-color: transparent; }
+  background-color: @bg_color; }
+/*  background-color: transparent; } */
 /* Tasklist */
 .tasklist .toggle {
   /* We remove borders and shadows for the '.tasklist' '.toggle' button 
@@ -232,15 +232,19 @@ wnck-pager {
 
 /* XFCE terminal */
 #xfce4-terminal-notebook overlay > box,
-#xfce4-terminal-notebook stack > box {
+#xfce4-terminal-notebook stack > box,
+#xfce4-terminal-notebook stack scrolledwindow {
   border: 2px solid @border_dark;
   border-image: url("../assets/frame_inset.png");
   border-image-slice: 2 2 2 2;
   box-shadow: none; }
   .fullscreen #xfce4-terminal-notebook overlay > box,
   .fullscreen #xfce4-terminal-notebook stack > box,
+  .fullscreen #xfce4-terminal-notebook stack scrolledwindow,
   .maximized #xfce4-terminal-notebook overlay > box,
-  .maximized #xfce4-terminal-notebook stack > box {
+  .maximized #xfce4-terminal-notebook stack > box,
+  .maximized #xfce4-terminal-notebook stack scrolledwindow {
+    margin: 0px;
     border: none;
     border-image: none;
     box-shadow: none; }

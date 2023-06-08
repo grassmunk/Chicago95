@@ -53,3 +53,7 @@ filechooser revealer > box > stack {
     filechooser revealer > box > stack button label {
       padding-left: 0px;
       padding-right: 0px; }*/
+filechooser scrolledwindow {
+  border: 2px solid @border_dark;
+  border-image: url("../assets/frame_inset.png");
+  border-image-slice: 2 2 2 2; }

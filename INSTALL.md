@@ -485,9 +485,9 @@ For an authentic Windows 95 feel, you can use the included cronyx-cyrillic Helve
 #### Helvetica install
 To install the Helvetica font, you'll need to copy the "cronyx-cyrillic" folder from the `Fonts/` directory into either `~/.fonts` for only a user install or `/usr/share/fonts` for a system-wide install.
 
-    cp -r Chicago95-master/Fonts/cronyx-cyrillic ~/.fonts
+    cp -r Chicago95-master/Fonts/bitmap/cronyx-cyrillic ~/.fonts
 
-    cp -r Chicago95-master/Fonts/cronyx-cyrillic /usr/share/fonts
+    cp -r Chicago95-master/Fonts//bitmap/cronyx-cyrillic /usr/share/fonts
 
 By default, some systems block bitmap fonts. To enable this and other bitmap fonts, run the following command:
 
