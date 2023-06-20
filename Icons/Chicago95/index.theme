@@ -3,6 +3,22 @@ Name=Chicago95
 Comment=Enhanced Classic95 icon theme for XFCE.
 Example=folder
 
+FollowsColorScheme=true
+
+# KDE Specific Stuff
+DesktopDefault=48
+DesktopSizes=16,22,24,32,48
+ToolbarDefault=16
+ToolbarSizes=16,22,24,32,48
+MainToolbarDefault=16
+MainToolbarSizes=16,22,24,32,48
+SmallDefault=16
+SmallSizes=16,22,24,32,48
+PanelDefault=32
+PanelSizes=16,22,24,32,48
+DialogDefault=32
+DialogSizes=16,22,24,32,48
+
 #Directory list
 
 # actions/symbolic
