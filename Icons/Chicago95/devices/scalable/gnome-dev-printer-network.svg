@@ -1,34 +1,70 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    version="1.1"
    width="48"
    height="48"
-   id="svg2">
-  <metadata
-     id="metadata8">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <defs
-     id="defs6" />
-  <image
-     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAArdJREFU aIHFWVGypDAIxC3vNd5M5mZ6suzH2i4iMRDJe11ljeVE0k0IIZHoF8DMhZlLhq05w4gXIL2uKx6V 4/nUa7P7xSgM8ie+3y/ahPkMF2ARn45eiwqiHiFDBTx5nShHyDABNfIW6TdChgjQ5L2krWctEcOy kPQ8CEmC2tuyHTBNbf+mC9D53SJdC5n/71yIP6pIDaGnSesPo5OSi1uagFbGaRIJeF3idQhllARR r6cA9Qwg7yOgf+VEtxPCI6BDZd/33r5PzzMzMXOfDW/DGvFt20g+d3csyKt+QmHUbNwiLuEVYZFf luVm91Up4SWOjvFbaslddjpNN89LAVpMqJSIEtdoCZHelzZgX9sVIky+l0nMzKVG3BpiC/gfRC0h knyLeAuzzOPrul6yihxOoNWxJlAT8pY4MIO4ZaBGTv4XFYLY7yF+rD2XMDpDSHpejwQR0fI5CO/X jrxC3hCXfSFiIMRcyPZ9p8/nc95r4p+DxG6MVm3OvA0V2c+2baeQ6koM4lqIJm51IAlmEdd9HCLa pcSTEAsjiUtbSKvuWsgjxMpamcRhT64J4WJOC8Gelejq9WzisKkXtO79QC1rjSAOWKtxyp4YWUuO RhZUzXQrJf4QUUrHb/YFFrBHEAKej1VGDn0EIOzd4MzMPDFzkfnbyiajESUO3OaAVZePRC9xoDqJ sdrhPhte4q3/ZzSy5oC3UIugg/jjthIjMC3LUojsyZwhJJs4IENoIiLyCvGKGEXc07g8pVZrNNSJ giZmope496XqaABSiKhVhhOPvuwS4j1hq50w9CBq5FFIazXP8rpEryFzftQEjCCeYfA2GlrASOJA dzmNw6nKmSZuh5/3Txz+QMH2U5b3dpsRmKOr6rYRrWsh6VxsJ36rJC+Ri5nwbeW8mGM2Mq+eGH0K uZ/7xnXgL2M3hv7DMm0nAAAAAElFTkSuQmCC "
-     x="0"
-     y="0"
-     width="48"
-     height="48"
-     id="image10" />
-</svg>
+   id="svg2"
+   sodipodi:docname="gnome-dev-printer-network.svg"
+   xml:space="preserve"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"><sodipodi:namedview
+     id="namedview631"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="10.915961"
+     inkscape:cx="43.605872"
+     inkscape:cy="33.712103"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g776" /><metadata
+     id="metadata8"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+     id="defs6" /><g
+     id="g776"
+     transform="translate(-53.758091)"><path
+       style="fill:#ffffff;stroke-width:1;opacity:0"
+       d="M 53.758091,47.5 V 47 h 6 6 v 0.5 0.5 h -6 -6 z m 19,0 V 47 h 14.5 14.499999 v 0.5 0.5 h -14.499999 -14.5 z m -19,-10 V 31 h 0.5 0.5 v 2 2 h 0.5 0.5 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 0.5 0.5 v 1 1 h -7 -7 z m 23,6 V 43 h 1 1 V 42.5 42 h 1 1 V 41.5 41 h 1 1 V 40.5 40 h 0.5 0.5 V 39.5 39 h 1 1 V 38.5 38 h 1 1 V 37.5 37 h 1 1 V 36.5 36 h 1 1 V 35.5 35 h 1 1 V 34.5 34 h 1 1 V 31.5 29 h 0.5 0.5 V 28.5 28 h 0.5 0.5 V 27.5 27 h 0.5 0.5 V 26.5 26 h 0.5 0.5 V 25.5 25 h 0.499999 0.5 V 24.5 24 h 0.5 0.5 v 10 10 h -12.499999 -12.5 z m 23,-22 V 21 h -1 -1 V 20.5 20 h -0.5 -0.5 V 18.5 17 h -1 -1 V 16.5 16 h -1 -1 V 15.5 15 h -1.5 -1.5 V 14.5 14 h -1 -1 v -1 -1 h 0.5 0.5 V 11.5 11 h 1 1 V 10.5 10 h 0.5 0.5 V 9.5 9 h 1 1 V 8.5 8 h 1 1 V 7 6 h -0.5 -0.5 V 5.5 5 h -1 -1 V 4.5 4 h -1 -1 V 3.5 3 h -1 -1 V 2.5 2 h -1 -1 V 1.5 1 h -1 -1 V 0.5 0 h 8.5 8.499999 v 11 11 h -1 -0.999999 z m -46,-12 V 0 h 14.5 14.5 V 0.5 1 h -1 -1 V 1.5 2 h -0.5 -0.5 V 2.5 3 h -1 -1 V 3.5 4 h -0.5 -0.5 V 4.5 5 h -0.5 -0.5 V 5.5 6 h -0.5 -0.5 v 1 1 h -0.5 -0.5 V 8.5 9 h -0.5 -0.5 V 9.5 10 h -0.5 -0.5 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -1.5 -1.5 z"
+       id="path796" /><path
+       style="fill:#fefefe;stroke-width:1"
+       d="m 66.758091,46 v -1 h 0.5 0.5 v 1 1 h -0.5 -0.5 z m -12,-21.5 V 20 h 1 1 V 19.5 19 h 0.5 0.5 V 18.5 18 h 1 1 V 17.5 17 h 1 1 V 16.5 16 h 1 1 V 15.5 15 h 1 1 V 14.5 14 h 1 1 V 13.5 13 h 1 1 V 12.5 12 h 1 1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 1 1 h -1 -1 v 4 4 h -0.5 -0.5 z m 17,4 V 28 h -0.5 -0.5 V 27.5 27 h 0.5 0.5 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 h -0.5 -0.5 z m -4,-2 V 26 h -1 -1 V 25.5 25 h -1 -1 V 24.5 24 h -1 -1 V 23.5 23 h -1 -1 V 22.5 22 h -0.5 -0.5 V 21.5 21 h 0.5 0.5 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h -1 -1 z m 12,-7 V 19 h -1 -1 V 18.5 18 h -1 -1 V 17.5 17 h -1 -1 V 16.5 16 h -0.5 -0.5 V 15.5 15 h -0.5 -0.5 V 14.5 14 h 0.5 0.5 v -1 -1 h 0.5 0.5 v -1 -1 h 0.5 0.5 V 9.5 9 h 0.5 0.5 V 8 7 h 0.5 0.5 V 6.5 6 h 0.5 0.5 V 5.5 5 h 0.5 0.5 V 4.5 4 h 0.5 0.5 V 3.5 3 h 1 1 V 2.5 2 h 0.5 0.5 V 1.5 1 h 1 1 V 1.5 2 h 1 1 V 2.5 3 h 1 1 V 3.5 4 h 1 1 V 4.5 5 h 1 1 V 5.5 6 h 0.5 0.5 V 6.5 7 h -0.5 -0.5 V 7.5 8 h -1 -1 V 8.5 9 h -0.5 -0.5 V 9.5 10 h -1 -1 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -0.5 -0.5 v 1 1 h -0.5 -0.5 v 1.5 1.5 h -1 -1 z m 2,-10 V 9 h -1 -1 V 8.5 8 h -1 -1 V 8.5 9 h 1 1 V 9.5 10 h 1 1 z m 5,0 V 9 h -1 -1 V 8.5 8 h -1 -1 V 7.5 7 h -1 -1 V 6.5 6 h -1 -1 V 6.5 7 h 1 1 V 7.5 8 h 1 1 V 8.5 9 h 1 1 V 9.5 10 h 1 1 z m -1,-3 V 6 h -1 -1 V 5.5 5 h -1 -1 V 5.5 6 h 1 1 V 6.5 7 h 1 1 z m 5,0 V 6 h -1 -1 V 5.5 5 h -1 -1 V 4.5 4 h -1 -1 V 3.5 3 h -1 -1 V 3.5 4 h 1 1 V 4.5 5 h 1 1 V 5.5 6 h 1 1 V 6.5 7 h 1 1 z"
+       id="path794" /><path
+       style="fill:#bfbfbf;stroke-width:1"
+       d="M 53.758091,45.5 V 45 h 6 6 v 0.5 0.5 h -6 -6 z m 19,0 V 45 h 14.5 14.499999 v 0.5 0.5 h -14.499999 -14.5 z m -4,-2 V 43 h 0.5 0.5 V 42.5 42 h -1 -1 V 41.5 41 h -0.5 -0.5 V 40.5 40 h -1 -1 V 39.5 39 h -1 -1 V 38.5 38 h -1 -1 V 37.5 37 h -0.5 -0.5 V 36.5 36 h -1 -1 V 35.5 35 h -1 -1 v -2 -2 h 1 1 v 0.5 0.5 h 1 1 V 31.5 31 h -0.5 -0.5 V 26.5 22 h 0.5 0.5 V 21.5 21 h 0.5 0.5 V 20.5 20 h -1.5 -1.5 V 19.5 19 h 1 1 V 18.5 18 h 1 1 V 17.5 17 h 1 1 V 16.5 16 h 1 1 V 15.5 15 h 1 1 V 14.5 14 h 1 1 V 13.5 13 h 1 1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v -1 -1 h 1 1 V 16.5 16 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 1 1 h 1 1 V 21.5 21 h 1 1 V 20.5 20 h 1 1 V 19.5 19 h -1 -1 V 18.5 18 h 0.5 0.5 V 17.5 17 h 1.5 1.5 v -1 -1 h 1 1 v 1 1 h 0.5 0.5 V 16.5 16 h 1 1 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h 0.5 0.5 v 5 5 h -0.5 -0.5 v 0.5 0.5 h 0.5 0.5 v 2 2 h -0.5 -0.5 V 43.5 43 h -1 -1 v 0.5 0.5 h -0.5 -0.5 z m 3,-5 V 38 h -1 -1 V 37.5 37 h 0.5 0.5 V 32.5 28 h 0.5 0.5 V 27.5 27 h 0.5 0.5 V 26.5 26 h 0.5 0.5 V 25.5 25 h 1 1 V 24.5 24 h 1 1 V 23.5 23 h 1 1 V 22.5 22 h -1 -1 v 0.5 0.5 h -1 -1 V 22.5 22 h -1 -1 V 21.5 21 h -1 -1 V 20.5 20 h -1 -1 V 19.5 19 h -1 -1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -2.5 -2.5 V 25.5 25 h -1 -1 V 24.5 24 h -1 -1 V 23.5 23 h -1 -1 V 22.5 22 h -1 -1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 5 5 h -1 -1 V 36.5 36 h -0.5 -0.5 V 35.5 35 h -1 -1 V 34.5 34 h -1 -1 V 33.5 33 h -1 -1 V 32.5 32 h -0.5 -0.5 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 z m -3,-16 V 22 h -1 -1 v 0.5 0.5 h 1 1 z m -3,-1 V 21 h -1 -1 v 0.5 0.5 h 1 1 z m -4,-2 V 19 h 1 1 V 18.5 18 h -1 -1 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h 0.5 0.5 z m 26,-1 V 18 h 1 1 V 17.5 17 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h 1 1 z m -32,7 V 21 h 1 1 v 4.5 4.5 h -1 -1 z m 41,-2 V 21 h 0.5 0.5 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -0.5 -0.5 z"
+       id="path792" /><path
+       style="fill:#fefe00;stroke-width:1"
+       d="m 67.758091,46 v -1 h 1.5 1.5 v 1 1 h -1.5 -1.5 z"
+       id="path790" /><path
+       style="fill:#7f7f7f;stroke-width:1"
+       d="M 53.758091,44.5 V 44 h 6 6 v 0.5 0.5 h -6 -6 z m 21,0 V 44 h -1 -1 v -2 -2 h -0.5 -0.5 V 39.5 39 h -1 -1 V 38.5 38 h -1 -1 V 37.5 37 h -0.5 -0.5 V 36.5 36 h -1 -1 V 35.5 35 h -1 -1 V 34.5 34 h -1 -1 V 33.5 33 h -0.5 -0.5 V 32.5 32 h -1 -1 V 31.5 31 h -1 -1 v 1.5 1.5 h -0.5 -0.5 V 32.5 31 h -0.5 -0.5 v -6 -6 h 1.5 1.5 V 18.5 18 h 0.5 0.5 V 17.5 17 h 1 1 V 16.5 16 h 1 1 V 15.5 15 h 1 1 V 14.5 14 h 1 1 V 13.5 13 h 1 1 V 12.5 12 h 1 1 V 11.5 11 h 1 1 V 10.5 10 h 0.5 0.5 V 9.5 9 h 0.5 0.5 V 8.5 8 h 0.5 0.5 V 7 6 h 0.5 0.5 V 5.5 5 h 0.5 0.5 V 4.5 4 h 0.5 0.5 V 3.5 3 h 1 1 V 2.5 2 h 0.5 0.5 V 1.5 1 h 1 1 V 0.5 0 h 1 1 V 0.5 1 h 1 1 V 1.5 2 h 1 1 V 2.5 3 h 1 1 V 3.5 4 h 1 1 V 4.5 5 h 1 1 V 5.5 6 h 0.5 0.5 V 6.5 7 h -1 -1 V 6.5 6 h -0.5 -0.5 V 5.5 5 h -1 -1 V 4.5 4 h -1 -1 V 3.5 3 h -1 -1 V 2.5 2 h -1 -1 V 1.5 1 h -1 -1 V 1.5 2 h -0.5 -0.5 V 2.5 3 h -1 -1 V 3.5 4 h -0.5 -0.5 V 4.5 5 h -0.5 -0.5 V 5.5 6 h -0.5 -0.5 V 6.5 7 h -0.5 -0.5 v 1 1 h -0.5 -0.5 V 9.5 10 h -0.5 -0.5 v 1 1 h -0.5 -0.5 v 1 1 h -0.5 -0.5 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 h -1.5 -1.5 v 0.5 0.5 h -1 -1 v 1 1 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 V 22.5 22 h 1 1 V 21.5 21 h 1 1 V 20.5 20 h 0.5 0.5 v -1 -1 h 0.5 0.5 v -1 -1 h 0.5 0.5 V 15.5 15 h 0.5 0.5 V 14.5 14 h 0.5 0.5 V 13.5 13 h 0.5 0.5 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1 1 v 0.5 0.5 h 0.5 0.5 v 5.5 5.5 h -1 -1 v 0.5 0.5 h 0.5 0.5 v 2 2 h -0.5 -0.5 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h 13.5 13.499999 v 0.5 0.5 h -13.499999 -13.5 z m -1,-5 V 39 h 1 1 V 38.5 38 h 1 1 V 37.5 37 h 1 1 V 36.5 36 h 1 1 V 35.5 35 h 1 1 V 34.5 34 h 1 1 V 33.5 33 h 1 1 V 32.5 32 h 1 1 V 31.5 31 h 1 1 V 30.5 30 h 1 1 V 29.5 29 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -0.5 -0.5 V 33.5 28 h 0.5 0.5 V 27.5 27 h 1 1 V 26.5 26 h 1 1 V 25.5 25 h 1 1 V 24.5 24 h 1 1 V 23.5 23 h 1 1 V 22.5 22 h 1 1 V 21.5 21 h 1 1 V 20.5 20 h 1 1 V 19.5 19 h 1 1 V 18.5 18 h 1 1 V 17.5 17 h -0.5 -0.5 V 16.5 16 h -1 -1 v 0.5 0.5 h -0.5 -0.5 v -1 -1 h -1 -1 v 1 1 h -1.5 -1.5 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h 1 1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 V 23.5 23 h -1 -1 V 22.5 22 h -1 -1 V 21.5 21 h -1 -1 V 20.5 20 h -1 -1 V 19.5 19 h -1 -1 V 18.5 18 h -1 -1 V 17.5 17 h 1 1 V 16.5 16 h 1 1 V 15.5 15 h 1 1 V 14.5 14 h 1 1 v -1 -1 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -1 -1 v 4.5 4.5 h 0.5 0.5 v 0.5 0.5 h 1 1 v -5 -5 h 1.5 1.5 v 0.5 0.5 h -1 -1 v 5 5 h 0.5 0.5 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 h 0.5 0.5 z m -4,-8 V 26 h 1.5 1.5 V 25.5 25 h 0.5 0.5 V 24.5 24 h 1 1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -1 -1 v 5 5 h -0.5 -0.5 z m -9,-12 V 19 h 0.5 0.5 V 18.5 18 h 1 1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -0.5 -0.5 z m 25,-1 V 18 h 1 1 V 17.5 17 h 1 1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 z m -18,25 V 43 h 0.5 0.5 v 0.5 0.5 h -0.5 -0.5 z m 29,-17 V 26 h 0.5 0.5 V 25.5 25 h 0.5 0.5 V 24.5 24 h 0.5 0.5 V 23.5 23 h -0.5 -0.5 V 22.5 22 h -0.5 -0.5 V 21.5 21 h -0.5 -0.5 V 20.5 20 h 0.5 0.5 v 0.5 0.5 h 1 1 v 0.5 0.5 h 0.999999 1 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -0.5 -0.499999 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -0.5 -0.5 z"
+       id="path788" /><path
+       style="fill:#fe0000;stroke-width:1"
+       d="M 66.758091,22.5 V 22 h 1 1 v 0.5 0.5 h -1 -1 z"
+       id="path786" /><path
+       style="fill:#00fe00;stroke-width:1"
+       d="M 63.758091,21.5 V 21 h 1 1 v 0.5 0.5 h -1 -1 z"
+       id="path784" /><path
+       style="fill:#0000fe;stroke-width:1"
+       d="M 79.758091,9.5 V 9 h -1 -1 V 8.5 8 h 1 1 V 8.5 9 h 1 1 V 9.5 10 h -1 -1 z m 5,0 V 9 h -1 -1 V 8.5 8 h -1 -1 V 7.5 7 h -1 -1 V 6.5 6 h 1 1 V 6.5 7 h 1 1 V 7.5 8 h 1 1 V 8.5 9 h 1 1 V 9.5 10 h -1 -1 z m -1,-3 V 6 h -1 -1 V 5.5 5 h 1 1 V 5.5 6 h 1 1 V 6.5 7 h -1 -1 z m 5,0 V 6 h -1 -1 V 5.5 5 h -1 -1 V 4.5 4 h -1 -1 V 3.5 3 h 1 1 V 3.5 4 h 1 1 V 4.5 5 h 1 1 V 5.5 6 h 1 1 V 6.5 7 h -1 -1 z"
+       id="path782" /><path
+       style="fill:#7f7f00;stroke-width:1"
+       d="M 65.758091,45.5 V 44 h 3 3 v 1.5 1.5 h -0.5 -0.5 v -1 -1 h -2 -2 v 1 1 h -0.5 -0.5 z"
+       id="path780" /><path
+       style="fill:#000000;stroke-width:1"
+       d="M 65.758091,47.5 V 47 h -6 -6 V 46.5 46 h 6 6 v 0.5 0.5 h 3 3 V 45.5 44 h -1 -1 V 43.5 43 h -1 -1 V 42.5 42 h -0.5 -0.5 V 41.5 41 h -1 -1 V 40.5 40 h -1 -1 V 39.5 39 h -1 -1 V 38.5 38 h -0.5 -0.5 V 37.5 37 h -1 -1 V 36.5 36 h -1 -1 V 35.5 35 h -0.5 -0.5 V 34.5 34 h 0.5 0.5 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1.5 1.5 V 43.5 43 h 1 1 V 42.5 42 h 1 1 V 41.5 41 h 1 1 V 40.5 40 h 1 1 V 39.5 39 h 0.5 0.5 V 38.5 38 h 1 1 V 37.5 37 h 1 1 V 36.5 36 h 1 1 V 35.5 35 h 1 1 V 34.5 34 h 1 1 V 33.5 33 h 0.5 0.5 v -2 -2 h -0.5 -0.5 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -0.5 -0.5 V 39.5 39 h 0.5 0.5 V 38.5 38 h 1 1 V 37.5 37 h 1 1 V 36.5 36 h 1 1 V 35.5 35 h 1 1 V 34.5 34 h 1 1 V 33.5 33 h 1 1 V 32.5 32 h 1 1 V 31.5 31 h 1 1 V 30.5 30 h 1 1 V 29.5 29 h 1 1 V 28.5 28 h 1 1 V 22.5 17 h 0.5 0.5 v 5 5 h 0.5 0.5 V 26.5 26 h 0.5 0.5 V 25.5 25 h 0.5 0.5 V 24.5 24 h 0.499999 0.5 V 23.5 23 h 0.5 0.5 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -0.5 -0.499999 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -0.5 -0.5 v 2.5 2.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h 14.5 14.499999 v 0.5 0.5 h -14.499999 -14.5 v 0.5 0.5 h -3.5 -3.5 z m 14,-27 V 20 h -1 -1 V 19.5 19 h -1 -1 V 18.5 18 h -1 -1 V 17.5 17 h -1 -1 V 16.5 16 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 V 18.5 17 h 0.5 0.5 v -1 -1 h 0.5 0.5 V 14.5 14 h 0.5 0.5 V 13.5 13 h 0.5 0.5 V 12.5 12 h 0.5 0.5 V 11.5 11 h 0.5 0.5 V 10.5 10 h 1 1 V 9.5 9 h 0.5 0.5 V 8.5 8 h 1 1 V 7.5 7 h 1.5 1.5 V 7.5 8 h -1 -1 V 8.5 9 h -1 -1 V 9.5 10 h -0.5 -0.5 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -0.5 -0.5 v 0.5 0.5 h -0.5 -0.5 v 1 1 h -0.5 -0.5 v 1 1 h -0.5 -0.5 v 0.5 0.5 h -1 -1 z"
+       id="path778" /></g></svg>
