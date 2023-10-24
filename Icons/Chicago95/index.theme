@@ -24,7 +24,7 @@ DialogSizes=16,22,24,32,48
 # actions/symbolic
 # actions/22,actions/24,status/48,
 
-Directories=actions/16,actions/32,actions/48,actions/22,actions/24,actions/scalable,animations/10,animations/16,animations/32,animations/48,animations/64,animations/128,apps/16,apps/22,apps/24,apps/32,apps/48,apps/256,apps/scalable,categories/16,categories/22,categories/24,categories/32,categories/48,categories/scalable,devices/16,devices/22,devices/24,devices/32,devices/48,devices/scalable,emblems/16,emblems/22,emblems/24,emblems/32,emblems/48,emblems/scalable,emotes/16,emotes/32,mimes/16,mimes/22,mimes/24,mimes/32,mimes/48,mimes/scalable,notifications/16,notifications/24,notifications/32,notifications/48,panel/16,panel/22,panel/24,panel/48,places/16,places/22,places/24,places/32,places/48,places/scalable,status/16,status/22,status/24,status/32,status/scalable,status/symbolic,stock/16,stock/22,stock/32,stock/48,stock/scalable,tools/22
+Directories=actions/16,actions/32,actions/48,actions/22,actions/24,actions/scalable,animations/10,animations/16,animations/32,animations/48,animations/64,animations/128,apps/16,apps/22,apps/24,apps/32,apps/48,apps/256,apps/scalable,categories/16,categories/22,categories/24,categories/32,categories/48,categories/scalable,devices/16,devices/22,devices/24,devices/32,devices/48,devices/scalable,emblems/8,emblems/16,emblems/22,emblems/24,emblems/32,emblems/48,emblems/scalable,emotes/16,emotes/32,mimes/16,mimes/22,mimes/24,mimes/32,mimes/48,mimes/scalable,notifications/16,notifications/24,notifications/32,notifications/48,panel/16,panel/22,panel/24,panel/48,places/16,places/22,places/24,places/32,places/48,places/scalable,status/16,status/22,status/24,status/32,status/scalable,status/symbolic,stock/16,stock/22,stock/32,stock/48,stock/scalable,tools/22
 
 [actions/16]
 Size=16
@@ -203,6 +203,11 @@ MinSize=32
 MaxSize=256
 Context=Devices
 Type=Scalable
+
+[emblems/8]
+Size=8
+Context=Emblems
+Type=Fixed
 
 [emblems/16]
 Size=16
