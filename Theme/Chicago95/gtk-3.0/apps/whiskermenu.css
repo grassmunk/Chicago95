@@ -38,8 +38,6 @@ the whisker menu without having to correct their pointer location. */
   #applicationmenu-button label {
     padding: 1px;
     border: none;
-    color: black;
-    font-family: Helvetica, "Microsoft Sans Serif", Sans, Sans-Serif;
     font-weight: bold; }
 
 /****************
