@@ -1,34 +1,80 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    id="svg2"
    height="48"
    width="48"
-   version="1.1">
-  <metadata
-     id="metadata8">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <defs
-     id="defs6" />
-  <image
-     id="image10"
-     height="48"
-     width="48"
-     y="0"
-     x="0"
-     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAcNJREFU aIHtmUGugjAQhn9IE5euPacLI4uGuBjO4HHccALjBTRxXXdGk3kLAxYfPNq+WgrhS5rQydCZEf9O CcCMPXkO9rVW6mshU4iIVyu/RQSDiJgZzAze78FCiPEU8Zl8nvspINhfKMuypCgIAON6DRX1Cwgh WB9E9K+nkPhKzBUhBO92u4YtyzLjvAYvAHgV8Wl7Pp9R5OYEERkLPHgf8M10CyCixg7x7bkroi1x AJBSBp3rSCndRFyJRxdQqLk+rBPXk3e6eUCmK+KxMPoCEuC9EyilsFwuh83IkPq89Dqnj49qw6n7 QFEUA/2W9iil6utGI9tutwCAw+EAACjLElJKPB6PqOzr9bq9gMrxk9jsOikAXC6XXsdYaTyBsixb nWKzNyAiPp/PrJ+DYh+bzeb3LgSgFo3OUML9KwcdIxGb+IQUrk4KAIvFwuqmmBAAcL/fAZiJJgrh 6kxSxLF03C67TqeIb7dbq73LP6Rdp1GAnrQvutb0FatRwPF4bHWaO3EMIjbpmDbYxOgVcdXIbMRk 2zH7cI2RAu9GNkacj9PWHbMH5xiTEbFSqvGuGTOn06m+ToD2TzyxM+pPUDMzHvkBTdeu4KF9xygA AAAASUVORK5CYII= " />
-</svg>
+   version="1.1"
+   sodipodi:docname="gnome-dev-keyboard.svg"
+   xml:space="preserve"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"><sodipodi:namedview
+     id="namedview307"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="10.915961"
+     inkscape:cx="22.169372"
+     inkscape:cy="26.291776"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" /><metadata
+     id="metadata8"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+     id="defs6" /><g
+     id="g452"
+     transform="scale(0.1)"
+     style="stroke-width:10"><path
+       style="fill:#ffffff;stroke-width:10;opacity:0"
+       d="m 0,455 v -25 h 5 5 v 5 5 h 225 225 v -5 -5 h 5 5 V 315 200 h -5 -5 v -5 -5 H 250 40 v -20 -20 h 10 10 v -5 -5 h 10 10 v 5 5 h 10 10 v -5 -5 h 10 10 v 5 5 h 10 10 v -5 -5 h 10 10 v 5 5 h 10 10 v -5 -5 h 10 10 v 5 5 h 10 10 v -5 -5 h 10 10 v 5 5 h 10 10 v -5 -5 h 10 10 v 5 5 h 10 10 v -5 -5 h 10 10 v 5 5 h 25 25 v -5 -5 h 5 5 v -5 -5 h 5 5 V 110 90 h -5 -5 v -5 -5 h -5 -5 v -5 -5 h -20 -20 v -5 -5 h -5 -5 V 45 30 h -5 -5 v -5 -5 h -5 -5 v -5 -5 h -5 -5 v 5 5 h -5 -5 v 5 5 h -5 -5 v 5 5 h -5 -5 v 5 5 h 5 5 v 5 5 h 5 5 v 5 5 h 20 20 v 5 5 h 5 5 v 5 5 h 20 20 v 20 20 h -25 -25 v -5 -5 h -10 -10 v 5 5 h -10 -10 v -5 -5 h -10 -10 v 5 5 h -10 -10 v -5 -5 h -10 -10 v 5 5 h -10 -10 v -5 -5 h -10 -10 v 5 5 h -10 -10 v -5 -5 h -10 -10 v 5 5 h -10 -10 v -5 -5 h -10 -10 v 5 5 H 90 80 v -5 -5 H 70 60 v 5 5 H 50 40 v 5 5 h -5 -5 v 5 5 h -5 -5 v 20 20 h -5 -5 v 5 5 H 5 0 V 100 0 H 240 480 V 240 480 H 240 0 Z"
+       id="path478" /><path
+       style="fill:#fefefe;stroke-width:10"
+       d="m 30,375 v -5 h 10 10 v 5 5 H 40 30 Z m 60,0 v -5 h 5 5 v 5 5 h -5 -5 z m 50,0 v -5 h 80 80 v 5 5 h -80 -80 z m 200,0 v -5 h 5 5 v 5 5 h -5 -5 z m 50,0 v -5 h 10 10 v 5 5 H 400 390 Z M 30,325 v -5 h 10 10 v 5 5 H 40 30 Z m 60,0 v -5 h 10 10 v 5 5 H 100 90 Z m 60,0 v -5 h 10 10 v 5 5 h -10 -10 z m 60,0 v -5 h 10 10 v 5 5 h -10 -10 z m 60,0 v -5 h 10 10 v 5 5 h -10 -10 z m 60,0 v -5 h 10 10 v 5 5 h -10 -10 z m 60,0 v -5 h 10 10 v 5 5 H 400 390 Z M 30,275 v -5 h 25 25 v 5 5 H 55 30 Z m 90,0 v -5 h 10 10 v 5 5 h -10 -10 z m 60,0 v -5 h 10 10 v 5 5 h -10 -10 z m 60,0 v -5 h 10 10 v 5 5 h -10 -10 z m 60,0 v -5 h 10 10 v 5 5 h -10 -10 z m 60,0 v -5 h 25 25 v 5 5 H 385 360 Z M 10,220 v -20 h 225 225 v 5 5 H 240 20 v 15 15 h -5 -5 z m 20,5 v -5 h 10 10 v 5 5 H 40 30 Z m 60,0 v -5 h 10 10 v 5 5 H 100 90 Z m 60,0 v -5 h 10 10 v 5 5 h -10 -10 z m 60,0 v -5 h 10 10 v 5 5 h -10 -10 z m 60,0 v -5 h 10 10 v 5 5 h -10 -10 z m 60,0 v -5 h 10 10 v 5 5 h -10 -10 z m 60,0 v -5 h 10 10 v 5 5 H 400 390 Z M 280,55 v -5 h 5 5 v 5 5 h -5 -5 z"
+       id="path476" /><path
+       style="fill:#e9e9e9;stroke-width:10"
+       d="m 10,385 v -5 h 5 5 v 5 5 h -5 -5 z m 0,-90 v -5 h 5 5 v 5 5 h -5 -5 z"
+       id="path474" /><path
+       style="fill:#e2e2e2;stroke-width:10"
+       d="m 10,410 v -20 h 5 5 v 20 20 h -5 -5 z m 0,-70 v -40 h 5 5 v 40 40 h -5 -5 z m 0,-75 v -25 h 5 5 v 25 25 h -5 -5 z"
+       id="path472" /><path
+       style="fill:#bfbfbf;stroke-width:10"
+       d="m 30,390 v -10 h 10 10 v -5 -5 h 10 10 v 15 15 H 50 30 Z m 60,0 v -10 h 5 5 v -5 -5 h 10 10 v 15 15 H 105 90 Z m 50,0 v -10 h 80 80 v -5 -5 h 10 10 v 15 15 h -90 -90 z m 200,0 v -10 h 5 5 v -5 -5 h 10 10 v 15 15 h -15 -15 z m 50,0 v -10 h 10 10 v -5 -5 h 10 10 v 15 15 H 410 390 Z M 90,340 v -10 h 10 10 v -5 -5 h 10 10 v 15 15 H 110 90 Z m 60,0 v -10 h 10 10 v -5 -5 h 10 10 v 15 15 h -20 -20 z m 60,0 v -10 h 10 10 v -5 -5 h 10 10 v 10 10 h -5 -5 v 5 5 h -15 -15 z m 60,0 v -10 h 10 10 v -5 -5 h 10 10 v 10 10 h -5 -5 v 5 5 h -15 -15 z m 60,0 v -10 h 10 10 v -5 -5 h 10 10 v 15 15 h -20 -20 z m 60,0 v -10 h 10 10 v -5 -5 h 10 10 v 15 15 H 410 390 Z M 30,335 v -5 h 10 10 v -5 -5 h 10 10 v 5 5 h -5 -5 v 5 5 H 45 30 Z m 0,-45 v -10 h 25 25 v -5 -5 h 10 10 v 15 15 H 65 30 Z m 90,0 v -10 h 10 10 v -5 -5 h 10 10 v 15 15 h -20 -20 z m 60,0 v -10 h 10 10 v -5 -5 h 10 10 v 15 15 h -20 -20 z m 60,0 v -10 h 10 10 v -5 -5 h 10 10 v 15 15 h -20 -20 z m 60,0 v -10 h 10 10 v -5 -5 h 10 10 v 15 15 h -20 -20 z m 60,0 v -10 h 25 25 v -5 -5 h 10 10 v 15 15 H 395 360 Z M 30,240 v -10 h 10 10 v -5 -5 h 10 10 v 15 15 H 50 30 Z m 60,0 v -10 h 10 10 v -5 -5 h 10 10 v 15 15 H 110 90 Z m 60,0 v -10 h 10 10 v -5 -5 h 10 10 v 15 15 h -20 -20 z m 60,0 v -10 h 10 10 v -5 -5 h 10 10 v 15 15 h -20 -20 z m 60,0 v -10 h 10 10 v -5 -5 h 10 10 v 15 15 h -20 -20 z m 60,0 v -10 h 10 10 v -5 -5 h 10 10 v 15 15 h -20 -20 z m 60,0 v -10 h 10 10 v -5 -5 h 10 10 v 15 15 h -20 -20 z"
+       id="path470" /><path
+       style="fill:#b1b1b1;stroke-width:10"
+       d="m 30,345 v -5 h 15 15 v -5 -5 h 5 5 v 10 10 H 50 30 Z m 210,0 v -5 h 5 5 v 5 5 h -5 -5 z m 60,0 v -5 h 5 5 v 5 5 h -5 -5 z"
+       id="path468" /><path
+       style="fill:#fefe00;stroke-width:10"
+       d="m 270,45 v -5 h 5 5 v -5 -5 h 10 10 v 5 5 h -5 -5 v 5 5 h -10 -10 z"
+       id="path466" /><path
+       style="fill:#858585;stroke-width:10"
+       d="M 0,315 V 200 h 5 5 v -5 -5 h 5 5 v -20 -20 h 5 5 v -5 -5 h 5 5 v -5 -5 h 10 10 v -5 -5 h 10 10 v 5 5 h 10 10 v -5 -5 h 10 10 v 5 5 h 10 10 v -5 -5 h 10 10 v 5 5 h 10 10 v -5 -5 h 10 10 v 5 5 h 10 10 v -5 -5 h 10 10 v 5 5 h 10 10 v -5 -5 h 10 10 v 5 5 h 10 10 v -5 -5 h 10 10 v 5 5 h 25 25 V 110 90 h 5 5 v 20 20 h -5 -5 v 5 5 h -25 -25 v -5 -5 h -10 -10 v 5 5 h -10 -10 v -5 -5 h -10 -10 v 5 5 h -10 -10 v -5 -5 h -10 -10 v 5 5 h -10 -10 v -5 -5 h -10 -10 v 5 5 h -10 -10 v -5 -5 h -10 -10 v 5 5 h -10 -10 v -5 -5 h -10 -10 v 5 5 H 90 80 v -5 -5 H 70 60 v 5 5 H 50 40 v 5 5 h -5 -5 v 25 25 H 20 10 V 315 430 H 5 0 Z m 20,0 V 210 h 215 215 v 5 5 h -5 -5 v 20 20 h -25 -25 v -5 -5 h 20 20 v -15 -15 h -25 -25 v 20 20 h -25 -25 v -5 -5 h 20 20 v -15 -15 h -25 -25 v 20 20 h -25 -25 v -5 -5 h 20 20 v -15 -15 h -25 -25 v 20 20 h -25 -25 v -5 -5 h 20 20 v -15 -15 h -25 -25 v 20 20 h -25 -25 v -5 -5 h 20 20 v -15 -15 h -25 -25 v 20 20 H 115 90 v -5 -5 h 20 20 V 235 220 H 105 80 v 20 20 H 55 30 v 20 20 h 35 35 v -15 -15 h 5 5 v 20 20 H 70 30 v 20 20 h 20 20 v -15 -15 h 5 5 v 20 20 H 55 30 v 20 20 h 20 20 v -15 -15 h 5 5 v 20 20 H 55 30 v 5 5 H 25 20 Z M 70,235 V 220 H 50 30 v 15 15 h 20 20 z m 20,170 v -5 h 15 15 v -15 -15 h 5 5 v 20 20 H 110 90 Z m 50,0 v -5 h 90 90 v -15 -15 h 5 5 v 20 20 h -95 -95 z m 200,0 v -5 h 15 15 v -15 -15 h 5 5 v 20 20 h -20 -20 z m 50,0 v -5 h 20 20 v -15 -15 h 5 5 v 20 20 H 415 390 Z M 90,355 v -5 h 20 20 v -15 -15 h 5 5 v 20 20 H 115 90 Z m 60,0 v -5 h 20 20 v -15 -15 h 5 5 v 20 20 h -25 -25 z m 60,0 v -5 h 20 20 v -15 -15 h 5 5 v 20 20 h -25 -25 z m 60,0 v -5 h 20 20 v -15 -15 h 5 5 v 20 20 h -25 -25 z m 60,0 v -5 h 20 20 v -15 -15 h 5 5 v 20 20 h -25 -25 z m 60,0 v -5 h 20 20 v -15 -15 h 5 5 v 20 20 H 415 390 Z M 120,305 v -5 h 20 20 v -15 -15 h 5 5 v 20 20 h -25 -25 z m 60,0 v -5 h 20 20 v -15 -15 h 5 5 v 20 20 h -25 -25 z m 60,0 v -5 h 20 20 v -15 -15 h 5 5 v 20 20 h -25 -25 z m 60,0 v -5 h 20 20 v -15 -15 h 5 5 v 20 20 h -25 -25 z m 60,0 v -5 h 35 35 v -15 -15 h 5 5 v 20 20 H 400 360 Z M 40,195 v -5 h 210 210 v 5 5 H 250 40 Z M 330,75 v -5 h -5 -5 v -5 -5 h 5 5 v 5 5 h 20 20 v 5 5 H 350 330 Z M 270,55 v -5 h -5 -5 v -5 -5 h 5 5 v -5 -5 h 5 5 v -5 -5 h 5 5 v 5 5 h -5 -5 v 5 5 h -5 -5 v 5 5 h 5 5 v 5 5 h -5 -5 z"
+       id="path464" /><path
+       style="fill:#767676;stroke-width:10"
+       d="m 20,425 v -5 H 235 450 V 315 210 h 5 5 v 105 105 h -5 -5 v 5 5 H 235 20 Z M 30,195 v -5 h 5 5 v 5 5 h -5 -5 z"
+       id="path462" /><path
+       style="fill:#989800;stroke-width:10"
+       d="m 290,45 v -5 h 5 5 v -5 -5 h -5 -5 v -5 -5 h 5 5 v 5 5 h 5 5 v 5 5 h -5 -5 v 5 5 h -5 -5 z"
+       id="path460" /><path
+       style="fill:#7f7f00;stroke-width:10"
+       d="m 290,55 v -5 h 5 5 v -5 -5 h 5 5 v 10 10 h -10 -10 z m 10,-30 v -5 h -5 -5 v -5 -5 h 5 5 v 5 5 h 5 5 v 5 5 h -5 -5 z"
+       id="path458" /><path
+       style="fill:#4c4c4c;stroke-width:10"
+       d="m 450,425 v -5 h 5 5 v 5 5 h -5 -5 z"
+       id="path456" /><path
+       style="fill:#030303;stroke-width:10"
+       d="m 10,435 v -5 H 235 460 V 315 200 h 5 5 v 115 115 h -5 -5 v 5 5 H 235 10 Z m 20,-20 v -5 H 55 80 V 390 370 H 55 30 v -5 -5 H 55 80 V 340 320 H 55 30 v -5 -5 h 40 40 V 290 270 H 70 30 v -5 -5 h 25 25 v -20 -20 h 5 5 v 20 20 h 25 25 v -20 -20 h 5 5 v 20 20 h 25 25 v -20 -20 h 5 5 v 20 20 h 25 25 v -20 -20 h 5 5 v 20 20 h 25 25 v -20 -20 h 5 5 v 20 20 h 25 25 v -20 -20 h 5 5 v 20 20 h 25 25 v -20 -20 h 5 5 V 320 420 H 240 30 Z M 130,390 V 370 H 110 90 v 20 20 h 20 20 z m 200,0 v -20 h -95 -95 v 20 20 h 95 95 z m 50,0 v -20 h -20 -20 v 20 20 h 20 20 z m 60,0 v -20 h -25 -25 v 20 20 h 25 25 z M 140,340 V 320 H 115 90 v 20 20 h 25 25 z m 60,0 v -20 h -25 -25 v 20 20 h 25 25 z m 60,0 v -20 h -25 -25 v 20 20 h 25 25 z m 60,0 v -20 h -25 -25 v 20 20 h 25 25 z m 60,0 v -20 h -25 -25 v 20 20 h 25 25 z m 60,0 v -20 h -25 -25 v 20 20 h 25 25 z M 170,290 v -20 h -25 -25 v 20 20 h 25 25 z m 60,0 v -20 h -25 -25 v 20 20 h 25 25 z m 60,0 v -20 h -25 -25 v 20 20 h 25 25 z m 60,0 v -20 h -25 -25 v 20 20 h 25 25 z m 90,0 v -20 h -40 -40 v 20 20 h 40 40 z M 30,170 v -20 h 5 5 v -5 -5 h 10 10 v -5 -5 h 10 10 v 5 5 h 10 10 v -5 -5 h 10 10 v 5 5 h 10 10 v -5 -5 h 10 10 v 5 5 h 10 10 v -5 -5 h 10 10 v 5 5 h 10 10 v -5 -5 h 10 10 v 5 5 h 10 10 v -5 -5 h 10 10 v 5 5 h 10 10 v -5 -5 h 10 10 v 5 5 h 25 25 v -5 -5 h 5 5 V 110 90 h -25 -25 v -5 -5 h -5 -5 v -5 -5 h -20 -20 v -5 -5 h 15 15 V 45 30 h 5 5 v 20 20 h 5 5 v 5 5 h 25 25 v 5 5 h 5 5 v 20 20 h -5 -5 v 5 5 h -5 -5 v 5 5 h -25 -25 v -5 -5 h -10 -10 v 5 5 h -10 -10 v -5 -5 h -10 -10 v 5 5 h -10 -10 v -5 -5 h -10 -10 v 5 5 h -10 -10 v -5 -5 h -10 -10 v 5 5 h -10 -10 v -5 -5 h -10 -10 v 5 5 h -10 -10 v -5 -5 h -10 -10 v 5 5 H 90 80 v -5 -5 H 70 60 v 5 5 H 50 40 v 20 20 h -5 -5 z"
+       id="path454" /></g></svg>

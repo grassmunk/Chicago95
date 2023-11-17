@@ -1,33 +1,73 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    id="svg3"
    version="1.1"
    height="48"
-   width="48">
-  <metadata
-     id="metadata9">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <defs
-     id="defs7" />
-  <image
-     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAABGdBTUEAALGPC/xhBQAAACBjSFJN AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAZlBMVEUAAACGhobAwMAAAAD4 +PigoKTq6urX19eysrKWlpZ3d3fMzMzd3d3/mZn/AACZMwCAAAAzzP8AAP8AZpkAAICZzGYA/wAA mTNmmQAAgACZmZnj4+NmZmZNTU3MADNfX19VVVX////GJ1FIAAAAAXRSTlMAQObYZgAAAAFiS0dE IcRsDRYAAAAHdElNRQfgBAEXCSaNCvvGAAACKElEQVRIx62W7XqbMAxGI8nGH9DES7p2BTJy/1dZ STZp3CY4e57pZ/seDkLCZLf7bwWlns5jKXoWMLnsFnB7F2A6h96GSBvpclEjSAvQNKJH770VpAFw 3GFf8t5ag9sAmKHve8QvIm4CYFzvejW87A+S3wb4+s4Vw/6Q/K/jqQ2shkM62OPxdRNQwWqQOr2e 2sBq+P323uqB8wxEiLI9/u3PR+spqSBiAAI2vH88ZYhocIzkcw9MQAMA5L0IBOvcgOghAGZyQwwo wFgMQBvLx4D0EBCBymZIfhOQKcQYKc8BNN8yOB0bapx2LSDnmfiKtww8517eTaKbvzcMkYiq/1HU ovm+AeoLZZ2WnefvACv6CgCQWzQD8sTJ2rFG5J4qAwA/NoRYAAJF5gq4MQBME68vmNWgjhDgyqhh BQC6ruOmBj5GQACCAgTuqiBClOlKvOuGSQxm0JYVSCkFPRMVAQRdhxLPBpQlRrTisOlln0iBs164 TEDOvquBuwYBtOf095BIFOdz9TD1XFVDJ2+5isHK+qZEMcBy+Q50XUGG7vYY4Td2HMM8L5fLD6Ar zFCONj5IJG/HGOdlvmPIPQhzzYuCd2p+aJCep0mYlQDg/GPDIISUMJznkUW4b/B+zSvhBsefuLHk 2bDUApkH+2/zXOMIIecjx3+cUaSMEi4TV8Oy0P2PV2bksVaGmTY+v5lxWmrYjtcMG/i9furXQGbq o+QJhv4hfr8+AcnCKXCZ+Hj1AAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE2LTAzLTMxVDIzOjIwOjIy LTA3OjAwzNCVoQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNi0wMy0zMVQyMzowNToxNy0wNzowMN9/ d9wAAAAASUVORK5CYII="
-     y="0"
-     x="0"
-     height="48"
-     width="48"
-     id="image0" />
-</svg>
+   width="48"
+   sodipodi:docname="input-gaming.svg"
+   xml:space="preserve"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"><sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="10.915961"
+     inkscape:cx="15.023872"
+     inkscape:cy="22.902244"
+     inkscape:window-width="1920"
+     inkscape:window-height="1008"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3" /><metadata
+     id="metadata9"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+     id="defs7" /><g
+     id="g301"
+     transform="translate(0,16.906881)"><path
+       style="fill:#ffffff;stroke-width:1;opacity:0"
+       d="m 0,20.593119 v -10.5 H 0.5 1 v 1.5 1.5 H 1.5 2 v 1 1 H 2.5 3 v 0.5 0.5 h 2 2 v -0.5 -0.5 H 7.5 8 v -1 -1 H 8.5 9 v -2.5 -2.5 h 2 2 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 h 1 1 v 3 3 h 0.5 0.5 v 0.5 0.5 H 23.5 22 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 4.5 4.5 h 0.5 0.5 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 3 3 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 h 0.5 0.5 v 4.5 4.5 H 24 0 Z m 47,-7 v -0.5 H 46.5 46 v -0.5 -0.5 h -1 -1 v -0.5 -0.5 H 42.5 41 v -0.5 -0.5 H 39.5 38 v -0.5 -0.5 h -1 -1 v -0.5 -0.5 h -1 -1 v -11.5 -11.5 H 33.5 33 v -0.5 -0.5 h -4 -4 v 0.5 0.5 H 24.5 24 v 2 2 h -1 -1 v -0.5 -0.5 h -1 -1 v -0.5 -0.5 h -4 -4 v 0.5 0.5 H 10.5 9 v 0.5 0.5 H 8 7 v 0.5 0.5 H 6.5 6 v 0.5 0.5 H 5.5 5 v 0.5 0.5 H 4.5 4 v 0.5 0.5 H 3.5 3 v 1 1 H 2.5 2 v 1 1 H 1.5 1 v 2 2 H 0.5 0 v -9 -9 h 24 24 v 15.5 15.5 H 47.5 47 Z"
+       id="path323" /><path
+       style="fill:#fefefe;stroke-width:1"
+       d="m 29,22.593119 v -0.5 H 27.5 26 v -0.5 -0.5 H 24.5 23 v -0.5 -0.5 H 21.5 20 v -0.5 -0.5 H 18.5 17 v -0.5 -0.5 H 15.5 14 v -0.5 -0.5 h -1 -1 v 2.5 2.5 H 11.5 11 v -3.5 -3.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 h -1 -1 z m -4,-8 v -0.5 H 24.5 24 v -1.5 -1.5 h 0.5 0.5 v 0.5 0.5 h 0.5 0.5 v -1.5 -1.5 h 0.5 0.5 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 27.5 27 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 27.5 27 v 1 1 h -1 -1 z m 2,-2 v -0.5 H 26.5 26 v 0.5 0.5 h 0.5 0.5 z m -24,1 v -0.5 H 2.5 2 v -1.5 -1.5 H 1.5 1 v -4.5 -4.5 H 1.5 2 v -2 -2 H 2.5 3 v -1 -1 H 3.5 4 v -1 -1 H 4.5 5 v -0.5 -0.5 H 5.5 6 v -0.5 -0.5 H 6.5 7 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1.5 1.5 v -0.5 -0.5 h 4 4 v 0.5 0.5 h 1 1 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 22.5 22 v -0.5 -0.5 h -1 -1 v -0.5 -0.5 h -4 -4 v 0.5 0.5 H 10.5 9 v 0.5 0.5 H 8 7 v 0.5 0.5 H 6.5 6 v 0.5 0.5 H 5.5 5 v 1 1 H 4.5 4 v 1 1 H 3.5 3 v 2 2 H 2.5 2 v 4.5 4.5 H 2.5 3 v 1.5 1.5 H 3.5 4 v 0.5 0.5 H 3.5 3 Z m 22,-17 v -10.5 h 3.5 3.5 v 0.5 0.5 h -3 -3 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 27.5 27 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 27.5 27 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 27.5 27 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 27.5 27 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 27.5 27 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 27.5 27 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 27.5 27 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 27.5 27 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 27.5 27 v 0.5 0.5 h -1 -1 z m 2,9 v -0.5 H 26.5 26 v 0.5 0.5 h 0.5 0.5 z m 0,-2 v -0.5 H 26.5 26 v 0.5 0.5 h 0.5 0.5 z m 0,-2 v -0.5 H 26.5 26 v 0.5 0.5 h 0.5 0.5 z m 0,-2 v -0.5 H 26.5 26 v 0.5 0.5 h 0.5 0.5 z m 0,-2 v -0.5 H 26.5 26 v 0.5 0.5 h 0.5 0.5 z m 0,-2 v -0.5 H 26.5 26 v 0.5 0.5 h 0.5 0.5 z m 0,-2 v -0.5 H 26.5 26 v 0.5 0.5 h 0.5 0.5 z m 0,-2 v -0.5 H 26.5 26 v 0.5 0.5 h 0.5 0.5 z m 0,-2 v -0.5 H 26.5 26 v 0.5 0.5 h 0.5 0.5 z m -19,12 v -0.5 H 7.5 7 v -1 -1 H 7.5 8 v 0.5 0.5 H 8.5 9 v 1 1 H 8.5 8 Z"
+       id="path321" /><path
+       style="fill:#bfbfbf;stroke-width:1"
+       d="m 28,27.593119 v -0.5 H 26.5 25 v -0.5 -0.5 H 23.5 22 v -0.5 -0.5 H 20.5 19 v -0.5 -0.5 H 17.5 16 v -0.5 -0.5 H 14.5 13 v -0.5 -0.5 H 12.5 12 v -2.5 -2.5 h 1 1 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 0.5 0.5 v 2.5 2.5 h -1 -1 z m 2,-6 v -0.5 H 28.5 27 v -0.5 -0.5 H 25.5 24 v -0.5 -0.5 H 22.5 21 v -0.5 -0.5 H 19.5 18 v -0.5 -0.5 H 16.5 15 v -0.5 -0.5 h -1 -1 v -0.5 -0.5 H 12.5 12 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1.5 1.5 v 0.5 0.5 H 24.5 24 v 0.5 0.5 H 23.5 23 v 1.5 1.5 h 0.5 0.5 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 h 1 1 v -1 -1 h 2 2 v 1 1 h 1 1 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 h 0.5 0.5 v -1.5 -1.5 H 34.5 34 v -0.5 -0.5 H 33.5 33 v -1 -1 h 0.5 0.5 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1 1 v 1 1 H 45.5 45 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 H 31.5 30 Z m 1,-5 v -0.5 h -2 -2 v 0.5 0.5 h 2 2 z m 10,-1 v -1.5 H 40.5 40 v -0.5 -0.5 H 38.5 37 v 0.5 0.5 H 36.5 36 v 1.5 1.5 h 2.5 2.5 z m -4,-1 v -0.5 h 0.5 0.5 v 0.5 0.5 H 37.5 37 Z m -34,0 v -0.5 H 3.5 4 v -0.5 -0.5 H 3.5 3 v -1.5 -1.5 H 2.5 2 v -4.5 -4.5 H 2.5 3 v -2 -2 H 3.5 4 v -1 -1 H 4.5 5 v -1 -1 H 5.5 6 v -0.5 -0.5 H 6.5 7 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1.5 1.5 v -0.5 -0.5 h 4 4 v 0.5 0.5 h 1 1 v 0.5 0.5 h 0.5 0.5 v -0.5 -0.5 h 0.5 0.5 v 0.5 0.5 H 23.5 23 v 4 4 H 22.5 22 v 0.5 0.5 H 21.5 21 v 0.5 0.5 H 20.5 20 v 0.5 0.5 H 19.5 19 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 H 11 9 v 0.5 0.5 H 8.5 8 v 0.5 0.5 H 7.5 7 v 2.5 2.5 H 6.5 6 v 0.5 0.5 H 5 4 v 0.5 0.5 H 3.5 3 Z m 8,-11 v -0.5 h 0.5 0.5 v -0.5 -0.5 h 0.5 0.5 v -1.5 -1.5 H 12.5 12 v -0.5 -0.5 H 11.5 11 v -0.5 -0.5 H 9 7 v 0.5 0.5 H 6.5 6 v 0.5 0.5 H 5.5 5 v 1.5 1.5 H 5.5 6 v 0.5 0.5 H 6.5 7 v 0.5 0.5 h 2 2 z m -4,-1 v -0.5 H 6.5 6 v -1.5 -1.5 H 6.5 7 v -0.5 -0.5 h 1 1 v 0.5 0.5 H 9.5 10 v 0.5 0.5 h 0.5 0.5 v 1 1 H 10.5 10 v 0.5 0.5 H 8.5 7 Z m 2,-1.5 v -1 H 8.5 8 v -0.5 -0.5 H 7.5 7 v 1 1 H 7.5 8 v 0.5 0.5 H 8.5 9 Z m 9,-3.5 v -1.5 H 16.5 15 v 1.5 1.5 h 1.5 1.5 z m 4,-3 v -1.5 H 20.5 19 v 1.5 1.5 h 1.5 1.5 z m -4,-1 v -1.5 H 16.5 15 v 1.5 1.5 h 1.5 1.5 z m 10,19 v -0.5 H 27.5 27 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 27.5 27 v -0.5 -0.5 h 1.5 1.5 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 30.5 30 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 30.5 30 v -0.5 -0.5 H 29.5 29 v 0.5 0.5 H 28.5 28 Z m 2,-2 v -0.5 H 29.5 29 v 0.5 0.5 h 0.5 0.5 z m -3,-4 v -0.5 H 26.5 26 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 26.5 26 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 26.5 26 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 26.5 26 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 26.5 26 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 26.5 26 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 26.5 26 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 26.5 26 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 26.5 26 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 26.5 26 v -0.5 -0.5 h 2.5 2.5 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 31.5 31 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 31.5 31 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 31.5 31 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 31.5 31 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 31.5 31 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 31.5 31 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 31.5 31 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 31.5 31 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 31.5 31 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 H 31.5 31 v -0.5 -0.5 H 30.5 30 v 0.5 0.5 H 28.5 27 Z m 1,-1 v -0.5 H 27.5 27 v 0.5 0.5 h 0.5 0.5 z m 3,-1 v -0.5 H 30.5 30 v 0.5 0.5 h 0.5 0.5 z m -3,-1 v -0.5 H 27.5 27 v 0.5 0.5 h 0.5 0.5 z m 3,-1 v -0.5 H 30.5 30 v 0.5 0.5 h 0.5 0.5 z m -3,-1 v -0.5 H 27.5 27 v 0.5 0.5 h 0.5 0.5 z m 3,-1 v -0.5 H 30.5 30 v 0.5 0.5 h 0.5 0.5 z m -3,-1 v -0.5 H 27.5 27 v 0.5 0.5 h 0.5 0.5 z m 3,-1 v -0.5 H 30.5 30 v 0.5 0.5 h 0.5 0.5 z m -3,-1 v -0.5 H 27.5 27 v 0.5 0.5 h 0.5 0.5 z m 3,-1 v -0.5 H 30.5 30 v 0.5 0.5 h 0.5 0.5 z m -3,-1 v -0.5 H 27.5 27 v 0.5 0.5 h 0.5 0.5 z m 3,-1 v -0.5 H 30.5 30 v 0.5 0.5 h 0.5 0.5 z m -3,-1 v -0.5 H 27.5 27 v 0.5 0.5 h 0.5 0.5 z m 3,-1 v -0.5 H 30.5 30 v 0.5 0.5 h 0.5 0.5 z m -3,-1 v -0.5 H 27.5 27 v 0.5 0.5 h 0.5 0.5 z m 3,-1 v -0.5 H 30.5 30 v 0.5 0.5 h 0.5 0.5 z m -3,-1 v -0.5 H 27.5 27 v 0.5 0.5 h 0.5 0.5 z m 3,-1 v -0.5 H 30.5 30 v 0.5 0.5 h 0.5 0.5 z m 1,-2 v -0.5 H 28.5 25 v -0.5 -0.5 h 4 4 v 1 1 H 32.5 32 Z"
+       id="path319" /><path
+       style="fill:#7f7f7f;stroke-width:1"
+       d="m 28,28.593119 v -0.5 H 26.5 25 v -0.5 -0.5 H 23.5 22 v -0.5 -0.5 H 20.5 19 v -0.5 -0.5 H 17.5 16 v -0.5 -0.5 H 14.5 13 v -0.5 -0.5 H 11.5 10 v -4.5 -4.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 2 2 v -0.5 -0.5 h 2 2 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 30.5 30 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 30.5 30 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 30.5 30 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 30.5 30 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 30.5 30 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 30.5 30 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 30.5 30 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 30.5 30 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 30.5 30 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 h 1 1 v 10 10 h 0.5 0.5 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1 1 v 0.5 0.5 h -1 -1 v -0.5 -0.5 H 42.5 41 v -0.5 -0.5 H 39.5 38 v -0.5 -0.5 h -1 -1 v -0.5 -0.5 h -1 -1 v -0.5 -0.5 H 33.5 33 v -0.5 -0.5 H 32.5 32 v 0.5 0.5 h -3 -3 v 2 2 h 0.5 0.5 v 0.5 0.5 H 26.5 26 v -0.5 -0.5 H 25.5 25 v -0.5 -0.5 H 24.5 24 v 1.5 1.5 h 0.5 0.5 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 H 28.5 27 v -0.5 -0.5 h -1 -1 v -0.5 -0.5 H 24.5 24 v -0.5 -0.5 H 23.5 23 v -1.5 -1.5 h 0.5 0.5 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 23.5 22 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 H 11.5 11 v 3.5 3.5 h 1 1 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1 1 v -2.5 -2.5 h 0.5 0.5 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 H 40.5 40 v -0.5 -0.5 h 0.5 0.5 v 0.5 0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 h 0.5 0.5 v 4 4 H 46.5 46 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -3 -3 z m 4,-22 v -0.5 H 31.5 31 v 0.5 0.5 h 0.5 0.5 z m 0,-2 v -0.5 H 31.5 31 v 0.5 0.5 h 0.5 0.5 z m 0,-2 v -0.5 H 31.5 31 v 0.5 0.5 h 0.5 0.5 z m 0,-2 v -0.5 H 31.5 31 v 0.5 0.5 h 0.5 0.5 z m 0,-2 v -0.5 H 31.5 31 v 0.5 0.5 h 0.5 0.5 z m 0,-2 v -0.5 H 31.5 31 v 0.5 0.5 h 0.5 0.5 z m 0,-2 v -0.5 H 31.5 31 v 0.5 0.5 h 0.5 0.5 z m 0,-2 v -0.5 H 31.5 31 v 0.5 0.5 h 0.5 0.5 z m 0,-2 v -0.5 H 31.5 31 v 0.5 0.5 h 0.5 0.5 z m 0,-2 v -0.5 H 31.5 31 v 0.5 0.5 h 0.5 0.5 z m 4,28 v -0.5 h 0.5 0.5 v 0.5 0.5 H 36.5 36 Z m -34,-2.5 v -1 H 1.5 1 v -1.5 -1.5 H 0.5 0 v -4.5 -4.5 H 0.5 1 v -2 -2 H 1.5 2 v -1 -1 H 2.5 3 v -1 -1 H 3.5 4 v -0.5 -0.5 H 4.5 5 v -0.5 -0.5 H 5.5 6 v -0.5 -0.5 H 6.5 7 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1.5 1.5 v -0.5 -0.5 h 4 4 v 0.5 0.5 h 1 1 v 0.5 0.5 h 1 1 v -2 -2 h 0.5 0.5 v -0.5 -0.5 h 4 4 v 0.5 0.5 h -4 -4 v 11 11 H 24.5 24 v -3.5 -3.5 h -1 -1 v 0.5 0.5 H 21.5 21 v 0.5 0.5 H 20.5 20 v 0.5 0.5 H 19.5 19 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 H 11 9 v 0.5 0.5 H 8.5 8 v 2.5 2.5 H 7.5 7 v 1 1 H 5.5 4 v -0.5 -0.5 h 1 1 v -0.5 -0.5 H 6.5 7 v -2.5 -2.5 H 7.5 8 v -0.5 -0.5 H 8.5 9 v -0.5 -0.5 h 2 2 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 h 0.5 0.5 v -4 -4 h 0.5 0.5 v -0.5 -0.5 h -1 -1 v -0.5 -0.5 h -1 -1 v -0.5 -0.5 h -4 -4 v 0.5 0.5 H 10.5 9 v 0.5 0.5 H 8 7 v 0.5 0.5 H 6.5 6 v 0.5 0.5 H 5.5 5 v 0.5 0.5 H 4.5 4 v 1 1 H 3.5 3 v 1 1 H 2.5 2 v 2 2 H 1.5 1 v 4.5 4.5 H 1.5 2 v 1.5 1.5 H 2.5 3 v 1 1 H 2.5 2 Z m 29,0 v -1 h 0.5 0.5 v -0.5 -0.5 h -1 -1 v 0.5 0.5 H 29.5 29 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 H 29.5 29 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 h 1 1 v 1.5 1.5 h 0.5 0.5 v -0.5 -0.5 h 0.5 0.5 v 1.5 1.5 H 33.5 33 v 0.5 0.5 h -1 -1 z m 0,-3.5 v -0.5 H 30.5 30 v 0.5 0.5 h 0.5 0.5 z m -24,-7 v -0.5 H 6.5 6 v -0.5 -0.5 H 5.5 5 v -1.5 -1.5 H 5.5 6 v -0.5 -0.5 H 6.5 7 v -0.5 -0.5 h 2 2 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 h 0.5 0.5 v 1.5 1.5 H 12.5 12 v -1.5 -1.5 H 11.5 11 v 0.5 0.5 H 10.5 10 v -0.5 -0.5 H 9.5 9 v -0.5 -0.5 H 8 7 v 0.5 0.5 H 6.5 6 v 1.5 1.5 H 6.5 7 v 0.5 0.5 H 8.5 10 v -0.5 -0.5 h 0.5 0.5 v 0.5 0.5 H 10.5 10 v 0.5 0.5 H 8.5 7 Z m 4,-5 v -0.5 H 10.5 10 v 0.5 0.5 h 0.5 0.5 z m 6,0 v -0.5 h 0.5 0.5 v 0.5 0.5 H 17.5 17 Z m -2,-2 v -0.5 h 0.5 0.5 v 0.5 0.5 H 15.5 15 Z m 6,-1 v -0.5 h 0.5 0.5 v 0.5 0.5 H 21.5 21 Z m -4,-1 v -0.5 h 0.5 0.5 v 0.5 0.5 H 17.5 17 Z m 2,-1 v -0.5 h 0.5 0.5 v 0.5 0.5 H 19.5 19 Z m -4,-1 v -0.5 h 0.5 0.5 v 0.5 0.5 H 15.5 15 Z"
+       id="path317" /><path
+       style="fill:#fe0000;stroke-width:1"
+       d="m 38,15.093119 v -1 h 0.5 0.5 v 1 1 H 38.5 38 Z m -23,-21.5 v -0.5 h 0.5 0.5 v -0.5 -0.5 h 0.5 0.5 v 1 1 h -1 -1 z"
+       id="path315" /><path
+       style="fill:#00fe00;stroke-width:1"
+       d="m 15,-2.406881 v -0.5 h 0.5 0.5 v -0.5 -0.5 h 0.5 0.5 v 1 1 h -1 -1 z"
+       id="path313" /><path
+       style="fill:#0000fe;stroke-width:1"
+       d="m 19,-5.406881 v -0.5 h 0.5 0.5 v -0.5 -0.5 h 0.5 0.5 v 1 1 h -1 -1 z"
+       id="path311" /><path
+       style="fill:#7f0000;stroke-width:1"
+       d="m 37,16.593119 v -0.5 H 36.5 36 v -1 -1 h 0.5 0.5 v -0.5 -0.5 h 1.5 1.5 v 1.5 1.5 H 39.5 39 v 0.5 0.5 h -1 -1 z m 2,-1.5 v -1 h -1 -1 v 0.5 0.5 h 0.5 0.5 v 0.5 0.5 h 0.5 0.5 z m -24,-20.5 v -0.5 h 1 1 v -1 -1 h 0.5 0.5 v 1 1 H 17.5 17 v 0.5 0.5 h -1 -1 z"
+       id="path309" /><path
+       style="fill:#007f00;stroke-width:1"
+       d="m 15,-1.406881 v -0.5 h 1 1 v -1 -1 h 0.5 0.5 v 1 1 H 17.5 17 v 0.5 0.5 h -1 -1 z"
+       id="path307" /><path
+       style="fill:#00007f;stroke-width:1"
+       d="m 19,-4.406881 v -0.5 h 1 1 v -1 -1 h 0.5 0.5 v 1 1 H 21.5 21 v 0.5 0.5 h -1 -1 z"
+       id="path305" /><path
+       style="fill:#000000;stroke-width:1"
+       d="m 28,29.593119 v -0.5 H 26.5 25 v -0.5 -0.5 H 23.5 22 v -0.5 -0.5 H 20.5 19 v -0.5 -0.5 H 17.5 16 v -0.5 -0.5 H 14.5 13 v -0.5 -0.5 h -1 -1 v -0.5 -0.5 h 1 1 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 1.5 1.5 v 0.5 0.5 h 3 3 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 0.5 0.5 v -4 -4 H 46.5 46 v -0.5 -0.5 h 0.5 0.5 v 0.5 0.5 h 0.5 0.5 v 4 4 H 47.5 47 v 0.5 0.5 H 46.5 46 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -3 -3 z m 2,-13 v -0.5 h 0.5 0.5 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 0.5 0.5 v -1.5 -1.5 H 33.5 33 v 0.5 0.5 H 32.5 32 v 0.5 0.5 H 31.5 31 v 0.5 0.5 h -2 -2 v -0.5 -0.5 h 2 2 v -0.5 -0.5 h 0.5 0.5 v -1.5 -1.5 h -3 -3 v -0.5 -0.5 H 25.5 25 v -0.5 -0.5 h 0.5 0.5 v 0.5 0.5 h 3 3 v -0.5 -0.5 h 0.5 0.5 v -11 -11 h 0.5 0.5 v 11 11 H 33.5 33 v 1.5 1.5 h 0.5 0.5 v 0.5 0.5 h 0.5 0.5 v 1.5 1.5 H 34.5 34 v 0.5 0.5 H 33.5 33 v 0.5 0.5 h -1 -1 v 0.5 0.5 H 30.5 30 Z m 9,0 v -0.5 h 0.5 0.5 v -1 -1 h 0.5 0.5 v 1 1 H 40.5 40 v 0.5 0.5 H 39.5 39 Z m -36,-1 v -0.5 h 2 2 v -1 -1 H 7.5 8 v -2.5 -2.5 H 8.5 9 v -0.5 -0.5 h 2 2 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 1 1 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 h 0.5 0.5 v -0.5 -0.5 h 1 1 v 0.5 0.5 h -1 -1 v 0.5 0.5 H 21.5 21 v 0.5 0.5 H 20.5 20 v 0.5 0.5 H 19.5 19 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 h -1 -1 v 0.5 0.5 H 11 9 v 2.5 2.5 H 8.5 8 v 1 1 H 7.5 7 v 0.5 0.5 H 5 3 Z m 7,-12 v -0.5 h 0.5 0.5 v -2 -2 H 10.5 10 v -0.5 -0.5 h 0.5 0.5 v 0.5 0.5 h 0.5 0.5 v 2 2 H 11.5 11 v 0.5 0.5 H 10.5 10 Z"
+       id="path303" /></g></svg>
