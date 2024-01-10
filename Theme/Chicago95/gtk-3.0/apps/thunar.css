@@ -57,7 +57,8 @@ Make sure that all changes made here are part of the Thunar application.
       background-position: center;
       background-size: 21px 17px;
       padding-left: 1.5em;
-      padding-right: 1.5em; }*/
+      padding-right: 1.5em; }
+@import url("thunar-throbber.css");*/
 
 .thunar notebook .standard-view {
   padding: 0px;
