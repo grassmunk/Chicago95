@@ -1,0 +1,57 @@
+@keyframes throbfade {
+  14% { -gtk-icon-source: url("../assets/throbber/throbber_f1.png"); }
+  28% { -gtk-icon-source: url("../assets/throbber/throbber_f2.png"); }
+  42% { -gtk-icon-source: url("../assets/throbber/throbber_f3.png"); }
+  57% { -gtk-icon-source: url("../assets/throbber/throbber_f4.png"); }
+  71% { -gtk-icon-source: url("../assets/throbber/throbber_f5.png"); }
+  85% { -gtk-icon-source: url("../assets/throbber/throbber_f6.png"); }
+  100% { -gtk-icon-source: url("../assets/throbber/throbber_f7.png"); }
+  }
+  
+@keyframes throbber {
+  2% { -gtk-icon-source: url("../assets/throbber/throbber_f8.png"); }
+  4% { -gtk-icon-source: url("../assets/throbber/throbber_f9.png"); }
+  6% { -gtk-icon-source: url("../assets/throbber/throbber_f10.png"); }
+  8% { -gtk-icon-source: url("../assets/throbber/throbber_f11.png"); }
+  10% { -gtk-icon-source: url("../assets/throbber/throbber_f12.png"); }
+  12% { -gtk-icon-source: url("../assets/throbber/throbber_f13.png"); }
+  14% { -gtk-icon-source: url("../assets/throbber/throbber_f14.png"); }
+  16% { -gtk-icon-source: url("../assets/throbber/throbber_f15.png"); }
+  18% { -gtk-icon-source: url("../assets/throbber/throbber_f16.png"); }
+  20% { -gtk-icon-source: url("../assets/throbber/throbber_f17.png"); }
+  22% { -gtk-icon-source: url("../assets/throbber/throbber_f18.png"); }
+  24% { -gtk-icon-source: url("../assets/throbber/throbber_f19.png"); }
+  26% { -gtk-icon-source: url("../assets/throbber/throbber_f20.png"); }
+  28% { -gtk-icon-source: url("../assets/throbber/throbber_f21.png"); }
+  30% { -gtk-icon-source: url("../assets/throbber/throbber_f22.png"); }
+  32% { -gtk-icon-source: url("../assets/throbber/throbber_f23.png"); }
+  34% { -gtk-icon-source: url("../assets/throbber/throbber_f24.png"); }
+  36% { -gtk-icon-source: url("../assets/throbber/throbber_f25.png"); }
+  38% { -gtk-icon-source: url("../assets/throbber/throbber_f26.png"); }
+  40% { -gtk-icon-source: url("../assets/throbber/throbber_f27.png"); }
+  42% { -gtk-icon-source: url("../assets/throbber/throbber_f28.png"); }
+  44% { -gtk-icon-source: url("../assets/throbber/throbber_f29.png"); }
+  46% { -gtk-icon-source: url("../assets/throbber/throbber_f30.png"); }
+  48% { -gtk-icon-source: url("../assets/throbber/throbber_f31.png"); }
+  50% { -gtk-icon-source: url("../assets/throbber/throbber_f32.png"); }
+  52% { -gtk-icon-source: url("../assets/throbber/throbber_f33.png"); }
+  54% { -gtk-icon-source: url("../assets/throbber/throbber_f34.png"); }
+  56% { -gtk-icon-source: url("../assets/throbber/throbber_f35.png"); }
+  58% { -gtk-icon-source: url("../assets/throbber/throbber_f36.png"); }
+  60% { -gtk-icon-source: url("../assets/throbber/throbber_f37.png"); }
+  62% { -gtk-icon-source: url("../assets/throbber/throbber_f38.png"); }
+  64% { -gtk-icon-source: url("../assets/throbber/throbber_f39.png"); }
+  66% { -gtk-icon-source: url("../assets/throbber/throbber_f40.png"); }
+  68% { -gtk-icon-source: url("../assets/throbber/throbber_f41.png"); }
+  70% { -gtk-icon-source: url("../assets/throbber/throbber_f42.png"); }
+  100% { -gtk-icon-source: url("../assets/throbber/throbber_f43.png"); }
+}
+.thunar menubar menuitem spinner:checked {
+  opacity: 1;
+  margin-left:-1px;
+  margin-top:-1px;
+  animation: throbfade 1s steps(7), throbber 4s steps(35) infinite;
+  }
+.thunar menubar menuitem spinner:checked:disabled {
+  opacity: 1;
+}
