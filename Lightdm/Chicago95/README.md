@@ -1,7 +1,7 @@
 Chicago95 Greeter
 ===================
 
-Chicago95 is a greeter(read: a login screen) for use with lightdm and lightdm-webkit-greeter.
+Chicago95 is a greeter (a login screen) for use with lightdm and lightdm-webkit-greeter.
 
 It has very limited functionality, but reminds you of that 90s aesthetic.
 
@@ -12,7 +12,7 @@ You'll need to have lightdm and lightdm-webkit for this to work. On Xubuntu, you
 
     sudo apt-get install lightdm lightdm-webkit-greeter
 
-First, configure lightdm to use lightdm-webkit-greeter if you haven't already. To do so, open up `/etc/lightdm/lightdm.conf` with vim or whatever and change it to something like this:
+First, configure lightdm to use lightdm-webkit-greeter if you haven't already. To do so, open up `/etc/lightdm/lightdm.conf` with a text editor and change it to something like this:
 
 ```
 [SeatDefaults]
@@ -36,7 +36,7 @@ webkit-theme=Chicago95
 ```
 
 
-Finally, copy the Chicago95 folder to the lightdm webkit themes foler: `/usr/share/lightdm-webkit/themes/`.
+Finally, copy the Chicago95 folder to the lightdm webkit themes folder: `/usr/share/lightdm-webkit/themes/`.
 
 Dependencies
 ------------
