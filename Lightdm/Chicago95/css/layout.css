@@ -76,6 +76,23 @@ button:hover {
         font-size: 10pt;
         font-family: 'Less Perfect DOS VGA';
 	display: inline-block;
+	padding: 4px;
+	border-radius: 1px;
+	border-width: 2px;
+	color: black;
+	background: silver;
+}
+
+button {
+	border-style: outset;
+	border-color: buttonface;
+	border-right-color: #424242;
+	border-bottom-color: #424242;
+}
+
+button:hover {
+	border: 2px inset #fff;
+	box-shadow: -1px -1px #000;
 }
 
 .header {
