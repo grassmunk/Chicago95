@@ -28,3 +28,6 @@
 
 #### LightDM login manager theme
 ![alt text](lightdm_theme.png "LightDM")
+
+#### LightDM login manager webkit theme
+![alt text](lightdm_webkit_theme.png "LightDM Webkit Theme")

@@ -20,6 +20,18 @@ greeter-session=lightdm-webkit-greeter
 user-session=xfce
 ```
 
+Secondly, you need to copy the `LessPerfect DOS VGA` font from the `Fonts/vga_font` directory of this repository to somewhere in `/usr/share/fonts`.
+
+Follow these steps:
+```
+sudo cp -v Chicago95-master/Fonts/vga_font/LessPerfectDOSVGA.ttf /usr/share/fonts
+```
+
+Then, refresh the font cache with:
+```
+sudo fc-cache -fv
+```
+
 Next, configure lightdm-webkit-greeter to use *Chicago95*. You can do so by editing `/etc/lightdm/lightdm-webkit-greeter.conf` and setting `theme-name`to `Chicago95`:
 
 ```
@@ -54,3 +66,9 @@ Credits
 This theme was based on paddy-greeter which you can find here: 
 
 *   [Paddy-Greeter](https://github.com/kalmanolah/paddy-greeter/) by [Kalman Olah](https://github.com/kalmanolah/)
+
+Button theming was copied from win95.css:
+*   [Win95.CSS](https://github.com/AlexBSoft/win95.css) by [Aleksander Bakukhin](https://github.com/AlexBSoft)
+
+The key icon was found here:
+*   [Windows95 All Icons](https://archive.org/details/windows-95-all-icons) by [Vovan29](https://archive.org/search?query=creator%3A%22Vovan29%22)
