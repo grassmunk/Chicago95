@@ -7,7 +7,7 @@
     * [Single user automated install](#install_auto)
     * [Single user manual install](#install_single)
     * [System-wide manual install (optional)](#install_system)
-* [Installing the LightDM Theme Font](#installing-the-lightdm-theme-font)
+* [Installing the LightDM Webkit Theme Font](#installing-the-lightdm-webkit-theme-font)
 * [Enabling The Theme](#config_theme)
 * [Configuring The XFCE4 Panelbar](#xfce4_panel)
     * [Horizontal Panelbar](#horiz_panel)
@@ -114,8 +114,8 @@ Copy the icon themes from `Chicago95-master/Icons/` folder into `/usr/share/icon
 ---
 <a name="config_theme"/>
 
-## Installing the LightDM Theme Font
-The LightDM theme requires the `Less Perfect DOS VGA` font from the `Fonts/vga_font` folder to be installed somewhere into `/usr/share/fonts` for LightDM to use the correct font for the greeter.
+## Installing the LightDM Webkit Theme Font
+The LightDM webkit theme requires the `Less Perfect DOS VGA` font from the `Fonts/vga_font` folder to be installed somewhere into `/usr/share/fonts` for LightDM to use the correct font for the greeter.
 
 Follow these steps to install the font into `/usr/share/fonts`:
 ```
