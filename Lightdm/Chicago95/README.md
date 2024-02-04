@@ -20,6 +20,18 @@ greeter-session=lightdm-webkit-greeter
 user-session=xfce
 ```
 
+Secondly, you need to copy the `LessPerfect DOS VGA` font from the `Fonts/vga_font` directory of this repository to somewhere in `/usr/share/fonts`.
+
+Follow these steps:
+```
+sudo cp -v Chicago95-master/Fonts/vga_font/LessPerfectDOSVGA.ttf /usr/share/fonts
+```
+
+Then, refresh the font cache with:
+```
+sudo fc-cache -fv
+```
+
 Next, configure lightdm-webkit-greeter to use *Chicago95*. You can do so by editing `/etc/lightdm/lightdm-webkit-greeter.conf` and setting `theme-name`to `Chicago95`:
 
 ```
