@@ -23,8 +23,8 @@ active_mid_1=#C0C0C0
 inactive_mid_1=#C0C0C0
 
 #buttonLight
-active_hilight_1=#DFDFDF
-inactive_hilight_1=#DFDFDF
+active_hilight_1=#C0C0C0
+inactive_hilight_1=#C0C0C0
 
 #buttonhilight
 active_hilight_2=#ffffff
