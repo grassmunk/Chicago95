@@ -1,0 +1,14 @@
+[SddmGreeterTheme]
+Name=Chicago95
+Description=A Greeter inspired by Windows 95
+Author=Grassmunk
+License=GPLv3
+Type=sddm-theme
+Version=0.1
+Website=
+Screenshot=preview.png
+MainScript=main.qml
+ConfigFile=theme.conf
+Email=
+Theme-Id=Chicago95
+Theme-API=2.0
