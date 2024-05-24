@@ -38,8 +38,6 @@ scrollbar {
     border: none;
     background-color: @scrollbar_trough_bg_color;
     box-shadow: none; }
-    scrollbar button:disabled {
-      background-image: url("scrollbar/scrollbar_button_disabled.png"); }
     scrollbar button:active,
     scrollbar .button:active {
       min-width: 16px;
@@ -64,11 +62,6 @@ scrollbar {
     border-style: solid;
     min-width: 16px;
     min-height: 16px; }
-    scrollbar button.up:disabled,
-    scrollbar button.down:disabled,
-    scrollbar button.left:disabled,
-    scrollbar button.right:disabled {
-      box-shadow: inset 1px 1px @border_shade; }
     scrollbar button.up:active,
     scrollbar button.down:active,
     scrollbar button.left:active,
