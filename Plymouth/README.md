@@ -27,7 +27,7 @@ Update initramfs
 
 #### Install instructions for Arch Linux
 
-Install Plymouth to your system ([ArchiWiki](https://wiki.archlinux.org/index.php/Plymouth#Installation))
+Install Plymouth to your system ([ArchWiki](https://wiki.archlinux.org/index.php/Plymouth#Installation))
 
 Copy the theme folder into the Plymouth theme directory.
 
