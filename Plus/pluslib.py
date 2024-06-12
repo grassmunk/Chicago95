@@ -2560,7 +2560,7 @@ class ChicagoPlus:
 		inkscape_path = subprocess.check_output(["which", "inkscape"]).strip().decode()
 
 		inkscape_version_cmd = subprocess.check_output([inkscape_path, "--version"])
-		inkscape_version = inkscape_version_cmd.splitlines()[0].split()[1].decode().split(".")[0:3]
+		inkscape_version = inkscape_version_cmd.splitlines()[0].split()[1].decode().split(".")[0:2]
 
 		self.inkscape_info = inkscape_info(inkscape_path, inkscape_version)
 
