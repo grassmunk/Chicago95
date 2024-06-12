@@ -2419,16 +2419,22 @@ class ChicagoPlus:
 					rectangle_posn = ("{0}px".format(colcount * self.squaresize),
 						  "{0}px".format(rowcount * self.squaresize))
 					rectangle_fill = svgwrite.rgb(rgb_tuple[0], rgb_tuple[1], rgb_tuple[2])
-					alpha = rgb_tuple[3];
+
+					# Use CSS classes as a workaround for missing selectSameFillColor in Inkscape 1.2 and above
+					rectangle_class = "r" + str(rgb_tuple[0]) + str(rgb_tuple[1]) + str(rgb_tuple[2]) + str(rgb_tuple[3])
+
+					alpha = rgb_tuple[3]
 					if alpha == 255:
 						svgdoc.add(svgdoc.rect(insert = rectangle_posn,
 						           size = rectangle_size,
-						           fill = rectangle_fill))
+						           fill = rectangle_fill,
+								   class_ = rectangle_class))
 					else:
 						svgdoc.add(svgdoc.rect(insert = rectangle_posn,
 				  	        	 size = rectangle_size,
 				  	        	 fill = rectangle_fill,
-				  		         opacity = alpha/float(255)))
+				  		         opacity = alpha/float(255,
+								 class_ = rectangle_class)))
 				colcount = colcount + 1
 			rowcount = rowcount + 1
 		svgdoc.save()
@@ -2442,8 +2448,10 @@ class ChicagoPlus:
 		for rect in rects:
 			rect_id = rect.attrib['id']
 			rgb = rect.attrib['fill']
+			rect_class = rect.attrib['class']
+			# Add both the rectangle ID and and rectangle class in an array case of Inkscape version issues
 			if rgb not in rgbs:
-				rgbs[rgb] = rect_id
+				rgbs[rgb] = [rect_id, rect_class]
 
 		
 		self.logger.info("{:<21} | Inkscape will open {} times to process {}".format("", min(len(rgbs), self.max_colors), target_folder + svg_name))
@@ -2492,7 +2500,7 @@ class ChicagoPlus:
 		if int(self.inkscape_info.version[0]) < 1:
 			args = [
 			self.inkscape_info.path,
-			"--select="+color,
+			"--select="+color[0],
 			"--verb", "EditSelectSameFillColor",
 			"--verb", "SelectionCombine", 
 			"--verb", "SelectionUnion", 
@@ -2504,7 +2512,7 @@ class ChicagoPlus:
 			args = [
 			self.inkscape_info.path,
 			"-g",
-			"--select="+color,
+			"--select="+color[0],
 			"--verb", "EditSelectSameFillColor;SelectionCombine;SelectionUnion;FileSave;FileQuit",
 			tmpfile
 			]
