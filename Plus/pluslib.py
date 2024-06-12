@@ -31,6 +31,7 @@ import subprocess
 import configparser
 import logging.handlers
 import xml.etree.ElementTree as ET
+from decimal import *
 
 from pathlib import Path
 from pprint import pprint
@@ -122,6 +123,9 @@ class ChicagoPlus:
 		self.chicago95_cursor_folder = chicago95_cursor_path
 		self.chicago95_theme_folder = chicago95_theme_path
 		self.chicago95_icons_folder = chicago95_icons_path
+
+		# Placeholder for inkscape version and path information. It will be populated with actual information after it is confirmed that the user has Inkscape
+		self.inkscape_info = inkscape_info("void", [0,0,0])
 		
 		 
 		# Create the Logger
@@ -166,6 +170,8 @@ class ChicagoPlus:
 				error = True
 			try:
 				inkscape_path = subprocess.check_output(["which", "inkscape"]).strip()
+				#Assuming the previous portion doesn't return an exception, the placeholder information is replaced
+				self.get_inkscape_info()
 			except subprocess.CalledProcessError:
 				self.logger.critical("You need inkscape installed to use this library.")
 				error = True
@@ -2458,23 +2464,21 @@ class ChicagoPlus:
 
 	def convert_to_proper_svg_with_inkscape(self, svg_out, svg_in):
 		self.logger.debug("{:<21} | Converting {} to {} with Inkscape".format("",svg_out, svg_in))
+		
 		# this is a bit of a hack to support both version of inkscape
-		inkscape_path = subprocess.check_output(["which", "inkscape"]).strip()
-		inkscape_version_cmd = subprocess.check_output([inkscape_path, "--version"])
-		inkscape_version = inkscape_version_cmd.splitlines()[0].split()[1].decode().split(".")[0]
 
-		if int(inkscape_version) < 1:
+		if int(self.inkscape_info.version[0]) < 1:
 			self.logger.debug("{:<21} | Using Inkscape v0.9x command".format(''))
 			# Works with version 0.9x
 			args = [
-			inkscape_path,
+			self.inkscape_info.path,
 			"-l", svg_out, svg_in
 			]
 		else:
 			self.logger.debug("{:<21} | Using Inkscape v1.0 command".format(''))
 			#works with version 1.0
 			args = [
-			inkscape_path,
+			self.inkscape_info.path,
 			"-l", "-o", svg_out, svg_in
 			]
 
@@ -2483,14 +2487,11 @@ class ChicagoPlus:
 
 	def fix_with_inkscape(self, color, tmpfile):
 		self.logger.debug("{:<21} | Combining {} in {}".format("",color, tmpfile))
-		inkscape_path = subprocess.check_output(["which", "inkscape"]).strip()
 
-		inkscape_version_cmd = subprocess.check_output([inkscape_path, "--version"])
-		inkscape_version = inkscape_version_cmd.splitlines()[0].split()[1].decode().split(".")[0]
 
-		if int(inkscape_version) < 1:
+		if int(self.inkscape_info.version[0]) < 1:
 			args = [
-			inkscape_path,
+			self.inkscape_info.path,
 			"--select="+color,
 			"--verb", "EditSelectSameFillColor",
 			"--verb", "SelectionCombine", 
@@ -2501,28 +2502,22 @@ class ChicagoPlus:
 			]
 		else:
 			args = [
-			inkscape_path,
+			self.inkscape_info.path,
 			"-g",
 			"--select="+color,
 			"--verb", "EditSelectSameFillColor;SelectionCombine;SelectionUnion;FileSave;FileQuit",
 			tmpfile
 			]
 
-		subprocess.check_call(args, stderr=subprocess.DEVNULL ,stdout=subprocess.DEVNULL)
-
+		subprocess.check_call(args, stderr=subprocess.DEVNULL ,stdout=subprocess.DEVNULL)\
 
 	def convert_to_png_with_inkscape(self, svg_in, size, png_out):
 		self.logger.debug("{:<21} | Converting {} to {} of size {}".format("", svg_in, png_out, size))
-		inkscape_path = subprocess.check_output(["which", "inkscape"]).strip()	
-
-		inkscape_version_cmd = subprocess.check_output([inkscape_path, "--version"])
-		inkscape_version = inkscape_version_cmd.splitlines()[0].split()[1].decode().split(".")[0]
-
 		size = str(size)
 
-		if int(inkscape_version) < 1:
+		if int(self.inkscape_info.version[0]) < 1:
 			args = [
-			inkscape_path,
+			self.inkscape_info.path,
 			"--without-gui",
 			"-f", svg_in,
 			"--export-area-page",
@@ -2532,7 +2527,7 @@ class ChicagoPlus:
 			]
 		else:
 			args = [
-			inkscape_path,
+			self.inkscape_info.path,
 			"--export-area-page",
 			"--export-type=png",
 			"-w", size,
@@ -2543,6 +2538,14 @@ class ChicagoPlus:
 
 
 		subprocess.check_call(args, stderr=subprocess.DEVNULL ,stdout=subprocess.DEVNULL)
+
+	def get_inkscape_info(self):
+		inkscape_path = subprocess.check_output(["which", "inkscape"]).strip()
+
+		inkscape_version_cmd = subprocess.check_output([inkscape_path, "--version"])
+		inkscape_version = inkscape_version_cmd.splitlines()[0].split()[1].decode().split(".")[0:3]
+
+		self.inkscape_info = inkscape_info(inkscape_path, inkscape_version)
 
 	def convert_ico_files(self, icon_filename, output_file_name):
 		self.logger.debug("{:<21} | Converting {} to {}".format("", icon_filename, output_file_name))
@@ -3167,6 +3170,7 @@ class ChicagoPlus:
 '''
 		return logo
 
-
-
-
+class inkscape_info:
+	def __init__(self, path, version):
+		self.path = path
+		self.version = version
