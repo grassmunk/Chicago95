@@ -1,3 +1,7 @@
 .*.swp
 debian
 /*.[0-9].gz
+Plus/*_Chicago95
+Plus/__pycache__
+Plus/chicago95_plus.log
+Plus/chicago95_tmp_file.svg
