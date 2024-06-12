@@ -31,7 +31,6 @@ import subprocess
 import configparser
 import logging.handlers
 import xml.etree.ElementTree as ET
-from decimal import *
 
 from pathlib import Path
 from pprint import pprint
@@ -2495,7 +2494,6 @@ class ChicagoPlus:
 
 	def fix_with_inkscape(self, color, tmpfile):
 		self.logger.debug("{:<21} | Combining {} in {}".format("",color, tmpfile))
-
 
 		if int(self.inkscape_info.version[0]) < 1:
 			args = [
