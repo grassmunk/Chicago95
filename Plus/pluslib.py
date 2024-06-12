@@ -2420,7 +2420,7 @@ class ChicagoPlus:
 					rectangle_fill = svgwrite.rgb(rgb_tuple[0], rgb_tuple[1], rgb_tuple[2])
 
 					# Use CSS classes as a workaround for missing selectSameFillColor in Inkscape 1.2 and above
-					rectangle_class = "r" + str(rgb_tuple[0]) + str(rgb_tuple[1]) + str(rgb_tuple[2]) + str(rgb_tuple[3])
+					rectangle_class = "r" + str(rgb_tuple[0]) + "-" + str(rgb_tuple[1]) + "-" + str(rgb_tuple[2]) + "-" + str(rgb_tuple[3])
 
 					alpha = rgb_tuple[3]
 					if alpha == 255:
@@ -2494,28 +2494,39 @@ class ChicagoPlus:
 
 	def fix_with_inkscape(self, color, tmpfile):
 		self.logger.debug("{:<21} | Combining {} in {}".format("",color, tmpfile))
-
-		if int(self.inkscape_info.version[0]) < 1:
-			args = [
-			self.inkscape_info.path,
-			"--select="+color[0],
-			"--verb", "EditSelectSameFillColor",
-			"--verb", "SelectionCombine", 
-			"--verb", "SelectionUnion", 
-			"--verb", "FileSave", 
-			"--verb", "FileQuit",
-			tmpfile
-			]
+		
+		if int(self.inkscape_info.version[0]) > 0:
+			#The --verb option was removed from Inkscape 1.2, so versions newer than 1.1 must use the --actions command instead
+			if int(self.inkscape_info.version[1]) > 1:
+				args = [
+					self.inkscape_info.path,
+					"--batch-process",
+					"--actions",
+					"select-by-selector:."+color[1]+";object-to-path;path-union;export-overwrite:1;export-plain-svg:1;export-filename:"+tmpfile+";export-do;",
+					tmpfile
+				]
+				print(" ".join(args))
+			else:
+				args = [
+				self.inkscape_info.path,
+				"-g",
+				"--select="+color[0],
+				"--verb", "EditSelectSameFillColor;SelectionCombine;SelectionUnion;FileSave;FileQuit",
+				tmpfile
+				]
 		else:
 			args = [
-			self.inkscape_info.path,
-			"-g",
-			"--select="+color[0],
-			"--verb", "EditSelectSameFillColor;SelectionCombine;SelectionUnion;FileSave;FileQuit",
-			tmpfile
-			]
+				self.inkscape_info.path,
+				"--select="+color[0],
+				"--verb", "EditSelectSameFillColor",
+				"--verb", "SelectionCombine", 
+				"--verb", "SelectionUnion", 
+				"--verb", "FileSave", 
+				"--verb", "FileQuit",
+				tmpfile
+				]
 
-		subprocess.check_call(args, stderr=subprocess.DEVNULL ,stdout=subprocess.DEVNULL)\
+		subprocess.check_call(args, stderr=subprocess.DEVNULL ,stdout=subprocess.DEVNULL)
 
 	def convert_to_png_with_inkscape(self, svg_in, size, png_out):
 		self.logger.debug("{:<21} | Converting {} to {} of size {}".format("", svg_in, png_out, size))
@@ -2546,7 +2557,7 @@ class ChicagoPlus:
 		subprocess.check_call(args, stderr=subprocess.DEVNULL ,stdout=subprocess.DEVNULL)
 
 	def get_inkscape_info(self):
-		inkscape_path = subprocess.check_output(["which", "inkscape"]).strip()
+		inkscape_path = subprocess.check_output(["which", "inkscape"]).strip().decode()
 
 		inkscape_version_cmd = subprocess.check_output([inkscape_path, "--version"])
 		inkscape_version = inkscape_version_cmd.splitlines()[0].split()[1].decode().split(".")[0:3]
