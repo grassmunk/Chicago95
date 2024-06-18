@@ -122,6 +122,9 @@ class ChicagoPlus:
 		self.chicago95_cursor_folder = chicago95_cursor_path
 		self.chicago95_theme_folder = chicago95_theme_path
 		self.chicago95_icons_folder = chicago95_icons_path
+
+		# Placeholder for inkscape version and path information. It will be populated with actual information after it is confirmed that the user has Inkscape
+		self.inkscape_info = inkscape_info("void", [0,0,0])
 		
 		 
 		# Create the Logger
@@ -166,6 +169,8 @@ class ChicagoPlus:
 				error = True
 			try:
 				inkscape_path = subprocess.check_output(["which", "inkscape"]).strip()
+				#Assuming the previous portion doesn't return an exception, the placeholder information is replaced
+				self.get_inkscape_info()
 			except subprocess.CalledProcessError:
 				self.logger.critical("You need inkscape installed to use this library.")
 				error = True
@@ -2413,16 +2418,22 @@ class ChicagoPlus:
 					rectangle_posn = ("{0}px".format(colcount * self.squaresize),
 						  "{0}px".format(rowcount * self.squaresize))
 					rectangle_fill = svgwrite.rgb(rgb_tuple[0], rgb_tuple[1], rgb_tuple[2])
-					alpha = rgb_tuple[3];
+
+					# Use CSS classes as a workaround for missing selectSameFillColor in Inkscape 1.2 and above
+					rectangle_class = "r" + str(rgb_tuple[0]) + "-" + str(rgb_tuple[1]) + "-" + str(rgb_tuple[2]) + "-" + str(rgb_tuple[3])
+
+					alpha = rgb_tuple[3]
 					if alpha == 255:
 						svgdoc.add(svgdoc.rect(insert = rectangle_posn,
 						           size = rectangle_size,
-						           fill = rectangle_fill))
+						           fill = rectangle_fill,
+								   class_ = rectangle_class))
 					else:
 						svgdoc.add(svgdoc.rect(insert = rectangle_posn,
 				  	        	 size = rectangle_size,
 				  	        	 fill = rectangle_fill,
-				  		         opacity = alpha/float(255)))
+				  		         opacity = alpha/float(255,
+								 class_ = rectangle_class)))
 				colcount = colcount + 1
 			rowcount = rowcount + 1
 		svgdoc.save()
@@ -2436,8 +2447,10 @@ class ChicagoPlus:
 		for rect in rects:
 			rect_id = rect.attrib['id']
 			rgb = rect.attrib['fill']
+			rect_class = rect.attrib['class']
+			# Add both the rectangle ID and and rectangle class in an array case of Inkscape version issues
 			if rgb not in rgbs:
-				rgbs[rgb] = rect_id
+				rgbs[rgb] = [rect_id, rect_class]
 
 		
 		self.logger.info("{:<21} | Inkscape will open {} times to process {}".format("", min(len(rgbs), self.max_colors), target_folder + svg_name))
@@ -2458,23 +2471,21 @@ class ChicagoPlus:
 
 	def convert_to_proper_svg_with_inkscape(self, svg_out, svg_in):
 		self.logger.debug("{:<21} | Converting {} to {} with Inkscape".format("",svg_out, svg_in))
+		
 		# this is a bit of a hack to support both version of inkscape
-		inkscape_path = subprocess.check_output(["which", "inkscape"]).strip()
-		inkscape_version_cmd = subprocess.check_output([inkscape_path, "--version"])
-		inkscape_version = inkscape_version_cmd.splitlines()[0].split()[1].decode().split(".")[0]
 
-		if int(inkscape_version) < 1:
+		if int(self.inkscape_info.version[0]) < 1:
 			self.logger.debug("{:<21} | Using Inkscape v0.9x command".format(''))
 			# Works with version 0.9x
 			args = [
-			inkscape_path,
+			self.inkscape_info.path,
 			"-l", svg_out, svg_in
 			]
 		else:
 			self.logger.debug("{:<21} | Using Inkscape v1.0 command".format(''))
 			#works with version 1.0
 			args = [
-			inkscape_path,
+			self.inkscape_info.path,
 			"-l", "-o", svg_out, svg_in
 			]
 
@@ -2483,46 +2494,47 @@ class ChicagoPlus:
 
 	def fix_with_inkscape(self, color, tmpfile):
 		self.logger.debug("{:<21} | Combining {} in {}".format("",color, tmpfile))
-		inkscape_path = subprocess.check_output(["which", "inkscape"]).strip()
-
-		inkscape_version_cmd = subprocess.check_output([inkscape_path, "--version"])
-		inkscape_version = inkscape_version_cmd.splitlines()[0].split()[1].decode().split(".")[0]
-
-		if int(inkscape_version) < 1:
-			args = [
-			inkscape_path,
-			"--select="+color,
-			"--verb", "EditSelectSameFillColor",
-			"--verb", "SelectionCombine", 
-			"--verb", "SelectionUnion", 
-			"--verb", "FileSave", 
-			"--verb", "FileQuit",
-			tmpfile
-			]
+		
+		if int(self.inkscape_info.version[0]) > 0:
+			#The --verb option was removed from Inkscape 1.2, so versions newer than 1.1 must use the --actions command instead
+			if int(self.inkscape_info.version[1]) > 1:
+				args = [
+					self.inkscape_info.path,
+					"--batch-process",
+					"--actions",
+					"select-by-selector:."+color[1]+";object-to-path;path-union;export-overwrite:1;export-plain-svg:1;export-filename:"+tmpfile+";export-do;",
+					tmpfile
+				]
+				print(" ".join(args))
+			else:
+				args = [
+				self.inkscape_info.path,
+				"-g",
+				"--select="+color[0],
+				"--verb", "EditSelectSameFillColor;SelectionCombine;SelectionUnion;FileSave;FileQuit",
+				tmpfile
+				]
 		else:
 			args = [
-			inkscape_path,
-			"-g",
-			"--select="+color,
-			"--verb", "EditSelectSameFillColor;SelectionCombine;SelectionUnion;FileSave;FileQuit",
-			tmpfile
-			]
+				self.inkscape_info.path,
+				"--select="+color[0],
+				"--verb", "EditSelectSameFillColor",
+				"--verb", "SelectionCombine", 
+				"--verb", "SelectionUnion", 
+				"--verb", "FileSave", 
+				"--verb", "FileQuit",
+				tmpfile
+				]
 
 		subprocess.check_call(args, stderr=subprocess.DEVNULL ,stdout=subprocess.DEVNULL)
 
-
 	def convert_to_png_with_inkscape(self, svg_in, size, png_out):
 		self.logger.debug("{:<21} | Converting {} to {} of size {}".format("", svg_in, png_out, size))
-		inkscape_path = subprocess.check_output(["which", "inkscape"]).strip()	
-
-		inkscape_version_cmd = subprocess.check_output([inkscape_path, "--version"])
-		inkscape_version = inkscape_version_cmd.splitlines()[0].split()[1].decode().split(".")[0]
-
 		size = str(size)
 
-		if int(inkscape_version) < 1:
+		if int(self.inkscape_info.version[0]) < 1:
 			args = [
-			inkscape_path,
+			self.inkscape_info.path,
 			"--without-gui",
 			"-f", svg_in,
 			"--export-area-page",
@@ -2532,7 +2544,7 @@ class ChicagoPlus:
 			]
 		else:
 			args = [
-			inkscape_path,
+			self.inkscape_info.path,
 			"--export-area-page",
 			"--export-type=png",
 			"-w", size,
@@ -2543,6 +2555,14 @@ class ChicagoPlus:
 
 
 		subprocess.check_call(args, stderr=subprocess.DEVNULL ,stdout=subprocess.DEVNULL)
+
+	def get_inkscape_info(self):
+		inkscape_path = subprocess.check_output(["which", "inkscape"]).strip().decode()
+
+		inkscape_version_cmd = subprocess.check_output([inkscape_path, "--version"])
+		inkscape_version = inkscape_version_cmd.splitlines()[0].split()[1].decode().split(".")[0:2]
+
+		self.inkscape_info = inkscape_info(inkscape_path, inkscape_version)
 
 	def convert_ico_files(self, icon_filename, output_file_name):
 		self.logger.debug("{:<21} | Converting {} to {}".format("", icon_filename, output_file_name))
@@ -3167,6 +3187,7 @@ class ChicagoPlus:
 '''
 		return logo
 
-
-
-
+class inkscape_info:
+	def __init__(self, path, version):
+		self.path = path
+		self.version = version
