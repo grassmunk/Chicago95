@@ -508,7 +508,7 @@ By default, some systems block bitmap fonts. To enable this and other bitmap fon
     sudo mv /etc/fonts/conf.d/70-no-bitmaps.conf /etc/fonts/conf.d/70-no-bitmaps.conf.bak
 
 If you see "No such file or directory," then bitmap fonts were already enabled on your system.
-Note: on some systems the file may have a different name such as "0-no-bitmaps-except-emoji.conf". In this case use the following command to enable bitmap fonts:
+Note: On some systems the file may have a different name such as "70-no-bitmaps-except-emoji.conf". In this case use the following command to enable bitmap fonts:
 
     sudo mv /etc/fonts/conf.d/70-no-bitmaps-except-emoji.conf /etc/fonts/conf.d/70-no-bitmaps-except-emoji.conf.bak
 
