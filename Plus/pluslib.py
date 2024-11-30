@@ -885,8 +885,8 @@ class ChicagoPlus:
 				os.mkdir(self.folder_names[i])
 
 	def create_icons(self, create_48_document_icon = True):
-		self.logger.info("Creating new icons in {}".format(self.folder_names['icons']))
-		
+		self.logger.info(f"Creating new icons in {self.folder_names['icons']}")
+
 		svg_file_names = {}
 		png_file_names = {
 			 "my_computer"           : "user-home.png",
@@ -897,101 +897,108 @@ class ChicagoPlus:
 			 }
 
 		for i in png_file_names:
-			svg_file_names[i] = png_file_names[i].replace(".png",".svg")
+			svg_file_names[i] = png_file_names[i].replace(".png", ".svg")
 
 		for iconname in self.theme_config['icons']:
+			self.logger.debug(f"Processing icon: {iconname}")
+			self.logger.info(f"Processing icon: {iconname}")
+
 			if not self.theme_config['icons'][iconname]:
-				self.logger.debug("{:<21} | Icon does not exist in this theme".format(iconname))
+				self.logger.warning(f"{iconname:<21} | Icon does not exist in this theme")
 				continue
 
-			icon_sizes = [16,22,24,32,48]
+			icon_sizes = [16, 22, 24, 32, 48]
 
 			filename = self.theme_config['icons'][iconname]['filename']
 			index = self.theme_config['icons'][iconname]['index']
 			path = self.theme_config['icons'][iconname]['path']
 			filetype = self.theme_config['icons'][iconname]['type']
 
+			self.logger.debug(f"Icon details - Name: {filename}, Index: {index}, Path: {path}, Type: {filetype}")
+
 			if not path:
-				self.logger.error("{:<21} | {} does not exist in this theme".format(iconname, filename))
+				self.logger.warning(f"{iconname:<21} | {filename} does not exist in this theme")
 				continue
-				
 
 			if filetype not in ['dll', 'icl', 'ico', 'bmp']:
-				# wut
-				self.logger.error("File type {} not supported: {}".format(filetype, filename))
+				self.logger.warning(f"File type {filetype} not supported: {filename}")
 				continue
-			
-			self.logger.info("{:<21} | {}".format(iconname, filename))
+
+			self.logger.info(f"{iconname:<21} | {filename}")
 
 			if filetype in ['dll', 'icl']:
 				# Get the icons stored in the DLL
 				self.logger.debug("{:<21} | Icons are stored in ICL file {}".format("", filename, path))
 				icon_files = self.extract_icons_from_dll(path)
-
-
 			else:
-				self.logger.debug("{:<21} | Icons are stored in ICO file {} {}".format("", filename,path))
+				self.logger.debug(f"{iconname:<21} | Icons are stored in ICO file {filename} {path}")
 				icon_files = self.extract_ico(path)
 				if icon_files == 'bmp':
 					filetype = 'bmp'
 
 			if not icon_files:
-				self.logger.error("Not a valid icon file: {}".format(self.theme_config['icons'][iconname]))
+				self.logger.error(f"Not a valid icon file: {self.theme_config['icons'][iconname]}")
 				continue
 
 			# If the icons exist at various sizes, write them and convert them instead of scaling the largest one
 			for size in icon_sizes:
-				self.logger.debug("{:<21} | Searching for icon size: {} in {}".format("", size, filename))
+				self.logger.debug(f"{iconname:<21} | Searching for icon size: {size} in {filename}")
 
-				if filetype in ['dll','icl']:
+				if filetype in ['dll', 'icl']:
 					icon_filename, icon_file = self.get_icons_size_dll(icon_files, index, size)
-				elif filetype in 'ico':
+				elif filetype == 'ico':
 					icon_filename, icon_file = self.get_icons_size_ico(icon_files, size)
 				else:
 					icon_filename = False
 				if icon_filename:
 					icon_sizes.remove(size)
-					f = open(self.folder_names['icons']+icon_filename,"wb")
-					f.write(icon_file)
-					f.close()
-					sized_target = self.folder_names['icons']+"places/"+str(size)+"/"+png_file_names[iconname]
-					self.logger.debug("{:<21} | Creating: {} {} {}".format("", size, self.folder_names['icons']+icon_filename, sized_target))
-					self.convert_ico_files(self.folder_names['icons']+icon_filename, sized_target)
+					destination = os.path.join(self.folder_names['icons'], icon_filename)
+					with open(destination, "wb") as f:
+						f.write(icon_file)
+					sized_target = os.path.join(
+						self.folder_names['icons'], "places", str(size), png_file_names[iconname]
+					)
+					self.logger.debug(f"{iconname:<21} | Creating: {size} {destination} {sized_target}")
+					self.convert_ico_files(destination, sized_target)
 
 			# Now that we're done, get the largest file and use that for the rest
 			if filetype in ['dll', 'icl']:
-
 				icon_filename, icon_file = self.get_largest_icon_dll(icon_files, index)
-			elif filetype in 'ico':
+			elif filetype == 'ico':
 				icon_filename, icon_file = self.get_largest_icon_ico(icon_files, size)
-			
 
 			if filetype in ['dll', 'icl', 'ico'] and not isinstance(icon_file, str):
-				f = open(self.folder_names['icons']+icon_filename,"wb")
-				f.write(icon_file)
-				f.close()
+				destination = os.path.join(self.folder_names['icons'], icon_filename)
+				with open(destination, "wb") as f:
+					f.write(icon_file)
 			else:
-				shutil.copyfile(path, self.folder_names['icons']+icon_filename)
-			
-				
-			svg_icon_file = self.convert_icon(self.folder_names['icons'], self.folder_names['icons']+icon_filename)
-			for size in icon_sizes:
-				if size <= 32 and iconname == "documents_ico" and not create_48_document_icon: 
-					continue
-				sized_target = self.folder_names['icons']+"places/"+str(size)+"/"+png_file_names[iconname]
-				self.logger.debug("{:<21} | Creating: {} {} {}".format("", size, svg_icon_file, sized_target))
-				self.convert_to_png_with_inkscape( svg_icon_file, size, sized_target)
+				destination = os.path.join(self.folder_names['icons'], os.path.basename(icon_filename))
+				shutil.copyfile(path, destination)
 
-			scaled_target = self.folder_names['icons']+"places/scalable/"+svg_file_names[iconname]
+			svg_icon_file = self.convert_icon(self.folder_names['icons'], destination)
+			for size in icon_sizes:
+				if size <= 32 and iconname == "documents_ico" and not create_48_document_icon:
+					continue
+				sized_target = os.path.join(
+					self.folder_names['icons'], "places", str(size), png_file_names[iconname]
+				)
+				self.logger.debug(f"{iconname:<21} | Creating: {size} {svg_icon_file} {sized_target}")
+				self.convert_to_png_with_inkscape(svg_icon_file, size, sized_target)
+
+			scaled_target = os.path.join(
+				self.folder_names['icons'], "places", "scalable", svg_file_names[iconname]
+			)
 			shutil.copy(svg_icon_file, scaled_target)
 
+		# Update index.theme
 		self.logger.debug("Updating icon index.theme file")
 		icon_theme_config = configparser.RawConfigParser(interpolation=None)
 		icon_theme_config.optionxform = str
-		icon_theme_config.read(self.folder_names['icons']+"/index.theme")
-		icon_theme_config.set("Icon Theme","Name",self.index_theme_name)
-		with open(self.folder_names['icons']+"/index.theme", 'w') as configfile:
-			icon_theme_config.write(configfile,  space_around_delimiters=False)	
+		icon_theme_config.read(os.path.join(self.folder_names['icons'], "index.theme"))
+		icon_theme_config.set("Icon Theme", "Name", self.index_theme_name)
+		with open(os.path.join(self.folder_names['icons'], "index.theme"), 'w') as configfile:
+			icon_theme_config.write(configfile, space_around_delimiters=False)
+
 
 	def create_cursors(self):
 		self.logger.info("Creating new xcursors in {}".format(self.folder_names['cursors']))
@@ -1799,25 +1806,64 @@ class ChicagoPlus:
 		}
 
 
-		for i in ['gtk-3.0/assets/','gtk-3.24/assets/','gtk-3.0/scrollbar/','gtk-3.24/scrollbar/']:
-			
-			folder = path + i 
+		for i in ['gtk-3.0/assets/', 'gtk-3.24/assets/', 'gtk-3.0/scrollbar/', 'gtk-3.24/scrollbar/']:
+			folder = path + i
 			for asset in os.listdir(folder):
-				if not asset.startswith("status") and not asset.startswith("branding"):
-					self.logger.debug("mogrifying {} ({} {} {} {} {} {})".format(asset, ButtonDKShadow, ButtonLight, ButtonShadow, ButtonHilight, ButtonFace, ButtonText))
+				asset_path = os.path.join(folder, asset)  # Get full path of the asset
 
+				# If the asset is a directory, iterate over its contents
+				if os.path.isdir(asset_path):
+					self.logger.info(f"Entering directory: {asset_path}")
+					for sub_asset in os.listdir(asset_path):
+						sub_asset_path = os.path.join(asset_path, sub_asset)
+						if os.path.isfile(sub_asset_path):  # Ensure it's a valid file
+							self.logger.debug(
+								f"mogrifying {sub_asset} in {asset_path} "
+								f"({ButtonDKShadow}, {ButtonLight}, {ButtonShadow}, "
+								f"{ButtonHilight}, {ButtonFace}, {ButtonText})"
+							)
+							args = [
+								mogrify_path,
+								'-fill', ButtonDKShadow, '-opaque', originals['ButtonDKShadow'],
+								'-fill', ButtonLight, '-opaque', originals['ButtonLight'],
+								'-fill', ButtonShadow, '-opaque', originals['ButtonShadow'],
+								'-fill', ButtonHilight, '-opaque', originals['ButtonHilight'],
+								'-fill', ButtonFace, '-opaque', originals['ButtonFace'],
+								'-fill', ButtonText, '-opaque', originals['ButtonText'],
+								'-quiet',
+								sub_asset_path
+							]
+
+							try:
+								subprocess.check_call(args)
+							except subprocess.CalledProcessError as e:
+								self.logger.error(f"Failed to process file {sub_asset_path}: {e}")
+						else:
+							self.logger.warning(f"Skipping non-file in directory: {sub_asset_path}")
+					continue  # Skip further processing of the directory itself
+
+				# Process regular files in the current folder
+				if not asset.startswith("status") and not asset.startswith("branding"):
+					self.logger.debug(
+						f"mogrifying {asset} ({ButtonDKShadow}, {ButtonLight}, {ButtonShadow}, "
+						f"{ButtonHilight}, {ButtonFace}, {ButtonText})"
+					)
 					args = [
-					mogrify_path,
-					'-fill', ButtonDKShadow, '-opaque', originals['ButtonDKShadow'],
-					'-fill', ButtonLight, '-opaque', originals['ButtonLight'],
-					'-fill', ButtonShadow, '-opaque', originals['ButtonShadow'],
-					'-fill', ButtonHilight, '-opaque', originals['ButtonHilight'],
-					'-fill', ButtonFace, '-opaque', originals['ButtonFace'],
-					'-fill', ButtonText, '-opaque', originals['ButtonText'],
-					'-quiet',
-					folder+asset
+						mogrify_path,
+						'-fill', ButtonDKShadow, '-opaque', originals['ButtonDKShadow'],
+						'-fill', ButtonLight, '-opaque', originals['ButtonLight'],
+						'-fill', ButtonShadow, '-opaque', originals['ButtonShadow'],
+						'-fill', ButtonHilight, '-opaque', originals['ButtonHilight'],
+						'-fill', ButtonFace, '-opaque', originals['ButtonFace'],
+						'-fill', ButtonText, '-opaque', originals['ButtonText'],
+						'-quiet',
+						asset_path
 					]
-					subprocess.check_call(args)
+
+					try:
+						subprocess.check_call(args)
+					except subprocess.CalledProcessError as e:
+						self.logger.error(f"Failed to process file {asset_path}: {e}")
 			
 
 #### Icon/Cursor Functions
@@ -2943,33 +2989,91 @@ class ChicagoPlus:
 		shutil.rmtree(install_theme_dir, ignore_errors=True)
 		shutil.copytree(self.folder_names['sounds'],install_theme_dir,symlinks=True,ignore_dangling_symlinks=True)
 
-
-	def install_wallpaper(self, os_wallpaper_dir=str(Path.home())+"/Pictures/"):
-		self.logger.info("Installing wallpaper")
+	def install_wallpaper(self, os_wallpaper_dir=str(Path.home()) + "/Pictures/"):
+		"""
+		Install the wallpaper by copying it to the designated directory and applying it
+		to all monitors and workspaces dynamically.
+		"""
+		self.logger.info("Installing and applying wallpaper.")
 		
+		# Ensure the destination directory exists
 		if not os.path.exists(os_wallpaper_dir):
-			self.logger.error("Theme install directory does not exists: {}".format(os_wallpaper_dir))
+			self.logger.error(f"Theme install directory does not exist: {os_wallpaper_dir}")
 			return
 
-		if (self.theme_config['wallpaper']['theme_wallpaper'] and 
-		    self.theme_config['wallpaper']['theme_wallpaper']['wallpaper'] and
-		    self.theme_config['wallpaper']['theme_wallpaper']['path']):
-			self.logger.debug("Copying {} to {}".format(self.theme_config['wallpaper']['theme_wallpaper']['path'], os_wallpaper_dir + self.theme_config['wallpaper']['theme_wallpaper']['new_filename']))
-			try:			
-				shutil.copy(self.theme_config['wallpaper']['theme_wallpaper']['path'], os_wallpaper_dir + self.theme_config['wallpaper']['theme_wallpaper']['new_filename'])
-			except:
-				self.logger.error("Could not install wallpaper to {}".format(os_wallpaper_dir))
+		# Install the main wallpaper
+		if (self.theme_config['wallpaper']['theme_wallpaper'] and
+			self.theme_config['wallpaper']['theme_wallpaper']['wallpaper'] and
+			self.theme_config['wallpaper']['theme_wallpaper']['path']):
+			
+			wallpaper_path = os.path.join(os_wallpaper_dir, self.theme_config['wallpaper']['theme_wallpaper']['new_filename'])
+			self.logger.debug(f"Copying wallpaper from {self.theme_config['wallpaper']['theme_wallpaper']['path']} to {wallpaper_path}")
+			try:
+				shutil.copy(self.theme_config['wallpaper']['theme_wallpaper']['path'], wallpaper_path)
+				self.logger.info(f"Wallpaper successfully installed to {wallpaper_path}")
+			except Exception as e:
+				self.logger.error(f"Could not install wallpaper to {wallpaper_path}: {e}")
+				return
 
+			# Apply the wallpaper to all monitors and workspaces
+			self.apply_wallpaper_to_all_monitors(wallpaper_path, self.theme_config['wallpaper']['theme_wallpaper']['wallpaperstyle'])
+
+		# Install additional wallpapers
 		if self.theme_config['wallpaper']['extra_wallpapers']:
 			for wallpaper in self.theme_config['wallpaper']['extra_wallpapers']:
-				self.logger.debug("Copying {} to {}".format(wallpaper, os_wallpaper_dir))
-				try:			
-					shutil.copy(wallpaper, os_wallpaper_dir)
-				except:
-					self.logger.error("Could not install wallpaper to {}".format(wallpaper))
-					raise
+				dest = os.path.join(os_wallpaper_dir, os.path.basename(wallpaper))
+				self.logger.debug(f"Copying extra wallpaper from {wallpaper} to {dest}")
+				try:
+					shutil.copy(wallpaper, dest)
+					self.logger.info(f"Extra wallpaper successfully installed to {dest}")
+				except Exception as e:
+					self.logger.error(f"Could not install extra wallpaper to {dest}: {e}")
+
+	def apply_wallpaper_to_all_monitors(self, wallpaper_path, wallpaper_style):
+		"""
+		Apply the wallpaper to all monitors and workspaces dynamically.
+		
+		Args:
+			wallpaper_path (str): Path to the wallpaper image.
+			wallpaper_style (int): Wallpaper style (e.g., 0 = centered, 2 = stretched).
+		"""
+		channel = "xfce4-desktop"
+		self.logger.info(f"Applying wallpaper '{wallpaper_path}' to all monitors and workspaces.")
+		
+		try:
+			xfconf_query_path = subprocess.check_output(["which", "xfconf-query"]).strip()
+			properties = subprocess.check_output(
+				[xfconf_query_path, "--channel", channel, "--list"],
+				universal_newlines=True
+			).splitlines()
+
+			# Filter relevant properties for workspaces and monitors
+			for prop in properties:
+				if "workspace" in prop and "last-image" in prop:
+					workspace_base = prop.rsplit("/", 1)[0]  # Get base workspace path
+					last_image_property = f"{workspace_base}/last-image"
+					image_style_property = f"{workspace_base}/image-style"
+
+					# Set wallpaper
+					self.logger.debug(f"Setting wallpaper for {last_image_property} to {wallpaper_path}")
+					subprocess.check_call(
+						[xfconf_query_path, "--channel", channel, "--property", last_image_property, "--set", wallpaper_path]
+					)
+
+					# Set wallpaper style
+					self.logger.debug(f"Setting image style for {image_style_property} to {wallpaper_style}")
+					subprocess.check_call(
+						[xfconf_query_path, "--channel", channel, "--property", image_style_property, "--set", str(wallpaper_style)]
+					)
+					
+			self.logger.info("Wallpaper applied successfully.")
+
+		except subprocess.CalledProcessError as e:
+			self.logger.error(f"Failed to set wallpaper properties: {e}")
+		except Exception as e:
+			self.logger.error(f"Unexpected error while applying wallpaper: {e}")
 				
-## Enable the theme in XFCE
+	## Enable the theme in XFCE
 	def enable_theme(self, cursors=True, icons=True, wallpaper=True, sounds=True, colors=True, fonts=True, screensaver=True):
 
 		self.logger.info("Enabling {}".format(self.theme_name))
@@ -3013,8 +3117,6 @@ class ChicagoPlus:
 						self.xfconf_query('xfce4-desktop', '/backdrop/screen0/monitor0/workspace0/image-style', "4")
 			else:
 				self.logger.debug("Wallpaper failed to install")
-			
-				
 				
 		if sounds:
 			self.logger.info("Enabling New Sounds")
@@ -3025,6 +3127,8 @@ class ChicagoPlus:
 			self.xfconf_query('xsettings', '/Net/ThemeName', self.theme_name+"_Theme")
 		if screensaver:
 			self.logger.info("Screensavers require manual install. See the script in {}".format(self.folder_names['screensaver']))
+
+		self.logger.info("Theme installation completed successfully!")
 	
 
 	def enable_fonts(self):
@@ -3147,19 +3251,47 @@ class ChicagoPlus:
 							self.xfconf_query('xfwm4', '/general/title_font', font + ' 8')
 
 ## Enable Helper functions
-	def xfconf_query(self, channel, prop, new_value):
+	def xfconf_query(self, channel, prop_base, new_value):
+		"""
+		Dynamically sets xfconf properties for all monitors and workspaces.
+		
+		:param channel: The xfconf channel (e.g., "xfce4-desktop").
+		:param prop_base: Base property path (e.g., "/backdrop/screen0").
+		:param new_value: The new value to set for the property.
+		"""
 		try:
 			xfconf_query_path = subprocess.check_output(["which", "xfconf-query"]).strip()
-			self.logger.debug("Changing xfconf setting {}/{} to {}".format(channel, prop, new_value))
-			args = [
-				xfconf_query_path,
-				"--channel", channel,
-				"--property", prop,
-				"--set", new_value
-				]
-			subprocess.check_call(args, stdout=subprocess.DEVNULL)
+			self.logger.debug(f"Changing xfconf setting {channel}/{prop_base} to {new_value}")
+
+			# Retrieve all properties in the channel
+			props = subprocess.check_output(
+				[xfconf_query_path, "--channel", channel, "--list"],
+				universal_newlines=True
+			).splitlines()
+
+			# Filter relevant properties for monitors and workspaces
+			for prop in props:
+				if prop.startswith(prop_base):
+					self.logger.debug(f"Found property: {prop}")
+
+					# Update the property value
+					args = [
+						xfconf_query_path,
+						"--channel", channel,
+						"--property", prop,
+						"--set", new_value
+					]
+					try:
+						subprocess.check_call(args, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+						self.logger.info(f"Set {prop} to {new_value}")
+					except subprocess.CalledProcessError as e:
+						self.logger.error(f"Failed to set {prop}: {e}")
+
 		except subprocess.CalledProcessError:
-			self.logger.info("xfconf not installed, enable theme manually")
+			self.logger.error("xfconf-query not installed or not available. Enable theme manually.")
+		except Exception as e:
+			self.logger.error(f"Error setting xfconf property: {e}")
+
 
 	def get_font_list(self):
 		fc_list = subprocess.check_output(["which", "fc-list"]).strip()
