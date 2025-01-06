@@ -40,17 +40,8 @@ I was unhappy with the various XFCE/GTK2/GTK3 Windows 95 based themes and decide
 
 ## Installation
 
-### Packages:
-
-|Distro|Package Name/Link|
-|:----:|:----:|
-| Debian 9 | [obs-repo] |
-| Debian 10 | [obs-repo] |
-| Debian Testing/Unstable | [obs-repo] |
-| Ubuntu 18.04 - 20.04 | [obs-repo] |
-
-### Manual installation and setup instructions:
-[Click here](INSTALL.md) for install steps.
+### Installation and setup instructions:
+There are multiple ways to set up Chicago95, including an automated installer. [Click here](INSTALL.md) for install steps.
 
 ### Install a Microsoft Windows Plus! theme:
 [Click here](Plus/README.MD) for installing custom themes.
