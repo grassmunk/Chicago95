@@ -508,6 +508,9 @@ By default, some systems block bitmap fonts. To enable this and other bitmap fon
     sudo mv /etc/fonts/conf.d/70-no-bitmaps.conf /etc/fonts/conf.d/70-no-bitmaps.conf.bak
 
 If you see "No such file or directory," then bitmap fonts were already enabled on your system.
+Note: On some systems the file may have a different name such as "70-no-bitmaps-except-emoji.conf". In this case use the following command to enable bitmap fonts:
+
+    sudo mv /etc/fonts/conf.d/70-no-bitmaps-except-emoji.conf /etc/fonts/conf.d/70-no-bitmaps-except-emoji.conf.bak
 
 The name of the font is listed as "Helvetica" and so depending on distribution, it might conflict with Adobe's Helvetica font. Specifically, Debian lists both as Helvetica (Arch lists Adobe's font as "Adobe Helvetica" so there is no conflict). If, after installing this font, some programs show a different Helvetica font, the other font can be safely removed. To fix this for programs such as Firefox which still accept PCF and other legacy font formats, run the following command:
 
