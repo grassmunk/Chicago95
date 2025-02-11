@@ -135,8 +135,8 @@ Rectangle {
                             color: "#ffffff"
                             font.bold: true
                             text: "Enter Network Password"
-                            font.family: "Sans"
-                            font.pixelSize: 12
+                            font.family: "Helvetica"
+                            font.pixelSize: 8
                         }
                         Image {
                             Layout.column: 1
@@ -198,8 +198,8 @@ Rectangle {
                             id: message_text
                             color: "#000000"
                             text: "Enter your network password for Microsoft Networking."
-                            font.family: "Sans"
-                            font.pixelSize: 12
+                            font.family: "Helvetica"
+                            font.pixelSize: 8
                         }
                         GridLayout {
                             Layout.topMargin: 15
@@ -209,8 +209,8 @@ Rectangle {
                             Label {
                                 Layout.alignment: Qt.AlignRight
                                 text: textConstants.userName
-                                font.family: "Sans"
-                                font.pixelSize: 12
+                                font.family: "Helvetica"
+                                font.pixelSize: 8
                                 color: "#000000"
                             }
                             
@@ -219,8 +219,8 @@ Rectangle {
                                 text: userModel.lastUser
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: font.pixelSize + 15
-                                font.family: "Sans"
-                                font.pixelSize: 12
+                                font.family: "Helvetica"
+                                font.pixelSize: 8
                                 color: "#000000"
 
                                 background: BorderImage {
@@ -236,8 +236,8 @@ Rectangle {
                             Label {
                                 Layout.alignment: Qt.AlignRight
                                 text: textConstants.password
-                                font.family: "Sans"
-                                font.pixelSize: 12
+                                font.family: "Helvetica"
+                                font.pixelSize: 8
                                 color: "#000000"
                             }
                             
@@ -246,8 +246,8 @@ Rectangle {
                                 echoMode: TextInput.Password
                                 Layout.fillWidth: true
                                 Layout.preferredHeight: font.pixelSize + 15
-                                font.family: "Sans"
-                                font.pixelSize: 12
+                                font.family: "Helvetica"
+                                font.pixelSize: 8
                                 color: "#000000"
                                 background: BorderImage {
                                     border.left: 2
@@ -299,8 +299,8 @@ Rectangle {
                                 Text {
                                 color: "#000000"
                                 text: "OK"
-                                font.family: "Sans"
-                                font.pixelSize: 12
+                                font.family: "Helvetica"
+                                font.pixelSize: 8
                                 opacity: ok_button.enabled ? 1 : 0.5
                                 }
                             }
@@ -335,9 +335,9 @@ Rectangle {
                                 Text {
                                     color: "#000000"
                                     text: "Cancel"
-                                    font.family: "Sans"
+                                    font.family: "Helvetica"
                                     opacity: shutdown_button.enabled ? 1 : 0.5
-                                    font.pixelSize: 12
+                                    font.pixelSize: 8
                                 }
                             }
                             onClicked: sddm.powerOff()
@@ -360,8 +360,8 @@ Rectangle {
                                 Layout.preferredWidth:50
                                 elide: Label.ElideRight
 
-                                font.family: "Liberation Sans"
-                                font.pixelSize: 12
+                                font.family: "Helvetica"
+                                font.pixelSize: 8
                                 color: "#000000"
                             }
                             Image {
