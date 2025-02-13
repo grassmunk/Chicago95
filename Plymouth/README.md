@@ -4,6 +4,8 @@ The Windows95 boot theme is based on the template provided by [http://brej.org/b
 
 It is meant to simulate the Windows 95 boot screen and shutdown screen.
 
+If you wish to use a font other than Helvetica as provided by Cronyx Cyrillic, you must change all occurences of "Helvetica Bold 18" in Chicago95.script to your preferred font.
+
 The RetroTux boot theme is based on the xubuntu-logo Plymouth theme.
 
 #### Install instructions for XUbuntu
