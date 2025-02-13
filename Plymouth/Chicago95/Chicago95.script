@@ -106,7 +106,7 @@ fun display_password_callback (prompt, bullets)
       dialog_setup();
     else
       dialog_opacity(1);
-    dialog.prompt_sprite.SetImage(Image.Text(prompt, 1, 0.5, 0, 1, "Mono Bold 14"));
+    dialog.prompt_sprite.SetImage(Image.Text(prompt, 1, 0.5, 0, 1, "Helvetica Bold 18"));
     dialog.prompt_sprite.SetPosition(((screen_width) * 0.3), (screen_height * 0.9), 2);
     for (index = 0; dialog.bullet[index] || index < 19; index++)
       {
@@ -171,7 +171,7 @@ message_sprite.SetPosition((screen_width * 0.3), (screen_height * 0.9), 2);
 
 fun message_callback (text)
 {
-  my_image = Image.Text(text, 1, 0.5, 0, 1, "Mono Bold 14");
+  my_image = Image.Text(text, 1, 0.5, 0, 1, "Helvetica Bold 18");
   message_sprite.SetImage(my_image);
 }
 
