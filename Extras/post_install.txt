@@ -7,7 +7,7 @@ You're not done yet! Not everything could be automated. Here's what left:
 
 If you run a Debian based operating system, you'll have to disable the bitmap font block. From a terminal, run the following:
 
-$ mv /etc/fonts/conf.d/70-no-bitmaps.conf /etc/fonts/conf.d/70-no-bitmaps.conf.bak
+$ mv /etc/fonts/conf.d/70-no-bitmaps-except-emoji.conf /etc/fonts/conf.d/70-no-bitmaps-except-emoji.conf.bak
 
 - Open the XFCE settings manager > Appearance
 - Click Fonts tab and select Helvetica Regular. Set to size 8.
