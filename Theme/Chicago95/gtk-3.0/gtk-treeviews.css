@@ -60,3 +60,9 @@ treeview.view image {
 treeview.view.separator {
   min-height: 8px;
   color: @border_dark; }
+
+/* This adds expand symbols to treeview */
+treeview.view.expander { -gtk-icon-source: -gtk-icontheme("treeview-closed"); }
+treeview.view.expander:selected { -gtk-icon-source: -gtk-icontheme("treeview-closed-inverted"); }
+treeview.view.expander:checked { -gtk-icon-source: -gtk-icontheme("treeview-opened"); }
+treeview.view.expander:checked:selected { -gtk-icon-source: -gtk-icontheme("treeview-opened-inverted"); }
