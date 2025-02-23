@@ -70,7 +70,7 @@ WARNING: This hack assumes your systray and plugin icons are laid out in the fol
 systray to the left, stylable plugin icons in the middle, clock plugin on the right. 
 You'll have to make appropriate modifications to "border-right", "border-left" and "box-shadow" properties of certain items if it's not the case. 
 Also, just like the tasklist, some of the plugin names change depending on individual panel layout. This hack supports up to 24 different positions for those plugins. Again, if it still doesn't work for you, you can look up these plugins' IDs in xfce4-panel settings. 
-Unfortunately, it wasn't possible to add border to some plugins - mostly because they either already had solid borders around them or theydidn't fit in the borders. You are going to have to move them outside the border.
+Unfortunately, it wasn't possible to add border to some plugins - mostly because they either already had solid borders around them or they didn't fit in the borders. They will have to be moved outside the border.
 */
 
 #systray-1 > box, #systray-2 > box, #systray-3 > box, #systray-4 > box, #systray-5 > box, #systray-6 > box, #systray-7 > box, #systray-8 > box, #systray-9 > box, #systray-10 > box, #systray-11 > box, #systray-12 > box, #systray-13 > box, #systray-14 >box, #systray-15 > box, #systray-16 > box, #systray-17 > box, #systray-18 > box, #systray-19 > box, #systray-20 > box, #systray-21 >box, #systray-22 > box, #systray-23 > box, #systray-24 > box {
