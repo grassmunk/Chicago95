@@ -81,6 +81,13 @@ Unfortunately, it wasn't possible to add border to some plugins - mostly because
 #xkb-1 button, #xkb-2 button, #xkb-3 button, #xkb-3 button, #xkb-4 button, #xkb-5 button, #xkb-6 button, #xkb-7 button, #xkb-8 button, #xkb-9 button, #xkb-10 button, #xkb-12 button, #xkb-13 button, #xkb-14 button, #xkb-15 button, #xkb-16 button, #xkb-17 button, #xkb-18 button, #xkb-19 button, #xkb-20 button, #xkb-21 button, #xkb-22 button, #xkb-23 button, #xkb-24 button {
    box-shadow: 0px 3px @border_shade inset, 0 2px @bg_color inset, 0 -1px @border_bright inset, 0 -3px @border_bright inset, 0 -2px @bg_color inset;
    border-right: none;
+   margin-left: 1px;
+   color: white;
+   outline-width: 0px;
+   background: linear-gradient(180deg, @bg_color 18%, @selected_bg_color 18%, @selected_bg_color 82%, @bg_color 82%);
+   background-size:16px;
+   background-position: 55% 50%;
+   background-repeat: no-repeat;
 }
 
 #xfce4-notification-plugin, #xfce4-notification-plugin:hover, #xfce4-notification-plugin:active {
