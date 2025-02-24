@@ -172,7 +172,7 @@ Unfortunately, it wasn't possible to add border to some plugins - mostly because
 }
 
 
-#sn-button{
+#sn-button, #sn-button:hover, #sn-button:active{
    box-shadow: 0px 3px @border_shade inset, 0 2px @bg_color inset, 0 -1px @border_bright inset, 0 -3px @border_bright inset, 0 -2px @bg_color inset;
    border-right: none;
 }
