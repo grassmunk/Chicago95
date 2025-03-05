@@ -1,0 +1,185 @@
+/* Hack to give the task bar a pseudo handle
+Remove code after this comment to disable the fake handle image.
+Also, tasklist name changes depending on individual panel layout. This hack supports up to 24 different positions. 
+If it still doesn't work for you, you can look up your tasklist's ID in xfce4-panel settings.  
+*/
+
+#tasklist > box, #tasklist-1 > box, #tasklist-2 > box, #tasklist-3 > box, 
+#tasklist-4 > box, #tasklist-5 > box, #tasklist-6 > box, #tasklist-7 > box, 
+#tasklist-8 > box, #tasklist-9 > box, #tasklist-10 > box, #tasklist-11 > box, 
+#tasklist-12 > box, #tasklist-13 > box, #tasklist-14 > box, #tasklist-15 > box, 
+#tasklist-16 > box, #tasklist-17 > box, #tasklist-18 > box, #tasklist-19 > box,
+#tasklist-20 > box, #tasklist-21 > box, #tasklist-22 > box, #tasklist-23 > box, 
+#tasklist-24 > box {
+   border-left: 11px solid;
+   border-image: url("../assets/panel-handle.png");
+   border-image-slice: 2 2 2 11;
+}
+
+/* Hack to give the first launcher icon a pseudo handle */
+
+#XfcePanelWindow  widget > widget:nth-child(2) box #launcher-arrow {
+   border-left: 11px solid;
+   border-image: url("../assets/panel-handle.png");
+   border-image-slice: 2 2 2 11;
+}
+
+/* Hack to give launcher icons borders on hover and on click */
+
+#XfcePanelWindow  widget > widget:nth-child(2) box #launcher-arrow image {
+   margin-left: 5px;
+   margin-right: 5px;
+}
+
+#XfcePanelWindow  widget > widget:nth-child(2) box #launcher-arrow:hover image {
+   margin-left: 5px;
+   margin-right: 5px;
+}
+
+#XfcePanelWindow  widget > widget:nth-child(2) box #launcher-arrow:active image {
+   margin-left: 5px;
+   margin-right: 5px;
+}
+
+#XfcePanelWindow #launcher-arrow:hover {
+   box-shadow: 1px 1px @border_bright inset, -1px -1px @border_shade inset;
+   background-image: none;
+   border-top: 2px transparent solid;
+   border-bottom: 2px transparent solid;  
+}
+
+#XfcePanelWindow #launcher-arrow:active {
+   box-shadow: 1px 1px @border_shade inset, -1px -1px @border_bright inset;
+   background-image: none;
+   border-top: 2px transparent solid;
+   border-bottom: 2px transparent solid; 
+}
+
+/* Hack to hide the mic icon from pulseaudio plugin */
+
+#pulseaudio-button > box > .recording-indicator {
+   -gtk-icon-transform: scale(0);
+   margin-right:-100px;
+}
+   #pulseaudio-button > box > image:nth-child(2){
+   margin-left:-8px;
+}
+
+/* Hack to add border to systray, all of the internal and some of the external plugins
+WARNING: This hack assumes your systray and plugin icons are laid out in the following order: 
+systray to the left, stylable plugin icons in the middle, clock plugin on the right. 
+You'll have to make appropriate modifications to "border-right", "border-left" and "box-shadow" properties of certain items if it's not the case. 
+Also, just like the tasklist, some of the plugin names change depending on individual panel layout. This hack supports up to 24 different positions for those plugins. Again, if it still doesn't work for you, you can look up these plugins' IDs in xfce4-panel settings. 
+Unfortunately, it wasn't possible to add border to some plugins - mostly because they either already had solid borders around them or they didn't fit in the borders. They will have to be moved outside the border.
+*/
+
+#systray-1 > box, #systray-2 > box, #systray-3 > box, #systray-4 > box, #systray-5 > box, #systray-6 > box, #systray-7 > box, #systray-8 > box, #systray-9 > box, #systray-10 > box, #systray-11 > box, #systray-12 > box, #systray-13 > box, #systray-14 >box, #systray-15 > box, #systray-16 > box, #systray-17 > box, #systray-18 > box, #systray-19 > box, #systray-20 > box, #systray-21 >box, #systray-22 > box, #systray-23 > box, #systray-24 > box {
+   box-shadow: 1px 3px @border_shade inset, 0 2px @bg_color inset, 0 -1px @border_bright inset, 0 -3px @border_bright inset, 0 -2px @bg_color inset;
+   border-right: none;
+}
+
+#xkb-1 button, #xkb-2 button, #xkb-3 button, #xkb-3 button, #xkb-4 button, #xkb-5 button, #xkb-6 button, #xkb-7 button, #xkb-8 button, #xkb-9 button, #xkb-10 button, #xkb-12 button, #xkb-13 button, #xkb-14 button, #xkb-15 button, #xkb-16 button, #xkb-17 button, #xkb-18 button, #xkb-19 button, #xkb-20 button, #xkb-21 button, #xkb-22 button, #xkb-23 button, #xkb-24 button {
+   box-shadow: 0px 3px @border_shade inset, 0 2px @bg_color inset, 0 -1px @border_bright inset, 0 -3px @border_bright inset, 0 -2px @bg_color inset;
+   border-right: none;
+   margin-left: -1px;
+   color: white;
+   outline-width: 0px;
+   background: linear-gradient(180deg, @bg_color 18%, @selected_bg_color 18%, @selected_bg_color 82%, @bg_color 82%);
+   background-size:16px;
+   background-position: 55% 50%;
+   background-repeat: no-repeat;
+}
+
+#xfce4-notification-plugin, #xfce4-notification-plugin:hover, #xfce4-notification-plugin:active {
+   box-shadow: 0px 3px @border_shade inset, 0 2px @bg_color inset, 0 -1px @border_bright inset, 0 -3px @border_bright inset, 0 -2px @bg_color inset;
+   border-right: none;
+   padding-top:14px;
+}
+
+#pulseaudio-button > box{
+   margin-top:-1px;
+   margin-bottom:-1px;
+   margin-left:-1px;
+   margin-right:-1px;
+   box-shadow: 0px 3px @border_shade inset, 0 2px @bg_color inset, 0 -1px @border_bright inset, 0 -3px @border_bright inset, 0 -2px @bg_color inset;
+   border-right: none;
+}
+
+#clock-button {
+   border-left: none;
+   box-shadow: inset 0px 1px @border_shade, inset -1px -1px @border_bright;
+}
+
+#xfce4-power-manager-plugin box{
+   box-shadow: 0px 3px @border_shade inset, 0 2px @bg_color inset, 0 -1px @border_bright inset, 0 -3px @border_bright inset, 0 -2px @bg_color inset;
+   border-right: none;
+}
+#xfce4-power-manager-plugin{margin-left:-1px; margin-right:-1px;}
+
+
+#xfce_sensors box {
+   padding-right:0px;
+   box-shadow: 0px 4px @border_shade inset, 0 3px @bg_color inset, 0 -4px @border_bright inset, 0 -3px @border_bright inset, 0 -3px @bg_color inset;
+   border-right: none;
+}
+
+
+#xfce4-clipman-plugin{
+   box-shadow: 0px 4px @border_shade inset, 0 3px @bg_color inset, 0 -4px @border_bright inset, 0 -3px @border_bright inset, 0 -3px @bg_color inset;
+   border-right: none;
+}
+
+#thunar-tpa-1 button, #thunar-tpa-2 button, #thunar-tpa-3 button, #thunar-tpa-4 button, #thunar-tpa-5 button, #thunar-tpa-6 button, #thunar-tpa-7 button, #thunar-tpa-8 button, #thunar-tpa-8 button, #thunar-tpa-9 button, #thunar-tpa-10 button, #thunar-tpa-11 button, #thunar-tpa-12 button, #thunar-tpa-13 button, #thunar-tpa-14 button, #thunar-tpa-15 button, #thunar-tpa-16 button, #thunar-tpa-17 button, #thunar-tpa-18 button, #thunar-tpa-19 button, #thunar-tpa-20 button, #thunar-tpa-21 button, #thunar-tpa-22 button, #thunar-tpa-23 button, #thunar-tpa-24 button {
+   box-shadow: 0px 4px @border_shade inset, 0 3px @bg_color inset, 0 -4px @border_bright inset, 0 -3px @border_bright inset, 0 -3px @bg_color inset;
+   border-right: none;
+}
+
+
+#xfce4-verve-plugin-1 box, #xfce4-verve-plugin-2 box, #xfce4-verve-plugin-3 box, #xfce4-verve-plugin-4 box, #xfce4-verve-plugin-5 box, #xfce4-verve-plugin-6 box, #xfce4-verve-plugin-7 box, #xfce4-verve-plugin-8 box, #xfce4-verve-plugin-9 box, #xfce4-verve-plugin-10 box, #xfce4-verve-plugin-11 box, #xfce4-verve-plugin-13 box, #xfce4-verve-plugin-14 box, #xfce4-verve-plugin-15 box, #xfce4-verve-plugin-16 box, #xfce4-verve-plugin-17 box, #xfce4-verve-plugin-18 box, #xfce4-verve-plugin-19 box, #xfce4-verve-plugin-20 box, #xfce4-verve-plugin-21 box, #xfce4-verve-plugin-22 box, #xfce4-verve-plugin-23 box, #xfce4-verve-plugin-24 box{
+   box-shadow: 0px 4px @border_shade inset, 0 3px @bg_color inset, 0 -4px @border_bright inset, 0 -3px @border_bright inset, 0 -3px @bg_color inset;
+   border-right: none;
+}
+
+
+#xfce-panel-button{
+   box-shadow: 0px 4px @border_shade inset, 0 3px @bg_color inset, 0 -4px @border_bright inset, 0 -3px @border_bright inset, 0 -3px @bg_color inset;
+   border-right: none;
+}
+
+
+#genmon-1 box, #genmon-2 box, #genmon-3 box, #genmon-4 box, #genmon-5 box, #genmon-6 box, #genmon-7 box, #genmon-8 box, #genmon-9 box, #genmon-10 box, #genmon-11 box, #genmon-12 box, #genmon-13 box, #genmon-14 box, #genmon-15 box, #genmon-16 box, #genmon-17 box, #genmon-18 box, #genmon-19 box, #genmon-20 box, #genmon-21 box, #genmon-22 box, #genmon-23 box, #genmon-24 box{
+   box-shadow: 0px 4px @border_shade inset, 0 3px @bg_color inset, 0 -4px @border_bright inset, 0 -3px @border_bright inset, 0 -3px @bg_color inset;
+   border-right: none;
+}
+
+
+#xfce-panel-toggle-button box {
+   box-shadow: 0px 3px @border_shade inset, 0 2px @bg_color inset, 0 -1px @border_bright inset, 0 -3px @border_bright inset, 0 -2px @bg_color inset;
+   border-right: none;
+}
+#xfce-panel-toggle-button{margin-left:-1px;margin-right:-1px;}
+
+
+
+#windowmenu-button{
+   box-shadow: 0px 4px @border_shade inset, 0 3px @bg_color inset, 0 -4px @border_bright inset, 0 -3px @border_bright inset, 0 -3px @bg_color inset;
+   border-right: none;
+}
+
+
+#directorymenu-button{
+   box-shadow: 0px 4px @border_shade inset, 0 3px @bg_color inset, 0 -4px @border_bright inset, 0 -3px @border_bright inset, 0 -3px @bg_color inset;
+   border-right: none;
+}
+
+
+#actions-button{
+   box-shadow: 0px 4px @border_shade inset, 0 3px @bg_color inset, 0 -4px @border_bright inset, 0 -3px @border_bright inset, 0 -3px @bg_color inset;
+   border-right: none;
+}
+
+
+#sn-button, #sn-button:hover, #sn-button:active{
+   box-shadow: 0px 3px @border_shade inset, 0 2px @bg_color inset, 0 -1px @border_bright inset, 0 -3px @border_bright inset, 0 -2px @bg_color inset;
+   border-right: none;
+}
