@@ -382,7 +382,11 @@ class MakePreview:
 		#print("Font: {} NOT FOUND".format(fontname))
 		
 		return self.get_font("Noto-Sans-Regular")
-
+	
+	def get_font_y_offset(self, draw, text, font):
+    # Get the top offset from the bounding box
+		left, top, right, bottom = draw.textbbox((0, 0), text, font=font)
+		return top
 
 	def preview_gen(self):
 		print("[MakePreview] Preview...", end=' ', flush=True)
@@ -395,8 +399,11 @@ class MakePreview:
 		msgboxtitle = Image.new('RGB', (173-6, self.iCaptionHeight), color = colors['activetitle']) 
 		draw = ImageDraw.Draw(msgboxtitle)
 		myFont = ImageFont.truetype(self.lfcaptionfont, self.caption_pt)
-		w, h = draw.textsize("Message Box", font=myFont)
-		font_y_offset = myFont.getoffset("Message Box")[1]
+		#w, h = draw.textsize("Message Box", font=myFont)
+		left, top, right, bottom = draw.textbbox((0, 0), "Message Box", font=myFont)
+		w, h = right - left, bottom - top
+		#font_y_offset = myFont.getoffset("Message Box")[1]
+		font_y_offset = top
 		draw.fontmode = "1"
 		draw.text((2,int(((self.iCaptionHeight-h)-font_y_offset)/2)), "Message Box", fill=colors['titletext'], font=myFont)
 
@@ -405,17 +412,24 @@ class MakePreview:
 		inactivetitle = Image.new('RGB', (inactive_window.size[0]-8, self.iCaptionHeight), color = colors['inactivetitle']) 
 		draw = ImageDraw.Draw(inactivetitle)
 		myFont = ImageFont.truetype(self.lfcaptionfont, self.caption_pt)
-		w, h = draw.textsize("Inactive Window", font=myFont)
-		font_y_offset = myFont.getoffset("Inactive Window")[1]
+		#w, h = draw.textsize("Inactive Window", font=myFont)
+		left, top, right, bottom = draw.textbbox((0, 0), "Inactive Window", font=myFont)
+		w, h = right - left, bottom - top
+
+		font_y_offset = top
 		draw.fontmode = "1"
 		draw.text((2,int((self.iCaptionHeight-h)-font_y_offset)/2), "Inactive Window", fill=colors['inactivetitletext'], font=myFont)
+		
 
 		#Now we create the Active window title in multiple steps, starting with the title
 		activetitle = Image.new('RGB', (217, self.iCaptionHeight), color = colors['activetitle']) 
 		draw = ImageDraw.Draw(activetitle)
 		myFont = ImageFont.truetype(self.lfcaptionfont, self.caption_pt)
-		font_y_offset = myFont.getoffset("Active Window")[1]
-		w, h = draw.textsize("Active Window", font=myFont)
+		#font_y_offset = myFont.getoffset("Active Window")[1]
+		#w, h = draw.textsize("Active Window", font=myFont)
+		left, top, right, bottom = draw.textbbox((0, 0), "Active Window", font=myFont)
+		w, h = right - left, bottom - top
+		font_y_offset = top
 		draw.fontmode = "1"
 		draw.text((2,int((self.iCaptionHeight-h)-font_y_offset)/2), "Active Window", fill=colors['titletext'], font=myFont)
 
@@ -425,22 +439,30 @@ class MakePreview:
 		menubar = Image.new('RGB', (activetitle.size[0], self.iMenuHeight), color = colors['menu']) 
 		draw = ImageDraw.Draw(menubar)
 		#Normal menu item
-		normal_w, normal_h = draw.textsize("Normal", font=menufont)
-		font_y_offset = menufont.getoffset("Normal")[1]
+		#normal_w, normal_h = draw.textsize("Normal", font=menufont)
+		left, top, right, bottom = draw.textbbox((0, 0), "Normal", font=menufont)
+		normal_w, normal_h = right - left, bottom - top
+		#font_y_offset = menufont.getoffset("Normal")[1]
+		font_y_offset = top
 		draw.fontmode = "1"
 		draw.text((6,int(((menubar.size[1]-normal_h)-font_y_offset)/2)), "Normal", fill=colors['menutext'], font=menufont)
 		#Disabled menu item
-		disabled_w, disabled_h = draw.textsize("Disabled", font=menufont)
+		#disabled_w, disabled_h = draw.textsize("Disabled", font=menufont)
+		left, top, right, bottom = draw.textbbox((0, 0), "Disabled", font=menufont)
+		disabled_w, disabled_h = right - left, bottom - top
 		draw.text((normal_w+14,(int(((menubar.size[1]-normal_h)-font_y_offset)/2))+1), "Disabled", fill=colors['buttonhilight'], font=menufont)
 		draw.text((normal_w+13,int(((menubar.size[1]-normal_h)-font_y_offset)/2)), "Disabled", fill=colors['buttonshadow'], font=menufont)
 		#Selected menu item
-		selected_w, selected_h = draw.textsize("Selected", font=menufont)
+		#selected_w, selected_h = draw.textsize("Selected", font=menufont)
+		left, top, right, bottom = draw.textbbox((0, 0), "Selected", font=menufont)
+		selected_w, selected_h = right - left, bottom - top
 		#myFont.fontmode = "1"
 		#draw.text((6,int(menubar.size[1]-normal_h)/2), "Selected", fill=colors['hilighttext'], font=menufont)
 		selected = Image.new('RGB', (selected_w+12,menubar.size[1]), color = colors['hilight'])
 		selected_draw = ImageDraw.Draw(selected)
 		selected_draw.fontmode = "1"
-		font_y_offset = menufont.getoffset("Selected")[1]
+		#font_y_offset = menufont.getoffset("Selected")[1]
+		font_y_offset = top
 		selected_draw.text((int((selected.size[0]-selected_w)/2),int(((menubar.size[1]-normal_h)-font_y_offset)/2)), "Selected", fill=colors['hilighttext'], font=menufont)
 		menubar.paste(selected, (normal_w+13+disabled_w+6,int((menubar.size[1]-selected.size[1])/2)))
 
@@ -471,7 +493,8 @@ class MakePreview:
 		draw.line([(window.size[0]-2,window.size[1]-2),(window.size[0]-2, 1), (window.size[0]-2,window.size[1]-2), (1,window.size[1]-2)],fill=colors['buttonlight'], width=1)
 		window_font = ImageFont.truetype(self.arial_bold, 14)
 		draw.fontmode = "1"
-		font_y_offset = window_font.getoffset("Window Text")[1]
+		#font_y_offset = window_font.getoffset("Window Text")[1]
+		font_y_offset = self.get_font_y_offset(draw, "Window Text", window_font)
 		draw.text((4,7-font_y_offset), "Window Text", fill=colors['windowtext'], font=window_font)
 		window.paste(uparrow, (window.size[0]-2-uparrow.size[0],2))
 		draw.rectangle(((window.size[0]-2-uparrow.size[0],2+uparrow.size[1]),(window.size[0]-3, window.size[1]-3)), fill=colors['scrollbar'])
@@ -504,14 +527,18 @@ class MakePreview:
 		draw.rectangle(((2, 2), (button.size[0]-3, button.size[1]-3)), fill=colors['buttonface'], width=1)
 		myFont = ImageFont.truetype(self.arial_bold, self.msgfont_pt)
 		draw.fontmode = "1"
-		font_y_offset = myFont.getoffset("OK")[1]
-		w, h = draw.textsize("OK", font=myFont)
+		#w, h = draw.textsize("OK", font=myFont)
+		left, top, right, bottom = draw.textbbox((0, 0), "OK", font=myFont)
+		w, h = right - left, bottom - top
+		font_y_offset = top
 		draw.text(((66-w)/2,((22-h)-font_y_offset)/2), "OK", fill=colors['buttontext'], font=myFont)
 		#button.save("button.png", "PNG")
 
 		# Then we create the window itself
 		myFont = ImageFont.truetype(self.arial, self.msgfont_pt)
-		msg_text_w, msg_text_h = draw.textsize("Message Text", font=myFont)
+		#msg_text_w, msg_text_h = draw.textsize("Message Text", font=myFont)
+		left, top, right, bottom = draw.textbbox((0, 0), "Message Text", font=myFont)
+		msg_text_w, msg_text_h = right - left, bottom - top
 		message_box = Image.new('RGB', (173, self.iCaptionHeight+8+msg_text_h+3+button.size[1]+6), color = colors['buttondkshadow']) 
 		draw = ImageDraw.Draw(message_box)
 		draw.line([(0,0),(171, 0), (0,0), (0,message_box.size[1]-2)],fill=colors['buttonlight'], width=1)
@@ -521,7 +548,8 @@ class MakePreview:
 		draw.rectangle(((2, 2), (message_box.size[0]-3, message_box.size[1]-3)), fill=colors['activeborder'], width=1)
 		draw.rectangle(((3, 3), (message_box.size[0]-4, message_box.size[1]-4)), fill=colors['buttonface'], width=1)
 		draw.fontmode = "1"
-		font_y_offset = myFont.getoffset("Message Text")[1]
+		#font_y_offset = myFont.getoffset("Message Text")[1]
+		font_y_offset = self.get_font_y_offset(draw, "Message Text", window_font)
 		draw.text((7,self.iCaptionHeight+8-font_y_offset), "Message Text", fill=colors['windowtext'], font=myFont)
 		# We then put all the peices together
 		message_box.paste(msgboxtitle, (3,3))
@@ -559,24 +587,33 @@ class MakePreview:
 		# First we make the text under each icon
 		# My Computer
 		iconfont = ImageFont.truetype(self.lfFont, self.iconfont_pt)
-		size = iconfont.getsize("My Computer")
-		font_y_offset = iconfont.getoffset("My Computer")[1]
+		#size = iconfont.getsize("My Computer")
+		left, top, right, bottom = draw.textbbox((0, 0), "My Computer", font=iconfont)
+		size = (right - left, bottom - top)
+		#font_y_offset = iconfont.getoffset("My Computer")[1]
+		font_y_offset = self.get_font_y_offset(draw, "My Computer", iconfont)
 		squaresize = (size[0] + 6, size[1] + 6- font_y_offset)
 		my_computer_text = Image.new('RGBA', squaresize, colors['background'])
 		iconfont_draw = ImageDraw.Draw(my_computer_text)
 		iconfont_draw.fontmode = "1"
 		iconfont_draw.text((3,3-font_y_offset), "My Computer", fill=colors['foreground'], font=iconfont)
 		# Network Neighborhood
-		size = iconfont.getsize("Network Neighborhood")
-		font_y_offset = iconfont.getoffset("Network Neighborhood")[1]
+		#size = iconfont.getsize("Network Neighborhood")
+		left, top, right, bottom = draw.textbbox((0, 0), "Network Neighborhood", font=iconfont)
+		size = (right - left, bottom - top)
+		# font_y_offset = iconfont.getoffset("Network Neighborhood")[1]
+		font_y_offset = self.get_font_y_offset(draw, "Network Neighborhood", iconfont)
 		squaresize = (size[0] + 6, size[1] + 6 - font_y_offset)
 		network_neighborhood_text = Image.new('RGBA', squaresize, colors['background'])
 		iconfont_draw = ImageDraw.Draw(network_neighborhood_text)
 		iconfont_draw.fontmode = "1"
 		iconfont_draw.text((3,3-font_y_offset), "Network Neighborhood", fill=colors['foreground'],font=iconfont)
 		# Recycle Bin
-		size = iconfont.getsize("Recycle Bin")
-		font_y_offset = iconfont.getoffset("Recycle Bin")[1]
+		# size = iconfont.getsize("Recycle Bin")
+		left, top, right, bottom = draw.textbbox((0, 0), "Recycle Bin", font=iconfont)
+		size = (right - left, bottom - top)
+		# font_y_offset = iconfont.getoffset("Recycle Bin")[1]
+		font_y_offset = self.get_font_y_offset(draw, "Recycle Bin", iconfont)
 		squaresize = (size[0] + 6, size[1] + 6- font_y_offset)
 		recycle_bin_empty_text = Image.new('RGBA', squaresize, colors['background'])
 		iconfont_draw = ImageDraw.Draw(recycle_bin_empty_text)
@@ -586,8 +623,11 @@ class MakePreview:
 		# My Documents
 		# Not all themes have one
 		if self.my_documents:
-			size = iconfont.getsize("My Documents")
-			font_y_offset = iconfont.getoffset("My Documents")[1]
+			# size = iconfont.getsize("My Documents")
+			left, top, right, bottom = draw.textbbox((0, 0), "My Documents", font=iconfont)
+			size = (right - left, bottom - top)
+			# font_y_offset = iconfont.getoffset("My Documents")[1]
+			font_y_offset = self.get_font_y_offset(draw, "My Documents", iconfont)
 			squaresize = (size[0] + 6, size[1] + 6- font_y_offset)
 			my_documents_text = Image.new('RGBA', squaresize, colors['background'])
 			iconfont_draw = ImageDraw.Draw(my_documents_text)
@@ -668,6 +708,56 @@ class MakePreview:
 		
 		print("OK", end='\n', flush=True)
 
+	def render_html_to_image(self, html_path, output_path, width, height):
+		"""Render HTML to image using any available browser."""
+		html_abs_path = os.path.abspath(html_path)
+		html_url = f"file://{html_abs_path}"
+		
+		# List of browsers to try, in order of preference
+		browsers = [
+			{
+				'name': 'chromium-browser',
+				'args': ['--headless', '--disable-gpu', f'--window-size={width},{height}', f'--screenshot={output_path}', html_url]
+			},
+			{
+				'name': 'google-chrome',
+				'args': ['--headless', '--disable-gpu', f'--window-size={width},{height}', f'--screenshot={output_path}', html_url]
+			},
+			{
+				'name': 'firefox',
+				'args': ['--headless', f'--screenshot={output_path}', f'--window-size={width},{height}', html_url]
+			},
+			{
+				'name': 'brave-browser',
+				'args': ['--headless', '--disable-gpu', f'--window-size={width},{height}', f'--screenshot={output_path}', html_url]
+			}
+		]
+		
+		# Try to use wkhtmltoimage first if it exists (original method)
+		try:
+			subprocess.check_call(['wkhtmltoimage', '--quiet', '--height', str(height), '--width', str(width), html_path, output_path])
+			return True
+		except (subprocess.SubprocessError, FileNotFoundError):
+			pass
+		
+		# If wkhtmltoimage not available, try browsers
+		for browser in browsers:
+			try:
+				subprocess.check_call([browser['name']] + browser['args'])
+				return True
+			except (subprocess.SubprocessError, FileNotFoundError):
+				continue
+		
+		# If all browsers fail, try ImageMagick's convert
+		try:
+			subprocess.check_call(['convert', '-size', f'{width}x{height}', html_url, output_path])
+			return True
+		except (subprocess.SubprocessError, FileNotFoundError):
+			pass
+		
+		# No rendering method available
+		return False
+
 	def get_wallpaper(self):
 		print("[MakePreview] Wallpaper...", end=' ', flush=True)
 		# WallpaperStyle=2
@@ -682,24 +772,40 @@ class MakePreview:
 		if (self.plus.theme_config['wallpaper'] and self.plus.theme_config['wallpaper']['theme_wallpaper'] and 
 				'path' in self.plus.theme_config['wallpaper']['theme_wallpaper'] and self.plus.theme_config['wallpaper']['theme_wallpaper']['path']):
 			
-			#print(plus.theme_config['wallpaper']['theme_wallpaper']['path'])
-			#print(os.path.splitext(plus.theme_config['wallpaper']['theme_wallpaper']['path'])[1])
 			if os.path.splitext(self.plus.theme_config['wallpaper']['theme_wallpaper']['path'])[1].lower() in [".html", ".htm"]:
 				w = 1024
 				h = 768
 				if "800" in self.plus.theme_config['wallpaper']['theme_wallpaper']['path'] or "800" in self.plus.theme_name:
 					w = 800
 					h = 600
-
-				args = ['wkhtmltoimage', '--quiet','--height', str(h), '--width', str(w), self.plus.theme_config['wallpaper']['theme_wallpaper']['path'],'temp_html.png'] 
-
-				subprocess.check_call(args)
-				self.wallpaper = Image.open("temp_html.png").convert('RGBA')
-				os.remove("temp_html.png")
+				
+				temp_file = "temp_html.png"
+				
+				# Try to render HTML to image using our new function
+				success = self.render_html_to_image(
+					self.plus.theme_config['wallpaper']['theme_wallpaper']['path'],
+					temp_file,
+					w,
+					h
+				)
+				
+				if success and os.path.exists(temp_file):
+					self.wallpaper = Image.open(temp_file).convert('RGBA')
+					os.remove(temp_file)
+				else:
+					print("Warning: Could not render HTML wallpaper. Please install a browser like chromium-browser, firefox, or brave.")
+					# Fall back to default handling
+					try:
+						self.wallpaper = Image.open(self.plus.theme_config['wallpaper']['theme_wallpaper']['path']).convert('RGBA')
+					except OSError:
+						args = ['convert', '-resize', '32x32', self.plus.theme_config['wallpaper']['theme_wallpaper']['path'], "temp_bmp.png"]
+						subprocess.check_call(args)
+						self.wallpaper = Image.open("temp_bmp.png").convert('RGBA')
+						os.remove("temp_bmp.png")
 			else:
 				try:
 					self.wallpaper = Image.open(self.plus.theme_config['wallpaper']['theme_wallpaper']['path']).convert('RGBA')
-				except	OSError:
+				except OSError:
 					args = ['convert', '-resize', '32x32', self.plus.theme_config['wallpaper']['theme_wallpaper']['path'], "temp_bmp.png"]
 					subprocess.check_call(args)
 					self.wallpaper = Image.open("temp_bmp.png").convert('RGBA')
@@ -709,7 +815,6 @@ class MakePreview:
 				self.tile = True
 
 			self.style = self.plus.theme_config['wallpaper']['theme_wallpaper']['wallpaperstyle']
-
 		print("OK", end='\n', flush=True)
 
 	def make_icons(self, plus, ico_name):
@@ -1275,21 +1380,3 @@ def main():
 	Gtk.main()	
 
 main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
