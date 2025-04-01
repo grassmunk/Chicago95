@@ -111,11 +111,12 @@ Unfortunately, it wasn't possible to add border to some plugins - mostly because
 }
 
 #xfce4-power-manager-plugin box{
-   box-shadow: 0px 3px @border_shade inset, 0 2px @bg_color inset, 0 -1px @border_bright inset, 0 -3px @border_bright inset, 0 -2px @bg_color inset;
+   box-shadow: 0px 2px @border_shade inset, 0 1px @bg_color inset, 0 -1px @border_bright inset, 0 -2px @border_bright inset, 0 -1px @bg_color inset;
    border-right: none;
 }
 #xfce4-power-manager-plugin{margin-left:-1px; margin-right:-1px;}
-
+#xfce4-power-manager-plugin:hover{margin-left:-1px; margin-right:-1px;}
+#xfce4-power-manager-plugin:checked{margin-left:-1px; margin-right:-1px;}
 
 #xfce_sensors box {
    padding-right:0px;
