@@ -45,7 +45,7 @@ Rectangle {
     
     color: "#55aaaa"
 	
-    // 	Use this to control all font sizes (also affects icons and overall size of the greeter)
+    // Use this to control all font sizes (also affects icons and overall size of the greeter)
 	property double scalingFactor: 1
 
     LayoutMirroring.enabled: Qt.locale().textDirection == Qt.RightToLeft
@@ -88,7 +88,7 @@ Rectangle {
     // Main Rectangle fills the whole screen
 		anchors.fill: parent
 		color: "transparent"
-		//visible: primaryScreen
+		// visible: primaryScreen
             Rectangle {
                 // Here we make another rectangle which is the logon 'window'
                 height: 144
@@ -126,7 +126,7 @@ Rectangle {
                         columns: 3
                         anchors.fill: parent
                         columnSpacing: 0
-                        Layout.alignment: Qt.AlignVCenter
+                        Layout.alignment: Qt.AlignTop
                         Text { 
                             Layout.fillWidth: true
                             Layout.column: 0
@@ -176,12 +176,14 @@ Rectangle {
 					
 				}
                 GridLayout {
-                    //anchors.fill: parent
+                    // anchors.fill: parent
                     columns: 3
                     rows: 1
                     Layout.row: 1
+					Layout.alignment: Qt.AlignTop
                     Image {
-                        Layout.topMargin: -80
+						Layout.alignment: Qt.AlignTop
+                        Layout.topMargin: -2
                         Layout.leftMargin: 24
                         Layout.column: 0
                         Layout.row: 0
@@ -191,11 +193,12 @@ Rectangle {
                     ColumnLayout {
                         Layout.column: 1
                         Layout.row: 0
+                        Layout.alignment: Qt.AlignTop
                         Text { 
                             Layout.row: 0
                             Layout.column: 0
                             Layout.leftMargin: 16
-                            Layout.topMargin: -65
+                            Layout.topMargin: -2
                             id: message_text
                             color: "#000000"
                             text: "Type a user name and password to log on to Windows."
@@ -203,15 +206,18 @@ Rectangle {
                             font.pixelSize: 11
                         }
                         GridLayout {
-                            Layout.topMargin: -13
+                            Layout.topMargin: 0
                             Layout.leftMargin: 16
                             Layout.rightMargin: 57
+                            Layout.alignment: Qt.AlignTop
                             columns: 2
                             
                             Label {
                                 Layout.alignment: Qt.AlignLeft
-                                Layout.bottomMargin: 3
-                                text: "User name:   "
+								Layout.topMargin: 12
+                                Layout.preferredWidth: 67
+                                Layout.minimumWidth: 67
+                                text: "User name:"
                                 font.family: "Helvetica"
                                 font.pixelSize: 11
                                 color: "#000000"
@@ -220,9 +226,9 @@ Rectangle {
                             TextField {
                                 id: username
                                 text: userModel.lastUser
+                                Layout.alignment: Qt.AlignLeft
                                 Layout.fillWidth: true
-                                Layout.topMargin: 4
-                                Layout.bottomMargin: 2
+                                Layout.topMargin: 17
                                 Layout.preferredHeight: font.pixelSize + 12
                                 font.family: "Helvetica"
                                 font.pixelSize: 11
@@ -241,8 +247,8 @@ Rectangle {
 
                             Label {
                                 Layout.alignment: Qt.AlignLeft
-                                Layout.topMargin: -3    
-                                text: "Password:      "
+                                Layout.topMargin: -1
+                                text: "Password:"
                                 font.family: "Helvetica"
                                 font.pixelSize: 11
                                 color: "#000000"
@@ -252,6 +258,7 @@ Rectangle {
                                 id: password
                                 echoMode: TextInput.Password
                                 Layout.fillWidth: true
+                                Layout.topMargin: 2
                                 Layout.preferredHeight: font.pixelSize + 13
                                 font.family: "Helvetica"
                                 font.pixelSize: 11
@@ -277,7 +284,8 @@ Rectangle {
                         
                     }
                     ColumnLayout {
-                        Layout.topMargin: -38
+                        Layout.alignment: Qt.AlignTop
+                        Layout.topMargin: -2
                         Layout.leftMargin: 10
                         Layout.rightMargin: 15
                         Layout.column: 2
@@ -362,10 +370,13 @@ Rectangle {
                             }
 
                         RowLayout {
-                            anchors.centerIn: parent
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.verticalCenter: parent.verticalCenter
                             spacing: 0
                             Label {
                                 Layout.fillWidth: true
+                                Layout.leftMargin: 7
 
                                 text: instantiator.objectAt(sessionbutton.currentIndex).text || ""
                                 Layout.preferredWidth:50
@@ -378,8 +389,7 @@ Rectangle {
                             Image {
                                 fillMode: Image.PreserveAspectFit
                                 source: "combo-indicator.svg"
-                                //Layout.leftMargin: -10
-                                Layout.rightMargin: -6
+                                Layout.rightMargin: 1
                             }
                         }
                         background: BorderImage {
@@ -405,8 +415,8 @@ Rectangle {
 						
 						QQC2.Menu {
 							id: sessionmenu
-                            implicitWidth: 120
-                            //x: sessionbutton.width
+                            implicitWidth: 120 // Adjust menu width here
+                            // x: sessionbutton.width
                             y: sessionbutton.height // + 5
 							Instantiator {
 								id: instantiator
@@ -417,10 +427,10 @@ Rectangle {
                                     id: control
 									text: model.name
                                     background: Rectangle {
-                                        //anchors.fill: parent
+                                        // anchors.fill: parent
                                         color: control.highlighted ?  "#000080" : "transparent"
                                         }
-                                    //color: "#000000"
+                                    // color: "#000000"
                                     font.family: "Helvetica"
                                     font.pixelSize: 11
 									onTriggered: {
