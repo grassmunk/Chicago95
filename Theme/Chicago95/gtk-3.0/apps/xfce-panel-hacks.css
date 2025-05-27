@@ -65,6 +65,10 @@ If it still doesn't work for you, you can look up your tasklist's ID in xfce4-pa
    margin-left:-8px;
 }
 
+/* Hack to decrease icon sizes for items in the tasklist.
+   Icon size increased with Xfce 4.20 so this hack is trying to match the look in 4.18 */
+.tasklist button box image { -gtk-icon-transform: scale(0.8); }
+
 /* Hack to add border to systray, all of the internal and some of the external plugins
 WARNING: This hack assumes your systray and plugin icons are laid out in the following order: 
 systray to the left, stylable plugin icons in the middle, clock plugin on the right. 
