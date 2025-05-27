@@ -8,7 +8,7 @@
 * 
 * Based on QTStep SDDM theme by:
 * Copyright (c) 2015 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
-* Copyright (c) 2013 Abdurrahman AVCI <abdurrahmanavci@gmail.com
+* Copyright (c) 2013 Abdurrahman AVCI <abdurrahmanavci@gmail.com>
 *
 * Permission is hereby granted, free of charge, to any person
 * obtaining a copy of this software and associated documentation
@@ -43,9 +43,9 @@ Rectangle {
     width: 1024
     height: 768
     
-    color: "#008080"
+    color: "#55aaaa"
 	
-    // 	Use this to control all font sizes (also affects icons and overall size of the greeter)
+    // Use this to control all font sizes (also affects icons and overall size of the greeter)
 	property double scalingFactor: 1
 
     LayoutMirroring.enabled: Qt.locale().textDirection == Qt.RightToLeft
@@ -88,11 +88,11 @@ Rectangle {
     // Main Rectangle fills the whole screen
 		anchors.fill: parent
 		color: "transparent"
-		//visible: primaryScreen
+		// visible: primaryScreen
             Rectangle {
                 // Here we make another rectangle which is the logon 'window'
-                height: 175
-                width: 640
+                height: 144
+                width: 461
                 id: "greeter"
                 anchors.centerIn: parent
 			
@@ -113,30 +113,31 @@ Rectangle {
                 Rectangle {
                     Layout.row: 0
 					id: header
-					color: "#000080"
+					color: "#0000aa"
 					Layout.leftMargin: 3
-					Layout.rightMargin: 3
+					Layout.rightMargin: 5
 					Layout.topMargin: 3
 					Layout.bottomMargin: 3
 					Layout.alignment: Qt.AlignTop
 					Layout.fillWidth: true
-					Layout.preferredHeight: 19
+					Layout.preferredHeight: 18
 					GridLayout {
                         id: titleBar
                         columns: 3
                         anchors.fill: parent
                         columnSpacing: 0
-                        Layout.alignment: Qt.AlignVCenter
+                        Layout.alignment: Qt.AlignTop
                         Text { 
                             Layout.fillWidth: true
                             Layout.column: 0
-                            Layout.leftMargin: 5
+                            Layout.topMargin: -1
+                            Layout.leftMargin: 2
                             id: welcome_text
                             color: "#ffffff"
                             font.bold: true
-                            text: "Enter Network Password"
+                            text: "Welcome to Windows"
                             font.family: "Helvetica"
-                            font.pixelSize: 8
+                            font.pixelSize: 11
                         }
                         Image {
                             Layout.column: 1
@@ -175,13 +176,15 @@ Rectangle {
 					
 				}
                 GridLayout {
-                    anchors.fill: parent
+                    // anchors.fill: parent
                     columns: 3
                     rows: 1
                     Layout.row: 1
+					Layout.alignment: Qt.AlignTop
                     Image {
-                        Layout.topMargin: 30
-                        Layout.leftMargin: 20
+						Layout.alignment: Qt.AlignTop
+                        Layout.topMargin: -2
+                        Layout.leftMargin: 24
                         Layout.column: 0
                         Layout.row: 0
                         source: "start.png"
@@ -190,37 +193,45 @@ Rectangle {
                     ColumnLayout {
                         Layout.column: 1
                         Layout.row: 0
+                        Layout.alignment: Qt.AlignTop
                         Text { 
                             Layout.row: 0
                             Layout.column: 0
-                            Layout.leftMargin: 15
-                            Layout.topMargin: 40
+                            Layout.leftMargin: 16
+                            Layout.topMargin: -2
                             id: message_text
                             color: "#000000"
-                            text: "Enter your network password for Microsoft Networking."
+                            text: "Type a user name and password to log on to Windows."
                             font.family: "Helvetica"
-                            font.pixelSize: 8
+                            font.pixelSize: 11
                         }
                         GridLayout {
-                            Layout.topMargin: 15
-                            Layout.leftMargin: 15
+                            Layout.topMargin: 0
+                            Layout.leftMargin: 16
+                            Layout.rightMargin: 57
+                            Layout.alignment: Qt.AlignTop
                             columns: 2
                             
                             Label {
-                                Layout.alignment: Qt.AlignRight
-                                text: textConstants.userName
+                                Layout.alignment: Qt.AlignLeft
+								Layout.topMargin: 12
+                                Layout.preferredWidth: 67
+                                Layout.minimumWidth: 67
+                                text: "User name:"
                                 font.family: "Helvetica"
-                                font.pixelSize: 8
+                                font.pixelSize: 11
                                 color: "#000000"
                             }
                             
                             TextField {
                                 id: username
                                 text: userModel.lastUser
+                                Layout.alignment: Qt.AlignLeft
                                 Layout.fillWidth: true
-                                Layout.preferredHeight: font.pixelSize + 15
+                                Layout.topMargin: 17
+                                Layout.preferredHeight: font.pixelSize + 12
                                 font.family: "Helvetica"
-                                font.pixelSize: 8
+                                font.pixelSize: 11
                                 color: "#000000"
 
                                 background: BorderImage {
@@ -233,11 +244,13 @@ Rectangle {
                                                         : "entry.svg"
                                 }
                             }
+
                             Label {
-                                Layout.alignment: Qt.AlignRight
-                                text: textConstants.password
+                                Layout.alignment: Qt.AlignLeft
+                                Layout.topMargin: -1
+                                text: "Password:"
                                 font.family: "Helvetica"
-                                font.pixelSize: 8
+                                font.pixelSize: 11
                                 color: "#000000"
                             }
                             
@@ -245,9 +258,10 @@ Rectangle {
                                 id: password
                                 echoMode: TextInput.Password
                                 Layout.fillWidth: true
-                                Layout.preferredHeight: font.pixelSize + 15
+                                Layout.topMargin: 2
+                                Layout.preferredHeight: font.pixelSize + 13
                                 font.family: "Helvetica"
-                                font.pixelSize: 8
+                                font.pixelSize: 11
                                 color: "#000000"
                                 background: BorderImage {
                                     border.left: 2
@@ -270,17 +284,18 @@ Rectangle {
                         
                     }
                     ColumnLayout {
-                        Layout.topMargin: 38
+                        Layout.alignment: Qt.AlignTop
+                        Layout.topMargin: -2
                         Layout.leftMargin: 10
-                        Layout.rightMargin: 10
+                        Layout.rightMargin: 15
                         Layout.column: 2
                         Layout.row: 0
                         ToolButton {
                             id: ok_button
                             enabled: username.text !== "" && password.text !== "" ? true : false
-                            Layout.preferredWidth: 80
-                            Layout.minimumWidth: 80
-                            Layout.preferredHeight: 30
+                            Layout.preferredWidth: 74
+                            Layout.minimumWidth: 74
+                            Layout.preferredHeight: 23
                             background: BorderImage {
                                 border.left: 2
                                 border.right: 2
@@ -300,7 +315,7 @@ Rectangle {
                                 color: "#000000"
                                 text: "OK"
                                 font.family: "Helvetica"
-                                font.pixelSize: 8
+                                font.pixelSize: 11
                                 opacity: ok_button.enabled ? 1 : 0.5
                                 }
                             }
@@ -312,9 +327,10 @@ Rectangle {
                         ToolButton {
                             id: shutdown_button_2
                             enabled: sddm.canPowerOff
-                            Layout.preferredWidth: 80
-                            Layout.minimumWidth: 80
-                            Layout.preferredHeight: 30
+                            Layout.preferredWidth: 74
+                            Layout.minimumWidth: 74
+                            Layout.preferredHeight: 23
+                            Layout.topMargin: 2
 
 
                             background: BorderImage {
@@ -337,36 +353,43 @@ Rectangle {
                                     text: "Cancel"
                                     font.family: "Helvetica"
                                     opacity: shutdown_button.enabled ? 1 : 0.5
-                                    font.pixelSize: 8
+                                    font.pixelSize: 11
                                 }
                             }
                             onClicked: sddm.powerOff()
                         }
                         ToolButton {
 						id: sessionbutton
-                        Layout.preferredWidth: 80
-                        Layout.minimumWidth: 80
-                        Layout.preferredHeight: 30
+                        Layout.topMargin: 9
+                        Layout.preferredWidth: 74
+                        Layout.minimumWidth: 74
+                        Layout.preferredHeight: 23
 						property int currentIndex: -1
-						onClicked: sessionmenu.open()
+						onClicked: {
+                            sessionmenu.open()
+                            }
 
                         RowLayout {
-                            anchors.centerIn: parent
-                            spacing: 4
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.verticalCenter: parent.verticalCenter
+                            spacing: 0
                             Label {
                                 Layout.fillWidth: true
+                                Layout.leftMargin: 7
 
                                 text: instantiator.objectAt(sessionbutton.currentIndex).text || ""
                                 Layout.preferredWidth:50
                                 elide: Label.ElideRight
 
                                 font.family: "Helvetica"
-                                font.pixelSize: 8
+                                font.pixelSize: 11
                                 color: "#000000"
                             }
                             Image {
                                 fillMode: Image.PreserveAspectFit
                                 source: "combo-indicator.svg"
+                                Layout.rightMargin: 1
                             }
                         }
                         background: BorderImage {
@@ -392,7 +415,9 @@ Rectangle {
 						
 						QQC2.Menu {
 							id: sessionmenu
-                            implicitWidth: 80
+                            implicitWidth: 120 // Adjust menu width here
+                            // x: sessionbutton.width
+                            y: sessionbutton.height // + 5
 							Instantiator {
 								id: instantiator
 								model: sessionModel
@@ -401,6 +426,13 @@ Rectangle {
 								delegate: QQC2.MenuItem {
                                     id: control
 									text: model.name
+                                    background: Rectangle {
+                                        // anchors.fill: parent
+                                        color: control.highlighted ?  "#000080" : "transparent"
+                                        }
+                                    // color: "#000000"
+                                    font.family: "Helvetica"
+                                    font.pixelSize: 11
 									onTriggered: {
 										sessionbutton.currentIndex = model.index
 									}
