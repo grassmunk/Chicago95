@@ -5,6 +5,7 @@ import gc
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gdk, GLib
 import os
+import re
 import subprocess
 import time
 
@@ -271,6 +272,7 @@ class InstallGUI:
 					self.xfconf_query("xfwm4","/general/show_popup_shadow","false")
 					self.xfconf_query("xfwm4","/general/title_shadow_active","false")
 					self.xfconf_query("xfwm4","/general/title_shadow_inactive","false")
+					self.configure_labwc()
 					self.change_component_label()
 
 				elif from_file == "install_icons" and self.copy_files["install_icons"]:
@@ -419,6 +421,39 @@ class InstallGUI:
 		except:
 			pass
 
+
+	def configure_labwc(self):
+		labwc_rc = os.path.expanduser("~/.config/xfce4/labwc/rc.xml")
+		if not os.path.isfile(labwc_rc):
+			return
+		print("Configuring labwc for Chicago95")
+		with open(labwc_rc, "r") as f:
+			content = f.read()
+		content = re.sub(
+			r'(<theme>\s*<name>)[^<]*(</name>)',
+			r'\g<1>Chicago95\g<2>',
+			content,
+		)
+		content = re.sub(
+			r'<cornerRadius>[^<]*</cornerRadius>',
+			'<cornerRadius>0</cornerRadius>',
+			content,
+		)
+		with open(labwc_rc, "w") as f:
+			f.write(content)
+
+		env_file = os.path.expanduser("~/.config/xfce4/labwc/environment")
+		if os.path.isfile(env_file):
+			with open(env_file, "r") as f:
+				env_content = f.read()
+			env_content = re.sub(
+				r'^XCURSOR_THEME=.*',
+				'XCURSOR_THEME=Chicago95 Standard Cursors',
+				env_content,
+				flags=re.MULTILINE,
+			)
+			with open(env_file, "w") as f:
+				f.write(env_content)
 
 	def xfconf_query(self, channel, prop, new_value):
 		
