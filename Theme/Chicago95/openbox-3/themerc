@@ -44,28 +44,30 @@ window.active.label.text.color: #ffffff
 window.active.label.text.font: shadow=n
 
 # --- Active window buttons ---------------------------------------------------
-# The full Win95 raised-button chrome (white top/left highlight, dark/black
-# bottom/right shadow, light-grey #c0c0c0 face, black glyph) is baked into
-# the per-button PNGs in this directory (close-active.png, iconify-active.png,
-# max-active.png, etc.).  We therefore use a Parentrelative background here
-# so labwc shows the titlebar colour around the PNG instead of drawing an
-# extra solid background under it.
-window.active.button.unpressed.bg: Parentrelative
+# labwc uses the full Win95 raised-button PNGs in this directory. Openbox uses
+# the .xbm glyphs instead, so the button face must be drawn by the theme here.
+window.active.button.unpressed.bg: Raised Solid
+window.active.button.unpressed.bg.color: #c0c0c0
 window.active.button.unpressed.image.color: #000000
 
-window.active.button.hover.bg: Parentrelative
+window.active.button.hover.bg: Raised Solid
+window.active.button.hover.bg.color: #c0c0c0
 window.active.button.hover.image.color: #000000
 
-window.active.button.pressed.bg: Parentrelative
+window.active.button.pressed.bg: Sunken Solid
+window.active.button.pressed.bg.color: #c0c0c0
 window.active.button.pressed.image.color: #000000
 
-window.active.button.toggled.bg: Parentrelative
+window.active.button.toggled.bg: Raised Solid
+window.active.button.toggled.bg.color: #c0c0c0
 window.active.button.toggled.image.color: #000000
 
-window.active.button.toggled.hover.bg: Parentrelative
+window.active.button.toggled.hover.bg: Raised Solid
+window.active.button.toggled.hover.bg.color: #c0c0c0
 window.active.button.toggled.hover.image.color: #000000
 
-window.active.button.disabled.bg: Parentrelative
+window.active.button.disabled.bg: Raised Solid
+window.active.button.disabled.bg.color: #c0c0c0
 window.active.button.disabled.image.color: #808080
 
 # --- Inactive window ---------------------------------------------------------
@@ -80,19 +82,24 @@ window.inactive.label.text.color: #c0c0c0
 window.inactive.label.text.font: shadow=n
 
 # --- Inactive window buttons -------------------------------------------------
-window.inactive.button.unpressed.bg: Parentrelative
+window.inactive.button.unpressed.bg: Raised Solid
+window.inactive.button.unpressed.bg.color: #c0c0c0
 window.inactive.button.unpressed.image.color: #000000
 
-window.inactive.button.hover.bg: Parentrelative
+window.inactive.button.hover.bg: Raised Solid
+window.inactive.button.hover.bg.color: #c0c0c0
 window.inactive.button.hover.image.color: #000000
 
-window.inactive.button.pressed.bg: Parentrelative
+window.inactive.button.pressed.bg: Sunken Solid
+window.inactive.button.pressed.bg.color: #c0c0c0
 window.inactive.button.pressed.image.color: #000000
 
-window.inactive.button.toggled.bg: Parentrelative
+window.inactive.button.toggled.bg: Raised Solid
+window.inactive.button.toggled.bg.color: #c0c0c0
 window.inactive.button.toggled.image.color: #000000
 
-window.inactive.button.disabled.bg: Parentrelative
+window.inactive.button.disabled.bg: Raised Solid
+window.inactive.button.disabled.bg.color: #c0c0c0
 window.inactive.button.disabled.image.color: #808080
 
 # --- Menus -------------------------------------------------------------------
