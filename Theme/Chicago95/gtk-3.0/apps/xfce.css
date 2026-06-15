@@ -13,8 +13,8 @@
 XfdesktopIconView.view {
   background-image: -gtk-gradient(linear, left top, right bottom, from (@xfd_icon_backdrop));
   background-repeat: no-repeat;
-  background-position: 4px 4px;
-  background-size: calc(100% - 10px) calc(100% - 10px);
+  background-position: 3px 3px;
+  background-size: calc(100% - 6px) calc(100% - 6px);
   color: @selected_bg_color;
   border-radius: 0px; 
   background-color: rgba(0, 0, 0, 0)}
