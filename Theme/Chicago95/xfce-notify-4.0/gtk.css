@@ -14,3 +14,7 @@
   padding: 2px;
   
 }
+
+#XfceNotifyWindow image {
+  -gtk-icon-style: regular;
+}
