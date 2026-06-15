@@ -1,0 +1,144 @@
+# Name: Chicago95 Openbox / labwc Theme
+# Author: Chicago95 contributors
+# License: GPL-3.0+
+#
+# This theme matches the look of the Chicago95 xfwm4 theme so that title bars
+# on Wayland (via labwc) and on Openbox sessions render with the classic
+# Windows 95 navy-blue active title and grey inactive title.
+#
+# labwc looks for themes in <theme>/labwc/ first and falls back to
+# <theme>/openbox-3/, so this directory is picked up automatically by labwc
+# when its <theme><name> setting is "Chicago95".
+
+# --- General -----------------------------------------------------------------
+# Border width of 3 gives us a grey window frame around the contents, which
+# matches the Win95 outer-bevel look. labwc only supports a single colour for
+# the window border, so we use the Win95 chrome grey #c0c0c0.
+border.width: 3
+padding.width: 2
+padding.height: 2
+window.titlebar.padding.width: 2
+window.titlebar.padding.height: 2
+window.client.padding.width: 0
+window.client.padding.height: 0
+window.handle.width: 0
+
+# Titlebar buttons – override defaults so the PNGs match the dimensions of
+# the matching Chicago95 GTK CSD title-bar buttons (about 14 x 13 pixels).
+window.button.width: 14
+window.button.height: 13
+window.button.spacing: 1
+
+# --- Title bar text ----------------------------------------------------------
+window.label.text.justify: left
+
+# --- Active window -----------------------------------------------------------
+window.active.border.color: #c0c0c0
+window.active.title.separator.color: #c0c0c0
+
+window.active.title.bg: Solid
+window.active.title.bg.color: #000080
+
+window.active.label.bg: Parentrelative
+window.active.label.text.color: #ffffff
+window.active.label.text.font: shadow=n
+
+# --- Active window buttons ---------------------------------------------------
+# labwc uses the full Win95 raised-button PNGs in this directory. Openbox uses
+# the .xbm glyphs instead, so the button face must be drawn by the theme here.
+window.active.button.unpressed.bg: Raised Solid
+window.active.button.unpressed.bg.color: #c0c0c0
+window.active.button.unpressed.image.color: #000000
+
+window.active.button.hover.bg: Raised Solid
+window.active.button.hover.bg.color: #c0c0c0
+window.active.button.hover.image.color: #000000
+
+window.active.button.pressed.bg: Sunken Solid
+window.active.button.pressed.bg.color: #c0c0c0
+window.active.button.pressed.image.color: #000000
+
+window.active.button.toggled.bg: Raised Solid
+window.active.button.toggled.bg.color: #c0c0c0
+window.active.button.toggled.image.color: #000000
+
+window.active.button.toggled.hover.bg: Raised Solid
+window.active.button.toggled.hover.bg.color: #c0c0c0
+window.active.button.toggled.hover.image.color: #000000
+
+window.active.button.disabled.bg: Raised Solid
+window.active.button.disabled.bg.color: #c0c0c0
+window.active.button.disabled.image.color: #808080
+
+# --- Inactive window ---------------------------------------------------------
+window.inactive.border.color: #c0c0c0
+window.inactive.title.separator.color: #c0c0c0
+
+window.inactive.title.bg: Solid
+window.inactive.title.bg.color: #808080
+
+window.inactive.label.bg: Parentrelative
+window.inactive.label.text.color: #c0c0c0
+window.inactive.label.text.font: shadow=n
+
+# --- Inactive window buttons -------------------------------------------------
+window.inactive.button.unpressed.bg: Raised Solid
+window.inactive.button.unpressed.bg.color: #c0c0c0
+window.inactive.button.unpressed.image.color: #000000
+
+window.inactive.button.hover.bg: Raised Solid
+window.inactive.button.hover.bg.color: #c0c0c0
+window.inactive.button.hover.image.color: #000000
+
+window.inactive.button.pressed.bg: Sunken Solid
+window.inactive.button.pressed.bg.color: #c0c0c0
+window.inactive.button.pressed.image.color: #000000
+
+window.inactive.button.toggled.bg: Raised Solid
+window.inactive.button.toggled.bg.color: #c0c0c0
+window.inactive.button.toggled.image.color: #000000
+
+window.inactive.button.disabled.bg: Raised Solid
+window.inactive.button.disabled.bg.color: #c0c0c0
+window.inactive.button.disabled.image.color: #808080
+
+# --- Menus -------------------------------------------------------------------
+menu.border.width: 1
+menu.border.color: #000000
+
+menu.title.bg: Solid
+menu.title.bg.color: #000080
+menu.title.text.color: #ffffff
+menu.title.text.justify: left
+
+menu.items.bg: Solid
+menu.items.bg.color: #c0c0c0
+menu.items.text.color: #000000
+menu.items.disabled.text.color: #808080
+
+menu.items.active.bg: Solid
+menu.items.active.bg.color: #000080
+menu.items.active.text.color: #ffffff
+menu.items.active.disabled.text.color: #c0c0c0
+
+menu.separator.width: 1
+menu.separator.color: #808080
+menu.separator.padding.height: 3
+
+# --- On-screen display (Alt+Tab / workspace switcher) ------------------------
+osd.border.width: 1
+osd.border.color: #000000
+
+osd.bg: Solid
+osd.bg.color: #c0c0c0
+
+osd.label.text.color: #000000
+osd.label.text.font: shadow=n
+osd.active.label.text.color: #000000
+osd.inactive.label.text.font: shadow=n
+
+osd.unhilight.bg: Solid
+osd.unhilight.bg.color: #c0c0c0
+
+osd.hilight.bg: Solid
+osd.hilight.bg.color: #000080
