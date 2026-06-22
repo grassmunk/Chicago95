@@ -384,8 +384,8 @@ class InstallGUI:
 						fileh = open(os.path.expanduser("~/.backup.zshrc.chicago95"),"r")
 						nfileh = open(os.path.expanduser("~/.zshrc"),"w")
 						for line in fileh:
-							if "ZSH_THEME" in line:
-								line = "ZSH_THEME=Chicago95"
+							if line.startswith("ZSH_THEME"):
+								line = "ZSH_THEME=Chicago95\n"
 							nfileh.write(line)
 						fileh.close()
 						nfileh.close()
