@@ -1,0 +1,626 @@
+/*********************************
+ * lists, grids and column views *
+ ********************************/
+
+/*
+   Contributor notes:
+   Please use two space indentions.
+   Stack all related and child selectors and selector states into a logical hierarchy to a readable degree.
+   Make sure that all changes made here are part of the list, grid and column views.
+
+   This file is the GTK4 successor to gtk-3.0/gtk-list_cell_and_rows.css, gtk-3.0/gtk-treeviews.css
+   and the view half of gtk-3.0/gtk-viewports.css. The node tree moved a long way in GTK4:
+     GtkListBox    -> list > row              (unchanged)
+     GtkListView   -> listview > row, and listview > header for section headers
+     GtkColumnView -> columnview > header > button  and  columnview > listview > row > cell
+     GtkGridView   -> gridview > child        (NOT "> row")
+     GtkTreeView   -> treeview > listview > row > cell, reimplemented on top of listview,
+                      but the legacy treeview.view.* style classes are still honoured
+     GtkTreeExpander -> treeexpander > expander (the +/- glyph) and treeexpander > indent
+   Scrollbars, scrolledwindow, undershoot/overshoot and the popover chrome are deliberately NOT
+   touched here; they belong to gtk-scrollbar.css, gtk-scrolledwindows.css and gtk-popovers.css.
+   .boxed-list, .card and the AdwPreferences* rows are owned by gtk-adwaita.css.
+*/
+
+/* The sunken well */
+
+/* GtkListView, GtkColumnView and GtkGridView all implement GtkScrollable, so GtkScrolledWindow
+   gives them no viewport and their CSS box stays pinned to the visible area — the bevel below
+   does not scroll away with the rows, which is why the 2px Win95 well can live on the view node
+   itself instead of on scrolledwindow.frame the way gtk-3.0 does it.
+   This is the "sunken-well" bevel: 1px real border plus a 1px inset shadow = 2px of Win95 chrome.
+   Never border-width: 2px — a 2px solid border paints 2px of a single colour. */
+listview:not(.navigation-sidebar),
+columnview:not(.navigation-sidebar),
+gridview:not(.navigation-sidebar) {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_shade;
+  border-left-color: @border_shade;
+  border-right-color: @border_bright;
+  border-bottom-color: @border_bright;
+  box-shadow: inset 1px 1px @border_dark, inset -1px -1px @border_light;
+  background-color: @bg_bright;
+  background-image: none;
+  color: @text_color;
+  transition: none; }
+
+  /* A GtkColumnView owns an inner listview; without this it would draw a second well inside the
+     first one. Same for a view embedded in a dropdown/menu popover, where the popover already
+     supplies the frame. */
+  columnview > listview,
+  popover listview,
+  popover columnview,
+  popover gridview {
+    border: none;
+    border-radius: 0;
+    box-shadow: none; }
+
+  /* GTK3 hangs the well off scrolledwindow.frame for treeviews, and treeview.view needs its
+     border-*-color slots free for the tree/grid lines further down, so the legacy widget keeps
+     the GTK3 arrangement. Colour only. */
+  treeview,
+  treeview.view {
+    background-color: @bg_bright;
+    background-image: none;
+    color: @text_color; }
+
+/* Rows */
+
+/* gtk-list_cell_and_rows.css reserves a transparent 1px bottom rule on every cell and row so that
+   a stack or sidebar override can colour it in later without the row changing height. */
+cell:not(check):not(radio),
+row:not(check):not(radio) {
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 0;
+  transition: none;
+  outline: 0 solid transparent; }
+
+listview > row,
+listview > header,
+list > row,
+treeview > listview > row {
+  padding: 2px;
+  min-height: 20px;
+  border-radius: 0;
+  background-image: none;
+  box-shadow: none;
+  transition: none; }
+
+  list > row label,
+  list > row image,
+  listview > row label,
+  listview > row image {
+    padding-left: 4px;
+    padding-right: 3px; }
+
+/* Adwaita gives listview > header the .osd treatment — a translucent dark slab with an icon
+   shadow. Win95 had no such thing; the closest period equivalent is a bold label on the plain
+   grey face with the etched groove rule underneath. */
+listview > header,
+.rich-list > header {
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-top-color: transparent;
+  border-bottom-color: @border_shade;
+  border-radius: 0;
+  box-shadow: inset 0 -2px @border_bright;
+  background-color: @bg_color;
+  background-image: none;
+  color: @fg_color;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+  font-weight: bold; }
+
+/* Selection, hover and focus */
+
+/* The Win95 "hilight" pair: navy fill, white text, no rounding, no icon shadow.
+   Adwaita additionally recolours the focus outline to rgba(255,255,255,0.8) on :selected and
+   rounds the row — both are reset here. */
+cell:selected,
+cell:selected:focus,
+cell:selected:hover,
+row:selected,
+row:selected:focus,
+row:selected:hover,
+listview > row:selected,
+list > row:selected,
+columnview > listview > row:selected,
+columnview.view:selected,
+columnview.view:selected:focus,
+gridview > child:selected,
+treeview > listview > row:selected,
+treeview.view:selected,
+treeview.view:selected:focus,
+iconview > child:selected,
+iconview:selected {
+  border-radius: 0;
+  background-color: @selected_bg_color;
+  background-image: none;
+  color: @selected_fg_color;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+  outline-width: 1px;
+  outline-offset: 0;
+  outline-color: @border_dark;
+  box-shadow: none; }
+
+  /* GTK4 dims a selection while the view has no focus (grey 50% wash). Chicago95 re-exports
+     selected_bg_color as @theme_unfocused_selected_bg_color, i.e. the selection stays navy, so
+     restore that here rather than inheriting Adwaita's behaviour. */
+  listview:not(:focus-within) > row:selected,
+  columnview:not(:focus-within) > listview > row:selected,
+  gridview:not(:focus-within) > child:selected,
+  treeview:not(:focus-within) > listview > row:selected {
+    background-color: @selected_bg_color;
+    color: @selected_fg_color; }
+
+/* Windows 95 Explorer did not hot-track list items, and neither does gtk-3.0 — an unselected row
+   gets no highlight at all. Adwaita paints one, so it has to be explicitly cleared. */
+listview > row:hover:not(:selected),
+list > row:hover:not(:selected),
+columnview > listview > row:hover:not(:selected),
+gridview > child:hover:not(:selected),
+treeview > listview > row:hover:not(:selected) {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none; }
+
+/* The Win95 dotted focus rectangle, drawn 1px inside the row. gtk-widgets.css excludes the view
+   nodes themselves from the global focus rule — its comment warns that an outline on a treeview
+   causes a momentary displacement of the UI — so the dots go on the row and cell, never on
+   listview/columnview/gridview/treeview. GTK4 requires the :focus-visible qualifier: a row focused
+   by a mouse click gets no dots, only keyboard navigation does, which differs from Win95 (it drew
+   the rectangle either way) but is not expressible in CSS. */
+listview > row:focus:focus-visible,
+list > row:focus:focus-visible,
+columnview > listview > row:focus:focus-visible,
+columnview > listview > row > cell:focus:focus-visible,
+gridview > child:focus:focus-visible,
+treeview > listview > row:focus:focus-visible,
+iconview > child:focus:focus-visible {
+  outline-style: dotted;
+  outline-width: 1px;
+  outline-color: @border_dark;
+  outline-offset: -4px; }
+
+  /* On a navy row the black dots vanish, so switch them to buttonlight the way the sidebar rule in
+     gtk-widgets.css does. */
+  listview > row:selected:focus:focus-visible,
+  list > row:selected:focus:focus-visible,
+  columnview > listview > row:selected:focus:focus-visible,
+  gridview > child:selected:focus:focus-visible,
+  treeview > listview > row:selected:focus:focus-visible,
+  iconview > child:selected:focus:focus-visible {
+    outline-color: @border_bright; }
+
+/* The embossed grey-on-white insensitive look. Restated after the selection rules above or
+   Adwaita's #929595 wins. GTK3's -gtk-icon-effect: dim is a hard parse error in GTK 4.22 and is
+   replaced by -gtk-icon-filter, which is what GTK4's own sheet uses for image:disabled. */
+listview > row:disabled,
+list > row:disabled,
+columnview > listview > row:disabled,
+columnview.view:disabled,
+gridview > child:disabled,
+treeview > listview > row:disabled,
+treeview.view:disabled,
+iconview:disabled {
+  color: @disabled_font;
+  text-shadow: 1px 1px 0 @disabled_font_shadow;
+  -gtk-icon-shadow: 1px 1px @border_bright;
+  -gtk-icon-filter: opacity(0.5); }
+
+/* Column views */
+
+/* Win95 list-view column headers are raised buttons, not the flat bold labels Adwaita draws.
+   This is the raised-outset bevel verbatim, with the header metrics from gtk-viewports.css. */
+columnview > header > button,
+columnview.view > header > button,
+treeview.view > header > button {
+  min-height: 16px;
+  min-width: 16px;
+  padding: 0;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_bright;
+  border-left-color: @border_bright;
+  border-right-color: @border_dark;
+  border-bottom-color: @border_dark;
+  box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+  background-color: @bg_color;
+  background-image: none;
+  color: @fg_color;
+  text-shadow: none;
+  outline-color: @border_dark;
+  font-weight: bold;
+  transition: none; }
+
+  /* Adwaita drops the right-hand border on the final column and recolours the header on hover;
+     a Win95 header is inert until it is actually pressed. */
+  columnview > header > button:hover,
+  columnview > header > button:last-child,
+  columnview.view > header > button:hover,
+  treeview.view > header > button:hover {
+    border-right-style: solid;
+    border-right-color: @border_dark;
+    background-color: @bg_color;
+    color: @fg_color;
+    box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+    transition: none; }
+
+  /* Held down: the pressed-inset bevel. Note the deliberate asymmetry — the inner ring is a single
+     inset 1px 1px @border_shade on top/left only, with no inner bottom/right highlight. */
+  columnview > header > button:active,
+  columnview > header > button:checked,
+  columnview.view > header > button:active,
+  treeview.view > header > button:active {
+    border-top-color: @border_dark;
+    border-left-color: @border_dark;
+    border-right-color: @border_bright;
+    border-bottom-color: @border_bright;
+    box-shadow: inset 1px 1px @border_shade;
+    background-color: @bg_color;
+    color: @fg_color; }
+
+  /* The Win95 dotted focus rectangle. The base rule above sets outline-color but leaves
+     the width at the zero-width transparent base state gtk.css establishes, which is the
+     correct GTK4 idiom - GTK4 snapshots the outline of every node whose outline-width is
+     non-zero, so the width must arrive with the focus rather than being always-on.
+     Without this block, tabbing to a column header showed nothing at all. */
+  columnview > header > button:focus:focus-visible,
+  columnview.view > header > button:focus:focus-visible,
+  treeview.view > header > button:focus:focus-visible {
+    outline-style: dotted;
+    outline-width: 1px;
+    outline-color: @border_dark;
+    outline-offset: -4px; }
+
+  columnview > header > button:disabled,
+  columnview.view > header > button:disabled,
+  treeview.view > header > button:disabled {
+    background-image: none;
+    color: @disabled_font;
+    text-shadow: 1px 1px 0 @disabled_font_shadow; }
+
+  columnview > header > button label,
+  columnview.view > header > button label,
+  treeview.view > header > button label {
+    padding: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: -3px; }
+
+  /* Windows 95 Explorer had no sort arrow in the column header at all, and gtk-treeviews.css keeps
+     that on purpose ("Hey Windows95 didn't have arrows in the headerbar either!") by painting the
+     header image transparent. The indicator node is kept at its 16x16 size so the header does not
+     change width when a sort is applied — only the glyph is suppressed. This does lose the
+     ascending/descending cue; there is no period-correct way to show it. */
+  columnview > header > button sort-indicator,
+  columnview.view > header > button sort-indicator,
+  treeview.view > header > button sort-indicator {
+    min-height: 16px;
+    min-width: 16px;
+    color: transparent;
+    -gtk-icon-shadow: none; }
+
+/* Cells. Adwaita's 8px 6px is far too airy for a Win95 report view; gtk-treeviews.css runs its
+   cells at padding 0 with a single pixel of left inset. */
+columnview > listview > row {
+  padding: 0;
+  min-height: 18px; }
+
+  columnview > listview > row > cell,
+  treeview > listview > row > cell {
+    padding: 1px 4px;
+    border-radius: 0;
+    background-image: none;
+    outline: 0 solid transparent;
+    transition: none; }
+
+  columnview > listview > row > cell:not(:first-child) {
+    border-left: 1px solid transparent; }
+
+  columnview.column-separators > listview > row > cell {
+    border-left-color: @border_shade; }
+
+  columnview.data-table > listview > row > cell {
+    padding-top: 0;
+    padding-bottom: 0; }
+
+/* Drag-and-drop feedback: a hard navy insertion rule, matching treeview.dnd in gtk-treeviews.css. */
+columnview > dndtarget:drop(active),
+columnview.view > dndtarget:drop(active),
+treeview.view > dndtarget:drop(active),
+iconview > dndtarget:drop(active) {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-color: @selected_bg_color; }
+
+  columnview.view > dndtarget:drop(active).after,
+  treeview.view > dndtarget:drop(active).after {
+    border-top-style: none; }
+  columnview.view > dndtarget:drop(active).before,
+  treeview.view > dndtarget:drop(active).before {
+    border-bottom-style: none; }
+
+/* The band drawn while rubber-band selecting inside a view. The odd fractional blue channel is
+   upstream's own literal from gtk-widgets.css and is reproduced verbatim. The generic .rubberband
+   node is left to gtk-widgets.css; only the view-scoped ones are set here. */
+columnview.view > rubberband,
+gridview > rubberband,
+treeview.view > rubberband {
+  border: 1px solid @selected_bg_color;
+  border-radius: 0;
+  background-color: rgba(0, 0, 50.2, 0.5); }
+
+/* Grid views */
+
+/* gridview > child, not "> row". Adwaita pads the child 3px and then puts a 12px margin plus 8px
+   border-spacing on the inner box, which floats the icons far apart; Win95 icon views were tight. */
+gridview > child {
+  padding: 2px;
+  border-radius: 0;
+  background-image: none;
+  outline: 0 solid transparent;
+  transition: none; }
+
+  gridview > child box {
+    border-spacing: 4px;
+    margin: 4px;
+    background-color: transparent; }
+
+iconview > child {
+  padding: 2px;
+  border-radius: 0;
+  outline: 0 solid transparent;
+  transition: none; }
+
+/* Tree expanders */
+
+/* Windows 95 used a 9x9 white square containing a black + or - as the tree expander, not an arrow.
+   GTK4 draws the glyph as a symbolic icon on the "expander" child of treeexpander, so the icon is
+   suppressed (color: transparent kills the recoloured symbolic) and the box plus the two bars are
+   rebuilt out of hard-stop gradients: a 5x1 horizontal bar always, and a 1x5 vertical bar only
+   while the node is collapsed.
+   Caveats, since this is an approximation: the real Win95 control also drew the dotted tree lines
+   that join the boxes, and GTK4 gives no styleable node for those (treeexpander > indent is a
+   plain spacer with no border of its own, and a 1px dotted border on it would land on the wrong
+   edge at every second depth). The lines are therefore omitted rather than faked. */
+treeexpander {
+  border-spacing: 4px;
+  transition: none; }
+
+  treeexpander > indent {
+    -gtk-icon-size: 8px; }
+
+  treeexpander > expander,
+  treeexpander expander {
+    min-width: 9px;
+    min-height: 9px;
+    padding: 0;
+    margin: 0 2px;
+    border: 1px solid @border_shade;
+    border-radius: 0;
+    background-color: @bg_bright;
+    background-image: linear-gradient(to right, @fg_color, @fg_color),
+                      linear-gradient(to bottom, @fg_color, @fg_color);
+    background-size: 5px 1px, 1px 5px;
+    background-position: center, center;
+    background-repeat: no-repeat;
+    color: transparent;
+    -gtk-icon-shadow: none;
+    box-shadow: none;
+    transition: none; }
+
+    /* Expanded: drop the vertical bar and the + becomes a -. */
+    treeexpander > expander:checked,
+    treeexpander expander:checked {
+      background-image: linear-gradient(to right, @fg_color, @fg_color);
+      background-size: 5px 1px;
+      background-position: center; }
+
+    treeexpander > expander:disabled,
+    treeexpander expander:disabled {
+      border-color: @border_shade;
+      background-image: linear-gradient(to right, @disabled_font, @disabled_font),
+                        linear-gradient(to bottom, @disabled_font, @disabled_font);
+      background-color: @bg_color; }
+
+/* Navigation sidebar */
+
+/* .navigation-sidebar is a style class GTK4 and libadwaita hang on a list, listview, gridview,
+   flowbox or treeview used as a places/section sidebar — GtkPlacesSidebar in Nautilus and the file
+   chooser above all. It gets the plain grey face, not the white view fill, which is why it is
+   excluded from the sunken-well rule at the top of this file: in Win95 the sidebar was part of the
+   window, not a field sunk into it.
+   Note this deliberately does NOT reproduce gtk-3.0's .sidebar treatment, where the list sits on
+   @bg_shade (#7f7f7f) with white labels — that rule exists for the XFCE settings manager, and
+   applying it to every GNOME sidebar would put mid-grey slabs through Nautilus. The keystone sets
+   --sidebar-bg-color to #c0c0c0 for the same reason; this keeps the two consistent. */
+.navigation-sidebar {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: @bg_color;
+  background-image: none;
+  color: @fg_color;
+  -gtk-icon-style: regular;
+  transition: none; }
+
+  .navigation-sidebar.view,
+  .navigation-sidebar.background {
+    background-color: @bg_color;
+    color: @fg_color; }
+
+  .navigation-sidebar > row,
+  .navigation-sidebar > child,
+  .navigation-sidebar > flowboxchild {
+    padding: 2px 4px;
+    min-height: 20px;
+    border-radius: 0;
+    background-image: none;
+    box-shadow: none;
+    outline: 0 solid transparent;
+    transition: none; }
+
+    .navigation-sidebar > row:selected,
+    .navigation-sidebar > child:selected,
+    .navigation-sidebar > flowboxchild:selected,
+    treeview.navigation-sidebar:selected {
+      background-color: @selected_bg_color;
+      background-image: none;
+      color: @selected_fg_color;
+      text-shadow: none;
+      -gtk-icon-shadow: none;
+      box-shadow: none;
+      border-radius: 0; }
+
+    .navigation-sidebar > row:focus:focus-visible,
+    .navigation-sidebar > child:focus:focus-visible,
+    .navigation-sidebar > flowboxchild:focus:focus-visible {
+      outline-style: dotted;
+      outline-width: 1px;
+      outline-color: @border_dark;
+      outline-offset: -4px; }
+    .navigation-sidebar > row:selected:focus:focus-visible,
+    .navigation-sidebar > child:selected:focus:focus-visible {
+      outline-color: @border_bright; }
+
+  /* A single etched rule, the degenerate form gtk-separators.css uses. */
+  .navigation-sidebar > separator {
+    min-height: 0;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    background-image: none;
+    background-color: transparent;
+    border-top: 1px solid @border_shade;
+    border-bottom: 1px solid @border_bright; }
+
+/* Rich lists */
+
+/* .rich-list is the tall-row variant used for sidebars and settings-ish lists. Adwaita runs it at
+   8px 12px / min-height 32px with 12px border-spacing; that is a modern metric with no Win95
+   analogue, so it is brought down to the ordinary row height with a little more horizontal air. */
+.rich-list > row {
+  padding: 2px 6px;
+  min-height: 20px;
+  border-radius: 0;
+  background-image: none;
+  box-shadow: none;
+  transition: none; }
+
+  .rich-list > row > box,
+  .rich-list > header > box {
+    border-spacing: 6px; }
+
+/* Legacy treeview */
+
+/* GtkTreeView is deprecated but very much alive in Thunar, GIMP and every older GTK app, and in
+   GTK 4.22 it is reimplemented on top of listview — hence the treeview > listview > row > cell
+   rules above. What follows is the part of gtk-3.0/gtk-treeviews.css that still has a target.
+   Every -GtkTreeView-* style property from that file is gone: GTK4 has no widget style properties
+   at all, so -GtkTreeView-vertical-separator, -horizontal-separator, -grid-line-width,
+   -grid-line-pattern, -tree-line-width, -tree-line-pattern and -expander-size are all deleted
+   rather than ported. The consequence is that the dotted grid and tree lines Win95 drew in report
+   views cannot be reinstated from CSS in GTK4; nothing replaces them. */
+treeview {
+  padding: 2px;
+  outline: none;
+  -gtk-icon-style: regular;
+  transition: none; }
+
+treeview.dnd {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-color: @selected_bg_color; }
+
+/* The border colours here are the treeview's own expanded-item path, not a frame — gtk-3.0 uses
+   them to draw the shoulder that joins a parent row to its children. */
+treeview.view {
+  padding: 0;
+  padding-left: 1px;
+  border-left-color: @border_shade;
+  border-top-color: @border_shade; }
+  treeview.view:selected {
+    border-left-color: @border_bright; }
+
+  treeview.view.separator,
+  columnview.view.separator {
+    min-height: 8px;
+    color: @border_dark; }
+
+  /* Sort/expander arrows in the header are suppressed, as above. */
+  treeview.view image {
+    color: transparent; }
+
+  /* The legacy expander is a style class on a cell rather than a treeexpander node, so it cannot
+     take the +/- box treatment above (it has no border box of its own to paint — GTK renders it
+     purely as an icon). gtk-3.0 routes it through the icon theme, and Chicago95's own icon theme
+     ships treeview-closed / treeview-opened as Win95 +/- squares, so that route is kept verbatim
+     and stays pixel-correct. */
+  treeview.view.expander,
+  columnview.view.expander {
+    min-width: 16px;
+    min-height: 16px;
+    color: @fg_color;
+    -gtk-icon-source: -gtk-icontheme("treeview-closed"); }
+  treeview.view.expander:selected,
+  columnview.view.expander:selected {
+    -gtk-icon-source: -gtk-icontheme("treeview-closed-inverted"); }
+  treeview.view.expander:checked,
+  columnview.view.expander:checked {
+    -gtk-icon-source: -gtk-icontheme("treeview-opened"); }
+  treeview.view.expander:checked:selected,
+  columnview.view.expander:checked:selected {
+    -gtk-icon-source: -gtk-icontheme("treeview-opened-inverted"); }
+
+  /* Cell renderers that borrow other widgets. The check/radio indicators inside a treeview must
+     not carry the row's padding or they misalign with the text baseline. */
+  treeview check,
+  treeview radio,
+  treeview check:checked,
+  treeview radio:checked {
+    padding: 0; }
+
+  /* In-place editing. */
+  treeview entry,
+  treeview > listview > row > cell editablelabel > text,
+  columnview > listview > row > cell editablelabel > text {
+    border-radius: 0;
+    background-color: @bg_bright;
+    background-image: none;
+    color: @text_color; }
+
+  columnview row:not(:selected) cell editablelabel:not(.editing):focus-within,
+  columnview row:not(:selected) cell editablelabel.editing:focus-within {
+    outline-style: dotted;
+    outline-width: 1px;
+    outline-color: @border_dark;
+    outline-offset: -1px; }
+
+  /* Progress and level cell renderers: flat navy fill, no gradient, no rounding. */
+  treeview.view.progressbar,
+  columnview.view.progressbar {
+    border-radius: 0;
+    background-color: @selected_bg_color;
+    background-image: none;
+    box-shadow: none;
+    color: @selected_fg_color; }
+  treeview.view.trough,
+  columnview.view.trough {
+    border-radius: 0;
+    background-color: @bg_bright;
+    background-image: none; }
+
+  treeview acceleditor > label,
+  columnview acceleditor > label {
+    background-color: @selected_bg_color;
+    color: @selected_fg_color; }

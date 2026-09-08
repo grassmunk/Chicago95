@@ -1,0 +1,1139 @@
+/***********
+ * Widgets *
+ **********/
+
+/*
+   Contributor notes:
+   Please use two space indentions.
+   Stack all related and child selectors and selector states into a logical hierarchy to a readable degree.
+   Make sure that all changes made here are part of the primitive controls: button, entry,
+   check, radio, switch, spinbutton, scale, progressbar, levelbar, separator, label, link
+   and spinner.
+*/
+
+/*
+   This file owns the primitive controls only. Chrome (headerbar, windowcontrols, window),
+   containers (notebook, scrollbar, scrolledwindow, paned), lists (listview, columnview,
+   gridview, treeview, row), menus (popover, popover.menu, modelbutton, dropdown, tooltip)
+   and the Adw* composites live in their own partials and are deliberately absent here.
+
+   Colours are referenced through the @define-color names the keystone gtk.css declares
+   (the ported Chicago95 palette). Raw hex appears in exactly three places, each flagged
+   with a comment, where the pixel value has no name in the palette:
+   #868686 (asset-only bevel shadow), #828282 (asset-only scale trough grey), and
+   the two-tone scale/spin metrics that read clearer as literals.
+
+   Every rule below also has to undo a libadwaita 1.9 default. The recurring resets are
+   border-radius: 0, background-image: none, box-shadow (Adwaita uses it for elevation),
+   transition: none, and outline: 0 solid transparent for Adwaita's animated focus ring.
+   `transition: none` is a reset, not an animation -- Chicago95 is deliberately unanimated.
+*/
+
+/***********
+ * Buttons *
+ ***********/
+
+/* Basic buttons. This is the raised-outset Win95 face: 1px real border for the outer
+   ring (white top/left, black bottom/right) plus a 1px inset box-shadow for the inner
+   ring (#dfdfdf top/left, #808080 bottom/right). Two rings, never border-width: 2px --
+   a 2px solid border paints 2px of a single colour and destroys the bevel. */
+button,
+menubutton > button,
+splitbutton > button {
+  min-height: 14px;
+  min-width: 14px;
+  padding: 2px;
+  margin: 0;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_bright;
+  border-left-color: @border_bright;
+  border-right-color: @border_dark;
+  border-bottom-color: @border_dark;
+  box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+  background-color: @button_bg_color;
+  background-image: none;
+  color: @button_text_color;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+  outline: 0 solid transparent;
+  outline-color: @outline_color;
+  transition: none; }
+  /* Win95 buttons do not light up on hover; the face is inert until it is pressed.
+     GTK3 used `-gtk-icon-effect: highlight` here, which is a hard parse error in
+     GTK 4.22 -- the documented replacement is -gtk-icon-filter. */
+  button:hover,
+  menubutton > button:hover,
+  splitbutton > button:hover {
+    background-color: @button_bg_color;
+    background-image: none;
+    color: @button_text_color;
+    -gtk-icon-filter: brightness(1.2); }
+  /* Pressed / toggled down. Note the asymmetry that makes this read as Win95 rather
+     than as a mirrored raised button: the inner ring is a SINGLE inset on top/left,
+     with no inner bottom/right highlight. `.keyboard-activating` is a GTK4-only state
+     libadwaita raises alongside :active. Chicago95 does not shift the label on press,
+     so there is deliberately no padding offset here.
+     SPECIFICITY, and do not simplify this: GtkMenuButton's and GtkSplitButton's internal
+     buttons carry the `toggle` style class (dumped live on GTK 4.22.4 -
+     `menubutton > button` is ['image-button','toggle']), and they are :checked for as
+     long as their popover is open. The `.toggle` qualifier below is what makes these
+     rules (0,2,2) so they out-rank `button.toggle:checked` (0,2,1) further down, which
+     applies the 50% dither. Without it an open menu button rendered as a near-white
+     checkerboard - measured. `:not(menubutton > button)` is not an alternative; GTK4's
+     :not() does not accept combinators. */
+  button:active,
+  button:checked,
+  button.keyboard-activating,
+  button:disabled:active,
+  button:disabled:checked,
+  menubutton > button.toggle:active,
+  menubutton > button.toggle:checked,
+  menubutton > button.toggle.keyboard-activating,
+  menubutton > button:active,
+  menubutton > button.keyboard-activating,
+  splitbutton > menubutton > button.toggle:active,
+  splitbutton > menubutton > button.toggle:checked,
+  splitbutton > menubutton > button.toggle.keyboard-activating,
+  splitbutton > button:active,
+  splitbutton > button:checked,
+  splitbutton > button.keyboard-activating {
+    padding: 2px;
+    border-top-color: @border_dark;
+    border-left-color: @border_dark;
+    border-right-color: @border_bright;
+    border-bottom-color: @border_bright;
+    box-shadow: inset 1px 1px @border_shade;
+    background-color: @button_bg_color;
+    background-image: none;
+    color: @button_text_color;
+    text-shadow: none;
+    transition: none; }
+  /* Disabled buttons keep the raised face; only the label is embossed. See the
+     insensitive section at the bottom of this file. */
+  button:disabled,
+  menubutton > button:disabled,
+  splitbutton > button:disabled {
+    background-color: @button_bg_color;
+    background-image: none;
+    box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade; }
+  /* The Win95 dotted focus rectangle, inset 4px from the bevel. outline-style: dotted
+     and outline-offset both parse and render in GTK 4.22 (libgtk-4 still uses
+     cairo_set_dash for non-solid strokes), so this really is dots, not a solid line.
+     GTK4's convention is :focus:focus-visible rather than GTK3's bare :focus. */
+  button:focus:focus-visible,
+  menubutton > button:focus:focus-visible,
+  splitbutton > button:focus:focus-visible {
+    outline-style: dotted;
+    outline-width: 1px;
+    outline-color: @outline_color;
+    outline-offset: -4px; }
+  button > label,
+  button > image {
+    padding: 0;
+    margin: 0; }
+
+/* Flat buttons. Chicago95 has no .flat concept, but Win95's own flat-toolbar style is
+   the right period analogue: no bevel at rest, a thin raised bevel on hover, a thin
+   pressed bevel when held. The 1px transparent border is pre-reserved so hovering
+   never reflows the label.
+   BOTH spellings have to be listed. `flat` lands on the inner button when an app calls
+   set_has_frame(FALSE), but on the PARENT when it adds the style class to the
+   GtkMenuButton or AdwSplitButton itself - dumped both ways on GTK 4.22.4 - and
+   libadwaita accordingly styles `menubutton.flat > button` and `splitbutton.flat > button`
+   as well as `button.flat`. Matching only `button.flat` left the parent-class spelling
+   with the full raised bevel, so the same app-visible intent rendered two different ways
+   depending on which API the app happened to use. */
+button.flat,
+menubutton.flat > button,
+splitbutton.flat > button,
+splitbutton.flat > menubutton > button {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-color: transparent;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  color: @button_text_color;
+  text-shadow: none;
+  transition: none; }
+  button.flat:hover,
+  menubutton.flat > button:hover,
+  splitbutton.flat > button:hover,
+  splitbutton.flat > menubutton > button:hover {
+    border-top-color: @border_bright;
+    border-left-color: @border_bright;
+    border-right-color: @border_dark;
+    border-bottom-color: @border_dark;
+    box-shadow: inset -1px -1px @border_shade;
+    background-color: @button_bg_color;
+    background-image: none; }
+  button.flat:active,
+  button.flat.keyboard-activating,
+  menubutton.flat > button:active,
+  menubutton.flat > button.keyboard-activating,
+  splitbutton.flat > button:active,
+  splitbutton.flat > button.keyboard-activating {
+    border-top-color: @border_dark;
+    border-left-color: @border_dark;
+    border-right-color: @border_bright;
+    border-bottom-color: @border_bright;
+    box-shadow: inset 1px 1px @border_shade;
+    background-color: @button_bg_color;
+    background-image: none; }
+  /* A latched flat toggle gets the 50% dither, the way a pressed Win95 toolbar button
+     does. These are hard-stop gradients used as a 2px repeating checker tile, not
+     shading, so they do not violate the no-smooth-gradients rule. The text-shadow is
+     load-bearing: it keeps the label readable against the checkerboard. */
+  button.flat:checked,
+  menubutton.flat > button.toggle:checked,
+  splitbutton.flat > menubutton > button.toggle:checked,
+  button.toggle:checked {
+    border-top-color: @border_dark;
+    border-left-color: @border_dark;
+    border-right-color: @border_bright;
+    border-bottom-color: @border_bright;
+    box-shadow: inset 1px 1px @border_shade;
+    background-color: @bg_bright;
+    background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_dark);
+    background-size: 2px 2px;
+    background-position: 0 0, 1px 1px;
+    text-shadow: 1px 1px @bg_color; }
+    button.flat:checked > label,
+    menubutton.flat > button.toggle:checked > label,
+    button.toggle:checked > label {
+      text-shadow: 1px 1px @bg_color; }
+
+/* Suggested action / default push button. In Win95 the default button in a dialog is a
+   raised button wrapped in a 1px hard black rectangle.
+   APPROXIMATION, flagged as such: GTK3 draws this with a 3px border-image
+   (buttons/dialog_button_focus.png), whose rings are #000000, then #ffffff top-left /
+   #808080 bottom-right, then the #c0c0c0 fill. The 1px-border + 1px-inset form below
+   drops the third ring, so the label sits 1px closer to the edge than upstream. It is
+   written asset-free on purpose; a maintainer who wants the exact upstream pixels can
+   swap in the border-image (border-image still works in GTK 4.22). */
+button.suggested-action,
+.dialog-action-area button.default,
+.response-area button.suggested-action {
+  min-height: 16px;
+  min-width: 16px;
+  padding: 2px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-color: @border_dark;
+  box-shadow: inset 1px 1px @border_bright, inset -1px -1px @border_shade;
+  background-color: @button_bg_color;
+  background-image: none;
+  color: @button_text_color;
+  text-shadow: none; }
+  button.suggested-action:active,
+  button.suggested-action:checked,
+  button.suggested-action.keyboard-activating,
+  .response-area button.suggested-action:active {
+    border-color: @border_dark;
+    box-shadow: inset 1px 1px @border_shade;
+    background-color: @button_bg_color;
+    background-image: none; }
+
+/* Destructive action. Upstream keeps the raised bevel and recolours only the face to
+   @error_color. GTK3 wrote the label as mix(@theme_selected_fg_color, @error_color, 0.1);
+   mix() is deprecated in GTK 4.22 and cannot see custom properties, so the resolved
+   near-white is used directly instead. */
+button.destructive-action {
+  border-top-color: @border_bright;
+  border-left-color: @border_bright;
+  border-right-color: @border_dark;
+  border-bottom-color: @border_dark;
+  box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+  background-color: @error_color;
+  background-image: none;
+  color: @selected_fg_color;
+  text-shadow: none; }
+  button.destructive-action:active,
+  button.destructive-action:checked,
+  button.destructive-action.keyboard-activating {
+    border-top-color: @border_dark;
+    border-left-color: @border_dark;
+    border-right-color: @border_bright;
+    border-bottom-color: @border_bright;
+    box-shadow: inset 1px 1px @border_shade;
+    background-color: @error_color; }
+
+/* .pill and .circular are pure libadwaita shapes with no Win95 analogue. They keep the
+   ordinary raised bevel and lose their radius entirely -- Chicago95 is square everywhere. */
+button.pill {
+  border-radius: 0;
+  padding: 2px 6px; }
+button.circular {
+  border-radius: 0;
+  min-width: 16px;
+  min-height: 16px;
+  padding: 2px; }
+
+/* OSD buttons. Chicago95 has no translucent chrome, so an .osd button is just a normal
+   raised button on the ordinary grey face. */
+button.osd {
+  min-height: 14px;
+  min-width: 14px;
+  padding: 2px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_bright;
+  border-left-color: @border_bright;
+  border-right-color: @border_dark;
+  border-bottom-color: @border_dark;
+  box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+  background-color: @osd_base;
+  background-image: none;
+  color: @osd_fg; }
+
+/* Linked button groups. Adwaita fuses a .linked box into one rounded pill by zeroing
+   the inner borders and radii; Win95 has no such grouping, so every member keeps its
+   own complete bevel. */
+.linked > button,
+.linked > menubutton > button,
+.linked > splitbutton > button,
+box.linked > button {
+  border-width: 1px;
+  border-radius: 0;
+  margin: 0; }
+
+/* Image and text button padding, matching gtk-buttons.css. */
+button.image-button {
+  padding: 0;
+  color: @text_color; }
+  button.image-button > label,
+  button.image-button > image {
+    padding-left: 4px;
+    padding-right: 4px; }
+button.text-button {
+  padding-left: 4px;
+  padding-right: 4px; }
+
+/*********
+ * entry *
+ *********/
+
+/* The 2px sunken field. Colour order is the pixel structure of assets/entry.png:
+   outer top/left #808080, inner top/left #000000, inner bottom/right #dfdfdf,
+   outer bottom/right #ffffff.
+   Node-tree note: GTK4 splits GtkEntry into `entry` and a `text` child. The design
+   spec puts the bevel on `entry`, which is where libadwaita paints too; `entry > text`
+   is then explicitly flattened so whichever of the two a given GTK4 minor decides to
+   paint, the result is exactly one sunken well and never two nested ones.
+   There is deliberately no `passwordentry` or `searchentry` selector anywhere in this
+   file: neither is a GTK4 CSS node. Dumped live on GTK 4.22.4, GtkPasswordEntry is
+   `<entry>` with the `password` class (children `text` and `image.caps-lock-indicator`)
+   and GtkSearchEntry is `<entry>` with the `search` class, and both names have zero
+   occurrences in the stock libadwaita 1.9.1 and GTK Default-light sheets. The plain
+   `entry` selectors below therefore already cover both widgets, and the only rule that
+   needs a class is the caps-lock indicator at the end of this section. */
+entry,
+spinbutton,
+editablelabel.editing {
+  min-width: 20px;
+  min-height: 16px;
+  padding: 0 2px;
+  margin: 0;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_shade;
+  border-left-color: @border_shade;
+  border-right-color: @border_bright;
+  border-bottom-color: @border_bright;
+  box-shadow: inset 1px 1px @border_dark, inset -1px -1px @border_light;
+  background-color: @bg_bright;
+  background-image: none;
+  color: @text_color;
+  text-shadow: none;
+  outline: 0 solid transparent;
+  transition: none; }
+  /* Win95 edit fields do not change appearance on focus or hover -- only the caret
+     moves in. Restate the resting look so Adwaita's focus recolour cannot apply. */
+  entry:focus,
+  entry:focus-within,
+  entry:hover,
+  spinbutton:focus-within {
+    border-top-color: @border_shade;
+    border-left-color: @border_shade;
+    border-right-color: @border_bright;
+    border-bottom-color: @border_bright;
+    box-shadow: inset 1px 1px @border_dark, inset -1px -1px @border_light;
+    background-color: @bg_bright;
+    background-image: none;
+    outline: 0 solid transparent; }
+  /* Upstream deliberately keeps disabled entry text BLACK on the grey face rather than
+     applying the embossed grey treatment -- see gtk-entry.css. Kept for parity. */
+  entry:disabled,
+  spinbutton:disabled {
+    background-color: @bg_color;
+    background-image: none;
+    color: @text_color;
+    text-shadow: none; }
+  /* .flat entries drop the bevel but keep the white field. */
+  entry.flat {
+    border-color: transparent;
+    box-shadow: none;
+    padding: 0 2px; }
+  /* Chicago95 has no semantic entry states; .error/.warning/.success are neutralised
+     back to the plain sunken well so libadwaita's coloured borders do not leak in. */
+  entry.error,
+  entry.warning,
+  entry.success {
+    border-top-color: @border_shade;
+    border-left-color: @border_shade;
+    border-right-color: @border_bright;
+    border-bottom-color: @border_bright;
+    box-shadow: inset 1px 1px @border_dark, inset -1px -1px @border_light;
+    background-color: @bg_bright;
+    color: @text_color; }
+  entry > image {
+    padding-left: 2px;
+    padding-right: 2px;
+    color: @text_color; }
+
+/* The `text` child carries the caret, the selection and the placeholder, and nothing
+   else. Flattening it is what keeps the bevel single. */
+entry > text,
+spinbutton > text,
+editablelabel > stack > text {
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  color: @text_color;
+  text-shadow: none;
+  outline: 0 solid transparent; }
+  /* Navy-on-white text selection. libadwaita ships
+     `entry > text > selection { color: transparent; }`, which makes selected text
+     vanish, so both halves must be restated here. */
+  entry > text > selection,
+  spinbutton > text > selection,
+  editablelabel > stack > text > selection {
+    border-radius: 0;
+    background-color: @selected_bg_color;
+    background-image: none;
+    color: @selected_fg_color;
+    text-shadow: none; }
+  entry > text > placeholder {
+    color: @text_color_light;
+    opacity: 1; }
+  entry > text > block-cursor,
+  spinbutton > text > block-cursor {
+    background-color: @text_color;
+    color: @bg_bright; }
+
+/* editablelabel: not editing it is a plain label, editing it is an entry. */
+editablelabel {
+  border-radius: 0;
+  transition: none; }
+  editablelabel > stack > label {
+    padding: 0 2px;
+    background-color: transparent;
+    color: @text_color; }
+
+/* GtkPasswordEntry's caps-lock warning is an ordinary entry icon in Chicago95. This is
+   the one rule in the section that needs the class, because the indicator is the only
+   child that distinguishes a password entry from a plain one. */
+entry.password > image.caps-lock-indicator {
+  color: @text_color;
+  -gtk-icon-shadow: none; }
+
+/*******************
+ * check and radio *
+ *******************/
+
+/* GTK4 has no `radiobutton` node: both indicators hang off `checkbutton`, as
+   `checkbutton > check` and `checkbutton > radio`.
+   The indicators reuse the 16x16 PNGs from the GTK3 tree by relative path. Asset URLs
+   resolve against the CSS file that contains them, so `../gtk-3.0/assets/...` is
+   correct for an installed theme, where gtk-3.0/ and gtk-4.0/ always ship side by side.
+   A maintainer who would rather not cross directories can copy the twelve
+   checkbox and radio PNGs into gtk-4.0/assets/ and drop the `../gtk-3.0/` prefix; the
+   filenames are unchanged. Everything Adwaita paints on the indicator node itself
+   (background, 6px radius, border, shadow, transition) has to be cleared first or it
+   draws a rounded blue box behind the bitmap. */
+checkbutton > check,
+checkbutton > radio,
+check,
+radio {
+  min-width: 16px;
+  min-height: 16px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  -gtk-icon-size: 16px;
+  -gtk-icon-shadow: none;
+  -gtk-icon-transform: none;
+  outline: 0 solid transparent;
+  transition: none; }
+
+check:checked,
+checkbutton > check:checked {
+  -gtk-icon-source: url("../gtk-3.0/assets/checkbox-checked.png"); }
+check:not(:checked):not(:indeterminate),
+checkbutton > check:not(:checked):not(:indeterminate) {
+  -gtk-icon-source: url("../gtk-3.0/assets/checkbox-unchecked.png"); }
+check:indeterminate,
+checkbutton > check:indeterminate {
+  -gtk-icon-source: url("../gtk-3.0/assets/checkbox-mixed.png"); }
+check:disabled:checked,
+checkbutton > check:disabled:checked {
+  -gtk-icon-source: url("../gtk-3.0/assets/checkbox-checked-insensitive.png"); }
+check:disabled:not(:checked):not(:indeterminate),
+checkbutton > check:disabled:not(:checked):not(:indeterminate) {
+  -gtk-icon-source: url("../gtk-3.0/assets/checkbox-unchecked-insensitive.png"); }
+check:disabled:indeterminate,
+checkbutton > check:disabled:indeterminate {
+  -gtk-icon-source: url("../gtk-3.0/assets/checkbox-mixed-insensitive.png"); }
+
+radio:checked,
+checkbutton > radio:checked {
+  -gtk-icon-source: url("../gtk-3.0/assets/radio-selected.png"); }
+radio:not(:checked):not(:indeterminate),
+checkbutton > radio:not(:checked):not(:indeterminate) {
+  -gtk-icon-source: url("../gtk-3.0/assets/radio-unselected.png"); }
+radio:indeterminate,
+checkbutton > radio:indeterminate {
+  -gtk-icon-source: url("../gtk-3.0/assets/radio-mixed.png"); }
+radio:disabled:checked,
+checkbutton > radio:disabled:checked {
+  -gtk-icon-source: url("../gtk-3.0/assets/radio-selected-insensitive.png"); }
+radio:disabled:not(:checked):not(:indeterminate),
+checkbutton > radio:disabled:not(:checked):not(:indeterminate) {
+  -gtk-icon-source: url("../gtk-3.0/assets/radio-unselected-insensitive.png"); }
+radio:disabled:indeterminate,
+checkbutton > radio:disabled:indeterminate {
+  -gtk-icon-source: url("../gtk-3.0/assets/radio-mixed-insensitive.png"); }
+
+/* An outline around the whole checkbutton looks wrong, so upstream disables it and
+   puts the focus dots on the LABEL as a border instead, pre-reserving the 1px in the
+   unfocused state so focusing does not reflow the row. GTK3 wrote the reserved border
+   as alpha(@border_dark, 0); alpha() is deprecated in GTK 4.22, and plain `transparent`
+   is identical and forward-compatible. */
+checkbutton {
+  outline: 0;
+  outline: none;
+  transition: none; }
+checkbutton > label {
+  padding-left: 4px;
+  padding-right: 4px;
+  border: 1px dotted transparent;
+  background-color: transparent; }
+checkbutton:focus:focus-visible > label {
+  border: 1px dotted @border_dark; }
+
+/* .selection-mode checkboxes are a libadwaita idea; give them the ordinary indicator. */
+checkbutton.selection-mode > check {
+  min-width: 16px;
+  min-height: 16px;
+  border: none;
+  box-shadow: none;
+  background-color: transparent; }
+
+/**********
+ * switch *
+ **********/
+
+/* Windows 95 HAS NO SWITCH -- there is no period-correct control to copy, so this is a
+   deliberate invention rather than a reproduction, and it is flagged as such. It is
+   built from parts that ARE period-correct: the switch node becomes a small sunken well
+   (the scrollbar/entry groove) and the slider becomes a raised square button face, so a
+   switch reads as a two-position Win95 slider rather than as a rounded iOS toggle.
+   Metrics from gtk-widgets.css:365-370 and gtk-basic-effects.css:55-62 -- note this well
+   uses `inset -1px -1px @border_color` (#c0c0c0) for the inner bottom/right rather than
+   @border_light, which is the upstream variant for entry/switch/scale trough.
+   min-width/min-height are DERIVED, not upstream: 18px slider + 1px margin each side +
+   the 2px bevel. */
+switch {
+  min-width: 40px;
+  min-height: 16px;
+  padding: 0;
+  margin: 0;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_shade;
+  border-left-color: @border_shade;
+  border-right-color: @border_bright;
+  border-bottom-color: @border_bright;
+  box-shadow: inset 1px 1px @border_dark, inset -1px -1px @border_color;
+  background-color: @bg_bright;
+  background-image: none;
+  color: @text_color;
+  outline: 0 solid transparent;
+  transition: none; }
+  /* Chicago95 does not signal "on" with colour -- the raised slider having travelled to
+     the other end of the well is the whole indication, exactly as a Win95 scrollbar
+     thumb reads. */
+  switch:checked {
+    background-color: @bg_bright;
+    background-image: none;
+    color: @text_color; }
+  switch:disabled {
+    background-color: @bg_color;
+    background-image: none; }
+  switch:focus:focus-visible {
+    outline-style: dotted;
+    outline-width: 1px;
+    outline-color: @outline_color;
+    outline-offset: -4px; }
+  /* The raised square knob. */
+  switch > slider {
+    min-width: 18px;
+    min-height: 12px;
+    margin: 1px;
+    padding: 0;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0;
+    border-top-color: @border_bright;
+    border-left-color: @border_bright;
+    border-right-color: @border_dark;
+    border-bottom-color: @border_dark;
+    box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+    background-color: @bg_color;
+    background-image: none;
+    transition: none; }
+    switch > slider:hover,
+    switch:checked > slider {
+      background-color: @bg_color;
+      background-image: none;
+      box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade; }
+  /* libadwaita 1.9 puts a check/dash glyph inside the switch. There is no Win95
+     equivalent, and it would draw over the knob, so it is suppressed. */
+  switch > image {
+    -gtk-icon-source: none;
+    color: transparent;
+    -gtk-icon-shadow: none; }
+
+/***************
+ * spinbuttons *
+ ***************/
+
+/* The sunken well is declared with the entries above. Here only the +/- buttons and the
+   node depth differ. Horizontal is `spinbutton > text` + `spinbutton > button`; the
+   vertical variant nests one level deeper as `spinbutton.vertical > text > text`.
+   GTK3 painted these buttons with buttons/dialog_button_normal.png as a background
+   image; the asset-free raised bevel below is the same three rings without the PNG. */
+spinbutton > button {
+  min-width: 16px;
+  min-height: 16px;
+  padding: 0;
+  margin: 0;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_bright;
+  border-left-color: @border_bright;
+  border-right-color: @border_dark;
+  border-bottom-color: @border_dark;
+  box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+  background-color: @button_bg_color;
+  background-image: none;
+  color: @button_text_color;
+  outline: 0 solid transparent;
+  transition: none; }
+  spinbutton > button:hover {
+    background-color: @button_bg_color;
+    background-image: none; }
+  spinbutton > button:active,
+  spinbutton > button.keyboard-activating {
+    border-top-color: @border_dark;
+    border-left-color: @border_dark;
+    border-right-color: @border_bright;
+    border-bottom-color: @border_bright;
+    box-shadow: inset 1px 1px @border_shade;
+    background-color: @button_bg_color;
+    background-image: none; }
+  spinbutton > button > image {
+    color: @button_text_color;
+    -gtk-icon-shadow: none; }
+  spinbutton > button > box > label,
+  spinbutton > button > box > box > label {
+    padding: 0;
+    color: @button_text_color; }
+
+/* Vertical spinbuttons: one extra `text` level, and the inner field gets 2px of
+   vertical margin so the two stacked buttons line up with the well. */
+spinbutton.vertical > text > text {
+  min-width: 16px;
+  min-height: 16px;
+  padding: 0;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  color: @text_color; }
+spinbutton.vertical > button {
+  padding: 0; }
+
+/*********
+ * scale *
+ *********/
+
+/* The trough is the decoded pixel structure of assets/scale.png written without the
+   asset: a 1px #828282 ring over a #000000 fill. #828282 has no name in the Chicago95
+   palette -- it exists only inside that PNG -- so it is a raw literal here. */
+scale > trough {
+  min-width: 2px;
+  min-height: 2px;
+  padding: 0;
+  margin: 0;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-color: #828282; /* asset-only: outer ring of assets/scale.png */
+  box-shadow: none;
+  background-color: @border_dark;
+  background-image: none;
+  outline-offset: -8px;
+  transition: none; }
+  scale:focus:focus-visible > trough {
+    outline-style: dotted;
+    outline-width: 1px;
+    outline-color: @outline_color;
+    outline-offset: 8px; }
+  /* A Win95 trackbar has no filled portion; the channel is uniform end to end. */
+  scale > trough > highlight,
+  scale > trough > fill {
+    /* `border: none` matters as much as the transparent background. Both stock sheets
+       colour these nodes with a border AND a background - GTK's builtin Default uses
+       `border: 1px solid #3584e4` on highlight - and the node is only a few pixels
+       thick, so a surviving 1px accent border reads as a solid coloured rule down the
+       whole channel. Measured with the Yaru-magenta accent: clearing only the
+       background left 293 magenta pixels; clearing the border too leaves none.
+
+       `margin: 0` has to accompany `border: none` for the same reason it does on
+       progressbar's progress node: GTK's builtin Default pairs the border with
+       `scale > trough > fill, scale > trough > highlight { margin: -1px }` so the fill
+       laps over the trough edge. Removing the border but keeping the margin leaves
+       `1px - 2px = -1px` and GTK rejects it ("(highlight) reported min width -1"). */
+    min-width: 1px;
+    min-height: 1px;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    background-color: transparent;
+    background-image: none; }
+
+/* The slider. Border colours are per-side literals here because they mirror the
+   Win95 thumb exactly: white top/left, black bottom/right, one inner grey shadow. */
+scale > trough > slider {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_bright;
+  border-left-color: @border_bright;
+  border-right-color: @border_dark;
+  border-bottom-color: @border_dark;
+  box-shadow: inset -1px -1px @border_shade, inset 0 0 @border_color;
+  background-color: @bg_color;
+  background-image: none;
+  outline: 0 solid transparent;
+  transition: none; }
+  scale > trough > slider:hover {
+    background-color: @bg_color;
+    background-image: none; }
+  /* A dragged slider gets the 50% dither, matching gtk-progressbar.css. */
+  scale > trough > slider:active {
+    background-color: @border_bright;
+    background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_dark);
+    background-size: 2px 2px;
+    background-position: 0 0, 1px 1px; }
+
+/* Slider geometry is stated outright here rather than copied from gtk-3.0. The GTK3
+   sheet gets away with `min-height: 1px; margin: -11px 0` because `scale.horizontal
+   indicator` carries `padding-top: 10px` (gtk-progressbar.css:67-70), which supplies
+   the height the negative margin then eats into. GTK4 lays `marks > indicator` out
+   itself and that padding is deliberately dropped above, so the same numbers here
+   resolve to `1px + 2px border - 22px margin = -19px` and GTK 4.22 rejects them with
+   "reported min height -19, but sizes must be >= 0" (GTK3 clamped it silently).
+   So the thumb is given its true Windows 95 trackbar size instead - 11x21px - and the
+   margin is only as negative as it can be while the result stays >= 0 and still <= the
+   4px trough, so the trough keeps deciding the channel height:
+     21px + 2px border - 20px margin = 3px, and 3px <= 4px trough.  */
+scale.horizontal {
+  min-height: 0;
+  margin: 3px;
+  padding: 9px 1px 9px 1px; }
+  scale.horizontal > trough > slider {
+    min-width: 11px;
+    min-height: 21px;
+    margin: -10px 0 -10px 0; }
+/* Vertical padding is 9px, not gtk-3.0's 7px: GTK3 padded `scale.vertical indicator`
+   by 10px on each side to make room for the thumb, and with that padding gone 7px
+   leaves only 18px of width for a 21px thumb, which clips it. 9px matches the
+   horizontal axis and gives 9 + 4 + 9 = 22px. */
+scale.vertical {
+  min-width: 0;
+  margin: 3px;
+  padding: 1px 9px 1px 9px; }
+  scale.vertical > trough > slider {
+    min-width: 21px;
+    min-height: 11px;
+    margin: 0 -10px 0 -10px; }
+
+/* Tick marks. Win95 trackbar ticks are 1px hard dark rules. GTK3 sized these through
+   `indicator` padding to fake the layout; GTK4 lays the marks node out itself, so only
+   the tick size and colour are set here and the GTK3 padding is deliberately dropped. */
+scale > marks > indicator {
+  border: none;
+  background-color: @border_dark;
+  background-image: none; }
+scale.horizontal > marks > indicator {
+  min-width: 1px;
+  min-height: 3px; }
+scale.vertical > marks > indicator {
+  min-width: 3px;
+  min-height: 1px; }
+scale > marks > label {
+  color: @fg_color;
+  text-shadow: none; }
+scale > value {
+  padding: 4px;
+  color: @fg_color;
+  text-shadow: none; }
+
+/* scale.color is a colour-picker gradient strip; keep it out of the way. */
+scale.color > trough {
+  min-height: 8px;
+  min-width: 8px; }
+
+/***************
+ * progressbar *
+ ***************/
+
+progressbar {
+  padding: 2px;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  color: @fg_color;
+  transition: none; }
+  progressbar > text {
+    color: @fg_color;
+    text-shadow: none; }
+
+/* Sunken 1px trough, solid grey face -- gtk-basic-effects.css:12-18 plus
+   gtk-progressbar.css:12-27. */
+progressbar > trough,
+levelbar > trough {
+  padding: 0;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_shade;
+  border-left-color: @border_shade;
+  border-right-color: @border_bright;
+  border-bottom-color: @border_bright;
+  box-shadow: none;
+  background-color: @bg_color;
+  background-image: none; }
+progressbar.horizontal > trough,
+progressbar.horizontal > trough > progress,
+levelbar.horizontal > trough {
+  min-height: 14px; }
+progressbar.vertical > trough,
+progressbar.vertical > trough > progress,
+levelbar.vertical > trough {
+  min-width: 14px; }
+
+/* SEGMENTED FILL. A real Windows 95 progress bar is a row of navy blocks with a 2px
+   gap, not a continuous bar. That IS reproducible in GTK4 CSS: a single hard-stop
+   linear-gradient tiled by background-size / background-repeat gives 8px of navy
+   followed by 2px of trough grey, repeating. No repeating-linear-gradient and no
+   smooth interpolation is involved -- every stop is hard.
+   background-color stays flat navy underneath on purpose: if a future GTK drops the
+   declaration the bar degrades to the solid navy fill, never to an empty bar.
+   The one thing this cannot do is align the block grid to the bar's own left edge
+   independently of the fill width, so at some widths the final block is clipped
+   mid-block instead of ending flush -- Win95 always ended on a whole block. There is no
+   way to express "integer number of blocks" in CSS, so the clipped edge is accepted. */
+/* `margin: 0` is load-bearing, not tidiness. GTK's builtin Default theme ships
+   `progressbar.horizontal > trough > progress { margin: 0 -1px }` (and `-1px 0` for
+   the vertical case) so that the fill bleeds over the trough's 1px border. Dropping
+   the border here without also dropping that margin leaves `0 - 2px = -2px`, and GTK
+   4.22 rejects it: "(progress) reported min width -2, but sizes must be >= 0". The
+   Win95 fill sits inside the sunken groove rather than over it, so 0 is also the
+   correct look. Only plain-GTK4 apps hit this - libadwaita has no such margin - which
+   is why it shows up in gtk4-widget-factory but not in adwaita-1-demo. */
+progressbar > trough > progress {
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  box-shadow: none;
+  background-color: @progressbar_color;
+  background-repeat: repeat;
+  transition: none; }
+progressbar.horizontal > trough > progress {
+  background-image: linear-gradient(to right, @progressbar_color 0px, @progressbar_color 8px, @bg_color 8px, @bg_color 10px);
+  background-size: 10px 100%;
+  background-position: 0 0; }
+progressbar.vertical > trough > progress {
+  background-image: linear-gradient(to top, @progressbar_color 0px, @progressbar_color 8px, @bg_color 8px, @bg_color 10px);
+  background-size: 100% 10px;
+  background-position: 0 100%; }
+/* An indeterminate bar is a single travelling block; segmenting it would read as noise. */
+progressbar > trough > progress.pulse {
+  background-image: none;
+  background-color: @progressbar_color; }
+progressbar:disabled > trough > progress {
+  background-color: @selected_inactive_bg_color;
+  background-image: none; }
+
+/* .osd progressbars are flush overlays elsewhere; keep the same sunken trough so they
+   do not fall back to a rounded libadwaita pill. */
+progressbar.osd > trough {
+  border-radius: 0;
+  background-color: @bg_color; }
+
+/************
+ * levelbar *
+ ************/
+
+/* levelbar keeps the flat navy fill. Chicago95 has no semantic level colouring, so
+   .low / .high / .full all read navy and only .empty falls back to the trough grey. */
+levelbar > trough > block {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background-image: none;
+  background-color: @selected_bg_color; }
+  levelbar > trough > block.low,
+  levelbar > trough > block.high,
+  levelbar > trough > block.full,
+  levelbar > trough > block.filled {
+    background-color: @selected_bg_color;
+    background-image: none; }
+  levelbar > trough > block.empty {
+    background-color: @bg_color;
+    background-image: none; }
+levelbar.vertical.discrete > trough > block {
+  margin-top: 2px; }
+levelbar.horizontal.discrete > trough > block {
+  margin-right: 2px; }
+
+/*************
+ * separator *
+ *************/
+
+/* The degenerate 1px etched rule: one grey leg and one white leg, which together read
+   as the Win95 groove. Adwaita draws separators as a 1px background *image* on a node
+   with a min-size, so min-width/min-height and background-image must both be cleared
+   or the border never shows. */
+separator {
+  min-width: 0;
+  min-height: 0;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none; }
+separator.horizontal {
+  border-top: 1px solid @border_shade;
+  border-bottom: 1px solid @border_bright; }
+separator.vertical {
+  border-left: 1px solid @border_shade;
+  border-right: 1px solid @border_bright; }
+
+/*********
+ * label *
+ *********/
+
+label {
+  border-radius: 0;
+  background-image: none;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+  transition: none; }
+  label > selection {
+    border-radius: 0;
+    background-color: @selected_bg_color;
+    background-image: none;
+    color: @selected_fg_color;
+    text-shadow: none; }
+
+/* Dim / secondary labels. libadwaita fades these with --dim-opacity, which gtk.css pins
+   to 100%; Chicago95 expresses "secondary" as a real colour instead, so the colour has to
+   be supplied here or the text merely stops being dim and becomes indistinguishable from
+   primary text.
+   The `label` qualifier is deliberately absent: libadwaita applies opacity to whatever
+   node carries .dimmed or .dim-label, which includes boxes and images, and a rule scoped
+   to `label` left those at full-strength primary foreground. This rule sits at the end of
+   the file on purpose - it must lose to any partial that sets a colour deliberately, and
+   imported rules cascade at the position of their @import.
+   NOT broadened to `scale > value`, `progressbar > text` or `label.separator`, which
+   libadwaita also dims: gtk-3.0 draws all three in the ordinary black (gtk-progressbar.css
+   sets `scale value { padding: 4px }` and no colour at all), so full-strength is the
+   parity-correct result there, and those nodes state @fg_color explicitly above. */
+.dim-label,
+.dimmed,
+.subtitle {
+  color: @text_color_light;
+  opacity: 1; }
+
+/* The embossed grey insensitive look -- grey text with a 1px white shadow offset down
+   and right. This is one of the most recognisable Chicago95 details, and upstream's
+   comments confirm both values were verified against real Windows 95.
+   GTK3's `-gtk-icon-effect: dim` is a hard parse error in GTK 4.22; the replacement is
+   -gtk-icon-filter: opacity(0.5), which is what GTK4's own default sheet uses for
+   image:disabled. text-shadow and -gtk-icon-shadow both still parse.
+   This has to be restated on the label nodes explicitly, because libadwaita reaches
+   disabled content through --disabled-opacity on the parent and through its own
+   insensitive colour; a bare `:disabled` rule loses to it. */
+label:disabled,
+label:disabled:disabled,
+button:disabled > label,
+button:disabled > box > label,
+button:disabled > buttoncontent > box > label,
+checkbutton:disabled > label,
+switch:disabled > label,
+menubutton > button:disabled > label,
+splitbutton > button:disabled > label,
+scale:disabled > value,
+scale:disabled > marks > label,
+progressbar:disabled > text {
+  color: @disabled_font;
+  text-shadow: 1px 1px 0 @disabled_font_shadow;
+  -gtk-icon-shadow: 1px 1px @disabled_font_shadow;
+  opacity: 1; }
+button:disabled > image,
+checkbutton:disabled > image,
+label:disabled > image,
+image:disabled {
+  -gtk-icon-filter: opacity(0.5);
+  -gtk-icon-shadow: 1px 1px @disabled_font_shadow; }
+
+/********
+ * link *
+ ********/
+
+/* Win95's hot-tracking colour is the same navy as the selection, and links are
+   underlined. GTK4 exposes links as the :link / :visited pseudo-classes on whatever
+   node carries the text, plus button.link for GtkLinkButton. */
+*:link,
+*:visited {
+  color: @link_color;
+  text-decoration-line: underline;
+  text-shadow: none;
+  outline: 0 solid transparent; }
+  *:link:hover,
+  *:visited:hover {
+    color: @link_color; }
+  *:link:focus:focus-visible {
+    outline-style: dotted;
+    outline-width: 1px;
+    outline-color: @outline_color;
+    outline-offset: -1px; }
+
+/* GtkLinkButton is a button that must not look like one. */
+button.link {
+  min-height: 14px;
+  min-width: 14px;
+  padding: 2px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  color: @link_color;
+  text-shadow: none;
+  transition: none; }
+  button.link > label {
+    color: @link_color;
+    text-decoration-line: underline; }
+  button.link:hover,
+  button.link:active,
+  button.link:checked {
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    color: @link_color; }
+  button.link:disabled > label {
+    color: @disabled_font;
+    text-shadow: 1px 1px 0 @disabled_font_shadow; }
+
+/***********
+ * spinner *
+ ***********/
+
+/* The Windows 95 hourglass, and the ONE animation Chicago95 keeps. gtk.css kills
+   `animation` on `*` and on all seven state variants, so this section is what makes the
+   claim in that file's motion comment true; if you delete it, delete the comment too.
+   How it wins: gtk.css and the partials all load in one provider, imported rules cascade
+   at the position of their @import, and `spinner:checked` (0,1,1) out-ranks `*:checked`
+   (0,1,0). Verified on GTK 4.22.4 against a mapped, spinning GtkSpinner - `set_spinning`
+   really does raise the CSS :checked state, so this is the correct selector and not
+   `:active` or `.spinning`.
+   The keyframes are named c95-hglass rather than upstream's `spin` on purpose: both stock
+   sheets define `@keyframes spin` for their own rotation, and reusing the name at
+   PRIORITY_USER would silently retarget theirs everywhere it is referenced.
+   The 20-step / 2s timing and the frame order are gtk-3.0/gtk-widgets.css:479-516
+   verbatim, including the deliberate stutter at the top of the cycle (f1, f2, f0, f2, f0
+   ...) that makes the sand look like it is starting to fall. @keyframes, steps() and
+   -gtk-icon-source: url() were each confirmed to parse and resolve on this target.
+   The 16 PNGs are referenced out of the sibling gtk-3.0 tree, as the check and radio
+   indicators above do; the two directories always install together. */
+@keyframes c95-hglass {
+  0% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f1.png"); }
+  5% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f2.png"); }
+  10% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f0.png"); }
+  15% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f2.png"); }
+  20% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f0.png"); }
+  25% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f2.png"); }
+  30% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f0.png"); }
+  35% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f2.png"); }
+  40% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f3.png"); }
+  45% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f4.png"); }
+  50% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f5.png"); }
+  55% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f6.png"); }
+  60% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f7.png"); }
+  65% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f8.png"); }
+  70% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f9.png"); }
+  75% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f10.png"); }
+  80% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f11.png"); }
+  85% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f12.png"); }
+  90% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f13.png"); }
+  95% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f14.png"); }
+  100% { -gtk-icon-source: url("../gtk-3.0/assets/hglass_f15.png"); } }
+
+/* Both stock sheets keep an idle spinner at opacity 0 and reveal it on :checked; that is
+   also how the GTK3 sheet does it, so the behaviour carries over unchanged. */
+spinner {
+  min-width: 24px;
+  min-height: 24px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  opacity: 0;
+  color: @fg_color;
+  -gtk-icon-shadow: none;
+  -gtk-icon-source: url("../gtk-3.0/assets/hglass_f1.png"); }
+  spinner:checked {
+    opacity: 1;
+    animation: c95-hglass 2s steps(20) infinite; }
+  spinner:backdrop {
+    color: @bg_color; }
+  spinner:checked:disabled {
+    opacity: 0.5;
+    -gtk-icon-shadow: none; }

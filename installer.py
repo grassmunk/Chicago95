@@ -19,6 +19,11 @@ running_folder = os.path.dirname(os.path.abspath(__file__))
 
 assets = "/Extras/"
 
+# Markers for the block the installer owns inside the user's own GTK4 stylesheet.
+# Everything outside them is the user's and is never touched.
+GTK4_BEGIN = "/* >>> Chicago95 GTK4 BEGIN - managed by the Chicago95 installer, do not edit */"
+GTK4_END = "/* <<< Chicago95 GTK4 END */"
+
 #HOME_FOLDER = '/home/phil/Chicago95/Cursors/' 
 
 
@@ -256,32 +261,55 @@ class InstallGUI:
 					pass # We need to do this if we're overwritting the theme cause of symlinks
 			else:
 				if from_file == "install_theme" and self.copy_files["install_theme"]:
-					print("Enabling Theme in XFCE4")
-					self.xfconf_query('xsettings', '/Net/ThemeName', "Chicago95")
-					self.xfconf_query('xfce4-notifyd', '/theme', "Chicago95")
-					self.xfconf_query('xfce4-notifyd', '/initial-opacity', "1.000000")
-					self.xfconf_query('xfwm4', '/general/theme', "Chicago95")
-					self.xfconf_query('xfwm4', '/general/title_font', "Sans Bold 8")
-					self.xfconf_query("xfwm4","/general/shadow_delta_height","0")
-					self.xfconf_query("xfwm4","/general/shadow_delta_width","0")
-					self.xfconf_query("xfwm4","/general/shadow_delta_x","0")
-					self.xfconf_query("xfwm4","/general/shadow_delta_y","-3")
-					self.xfconf_query("xfwm4","/general/shadow_opacity","50")
-					self.xfconf_query("xfwm4","/general/show_dock_shadow","false")
-					self.xfconf_query("xfwm4","/general/show_frame_shadow","false")
-					self.xfconf_query("xfwm4","/general/show_popup_shadow","false")
-					self.xfconf_query("xfwm4","/general/title_shadow_active","false")
-					self.xfconf_query("xfwm4","/general/title_shadow_inactive","false")
+					if self.is_gnome():
+						print("Enabling Theme in GNOME")
+						self.gsettings_set('org.gnome.desktop.interface', 'gtk-theme', "Chicago95")
+						# Deliberately NOT setting org.gnome.desktop.interface color-scheme.
+						# It is tempting, because prefer-dark makes GTK4 ask for the theme's
+						# dark variant, but it is a system-wide appearance preference that
+						# also drives GNOME Shell and every application's Dark Style, and
+						# the installer was not asked to change it. Two things already cover
+						# the case it was there to fix, both non-invasive:
+						# Theme/Chicago95/gtk-4.0/gtk-dark.css, so the dark variant resolves
+						# to Chicago95 rather than falling back to GTK's builtin
+						# Default-dark, and the palette repeated inside
+						# @media (prefers-color-scheme: dark) in gtk.css for the libadwaita
+						# channel. A user on prefer-dark gets Chicago95 whole, and keeps
+						# their setting.
+					else:
+						print("Enabling Theme in XFCE4")
+						self.xfconf_query('xsettings', '/Net/ThemeName', "Chicago95")
+						self.xfconf_query('xfce4-notifyd', '/theme', "Chicago95")
+						self.xfconf_query('xfce4-notifyd', '/initial-opacity', "1.000000")
+						self.xfconf_query('xfwm4', '/general/theme', "Chicago95")
+						self.xfconf_query('xfwm4', '/general/title_font', "Sans Bold 8")
+						self.xfconf_query("xfwm4","/general/shadow_delta_height","0")
+						self.xfconf_query("xfwm4","/general/shadow_delta_width","0")
+						self.xfconf_query("xfwm4","/general/shadow_delta_x","0")
+						self.xfconf_query("xfwm4","/general/shadow_delta_y","-3")
+						self.xfconf_query("xfwm4","/general/shadow_opacity","50")
+						self.xfconf_query("xfwm4","/general/show_dock_shadow","false")
+						self.xfconf_query("xfwm4","/general/show_frame_shadow","false")
+						self.xfconf_query("xfwm4","/general/show_popup_shadow","false")
+						self.xfconf_query("xfwm4","/general/title_shadow_active","false")
+						self.xfconf_query("xfwm4","/general/title_shadow_inactive","false")
+					# Neither of those settings reaches GTK4/libadwaita applications on any
+					# desktop. This is the step that does.
+					self.enable_gtk4_user_css()
 					self.configure_labwc()
 					self.change_component_label()
 
 				elif from_file == "install_icons" and self.copy_files["install_icons"]:
-					print("Enabling Icons in XFCE4")
-					self.xfconf_query('xsettings', '/Net/FallbackIconTheme', 'Adwaita')
-					self.xfconf_query('xsettings', '/Net/IconThemeName', "Chicago95")
-					self.xfconf_query('xfce4-desktop','/desktop-icons/file-icons/show-filesystem', 'true')
-					self.xfconf_query('xfce4-desktop','/desktop-icons/file-icons/show-home', 'true')
-					self.xfconf_query('xfce4-desktop','/desktop-icons/file-icons/show-trash','true')
+					if self.is_gnome():
+						print("Enabling Icons in GNOME")
+						self.gsettings_set('org.gnome.desktop.interface', 'icon-theme', "Chicago95")
+					else:
+						print("Enabling Icons in XFCE4")
+						self.xfconf_query('xsettings', '/Net/FallbackIconTheme', 'Adwaita')
+						self.xfconf_query('xsettings', '/Net/IconThemeName', "Chicago95")
+						self.xfconf_query('xfce4-desktop','/desktop-icons/file-icons/show-filesystem', 'true')
+						self.xfconf_query('xfce4-desktop','/desktop-icons/file-icons/show-home', 'true')
+						self.xfconf_query('xfce4-desktop','/desktop-icons/file-icons/show-trash','true')
 					self.change_component_label()
 				elif from_file == "install_background" and self.copy_files["install_background"]:
 					print("Changing background")
@@ -313,14 +341,23 @@ class InstallGUI:
 					self.change_component_label()
 
 				elif from_file == "install_cursors" and self.copy_files["install_cursors"]:
-					print("Enabling Cursors in XFCE4")
-					self.xfconf_query('xsettings', '/Gtk/CursorThemeName', "Chicago95_Standard_Cursors")
+					if self.is_gnome():
+						print("Enabling Cursors in GNOME")
+						self.gsettings_set('org.gnome.desktop.interface', 'cursor-theme', "Chicago95_Standard_Cursors")
+					else:
+						print("Enabling Cursors in XFCE4")
+						self.xfconf_query('xsettings', '/Gtk/CursorThemeName', "Chicago95_Standard_Cursors")
 					self.change_component_label()
 				elif from_file == "install_sounds" and self.copy_files["install_sounds"]:
-					print("Enabling Sounds in XFCE4")
-					self.xfconf_query('xsettings', '/Net/EnableEventSounds', "true")
-					self.xfconf_query('xsettings', '/Net/EnableInputFeedbackSounds', "true")
-					self.xfconf_query('xsettings', '/Net/SoundThemeName', "Chicago95")
+					if self.is_gnome():
+						print("Enabling Sounds in GNOME")
+						self.gsettings_set('org.gnome.desktop.sound', 'event-sounds', "true")
+						self.gsettings_set('org.gnome.desktop.sound', 'theme-name', "Chicago95")
+					else:
+						print("Enabling Sounds in XFCE4")
+						self.xfconf_query('xsettings', '/Net/EnableEventSounds', "true")
+						self.xfconf_query('xsettings', '/Net/EnableInputFeedbackSounds', "true")
+						self.xfconf_query('xsettings', '/Net/SoundThemeName', "Chicago95")
 					self.change_component_label()
 				elif from_file == "install_fonts" and self.copy_files["install_fonts"]:
 					print("Enabling Fonts in XFCE4")
@@ -421,6 +458,137 @@ class InstallGUI:
 		except:
 			pass
 
+
+	def is_gnome(self):
+		# XDG_CURRENT_DESKTOP is a colon separated list, e.g. "ubuntu:GNOME".
+		# Anything that is not a GNOME derivative keeps the XFCE4/xfconf path.
+		desktop = os.environ.get("XDG_CURRENT_DESKTOP", "").lower()
+		return "gnome" in desktop or "budgie" in desktop or "unity" in desktop
+
+	def enable_gtk4_user_css(self):
+		# GTK4 reads ~/.themes/Chicago95/gtk-4.0/gtk.css at PRIORITY_THEME for plain GTK4
+		# applications, which is all a libadwaita application needs to ignore it:
+		# libadwaita replaces the theme name with an empty stylesheet and installs its own
+		# providers at that same priority. The one channel that does reach those
+		# applications is the user stylesheet at ~/.config/gtk-4.0/gtk.css, which GTK loads
+		# at PRIORITY_USER, above libadwaita. We import the installed sheet from there
+		# instead of copying it, so there is only ever one copy of the CSS to maintain.
+		theme_css = os.path.expanduser("~/.themes/Chicago95/gtk-4.0/gtk.css")
+		if not os.path.exists(theme_css):
+			print("Chicago95 GTK4 stylesheet not installed, cannot theme GTK4 applications")
+			return
+		print("Enabling Theme in GTK4 and libadwaita applications")
+		Path(os.path.expanduser("~/.config/gtk-4.0")).mkdir(parents=True, exist_ok=True)
+		user_css = os.path.expanduser("~/.config/gtk-4.0/gtk.css")
+		# Keep our block WHERE THE USER PUT IT. Splitting into before/after rather than
+		# collecting one list and appending matters: a user who deliberately placed their
+		# own overrides after the Chicago95 block expects to keep winning at equal
+		# specificity, and rebuilding as kept_lines + block silently moved their rules in
+		# front of ours on every re-install.
+		pre_lines = []
+		post_lines = []
+		found_block = False
+		if os.path.exists(user_css):
+			# This file belongs to the user. Back it up, then keep every line outside our
+			# own markers so a second install replaces the block instead of stacking it.
+			shutil.copyfile(user_css, os.path.expanduser("~/.config/gtk-4.0/backup.gtk.css.chicago95"))
+			fileh = open(user_css, "r")
+			in_block = False
+			for line in fileh:
+				if line.strip() == GTK4_BEGIN:
+					in_block = True
+					found_block = True
+					continue
+				if line.strip() == GTK4_END:
+					in_block = False
+					continue
+				if in_block:
+					continue
+				if found_block:
+					post_lines.append(line.rstrip("\n"))
+				else:
+					pre_lines.append(line.rstrip("\n"))
+		block = [
+			GTK4_BEGIN,
+			'@import url("{}");'.format(Path(theme_css).as_uri()),
+			GTK4_END,
+			]
+		nfileh = open(user_css, "w")
+		nfileh.write("\n".join(pre_lines + block + post_lines) + "\n")
+		nfileh.close()
+
+	def disable_gtk4_user_css(self):
+		# NO CALLER YET, and that is deliberate rather than an oversight: installer.py has no
+		# uninstall routine of any kind, and "make uninstall" only removes the system-wide
+		# ${THEMESDIR}/Chicago95 - a different location from this installer's ~/.themes
+		# target, and running as root, so it must not be reaching into a user's ~/.config
+		# either way. Adding an uninstall flow is a bigger change than this one. So the
+		# removal is implemented and tested here, ready to wire up, and INSTALL.md's Note 2
+		# documents the equivalent one-line sed for users who need it today.
+		#
+		# The inverse of enable_gtk4_user_css, and the reason it has to exist: the block we
+		# write contains an ABSOLUTE @import. Once the theme is deleted or the user switches
+		# themes, that import dangles, and GTK then logs "Failed to import: Error opening
+		# file ...: No such file or directory" on every GTK4 application launch, for ever,
+		# with nothing to tell the user why. Removing the block is the only cure.
+		# Same marker loop as the writer, so the two cannot drift: everything outside the
+		# markers is the user's and is written back untouched, in its original order.
+		user_css = os.path.expanduser("~/.config/gtk-4.0/gtk.css")
+		backup = os.path.expanduser("~/.config/gtk-4.0/backup.gtk.css.chicago95")
+		if not os.path.exists(user_css):
+			return
+		kept_lines = []
+		found_block = False
+		fileh = open(user_css, "r")
+		in_block = False
+		for line in fileh:
+			if line.strip() == GTK4_BEGIN:
+				in_block = True
+				found_block = True
+				continue
+			if line.strip() == GTK4_END:
+				in_block = False
+				continue
+			if not in_block:
+				kept_lines.append(line.rstrip("\n"))
+		fileh.close()
+		if not found_block:
+			# Nothing of ours in there. Leave the user's file completely alone.
+			return
+		print("Removing the Chicago95 GTK4 block from ~/.config/gtk-4.0/gtk.css")
+		if not "\n".join(kept_lines).strip():
+			# The file only ever held our block, so do not leave an empty file behind for
+			# GTK to parse on every launch.
+			os.remove(user_css)
+		else:
+			nfileh = open(user_css, "w")
+			nfileh.write("\n".join(kept_lines) + "\n")
+			nfileh.close()
+		# The backup exists only to protect the user's file across our edit. With our block
+		# gone it is an orphan, so clear it rather than leaving a stale copy in a config dir.
+		if os.path.exists(backup):
+			os.remove(backup)
+
+	def gsettings_set(self, schema, key, new_value):
+
+		try:
+			gsettings_path = subprocess.check_output(["which", "gsettings"]).strip()
+		except:
+			print("Warning: gsettings not installed, cannot auto-enable theme. Use your desktops theme management to install Chicago95")
+			return
+
+		try:
+
+			print("Changing gsettings key {} {} to {}".format(schema, key, new_value))
+			args = [
+				gsettings_path,
+				"set", schema, key, new_value
+				]
+			subprocess.check_call(args, stdout=subprocess.DEVNULL)
+
+		except subprocess.CalledProcessError:
+
+			print("Warning: could not set {} {}, is the schema installed?".format(schema, key))
 
 	def configure_labwc(self):
 		labwc_rc = os.path.expanduser("~/.config/xfce4/labwc/rc.xml")

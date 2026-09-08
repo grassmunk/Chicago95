@@ -1,0 +1,822 @@
+/***************************************************
+ * menus popovers menubar dropdown tooltip dialogs *
+ **************************************************/
+
+/*
+   Contributor notes:
+   Please use two space indentions.
+   Stack all related and child selectors and selector states into a logical hierarchy to a readable degree.
+   Make sure that all changes made here are part of a transient surface: the popover, the popover menu,
+   the menubar, the dropdown and its list, the tooltip, the dialog and the infobar.
+   NOT here: AdwToast, AdwBanner, the AdwDialog/sheet/bottom-sheet surfaces and the modal dimming
+   layer. Those are Adw composites and gtk-adwaita.css is their single owner - it is imported after
+   this file, so a second copy here would lose the cascade and quietly document a result it does not
+   produce. Only the dialog CONTENT vocabulary (message-area, response-area, the push-button face)
+   lives here, because it is shared with the deprecated GtkDialog/GtkMessageDialog.
+
+   GTK4 notes for anyone diffing this against gtk-3.0/gtk-menu.css and gtk-3.0/gtk-popovers.css:
+   GtkMenu and GtkMenuItem no longer exist, so the 31 `menu` rules and 12 `menuitem` rules of the GTK3
+   sheet have no target here. A GTK4 menu is a GtkPopoverMenu:
+
+     popover.menu > contents > stack > box > modelbutton
+
+   and a menubar is a GtkPopoverMenuBar, whose items are `menubar > item`. The panel border therefore
+   lives on `popover > contents` (the node that actually paints) and never on `popover`, which in GTK4
+   is only the shadow-carrying container.
+
+   Colours come from the @define-color block in gtk.css. Raw hex appears only where a value has no name
+   in that block (#494940 is named @tooltip_bg_shade but is only mentioned in a comment below).
+*/
+
+/* Adwaita/libadwaita defaults being undone throughout this file, for reference:
+   popover > contents            padding 8px, border-radius 15px, two soft drop shadows
+   popover.menu modelbutton      min-height 32px, padding 0 12px, border-radius 9px
+   menubar > item                min-height 16px, padding 4px 8px, border-radius 9px
+   tooltip                       padding 6px 10px, border-radius 9px, dark translucent background
+   dialog.alert sheet            .response-area button border-radius 12px
+*/
+
+
+/****************
+ * Popover base *
+ ****************/
+
+/* The popover node itself paints nothing in GTK4 — `popover > contents` is the visible panel. Adwaita
+   sets `popover.background { background-color: transparent; }` and we keep that, otherwise the colour
+   would be drawn behind the panel, outside the bevel, where the drop shadow used to be. */
+popover,
+popover.background {
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  color: @fg_color;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+  -gtk-icon-style: regular;
+  transition: none; }
+
+/* DELIBERATE DIVERGENCE FROM gtk-3.0, stated rather than dropped silently: gtk-3.0/gtk-popovers.css
+   gives `popover.background` a yellow @tooltip_bg_color fill, `border-radius: 5px` and
+   `box-shadow: 4px 4px @tooltip_bg_shade` (#494940). gtk.css line 8 explains this is an intentional
+   Clippy / Office 97 joke and it is the only border-radius in the whole GTK3 tree. It is NOT carried
+   over here. In GTK3 that rule hit a handful of app popovers; in GTK4 `popover.background` is on every
+   popover, including every menu, so honouring it would make all menus yellow, rounded and drop-shadowed
+   — the opposite of the flat grey Win95 menu this file exists to produce. A maintainer who wants the
+   joke back should add it to a narrower selector in a separate sheet. */
+
+/* The visible panel: a 2px raised bevel, per the menu-surface pixel structure of
+   assets/window_decoration.png — outer top/left blends into the face, outer bottom/right is the hard
+   black shadow edge. Built as 1px real border + 1px inset box-shadow; never border-width: 2px, which
+   would paint 2px of a single colour and destroy the two-tone bevel. */
+popover > contents {
+  padding: 2px;
+  margin: 0;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @bg_color;
+  border-left-color: @bg_color;
+  border-right-color: @border_dark;
+  border-bottom-color: @border_dark;
+  box-shadow: inset 1px 1px @border_bright, inset -1px -1px @border_shade;
+  background-color: @bg_color;
+  background-clip: border-box;
+  color: @fg_color;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+  -gtk-icon-style: regular; }
+
+/* Win95 menus and popups have no arrow tail. GTK4 sizes the tail from the `arrow` node, so collapsing
+   its minimum size and making it fully transparent removes it without needing has-arrow=FALSE in code.
+   There is no `display: none` in GTK CSS — this is the supported way to retire a node. */
+popover > arrow {
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none; }
+
+/* Content the popover wraps must not repaint the panel face. */
+popover > contents > stack,
+popover > contents > scrolledwindow,
+popover > contents > scrolledwindow > viewport,
+popover > contents > box {
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none; }
+
+/* NOT ACHIEVABLE IN CSS: the Win95 instant, unanimated menu drop. GTK4 fades and slides a popover in
+   code (gtk_popover_popup), not through a CSS transition, so `transition: none` above cannot stop it.
+   gtk-4.0/settings.ini asks for gtk-enable-animations=false, which is the lever on a session with no
+   XSettings daemon. It is NOT the effective lever under GNOME: measured on GTK 4.22.4 in an isolated
+   XDG sandbox, the theme-dir settings.ini is genuinely read (gtk-primary-button-warps-slider flips
+   from it) yet gtk-enable-animations stays TRUE, because org.gnome.desktop.interface
+   enable-animations outranks it - and putting the same key in ~/.config/gtk-4.0/settings.ini does not
+   help either. On GNOME the user has to set it themselves; INSTALL.md gives the gsettings command.
+   The installer deliberately does not set it for them: it is a global appearance preference that
+   affects GNOME Shell too, and silently flipping one is not the installer's business.
+   Left as-is rather than faked, because opacity tricks here break popover input handling. */
+
+
+/*****************
+ * Popover menus *
+ *****************/
+
+popover.menu > contents {
+  padding: 0;                /* Adwaita ships 0 here already, restated so the base rule above cannot leak 2px in. */
+  min-width: 0; }            /* Adwaita reserves 120px; Win95 menus size to their widest item. */
+  popover.menu > contents > stack > box,
+  popover.menu > contents > scrolledwindow > viewport > stack > box {
+    padding: 0;              /* Adwaita puts 6px of air around the item column. Win95 has none. */
+    margin: 0;
+    border-spacing: 0; }
+
+/* Menu separator. GTK3 used assets/handle-h.png (16x2: one row @border_shade over one row
+   @border_bright) repeated across the item; the degenerate two-border form below is pixel-identical
+   and keeps this sheet asset-free. Adwaita draws separators as a 1px background image, so
+   background-image and the minimum sizes have to be reset or a second grey line appears. */
+popover.menu separator,
+popover.menu > contents separator {
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 2px 0;
+  border: none;
+  border-top: 1px solid @border_shade;
+  border-bottom: 1px solid @border_bright;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none; }
+  popover.menu list separator {
+    margin: 0; }
+
+/* Section headings inside a menu (GtkPopoverMenu label.title). */
+popover.menu label.title {
+  padding: 2px 6px;
+  font-weight: bold;
+  color: @fg_color; }
+
+
+/**************
+ * Menu items *
+ **************/
+
+/* modelbutton is the GTK4 menu item. The navy highlight has to sit on modelbutton, not on its label,
+   so that it spans the full width of the panel the way a Win95 menu item does; the 6px text inset is
+   therefore padding on the label, matching gtk-3.0/gtk-popovers.css lines 37-38. */
+popover.menu modelbutton,
+popover.menu modelbutton.flat {
+  min-height: 20px;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  color: @fg_color;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+  outline: 0 solid transparent;
+  outline-offset: 0;
+  transition: none; }
+  popover.menu modelbutton > label {
+    padding: 2px 6px; }
+  popover.menu modelbutton > image {
+    padding: 0 2px; }
+
+  /* Highlight. Win95 highlights on plain mouse-over — there is no separate armed state — so :hover,
+     :selected (keyboard walk) and :active all get the same navy bar. */
+  popover.menu modelbutton:hover,
+  popover.menu modelbutton:selected,
+  popover.menu modelbutton:active,
+  popover.menu modelbutton.keyboard-activating,
+  popover.menu modelbutton.has-open-popup {
+    background-color: @selected_bg_color;
+    background-image: none;
+    box-shadow: none;
+    border-radius: 0;
+    color: @selected_fg_color;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+    outline-color: @selected_fg_color; }
+
+  /* Greyed item, with the embossed white shadow that is one of the most recognisable Chicago95
+     details. GTK3's `-gtk-icon-effect: dim` is a hard parse error in GTK 4.22 and is replaced by
+     -gtk-icon-filter: opacity(0.5), which is what GTK4's own sheet uses for image:disabled. The
+     colour has to be restated on the label too, or libadwaita's dimmed foreground wins. */
+  popover.menu modelbutton:disabled,
+  popover.menu modelbutton:disabled > label,
+  popover.menu modelbutton:disabled > image {
+    color: @border_shade;
+    text-shadow: 1px 1px 0 @border_bright;
+    -gtk-icon-shadow: 1px 1px @border_bright;
+    -gtk-icon-filter: opacity(0.5); }
+    /* A disabled item never lights up, even though GTK can still deliver :hover to it. */
+    popover.menu modelbutton:disabled:hover,
+    popover.menu modelbutton:disabled:selected,
+    popover.menu modelbutton:disabled:active {
+      background-color: transparent;
+      background-image: none;
+      color: @border_shade; }
+
+/* Accelerator label. GTK right-aligns the `accelerator` node itself through the widget's own layout,
+   so CSS only owns the gap and the colour; there is no CSS property that could align it. Adwaita dims
+   it to 55% — Win95 draws it in the same black as the label, and in white when the item is
+   highlighted, which `color: inherit` gives for free. */
+popover.menu accelerator {
+  color: inherit;
+  text-shadow: inherit; }
+  popover.menu accelerator:dir(ltr) {
+    margin-left: 16px; }
+  popover.menu accelerator:dir(rtl) {
+    margin-right: 16px; }
+
+/* Submenu arrow. APPROXIMATION, flagged: gtk-3.0/gtk-menu.css swaps three PNGs per direction
+   (arrow-right.png / -selected / -disabled) so the glyph is recoloured by hand for each state. The
+   icon-theme route is used here instead, which keeps gtk-4.0 asset-free and picks up Chicago95's own
+   pan-end-symbolic / pan-start-symbolic — the icon theme ships them at 16px, so with the matching
+   icon theme active this is the period glyph, not a GNOME one.
+   KNOWN LIMITATION: those icons are bitmaps in the Chicago95 icon theme (only Chicago95-puffy ships
+   SVGs), and GTK4 cannot recolour a bitmap "symbolic" icon. A submenu arrow therefore stays black on
+   the navy highlight instead of turning white the way the GTK3 PNG swap did. Reproducing the swap
+   would mean copying arrow-{right,left}{,-selected,-disabled}.png into gtk-4.0/assets and writing six
+   background-image rules; that is the exact trade a maintainer can reverse if the black-on-navy arrow
+   bothers them. It is left as the icon-theme form because it degrades gracefully when Chicago95's
+   icon theme is not installed, which the PNG route does not. */
+popover.menu modelbutton > arrow {
+  min-width: 16px;
+  min-height: 16px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  opacity: 1;                /* Adwaita fades submenu arrows to 30%/80%. Win95 does not. */
+  color: inherit; }
+  popover.menu modelbutton > arrow.right {
+    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
+  popover.menu modelbutton > arrow.left {
+    -gtk-icon-source: -gtk-icontheme("pan-start-symbolic"); }
+  popover.menu modelbutton > arrow:disabled {
+    -gtk-icon-filter: opacity(0.5); }
+  popover.menu modelbutton > arrow.left:dir(ltr) {
+    margin-left: -2px;
+    margin-right: 6px; }
+  popover.menu modelbutton > arrow.right:dir(ltr) {
+    margin-left: 6px;
+    margin-right: -2px; }
+
+/* Check and radio menu items. Win95 marks a checked menu item with a bare tick (and a checked radio
+   item with a bullet) directly on the menu face — never with the sunken 16x16 checkbox well used in
+   dialogs. Adwaita already strips the box; what has to go is the 1px ring it puts on the menu radio,
+   and any boxed PNG indicator inherited from the check/radio rules that load earlier in gtk.css. */
+popover.menu check,
+popover.menu radio {
+  min-width: 16px;
+  min-height: 16px;
+  -gtk-icon-size: 16px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  color: inherit;
+  -gtk-icon-shadow: none; }
+  popover.menu check:not(:checked):not(:indeterminate),
+  popover.menu radio:not(:checked):not(:indeterminate) {
+    -gtk-icon-source: none; }        /* Nothing at all when unset, as in Win95. */
+  popover.menu check:checked {
+    -gtk-icon-source: -gtk-icontheme("object-select-symbolic"); }
+  popover.menu check:indeterminate {
+    -gtk-icon-source: -gtk-icontheme("list-remove-symbolic"); }
+  /* The bullet comes from the shipped PNG, not from the icon theme. `radio-checked-symbolic`
+     has zero matches anywhere in this repo's Icons/ trees (checked; every other icon name
+     this file and gtk-lists.css request does resolve), so requesting it fell through to
+     whatever fallback theme is installed - Adwaita or Yaru on a stock GNOME - and drew a
+     modern GNOME bullet in the middle of a Win95 menu. assets/radio-selected.png is the
+     theme's own 16x16 bullet and is already used for dialog radios in gtk-widgets.css. */
+  popover.menu radio:checked {
+    -gtk-icon-source: url("../gtk-3.0/assets/radio-selected.png"); }
+  popover.menu check:disabled,
+  popover.menu radio:disabled {
+    -gtk-icon-filter: opacity(0.5);
+    -gtk-icon-shadow: 1px 1px @border_bright; }
+  popover.menu check.left:dir(ltr),
+  popover.menu radio.left:dir(ltr) {
+    margin-left: -2px;
+    margin-right: 4px; }
+  popover.menu check.right:dir(ltr),
+  popover.menu radio.right:dir(ltr) {
+    margin-left: 4px;
+    margin-right: -2px; }
+
+/* Some menus are built from a GtkListBox / GtkListView inside the popover instead of modelbuttons.
+   These are scoped to popover.menu on purpose so they cannot collide with the general list rules. */
+popover.menu > contents list > row,
+popover.menu > contents listview > row {
+  min-height: 20px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  color: @fg_color;
+  transition: none; }
+  popover.menu > contents list > row > box,
+  popover.menu > contents listview > row > box {
+    padding: 2px 6px;
+    border-spacing: 4px; }
+  popover.menu > contents list > row:hover,
+  popover.menu > contents list > row:selected,
+  popover.menu > contents listview > row:hover,
+  popover.menu > contents listview > row:selected {
+    background-color: @selected_bg_color;
+    background-image: none;
+    box-shadow: none;
+    color: @selected_fg_color;
+    outline-color: @selected_fg_color; }
+
+
+/***********
+ * Menubar *
+ ***********/
+
+/* GtkPopoverMenuBar. GTK3's `menubar menuitem { padding: 0 6px; min-height: 20px; }` becomes
+   `menubar > item`. Adwaita adds a 1px bottom hairline and 1px of bottom padding to the bar itself —
+   Win95 menubars sit flush on the window face, so both go. */
+menubar,
+.menubar {
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background-color: @bg_color;
+  background-image: none;
+  box-shadow: none;
+  color: @fg_color;
+  text-shadow: none;
+  -gtk-icon-shadow: none; }
+  menubar > item {
+    min-height: 20px;
+    padding: 0 6px;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    background-image: none;
+    box-shadow: none;
+    color: @fg_color;
+    text-shadow: none;
+    outline: 0 solid transparent;
+    transition: none; }
+    menubar > item:hover,
+    menubar > item:selected,
+    menubar > item:active {
+      background-color: @selected_bg_color;
+      background-image: none;
+      box-shadow: none;
+      color: @selected_fg_color;
+      text-shadow: none;
+      outline-color: @selected_fg_color; }
+    menubar > item:disabled {
+      color: @border_shade;
+      text-shadow: 1px 1px 0 @border_bright;
+      -gtk-icon-filter: opacity(0.5); }
+
+  /* A menubar's own dropdown, and any submenu hanging off it, must not reintroduce Adwaita's radius
+     or its 4px bottom padding. */
+  menubar > item popover.menu,
+  menubar > item popover.menu popover.menu {
+    padding: 0;
+    margin: 0; }
+    menubar > item popover.menu popover.menu > contents {
+      margin: 0;
+      border-radius: 0; }
+
+
+/************************
+ * Dropdown / combobox *
+ ***********************/
+
+/* GtkDropDown replaces most of GtkComboBox in GTK4; GtkComboBox survives as
+   `combobox > box > button.combo` for older apps. The button face is the standard raised outset — the
+   same construction the buttons sheet uses — restated here because the task boundary puts the dropdown
+   with its list. Metrics are gtk-3.0/gtk-combobox.css lines 15-23, including the deliberate 15px
+   min-height ("Set to 15px to prevent scaling issues with arrow icon"). */
+dropdown > button,
+combobox > box > button.combo,
+combobox button {
+  min-width: 16px;
+  min-height: 15px;
+  padding: 1px;
+  padding-left: 4px;
+  margin: 2px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_bright;
+  border-left-color: @border_bright;
+  border-right-color: @border_dark;
+  border-bottom-color: @border_dark;
+  box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+  background-color: @bg_color;
+  background-image: none;
+  color: @fg_color;
+  text-shadow: none;
+  outline: 0 solid transparent;
+  outline-color: @border_dark;
+  transition: none; }
+  /* SPECIFICITY, and do not simplify: GtkDropDown's internal button carries the `toggle`
+     style class (dumped live on GTK 4.22.4 - `dropdown > button` classes are ['toggle'])
+     and is :checked for as long as its list is open. Without the `.toggle` qualifier
+     these rules are (0,1,2) and lose to `button.toggle:checked` (0,2,1) in
+     gtk-widgets.css, which applies the 50% dither - so an open dropdown rendered as a
+     near-white checkerboard instead of the flat pressed bevel. With it they are (0,2,2)
+     and win. Measured both ways. GTK4's :not() does not accept combinators, so
+     `:not(dropdown > button)` on the dither rule is not an option. */
+  dropdown > button.toggle:active,
+  dropdown > button.toggle:checked,
+  dropdown > button.toggle.keyboard-activating,
+  dropdown > button:active,
+  dropdown > button.keyboard-activating,
+  combobox > box > button.combo:active,
+  combobox > box > button.combo:checked {
+    border-top-color: @border_dark;
+    border-left-color: @border_dark;
+    border-right-color: @border_bright;
+    border-bottom-color: @border_bright;
+    box-shadow: inset 1px 1px @border_shade;
+    background-color: @bg_color;
+    background-image: none; }
+  /* The Win95 dotted focus rectangle. The base rule above sets outline-color but zero
+     width, which is the correct GTK4 base state - GTK4 snapshots the outline of every
+     node whose outline-width is non-zero, so the width has to arrive with the focus.
+     Without this block tabbing to a combo box showed nothing at all. */
+  dropdown > button:focus:focus-visible,
+  combobox > box > button.combo:focus:focus-visible,
+  combobox button:focus:focus-visible {
+    outline-style: dotted;
+    outline-width: 1px;
+    outline-color: @outline_color;
+    outline-offset: -4px; }
+  dropdown > button:disabled,
+  dropdown > button:disabled > box > stack > row,
+  combobox > box > button.combo:disabled {
+    color: @border_shade;
+    text-shadow: 1px 1px 0 @border_bright;
+    -gtk-icon-filter: opacity(0.5); }
+  dropdown > button > box,
+  combobox > box > button.combo > box {
+    border-spacing: 4px; }        /* Adwaita uses 6px. */
+  /* The display side of a GtkDropDown is a real list row; it must stay flat and never highlight. */
+  dropdown > button > box > stack > row,
+  dropdown > button > box > stack > row:hover,
+  dropdown > button > box > stack > row:active {
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    background: none;
+    background-color: transparent;
+    box-shadow: none;
+    color: inherit; }
+
+/* Drop arrow. APPROXIMATION: gtk-3.0 uses assets/combobox-arrow-down.png (and a VCL variant only
+   LibreOffice's GTK3 plugin ever asked for, which has no GTK4 consumer). Kept symbolic here for the
+   same reason as the submenu arrow — it recolours with the button's state instead of needing a
+   disabled bitmap — and pinned to 16px because the GTK3 sheet's own comment warns that anything other
+   than exactly 16px distorts the glyph. */
+dropdown arrow,
+combobox arrow {
+  min-width: 16px;
+  min-height: 16px;
+  -gtk-icon-size: 16px;
+  -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+  background-image: none;
+  color: inherit; }
+  dropdown:disabled arrow,
+  combobox:disabled arrow {
+    -gtk-icon-filter: opacity(0.5);
+    -gtk-icon-shadow: 1px 1px @border_bright; }
+
+/* The dropped list. Unlike a menu this is a white field with a single hard black rule, exactly as
+   gtk-3.0/gtk-combobox.css treats the combobox popup window (@bg_bright fill, 1px @border_dark).
+   Everything below is dropdown/combobox-scoped so it cannot reach the general listview rules. */
+dropdown > popover.menu,
+combobox > popover.menu {
+  padding: 0;                     /* Adwaita adds 6px of top padding. */
+  margin: 0; }
+  dropdown > popover.menu > contents,
+  combobox > popover.menu > contents {
+    padding: 0;
+    border: 1px solid @border_dark;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: @bg_bright;
+    color: @text_color; }
+  dropdown > popover.menu listview > row,
+  dropdown > popover.menu list > row,
+  combobox > popover.menu listview > row {
+    min-height: 16px;
+    min-width: 0;
+    padding: 0 2px;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    background-image: none;
+    box-shadow: none;
+    color: @text_color;
+    transition: none; }
+    dropdown > popover.menu listview > row:hover,
+    dropdown > popover.menu listview > row:selected,
+    dropdown > popover.menu list > row:hover,
+    dropdown > popover.menu list > row:selected,
+    combobox > popover.menu listview > row:hover,
+    combobox > popover.menu listview > row:selected {
+      background-color: @selected_bg_color;
+      background-image: none;
+      box-shadow: none;
+      color: @selected_fg_color;
+      outline-color: @selected_fg_color; }
+  /* GtkDropDown's optional search entry strip. */
+  dropdown > popover.menu .dropdown-searchbar,
+  combobox > popover.menu .dropdown-searchbar {
+    padding: 2px;
+    background-color: @bg_color;
+    border-bottom: 1px solid @border_shade; }
+
+
+/************
+ * Tooltips *
+ ************/
+
+/* The Win95 yellow tooltip: @tooltip_bg_color #ffffe1, one hard black pixel all round, black text.
+   From gtk-3.0/gtk-popovers.css lines 12-21 and 52-67. In GTK4 the class is on the same node
+   (`tooltip.background`), and the label lives in `tooltip > box`, so the colour is restated on the
+   descendants — GTK does not inherit `color` past a node that sets its own. */
+tooltip,
+tooltip.background {
+  padding: 1px 3px;
+  margin: 0;
+  border: 1px solid @border_dark;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: @tooltip_bg_color;
+  background-clip: border-box;
+  color: @tooltip_fg_color;
+  text-shadow: none;
+  -gtk-icon-shadow: none; }
+  tooltip > box,
+  tooltip label,
+  tooltip > box > label {
+    padding: 0;
+    margin: 0;
+    border-spacing: 4px;
+    background-color: transparent;
+    color: @tooltip_fg_color;
+    text-shadow: none; }
+  /* GTK3 needed `tooltip decoration` flattened; harmless to keep, the node can still appear on X11. */
+  tooltip decoration {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    background-color: transparent; }
+
+/* .app-notification is the in-window notification strip. GTK3 grouped it with the tooltip because
+   both are transient overlays; here it gets the raised grey panel instead of the yellow fill, since a
+   yellow notification bar has no Win95 precedent while a raised grey one does. */
+.app-notification {
+  padding: 2px;
+  margin: 2px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_bright;
+  border-left-color: @border_bright;
+  border-right-color: @border_dark;
+  border-bottom-color: @border_dark;
+  box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+  background-color: @bg_color;
+  background-image: none;
+  color: @fg_color;
+  text-shadow: none; }
+
+
+/***********
+ * Dialogs *
+ ***********/
+
+/* A Win95 dialog is a plain grey face inside the window frame — no corner radius, no elevation.
+   GtkDialog is deprecated in GTK4 but still everywhere, and AdwDialog presents its content in a
+   `sheet` node that has no GTK3 equivalent at all. Both are covered. */
+window.dialog,
+window.dialog.csd,
+window.messagedialog,
+window.dialog.message,
+window.dialog-window.alert {
+  border-radius: 0;
+  background-color: @bg_color;
+  background-image: none;
+  box-shadow: none;
+  color: @fg_color;
+  text-shadow: none;
+  outline: none; }
+
+/* Adwaita rounds the CSD corners of message dialogs to 18px and puts two soft shadows plus a 1px
+   translucent ring around them. All of it has to be named explicitly to be undone. */
+window.dialog.message.csd:not(.solid-csd),
+window.messagedialog.csd:not(.solid-csd),
+window.dialog-window.alert.csd:not(.solid-csd),
+window.csd.dialog.message,
+window.csd.messagedialog {
+  border-radius: 0;
+  box-shadow: none;
+  outline: none; }
+
+/* The AdwDialog / AdwAlertDialog / AdwBottomSheet `sheet` surfaces are NOT styled here.
+   They are Adw composites and carry the 2px raised bevel from gtk-adwaita.css, which is imported
+   after this file. This file previously declared the same selectors with the same values; the
+   duplicate is removed rather than kept in sync by hand. */
+
+/* The title strip of a legacy GtkMessageDialog. gtk-3.0/gtk-messagedialog.css bevels the titlebar and
+   the vbox as one continuous frame; the GTK4 equivalent is just to stop Adwaita drawing 32px of empty
+   chrome there. The headerbar proper is not this file's business. */
+window.dialog.message .titlebar,
+window.messagedialog .titlebar {
+  min-height: 0;
+  background: none;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0; }
+
+
+/******************
+ * Message dialog *
+ ******************/
+
+/* AdwAlertDialog (`dialog.alert`), AdwMessageDialog (`window.messagedialog`, deprecated) and
+   GtkMessageDialog (`window.dialog.message`) share one layout vocabulary in libadwaita. Adwaita's
+   padding is enormous by Win95 standards — 32px above the message, 24px around the responses — so it
+   is pulled in to the 6-12px a Win95 dialog uses. */
+window.messagedialog .message-area,
+dialog.alert .message-area {
+  padding: 12px;
+  padding-bottom: 6px;
+  border-spacing: 12px; }
+  window.messagedialog .message-area.has-heading.has-body,
+  dialog.alert .message-area.has-heading.has-body {
+    border-spacing: 6px; }
+  window.messagedialog .message-area > .heading-bin,
+  window.messagedialog .message-area > .body,
+  window.messagedialog .message-area > .child,
+  dialog.alert .message-area > .heading-bin,
+  dialog.alert .message-area > .body,
+  dialog.alert .message-area > .child {
+    padding-left: 6px;
+    padding-right: 6px; }
+
+/* The button row. NOT ACHIEVABLE IN CSS, stated rather than faked: Win95 puts dialog buttons at the
+   bottom RIGHT, but horizontal alignment inside .response-area / .dialog-action-area is the widget's
+   own halign, which GTK4 CSS cannot set (there is no `align` or `justify-content` property in GTK
+   CSS). AdwAlertDialog in particular stretches its responses edge to edge by design. What CSS can do,
+   and does here, is give the row Win95 spacing and give each button the Win95 push-button face. */
+window.messagedialog .response-area,
+dialog.alert .response-area,
+.dialog-action-area {
+  padding: 6px;
+  padding-top: 0;
+  margin: 0;
+  border-spacing: 6px;
+  background-color: transparent; }
+  window.messagedialog .response-area > button,
+  dialog.alert .response-area > button,
+  .dialog-action-area > button,
+  window.dialog.message.csd .dialog-action-area > button {
+    min-height: 16px;
+    min-width: 60px;
+    padding: 2px 8px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0;
+    border-top-color: @border_bright;
+    border-left-color: @border_bright;
+    border-right-color: @border_dark;
+    border-bottom-color: @border_dark;
+    box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+    background-color: @bg_color;
+    background-image: none;
+    color: @fg_color;
+    text-shadow: none;
+    transition: none; }
+    /* The Win95 default button: a 1px hard black rectangle drawn around the raised bevel. This is the
+       asset-free approximation of buttons/dialog_button_focus.png, which has three rings (black,
+       then white TL / grey BR, then the face); the 1px form here drops the third ring, so the label
+       sits 1px further out than in the GTK3 sheet. Reinstating border-image with that PNG would be
+       exact and does still work in GTK 4.22 — it is skipped only to keep gtk-4.0 asset-free. */
+    window.messagedialog .response-area > button.suggested-action,
+    window.messagedialog .response-area > button.default,
+    dialog.alert .response-area > button.suggested-action,
+    dialog.alert .response-area > button.default,
+    .dialog-action-area > button.suggested-action,
+    .dialog-action-area > button.default,
+    .dialog-action-area > button:focus:focus-visible {
+      border-color: @border_dark;
+      box-shadow: inset 1px 1px @border_bright, inset -1px -1px @border_shade;
+      background-color: @bg_color;
+      color: @fg_color; }
+    window.messagedialog .response-area > button:active,
+    dialog.alert .response-area > button:active,
+    .dialog-action-area > button:active,
+    .dialog-action-area > button.keyboard-activating {
+      border-top-color: @border_dark;
+      border-left-color: @border_dark;
+      border-right-color: @border_bright;
+      border-bottom-color: @border_bright;
+      box-shadow: inset 1px 1px @border_shade; }
+    window.messagedialog .response-area > button:disabled,
+    dialog.alert .response-area > button:disabled,
+    .dialog-action-area > button:disabled {
+      color: @border_shade;
+      text-shadow: 1px 1px 0 @border_bright;
+      -gtk-icon-filter: opacity(0.5); }
+    /* A destructive response stays red-on-white text on the ordinary grey face; Win95 had no coloured
+       push buttons, and a solid #cc0000 button would read as 2005, not 1995. */
+    window.messagedialog .response-area > button.destructive-action,
+    dialog.alert .response-area > button.destructive-action,
+    .dialog-action-area > button.destructive-action {
+      background-color: @bg_color;
+      background-image: none;
+      color: @error_color; }
+
+
+/***********
+ * Infobar *
+ ***********/
+
+/* gtk-3.0/gtk-widgets.css lines 208-211: padding 2px, 1px solid @border_dark, border-radius 1px. The
+   1px radius is the only other rounding in the GTK3 tree and is dropped here for the flat rule; at 1px
+   it was sub-pixel anyway. In GTK4 the paintable node is `infobar > revealer > box`, so the border has
+   to go there or nothing shows. The tint colours are the named Win95 pastels rather than libadwaita's
+   30%-of-accent mix. */
+infobar {
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none; }
+  infobar > revealer > box {
+    padding: 2px;
+    border: 1px solid @border_dark;
+    border-radius: 0;
+    box-shadow: none;
+    border-spacing: 4px;
+    background-color: @tooltip_bg_color;
+    background-image: none;
+    color: @fg_color;
+    text-shadow: none; }
+    infobar > revealer > box > box {
+      border-spacing: 4px; }
+    infobar.info > revealer > box,
+    infobar.question > revealer > box {
+      background-color: @tooltip_bg_color;
+      color: @fg_color; }
+    infobar.warning > revealer > box {
+      background-color: @warning_bg_color;
+      color: @fg_color; }
+    infobar.error > revealer > box {
+      background-color: @error_bg_color;
+      color: @fg_color; }
+    /* Adwaita hovers the whole strip when the infobar is activatable, and rounds its close button into
+       a circle. Neither is period. */
+    infobar.action:hover > revealer > box,
+    infobar.action:active > revealer > box {
+      background-image: none; }
+    infobar .close {
+      min-width: 16px;
+      min-height: 16px;
+      padding: 0;
+      border-radius: 0; }

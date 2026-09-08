@@ -1,0 +1,14 @@
+/*# name: Chicago95
+  # description: Dark-variant entry point for the GTK4 sheet. */
+
+/* Chicago95 has exactly one look, so the "dark" variant is the same sheet.
+   This file is not decoration - it is load-bearing. GTK 4.22 asks
+   gtk_css_provider_load_named() for the "dark" variant whenever
+   gtk-application-prefer-dark-theme is TRUE, which is what GNOME's
+   org.gnome.desktop.interface color-scheme='prefer-dark' produces. If
+   gtk-dark.css is missing, GTK does not fall back to gtk.css - it falls back to
+   its own builtin Default-dark theme and Chicago95 disappears entirely.
+   Measured on GTK 4.22.4: with prefer-dark set and this file absent,
+   @window_bg_color did not resolve at all; with it present, it resolves to
+   #c0c0c0 as intended. */
+@import url("gtk.css");

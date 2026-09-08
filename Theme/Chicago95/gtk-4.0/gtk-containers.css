@@ -1,0 +1,1086 @@
+/**************
+ * Containers *
+ *************/
+
+/*
+   Contributor notes:
+   Please use two space indentions.
+   Stack all related and child selectors and selector states into a logical hierarchy to a readable degree.
+   Make sure that all changes made here are part of the window chrome and the container widgets:
+   window, headerbar/.titlebar, windowcontrols, notebook, stackswitcher, paned, scrollbar,
+   scrolledwindow, toolbar, actionbar, searchbar, statusbar, frame, viewport and overlay.
+
+   This file is the GTK4 counterpart of gtk-3.0/gtk-window.css, gtk-headerbars.css,
+   gtk-windowbuttons.css, gtk-notebooks.css, gtk-paned.css, gtk-scrollbar.css,
+   gtk-scrolledwindows.css, gtk-toolbar.css and gtk-frames.css rolled into one, because the
+   GTK4 node tree merged several of those widgets (the titlebar is no longer its own node, the
+   window decoration is no longer its own node, and the scrollbar gained a "range" level).
+
+   All colours are referenced through the names the keystone gtk.css declares. Two raw hex
+   values appear on purpose and are commented where they occur: #868686 (the inner shadow pixel
+   baked into scrollbar/scrollbar_button.png, which has no @define-color name) and the dither
+   tile stops, which are copied verbatim from gtk-3.0/gtk-basic-effects.css so this file stays
+   diff-comparable with the GTK3 sheet.
+
+   Every rule that resets an Adwaita default says so, because otherwise a maintainer reading
+   this later cannot tell an intentional Win95 metric from a defensive override.
+*/
+
+/**********
+ * window *
+ **********/
+
+/* GTK4 removed the `window decoration` node that gtk-3.0/gtk-window.css styles with
+   assets/window_decoration.png, so there is nowhere left to hang the 2px raised window frame
+   for a normally-composited CSD window: the drop shadow and the rounded corners are drawn by
+   the compositor from libadwaita's --window-radius and window.csd's box-shadow. We therefore
+   flatten those instead of trying to redraw the frame. NOT ACHIEVABLE in GTK4: the 3px resize
+   padding upstream added so client widgets do not touch the resize border - GTK4 handles the
+   resize area outside CSS. */
+window,
+window.background,
+window.csd,
+window.solid-csd,
+window.dialog,
+window.messagedialog {
+  border-radius: 0;
+  background-color: @bg_color;
+  background-image: none;
+  color: @fg_color;
+  text-shadow: none;
+  outline-color: @outline_color; }
+  window.csd {
+    /* Adwaita puts a large soft drop shadow here for elevation. Win95 windows have none. */
+    box-shadow: none; }
+  window.solid-csd {
+    /* When the compositor is not drawing a shadow, GTK asks the theme for the whole frame.
+       This is the one place a real Win95 window border can still be reproduced, so build it as
+       the standard raised outset: 1px real border (outer ring) plus 1px inset (inner ring). */
+    margin: 0;
+    padding: 0;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0;
+    border-top-color: @border_bright;
+    border-left-color: @border_bright;
+    border-right-color: @border_dark;
+    border-bottom-color: @border_dark;
+    box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+    background-color: @bg_color; }
+  window.csd.popup,
+  window.csd.tooltip {
+    /* Menus and tooltips carry their own chrome in gtk-menus.css - keep the window node bare. */
+    border-radius: 0;
+    box-shadow: none; }
+
+/* The drag surface GTK4 wraps title areas in. It must never paint, or it will cover the
+   headerbar's navy fill with the window grey. */
+windowhandle {
+  background-color: transparent;
+  background-image: none;
+  border-radius: 0;
+  box-shadow: none; }
+
+/**************
+ * headerbars *
+ **************/
+
+/* Focused CSD titlebar. In GTK4 `.titlebar` is a style class, not a node, and `headerbar` is
+   the node - so both are listed. min-height 22px is derived from the GTK3 look: an 18x18
+   titlebutton plus its 2px top and 2px bottom margins. Without it Adwaita's ~47px default
+   applies and the bar reads as a modern GNOME header rather than a Win95 title bar. */
+headerbar,
+.titlebar,
+.titlebar:not(headerbar) {
+  min-height: 22px;
+  padding: 0;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background-color: @window_title_bg_color;
+  background-image: none;
+  box-shadow: none;
+  color: @window_title_text_color;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+  font-size: 8pt;
+  transition: none; }
+  headerbar > windowhandle,
+  headerbar > windowhandle > box,
+  headerbar > windowhandle > box > box.start,
+  headerbar > windowhandle > box > box.center,
+  headerbar > windowhandle > box > box.end {
+    /* Adwaita sets border-spacing: 6px on all three boxes, which pushes the window buttons off
+       the right edge and inflates the bar. */
+    border-spacing: 0;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    background-image: none; }
+  headerbar entry,
+  headerbar spinbutton,
+  headerbar separator:not(.sidebar),
+  headerbar button,
+  headerbar menubutton,
+  headerbar splitbutton > button {
+    /* Adwaita gives every headerbar child a 6px vertical margin so it floats in a tall bar.
+       At 22px there is no room to float. The bevels themselves come from gtk-widgets.css. */
+    margin-top: 0;
+    margin-bottom: 0; }
+  /* Flat buttons in the titlebar MUST restate their foreground here, and this is the
+     highest-visibility rule in the file. gtk-widgets.css gives button.flat no face and
+     @button_text_color (#000000) text, which is right on the window grey and illegible on
+     the #000080 titlebar - measured black-on-navy on a live GtkHeaderBar. Nearly every
+     button in a modern GNOME header carries .flat (the hamburger, back, search and view
+     toggles), so this is what stops a libadwaita app shipping an unreadable title bar.
+     The colour has to be repeated on the children because GTK does not inherit `color`
+     past a node that declares its own, and AdwButtonContent adds another two levels.
+     Only the resting state is white: :hover and :active in gtk-widgets.css give the button
+     the grey raised face, at which point black is correct again and takes over. */
+  headerbar button.flat,
+  headerbar button.flat > label,
+  headerbar button.flat > image,
+  headerbar button.flat > box > label,
+  headerbar button.flat > box > image,
+  headerbar button.flat > buttoncontent > box > label,
+  headerbar button.flat > buttoncontent > box > image,
+  headerbar menubutton > button.flat,
+  headerbar menubutton > button.flat > image,
+  headerbar menubutton > button.flat > arrow,
+  headerbar menubutton.flat > button,
+  headerbar menubutton.flat > button > image,
+  headerbar menubutton.flat > button > arrow,
+  headerbar splitbutton > button.flat,
+  headerbar splitbutton > button.flat > label,
+  headerbar splitbutton.flat > button,
+  headerbar splitbutton.flat > button > label,
+  headerbar splitbutton.flat > menubutton > button,
+  headerbar splitbutton.flat > menubutton > button > arrow,
+  .titlebar button.flat,
+  .titlebar button.flat > label,
+  .titlebar button.flat > image {
+    color: @window_title_text_color;
+    -gtk-icon-shadow: none;
+    text-shadow: none; }
+    /* Once the flat button has taken the grey hover/pressed face, its glyph goes back to
+       black or it disappears into the bevel. */
+    headerbar button.flat:hover,
+    headerbar button.flat:hover > label,
+    headerbar button.flat:hover > image,
+    headerbar button.flat:active,
+    headerbar button.flat:active > label,
+    headerbar button.flat:active > image,
+    headerbar button.flat:checked,
+    headerbar button.flat:checked > label,
+    headerbar button.flat:checked > image,
+    headerbar menubutton > button.flat:hover,
+    headerbar menubutton > button.flat:hover > image,
+    headerbar menubutton > button.flat:checked,
+    headerbar menubutton > button.flat:checked > image,
+    headerbar menubutton.flat > button:hover,
+    headerbar menubutton.flat > button:hover > image,
+    headerbar menubutton.flat > button:hover > arrow,
+    headerbar menubutton.flat > button:checked,
+    headerbar menubutton.flat > button:checked > image,
+    headerbar menubutton.flat > button:checked > arrow,
+    headerbar splitbutton.flat > button:hover,
+    headerbar splitbutton.flat > button:hover > label {
+      color: @button_text_color; }
+    /* Backdrop follows the title label to inactivetitletext. */
+    window:backdrop headerbar button.flat,
+    window:backdrop headerbar button.flat > label,
+    window:backdrop headerbar button.flat > image,
+    window:backdrop headerbar menubutton > button.flat > image,
+    window:backdrop headerbar menubutton.flat > button,
+    window:backdrop headerbar menubutton.flat > button > image,
+    window:backdrop headerbar menubutton.flat > button > arrow,
+    headerbar:backdrop button.flat,
+    headerbar:backdrop button.flat > label,
+    headerbar:backdrop button.flat > image {
+      color: @inactive_title_text_color; }
+    /* A disabled flat headerbar button cannot use the white #ffffff emboss - it is the
+       same colour as the resting glyph - so it dims towards the inactive title grey
+       instead and drops the shadow. */
+    headerbar button.flat:disabled,
+    headerbar button.flat:disabled > label,
+    headerbar button.flat:disabled > image,
+    headerbar menubutton.flat > button:disabled,
+    headerbar menubutton.flat > button:disabled > image,
+    headerbar menubutton.flat > button:disabled > arrow,
+    headerbar menubutton > button.flat:disabled > arrow,
+    headerbar splitbutton.flat > button:disabled,
+    headerbar splitbutton.flat > button:disabled > label {
+      color: @inactive_title_text_color;
+      text-shadow: none;
+      -gtk-icon-shadow: none;
+      -gtk-icon-filter: opacity(0.5); }
+  headerbar .title,
+  headerbar windowtitle > .title,
+  windowtitle > .title {
+    /* Only the title is bold on Win95, never the whole bar. */
+    padding: 0 4px;
+    margin: 0;
+    font-weight: bold;
+    color: @window_title_text_color;
+    text-shadow: none; }
+  headerbar .subtitle,
+  headerbar windowtitle > .subtitle,
+  windowtitle > .subtitle {
+    padding: 0 4px;
+    margin: 0;
+    font-size: smaller;
+    font-weight: normal;
+    color: @window_title_text_color;
+    text-shadow: none; }
+  headerbar > windowhandle > box > box > label,
+  headerbar windowtitle {
+    color: @window_title_text_color; }
+
+/* Unfocused / backdrop titlebar. `window:backdrop headerbar` is the selector that actually
+   fires on this system, but headerbar:backdrop is kept for windows that propagate the state to
+   the bar itself. The colour has to be repeated on every child that sets its own colour above,
+   because GTK does not inherit `color` past a node that declares it. */
+window:backdrop headerbar,
+window:backdrop .titlebar,
+headerbar:backdrop,
+.titlebar:backdrop {
+  background-color: @inactive_title_bg_color;
+  background-image: none;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  color: @inactive_title_text_color;
+  text-shadow: none;
+  -gtk-icon-shadow: none; }
+  window:backdrop headerbar .title,
+  window:backdrop headerbar windowtitle > .title,
+  window:backdrop headerbar .subtitle,
+  window:backdrop headerbar windowtitle > .subtitle,
+  window:backdrop headerbar label,
+  headerbar:backdrop .title,
+  headerbar:backdrop windowtitle > .title,
+  headerbar:backdrop label,
+  .titlebar:backdrop label {
+    color: @inactive_title_text_color;
+    text-shadow: none; }
+
+/* headerbar.default-decoration is the class GTK puts on a compact titlebar, and - the reason
+   it matters far more than its GTK3 equivalent ever did - it is what mutter-x11-frames uses.
+   That is a plain GTK4 process (no libadwaita) which draws the server-side decorations for
+   every Xwayland window on this system, so styling it here is what gives legacy X11 apps a
+   Win95 title bar. It reads the theme directory through the gtk-theme setting like any other
+   non-libadwaita GTK4 app. */
+headerbar.default-decoration {
+  min-height: 22px;
+  padding: 0 2px;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background-color: @window_title_bg_color;
+  background-image: none;
+  box-shadow: none;
+  color: @window_title_text_color;
+  font-size: 8pt; }
+  headerbar.default-decoration:backdrop,
+  window:backdrop headerbar.default-decoration {
+    background-color: @inactive_title_bg_color;
+    color: @inactive_title_text_color; }
+  headerbar.default-decoration windowcontrols > button,
+  headerbar.default-decoration windowcontrols > button > image {
+    /* Adwaita shrinks the buttons to 22x22/16x16 in the compact bar; keep the 18x18 Win95
+       square so an Xwayland frame matches a native CSD one. */
+    min-width: 18px;
+    min-height: 18px;
+    padding: 0; }
+  headerbar.default-decoration > windowhandle > box > box > label,
+  headerbar.default-decoration windowtitle > .title {
+    font-weight: bold; }
+
+/* Server-side decoration, for the handful of GTK4 apps that still get an SSD frame. */
+window.ssd headerbar,
+window.ssd .titlebar {
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background-color: @window_title_bg_color;
+  background-image: none;
+  text-shadow: none; }
+  window.ssd .titlebar label,
+  window.ssd headerbar label {
+    padding: 0;
+    margin: 0;
+    font-size: 8pt;
+    color: @window_title_text_color; }
+    window.ssd .titlebar:backdrop label,
+    window.ssd headerbar:backdrop label {
+      color: @inactive_title_text_color; }
+
+/******************
+ * windowcontrols *
+ ******************/
+
+/* There is no `titlebutton` node in GTK4 - the minimise/maximise/close buttons are
+   `windowcontrols > button.minimize/.maximize/.close`, each with a symbolic icon child
+   `> image`. This is also the answer to the wall the 2024 prototype in issue #256 hit: GTK4
+   ignores width/height, the size comes from min-width/min-height.
+   The face is the standard Chicago95 raised outset (1px real border + 1px inset shadow = a 2px
+   two-tone bevel). Square, never circular - hence border-radius: 0 on every state. */
+windowcontrols {
+  border-spacing: 0;
+  margin: 0;
+  padding: 0; }
+  windowcontrols > button,
+  windowcontrols.start > button,
+  windowcontrols.end > button {
+    min-width: 18px;
+    min-height: 18px;
+    padding: 0;
+    margin: 0;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0;
+    border-top-color: @border_bright;
+    border-left-color: @border_bright;
+    border-right-color: @border_dark;
+    border-bottom-color: @border_dark;
+    box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+    background-color: @bg_color;
+    background-image: none;
+    color: @fg_color;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+    outline: 0 solid transparent;
+    outline-offset: 0;
+    transition: none; }
+    windowcontrols > button:hover,
+    windowcontrols > button:backdrop,
+    windowcontrols > button:backdrop:hover {
+      /* Win95 window buttons are inert: no hover tint, and they keep their bevel on backdrop
+         while the bar behind them goes grey. Restated in full because Adwaita recolours both
+         states and would otherwise win on the background alone. */
+      border-top-color: @border_bright;
+      border-left-color: @border_bright;
+      border-right-color: @border_dark;
+      border-bottom-color: @border_dark;
+      box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+      background-color: @bg_color;
+      background-image: none;
+      color: @fg_color; }
+    windowcontrols > button:active,
+    windowcontrols > button:checked,
+    windowcontrols > button.keyboard-activating {
+      /* Pressed: the bevel inverts and the inner ring is a single top/left shadow only - that
+         asymmetry is what makes it read as Win95 rather than as a mirrored raised button.
+         `.keyboard-activating` is a GTK4-only state Adwaita uses alongside :active. */
+      padding: 0;
+      border-top-color: @border_dark;
+      border-left-color: @border_dark;
+      border-right-color: @border_bright;
+      border-bottom-color: @border_bright;
+      box-shadow: inset 1px 1px @border_shade;
+      background-color: @bg_color;
+      background-image: none;
+      color: @fg_color; }
+    windowcontrols > button:focus:focus-visible {
+      /* The Win95 dotted focus rectangle. outline-style: dotted does render as dots in
+         GTK 4.22 - libgtk-4 still has a real dashed-stroke path - but at 18x18 with a -4px
+         offset there are only a few pixels of ring left, so this is a close approximation of
+         the original rather than a match. */
+      outline-style: dotted;
+      outline-width: 1px;
+      outline-color: @outline_color;
+      outline-offset: -4px; }
+  windowcontrols > button > image,
+  headerbar windowcontrols > image {
+    /* Black glyphs. GTK4 draws the minimise/maximise/close marks as symbolic icons recoloured
+       to currentColor, so the colour above is what makes them black on the grey face.
+       NOT REPRODUCED: gtk-3.0 draws the whole button, glyph included, from the 18x18
+       buttons/window_button_normal.png bitmap. Doing that here would mean shipping the PNG and
+       then suppressing the symbolic child so it does not draw over the bitmap; the symbolic
+       route is asset-free and scales, at the cost of the exact 1995 pixel glyphs. */
+    min-width: 16px;
+    min-height: 16px;
+    padding: 0;
+    margin: 0;
+    -gtk-icon-size: 16px;
+    -gtk-icon-shadow: none;
+    /* `symbolic`, explicitly. The window buttons MUST take the symbolic variant, because
+       symbolic icons are the ones GTK recolours through `color` - that is what makes the
+       glyphs black on the grey face. Asking for `regular` here selects the icon theme's
+       full-colour close icon instead, which under Yaru is a red circle rather than a
+       black x, and no `color` can repaint it. */
+    -gtk-icon-style: symbolic;
+    color: @fg_color; }
+  windowcontrols > button.close {
+    /* Win95 leaves a small gap before the close button and groups minimise/maximise flush.
+       With border-spacing zeroed above, one explicit margin is enough. */
+    margin-left: 2px; }
+
+/*************
+ * notebooks *
+ *************/
+
+/* Classic raised tabs with the active tab flush with the page. gtk-3.0/gtk-notebooks.css draws
+   these from six border-image PNGs (notebook_top/bottom/left/right, plain and _checked); this
+   sheet is written asset-free, so the tab is built from the same 1px-border-plus-1px-inset
+   bevel as everything else and the "taller selected tab" effect comes from margins instead of
+   a taller bitmap. The PNGs are still valid GTK4 border-image sources if pixel-exact tabs are
+   wanted later - see Theme/Chicago95/gtk-3.0/assets/notebook_top.png. */
+notebook {
+  padding: 0;
+  background-color: @bg_color;
+  background-image: none; }
+  notebook > stack:not(:only-child) {
+    /* The page body: a raised panel whose top edge is broken by the selected tab. */
+    margin: 0;
+    padding: 3px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0;
+    border-top-color: @border_bright;
+    border-left-color: @border_bright;
+    border-right-color: @border_dark;
+    border-bottom-color: @border_dark;
+    box-shadow: inset -1px -1px @border_shade;
+    background-color: @bg_color;
+    background-image: none; }
+
+/* header positioning */
+notebook > header {
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background-color: @bg_color;
+  background-image: none;
+  box-shadow: none; }
+  notebook > header.top,
+  notebook > header.bottom {
+    margin-left: 3px;
+    margin-right: 3px; }
+  notebook > header.left,
+  notebook > header.right {
+    margin-top: 3px;
+    margin-bottom: 3px; }
+  notebook > header > tabs {
+    margin: 0;
+    padding: 0;
+    border-spacing: 0; }
+
+/* tab styling */
+notebook > header > tabs > tab {
+  min-height: 0;
+  min-width: 0;
+  padding: 1px 6px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_bright;
+  border-left-color: @border_bright;
+  border-right-color: @border_dark;
+  border-bottom-color: @border_dark;
+  box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+  background-color: @notebook_bg;
+  background-image: none;
+  color: @notebook_label;
+  text-shadow: none;
+  outline: 0 solid transparent;
+  font-weight: normal;
+  transition: none; }
+  notebook > header > tabs > tab:hover {
+    /* Win95 tabs do not light up on hover; keep the face and only follow the theme's own
+       notebook hover colour, which resolves to the same grey. */
+    background-color: @notebook_bg_hover;
+    background-image: none;
+    box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade; }
+  notebook > header > tabs > tab:checked {
+    /* Adwaita marks the selected tab with an inset accent underline; replace it with the
+       Win95 behaviour - the tab grows and bleeds into the page border.
+       There is deliberately no `border-color: @bg_dark` shorthand here. gtk-3.0's
+       notebook tab:checked rule carries one, but only ever in company with the
+       border-image asset, where the flat colour never paints. Written asset-free it does
+       paint: the shorthand set all four sides to #191919 and the three explicit colours
+       below only put back top, left and right, leaving border-bottom-color near-black.
+       Top and bottom tabs zero their bottom border width so it was invisible there, but
+       header.left and header.right tabs do paint a bottom edge and picked up a stray
+       near-black line. Dropping the shorthand lets the base rule's own
+       border-bottom-color: @border_dark stand, which is the correct bevel colour. */
+    background-color: @notebook_bg_selected;
+    background-image: none;
+    border-top-color: @border_bright;
+    border-left-color: @border_bright;
+    border-right-color: @border_dark;
+    box-shadow: inset 1px 1px @border_light, inset -1px 0 @border_shade;
+    color: @notebook_label_selected;
+    outline-style: dotted;
+    outline-width: 1px;
+    outline-color: @outline_color;
+    outline-offset: -5px; }
+  notebook > header > tabs > tab label {
+    padding: 0 2px;
+    margin: 0;
+    color: inherit; }
+  notebook > header > tabs > tab button {
+    /* the per-tab close button, when an app enables it */
+    min-width: 14px;
+    min-height: 14px;
+    padding: 0;
+    margin: 0;
+    border-radius: 0; }
+
+/* Top tabs: unselected tabs sit 2px lower and the selected one overlaps the page rule. */
+notebook > header.top > tabs > tab {
+  margin-top: 2px;
+  border-bottom-width: 0; }
+  notebook > header.top > tabs > tab:checked {
+    margin-top: 0;
+    margin-left: -3px;
+    margin-right: -3px;
+    margin-bottom: -1px;
+    padding-bottom: 2px; }
+
+/* Bottom tabs */
+notebook > header.bottom > tabs > tab {
+  margin-bottom: 2px;
+  border-top-width: 0; }
+  notebook > header.bottom > tabs > tab:checked {
+    margin-bottom: 0;
+    margin-left: -3px;
+    margin-right: -3px;
+    margin-top: -2px;
+    padding-top: 2px; }
+
+/* Left tabs */
+notebook > header.left > tabs > tab {
+  margin-left: 2px;
+  border-right-width: 0; }
+  notebook > header.left > tabs > tab:checked {
+    margin-left: 0;
+    margin-top: -3px;
+    margin-bottom: -3px;
+    margin-right: -1px;
+    padding-right: 2px; }
+
+/* Right tabs */
+notebook > header.right > tabs > tab {
+  margin-right: 2px;
+  border-left-width: 0; }
+  notebook > header.right > tabs > tab:checked {
+    margin-right: 0;
+    margin-top: -3px;
+    margin-bottom: -3px;
+    margin-left: -2px;
+    padding-left: 2px; }
+
+/* Tab scroll arrows get the normal raised button face. The glyph comes from the icon theme;
+   gtk-3.0 uses the 10x10 assets/arrow-*.png bitmaps, which are not shipped here. */
+notebook > header > tabs > arrow {
+  min-width: 14px;
+  min-height: 14px;
+  padding: 2px;
+  margin: 0;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_bright;
+  border-left-color: @border_bright;
+  border-right-color: @border_dark;
+  border-bottom-color: @border_dark;
+  box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+  background-color: @bg_color;
+  background-image: none;
+  color: @fg_color;
+  transition: none; }
+  notebook > header > tabs > arrow:active,
+  notebook > header > tabs > arrow:checked {
+    border-top-color: @border_dark;
+    border-left-color: @border_dark;
+    border-right-color: @border_bright;
+    border-bottom-color: @border_bright;
+    box-shadow: inset 1px 1px @border_shade; }
+  notebook > header > tabs > arrow:disabled {
+    color: @border_shade;
+    -gtk-icon-filter: opacity(0.5); }
+
+/*****************
+ * stackswitcher *
+ *****************/
+
+/* A GtkStackSwitcher is a row of linked toggle buttons. The raised and pressed faces come from
+   the shared `button` rule in gtk-widgets.css, so only the container geometry, the squared
+   corners Adwaita rounds, and the latched (checked) look are set here. */
+stackswitcher {
+  border-spacing: 0;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  background-image: none; }
+  stackswitcher > button {
+    min-height: 14px;
+    min-width: 14px;
+    padding: 2px 6px;
+    margin: 0;
+    border-radius: 0;
+    background-image: none;
+    outline: 0 solid transparent;
+    transition: none; }
+    stackswitcher > button:checked {
+      /* The Win95 latched-toggle look: pressed bevel over the 50% dither. The tile and the
+         deliberate text-shadow are copied from gtk-3.0/gtk-buttons.css - upstream's comment
+         says the shadow is what keeps the label readable against the checkerboard. */
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 0;
+      border-top-color: @border_dark;
+      border-left-color: @border_dark;
+      border-right-color: @border_bright;
+      border-bottom-color: @border_bright;
+      box-shadow: inset 1px 1px @border_shade;
+      background-color: @bg_bright;
+      background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_dark);
+      background-size: 2px 2px;
+      background-position: 0 0, 1px 1px;
+      color: @fg_color;
+      text-shadow: 1px 1px @bg_color; }
+    stackswitcher > button > label {
+      padding: 0 2px; }
+
+/*********
+ * paned *
+ *********/
+
+/* gtk-3.0/gtk-paned.css draws the grab handle from assets/handle-v.png / handle-h.png, a 2px
+   two-tone strip. Asset-free, the same two pixels are a white and a grey border on a 2px
+   content area, which totals the 4px separator upstream uses (GTK sizes min-width against the
+   content box, so the borders add to it). */
+paned {
+  margin: 0;
+  padding: 0;
+  background-color: transparent; }
+
+/* GTK has the panes named the other way round: paned.horizontal is the one with a VERTICAL
+   divider. The GTK3 sheet carries the same warning. */
+paned.horizontal > separator {
+  min-width: 2px;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  border-style: solid;
+  border-width: 0 1px;
+  border-radius: 0;
+  border-left-color: @border_bright;
+  border-right-color: @border_shade;
+  background-color: @bg_color;
+  background-image: none;
+  box-shadow: none; }
+paned.vertical > separator {
+  min-height: 2px;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border-style: solid;
+  border-width: 1px 0;
+  border-radius: 0;
+  border-top-color: @border_bright;
+  border-bottom-color: @border_shade;
+  background-color: @bg_color;
+  background-image: none;
+  box-shadow: none; }
+paned > separator.wide {
+  border-radius: 0;
+  background-image: none;
+  box-shadow: none; }
+
+/*************
+ * scrollbar *
+ *************/
+
+/* NOT ACHIEVABLE IN GTK4 - read this before looking for the arrow buttons.
+   A Win95 scrollbar has a stepper button with a triangle arrow at each end. GtkScrollbar in
+   GTK 4.22 has no stepper node at all: the tree is `scrollbar > range > trough > slider` and
+   nothing else, so there is no node to attach a button, a bevel or an arrow bitmap to. The
+   twelve scrollbar/stepper-*.png assets and the whole stepper half of
+   gtk-3.0/gtk-scrollbar.css are therefore dead here and are deliberately not ported - faking
+   them (for example as a background-image on the ends of the trough) would not be clickable
+   and would break the dither. What is reproduced is the 50% dithered channel and the raised
+   thumb, at the canonical 16px scrollbar width.
+   Note also that overlay scrolling cannot be turned off from CSS. gtk-4.0/settings.ini
+   asks for gtk-overlay-scrolling=false, and that is honoured on a session with no
+   XSettings daemon - but NOT under GNOME, where org.gnome.desktop.interface
+   overlay-scrolling outranks the theme file. Measured on GTK 4.22.4 in an isolated XDG
+   sandbox: the theme-dir settings.ini is genuinely read (gtk-primary-button-warps-slider
+   flips), yet gtk-overlay-scrolling stays TRUE while the GNOME source is present, and
+   putting the same key in ~/.config/gtk-4.0/settings.ini does not help either. So on
+   GNOME the user has to set it themselves; INSTALL.md gives the gsettings command. The
+   opacity override below is what keeps the bar fully drawn in the meantime. */
+scrollbar {
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  background-color: @scrollbar_trough_bg_color;
+  transition: none; }
+  scrollbar.top,
+  scrollbar.bottom,
+  scrollbar.left,
+  scrollbar.right {
+    /* Adwaita adds a 1px border on the edge that meets the content. */
+    border: none; }
+  scrollbar.vertical {
+    min-width: 16px; }
+  scrollbar.horizontal {
+    min-height: 16px; }
+  scrollbar.overlay-indicator:not(.dragging):not(.hovering) {
+    /* Adwaita fades the bar to a thin indicator until pointed at. Win95 scrollbars are always
+       fully drawn. */
+    opacity: 1; }
+  scrollbar > range {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent; }
+    scrollbar > range > trough {
+      /* The 50% dither Win95 channel, verbatim from gtk-3.0/gtk-basic-effects.css. These are
+         hard-stop gradients used as a 2px repeating checker tile, not shading, so they do not
+         breach the no-smooth-gradients rule. The odd trailing @bg_dark stop on the second
+         gradient is an upstream quirk - it is sub-pixel at a 2px tile and invisible, and
+         keeping it keeps this file diff-comparable with the GTK3 sheet. */
+      border: none;
+      border-radius: 0;
+      margin: 0;
+      padding: 0;
+      outline: none;
+      background-color: @scrollbar_trough_bg_color;
+      background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_dark);
+      background-size: 2px 2px;
+      background-position: 0 0, 1px 1px; }
+      scrollbar > range > trough > slider,
+      scrollbar > range > trough > slider:hover,
+      scrollbar > range > trough > slider:active,
+      scrollbar.dragging > range > trough > slider,
+      scrollbar > range > trough > slider:backdrop {
+        /* The thumb, repeated across every state because Win95 thumbs are inert and Adwaita
+           recolours them on hover and drag. Adwaita also ships min-width 8px, margin -1px,
+           a 4px transparent border, border-radius 10px and background-clip: padding-box - all
+           four have to be restated, not just overridden in part.
+           #868686 is the inner bottom/right shadow pixel baked into
+           scrollbar/scrollbar_button.png; it has no @define-color name in the theme, and it is
+           NOT @border_shade (#808080). 12px content + 1px border + 1px inset each side = the
+           14px thumb inside a 16px bar. */
+        min-width: 12px;
+        min-height: 12px;
+        margin: 0;
+        padding: 0;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 0;
+        border-top-color: @border_color;
+        border-left-color: @border_color;
+        border-right-color: @border_dark;
+        border-bottom-color: @border_dark;
+        box-shadow: inset 1px 1px @border_bright, inset -1px -1px #868686;
+        background-color: @bg_color;
+        background-image: none;
+        background-clip: border-box;
+        outline: none;
+        transition: none; }
+      scrollbar > range > trough > slider:disabled {
+        /* An unusable scrollbar is all dither and no thumb on Win95. */
+        border: none;
+        box-shadow: none;
+        background-color: @scrollbar_trough_bg_color;
+        background-image: linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_color), linear-gradient(45deg, @bg_color 25%, transparent 25%, transparent 75%, @bg_color 75%, @bg_dark);
+        background-size: 2px 2px;
+        background-position: 0 0, 1px 1px; }
+  scrollbar.overlay-indicator:not(.dragging):not(.hovering) > range > trough > slider {
+    /* Adwaita shrinks the thumb to a 3px pill in the indicator state. */
+    min-width: 12px;
+    min-height: 12px;
+    margin: 0;
+    border-width: 1px;
+    border-radius: 0; }
+
+/*******************
+ * scrolled window *
+ *******************/
+
+scrolledwindow {
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent; }
+  scrolledwindow.frame {
+    /* The 2px sunken well, matching assets/frame_inset.png: outer top/left @border_shade,
+       inner top/left @border_dark, inner bottom/right @border_light, outer bottom/right
+       @border_bright. */
+    padding: 0;
+    margin: 0;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0;
+    border-top-color: @border_shade;
+    border-left-color: @border_shade;
+    border-right-color: @border_bright;
+    border-bottom-color: @border_bright;
+    box-shadow: inset 1px 1px @border_dark, inset -1px -1px @border_light;
+    background-color: @bg_color;
+    background-image: none; }
+  scrolledwindow > undershoot.top,
+  scrolledwindow > undershoot.bottom,
+  scrolledwindow > undershoot.left,
+  scrolledwindow > undershoot.right,
+  scrolledwindow > overshoot.top,
+  scrolledwindow > overshoot.bottom,
+  scrolledwindow > overshoot.left,
+  scrolledwindow > overshoot.right {
+    /* libadwaita draws a soft fade at each scroll edge (32 undershoot rules) plus a coloured
+       glow when you overscroll. Both are pure GNOME-era decoration with no Win95 analogue, so
+       they are blanked rather than restyled. */
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none; }
+  scrolledwindow > junction {
+    /* The square where a horizontal and a vertical scrollbar meet. */
+    border: none;
+    background-color: @bg_color;
+    background-image: none; }
+
+/***********
+ * toolbar *
+ ***********/
+
+/* GTK4 has no `toolbar` node - a toolbar is a plain box carrying the .toolbar style class, so
+   the selector is `box.toolbar`. It is deliberately NOT the bare `.toolbar` class: libadwaita
+   also puts that class on buttons and on .osd containers, and a bare rule would repaint them.
+   AdwToolbarView's own bars are the adwaita agent's file, not this one. */
+box.toolbar {
+  padding-top: 3px;
+  padding-bottom: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-top: 1px solid @border_shade;
+  border-radius: 0;
+  box-shadow: inset 0 1px @border_bright;
+  background-color: @bg_color;
+  background-image: none; }
+  box.toolbar.horizontal > separator {
+    border-left: 1px solid @border_shade;
+    border-right: 1px solid @border_bright;
+    border-top: none;
+    border-bottom: none;
+    min-width: 0;
+    padding: 0;
+    margin: 0 4px;
+    background-color: transparent;
+    background-image: none; }
+  box.toolbar.vertical > separator {
+    border-top: 1px solid @border_shade;
+    border-bottom: 1px solid @border_bright;
+    border-left: none;
+    border-right: none;
+    min-height: 0;
+    padding: 0;
+    margin: 4px 0;
+    background-color: transparent;
+    background-image: none; }
+
+/************************************
+ * actionbar, searchbar, statusbar  *
+ ***********************************/
+
+/* All three wrap their content in a revealer in GTK4, and the background has to go on the box
+   inside it - a rule on the outer node paints nothing. Same etched top rule as the toolbar. */
+actionbar > revealer > box,
+searchbar > revealer > box {
+  padding: 3px 6px 4px 6px;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-top: 1px solid @border_shade;
+  border-radius: 0;
+  box-shadow: inset 0 1px @border_bright;
+  background-color: @bg_color;
+  background-image: none; }
+  actionbar > revealer > box > box.start,
+  actionbar > revealer > box > box.end,
+  actionbar > revealer > box > box.center {
+    border-spacing: 6px; }
+  searchbar > revealer > box {
+    /* A search bar sits under the titlebar, so its rule reads as a bottom edge instead. */
+    border-top: 0;
+    border-bottom: 1px solid @border_shade;
+    box-shadow: inset 0 -1px @border_bright; }
+
+/* GtkStatusbar is deprecated in GTK4 and only turns up in older apps, but Chicago95 has always
+   given it the flat single-tone frame from assets/frame_basic.png - the only 1px single-colour
+   frame in the whole theme - so it is kept for parity. */
+statusbar {
+  padding: 0;
+  background-color: @bg_color;
+  background-image: none; }
+  statusbar frame {
+    margin-top: 3px;
+    padding: 0;
+    border: 1px solid @border_shade;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: @bg_color; }
+    statusbar frame label {
+      padding-right: 2px; }
+    statusbar frame box {
+      margin-bottom: -1px;
+      margin-top: -2px; }
+      statusbar frame box label {
+        margin-top: 1px;
+        margin-bottom: -1px; }
+
+/**********
+ * frames *
+ **********/
+
+/* GTK4 CRITICAL: the `frame > border` child node that gtk-3.0/gtk-frames.css styles no longer
+   exists, so every declaration moves onto `frame` itself. Adwaita ships
+   `frame { border: 1px solid; border-radius: 8px; }`, so the radius must be zeroed explicitly.
+   The fill is @bg_color, not @bg_bright: assets/frame_inset.png's own fill is #c0c0c0, and the
+   white field colour belongs to entries and views, which are other agents' files. */
+frame,
+frame.view {
+  padding: 2px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_shade;
+  border-left-color: @border_shade;
+  border-right-color: @border_bright;
+  border-bottom-color: @border_bright;
+  box-shadow: inset 1px 1px @border_dark, inset -1px -1px @border_light;
+  background-color: @bg_color;
+  background-image: none;
+  color: @fg_color; }
+  frame.flat {
+    border-width: 0;
+    box-shadow: none; }
+  frame > label {
+    margin-left: 6px;
+    padding-right: 4px; }
+  frame > list,
+  frame > .view {
+    /* Upstream pulls the content out under the 2px border so the list fills the well. */
+    margin: -2px; }
+
+/* The Win95 group box is an etched groove rather than a plain inset, and that is the border a
+   stack page or a preferences-style panel wants. Colour order is the decoded pixel structure
+   of assets/frame_groove.png. */
+stack > box > frame,
+frame.border-groove {
+  padding: 2px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_shade;
+  border-left-color: @border_shade;
+  border-right-color: @border_bright;
+  border-bottom-color: @border_bright;
+  box-shadow: inset 1px 1px @border_bright, inset -1px -1px @border_shade;
+  background-color: @bg_color;
+  background-image: none; }
+
+/* The raised counterpart, kept because the GTK3 sheet exposes it as a class. */
+frame.border-outset {
+  padding: 2px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_color;
+  border-left-color: @border_color;
+  border-right-color: @border_dark;
+  border-bottom-color: @border_dark;
+  box-shadow: inset 1px 1px @border_bright, inset -1px -1px @border_shade;
+  background-color: @bg_color;
+  background-image: none; }
+
+/************
+ * viewport *
+ ************/
+
+/* libadwaita styles `viewport` (32 rules) where GTK's own sheet does not, so it needs
+   flattening - but its background is deliberately left transparent. The white field colour for
+   a viewport that holds a list, an icon view or a text view is set in gtk-lists.css; painting
+   it here would fight that file. */
+viewport {
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none; }
+  viewport.frame {
+    padding: 0;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0;
+    border-top-color: @border_shade;
+    border-left-color: @border_shade;
+    border-right-color: @border_bright;
+    border-bottom-color: @border_bright;
+    box-shadow: inset 1px 1px @border_dark, inset -1px -1px @border_light; }
+
+/**************
+ * separators *
+ **************/
+
+/* A plain 1-line separator inside a box. GTK4/Adwaita draws separators as a 1px background
+   image rather than as a border, so background-image and both min sizes have to be zeroed
+   before the two-tone Win95 groove shows up at all. Scoped to `box > separator` on purpose: a
+   bare `separator` rule would also hit the separators inside popovers, toolbars, paned and
+   split buttons, which are styled by their own owners. */
+box > separator.horizontal {
+  min-height: 0;
+  min-width: 0;
+  padding: 0;
+  border-top: 1px solid @border_shade;
+  border-bottom: 1px solid @border_bright;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: none; }
+box > separator.vertical {
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border-left: 1px solid @border_shade;
+  border-right: 1px solid @border_bright;
+  border-top: none;
+  border-bottom: none;
+  border-radius: 0;
+  background-color: transparent;
+  background-image: none; }
+
+/***********
+ * overlay *
+ ***********/
+
+/* GtkOverlay itself paints nothing; it is listed here only so a maintainer can see that the
+   flattening was considered rather than forgotten. The .osd overlays that float inside one
+   (the floating bar, app notifications) belong to gtk-widgets.css. */
+overlay {
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none; }
