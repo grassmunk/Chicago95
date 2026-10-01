@@ -16,8 +16,9 @@ function msdos_pwd
 }
 
 function drive_letter() {
-    defaultletter="i"
-    declare -A driveletters=(["1"]="A" ["2"]="B" ["3"]="C" ["4"]="D" ["5"]="E" ["6"]="F" ["7"]="G" ["8"]="H" ["9"]="I" ["10"]="J" ["11"]="K" ["12"]="L" ["13"]="M" ["14"]="N" ["15"]="O" ["16"]="P" ["17"]="Q" ["18"]="R" ["19"]="S" ["20"]="T" ["21"]="U" ["22"]="V" ["23"]="W" ["24"]="X" ["25"]="Y" ["26"]="Z")
+    # A: and B: are reserved for floppy drives, start at C:
+    defaultletter="C"
+    declare -A driveletters=(["1"]="C" ["2"]="D" ["3"]="E" ["4"]="F" ["5"]="G" ["6"]="H" ["7"]="I" ["8"]="J" ["9"]="K" ["10"]="L" ["11"]="M" ["12"]="N" ["13"]="O" ["14"]="P" ["15"]="Q" ["16"]="R" ["17"]="S" ["18"]="T" ["19"]="U" ["20"]="V" ["21"]="W" ["22"]="X" ["23"]="Y" ["24"]="Z")
     devs=$(df -x tmpfs -x devtmpfs -x efivarfs --output=source | tail -n+2)
     thisdev=$(df --output=source .|tail -n+2)
     if [ -z $thisdev ]; then
