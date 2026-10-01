@@ -1,0 +1,1047 @@
+/**********************************
+ * libadwaita composite widgets *
+ *********************************/
+
+/*
+   Contributor notes:
+   Please use two space indentions.
+   Stack all related and child selectors and selector states into a logical hierarchy to a readable degree.
+   Make sure that all changes made here are part of a libadwaita composite widget (Adw*).
+
+   Scope of this file: only the Adw* wrappers. Plain button, entry, label, headerbar,
+   notebook, scrollbar, list and popover live in their own partials - if a rule here
+   would restyle one of those directly it belongs in the sibling file instead.
+
+   Every rule below is doing exactly one of four things:
+     1. removing a border-radius,
+     2. removing a shadow used as elevation,
+     3. removing a transition or animation,
+     4. replacing a flat modern surface with the 2px Chicago95 bevel
+        (1px real border + 1px inset box-shadow - never a 2px solid border).
+
+   libadwaita 1.9 resolves its own rules through CSS custom properties, so the palette
+   recolour in gtk.css does most of the colour work. What is left - and what this file
+   is for - is the geometry: libadwaita rounds, elevates and animates almost every
+   composite, and none of that has a Windows 95 analogue.
+*/
+
+/* AdwToolbarView */
+
+/* AdwToolbarView is the chrome container of every modern GNOME app: it supplies the
+   headerbar/content separator, and in stock libadwaita it does so with a soft shade
+   gradient. Chicago95 replaces that with the Win95 etched rule (one grey line above
+   one white line) and nothing else. The .toolbar-view style class is carried alongside
+   the toolbarview node by some app code, so both are matched. */
+toolbarview,
+.toolbar-view {
+  border-radius: 0;
+  box-shadow: none;
+  background-image: none;
+  background-color: @bg_color;
+  transition: none; }
+  toolbarview > .top-bar,
+  toolbarview > .bottom-bar,
+  .toolbar-view > .top-bar,
+  .toolbar-view > .bottom-bar {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background-image: none;
+    background-color: @bg_color;
+    color: @fg_color;
+    transition: none; }
+  /* .raised is libadwaita's "content has scrolled under me" state; it normally fades a
+     drop shadow in. The Win95 equivalent is a permanent etched rule, so it is drawn in
+     both states and simply does not animate. */
+  toolbarview > .top-bar.raised,
+  toolbarview > .top-bar.raised.border,
+  .toolbar-view > .top-bar.raised,
+  .toolbar-view > .top-bar.raised.border {
+    border-bottom: 1px solid @border_bright;
+    box-shadow: inset 0 -1px @border_shade; }
+  toolbarview > .bottom-bar.raised,
+  toolbarview > .bottom-bar.raised.border,
+  .toolbar-view > .bottom-bar.raised,
+  .toolbar-view > .bottom-bar.raised.border {
+    border-top: 1px solid @border_shade;
+    box-shadow: inset 0 1px @border_bright; }
+  /* Backdrop: no colour change on the bar itself. The titlebar partial handles the
+     navy -> grey swap for the headerbar that sits inside it. */
+  toolbarview > .top-bar:backdrop,
+  toolbarview > .bottom-bar:backdrop,
+  .toolbar-view > .top-bar:backdrop,
+  .toolbar-view > .bottom-bar:backdrop {
+    background-color: @bg_color;
+    box-shadow: none; }
+  /* A toolbar strip that is not a headerbar gets the real Win95 toolbar surface. */
+  toolbarview > .top-bar > .toolbar,
+  toolbarview > .bottom-bar > .toolbar,
+  .toolbar-view > .top-bar > .toolbar,
+  .toolbar-view > .bottom-bar > .toolbar {
+    padding-top: 3px;
+    padding-bottom: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-top: 1px solid @border_shade;
+    border-radius: 0;
+    box-shadow: inset 0 1px @border_bright;
+    background-color: @bg_color;
+    background-image: none; }
+
+/* AdwHeaderBar specifics */
+
+/* Only the parts a plain `headerbar` rule cannot reach: the Adw wrappers around it and
+   the AdwWindowTitle child. Height, padding and the navy fill belong to the headerbar
+   partial and are deliberately not repeated here. */
+toolbarview > .top-bar headerbar,
+.toolbar-view > .top-bar headerbar {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background-image: none; }
+/* Only the AdwWindowTitle node's own surface. Its `.title` and `.subtitle` children are
+   NOT styled here even though libadwaita treats them as part of this widget: they sit
+   inside the headerbar, so their colour depends on the navy/backdrop-grey swap, and
+   gtk-containers.css is the file that knows those colours. It already declares
+   `windowtitle > .title` and `windowtitle > .subtitle` in full - padding, weight, size
+   and colour - and it loads before this file, so a partial copy here would either be
+   redundant or silently drop the colour. */
+windowtitle {
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  background: none;
+  transition: none; }
+/* libadwaita gives the development-build headerbar a diagonal striped background. It is
+   a gradient used as decoration, so it goes. */
+window.devel headerbar {
+  background-image: none;
+  background-color: @selected_bg_color; }
+
+/* AdwClamp, AdwPreferencesPage, AdwPreferencesGroup */
+
+/* AdwClamp only caps content width - it must keep its geometry or preference pages
+   reflow, so all that is removed is the surface it paints. */
+clamp {
+  border-radius: 0;
+  background: none;
+  box-shadow: none; }
+preferencespage,
+preferencespage > scrolledwindow > viewport > clamp > box {
+  border-radius: 0;
+  box-shadow: none;
+  background-image: none;
+  background-color: @bg_color;
+  color: @fg_color; }
+preferencesgroup > box {
+  border-radius: 0;
+  box-shadow: none;
+  background-image: none;
+  background-color: transparent; }
+  /* The group header is a Win95 group-box caption: bold, flush left, no letterspacing
+     tricks and no soft grey. */
+  preferencesgroup > box > box.header:not(.single-line),
+  preferencesgroup > box > box.single-line {
+    margin-bottom: 2px;
+    border-radius: 0;
+    box-shadow: none;
+    background: none; }
+    preferencesgroup > box box.labels > label.title {
+      font-weight: bold;
+      color: @fg_color;
+      text-shadow: none; }
+    preferencesgroup > box box.labels > label.description {
+      color: @fg_color;
+      text-shadow: none; }
+  preferencesgroup + preferencesgroup box.header {
+    margin-top: 6px; }
+
+/* .boxed-list / .boxed-list-separate */
+
+/* This is libadwaita's most recognisable signature and the single highest-leverage
+   override in the file. Stock: a white rounded card with soft dividers, per-row corner
+   rounding on the first and last child, and a drop shadow. Chicago95: ONE sunken well
+   with a white field inside it, exactly like a Win95 list box, with the rows drawn flat
+   inside it and a single grey rule between them.
+
+   .boxed-list-separate normally detaches every row into its own floating card; here it
+   is collapsed back into the same single well so the two classes look identical, which
+   is the correct Win95 answer - Windows 95 had no concept of a detached list row. */
+list.boxed-list,
+list.boxed-list-separate {
+  margin: 0;
+  padding: 0;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_shade;
+  border-left-color: @border_shade;
+  border-right-color: @border_bright;
+  border-bottom-color: @border_bright;
+  box-shadow: inset 1px 1px @border_dark, inset -1px -1px @border_light;
+  background-color: @bg_bright;
+  background-image: none;
+  color: @text_color;
+  transition: none; }
+  list.boxed-list > row,
+  list.boxed-list-separate > row {
+    min-height: 20px;
+    padding: 2px 4px;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background-image: none;
+    background-color: transparent;
+    color: @text_color;
+    outline: 0 solid transparent;
+    transition: none; }
+    /* Kill the per-row corner rounding that makes the card ends. */
+    list.boxed-list > row:first-child,
+    list.boxed-list > row:last-child,
+    list.boxed-list > row:only-child,
+    list.boxed-list-separate > row:first-child,
+    list.boxed-list-separate > row:last-child,
+    list.boxed-list-separate > row:only-child {
+      border-radius: 0;
+      box-shadow: none; }
+    /* One flat grey rule between rows, in place of libadwaita's alpha divider. */
+    list.boxed-list > row:not(:last-child),
+    list.boxed-list-separate > row:not(:last-child) {
+      border-bottom: 1px solid @border_shade; }
+    list.boxed-list > row:selected,
+    list.boxed-list-separate > row:selected {
+      background-color: @selected_bg_color;
+      background-image: none;
+      border-radius: 0;
+      color: @selected_fg_color;
+      text-shadow: none;
+      -gtk-icon-shadow: none; }
+    /* Adwaita tints activatable rows on hover. Win95 list rows are inert until selected. */
+    list.boxed-list > row.activatable:hover,
+    list.boxed-list-separate > row.activatable:hover {
+      background-color: transparent;
+      background-image: none; }
+    list.boxed-list > row.activatable:active,
+    list.boxed-list-separate > row.activatable:active {
+      background-color: transparent;
+      background-image: none;
+      box-shadow: none; }
+    /* Focus: the Win95 dotted rectangle, inset so it does not fight the row rule.
+       outline-style: dotted really does dash-stroke in GTK 4.22, so this is the genuine
+       article rather than an approximation. */
+    list.boxed-list > row:focus:focus-visible,
+    list.boxed-list-separate > row:focus:focus-visible {
+      outline-style: dotted;
+      outline-width: 1px;
+      outline-color: @border_dark;
+      outline-offset: -2px; }
+/* .osd boxed lists lose their translucency along with everything else .osd - see below. */
+list.osd.boxed-list,
+.osd list.boxed-list {
+  border-radius: 0;
+  box-shadow: inset 1px 1px @border_dark, inset -1px -1px @border_light;
+  background-color: @bg_bright; }
+
+/* AdwPreferencesRow and friends */
+
+/* AdwActionRow / AdwComboRow / AdwEntryRow / AdwExpanderRow / AdwSwitchRow / AdwSpinRow
+   are all `row` subclasses, so the boxed-list rules above already carry their surface.
+   What is left is the padding libadwaita reserves for a 50px tall touch row, its corner
+   rounding, and the animated arrows. The child controls themselves (entry, switch,
+   spinbutton, dropdown button) are the widgets partial's job and are not touched. */
+row.property > box > box.header > label.title,
+row.property > box > box.header > label.subtitle {
+  text-shadow: none; }
+row.activatable,
+row.expander,
+row.combo,
+row.button-row,
+row.property {
+  border-radius: 0;
+  box-shadow: none;
+  background-image: none;
+  transition: none; }
+/* AdwExpanderRow: the header row is a row inside a row, and the expander arrow is
+   rotated with a transition. Both get flattened. */
+row.expander {
+  padding: 0; }
+  row.expander > list > row,
+  row.expander row.header {
+    min-height: 20px;
+    padding: 2px 4px;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    transition: none; }
+  row.expander:not(:last-child) > list > row:last-child {
+    border-bottom: 1px solid @border_shade; }
+  /* The nested rows sit in the same white well, indented rather than tinted. */
+  row.expander > list > list > row,
+  row.expander list.nested > row {
+    padding-left: 16px;
+    border-radius: 0;
+    background-color: transparent;
+    background-image: none; }
+  row.expander image.expander-row-arrow,
+  row.expander shortcut-label > image.expander-row-arrow {
+    transition: none;
+    -gtk-icon-shadow: none; }
+/* AdwEntryRow puts the entry inline in the row; only the row-level chrome is reset here.
+   The entry bevel belongs to the entry partial. */
+row.entry,
+row entry,
+row.entry > text {
+  border-radius: 0;
+  box-shadow: none;
+  transition: none; }
+  row entry > text > placeholder {
+    color: @text_color_light;
+    text-shadow: none; }
+/* AdwSwitchRow / AdwSpinRow / AdwComboRow: stop libadwaita centring the control with a
+   6px vertical margin that assumes a tall row. */
+row switch,
+row spinbutton,
+row dropdown,
+row > box > switch,
+row > box > spinbutton {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-radius: 0;
+  transition: none; }
+/* AdwComboRow's selected-value label is dimmed with an opacity in stock libadwaita;
+   Chicago95 uses the flat grey instead so it emboss-matches the rest of the theme. */
+row.combo > box > label.dim-label,
+row .dimmed,
+row .dim-label {
+  color: @text_color_light;
+  opacity: 1;
+  text-shadow: none; }
+
+/* .card */
+
+/* Stock .card is a white rounded panel with a drop shadow. Win95's only panel idiom is
+   the etched group box (frame_groove.png), so that is what a card becomes: 2px etched
+   border over the button-grey face, square, unelevated. */
+.card {
+  padding: 2px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_shade;
+  border-left-color: @border_shade;
+  border-right-color: @border_bright;
+  border-bottom-color: @border_bright;
+  box-shadow: inset 1px 1px @border_bright, inset -1px -1px @border_shade;
+  background-color: @bg_color;
+  background-image: none;
+  color: @fg_color;
+  transition: none; }
+  .card:hover,
+  .card:active,
+  .card:selected {
+    border-radius: 0;
+    box-shadow: inset 1px 1px @border_bright, inset -1px -1px @border_shade;
+    background-image: none; }
+/* button.card is a button that happens to wear the card class - give it back the normal
+   raised button face rather than the etched panel, or it reads as un-clickable. */
+button.card {
+  padding: 2px;
+  border-top-color: @border_bright;
+  border-left-color: @border_bright;
+  border-right-color: @border_dark;
+  border-bottom-color: @border_dark;
+  box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade; }
+  button.card:active,
+  button.card:checked,
+  button.card.keyboard-activating {
+    border-top-color: @border_dark;
+    border-left-color: @border_dark;
+    border-right-color: @border_bright;
+    border-bottom-color: @border_bright;
+    box-shadow: inset 1px 1px @border_shade; }
+
+/* AdwStatusPage */
+
+/* The five-level child chain is copied verbatim from libadwaita's own sheet - shortening
+   it would still match, but keeping it makes the intent obvious to the next maintainer. */
+statuspage {
+  background-color: @bg_color;
+  color: @fg_color; }
+  statuspage > scrolledwindow > viewport > box > clamp > box {
+    border-radius: 0;
+    box-shadow: none;
+    background: none; }
+    statuspage > scrolledwindow > viewport > box > clamp > box > .icon {
+      border-radius: 0;
+      box-shadow: none;
+      background: none;
+      background-image: none;
+      color: @border_shade;
+      -gtk-icon-shadow: 1px 1px @border_bright;
+      -gtk-icon-filter: none; }
+    statuspage > scrolledwindow > viewport > box > clamp > box > .title {
+      font-weight: bold;
+      color: @fg_color;
+      text-shadow: none; }
+    statuspage > scrolledwindow > viewport > box > clamp > box > .description {
+      color: @fg_color;
+      text-shadow: none; }
+  statuspage.compact > scrolledwindow > viewport > box > clamp > box > .icon,
+  statuspage.spinner > scrolledwindow > viewport > box > clamp > box > .icon {
+    box-shadow: none;
+    background: none; }
+/* An empty sidebar renders a statuspage too; keep it on the sidebar face, not the view. */
+sidebar:not(.page).empty statuspage {
+  background-color: @bg_color; }
+
+/* AdwAvatar */
+
+/* Windows 95 has no avatar, so this is an interpretation rather than a reproduction:
+   a square sunken picture well, which is how a bitmap was framed in a Win95 dialog.
+   The 14 generated-initials palettes are collapsed onto the theme's navy/white pair -
+   a 16-colour theme has no room for 14 pastel backgrounds. */
+avatar {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_shade;
+  border-left-color: @border_shade;
+  border-right-color: @border_bright;
+  border-bottom-color: @border_bright;
+  box-shadow: inset 1px 1px @border_dark, inset -1px -1px @border_light;
+  background-color: @bg_bright;
+  background-image: none;
+  color: @text_color;
+  font-weight: bold;
+  transition: none; }
+  avatar.image {
+    background-color: @bg_bright; }
+  avatar.color1,
+  avatar.color2,
+  avatar.color3,
+  avatar.color4,
+  avatar.color5,
+  avatar.color6,
+  avatar.color7,
+  avatar.color8,
+  avatar.color9,
+  avatar.color10,
+  avatar.color11,
+  avatar.color12,
+  avatar.color13,
+  avatar.color14 {
+    background-image: none;
+    background-color: @selected_bg_color;
+    color: @selected_fg_color; }
+
+/* AdwTabBar / AdwTabView */
+
+/* AdwTabBar is a different widget from GtkNotebook with a different node tree
+   (tabbar tab, not notebook > header > tabs > tab), so the notebook partial cannot
+   reach it. It is rendered here as a classic notebook tab strip using the same
+   border-image assets the GTK3 notebook rules use, which is what gives the tab its
+   notched top corners - a shape plain CSS borders cannot describe at all.
+
+   The url() is relative to this file. gtk-4.0/ ships no assets of its own, so the
+   sibling gtk-3.0/assets is referenced directly; the two directories are always
+   installed together (both by installer.py and by the Makefile), and doing it this way
+   avoids duplicating sixteen PNGs into a second directory. */
+tabbar .box,
+tabbar.inline .box {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background-image: none;
+  background-color: @bg_color;
+  transition: none; }
+tabbar tabbox {
+  padding: 0;
+  border-radius: 0;
+  background: none; }
+  tabbar tabbox > tabboxchild {
+    border-radius: 0;
+    box-shadow: none;
+    transition: none; }
+  /* The 1px filler line between tabs is not a Win95 feature - the bevels already
+     separate them. */
+  tabbar tabbox > separator {
+    background: none;
+    background-image: none;
+    min-width: 0;
+    min-height: 0; }
+tabbar tab {
+  min-height: 18px;
+  padding: 1px;
+  margin: 0;
+  border-style: solid;
+  border-width: 5px 5px 2px 5px;
+  border-color: transparent;
+  border-radius: 0;
+  border-image-source: url("../gtk-3.0/assets/notebook_top.png");
+  border-image-slice: 5 5 2 5;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  color: @text_color;
+  text-shadow: none;
+  outline: 0 solid transparent;
+  transition: none; }
+  /* Inert on hover - Win95 tabs only respond to being selected. */
+  tabbar tab:hover {
+    border-image-source: url("../gtk-3.0/assets/notebook_top.png");
+    border-image-slice: 5 5 2 5;
+    background-color: transparent;
+    background-image: none;
+    box-shadow: none; }
+  /* The selected tab is taller and bleeds into the page body, exactly as the notebook
+     rules do it: negative margins let the checked asset overlap its neighbours. */
+  tabbar tab:selected,
+  tabbar tab:checked {
+    margin-left: -3px;
+    margin-right: -3px;
+    margin-bottom: -1px;
+    border-image-source: url("../gtk-3.0/assets/notebook_top_checked.png");
+    border-image-slice: 5 5 2 5;
+    background-color: transparent;
+    box-shadow: none;
+    color: @text_color;
+    font-weight: bold; }
+  tabbar tab:focus:focus-visible {
+    outline-style: dotted;
+    outline-width: 1px;
+    outline-color: @border_dark;
+    outline-offset: -5px; }
+  /* The needs-attention dot is drawn as a coloured gradient blob. Flatten it to a
+     solid navy mark. */
+  tabbar tab indicator,
+  tabbar tab .indicator {
+    border-radius: 0;
+    box-shadow: none;
+    background-image: none;
+    background-color: @selected_bg_color; }
+  tabbar tab button,
+  tabbar tab button.image-button {
+    min-height: 14px;
+    min-width: 14px;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transition: none; }
+tabbar .start-action,
+tabbar .end-action {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background-image: none;
+  background-color: @bg_color; }
+/* AdwTabButton (the overflow / tab-count button) and the tab overview it opens. */
+tabbutton {
+  border-radius: 0;
+  box-shadow: none;
+  transition: none; }
+  tabbutton indicatorbin > indicator {
+    border-radius: 0;
+    box-shadow: none;
+    background-image: none;
+    background-color: @selected_bg_color;
+    color: @selected_fg_color; }
+  /* indicatorbin > mask punches a hole in its parent - it must stay unpainted. */
+  tabbutton indicatorbin > mask {
+    background: none; }
+taboverview > .overview {
+  border-radius: 0;
+  box-shadow: none;
+  background-image: none;
+  background-color: @bg_color; }
+tabgrid,
+tabgridchild {
+  border-radius: 0;
+  box-shadow: none;
+  background: none; }
+tabthumbnail .card,
+tabthumbnail.pinned .card {
+  border-radius: 0;
+  box-shadow: inset 1px 1px @border_bright, inset -1px -1px @border_shade;
+  background-color: @bg_bright;
+  transition: none; }
+  tabthumbnail > box,
+  tabthumbnail .icon-title-box {
+    border-radius: 0;
+    box-shadow: none;
+    background: none; }
+
+/* AdwViewSwitcher / AdwViewSwitcherBar / AdwViewStack */
+
+/* AdwViewSwitcher is a row of toggles. In Win95 idiom that is a group of push buttons:
+   raised when unselected, sunken when selected, never a rounded pill and never animated
+   between the two. The bevel colours below are the same ones the buttons partial uses,
+   restated because these are Adw toggle nodes rather than plain buttons. */
+viewswitcher {
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+  transition: none; }
+  viewswitcher button.toggle {
+    min-height: 14px;
+    padding: 2px;
+    margin: 0;
+    border-radius: 0;
+    background-image: none;
+    box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+    transition: none; }
+    viewswitcher button.toggle:checked {
+      box-shadow: inset 1px 1px @border_shade; }
+    viewswitcher button.toggle > stack > box.wide,
+    viewswitcher button.toggle > stack > box.narrow {
+      border-spacing: 0;
+      margin: 0; }
+    viewswitcher button.toggle > stack > box.narrow > label {
+      font-size: smaller; }
+    /* The unread/needs-attention dot on a switcher button. */
+    viewswitcher button.toggle indicatorbin > indicator {
+      border-radius: 0;
+      box-shadow: none;
+      background-image: none;
+      background-color: @selected_bg_color;
+      color: @selected_fg_color; }
+    viewswitcher button.toggle indicatorbin > mask {
+      background: none; }
+viewswitchertitle viewswitcher,
+viewswitchertitle windowtitle {
+  border-radius: 0;
+  box-shadow: none;
+  background: none; }
+viewswitcherbar actionbar > revealer > box {
+  padding: 2px;
+  border-top: 1px solid @border_shade;
+  border-radius: 0;
+  box-shadow: inset 0 1px @border_bright;
+  background-image: none;
+  background-color: @bg_color; }
+/* AdwViewStack rarely paints, but it inherits a background in some app sheets. */
+viewstack {
+  border-radius: 0;
+  box-shadow: none;
+  background-image: none; }
+
+/* AdwToggleGroup / AdwInlineViewSwitcher */
+
+/* Stock: a rounded trough with a floating white pill behind the active toggle, animated
+   as it slides. Chicago95: a linked row of push buttons, with the active one held down.
+   The sliding pill cannot be "kept but squared" - it is drawn as a moving background on
+   the group, so it is removed entirely and the state is shown by the bevel instead. */
+toggle-group,
+toggle-group.flat,
+toggle-group.round,
+toggle-group.osd {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background-image: none;
+  background-color: transparent;
+  transition: none; }
+  toggle-group > toggle {
+    min-height: 14px;
+    min-width: 14px;
+    padding: 2px;
+    margin: 0;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0;
+    border-top-color: @border_bright;
+    border-left-color: @border_bright;
+    border-right-color: @border_dark;
+    border-bottom-color: @border_dark;
+    box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+    background-color: @bg_color;
+    background-image: none;
+    color: @fg_color;
+    text-shadow: none;
+    outline: 0 solid transparent;
+    transition: none; }
+    toggle-group > toggle:hover {
+      background-color: @bg_color;
+      background-image: none; }
+    toggle-group > toggle:checked,
+    toggle-group > toggle:active,
+    toggle-group > toggle.keyboard-activating {
+      border-top-color: @border_dark;
+      border-left-color: @border_dark;
+      border-right-color: @border_bright;
+      border-bottom-color: @border_bright;
+      box-shadow: inset 1px 1px @border_shade;
+      background-color: @bg_color;
+      color: @fg_color; }
+    toggle-group > toggle:focus:focus-visible {
+      outline-style: dotted;
+      outline-width: 1px;
+      outline-color: @border_dark;
+      outline-offset: -4px; }
+    toggle-group > toggle:disabled {
+      color: @border_shade;
+      text-shadow: 1px 1px 0 @border_bright;
+      -gtk-icon-shadow: 1px 1px @border_bright;
+      -gtk-icon-filter: opacity(0.5); }
+  /* The group's own separators are redundant once every toggle has a bevel. */
+  toggle-group > separator,
+  toggle-group > separator.hidden {
+    min-width: 0;
+    min-height: 0;
+    background: none;
+    background-image: none; }
+inline-view-switcher > toggle-group.both > toggle,
+inline-view-switcher > toggle-group.icons > toggle,
+inline-view-switcher > toggle-group.labels > toggle {
+  border-radius: 0;
+  box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+  transition: none; }
+  inline-view-switcher > toggle-group > toggle:checked {
+    box-shadow: inset 1px 1px @border_shade; }
+  inline-view-switcher toggle > widget > indicatorbin > indicator,
+  inline-view-switcher toggle > widget > indicatorbin > label {
+    border-radius: 0;
+    box-shadow: none;
+    background-image: none;
+    background-color: @selected_bg_color;
+    color: @selected_fg_color; }
+  inline-view-switcher toggle > widget > indicatorbin > mask {
+    background: none; }
+
+/* AdwNavigationView / AdwNavigationSplitView / AdwOverlaySplitView */
+
+/* These three composites carry decoration-only child nodes that exist purely to fade a
+   shadow in during a page transition or a sidebar reveal - `shadow`, `border` and
+   `dimming`. They have no GTK3 or Win95 equivalent whatsoever, so they are blanked. */
+navigation-view > shadow,
+navigation-view > shadow.up,
+navigation-view > shadow.down,
+navigation-view > shadow.left,
+navigation-view > shadow.right,
+navigation-view > border,
+navigation-view > dimming,
+overlay-split-view > shadow,
+overlay-split-view > shadow.up,
+overlay-split-view > shadow.down,
+overlay-split-view > shadow.left,
+overlay-split-view > shadow.right,
+overlay-split-view > border,
+overlay-split-view > dimming {
+  min-width: 0;
+  min-height: 0;
+  border: none;
+  box-shadow: none;
+  background: none;
+  background-image: none;
+  background-color: transparent;
+  transition: none; }
+/* The panes themselves. Both are the button-grey face - Win95 sidebars are not tinted a
+   different shade from their content - separated by a single hard rule rather than by
+   libadwaita's soft shade colour. */
+.sidebar-pane,
+.content-pane {
+  border-radius: 0;
+  box-shadow: none;
+  background-image: none;
+  background-color: @bg_color;
+  color: @fg_color; }
+  .sidebar-pane:backdrop,
+  .content-pane:backdrop {
+    background-color: @bg_color; }
+  .sidebar-pane:dir(ltr) {
+    border-right: 1px solid @border_bright;
+    box-shadow: inset -1px 0 @border_shade; }
+  .sidebar-pane:dir(rtl) {
+    border-left: 1px solid @border_bright;
+    box-shadow: inset 1px 0 @border_shade; }
+  /* .end puts the sidebar on the trailing edge, so the etched rule mirrors. */
+  .sidebar-pane.end:dir(ltr) {
+    border-right: none;
+    border-left: 1px solid @border_bright;
+    box-shadow: inset 1px 0 @border_shade; }
+  .sidebar-pane.end:dir(rtl) {
+    border-left: none;
+    border-right: 1px solid @border_bright;
+    box-shadow: inset -1px 0 @border_shade; }
+  /* An AdwBanner inside a sidebar pane keeps the pane face. */
+  .sidebar-pane banner > revealer > widget {
+    background-image: none;
+    background-color: @bg_color; }
+
+/* AdwBottomSheet, AdwDialog sheets and the remaining rounding/elevation */
+
+/* AdwBottomSheet slides a rounded, shadowed sheet up over the content. Squared and
+   flattened, with the drag-handle outline removed; the 2px raised bevel gives it the
+   edge a Win95 floating panel would have had. */
+bottom-sheet > sheet,
+bottom-sheet > sheet.bottom-bar {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @bg_color;
+  border-left-color: @bg_color;
+  border-right-color: @border_dark;
+  border-bottom-color: @border_dark;
+  box-shadow: inset 1px 1px @border_bright, inset -1px -1px @border_shade;
+  background-image: none;
+  background-color: @bg_color;
+  color: @fg_color;
+  transition: none; }
+  bottom-sheet > sheet > outline {
+    border: none;
+    box-shadow: none;
+    background: none; }
+  bottom-sheet > sheet > stack > button {
+    border-radius: 0;
+    box-shadow: none; }
+/* AdwDialog / AdwAlertDialog / AdwPreferencesDialog sheets: same treatment. Their
+   buttons and message areas belong to the messagedialog partial; only the sheet's own
+   radius and elevation are removed here. */
+dialog-host > dialog.background sheet,
+dialog-host > dialog.view sheet,
+dialog-host > dialog.alert sheet,
+dialog.preferences sheet,
+dialog.about sheet,
+dialog.shortcuts sheet,
+floating-sheet > sheet {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @bg_color;
+  border-left-color: @bg_color;
+  border-right-color: @border_dark;
+  border-bottom-color: @border_dark;
+  box-shadow: inset 1px 1px @border_bright, inset -1px -1px @border_shade;
+  background-image: none;
+  background-color: @bg_color;
+  color: @fg_color;
+  transition: none; }
+/* The dimming layer behind a modal sheet is a translucent black wash. Windows 95 never
+   dimmed anything, and Chicago95's palette has no translucency, so it is made fully
+   transparent. Input still goes to the dimming node, so modality is unaffected; only the
+   tint is gone. Left transparent rather than deleted because a node cannot be removed
+   from CSS. NOTE the tradeoff, deliberately accepted: the sheet's own bevel then has to
+   carry the entire "this is modal" cue, which is exactly how a Win95 modal dialog worked.
+   If a future maintainer wants the wash back, this is the one rule to delete.
+   This is the sole owner of the node - gtk-menus.css used to declare it too. The bare
+   `dimming` selector is kept last in the list so it catches any Adw composite that grows
+   one, without needing this rule edited again. */
+dialog-host > dimming,
+floating-sheet > dimming,
+bottom-sheet > dimming,
+navigation-view > dimming,
+overlay-split-view > dimming,
+dimming {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  transition: none; }
+
+/* AdwToast / AdwBanner */
+
+/* This file is the SINGLE owner of both nodes. gtk-menus.css used to declare the same
+   selectors with different values - margin 6px vs 4px on the toast, and @bg_color vs
+   @tooltip_bg_color on the banner - and because this file is imported last those copies
+   lost the cascade while their comments went on describing the result they no longer
+   produced. The duplicates are deleted there, not reconciled by hand.
+
+   Toasts are pill-shaped and inherit .osd; banners tint themselves by mixing 30% of
+   --banner-color into the window background. Both become flat grey Win95 panels. */
+toast {
+  padding: 2px;
+  margin: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_bright;
+  border-left-color: @border_bright;
+  border-right-color: @border_dark;
+  border-bottom-color: @border_dark;
+  box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+  border-spacing: 4px;
+  background-image: none;
+  background-color: @bg_color;
+  color: @fg_color;
+  text-shadow: none;
+  transition: none; }
+  /* The directional inset has to come AFTER the padding shorthand above, or the shorthand
+     resets it. This is the ordering bug that made the gtk-menus.css copy ineffective. */
+  toast:dir(ltr) {
+    padding-left: 4px; }
+  toast:dir(rtl) {
+    padding-right: 4px; }
+  toast > widget {
+    margin: 0 2px;
+    background: none;
+    border-radius: 0;
+    box-shadow: none; }
+
+/* The banner is GREY, not the tooltip yellow it used to be given here. Three things in
+   the tree already assumed grey and only this rule disagreed: gtk.css sets
+   --banner-color to var(--c95-face) so libadwaita's own 30% mix resolves to flat face
+   grey, the deleted gtk-menus.css copy said so in its comment, and a yellow strip has no
+   Win95 precedent while a grey one with an etched rule is the toolbar idiom.
+   The edge is the Win95 etched rule: the white pixel outermost, the grey pixel above it -
+   the same two-tone rule box.toolbar uses along its top edge, mirrored. */
+banner > revealer > widget {
+  padding: 3px 6px;
+  border: none;
+  border-bottom: 1px solid @border_bright;
+  border-radius: 0;
+  box-shadow: inset 0 -1px @border_shade;
+  background-image: none;
+  background-color: @bg_color;
+  color: @fg_color;
+  text-shadow: none;
+  transition: none; }
+  banner > revealer > widget:backdrop {
+    background-color: @bg_color;
+    color: @fg_color;
+    transition: none; }
+  banner > revealer > widget > label {
+    text-shadow: none; }
+    banner > revealer > widget:backdrop > label,
+    banner > revealer > widget:backdrop > button {
+      filter: none;
+      transition: none; }
+
+/* AdwSpinner / spinner */
+
+/* HONEST LIMITATION, stated rather than faked: AdwSpinner in libadwaita 1.9 is not drawn
+   from CSS at all - it is painted in C by adw_spinner_paintable, which renders two
+   rotating arcs from the accent colour. There is no CSS property that replaces that
+   paintable, so the Win95 hourglass cannot be substituted for an AdwSpinner. An AdwSpinner
+   therefore stays a pair of navy arcs; only its size and surface are ours.
+
+   A plain GtkSpinner IS the hourglass, and the implementation lives in gtk-widgets.css
+   with the rest of the primitive controls: @keyframes c95-hglass over
+   assets/hglass_f0..f15.png, re-enabled on `spinner:checked` so it survives the blanket
+   `animation: none` in gtk.css. It is referenced, not duplicated, here - the geometry
+   below is only what AdwSpinner and the AdwStatusPage spinner variant need on top. */
+image.spinner:disabled {
+  -gtk-icon-filter: opacity(0.5); }
+statuspage.spinner spinner {
+  min-width: 24px;
+  min-height: 24px;
+  border-radius: 0;
+  box-shadow: none; }
+
+/* .osd */
+
+/* .osd is libadwaita's floating-overlay look: translucent dark panel, big radius, drop
+   shadow, animated. All four go. Windows 95 overlays (the volume popup, a video control
+   bar) were opaque grey panels with a raised bevel, so that is what is used - which also
+   means .osd stops depending on alpha, of which the Chicago95 palette has none. */
+/* `box.toolbar.osd`, not `toolbar.osd`: GTK4 has no toolbar node at all - GtkToolbar was
+   removed with the widget (confirmed: Gtk.Toolbar does not exist in the GTK 4.22
+   introspection data), and a GTK4 toolbar is a plain box carrying the .toolbar class. The
+   old spelling was inert, so an .osd toolbar strip silently missed the bevel. This is the
+   same form gtk-containers.css already uses for the ordinary toolbar. */
+.osd,
+popover.osd > contents,
+box.toolbar.osd,
+box.osd {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @bg_color;
+  border-left-color: @bg_color;
+  border-right-color: @border_dark;
+  border-bottom-color: @border_dark;
+  box-shadow: inset 1px 1px @border_bright, inset -1px -1px @border_shade;
+  background-image: none;
+  background-color: @bg_color;
+  color: @fg_color;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+  transition: none; }
+  /* Children of an .osd panel are ordinary widgets on ordinary grey - undo the
+     white-on-dark treatment libadwaita gives them. */
+  .osd label,
+  .osd > box > label {
+    color: @fg_color;
+    text-shadow: none; }
+  .osd button {
+    border-radius: 0;
+    box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+    background-image: none;
+    background-color: @bg_color;
+    color: @fg_color;
+    transition: none; }
+    .osd button:active,
+    .osd button:checked {
+      box-shadow: inset 1px 1px @border_shade; }
+  .osd progressbar > trough,
+  .osd scale > trough {
+    border-radius: 0;
+    box-shadow: none;
+    background-image: none; }
+
+/* Remaining libadwaita elevation and rounding classes */
+
+/* Anything left that rounds a corner, floats a shadow or animates a state, gathered in
+   one place so the next libadwaita release can be audited against it quickly. */
+avatar,
+.card,
+toast,
+statuspage,
+tabthumbnail .card,
+list.boxed-list,
+list.boxed-list-separate,
+preferencesgroup > box,
+.sidebar-pane,
+.content-pane,
+toolbarview > .top-bar,
+toolbarview > .bottom-bar {
+  transition: none; }
+/* AdwIndicatorBin badges everywhere else (sidebar rows, buttons). */
+indicatorbin > indicator,
+indicatorbin.badge > indicator,
+indicatorbin.needs-attention > indicator,
+indicatorbin.badge.needs-attention > indicator {
+  border-radius: 0;
+  box-shadow: none;
+  background-image: none;
+  background-color: @selected_bg_color;
+  color: @selected_fg_color; }
+  indicatorbin.badge > indicator > label {
+    color: @selected_fg_color;
+    text-shadow: none; }
+  indicatorbin > mask {
+    background: none; }
+/* GtkShortcutLabel keycaps, as used by AdwShortcutsDialog. A keycap is a tiny raised
+   Win95 key, which the theme can render exactly. */
+shortcut-label .keycap,
+.keycap {
+  min-width: 14px;
+  min-height: 14px;
+  padding: 0 2px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-top-color: @border_bright;
+  border-left-color: @border_bright;
+  border-right-color: @border_dark;
+  border-bottom-color: @border_dark;
+  box-shadow: inset 1px 1px @border_light, inset -1px -1px @border_shade;
+  background-image: none;
+  background-color: @bg_color;
+  color: @fg_color;
+  text-shadow: none; }
+  shortcut-label > label.separator {
+    color: @fg_color; }
+/* AdwAdaptivePreview is a developer tool; it only needs to stop rounding. */
+adaptive-preview,
+adaptive-preview > box,
+adaptive-preview .screen {
+  border-radius: 0;
+  box-shadow: none;
+  background-image: none; }

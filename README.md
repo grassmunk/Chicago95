@@ -12,7 +12,7 @@ I was unhappy with the various XFCE/GTK2/GTK3 Windows 95 based themes and decide
 ### Included in this theme:
 
 - Icons to complete the icon theme started with Classic95
-- GTK2 and GTK3 themes
+- GTK2, GTK3 and GTK4 themes (GTK4 includes libadwaita application support)
 - Edited Redmond XFWM theme to more accurately reflect Windows 95
 - Chicago95 Plus! A tool to preview and install Windows 95/98/ME/XP themes
 - Plymouth theme created from scratch
@@ -23,6 +23,7 @@ I was unhappy with the various XFCE/GTK2/GTK3 Windows 95 based themes and decide
 ### Requirements:
 
 - GTK+ 3.22 or 3.24
+- GTK 4.22 and libadwaita 1.9 for the GTK4 stylesheet (optional, see [INSTALL.md](INSTALL.md#gtk4_config))
 - Xfce 4.12, 4.14, 4.16
 - gtk2-engines-pixbuf (Recommended for GTK2 applications)
 - The xfce4-panel-profiles package

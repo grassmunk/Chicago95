@@ -15,6 +15,7 @@
 * [Start Buttons](#start_buttons)
 * [Additional Enhancements](#add_enhance)
     * [GTK3 override configuration](#gtk3_override)
+    * [GNOME, GTK4 and libadwaita configuration](#gtk4_config)
     * [Launcher Button icon scaling](#button_scale) (*For legacy GTK2 panelbars only*)
     * [Thunar status indicator](#thunar)
     * [QT5 theme configration with qt5ct](#config_qt5ct)
@@ -91,6 +92,18 @@ Copy the icon themes from `Chicago95-master/Icons/` folder into `.icons`.
 
     cp -r Chicago95-master/Icons/* ~/.icons
 
+GTK4 and libadwaita applications (most GNOME applications: Files, Text Editor, Calculator, Disk Usage Analyzer) do not read the theme from your theme setting at all. To style those, point your own GTK4 stylesheet at the one the theme just installed.
+
+`~/.config/gtk-4.0/gtk.css` is your file and may already have things in it, so this adds the line inside the same `BEGIN`/`END` markers the automated installer uses, and only if it is not already there. That makes it safe to run twice, and it makes the line easy to find again when you want to remove it.
+
+    mkdir -p ~/.config/gtk-4.0
+    grep -q 'Chicago95/gtk-4.0/gtk.css' ~/.config/gtk-4.0/gtk.css 2>/dev/null || \
+      printf '/* >>> Chicago95 GTK4 BEGIN - managed by the Chicago95 installer, do not edit */\n@import url("file://%s/.themes/Chicago95/gtk-4.0/gtk.css");\n/* <<< Chicago95 GTK4 END */\n' "$HOME" >> ~/.config/gtk-4.0/gtk.css
+
+Skip this entirely if you used the automated installer - it writes the same block for you.
+
+See [GNOME, GTK4 and libadwaita configuration](#gtk4_config) for what this does and does not cover.
+
 #### Step 3:
 
 After copying the theme files into their appropriate places, you might need to log out then log back in for any changes to take places. Check out ["Enabling The Theme"](#config_theme) if you need help with setup.
@@ -134,6 +147,14 @@ The following steps will guide you through enabling the theme and making additio
 #### Enabling the GTK theme
 - Open the XFCE settings manager > Appearance.
 - Choose Chicago95 as the theme style.
+
+On GNOME, Budgie or any other desktop without the XFCE settings manager, set it with `gsettings` instead.
+
+    gsettings set org.gnome.desktop.interface gtk-theme 'Chicago95'
+
+You do not need to change your colour scheme. Chicago95 has a single light look, and it ships `gtk-4.0/gtk-dark.css` plus a dark `@media` block precisely so that a session on `prefer-dark` still resolves Chicago95 instead of falling back to GTK's builtin dark theme. Neither the installer nor these instructions touch `color-scheme`, because it is a system-wide appearance preference that also drives GNOME Shell and every application's Dark Style.
+
+GTK4 and libadwaita applications need one more step, and it is not optional: see [GNOME, GTK4 and libadwaita configuration](#gtk4_config).
 
 #### Enable the icon theme
 - Open the XFCE settings manager > Appearance > Icons.
@@ -315,6 +336,64 @@ For XFCE 4.14 desktops, copy the configuration file from `Chicago95-master/Extra
 
 *Note 2: If you ever want to change your system theme to anything else, don't forget to remove the `gtk.css` configuration file! It makes adjustments based on this theme which might break other themes.*
 
+[[Return to Index]](#index)
+
+<a name="gtk4_config"/>
+
+### [ GNOME, GTK4 and libadwaita configuration ]
+
+Chicago95 ships a GTK4 stylesheet in `Theme/Chicago95/gtk-4.0/`. It is written against GTK 4.22 and libadwaita 1.9.
+
+GTK4 applications come in two kinds, and they need different treatment:
+
+- **Plain GTK4 applications** read `~/.themes/Chicago95/gtk-4.0/gtk.css` as soon as the theme name is set, exactly like GTK3. Nothing else is needed.
+- **libadwaita applications** - which is nearly every modern GNOME application: Files, Text Editor, Calculator, Settings, Image Viewer, Disk Usage Analyzer - ignore the theme name completely. libadwaita replaces the named theme with an empty stylesheet and installs its own, so the theme directory is read and then thrown away. The only place they will take a stylesheet from is your own `~/.config/gtk-4.0/gtk.css`, which GTK loads at a higher priority than libadwaita's own sheet.
+
+So, on top of enabling the theme, the import line has to go into your own GTK4 stylesheet. **If you ran the automated installer, this is already done** - it writes the same block and you can skip to the next heading. Otherwise the command is in [the manual install steps](#install_single), and the line must appear only once: it is an absolute `@import`, and a second copy makes every GTK4 process on the system re-parse the whole sheet again for no benefit.
+
+Use an `@import` rather than a copy of the file: the stylesheet pulls in five partials and the shared GTK3 image assets with paths relative to itself, and importing it keeps one copy of the CSS to update. The installer writes it between `/* >>> Chicago95 GTK4 BEGIN ... */` and `/* <<< Chicago95 GTK4 END */` markers, replaces only what is between them on a re-install, keeps your own rules on whichever side of the block you put them, and leaves everything else in the file alone.
+
+Log out and back in, or restart the applications, for the change to show up.
+
+#### What this does not cover
+
+- **GNOME Shell itself is not themed.** The panel, overview, dash and system menus are drawn by the Shell, not by GTK. The `gnome-shell/` stylesheet in this theme predates GNOME Shell 45, needs the User Themes extension, and is not maintained for current Shell versions. Expect stock GNOME Shell above Chicago95 applications.
+- **Window decorations.** Under Mutter, and under Wayland generally, GTK4 applications draw their own titlebars (client side decorations), so the `xfwm4` window manager themes in this theme are never used. The headerbar styling in the GTK4 sheet is what you get instead. See [Disabling GNOME Client Side Decorations](#nocsd) if you would rather have server side decorations.
+- **Flatpak and Snap applications.** They do not see your home directory by default, so neither the theme nor the override reaches them. For Flatpak, see [Apply GTK theme for Flatpak applications](#flatpak_config). Snap confinement has no equivalent user-level fix.
+- **Qt applications.** Unchanged by any of this; see [QT5 theme configration with qt5ct](#config_qt5ct).
+
+#### Per-application override (experimental)
+
+Setting `GTK_THEME` makes a GTK4 application load Chicago95 as its real theme, which also stops libadwaita from installing its own stylesheet at all:
+
+    GTK_THEME=Chicago95 nautilus
+
+That gets you Chicago95 colours, but libadwaita's structural styling - the padding, sizing and layout of its own widgets such as toolbar views, tab bars, preferences rows, status pages, toasts and banners - is then missing too, because Chicago95 does not yet reimplement it. Treat this as experimental and per-application. Do not set `GTK_THEME` globally in `~/.config/environment.d/` or `/etc/environment`.
+
+#### Animations and overlay scrollbars
+
+Two Windows 95 behaviours cannot be expressed in CSS, because GTK4 implements them in C rather than through a stylesheet: the instant unanimated menu drop, and always-visible scrollbars instead of overlay indicators that fade in when you approach them. The theme asks for both in `gtk-4.0/settings.ini`.
+
+On GNOME that file does not get the last word - `org.gnome.desktop.interface` outranks it, so if you want the period-correct behaviour, set it yourself:
+
+    gsettings set org.gnome.desktop.interface enable-animations false
+    gsettings set org.gnome.desktop.interface overlay-scrolling false
+
+Neither the installer nor the theme sets these for you. They are global preferences that also change GNOME Shell, so the choice is yours. To undo, set both back to `true`.
+
+*Note 1: You may have to create the "gtk-4.0" directory if it's not there.*
+
+    mkdir -p ~/.config/gtk-4.0
+
+*Note 2: If you ever change your system theme to anything else, remove the Chicago95 block from `~/.config/gtk-4.0/gtk.css`.* It loads above whatever theme you switch to, so it will disfigure any other GTK4 theme while it is present - and because the `@import` is an absolute path, deleting the theme without removing the block leaves a dangling import that makes GTK log `Failed to import: Error opening file ...` on every GTK4 application launch, permanently, with nothing to explain why.
+
+To remove just our block and keep anything else in the file:
+
+    sed -i '/>>> Chicago95 GTK4 BEGIN/,/<<< Chicago95 GTK4 END/d' ~/.config/gtk-4.0/gtk.css
+    rm -f ~/.config/gtk-4.0/backup.gtk.css.chicago95
+
+The installer keeps a copy of your original at `~/.config/gtk-4.0/backup.gtk.css.chicago95` before it first edits the file, if you would rather restore that.
+
 
 <a name="button_scale"/>
 
@@ -417,6 +496,12 @@ Enable the Chicago95 GTK theme for Flatpak container applications.
     sudo flatpak override --env=GTK_THEME=Chicago95
 
 Now reload your Flatpak application to verify the theme change.
+
+*Note: for GTK4 Flatpaks this is not enough on its own.* `GTK_THEME` alone does not restyle a libadwaita application the way it does a GTK3 one - see [GNOME, GTK4 and libadwaita configuration](#gtk4_config). A libadwaita Flatpak needs the user override visible inside the sandbox, and it needs **two** paths, not one: `~/.config/gtk-4.0/gtk.css` only contains an absolute `@import` pointing into the theme directory, so exposing the stylesheet without also exposing its import target leaves the import dangling and you get an entirely unthemed application plus a log warning.
+
+    sudo flatpak override --filesystem=xdg-config/gtk-4.0:ro --filesystem=~/.themes:ro
+
+*If you installed the theme to `~/.local/share/themes` instead of `~/.themes`, use `--filesystem=xdg-data/themes:ro` for the second one. That is the better location on GTK 4.22, which now warns that loading custom CSS from `$HOME/.themes/` is deprecated, and it is the path the Flatpak documentation expects.*
 
 Something else worth noting. If you copy the Chicago95 icon theme into `/usr/share/icons`, then your Flatpak applications will default to that icon theme so long it's enabled.
 

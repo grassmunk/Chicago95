@@ -1,0 +1,786 @@
+/*# name: Chicago95
+  # author: Grassmunk
+  # author: AdrianoML (rewrite/gtk 3.22 update)
+  # author: EMH-Mark-I (rewrite/gtk 3.22/3.24 update)
+  # date: February 7th, 2018
+  # description: A Windows 95 classic theme for XFCE4 - GTK 4.22 / libadwaita 1.9 port. */
+
+/* This is the keystone sheet for the GTK4 side of Chicago95. It carries the palette,
+   the global resets, and nothing else - every widget rule lives in one of the five
+   partials imported at the bottom of this file. Target is fixed: GTK 4.22, libadwaita
+   1.9.1, GNOME Shell 50 on Wayland. Do not write rules here for older GTK4; the node
+   trees and the colour mechanism both changed under us more than once. */
+
+/* Why the palette is declared TWICE, which looks redundant and is not:
+   libadwaita 1.9 copies its own @define-color names into CSS custom properties in a
+   single :root block, and then every one of its ~3000 rules reads var(--name). GTK
+   resolves a named colour in the scope of the provider that declares the referencing
+   rule, so libadwaita's :root was already resolved against libadwaita's own
+   @define-color values and never re-resolves against a later provider. Measured on
+   this exact target: redefining @window_bg_color changes @window_bg_color and nothing
+   else - var(--window-bg-color) keeps the stock value and every libadwaita widget
+   with it. So the custom properties below are the mechanism that actually WINS, and
+   the @define-color block after them is a compatibility shim for plain-GTK4 apps and
+   for third-party app CSS that still reads @theme_bg_color / @borders. Both are
+   needed; neither alone is enough. GTK 4.22's parser also warns that @define-color
+   and named colours are deprecated, which is the other reason the custom properties
+   come first. */
+
+/* Comment about Pop-overs: the GTK3 sheet keeps a deliberate 5px radius and a
+   4px 4px drop shadow on popover.background because Grassmunk couldn't get over how
+   much they looked like Clippy in MS Office 97. That joke is NOT carried into GTK4,
+   and the omission is deliberate rather than an oversight: in GTK4 the painted node
+   is popover > contents, the shadow would have to be re-hung on a node that also
+   owns the menu's 2px outset ring, and a rounded popover is the single loudest
+   non-Win95 detail left in an Adwaita app. Chicago95 GTK4 is square everywhere. If a
+   future maintainer wants Clippy back, put it on popover.background > contents in
+   gtk-menus.css, not here. */
+
+/* Do not remove */
+
+/* Chicago95 palette, as custom properties.
+   These tokens are the single source of truth for the libadwaita variable block that
+   follows: every --window-bg-color / --view-bg-color / --accent-bg-color below is
+   written as var(--c95-*), so a palette change here propagates through the whole
+   libadwaita channel from one place.
+   They are NOT the vocabulary the five partials use. Those are written entirely in the
+   @define-color idiom that the Chicago95 GTK3 sheet uses (@bg_color, @border_bright,
+   @border_dark, ...), declared further down, so that a rule can be moved between
+   gtk-3.0/ and gtk-4.0/ unchanged and so that third-party app CSS keeps working. Do not
+   go looking for var(--c95-*) in the partials; there is none, and that is deliberate.
+   Consequently some tokens below are a documented palette rather than a live reference -
+   they exist so the Windows 95 system-colour mapping is recorded in one table. Values are
+   verbatim from the GTK3 sheet with shade()/alpha() pre-resolved: GTK 4.22 deprecates
+   both functions and neither can see a custom property. */
+:root {
+  --c95-face: #c0c0c0;                  /* Window Theme: buttonface */
+  --c95-fg: #000000;                    /* Windows Theme: windowtext */
+  --c95-base: #ffffff;                  /* Windows Theme: window (nominal white) */
+  --c95-text: #000000;                  /* Windows Theme: windowtext (any white area text) */
+  --c95-text-light: #808080;            /* Dim label / inactive sidebar-button text */
+  --c95-selected-bg: #000080;           /* Windows Theme: hilight */
+  --c95-selected-fg: #ffffff;           /* Windows Theme: hilighttext */
+  --c95-selected-inactive-bg: #808080;  /* Unfocused selection */
+  --c95-selected-inactive-fg: #000000;
+  --c95-border-bright: #ffffff;         /* Windows Theme: buttonlight, outer TL of a raised bevel */
+  --c95-border-light: #dfdfdf;          /* Windows Theme: buttonhilight, inner TL of a raised bevel */
+  --c95-border-shade: #808080;          /* Windows Theme: buttonshadow, inner BR of a raised bevel */
+  --c95-border-dark: #000000;           /* Windows Theme: buttondkshadow, outer BR of a raised bevel */
+  --c95-border-face: #c0c0c0;           /* Window Theme: buttonface, where a bevel edge must vanish */
+  --c95-border-shade-dark: #080808;     /* Sidebar row:selected inner shadow only */
+  --c95-bright: #fcfcfc;                /* Windows Theme: window, the real inner field white */
+  --c95-shade: #7f7f7f;                 /* .sidebar list background, calendar.highlight */
+  --c95-dark: #191919;                  /* Dither second stop, titlebutton colour */
+  --c95-asset-shadow: #868686;          /* Baked into scrollbar_button.png / notebook_*.png */
+  --c95-asset-trough: #828282;          /* Outer grey of assets/scale.png */
+  --c95-tooltip-bg: #ffffe1;            /* Windows Theme: infowindow */
+  --c95-tooltip-fg: #000000;            /* Windows Theme: infotext */
+  --c95-tooltip-shade: #494940;         /* The Clippy drop-shadow grey, unused in GTK4 - see note above */
+  --c95-inactive-title-bg: #808080;     /* Windows Theme: inactivetitle */
+  --c95-inactive-title-fg: #c0c0c0;     /* Windows Theme: inactivetitletext */
+  --c95-scrollbar-trough: #ffffff;      /* Windows Theme: scrollbar, the base under the 50% dither */
+  --c95-warning-bg: #ffedcc;            /* infobar .warning background */
+  --c95-error-bg: #ffcccc;              /* infobar .error background */
+  --c95-success: #53d013;
+  --c95-warning: #f57600;
+  --c95-error: #cc0000;
+  --c95-disabled-fg: #808080;           /* Windows Theme: buttonshadow, verified against real Win95 */
+  --c95-disabled-shadow: #ffffff;       /* Windows Theme: buttonhilight, the emboss behind disabled text */
+  --c95-outline: #808080;               /* The theme's global default outline-color */
+  --c95-transparent: rgba(0, 0, 0, 0); }
+
+/* libadwaita 1.9 named colours, mapped onto the palette above.
+   This block is what recolours every AdwApplicationWindow, AdwHeaderBar,
+   AdwPreferencesPage, AdwStatusPage, boxed list, toast and dialog in one shot, before
+   a single node selector is written.
+
+   DELIBERATE DECISION - there is no dark variant. libadwaita re-declares all of these
+   inside @media (prefers-color-scheme: dark) and @media (prefers-contrast: more).
+   Chicago95 is a LIGHT theme and has exactly one look: Windows 95 had no dark mode, and
+   half of the palette (the white/grey/black bevel rings) carries structural meaning that
+   inverts into nonsense. So the values below are declared unconditionally on bare :root,
+   and then repeated verbatim inside the dark and high-contrast queries so that a user
+   sitting on color-scheme=prefer-dark - which is the majority of GNOME 50 installs -
+   gets Chicago95 rather than a half-dark UI with navy-on-navy titlebars. The dark and
+   high-contrast blocks reference the same var(--c95-*) tokens, so there is one source
+   of truth for every value. */
+:root {
+  /* Window */
+  --window-bg-color: var(--c95-face);
+  --window-fg-color: var(--c95-fg);
+
+  /* Content views: textview, listview, columnview, gridview, iconview, .view */
+  --view-bg-color: var(--c95-bright);
+  --view-fg-color: var(--c95-text);
+
+  /* Headerbar. libadwaita's light default is flush white; Chicago95's focused CSD
+     titlebar is the Win95 navy, and its backdrop is the flat inactivetitle grey. Both
+     shade colours go fully transparent - they exist only to fake soft elevation. */
+  --headerbar-bg-color: var(--c95-selected-bg);
+  --headerbar-fg-color: var(--c95-selected-fg);
+  --headerbar-border-color: var(--c95-selected-bg);
+  --headerbar-backdrop-color: var(--c95-inactive-title-bg);
+  --headerbar-shade-color: var(--c95-transparent);
+  --headerbar-darker-shade-color: var(--c95-transparent);
+
+  /* Sidebar panes (AdwNavigationSplitView / AdwOverlaySplitView) */
+  --sidebar-bg-color: var(--c95-face);
+  --sidebar-fg-color: var(--c95-fg);
+  --sidebar-backdrop-color: var(--c95-face);
+  --sidebar-border-color: var(--c95-border-shade);
+  --sidebar-shade-color: var(--c95-transparent);
+  --secondary-sidebar-bg-color: var(--c95-face);
+  --secondary-sidebar-fg-color: var(--c95-fg);
+  --secondary-sidebar-backdrop-color: var(--c95-face);
+  --secondary-sidebar-border-color: var(--c95-border-shade);
+  --secondary-sidebar-shade-color: var(--c95-transparent);
+
+  /* Cards and boxed lists. Win95 group boxes are the button face, not a white sheet. */
+  --card-bg-color: var(--c95-face);
+  --card-fg-color: var(--c95-fg);
+  --card-shade-color: var(--c95-transparent);
+
+  /* Dialogs (AdwDialog / AdwAlertDialog / AdwPreferencesDialog sheets) */
+  --dialog-bg-color: var(--c95-face);
+  --dialog-fg-color: var(--c95-fg);
+
+  /* Popovers, menus, dropdown lists */
+  --popover-bg-color: var(--c95-face);
+  --popover-fg-color: var(--c95-fg);
+  --popover-shade-color: var(--c95-transparent);
+
+  /* AdwTabOverview thumbnails */
+  --thumbnail-bg-color: var(--c95-bright);
+  --thumbnail-fg-color: var(--c95-fg);
+
+  /* Generic elevation/scroll-edge shading. Chicago95 has no soft shading at all. */
+  --shade-color: var(--c95-transparent);
+
+  /* The 1px ring libadwaita draws round an overlay scrollbar slider */
+  --scrollbar-outline-color: var(--c95-border-shade);
+
+  /* Accent = the Win95 navy hilight. --accent-color must be set by hand: libadwaita
+     derives it as oklab(from var(--accent-bg-color) var(--standalone-color-oklab)),
+     and the dark-scheme recipe max(l, 0.85) turns navy into lilac. Measured: navy in,
+     rgb(200,126,200) out. Same trap for all five standalone colours below. */
+  --accent-bg-color: var(--c95-selected-bg);
+  --accent-fg-color: var(--c95-selected-fg);
+  --accent-color: var(--c95-selected-bg);
+  --destructive-bg-color: var(--c95-error);
+  --destructive-fg-color: var(--c95-selected-fg);
+  --destructive-color: var(--c95-error);
+  --success-bg-color: var(--c95-success);
+  --success-fg-color: var(--c95-fg);
+  --success-color: var(--c95-success);
+  --warning-bg-color: var(--c95-warning);
+  --warning-fg-color: var(--c95-fg);
+  --warning-color: var(--c95-warning);
+  --error-bg-color: var(--c95-error);
+  --error-fg-color: var(--c95-selected-fg);
+  --error-color: var(--c95-error);
+
+  /* Pin the derivation recipe to the identity transform as a belt-and-braces measure,
+     so anything libadwaita derives that we have not listed stays on-palette instead of
+     being lightened or darkened into a colour Windows 95 never had. */
+  --standalone-color-oklab: l a b;
+
+  /* Borders. libadwaita's --border-color is currentColor-relative
+     (color-mix(in srgb, currentColor var(--border-opacity), transparent)), which is why
+     a hard Win95 #808080 rule needs an explicit colour here and not just an opacity
+     tweak. --border-opacity goes to 100% so nothing translucent survives. */
+  --border-color: var(--c95-border-shade);
+  --border-opacity: 100%;
+
+  /* Chicago95 does not express dim or disabled with translucency - dim text is a flat
+     #808080 and disabled text is #808080 with a 1px #ffffff emboss. Both opacity levers
+     are neutralised to 100% here so libadwaita cannot double-dim on top of the colour
+     rules in gtk-widgets.css; the greys come from those rules. */
+  --dim-opacity: 100%;
+  --disabled-opacity: 100%;
+
+  /* The single highest-impact non-colour variable: 15px by default, and the reason an
+     Adw window stops looking like Win95 the moment you see its corners. */
+  --window-radius: 0;
+
+  /* Selected toggle in a toggle-group / AdwInlineViewSwitcher. Custom-property only -
+     these four have no @define-color twin, so they cannot be shimmed below. */
+  --active-toggle-bg-color: var(--c95-face);
+  --active-toggle-fg-color: var(--c95-fg);
+  --overview-bg-color: var(--c95-face);
+  --overview-fg-color: var(--c95-fg);
+
+  /* AdwBanner tints this 30% into the window background. Flat face grey means no tint
+     at all; gtk-adwaita.css gives the banner its bevel instead. */
+  --banner-color: var(--c95-face);
+
+  /* The ten GNOME 47+ system accent presets. Overriding --accent-bg-color above already
+     beats whichever one the portal picked, but pinning them all to navy means an app
+     that reads a preset by name directly also lands on-palette. */
+  --accent-blue: var(--c95-selected-bg);
+  --accent-teal: var(--c95-selected-bg);
+  --accent-green: var(--c95-selected-bg);
+  --accent-yellow: var(--c95-selected-bg);
+  --accent-orange: var(--c95-selected-bg);
+  --accent-red: var(--c95-selected-bg);
+  --accent-pink: var(--c95-selected-bg);
+  --accent-purple: var(--c95-selected-bg);
+  --accent-slate: var(--c95-selected-bg);
+  --accent-brown: var(--c95-selected-bg);
+
+  /* The neutral half of the 45-swatch GNOME palette, remapped onto the Win95 greys.
+     The chromatic ramps (--blue-1..5, --green-1..5, --yellow-1..5, --orange-1..5,
+     --red-1..5, --purple-1..5, --brown-1..5) are deliberately left at their stock
+     values: libadwaita's own widget rules do not read them, they are an app-facing
+     swatch API, and flattening someone's chart or tag colours to grey would be a
+     regression rather than a theme. */
+  --light-1: var(--c95-border-bright);
+  --light-2: var(--c95-bright);
+  --light-3: var(--c95-border-light);
+  --light-4: var(--c95-face);
+  --light-5: var(--c95-border-shade);
+  --dark-1: var(--c95-border-shade);
+  --dark-2: var(--c95-shade);
+  --dark-3: var(--c95-tooltip-shade);
+  --dark-4: var(--c95-dark);
+  --dark-5: var(--c95-border-dark); }
+
+/* dark color scheme - identical to the light one on purpose. See the decision note
+   above: Chicago95 has one look, and a user on prefer-dark should get it whole. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --window-bg-color: var(--c95-face);
+    --window-fg-color: var(--c95-fg);
+    --view-bg-color: var(--c95-bright);
+    --view-fg-color: var(--c95-text);
+    --headerbar-bg-color: var(--c95-selected-bg);
+    --headerbar-fg-color: var(--c95-selected-fg);
+    --headerbar-border-color: var(--c95-selected-bg);
+    --headerbar-backdrop-color: var(--c95-inactive-title-bg);
+    --headerbar-shade-color: var(--c95-transparent);
+    --headerbar-darker-shade-color: var(--c95-transparent);
+    --sidebar-bg-color: var(--c95-face);
+    --sidebar-fg-color: var(--c95-fg);
+    --sidebar-backdrop-color: var(--c95-face);
+    --sidebar-border-color: var(--c95-border-shade);
+    --sidebar-shade-color: var(--c95-transparent);
+    --secondary-sidebar-bg-color: var(--c95-face);
+    --secondary-sidebar-fg-color: var(--c95-fg);
+    --secondary-sidebar-backdrop-color: var(--c95-face);
+    --secondary-sidebar-border-color: var(--c95-border-shade);
+    --secondary-sidebar-shade-color: var(--c95-transparent);
+    --card-bg-color: var(--c95-face);
+    --card-fg-color: var(--c95-fg);
+    --card-shade-color: var(--c95-transparent);
+    --dialog-bg-color: var(--c95-face);
+    --dialog-fg-color: var(--c95-fg);
+    --popover-bg-color: var(--c95-face);
+    --popover-fg-color: var(--c95-fg);
+    --popover-shade-color: var(--c95-transparent);
+    --thumbnail-bg-color: var(--c95-bright);
+    --thumbnail-fg-color: var(--c95-fg);
+    --shade-color: var(--c95-transparent);
+    --scrollbar-outline-color: var(--c95-border-shade);
+    --accent-bg-color: var(--c95-selected-bg);
+    --accent-fg-color: var(--c95-selected-fg);
+    --accent-color: var(--c95-selected-bg);
+    --destructive-bg-color: var(--c95-error);
+    --destructive-fg-color: var(--c95-selected-fg);
+    --destructive-color: var(--c95-error);
+    --success-bg-color: var(--c95-success);
+    --success-fg-color: var(--c95-fg);
+    --success-color: var(--c95-success);
+    --warning-bg-color: var(--c95-warning);
+    --warning-fg-color: var(--c95-fg);
+    --warning-color: var(--c95-warning);
+    --error-bg-color: var(--c95-error);
+    --error-fg-color: var(--c95-selected-fg);
+    --error-color: var(--c95-error);
+    --standalone-color-oklab: l a b;
+    --border-color: var(--c95-border-shade);
+    --border-opacity: 100%;
+    --dim-opacity: 100%;
+    --disabled-opacity: 100%;
+    --window-radius: 0;
+    --active-toggle-bg-color: var(--c95-face);
+    --active-toggle-fg-color: var(--c95-fg);
+    --overview-bg-color: var(--c95-face);
+    --overview-fg-color: var(--c95-fg);
+    --banner-color: var(--c95-face); } }
+
+/* high contrast - same again. Windows 95's own bevels are already a hard 4-tone
+   black/white/grey scheme, so prefers-contrast: more has nothing left to add and
+   libadwaita's version of it (50% border opacity, 90% dim) only muddies ours. */
+@media (prefers-contrast: more) {
+  :root {
+    --window-bg-color: var(--c95-face);
+    --window-fg-color: var(--c95-fg);
+    --view-bg-color: var(--c95-bright);
+    --view-fg-color: var(--c95-text);
+    --headerbar-bg-color: var(--c95-selected-bg);
+    --headerbar-fg-color: var(--c95-selected-fg);
+    --headerbar-backdrop-color: var(--c95-inactive-title-bg);
+    --headerbar-shade-color: var(--c95-transparent);
+    --headerbar-darker-shade-color: var(--c95-transparent);
+    --card-bg-color: var(--c95-face);
+    --card-fg-color: var(--c95-fg);
+    --card-shade-color: var(--c95-transparent);
+    --dialog-bg-color: var(--c95-face);
+    --dialog-fg-color: var(--c95-fg);
+    --popover-bg-color: var(--c95-face);
+    --popover-fg-color: var(--c95-fg);
+    --popover-shade-color: var(--c95-transparent);
+    --shade-color: var(--c95-transparent);
+    --accent-bg-color: var(--c95-selected-bg);
+    --accent-fg-color: var(--c95-selected-fg);
+    --accent-color: var(--c95-selected-bg);
+    --border-color: var(--c95-border-shade);
+    --border-opacity: 100%;
+    --dim-opacity: 100%;
+    --disabled-opacity: 100%;
+    --window-radius: 0; } }
+
+/* colormap actually used by plain-GTK4 apps and by third-party app CSS.
+   COMPATIBILITY SHIM ONLY - overriding these has zero effect on libadwaita's own
+   widget rendering (measured), which is exactly why every previous Windows 95 GTK4
+   sheet looks 90% finished and behaves 0% finished. Every name is given a literal
+   value rather than an alias, because the aliases do not chain across providers:
+   redefining @window_bg_color does NOT fix @theme_fg_color. */
+
+/* libadwaita's own named colours */
+@define-color window_bg_color #c0c0c0; /* Window Theme: buttonface */
+@define-color window_fg_color #000000; /* Windows Theme: windowtext */
+@define-color view_bg_color #fcfcfc; /* Windows Theme: window */
+@define-color view_fg_color #000000; /* Windows Theme: windowtext */
+@define-color headerbar_bg_color #000080; /* Windows Theme: activetitle */
+@define-color headerbar_fg_color #ffffff; /* Windows Theme: titletext */
+@define-color headerbar_border_color #000080;
+@define-color headerbar_backdrop_color #808080; /* Windows Theme: inactivetitle */
+@define-color headerbar_shade_color rgba(0,0,0,0);
+@define-color headerbar_darker_shade_color rgba(0,0,0,0);
+@define-color popover_bg_color #c0c0c0; /* Windows Theme: menu */
+@define-color popover_fg_color #000000; /* Windows Theme: menutext */
+@define-color popover_shade_color rgba(0,0,0,0);
+@define-color dialog_bg_color #c0c0c0;
+@define-color dialog_fg_color #000000;
+@define-color card_bg_color #c0c0c0;
+@define-color card_fg_color #000000;
+@define-color card_shade_color rgba(0,0,0,0);
+@define-color sidebar_bg_color #c0c0c0;
+@define-color sidebar_fg_color #000000;
+@define-color sidebar_backdrop_color #c0c0c0;
+@define-color sidebar_border_color #808080;
+@define-color sidebar_shade_color rgba(0,0,0,0);
+@define-color secondary_sidebar_bg_color #c0c0c0;
+@define-color secondary_sidebar_fg_color #000000;
+@define-color secondary_sidebar_backdrop_color #c0c0c0;
+@define-color secondary_sidebar_border_color #808080;
+@define-color secondary_sidebar_shade_color rgba(0,0,0,0);
+@define-color thumbnail_bg_color #fcfcfc;
+@define-color thumbnail_fg_color #000000;
+@define-color shade_color rgba(0,0,0,0);
+@define-color scrollbar_outline_color #808080;
+@define-color accent_bg_color #000080; /* Windows Theme: hilight */
+@define-color accent_fg_color #ffffff; /* Windows Theme: hilighttext */
+@define-color accent_color #000080;
+@define-color destructive_bg_color #cc0000;
+@define-color destructive_fg_color #ffffff;
+@define-color destructive_color #cc0000;
+@define-color success_bg_color #53d013;
+@define-color success_fg_color #000000;
+@define-color success_color #53d013;
+/* NAME COLLISION, resolved in Chicago95's favour. libadwaita means @warning_bg_color /
+   @error_bg_color as saturated semantic surfaces (#e5a50a / #e01b24); Chicago95 has used
+   those exact two names since it was written for the pale Win95 infobar tints
+   (gtk-3.0/gtk.css:79 #FFEDCC and :82 #FFCCCC), and gtk-menus.css consumes them for
+   infobar.warning / infobar.error. The Chicago95 meaning wins here because it is the only
+   one anything in this theme reads: libadwaita's own warning and error surfaces resolve
+   through --warning-bg-color / --error-bg-color in the :root block above, which are set
+   to the saturated values independently, so both meanings are served without either
+   name having to compromise. Leaving these at the libadwaita values made a warning
+   infobar render bright orange and an error infobar solid red. */
+@define-color warning_bg_color #ffedcc; /* infobar .warning */
+@define-color warning_color #f57600;
+@define-color error_bg_color #ffcccc;   /* infobar .error */
+@define-color error_color #cc0000;
+/* warning_fg_color and error_fg_color are declared once, in the "misc colors used by
+   gtk+" block below, at Chicago95's value (#000000 - upstream defines both as @fg_color).
+   They are deliberately NOT repeated here: a second @define-color for the same name
+   silently overwrites the first, and having both blocks declare them was doing exactly
+   that. libadwaita's white-on-red foreground is reached through --error-fg-color above. */
+@define-color borders #808080; /* Windows Theme: buttonshadow */
+@define-color unfocused_borders #808080;
+@define-color insensitive_bg_color #c0c0c0;
+@define-color insensitive_fg_color #808080;
+@define-color insensitive_base_color #c0c0c0;
+@define-color unfocused_insensitive_color #808080;
+
+/* GTK's public colour API. Read by Thunar, GIMP, Firefox chrome hacks and Chicago95's
+   own app sheets, so it has to be right even though libadwaita ignores it. */
+@define-color theme_bg_color #c0c0c0;
+@define-color theme_fg_color #000000;
+@define-color theme_base_color #ffffff; /* tracks @base_color, as gtk-3.0/gtk.css:63 does */
+@define-color theme_text_color #000000;
+@define-color theme_selected_bg_color #000080;
+@define-color theme_selected_fg_color #ffffff;
+@define-color theme_tooltip_bg_color #ffffe1;
+@define-color theme_tooltip_fg_color #000000;
+@define-color theme_unfocused_bg_color #c0c0c0;
+@define-color theme_unfocused_fg_color #000000;
+@define-color theme_unfocused_base_color #fcfcfc;
+@define-color theme_unfocused_text_color #000000;
+@define-color theme_unfocused_selected_bg_color #000080;
+@define-color theme_unfocused_selected_fg_color #ffffff;
+@define-color content_view_bg #fcfcfc;
+
+/* The Chicago95 vocabulary itself, so the five partials and any ported GTK3 rule can
+   keep saying @bg_color / @border_bright / @border_dark exactly as they do in
+   gtk-3.0/. shade() and alpha() are pre-resolved: GTK 4.22 deprecates both, and the
+   GTK3 sheet's computed values are known (bg_bright = shade(white, 0.99) = #fcfcfc,
+   bg_shade = shade(@bg_color, 0.66) = #7f7f7f, bg_dark = shade(@bg_color, 0.13) =
+   #191919). */
+@define-color bg_color #c0c0c0; /* Window Theme: buttonface */
+@define-color fg_color #000000; /* Windows Theme: windowtext */
+@define-color base_color #ffffff; /* Windows Theme: window */
+@define-color text_color #000000; /* Windows Theme: windowtext (any white area text)*/
+@define-color text_color_light #808080;
+@define-color selected_bg_color #000080; /* Windows Theme: hilight */
+@define-color selected_fg_color #ffffff; /* Windows Theme: hilighttext */
+@define-color selected_inactive_bg_color #808080;
+@define-color selected_inactive_fg_color #000000;
+@define-color border_color #c0c0c0; /* Window Theme: buttonface */
+@define-color border_bright #ffffff; /* Windows Theme: buttonlight */
+@define-color border_light #dfdfdf; /* Windows Theme: buttonhilight */
+@define-color border_shade #808080; /* Windows Theme: buttonshadow */
+@define-color border_dark #000000; /* Windows Theme: buttondkshadow */
+@define-color border_shade_dark #080808;
+@define-color bg_bright #fcfcfc; /* Windows Theme: window, White inner window/text areas */
+@define-color bg_shade #7f7f7f;
+@define-color bg_dark #191919;
+
+/* Notebook colors.
+   These MUST be declared even though every one of them resolves to a colour that already
+   has a name, because GTK does not treat an unresolved @name as an error and does not
+   drop the declaration that references it: it resolves the name to opaque white and lets
+   that win the cascade. Measured on GTK 4.22.4 - a sheet referencing an undeclared @name
+   parses with zero diagnostics and paints white. gtk-containers.css consumes all five of
+   these on the notebook tab, so while they were missing a selected tab was white text on
+   a white tab. Values follow gtk-3.0/gtk.css:120-125 (notebook_label* = @font_color,
+   notebook_bg* = @bg_color). */
+@define-color notebook_label #000000;
+@define-color notebook_label_selected #000000;
+@define-color notebook_label_hover #000000;
+@define-color notebook_bg #c0c0c0;
+@define-color notebook_bg_selected #c0c0c0;
+@define-color notebook_bg_hover #c0c0c0;
+@define-color notebook_bg_arrow rgba(0,0,0,0);
+
+/* osd.
+   Same story: gtk-widgets.css paints button.osd with @osd_base / @osd_fg, and without
+   these two an .osd button had no face and no text colour. gtk-3.0/gtk.css:90-94 defines
+   osd_base = @dark_bg_color (= @bg_color) and osd_fg = @dark_fg_color (= @fg_color).
+   @osd_bg is alpha(@osd_base, 0.8) upstream; alpha() is deprecated in GTK 4.22 and
+   Chicago95 GTK4 has no translucent chrome, so it is pre-resolved to the flat face. */
+@define-color osd_base #c0c0c0;
+@define-color osd_fg #000000;
+@define-color osd_bg #c0c0c0;
+@define-color osd_trough_bg #000080;
+@define-color disabled_font #808080; /* Windows Theme: buttonshadow, testing confirmed this is what Windows 95 Uses for this setting */
+@define-color disabled_font_shadow #ffffff; /* Windows Theme: buttonhilight, testing confirmed this is what Windows 95 Uses for this setting */
+@define-color outline_color #000000;
+@define-color dark_shadow #000000;
+@define-color icon_shadow #000000;
+@define-color icon_shadow_bright #ffffff;
+@define-color font_color #000000;
+@define-color font_bright #ffffff;
+@define-color text_bright #ffffff;
+@define-color menu_bg_color #c0c0c0; /* Windows Theme: menu, applied to popover.menu */
+@define-color menu_text_color #000000; /* Windows Theme: menutext */
+@define-color button_bg_color #c0c0c0; /* Windows Theme: buttonface */
+@define-color button_text_color #000000; /* Windows Theme: buttontext */
+@define-color toolbar_bg_color #c0c0c0;
+@define-color toolbar_fg_color #000000;
+@define-color window_title_bg_color #000080; /* Windows Theme: activetitle */
+@define-color window_title_text_color #ffffff; /* Windows Theme: titletext */
+@define-color inactive_title_bg_color #808080; /* Windows Theme: inactivetitle */
+@define-color inactive_title_text_color #c0c0c0; /* Windows Theme: inactivetitletext */
+@define-color scrollbar_trough_bg_color #ffffff; /* Windows Theme: scrollbar */
+@define-color scrollbar_bg_color #c0c0c0;
+@define-color scrollbar_solid_color #c0c0c0;
+@define-color progressbar_color #000080;
+@define-color tooltip_bg_color #ffffe1; /* Windows Theme: infowindow, Tooltip background color */
+@define-color tooltip_fg_color #000000; /* Windows Theme: infotext */
+@define-color tooltip_bg_shade #494940; /* The Clippy shadow grey - kept for parity, unused in GTK4 */
+@define-color link_color #000080; /* Windows Theme: hottrackingcolor */
+@define-color link_color_shadow #ffffff;
+@define-color transparent rgba(0,0,0,0);
+
+/* misc colors used by gtk+.
+   This block is the sole owner of warning_fg_color and error_fg_color - see the note in
+   the libadwaita block above. Both are #000000 because gtk-3.0/gtk.css:78 and :82 define
+   them as @fg_color: a Win95 infobar draws black text on its pale tint, never white. */
+@define-color info_fg_color #000000;
+@define-color info_bg_color #ffffe1;
+@define-color warning_fg_color #000000;
+@define-color question_fg_color #000000;
+@define-color question_bg_color #ffffe1;
+@define-color error_fg_color #000000;
+
+/* dark color scheme - the same values again, for the same reason as the custom
+   properties above: one look, light, in every scheme. */
+@define-color dark_bg_color #c0c0c0;
+@define-color dark_fg_color #000000;
+
+/* The GTK3 sheet's @wm_* block is NOT ported. All eleven names are defined in terms of
+   @titlebar_bg_color / @titlebar_fg_color, which the theme never defines anywhere, and
+   no selector in the theme consumes any of them - it has been broken upstream since it
+   was written. Titlebar colours live in --headerbar-bg-color and @window_title_bg_color
+   instead. */
+
+/***********************
+ * Global resets       *
+ **********************/
+
+/* Everything below is structural, not per-widget: it removes the three things that make
+   an Adwaita app unmistakably not Windows 95 - rounded corners, soft elevation, and
+   motion - across every node at once. Provider priority beats selector specificity in
+   GTK4 (measured: a bare `label` rule at PRIORITY_USER beats a five-class chain at
+   PRIORITY_THEME), so these short selectors defeat libadwaita's long ones, and the
+   partials imported at the bottom of this file re-specify what they need on top. */
+
+/* The universal reset. This is the GTK4 descendant of the `*` rule at the top of
+   gtk-3.0/gtk-widgets.css, minus every -Gtk* widget style property: GTK4 removed the
+   entire mechanism, so -GtkWidget-*, -GtkMenu-*, -GtkScrollbar-*, -GtkScrolledWindow-*,
+   -GtkTextView-*, -GtkToolButton-*, -GtkTreeView-*, -GtkWindow-* and -WnckTasklist-*
+   are all hard parse errors in 4.22 and are gone. What survives of that rule is the
+   outline four.
+   background-clip is deliberately NOT set globally, even though the GTK3 `*` rule carries
+   it. libadwaita uses `background-clip: padding-box` on thirteen nodes to make a
+   transparent border act as inset spacing - listview > row, bare row, calendar,
+   .app-notification, window.print paper and the popover.touch-selection / .magnifier /
+   .osd family - and forcing border-box on all of them at PRIORITY_USER lets the
+   background bleed into that border box for no Win95 gain. The three nodes in this theme
+   that genuinely need border-box state it themselves: the scrollbar slider
+   (gtk-containers.css), popover > contents and tooltip (gtk-menus.css). */
+/* NOT ACHIEVABLE AS WRITTEN, and the substitution matters: the GTK3 `*` rule also
+   carries the theme's global outline (1px solid #808080 at offset 0, gtk-widgets.css
+   lines 33-36). That cannot be ported verbatim, because GTK3 only painted an outline on
+   a widget flagged as having visible focus, whereas GTK4 snapshots the outline of every
+   node whose outline-width is non-zero - which is exactly why both stock GTK4 sheets
+   keep their base state at `outline: 0 solid transparent` and only give a node an
+   outline inside a :focus-visible rule. Porting the global grey outline would draw a
+   1px grey rectangle around every widget in every application. So the base state below
+   is zero-width and transparent, and every focus rule in the partials states its own
+   outline-color explicitly rather than inheriting a global one. */
+* {
+  border-radius: 0;
+  box-shadow: none;
+  transition: none;
+  animation: none;
+  outline: 0 solid transparent;
+  outline-offset: 0; }
+
+/* Corners. Win95 had no rounded anything, and libadwaita rounds a lot of it: 5px on
+   buttons and entries, 8px on frames, 9px on popover contents, 12px on cards and boxed
+   lists, and --window-radius (15px) on the window itself, its dialogs and its bottom
+   sheets. The `*` rule above already zeroes the property everywhere; these are the nodes
+   where Adwaita either derives the radius from a variable or clips a child to it, so
+   they need saying out loud or the corner survives as a clipped background. */
+window,
+window.csd,
+window.solid-csd,
+window.dialog,
+window.messagedialog,
+dialog-host > dialog > sheet,
+floating-sheet > sheet,
+bottom-sheet > sheet,
+popover > contents,
+.card,
+list.boxed-list,
+list.boxed-list > row,
+list.boxed-list > row:first-child,
+list.boxed-list > row:last-child,
+list.boxed-list-separate > row,
+infobar,
+toast,
+avatar,
+tabthumbnail .card,
+.keycap {
+  border-radius: 0; }
+
+/* Elevation. Every libadwaita drop shadow is a lie about depth that Win95 told with two
+   pixels of border instead, and the *_shade_color variables above have already been made
+   transparent so the gradient-based ones render as nothing. These are the nodes that
+   carry a literal box-shadow. Note this rule removes shadows only - it must never set a
+   background, a border or a colour, or it would fight the partials. */
+window.csd,
+window.solid-csd,
+dialog-host > dialog > sheet,
+floating-sheet > sheet,
+bottom-sheet > sheet,
+popover,
+popover.background,
+popover > contents,
+popover > arrow,
+tooltip,
+tooltip.background,
+toast,
+.card,
+list.boxed-list,
+list.boxed-list-separate > row,
+menubar > item popover > contents,
+navigation-view > shadow,
+overlay-split-view > shadow,
+headerbar,
+toolbarview > .top-bar,
+toolbarview > .bottom-bar {
+  box-shadow: none; }
+
+/* The soft-transition decoration nodes. AdwNavigationView and AdwOverlaySplitView paint
+   dedicated shadow/dimming/border children that have no GTK3 equivalent at all; there is
+   nothing to translate them into, so they are blanked. Windows 95 had no page
+   transitions to shade. */
+navigation-view > shadow,
+navigation-view > dimming,
+navigation-view > border,
+overlay-split-view > shadow,
+overlay-split-view > dimming,
+overlay-split-view > border,
+scrolledwindow > undershoot.top,
+scrolledwindow > undershoot.bottom,
+scrolledwindow > undershoot.left,
+scrolledwindow > undershoot.right,
+scrolledwindow > overshoot.top,
+scrolledwindow > overshoot.bottom,
+scrolledwindow > overshoot.left,
+scrolledwindow > overshoot.right {
+  background-image: none;
+  background-color: transparent;
+  box-shadow: none; }
+
+/* Motion. `transition: none` is set explicitly on button and button.sidebar-button in
+   the GTK3 sheet; GTK4 and libadwaita add `transition: all 200ms` and a 300ms animated
+   outline to nearly every interactive node, so it is cheaper to kill it once here for
+   every node and every state than to remember it on each rule.
+   `animation: none` is here as well as `transition: none`, and it has to be: both stock
+   sheets drive GtkSpinner purely from CSS (`spinner:checked { animation: spin 1s linear
+   infinite }`, GTK Default-light.css:102 and adw gtk.css:2495), and libadwaita pulses a
+   needs-attention badge from @keyframes needs_attention. Neither has a Win95 analogue.
+   The one animation Chicago95 keeps IS the 16-frame hourglass spinner, and it is really
+   implemented: gtk-widgets.css declares @keyframes c95-hglass and re-enables it on
+   `spinner:checked`. That works because the partials are imported below this point in the
+   same provider, and `spinner:checked` (0,1,1) out-ranks `*:checked` (0,1,0) - verified
+   on GTK 4.22.4 against a mapped, spinning GtkSpinner, which does carry the :checked
+   state. Beware when editing: at PRIORITY_USER a `*` rule here beats even a long selector
+   chain in libadwaita's sheet, so anything meant to survive must live in a partial and
+   name a node. */
+*,
+*:hover,
+*:active,
+*:checked,
+*:focus,
+*:disabled,
+*:backdrop,
+*:selected {
+  transition: none;
+  animation: none;
+  transition-property: none;
+  transition-duration: 0s;
+  transition-delay: 0s; }
+
+/* Focus. libadwaita's animated ring is already dead: the zero-width transparent outline
+   in the universal reset above takes the base state, and the motion rules take the
+   300ms outline transition. The actual Win95 focus rectangle - 1px dotted #000000 at
+   outline-offset -4px - is applied per widget in gtk-widgets.css, because it has to be
+   excluded from treeview/columnview/listview/gridview/view/checkbutton/radiobutton
+   (upstream's comment on that exclusion is emphatic: an outline on a treeview causes
+   momentary UI displacement, "Keep the treeview exclusion!"), and because check and
+   radio need the dots on their label instead.
+   PARTIALLY UNACHIEVABLE, and worth knowing before anyone "fixes" it: outline-style:
+   dotted and outline-offset both parse and render as real dots on GTK 4.22.4 - libgtk-4
+   still stroke-dashes non-solid outlines - so the focus rectangle itself is faithful.
+   What cannot be reproduced is Win95's *placement* on some GTK4 nodes: GTK4 derives the
+   outline path from the node's border-radius and allocation, so on nodes whose painted
+   surface is a child (entry > text, scale > trough, progressbar > trough) the ring
+   traces the invisible parent instead of the visible field. Where that looks wrong the
+   partials fall back to the repo's own idiom from gtk-checks_radio.css - a 1px dotted
+   border on the label, pre-reserved with a transparent border so focusing does not
+   reflow. */
+
+/* Fonts.
+   DELIBERATELY UNSET, and this is a metric, not an omission: there is no font-family
+   anywhere in Theme/Chicago95/gtk-3.0/*.css. The interface font comes from
+   XSettings/gsettings - INSTALL.md recommends the bundled bitmap Helvetica OTB (or real
+   MS Sans Serif) at 8pt - and the installer sets the xfwm4 title font separately. Naming
+   a family here would make GTK4 apps disagree with GTK3 apps on the same desktop, which
+   is a worse failure than inheriting whatever the user chose. Only three explicit sizes
+   exist in the whole GTK3 tree, and every one of them is scoped to a widget rather than
+   global: 8pt on the SSD titlebar label, 11px on the Whisker menu button, and `smaller`
+   on the headerbar subtitle. The titlebar 8pt is applied in gtk-containers.css, and
+   libadwaita's typography classes (.title-1 .. .title-4, .heading, .caption) are left at
+   their stock sizes so AdwStatusPage and AdwPreferencesGroup keep a legible hierarchy.
+   What IS reset globally is emboss: Chicago95 uses a text/icon shadow for exactly one
+   thing - the disabled #808080-with-#ffffff-emboss look - and that is applied on
+   :disabled in gtk-widgets.css, whose selector outranks the rule below. */
+label {
+  text-shadow: none;
+  -gtk-icon-shadow: none; }
+
+/* Icon rendering. GTK3's `-gtk-icon-effect: dim` is a hard parse error in 4.22 ("No
+   property named -gtk-icon-effect"); GTK4's own sheet uses -gtk-icon-filter for the same
+   job, and the disabled-icon substitution lives with the disabled-text rule in
+   gtk-widgets.css. Here we only make sure nothing inherits a scale transform.
+
+   Deliberately NOT `-gtk-icon-style: regular` here. That property does not merely stop
+   a recolour - it makes GTK prefer the non-symbolic variant of every icon it looks up,
+   so each symbolic icon is replaced by whatever full-colour legacy icon the active icon
+   theme happens to ship. Measured against the Yaru icon theme: the window-close button
+   stopped being a black glyph and became Yaru's red circle, because
+   /usr/share/icons/Yaru/16x16/legacy/window-close.svg is full-colour #c7162b. Symbolic
+   icons recoloured through `color` are what give Chicago95 its black-on-grey glyphs, so
+   the default symbolic lookup is what we want globally. The few nodes that genuinely
+   want a period bitmap set `-gtk-icon-source` explicitly instead. */
+image,
+image:backdrop {
+  -gtk-icon-transform: none; }
+
+/***********************
+ * Known unstyled      *
+ **********************/
+
+/* These nodes have no owner in any of the five partials, and that is a scope decision
+   rather than an oversight - recording it here so the next contributor does not have to
+   work out which of the five files was supposed to have taken them. Each one renders as
+   stock Adwaita: square-cornered, because the global resets above reach every node, but
+   otherwise unthemed.
+
+     calendar                     gtk-3.0/gtk-widgets.css:132-161 gives calendar.view a
+                                  2px border-image and calendar.header a full raised
+                                  bevel. GTK4 nodes are calendar > header > button and
+                                  calendar > grid > label.day-number.
+     colorswatch / colorchooser   41 rules in libadwaita; gtk-3.0 covers it across
+                                  gtk-buttons.css and gtk-basic-effects.css. Note
+                                  colorswatch is round by default in libadwaita.
+     stacksidebar                 gtk-3.0/gtk-widgets.css:268-291 (row padding 3px,
+                                  selected focus dots at offset -6px).
+     expander-widget              GtkExpander's own arrow, expander-widget > box > title
+                                  > arrow. gtk-lists.css scopes all of its expander work
+                                  under treeexpander, which is a different widget.
+     placessidebar / filechooser  27 filechooser rules in libadwaita. Partly reached
+                                  already through .navigation-sidebar in gtk-lists.css.
+
+   Porting them wants a sixth partial following the gtk-3.0 naming - gtk-basic-effects.css
+   or gtk-misc.css - rather than being wedged into one of the existing five. */
+
+/***********************
+ * Widget partials     *
+ **********************/
+
+/* Please keep these in their originial load order. Later files intentionally override
+   earlier ones, and every one of them overrides the global resets above - imported rules
+   cascade as if they were written at the position of the @import, which is why the list
+   sits at the bottom of the file rather than the top. */
+@import url("gtk-widgets.css");
+@import url("gtk-containers.css");
+@import url("gtk-lists.css");
+@import url("gtk-menus.css");
+@import url("gtk-adwaita.css");
