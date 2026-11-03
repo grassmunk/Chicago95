@@ -2,19 +2,44 @@
 Remove code after this comment to disable the fake handle image.
 Also, tasklist name changes depending on individual panel layout. This hack supports up to 24 different positions. 
 If it still doesn't work for you, you can look up your tasklist's ID in xfce4-panel settings.  
+
+Restricted to horizontal panels: in a vertical panel the border below eats 11px
+of the panel's depth, and xfce4-panel 4.20's tasklist aborts its layout when its
+allocation does not match the panel size ("panel size has not been sent yet"),
+so every window button is allocated 1x1 px and the taskbar renders empty. In a
+horizontal panel border-left only shortens the panel's length, which is harmless.
 */
 
-#tasklist > box, #tasklist-1 > box, #tasklist-2 > box, #tasklist-3 > box, 
-#tasklist-4 > box, #tasklist-5 > box, #tasklist-6 > box, #tasklist-7 > box, 
-#tasklist-8 > box, #tasklist-9 > box, #tasklist-10 > box, #tasklist-11 > box, 
-#tasklist-12 > box, #tasklist-13 > box, #tasklist-14 > box, #tasklist-15 > box, 
-#tasklist-16 > box, #tasklist-17 > box, #tasklist-18 > box, #tasklist-19 > box,
-#tasklist-20 > box, #tasklist-21 > box, #tasklist-22 > box, #tasklist-23 > box, 
-#tasklist-24 > box {
+.xfce4-panel:not(.vertical) #tasklist > box,
+.xfce4-panel:not(.vertical) #tasklist-1 > box,
+.xfce4-panel:not(.vertical) #tasklist-2 > box,
+.xfce4-panel:not(.vertical) #tasklist-3 > box,
+.xfce4-panel:not(.vertical) #tasklist-4 > box,
+.xfce4-panel:not(.vertical) #tasklist-5 > box,
+.xfce4-panel:not(.vertical) #tasklist-6 > box,
+.xfce4-panel:not(.vertical) #tasklist-7 > box,
+.xfce4-panel:not(.vertical) #tasklist-8 > box,
+.xfce4-panel:not(.vertical) #tasklist-9 > box,
+.xfce4-panel:not(.vertical) #tasklist-10 > box,
+.xfce4-panel:not(.vertical) #tasklist-11 > box,
+.xfce4-panel:not(.vertical) #tasklist-12 > box,
+.xfce4-panel:not(.vertical) #tasklist-13 > box,
+.xfce4-panel:not(.vertical) #tasklist-14 > box,
+.xfce4-panel:not(.vertical) #tasklist-15 > box,
+.xfce4-panel:not(.vertical) #tasklist-16 > box,
+.xfce4-panel:not(.vertical) #tasklist-17 > box,
+.xfce4-panel:not(.vertical) #tasklist-18 > box,
+.xfce4-panel:not(.vertical) #tasklist-19 > box,
+.xfce4-panel:not(.vertical) #tasklist-20 > box,
+.xfce4-panel:not(.vertical) #tasklist-21 > box,
+.xfce4-panel:not(.vertical) #tasklist-22 > box,
+.xfce4-panel:not(.vertical) #tasklist-23 > box,
+.xfce4-panel:not(.vertical) #tasklist-24 > box {
    border-left: 11px solid;
    border-image: url("../assets/panel-handle.png");
    border-image-slice: 2 2 2 11;
 }
+*/
 
 /* Hack to give the first launcher icon a pseudo handle */
 
